@@ -92,3 +92,14 @@ Source: https://www.universityofgalway.ie/course-information/module/MA490
 - MA3101: both are Semester 1 maths options, but MA3101 appears less predictable because lecturer/content changes are a concern.
 - MA4344: similar proof burden, but different algebraic content.
 - MA4102: both are Semester 1 maths-heavy options; MA490 is analysis/probability foundations, MA4102 is quantum linear algebra.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Measure theory basics: sigma-algebras, generated sigma-algebras, measures and measurable spaces.
+- Lebesgue measure and Borel sets: intervals, Cantor-set intuition and common examples.
+- Measurable functions: preimage definitions, closure properties and pointwise limits.
+- Integration theory intro: simple functions, non-negative integrals and convergence theorems.
+- Probability foundations: events, limsup/liminf, Borel-Cantelli and Bernoulli spaces.
+- Real analysis proof refresher: epsilon-style proofs, sequences of functions and counterexamples.

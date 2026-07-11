@@ -51,3 +51,10 @@ Summarise whether the exam pattern is predictable and why.
 
 - CA leverage:
 - Exam preparation:
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Search target:
+- Search target:

@@ -145,3 +145,15 @@ Highest-return preparation:
 6. Practise drawing circuits from gate expressions and computing simple circuit outputs.
 
 If taking this module, past-paper drilling should be very effective. The best approach is to build worked templates for each recurring question type and then practise with changed numbers.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Quantum computing basics: qubits, measurement, superposition and simple circuits.
+- Linear algebra refresher: complex vectors, inner products, tensor products and unitary matrices.
+- Quantum gates and circuits: Hadamard, Pauli gates, CNOT, SWAP and controlled operations.
+- Density matrices and mixed states: trace, purity, reduced density matrices and entropy.
+- Quantum algorithms overview: Deutsch-Jozsa, Grover and QFT at small scale.
+- Quantum channels and measurements: Kraus operators, POVMs and CPTP-map intuition.
+- Qiskit intro/tutorial: simulate small circuits and inspect statevectors.

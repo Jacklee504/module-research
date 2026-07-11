@@ -158,3 +158,14 @@ Highest-return preparation:
 7. Prepare perfect/MDS/self-dual definitions and short proofs.
 
 This module should reward past-paper drilling heavily. It is a strong candidate if the CA is manageable and the algebra style suits you.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Finite fields crash course: arithmetic in `GF(p)`, polynomial reduction and inverses.
+- Error-correcting codes basics: generator matrices, parity-check matrices and minimum distance.
+- Hamming codes: syndrome decoding, single-error correction and standard examples.
+- Cyclic codes: generator/check polynomials and encoding/decoding worked examples.
+- Bounds in coding theory: sphere-packing bound, Singleton bound and MDS/perfect-code definitions.
+- Linear algebra over finite fields: row reduction, standard form and null spaces.

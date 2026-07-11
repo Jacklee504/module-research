@@ -113,3 +113,14 @@ Main implication: the module appears to have moved back to Semester 1. The 2024/
 ## Overall Judgement
 
 CT561 looks like a strong predictable module if system dynamics and diagram/equation modelling suit you. Lecturer continuity is good, and the paper pattern is highly repetitive. The main caution is planning: the current page and 2025/26 paper place it in Semester 1, even though 2024/25 was Semester 2.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Systems thinking fundamentals: feedback loops, stocks, flows, delays and causal-loop diagrams.
+- System dynamics modelling: stock-flow diagrams, simulation steps and interpreting model behaviour.
+- Discrete-event simulation basics: events, queues, resources, arrivals and service times.
+- Monte Carlo simulation: random variables, sampling, confidence intervals and sensitivity analysis.
+- Queuing theory intro: M/M/1 intuition, utilisation, waiting time and bottlenecks.
+- Simulation verification/validation: calibration, assumptions, experimentation and reporting results.

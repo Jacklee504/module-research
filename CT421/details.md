@@ -69,3 +69,15 @@ High. The exam is predictable at the topic and question-type level, even when th
 ## Overall Judgement
 
 CT421 looks like a strong module to target. The 40% CA weighting gives a meaningful chance to bank marks early, and the 60% written exam appears highly pattern-based from the four available past papers.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- AI search algorithms: BFS, DFS, uniform-cost, greedy best-first and A* with worked examples.
+- Adversarial search: minimax, alpha-beta pruning and game-tree evaluation.
+- Knowledge representation: propositional logic, first-order logic and rule-based inference.
+- Planning basics: state-space planning, STRIPS-style actions and goal decomposition.
+- Constraint satisfaction: backtracking, arc consistency and heuristics.
+- Reinforcement learning basics: Markov decision processes, value iteration and Q-learning.
+- AI ethics/safety overview: bias, explainability, accountability and deployment risks.

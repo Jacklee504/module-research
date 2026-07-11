@@ -91,3 +91,14 @@ Source: https://www.universityofgalway.ie/course-information/module/MA4344
 - CS402: indirect overlap through algebraic structures used in cryptography.
 - MA342: shared proof-heavy abstract maths style, but little direct content overlap.
 - MA3101: both are proof-heavy maths options, but MA3101 appears much less predictable because of frequent lecturer/content changes.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Group theory refresher: groups, subgroups, cosets, normal subgroups and quotient groups.
+- Homomorphisms and isomorphism theorems: kernels, images and standard proof patterns.
+- Group actions: orbits, stabilisers, kernels and action on cosets.
+- Sylow theorems: statements, counting arguments and non-simple group applications.
+- Class equation and p-groups: centre of a p-group and groups of order `p^2`.
+- Proof-writing for abstract algebra: theorem application, contradiction and structure arguments.

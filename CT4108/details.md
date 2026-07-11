@@ -75,3 +75,15 @@ Unknown. There are no past papers currently available in this project, so there 
 ## Overall Judgement
 
 CT4108 sounds academically interesting, especially if distributed systems, GPU programming, and parallel computing are appealing. From a marks-strategy perspective, it is currently uncertain: the CA is useful but only 30%, and the 70% exam has no past-paper evidence available yet. Treat it as interesting but higher exam risk until more assessment material is found.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Distributed systems fundamentals: processes, messages, failures, consistency and scalability.
+- Concurrency and synchronisation: locks, race conditions, mutual exclusion and deadlock.
+- Consensus basics: leader election, Paxos/Raft intuition and failure assumptions.
+- Replication and consistency: primary-backup, quorum reads/writes, eventual consistency and CAP.
+- Distributed transactions: two-phase commit, sagas and compensation patterns.
+- Microservices communication: REST, gRPC, message queues and idempotency.
+- Observability for distributed systems: tracing, metrics, logs and failure diagnosis.

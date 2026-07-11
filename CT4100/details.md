@@ -98,3 +98,15 @@ This matters: if the newer format continues, broad coverage of the fundamentals 
 ## Overall Judgement
 
 CT4100 looks like a good target despite being 70% exam. The past papers are strongly repetitive, the lecturer overlap with CT421 is useful, and the repeated topics are clear. The main downside is only 30% CA and the newer compulsory-question format, which means weak spots are harder to avoid.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Information retrieval fundamentals: indexing, inverted files, ranking and query processing.
+- Vector space model and cosine similarity: worked examples with term weights.
+- tf-idf and BM25: intuition, formula use and ranking examples.
+- Search evaluation: precision, recall, MAP, precision-recall curves and top-k diversity.
+- Query expansion and relevance feedback: Rocchio, pseudo-relevance feedback and local analysis.
+- Recommender systems basics: collaborative filtering, cold start, difficult users and evaluation.
+- Web search/link analysis: PageRank, HITS and document similarity.

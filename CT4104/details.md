@@ -53,3 +53,14 @@ Source: https://www.universityofgalway.ie/course-information/module/CT4104
 - Likely practical/security-tooling component because the page mentions OpenSSL and pen-testing.
 - Strong candidate for early CA planning.
 - Exam predictability is weaker than modules with local paper archives. Current evidence comes from the module page only, not repeated exam questions.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Computer security fundamentals: CIA triad, threat models, authentication and access control.
+- Network security basics: firewalls, TLS, VPNs, secure routing and common attack paths.
+- Web security crash course: OWASP Top 10, XSS, SQL injection, CSRF and secure session handling.
+- Cryptography for security engineers: hashing, symmetric encryption, public-key crypto and certificates.
+- Secure software development: secure coding, dependency risk, secrets handling and logging.
+- Vulnerability assessment basics: CVSS, scanning concepts, patch prioritisation and risk reporting.

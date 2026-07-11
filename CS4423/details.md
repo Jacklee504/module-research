@@ -86,3 +86,15 @@ High, especially from 2021/22 to 2024/25. The exam is very repetitive in topic c
 ## Overall Judgement
 
 CS4423 is predictable but exam-heavy. It is not ideal for a CA-first strategy because only 20% is continuous assessment. Still, the exam pattern is strong enough that it could be a good choice if the mathematical/network-science style suits you and you are willing to prepare the repeated question types carefully.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Graph theory for networks: directed/undirected graphs, paths, trees, components and adjacency matrices.
+- BFS and shortest paths: distances, predecessor trees and spanning-tree construction.
+- Network centrality: degree, closeness, betweenness and eigenvector centrality.
+- Random graph models: Erdos-Renyi `G(n,p)` / `G(n,m)`, expected edges and degree probability.
+- Small-world networks: Watts-Strogatz construction, clustering coefficient and characteristic path length.
+- Prufer codes and labelled trees: encode/decode worked examples.
+- NetworkX basics: creating graphs, reading edge lists and computing centrality metrics.

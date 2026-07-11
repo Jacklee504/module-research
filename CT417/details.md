@@ -107,3 +107,14 @@ The module is not repetitive in the older CT421 sense of exact topic slots over 
 ## Bottom Line
 
 CT417 is now much more predictable than the old placeholder note suggested. The safest preparation route is to prioritise the recent DevSecOps/security/testing/design-pattern pattern, especially 2024/25 and 2025/26. The main risk is historical content drift: older papers contain formal specification, architecture and virtualisation material that may still be examinable but is less central in the newest pattern.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- DevSecOps fundamentals: shifting security left, secure pipelines and feedback loops.
+- CI/CD crash course: build, test, deploy stages and deployment strategies.
+- Software testing strategy: unit, integration, system, acceptance and regression testing.
+- Secure software engineering: threat modelling, security requirements and abuse cases.
+- Design patterns refresher: factory, singleton, observer, strategy, adapter and MVC.
+- Agile/software process review: Scrum, Kanban, estimation and requirements traceability.

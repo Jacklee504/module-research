@@ -86,3 +86,14 @@ The current module page is valid from 2026 onwards and explicitly mentions QUIC 
 ## Overall Judgement
 
 CT420 is a reasonable target if systems, protocols and timing suit you. It is less cleanly repetitive than CT421 or CT4100 because the format and topic emphasis have changed, but the recent pattern is strong enough to be useful. The 30% CA is helpful, but the 70% exam means it should not be chosen purely for CA marks.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Real-time systems fundamentals: hard vs soft real time, deadlines, latency and jitter.
+- Scheduling algorithms: rate-monotonic scheduling, earliest-deadline-first and schedulability checks.
+- Embedded/RTOS basics: tasks, interrupts, timers, priorities and resource sharing.
+- Concurrency in real-time systems: priority inversion, mutexes, semaphores and deadlock.
+- CAN bus and industrial protocols: message arbitration, timing and reliability.
+- Real-time Linux/OS concepts: preemption, scheduling classes and timing measurement.

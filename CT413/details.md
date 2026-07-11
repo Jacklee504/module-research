@@ -56,3 +56,14 @@ Source: https://www.universityofgalway.ie/course-information/module/CT413
 - Runs across both semesters in practice, roughly October to March.
 - Topic choice can be used to reduce overall cognitive load by overlapping with optional modules.
 - Because the public GY350 page labels CT413 optional, confirm the exact requirement for the chosen stream/registration route.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Technical project planning: milestones, scope control, risk logs and weekly progress reporting.
+- Academic writing for computing projects: literature review, methodology, evaluation and conclusion structure.
+- Git/GitHub workflow: branching, commits, issues, pull requests and release tagging.
+- Testing and evaluation: unit tests, integration tests, experiment design and evidence collection.
+- Technical diagrams: architecture diagrams, sequence diagrams, data-flow diagrams and UML basics.
+- Presentation skills for technical demos: concise slides, demo planning and handling questions.

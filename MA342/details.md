@@ -161,3 +161,14 @@ Highest-return preparation:
 5. Keep older Euler characteristic material as secondary unless lectures indicate it is returning.
 
 This module is predictable enough to prepare for, but its marks depend heavily on writing precise proofs under time pressure.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Point-set topology basics: open/closed sets, bases, subbases and neighbourhoods.
+- Continuity in topology: preimages, homeomorphisms and product/subspace examples.
+- Compactness: open covers, finite subcovers and common proof patterns.
+- Connectedness: connected sets, path connectedness and standard counterexamples.
+- Metric spaces refresher: convergence, completeness, open balls and induced topologies.
+- Topology proof practice: proving set properties and constructing counterexamples.

@@ -263,12 +263,15 @@ def extract_summary(markdown: str, module_code: str, overview: dict[str, dict[st
 
 
 def combine_sections(sections: dict[str, str], names: list[str]) -> str:
-    chunks: list[str] = []
+    found: list[tuple[str, str]] = []
     for name in names:
         content = sections.get(name, "").strip()
         if not content:
             continue
-        if len(names) == 1:
+        found.append((name, content))
+    chunks: list[str] = []
+    for name, content in found:
+        if len(found) == 1:
             chunks.append(content)
         else:
             chunks.append(f"### {name}\n\n{content}")
@@ -305,6 +308,14 @@ def build_support_details(sections: dict[str, str]) -> str:
                 "CA / Workload Notes",
                 "Workload Notes",
                 "Study Strategy",
+            ],
+        ),
+        (
+            "Short Learning Material",
+            [
+                "Short Learning Material",
+                "Learning Material",
+                "Degreed / Percipio Targets",
             ],
         ),
         (

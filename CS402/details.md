@@ -92,3 +92,14 @@ High, with a lecturer-change warning. CS402 is one of the more predictable modul
 ## Overall Judgement
 
 CS402 is highly predictable at syllabus/topic level but has lecturer-change risk. It is a good choice if you are comfortable with modular arithmetic, number theory and calculation-heavy exams, but current teaching materials should be weighted above exact past-paper formatting. The 30% CA is useful, but the 70% exam means the main decision should be whether the maths style and current lecturer approach suit you.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Modular arithmetic for cryptography: modular inverse, Euler/Fermat theorem and fast exponentiation.
+- Classical ciphers: Caesar/shift, affine, Vigenere and Hill cipher worked examples.
+- RSA from scratch: key generation, encryption/decryption, valid key checks and small-number examples.
+- LFSRs and stream ciphers: period, connection polynomial and keystream generation.
+- Diffie-Hellman and ElGamal: numerical shared-key/encryption examples over finite fields.
+- Elliptic curve cryptography basics: point addition over finite fields and why ECC is used.

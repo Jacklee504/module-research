@@ -126,3 +126,15 @@ The exam is predictable in the useful way: if you prepare the standard answer fr
 ## Bottom Line
 
 CT4101 is a highly predictable required module. The risk is not surprise topics so much as breadth: the paper can sample many standard ML areas. The best approach is to build a compact formula/diagram/definition bank and practise the recurring calculations from 2021/22 and 2023/24.
+
+## Short Learning Material
+
+Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
+
+- Machine learning fundamentals: supervised vs unsupervised learning, classification, regression and clustering.
+- Model evaluation: confusion matrices, precision/recall, ROC curves, cross-validation and train/test splits.
+- kNN and k-means: distance metrics, scaling/normalisation, elbow method and worked examples.
+- Decision trees: entropy, information gain and overfitting controls.
+- Bias, variance and learning curves: diagnosing underfitting/overfitting.
+- Hyperparameter tuning: grid search, validation sets and model selection.
+- scikit-learn crash course: preprocessing, pipelines, fitting models and evaluating results.
