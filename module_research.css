@@ -432,6 +432,337 @@ main {
   padding-top: 2px;
 }
 
+.study-plan-section {
+  scroll-margin-top: 20px;
+}
+
+.study-plan-intro {
+  max-width: 520px;
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: right;
+}
+
+.study-rhythm {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1.28fr);
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 14px;
+  padding: 18px;
+  border: 1px solid #d9bf91;
+  border-radius: 8px;
+  background: var(--amber-soft);
+}
+
+.study-rhythm h3 {
+  margin-bottom: 0;
+}
+
+.rhythm-sessions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.rhythm-session {
+  min-height: 88px;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.rhythm-session span,
+.rhythm-session strong,
+.rhythm-session small {
+  display: block;
+}
+
+.rhythm-session span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.rhythm-session strong {
+  margin: 4px 0;
+  font-size: 20px;
+  line-height: 1.1;
+}
+
+.rhythm-session small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.3;
+}
+
+.weekend-session strong {
+  color: #8a5316;
+}
+
+.weekday-session strong {
+  color: var(--blue);
+}
+
+.midweek-session strong {
+  color: var(--purple);
+}
+
+.weekly-study-guide {
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.weekly-study-guide summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 66px;
+  padding: 13px 16px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.weekly-study-guide summary::-webkit-details-marker {
+  display: none;
+}
+
+.weekly-study-guide summary strong,
+.weekly-study-guide summary small {
+  display: block;
+}
+
+.weekly-study-guide summary strong {
+  margin-bottom: 3px;
+  font-size: 16px;
+}
+
+.weekly-study-guide summary small {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.details-hint {
+  flex: 0 0 auto;
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.weekly-study-guide[open] .details-hint {
+  font-size: 0;
+}
+
+.weekly-study-guide[open] .details-hint::after {
+  content: "Close guide";
+  font-size: 12px;
+}
+
+.weekly-guide-body {
+  padding: 0 16px 16px;
+  border-top: 1px solid var(--line);
+}
+
+.study-selection-context {
+  max-width: 78ch;
+  margin: 14px 0;
+  color: #4e5960;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.study-selection-context strong {
+  color: var(--ink);
+}
+
+.week-plan {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.week-plan li {
+  display: grid;
+  grid-template-columns: 124px minmax(0, 1fr);
+  gap: 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.week-plan-label strong,
+.week-plan-label time {
+  display: block;
+}
+
+.week-plan-label strong {
+  margin-bottom: 4px;
+  color: var(--blue);
+  font-size: 13px;
+}
+
+.week-plan-label time {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.week-plan-content h3 {
+  margin-bottom: 7px;
+  font-size: 16px;
+}
+
+.week-plan-content p {
+  max-width: 76ch;
+  margin-bottom: 7px;
+  color: #4e5960;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.week-plan-content p:last-child {
+  margin-bottom: 0;
+}
+
+.week-plan-content strong {
+  color: var(--ink);
+}
+
+.study-phase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.study-phase {
+  min-height: 264px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.study-phase.phase-now {
+  border-color: #d9bf91;
+}
+
+.study-phase.phase-s1-prep,
+.study-phase.phase-s1 {
+  border-color: #bfd0e6;
+}
+
+.study-phase.phase-s2-prep,
+.study-phase.phase-s2 {
+  border-color: #d2c2df;
+}
+
+.study-phase.phase-exams {
+  border-color: #aacfb9;
+}
+
+.phase-heading {
+  margin-bottom: 12px;
+}
+
+.phase-months {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  margin-bottom: 8px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 820;
+  line-height: 1;
+}
+
+.phase-s1-prep .phase-months,
+.phase-s1 .phase-months {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.phase-s2-prep .phase-months,
+.phase-s2 .phase-months {
+  background: var(--purple-soft);
+  color: var(--purple);
+}
+
+.phase-exams .phase-months {
+  background: var(--green-soft);
+  color: var(--green);
+}
+
+.phase-now .phase-months {
+  background: var(--amber-soft);
+  color: var(--amber);
+}
+
+.study-phase h3 {
+  margin-bottom: 0;
+  font-size: 17px;
+}
+
+.study-phase > p {
+  margin-bottom: 13px;
+  color: #4e5960;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.study-checklist {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.study-checklist label {
+  display: grid;
+  grid-template-columns: 16px minmax(0, 1fr);
+  gap: 8px;
+  align-items: start;
+  color: #364249;
+  font-size: 12px;
+  line-height: 1.35;
+  cursor: pointer;
+}
+
+.study-checklist input {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--green);
+}
+
+.study-checklist label:has(input:checked) {
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+.study-plan-note {
+  margin-top: 14px;
+  padding: 13px 15px;
+  border: 1px solid #aacfb9;
+  border-radius: 8px;
+  background: var(--green-soft);
+  color: #2a4d3d;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
 .module-planner {
   margin-top: 16px;
   padding: 18px;
@@ -897,6 +1228,18 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .study-phase-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .rhythm-sessions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .midweek-session {
+    grid-column: 1 / -1;
+  }
+
   .planner-head {
     display: block;
   }
@@ -927,6 +1270,26 @@ main {
 
   .section-title {
     display: block;
+  }
+
+  .study-plan-intro {
+    margin-top: 10px;
+    text-align: left;
+  }
+
+  .study-rhythm,
+  .rhythm-sessions,
+  .study-phase-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .weekly-study-guide summary {
+    align-items: start;
+  }
+
+  .week-plan li {
+    grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .priority-grid,

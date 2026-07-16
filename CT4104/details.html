@@ -90,6 +90,67 @@
 </ul>
           </div>
         </details>
+<details class="compact-details">
+          <summary>Linked Module Notes</summary>
+          <div class="details-body">
+            <h4>CS402 Cryptography: useful foundation, not a substitute</h4>
+<p>CS402 is the best linked source for the cryptography CT4104 assumes, but the modules assess different things. CS402 is largely concerned with the construction and security of cryptographic schemes. CT4104 uses those schemes inside network protocols and security assessments.</p>
+<p>Use CS402 to become comfortable with:</p>
+<ul>
+<li>symmetric encryption, hashing, MACs and the difference between confidentiality and integrity</li>
+<li>public-key encryption, signatures, authentication and certificates</li>
+<li>key exchange, especially the idea behind Diffie-Hellman</li>
+<li>security assumptions and the limits of a cryptographic guarantee</li>
+</ul>
+<p>For CT4104, always take the extra step: identify the security property required, the protocol component that provides it, and the attack or configuration mistake that could undermine it.</p>
+<h4>CT4104 material that CS402 will not cover sufficiently</h4>
+<p>The official CT4104 outcomes add a substantial practical and systems-focused layer:</p>
+<ul>
+<li>TLS, IPSec and X.509: message flow, certificates, trust, key establishment and the purpose of each component</li>
+<li>OpenSSL: using cryptographic tools and evaluating whether a configuration achieves the intended protection</li>
+<li>threat analysis: assets, attackers, attack surfaces, threats, mitigations and residual risk</li>
+<li>ethical hacking and pen-testing: scoping, reconnaissance, testing safely, documenting findings and recommending fixes</li>
+</ul>
+<p>Do not assume that knowing the maths behind RSA or Diffie-Hellman means you can explain how TLS or a certificate chain works in practice.</p>
+<h4>What to de-prioritise from CS402</h4>
+<p>Use detailed number theory, primality testing, pseudoprimes, Carmichael numbers and classical-cipher calculations only as supporting background. They are less directly supported by the CT4104 learning outcomes than applied cryptography, network protocols and practical security assessment.</p>
+<h4>Study sequence when past papers are unavailable</h4>
+<ol>
+<li>Learn the crypto concepts needed for confidentiality, integrity, authentication and key exchange.</li>
+<li>Map each concept into TLS, IPSec, X.509 and OpenSSL. Be able to explain what it protects and why it is needed.</li>
+<li>Practise analysing a simple system: define its assets and threats, select mitigations, then explain how you would test them ethically.</li>
+<li>Use the official learning outcomes as a checklist. For each outcome, prepare at least one protocol example and one failure or attack scenario.</li>
+</ol>
+<p>This gives CT4104 a usable revision structure without pretending that CS402 papers predict its exam.</p>
+          </div>
+        </details>
+<details class="compact-details">
+          <summary>Illustrative Practice Questions</summary>
+          <div class="details-body">
+            <p>These questions are derived from the published learning outcomes and module description. They are not past-paper questions or predictions of the assessment format.</p>
+<h4>Easy</h4>
+<ol>
+<li>Define confidentiality, integrity and authentication. Name one mechanism that provides each property in a TLS-style secure connection. Watch: <a href="https://www.youtube.com/watch?v=0TLDTodL7Lc">Computerphile: What is TLS?</a></li>
+<li>Compare symmetric and public-key encryption. Why do secure network protocols normally use both rather than choosing only one? Watch: <a href="https://www.youtube.com/watch?v=GSIDS_lvRv4">Computerphile: Public Key Cryptography</a></li>
+<li>Explain what a cryptographic hash detects when a downloaded file has been changed. Why is a hash value alone insufficient to prove who supplied the file? Watch: <a href="https://www.youtube.com/watch?v=b4b8ktEV4Bg">Computerphile: Hashing Algorithms</a></li>
+<li>Explain the difference between a threat, a vulnerability and a mitigation. Apply STRIDE to identify one threat against a student web application. Watch: <a href="https://www.youtube.com/watch?v=rEnJYNkUde0">Netsec Explained: STRIDE Threat Modeling for Beginners</a></li>
+</ol>
+<h4>Medium</h4>
+<ol>
+<li>A company signs a software update before publishing it. Describe how a client uses the signer’s public key and the update hash to verify integrity and origin. State one security property this does not provide. Watch: <a href="https://www.youtube.com/watch?v=s22eJ1eVLTU">Computerphile: Digital Signatures</a></li>
+<li>Two internal services already share a secret key. Explain why a MAC is appropriate for checking whether a message was altered, and contrast it with a digital signature. Watch: <a href="https://www.youtube.com/watch?v=wlSG3pEiQdc">Computerphile: Message Authentication Codes</a> and <a href="https://www.youtube.com/watch?v=s22eJ1eVLTU">Computerphile: Digital Signatures</a></li>
+<li>An organisation needs to connect two offices over the public internet. Explain how IPsec tunnel mode, ESP and IKE contribute to a secure VPN. Watch: <a href="https://www.youtube.com/watch?v=5BahWbszVAY">Professor Messer: IPsec and VPNs</a></li>
+<li>Build a small STRIDE threat model for an account-login system. Identify one spoofing or information-disclosure threat, its likely impact, and a suitable mitigation. Watch: <a href="https://www.youtube.com/watch?v=rEnJYNkUde0">Netsec Explained: STRIDE Threat Modeling for Beginners</a></li>
+</ol>
+<h4>Hard</h4>
+<ol>
+<li>A browser accepts a certificate for the wrong hostname. Analyse how this can enable a man-in-the-middle attack, and explain how certificate validation and trust anchors should stop it. Watch: <a href="https://www.youtube.com/watch?v=-enHfpHMBo4">Computerphile: Man-in-the-Middle Attacks and Superfish</a></li>
+<li>Design a secure API channel using standard TLS components. Explain how key exchange, symmetric encryption, authentication and integrity protections work together, and why custom cryptography should be avoided. Watch: <a href="https://www.youtube.com/watch?v=NmM9HA2MQGI">Computerphile: Diffie-Hellman Key Exchange</a>, <a href="https://www.youtube.com/watch?v=wlSG3pEiQdc">Computerphile: Message Authentication Codes</a> and <a href="https://www.youtube.com/watch?v=0TLDTodL7Lc">Computerphile: What is TLS?</a></li>
+<li>You are authorised to assess a web application. Explain what safe reconnaissance should establish before testing, and why discovering domains or services outside the agreed scope must not expand the assessment automatically. Watch: <a href="https://www.youtube.com/watch?v=sH4JCwjybGs">The Cyber Mentor: Ethical Hacking in 15 Hours, Part 2</a></li>
+<li>An exposed administrative interface relies on one reusable password. Analyse the risk and recommend layered controls that reduce both credential-guessing risk and the damage from a compromised password. Watch: <a href="https://www.youtube.com/watch?v=Pe_3cFuSw1E">Computerphile: Diceware and Passwords</a></li>
+</ol>
+          </div>
+        </details>
       </section>
     </main>
   </body>

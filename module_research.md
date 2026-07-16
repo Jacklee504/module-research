@@ -52,6 +52,36 @@ Use this section to see which researched options are available in each semester.
 - Semester 2 has more optional choice pressure, but also stronger 40% CA opportunities: CT421, MA3491, MA4344 and required CT4104.
 - If trying to maximise CA marks, the strongest current route is to protect CT413 time across the year, take CT4104 seriously in Semester 2, and prefer 40% CA optional modules where the topic fit is acceptable.
 
+## Rough Study Plan
+
+Use both weekend days for roughly 5-6 focused hours each, giving about 10-12 hours per weekend, plus two mandatory 75-90 minute weekday sessions. This creates a baseline of roughly 13-15 focused hours per week. Use the summer to make Semester 2 familiar before CT413 and Semester 1 deadlines begin to compete for time.
+
+| Period | Main Focus | Practical Target |
+|---|---|---|
+| Now to 16 August | 40% Semester 1 / 60% Semester 2 | Budget about 4-5 hours per weekend for Semester 1 and 6-7 hours for Semester 2. Finalise likely optional choices, shortlist CT413 project directions, then preview CT4104 and the likely Semester 2 option alongside CT4101/CT417 preparation. |
+| 17 August-September | 70% Semester 1 / 30% Semester 2 | Budget about 7-8 hours per weekend for Semester 1 and 3-4 hours for Semester 2. Review CT417 architecture/testing/CI-CD concepts and CT4101 ML fundamentals while retaining one light Semester 2 touchpoint. |
+| October-December | Deliver Semester 1 | Prioritise CA and early CT413 work. Start each CA in its first available week, retain one weekend for polish, and create a one-page repeated-topics list for each Semester 1 exam. |
+| January | Switch to Semester 2 | Preview CT4104 security fundamentals, map known CA deadlines, and complete one short foundation tutorial for the chosen Semester 2 option. |
+| February-March | Finish CA and Project | Protect CT413 completion time. Treat 40% CA modules, especially CT4104 and any selected 40% CA option, as first-priority deadlines. Turn past papers into topic checklists. |
+| April-May | Convert patterns into marks | Do timed papers or timed question sets, keep a concise error list, and reserve a final revision block for required modules. |
+
+### Semester Rule
+
+- Until 16 August, use 40% of preparation time on Semester 1 and 60% on Semester 2.
+- From 17 August through Semester 1, use 70% on Semester 1 and CT413, and 30% on light Semester 2 preparation.
+- From January, move the main block to Semester 2 while keeping a protected CT413 block until completion.
+- During term, CA and project deadlines come before exam-predictability revision. Use past papers after the relevant material has been taught and the assessed work is under control.
+
+### Next Five Weeks
+
+| Week | Dates | Semester 2 work | Semester 1 work | Two mandatory weekday sessions |
+|---|---|---|---|---|
+| 1 | 13-19 July | 6-7h: map CT4104 for about 3h, then map a likely S2 option and complete its first short tutorial. | 4-5h: CT4101 model evaluation for about 2h, then CT417 architecture or testing. | 75-90m: add likely modules and record fit. 75-90m: recreate the CT4104 and S2-option maps from memory. |
+| 2 | 20-26 July | 6-7h: complete a foundation tutorial for the main S2 option, then use a second block for exercises, examples or another tutorial. | 4-5h: CT4101 practical/ML recap, then the likely S1 option or CT417. | 75-90m: recall S2 material without notes. 75-90m: complete a small ML or S2 exercise and record the error. |
+| 3 | 27 July-2 August | 6-7h: split time between CT4104 fundamentals and the next S2 topic, ending each block with examples or active recall. | 4-5h: S1-option foundation tutorial, then CT417 or CT4101 reinforcement. | 75-90m: make flashcards, worked examples or prompts. 75-90m: explain one S2 topic in writing without notes, then correct it. |
+| 4 | 3-9 August | 6-7h: concept-map the two covered S2 areas, then do exercises or worked examples. | 4-5h: CT417 CI/CD/testing/architecture, then CT4101 or the likely S1 option. | 75-90m: recheck module pages and assessment weighting. 75-90m: rebuild the S2 concept map from memory. |
+| 5 | 10-16 August | 6-7h: another S2 tutorial or worked-problem session, plus CT4104 consolidation and a one-page starting sheet. | 4-5h: starting sheets for CT4101, CT417 and the likely S1 option, then the weakest prerequisite. | 75-90m: plan the next two weeks at 70% S1 / 30% S2. 75-90m: revisit the weakest topic and choose the next resource or exercise. |
+
 ## How to Use This Log
 
 - Use this file to compare modules quickly.
