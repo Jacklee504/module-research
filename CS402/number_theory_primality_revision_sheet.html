@@ -56,6 +56,12 @@
 <p>State Fermat's test and explain why passing it for one base does not establish primality. <strong>Check:</strong> give hypotheses, the pass condition, and the pseudoprime caveat; a failed test has the stronger conclusion.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: test 341 with Fermat base 2 and interpret the result. Check: 341=11*31 and 2^10=1 mod 341, so 2^340=(2^10)^34=1; 341 passes this base despite being composite, demonstrating a base-2 pseudoprime rather than primality.</p>
+<h2>Practice question - Fermat evidence, not proof [8 marks]</h2>
+<p><strong>Inspired by:</strong> CS402 2024/25 Q3(d) and Q4(a-b).</p>
+<p><strong>Supplied data and task.</strong> Use fast exponentiation to test n=341 to base 2, given that 341=11·31 and 2<sup>10</sup>=1 mod 341. State precisely what the result establishes, and define a Carmichael number. [8 marks]</p>
+<p><strong>Question-demand diagnosis:</strong> the calculation is short, but most credit is for the logical direction of Fermat's test. <strong>Fastest route:</strong> write 340=34·10, substitute the supplied congruence, then distinguish the known factorisation from the test result.</p>
+<p><strong>Worked answer:</strong> 2<sup>340</sup>=(2<sup>10</sup>)<sup>34</sup>=1<sup>34</sup>=1 mod 341. Thus 341 passes Fermat's congruence to base 2. Because 341=11·31 is supplied, it is composite; it is therefore a base-2 Fermat pseudoprime. A pass alone would not prove primality, because this example is composite. In contrast, if a coprime base produced a residue other than 1, that would prove n composite. A Carmichael number is a composite n for which a<sup>n-1</sup>=1 mod n for every a coprime to n.</p>
+<p><strong>Topic-specific trap:</strong> do not define a pseudoprime without naming its base, and do not call every composite that passes one base Carmichael.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Applying Fermat/Euler without checking its hypothesis.</li>

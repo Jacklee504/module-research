@@ -54,6 +54,7 @@
 <p>Construct an affiliation matrix, its projection and a graph from a Laplacian. <strong>Check:</strong> state node orders, interpret projection weights, use L=D−A, and check row sums.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: find the eigenvalue-0 multiplicity of that projection and interpret it. Check the projected graph is connected, so the multiplicity is 1; vector (1,1,1)^T spans the nullspace.</p>
+<h2>Practice question - affiliation projection [8 marks]</h2><p><strong>Inspired by:</strong> CS4423 2024/25 Q2(a-c). <strong>Scenario.</strong> People A,B,C attend events X,Y with incidence rows A=(1,1), B=(1,0), C=(0,1). Construct the person projection and its Laplacian. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> distinguish the bipartite incidence matrix from the projected one-mode network. Compute BB<sup>T</sup>, remove its diagonal, then use L=D-A.</p><p><strong>Worked answer:</strong> B=[[1,1],[1,0],[0,1]], so BB<sup>T</sup>=[[2,1,1],[1,1,0],[1,0,1]]. The diagonal counts each person's events, not self-loops, hence A=[[0,1,1],[1,0,0],[1,0,0]]. Its degree vector is (2,1,1) and L=[[2,-1,-1],[-1,1,0],[-1,0,1]]. Rows sum to zero, as required. A is connected to B and C because they share X and Y respectively; B and C share no event.</p><p><strong>Topic-specific trap:</strong> retaining the diagonal turns attendance counts into loops and corrupts the ordinary projection degree.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Joining nodes from the same bipartition directly in B.</li>

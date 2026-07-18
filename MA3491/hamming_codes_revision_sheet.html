@@ -42,6 +42,7 @@
 <strong>2.</strong> Construct H for m=3, prove it corrects one error, and verify the sphere-packing equality. <strong>Check:</strong> include both distinct-column and counting arguments.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: prove d_min=3 from the columns of H. Check no zero column rules out weight 1 and no repeated columns rules out weight 2; columns 001 xor 010 xor 011=0 exhibit a weight-3 codeword.</p>
+<h2>Practice question - Hamming correction and perfection [8 marks]</h2><p><strong>Inspired by:</strong> MA3491 2024/25 Q4(a-e). <strong>Task.</strong> For Ham(3,2) with all nonzero 3-bit H columns, explain one-error correction and verify perfection. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> use distinct nonzero syndromes for correction and the sphere count for perfection.</p><p><strong>Worked answer:</strong> H has n=2<sup>3</sup>-1=7 columns, each a different nonzero vector of F<sub>2</sub><sup>3</sup>. An error in coordinate i has syndrome He<sub>i</sub><sup>T</sup>, precisely column i; distinct columns identify the one flipped bit. The code has parameters [7,4,3], so 2<sup>4</sup>=16 codewords and radius t=1. Each radius-one ball has 1+7=8 words. Thus 16·8=128=2<sup>7</sup>, so the balls exactly partition the ambient space and the code is perfect.</p><p><strong>Topic-specific trap:</strong> a zero syndrome means no error only under the at-most-one-error model.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Including the zero column.</li>

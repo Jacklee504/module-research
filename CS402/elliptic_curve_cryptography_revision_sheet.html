@@ -56,6 +56,12 @@
 <p>Given a stated curve and two points P,Q, calculate P+Q and list the exceptional case you checked first. <strong>Check:</strong> slope inverse (3), coordinates (4), modular reductions and exceptional-case statement (2).</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: on y^2=x^3+x+1 over F_5, list all points and identify every order-two point. Check squares are {0,1,4}; the affine points are (0,1),(0,4),(2,1),(2,4),(3,1),(3,4),(4,2),(4,3), plus O, and there is no affine point with y=0, hence no order-two point.</p>
+<h2>Practice question - point arithmetic and order [9 marks]</h2>
+<p><strong>Inspired by:</strong> CS402 2024/25 Q4(e), which asks for finite-field point enumeration and order-two points.</p>
+<p><strong>Supplied data and task.</strong> On E/F<sub>7</sub>: y<sup>2</sup>=x<sup>3</sup>+2x+3, verify P=(2,1), compute 2P, then decide whether P has order 2. Also identify the criterion for all order-two points on this curve. [9 marks]</p>
+<p><strong>Question-demand diagnosis:</strong> this is a membership check, a doubling calculation and a conceptual classification. <strong>Fastest route:</strong> verify 1=8+4+3=15=1 mod 7; then use the doubling slope and separately use y=0 for order two.</p>
+<p><strong>Worked answer:</strong> P lies on E as above. Its doubling slope is lambda=(3·2<sup>2</sup>+2)(2·1)<sup>-1</sup>=14·2<sup>-1</sup>=0 mod 7, because 2<sup>-1</sup>=4. Therefore x(2P)=0-2-2=-4=3 and y(2P)=0(2-3)-1=-1=6, so 2P=(3,6). This is not O, so P is not order two. Over an odd prime field a non-identity point is its own inverse exactly when (x,y)=(x,-y), equivalently 2y=0 and hence y=0. Therefore the order-two points are precisely the curve points (x,0), found by solving x<sup>3</sup>+2x+3=0 mod 7.</p>
+<p><strong>Topic-specific trap:</strong> lambda=0 is a valid slope; it does not mean the result is O. O arises when adding inverse points, or when doubling a point with y=0.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Using ordinary division instead of a modular inverse.</li>

@@ -41,6 +41,7 @@
 <strong>2. Exam style:</strong> Prove an infinite subset A of a cofinite space X is dense. <strong>Check:</strong> every nonempty open set has finite complement and therefore meets A.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: in the subspace X=[0,1], find interior and closure of A=[0,1/2). Check int_X A=[0,1/2), since [0,epsilon)=X intersect (-1,epsilon) is open in X; cl_X A=[0,1/2]. This differs from ambient interior in R.</p>
+<h2>Practice question - subspace interior and closure [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q1(e) and Q2(a). <strong>Task.</strong> In X=[0,1] with subspace topology, find int<sub>X</sub>[0,1/2) and cl<sub>X</sub>[0,1/2). [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> use relative open intervals; endpoints behave differently from the ambient R topology.</p><p><strong>Worked answer:</strong> A=[0,1/2) is open in X because A=X∩(-1,1/2), so int<sub>X</sub>A=A. Every relative neighbourhood of 1/2 meets A, so 1/2 lies in cl<sub>X</sub>A. Points above 1/2 have a small relative interval disjoint from A. Hence cl<sub>X</sub>A=[0,1/2].</p><p><strong>Topic-specific trap:</strong> importing int<sub>R</sub>A=(0,1/2) ignores the declared subspace.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Treating closure as A plus only “visible” endpoints.</li>

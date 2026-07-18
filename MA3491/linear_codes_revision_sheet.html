@@ -43,6 +43,7 @@
 <strong>2.</strong> Given a standard-form G over F<sub>3</sub>, construct H and find d with a clear finite enumeration. <strong>Check:</strong> use −A<sup>T</sup>, not simply A<sup>T</sup>.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: how many errors can this code detect and correct? Check d=2 gives detection up to d-1=1 and guaranteed correction floor((d-1)/2)=0; a nonzero syndrome detects one error but cannot uniquely correct every one.</p>
+<h2>Practice question - derive H and minimum distance [8 marks]</h2><p><strong>Inspired by:</strong> MA3491 2024/25 Q3(a-d). <strong>Task.</strong> Over F<sub>2</sub>, G=[[1,0,1,1],[0,1,1,0]]. Find H and d<sub>min</sub>. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> recognise G=[I<sub>2</sub>|P], use H=[P<sup>T</sup>|I<sub>2</sub>], then enumerate four codewords.</p><p><strong>Worked answer:</strong> P=[[1,1],[1,0]], so H=[[1,1,1,0],[1,0,0,1]]. Direct multiplication gives GH<sup>T</sup>=0. The words from messages 00,10,01,11 are 0000,1011,0110,1101, of weights 0,3,2,3. For a linear code, minimum distance is minimum nonzero weight, hence d<sub>min</sub>=2.</p><p><strong>Topic-specific trap:</strong> in nonbinary fields the left block is -P<sup>T</sup>, not P<sup>T</sup> without checking signs.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Doing ordinary real-number arithmetic.</li>

@@ -56,6 +56,12 @@
 <p>Contrast block and stream ciphers and explain why repeating a stream-cipher keystream is dangerous. <strong>Check:</strong> describe data unit/keystream and derive the XOR relation between two plaintexts.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: messages {0,1} have priors 3/4 and 1/4 and C=M xor K with uniform K. For c=0, compute the posterior. Check P(C=0)=1/2, P(M=0,C=0)=3/8, so P(M=0|C=0)=3/4, unchanged; the nonuniform message prior does not prevent OTP perfect secrecy.</p>
+<h2>Practice question - perfect secrecy versus reused keys [8 marks]</h2>
+<p><strong>Inspired by:</strong> CS402 2024/25 Q2(a-b), including Shannon's perfect-security statement and its counting consequences.</p>
+<p><strong>Supplied data and task.</strong> Two one-bit messages are encrypted as C=M XOR K with a uniformly random one-bit key. Show that observing C=0 does not change a prior P(M=0)=3/4. Then show what an adversary learns if the same key encrypts M<sub>1</sub> and M<sub>2</sub>. [8 marks]</p>
+<p><strong>Question-demand diagnosis:</strong> first prove an unchanged posterior, not merely an even ciphertext distribution; then derive the relation created by reuse. <strong>Fastest route:</strong> compute P(C=0)=1/2 and use XOR cancellation.</p>
+<p><strong>Worked answer:</strong> P(M=0,C=0)=P(M=0,K=0)=3/4·1/2=3/8. Also P(C=0)=P(M=0,K=0)+P(M=1,K=1)=3/8+1/8=1/2. Thus P(M=0|C=0)=(3/8)/(1/2)=3/4, exactly the prior; the ciphertext reveals no information about M. With reuse, C<sub>1</sub> XOR C<sub>2</sub>=(M<sub>1</sub> XOR K) XOR (M<sub>2</sub> XOR K)=M<sub>1</sub> XOR M<sub>2</sub>. If one plaintext becomes known, the other follows, so the joint scheme is not perfectly secret.</p>
+<p><strong>Topic-specific trap:</strong> a one-time pad is perfect only with independent, uniform keys as long as the message and used once; a long key is not a substitute for freshness.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Calling any large-key cipher perfectly secure.</li>

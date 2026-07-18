@@ -54,6 +54,12 @@
 <p>Explain why publishing a cipher algorithm is compatible with security, then state one weakness of a Caesar cipher. <strong>Check:</strong> name Kerckhoffs's principle; key secrecy is the assumption; only 26 shifts makes exhaustive search easy.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: with A=0 and E(x)=11x+7 mod 26, decrypt R and decide whether changing b to 8 affects invertibility. Check: 11^{-1}=19, so x=19(17-7)=190=8 mod 26, hence I; b changes the shift but invertibility still depends on gcd(11,26)=1.</p>
+<h2>Practice question - combined classical-cipher calculation [10 marks]</h2>
+<p><strong>Inspired by:</strong> CS402 2024/25 Q1(a-d), which combines a 27-symbol shift, Hill decryption, Kerckhoffs's principle and affine-key validity.</p>
+<p><strong>Supplied data and task.</strong> Work in Z<sub>27</sub> with A=0,...,Z=25 and space=26. A shift sends <code>x</code> to <code>x+3</code>. A Hill system uses K=[[2,1],[1,1]]. (a) decrypt <code>GDO</code> under the shift; (b) decide whether K is a usable key and decrypt the block <code>LO</code>; (c) explain why revealing K would be fatal but revealing the method need not be. [10 marks]</p>
+<p><strong>Question-demand diagnosis:</strong> parts (a) and (b) require a declared convention and reversible modular arithmetic, while part (c) asks for the security principle, not an assertion that every public algorithm is safe. <strong>Fastest route:</strong> subtract 3 for the shift; compute det(K)=1, so K<sup>-1</sup>=[[1,-1],[-1,2]] mod 27 before touching the ciphertext.</p>
+<p><strong>Worked answer:</strong> GDO has residues (6,3,14), so subtraction of 3 gives (3,0,11), namely <code>DAL</code>. For K, det(K)=2·1-1·1=1 and gcd(1,27)=1, so it is invertible. Thus K<sup>-1</sup>=[[1,26],[26,2]]. LO is (11,14)<sup>T</sup>; multiplying gives (11+26·14,26·11+2·14)=(375,314)=(24,17) mod 27, hence <code>YR</code>. The key matrix must remain secret because it lets an attacker invert every ciphertext. Kerckhoffs's principle says the algorithm can be public: security should rest on the secret key, so publication enables scrutiny rather than supplying the decryption capability.</p>
+<p><strong>Topic-specific trap:</strong> a nonzero determinant is not enough over Z<sub>27</sub>; it must be coprime to 27. Never use an ordinary real inverse.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Changing A=0/A=1 conventions halfway through.</li>

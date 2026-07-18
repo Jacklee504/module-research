@@ -52,6 +52,7 @@
 <p>Give BFS pseudocode and find distances, predecessors and a spanning tree. <strong>Check:</strong> FIFO queue, first discovery only, level-based correctness, and note one tree does not list all ties.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: add edge BF and rerun only affected layers. Check F moves from distance 3 to 2 with predecessor B; no vertex can have distance below its BFS discovery layer.</p>
+<h2>Practice question - all shortest paths [9 marks]</h2><p><strong>Inspired by:</strong> CS4423 2024/25 Q4(a-b). <strong>Scenario.</strong> In the undirected graph with edges 0-1, 0-2, 1-3, 2-3, 1-4, 2-4, 3-5, 4-5, run BFS from 0 and list every shortest 0-to-5 path. [9 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> this asks for the FIFO discovery process and all predecessor ties, not one convenient route. Layer the graph: L0={0}, L1={1,2}, L2={3,4}, L3={5}.</p><p><strong>Worked answer:</strong> Set d(0)=0. Discover 1 and 2 with predecessor 0. Processing them discovers 3 and 4 at distance 2; each has predecessor set {1,2}. Processing 3 discovers 5 at distance 3; processing 4 finds another shortest predecessor for 5, so pred(5)={3,4}. Backtracking gives 0-1-3-5, 0-2-3-5, 0-1-4-5, and 0-2-4-5. The shortest distance is 3; no shorter path exists because BFS first discovers 5 in layer 3.</p><p><strong>Topic-specific trap:</strong> overwriting 5's predecessor when 4 is processed silently loses half the shortest paths.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Using a stack.</li>

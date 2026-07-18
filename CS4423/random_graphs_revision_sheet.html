@@ -52,6 +52,7 @@
 <p>Contrast G(n,m) and G(n,p), then derive expected edge count and discuss realism. <strong>Check:</strong> fixed versus random edge count, correct N, and a limitation such as independent edges miss clustering/community structure.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: in G(8,1/4), find the expected isolated vertices. Check a fixed vertex is isolated with probability (3/4)^7, so expectation is 8(3/4)^7; do not multiply by an extra independence factor.</p>
+<h2>Practice question - probability model and expectation [8 marks]</h2><p><strong>Inspired by:</strong> CS4423 2024/25 Q6(a-c). <strong>Scenario.</strong> In G(100,1/2), what is the probability a fixed node has degree 45, and what is the expected number of edges? [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> identify 99 independent incident-edge trials for degree, and C(100,2) possible edges for expectation.</p><p><strong>Worked answer:</strong> A fixed vertex degree is Binomial(99,1/2), so P(deg(v)=45)=C(99,45)(1/2)<sup>45</sup>(1/2)<sup>54</sup>=C(99,45)2<sup>-99</sup>. There are N=C(100,2)=4950 candidate edges, each included with probability 1/2, hence E|E|=Np=2475. These computations use independent edge choices in G(n,p); in G(n,m), edge count is exactly m and individual edge events are not independent in the same way.</p><p><strong>Topic-specific trap:</strong> a chosen node has 99 possible neighbours, not 100, and no independence between different node degrees is needed.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Using n² instead of C(n,2).</li>

@@ -51,6 +51,7 @@
 <p>Encode a labelled tree, reconstruct it, and infer its degree sequence from the code. <strong>Check:</strong> show every leaf choice, use the smallest-label rule, end with final edge, then use occurrences+1.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: encode the tree with edges {12,13,34,35,56}. Check remove leaves 2, then 1, then 4, then 3, recording neighbours (1,3,3,5); length 4=n-2.</p>
+<h2>Practice question - decode and audit a Prüfer code [8 marks]</h2><p><strong>Inspired by:</strong> CS4423 2024/25 Q5(b-c). <strong>Scenario.</strong> Decode the Prüfer code (4,4,2) on labels {1,2,3,4,5}, and give the degree sequence. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> show each smallest-leaf choice; degree can be checked from occurrence counts plus one.</p><p><strong>Worked answer:</strong> Initially the labels absent from the code are leaves 1,3,5. Join smallest leaf 1 to first code entry 4, remove 1 and that entry. Leaves are now 3,5; join 3 to 4. Now 4 no longer occurs and becomes a leaf, so join 4 to 2. The two labels left are 2 and 5, giving final edge 2-5. Thus E={14,34,24,25}. Occurrences in the code are (0,1,0,2,0), so degrees are (1,2,1,3,1), agreeing with the constructed tree.</p><p><strong>Topic-specific trap:</strong> choose the smallest currently available leaf, not the smallest label that has ever been absent.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Recording the leaf rather than its neighbour.</li>

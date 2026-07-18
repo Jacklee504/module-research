@@ -42,6 +42,7 @@
 <strong>2.</strong> Factor x<sup>7</sup>−1 over F<sub>2</sub>, choose a divisor g, state [n,k], and construct two codewords. <strong>Check:</strong> show g divides the modulus and keep polynomial coefficients in F<sub>2</sub>.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: decide whether r(x)=x^6+x^4+x^3+x is in this code. Check division by g over F_2: subtract x^3g=x^6+x^4+x^3, leaving remainder x. The remainder is nonzero, so r is not a codeword; the subtraction is coefficient-wise XOR.</p>
+<h2>Practice question - membership by polynomial division [8 marks]</h2><p><strong>Inspired by:</strong> MA3491 2024/25 Q5(a). <strong>Task.</strong> Over F<sub>2</sub>, let C have length 7 and generator g=x<sup>3</sup>+x+1. Decide whether r=x<sup>6</sup>+x<sup>4</sup>+x<sup>3</sup>+x lies in C. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> a cyclic-code word is a multiple of g modulo x<sup>7</sup>-1; degree 6 permits direct division using XOR subtraction.</p><p><strong>Worked answer:</strong> Cancel x<sup>6</sup> by adding x<sup>3</sup>g=x<sup>6</sup>+x<sup>4</sup>+x<sup>3</sup>. Over F<sub>2</sub> the displayed leading terms cancel, leaving remainder x. Its degree is below deg g and it is nonzero, so g does not divide r and r is not a codeword.</p><p><strong>Topic-specific trap:</strong> subtraction equals addition only because coefficients are in F<sub>2</sub>.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Using any polynomial rather than a divisor of x<sup>n</sup>−1.</li>

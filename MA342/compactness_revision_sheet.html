@@ -41,6 +41,7 @@
 <strong>2. Exam style:</strong> Prove a closed F⊆X is compact when X is compact. <strong>Check:</strong> add X\F to an arbitrary cover of F.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: if X is compact, Y Hausdorff and f:X->Y continuous and bijective, prove f is a homeomorphism. Check a closed F subset X is compact, f(F) is compact, hence closed in Hausdorff Y; thus f is closed and f^{-1} is continuous.</p>
+<h2>Practice question - use an open cover [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q2(b-d). <strong>Task.</strong> Prove that (0,1) is not compact using an explicit open cover, not Heine-Borel. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> exhibit a cover, prove coverage, then defeat every finite subfamily. Take U<sub>n</sub>=(1/n,1), n≥2.</p><p><strong>Worked answer:</strong> For x∈(0,1), choose n&gt;1/x; then 1/n&lt;x&lt;1, so x∈U<sub>n</sub>. Hence {U<sub>n</sub>} covers (0,1). A finite subfamily has a largest index N, and since the U<sub>n</sub> are nested, its union is U<sub>N</sub>=(1/N,1), which misses 1/(N+1). Thus this open cover has no finite subcover and (0,1) is not compact.</p><p><strong>Topic-specific trap:</strong> a cover by sets open in (0,1) need not be open in R; state the ambient space you use.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Choosing a finite cover instead of proving a finite subcover of an arbitrary cover.</li>

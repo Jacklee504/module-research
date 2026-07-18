@@ -41,6 +41,7 @@
 <strong>2.</strong> Compute a weight enumerator from a supplied G, then outline the data required to construct a BCH generator polynomial. <strong>Check:</strong> enumerate all q<sup>k</sup> codewords; name the field, length, designed distance/roots and minimal polynomials.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: compute the weight enumerator of C. Check codewords are 0000,1100,0110,1010, with weights 0,2,2,2, so W_C(z)=1+3z^2; use the convention requested if two variables are used.</p>
+<h2>Practice question - enumerator and duality [8 marks]</h2><p><strong>Task.</strong> For C={0000,1100,0110,1010}, find W<sub>C</sub>(z) and decide whether C is self-dual over F<sub>2</sub>. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> enumerate all supplied words, then compare C with C<sup>⊥</sup>, not just dimensions.</p><p><strong>Worked answer:</strong> The weights are 0,2,2,2, so W<sub>C</sub>(z)=1+3z<sup>2</sup>. C has dimension 2 because 1100 and 0110 are independent. Their dot product is 1, so C is not self-orthogonal; consequently it cannot equal C<sup>⊥</sup>, even though both have dimension 2 in length 4. Dimension equality is necessary for self-duality but not sufficient.</p><p><strong>Topic-specific trap:</strong> never infer self-dual solely from n=2k.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Confusing perfect with MDS.</li>

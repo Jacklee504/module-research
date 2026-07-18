@@ -41,6 +41,7 @@
 <strong>2. Exam style:</strong> Prove a star-shaped U⊆Rⁿ is simply connected. <strong>Check:</strong> contract U to its star centre, then contract loops.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: explain why S^1 is not contractible using the supplied theorem that a retraction D^2->S^1 cannot exist. Check if S^1 contracted, the standard extension argument would construct such a retraction; clearly state dependence on the no-retraction theorem rather than treating a picture as proof.</p>
+<h2>Practice question - explicit contraction [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q4(e). <strong>Task.</strong> Show the unit disk D<sup>2</sup> is contractible, then state the simply-connected conclusion. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> provide a continuous homotopy that stays in D<sup>2</sup>, with both endpoint conditions.</p><p><strong>Worked answer:</strong> Define H:D<sup>2</sup>×[0,1]→D<sup>2</sup> by H(x,t)=(1-t)x. It is continuous. If ||x||≤1 then ||H(x,t)||=(1-t)||x||≤1, so it has the stated codomain. H(x,0)=x and H(x,1)=0, the constant map at the origin. Thus id<sub>D2</sub> is homotopic to a constant map, so D<sup>2</sup> is contractible. Every loop contracts by composing its homotopy with this contraction, so D<sup>2</sup> is simply connected.</p><p><strong>Topic-specific trap:</strong> contracting in the surrounding plane is insufficient unless the entire homotopy remains inside the space.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Giving a family H without endpoint checks.</li>

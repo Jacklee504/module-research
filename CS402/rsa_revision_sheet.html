@@ -57,6 +57,12 @@
 <p>Explain why an RSA public key may be published but <em>d</em> must not be. <strong>Check:</strong> distinguish public encryption parameters from the factorisation/private inverse; do not claim RSA is secure merely because exponentiation is hard.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: prove RSA correctness for every residue m mod pq. Check modulo p: if p divides m both sides are 0; otherwise Fermat and ed=1 mod p-1 give m^{ed}=m. Repeat modulo q, then CRT implies equality mod pq. This closes the gap in the coprime-only Euler proof.</p>
+<h2>Practice question - validating and using an RSA key [9 marks]</h2>
+<p><strong>Inspired by:</strong> CS402 2024/25 Q3(a-c), which asks for RSA steps, key validity and a modular encryption calculation.</p>
+<p><strong>Supplied data and task.</strong> Let p=7, q=11 and e=13. Construct the public and private keys, encrypt m=9, and state one reason this classroom key is insecure in practice. [9 marks]</p>
+<p><strong>Question-demand diagnosis:</strong> key generation needs phi(n), a gcd check and a displayed inverse; encryption is a separate modular-power calculation. <strong>Fastest route:</strong> n=77, phi=60, and 13·37=481=1 mod 60, so d=37.</p>
+<p><strong>Worked answer:</strong> Since gcd(13,60)=1, e is valid. The public key is (n,e)=(77,13), and d=37 is the private exponent. For encryption, 9<sup>2</sup>=81=4, 9<sup>4</sup>=16, 9<sup>8</sup>=256=25 modulo 77; hence 9<sup>13</sup>=9<sup>8</sup>·9<sup>4</sup>·9=25·16·9=3600=58 mod 77. Thus c=58. Decryption uses m=c<sup>37</sup> mod 77, which returns 9 because ed=1 modulo phi(77). This is insecure because n=77 has tiny, immediately factorable primes; real RSA uses suitably generated very large primes and secure padding.</p>
+<p><strong>Topic-specific trap:</strong> e need not be prime; the required condition is gcd(e,phi(n))=1. Do not use phi(n)=n-1 for a composite modulus.</p>
 <h2>Common mistakes</h2>
 <ul>
 <li>Using <em>n</em> instead of <em>φ(n)</em> when finding <em>d</em>.</li>

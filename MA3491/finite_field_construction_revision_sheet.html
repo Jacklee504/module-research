@@ -41,6 +41,7 @@
 <strong>2.</strong> Justify that x<sup>2</sup>+2 over F<sub>5</sub> is reducible or irreducible, then construct the appropriate quotient if irreducible. <strong>Check:</strong> test roots; 2 is not a square mod 5, so irreducible.</p>
 <h3>Hard paper-style synthesis</h3>
 <p>Paper-style synthesis: explain why x^2+x+1 does not construct F_4 over F_2. Check f(1)=1+1+1=1 mod 2 and f(0)=1, so it actually has no root and is irreducible; therefore it does construct F_4. Correct the premise rather than forcing the requested conclusion.</p>
+<h2>Practice question - construct F<sub>25</sub> [8 marks]</h2><p><strong>Inspired by:</strong> MA3491 2024/25 Q2(a-b). <strong>Task.</strong> Show x<sup>2</sup>+x+1 is irreducible over F<sub>5</sub>, then present F<sub>25</sub>. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> a quadratic is irreducible iff it has no root; evaluate all five residues, then give quotient, basis and reduction relation.</p><p><strong>Worked answer:</strong> For a=0,1,2,3,4 the values are 1,3,2,3,1 modulo 5, none zero. Thus f=x<sup>2</sup>+x+1 is irreducible. F<sub>25</sub>=F<sub>5</sub>[x]/(f). Writing α=[x], f(α)=0 gives α<sup>2</sup>=-α-1=4α+4. Every field element is uniquely a+bα with a,b∈F<sub>5</sub>, giving 5<sup>2</sup>=25 elements and basis {1,α}.</p><p><strong>Topic-specific trap:</strong> testing only 0 and 1 is sufficient over F<sub>2</sub>, not over F<sub>5</sub>.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Using a reducible modulus.</li>
