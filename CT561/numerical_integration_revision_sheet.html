@@ -65,6 +65,7 @@
 <h3>Exam bridge</h3>
 <p>Given a changing inflow/outflow graph, sketch the stock and explain where it rises, falls and peaks. <strong>Check:</strong> use the sign of net flow; a stock peaks where net flow crosses from positive to negative.</p>
 <h2>High-value traps and corrections</h2>
+<p><strong>Paper basis for the integrated practice:</strong> local 2018/19 Question 1(b), 2019/20 Question 1(b,c), and 2025/26 Question 1(b) verified Euler integration; this reservoir scenario is newly written.</p>
 <h2>Integrated paper-style practice - Euler stock update [8 marks]</h2><p><strong>Scenario.</strong> A reservoir starts at 100 ML. Inflow is 20 ML/day; outflow is 10% of current stock/day; DT=1 day. Calculate two Euler updates and explain one source of approximation error.</p><p><strong>Question-demand diagnosis:</strong> calculate rates at the start of each interval and retain units.</p><p><strong>Fastest route:</strong> net at day 0 is 20−10=10, then recompute from the new stock.</p><p><strong>Worked answer:</strong> S1=100+10(1)=110 ML. At day 1 the outflow is 11 ML/day, so net is 9 and S2=119 ML. Euler holds the start-of-step rate constant across each day. Because outflow rises continuously with stock, a large DT can misestimate the area under the net-flow curve; reduce DT and check convergence, but do not claim that this validates the reservoir model.</p><p><strong>Topic-specific trap:</strong> never add a rate to a stock without multiplying by DT.</p>
 <ul>
 <li>Adding a rate directly to a stock without × DT.</li>

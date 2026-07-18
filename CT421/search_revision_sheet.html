@@ -157,6 +157,7 @@
         <p><strong>Worked answer:</strong> Left MIN returns min(3,5)=3, so MAX's alpha becomes 3. Right MIN's first child returns 2, so its beta is 2. Because beta &le; alpha, the unvisited leaf cannot make right MIN return a value above 2, and cannot displace MAX's already available value 3. Prune it. The root chooses the left move with minimax value 3. The prune changes work, not the minimax decision. With a depth limit, terminal values would instead be heuristic evaluations and should be justified as estimates.</p>
         <p><strong>Topic-specific trap:</strong> never prune a branch merely because its current value looks poor without comparing the relevant alpha and beta bounds.</p>
         <h2>High-value traps and final review</h2>
+        <p><strong>Paper basis for the integrated practice:</strong> local 2021/22 Question 1(b), 2022/23 Question 1(a), and 2024/25 Question 1(a) verified minimax and alpha-beta families; this tree is newly written.</p>
         <h3>Worked example: choosing BFS</h3>
         <p>
 <strong>Problem:</strong> A maze has equal-cost moves and the goal is first found at depth 3. Which basic search should find a shortest route?</p>

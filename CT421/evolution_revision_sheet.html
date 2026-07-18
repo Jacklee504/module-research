@@ -156,6 +156,7 @@
         <p><strong>Worked answer:</strong> Encode chromosome position i as X or Y for job i. Its fitness can be the negative maximum load, minus a very large penalty for assigning job 1 to Y or job 4 to X. Tournament selection favours lower makespan allocations. Crossover exchanges assignment segments; mutation moves one compatible job or swaps assignments. Both may produce an illegal gene, so repair it to the only compatible server before scoring. Preserve the best valid chromosome but retain mutation or diverse selection so the population does not converge prematurely on an unbalanced allocation.</p>
         <p><strong>Topic-specific trap:</strong> a penalty is not a substitute for saying how crossover-generated infeasibility is handled.</p>
         <h2>High-value traps and final review</h2>
+        <p><strong>Paper basis for the integrated practice:</strong> syllabus/concept practice. Local papers verify genetic-algorithm allocation families, but this server allocation was not traced to a specific prompt.</p>
         <h3>Worked example: fitness for a small allocation</h3>
         <p>
 <strong>Problem:</strong> A chromosome assigns three tasks to processors. It has completion cost 12 but exceeds one memory limit by 2 units; use a penalty of 10 per excess unit.</p>

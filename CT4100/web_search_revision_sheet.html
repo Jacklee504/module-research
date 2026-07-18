@@ -63,6 +63,7 @@
 <h3>Exam bridge</h3>
 <p>Compare PageRank and HITS for ranking university pages. <strong>Outline:</strong> graph evidence; one versus two scores; global versus query-focused use; iteration; link manipulation and topical relevance.</p>
 <h2>High-value traps and corrections</h2>
+<p><strong>Paper basis for the integrated practice:</strong> local 2025/26 PageRank/HITS material was verified; this one-iteration calculation is newly written rather than a paper adaptation.</p>
 <h2>Integrated paper-style practice - one PageRank update [8 marks]</h2><p><strong>Scenario.</strong> A and B link to C. A has PR .30 and two outgoing links; B has PR .20 and one. With d=.85 and N=3, calculate C's next PR and explain what HITS hubs add.</p><p><strong>Question-demand diagnosis:</strong> distribute authority over outgoing links, then distinguish hubs from authorities.</p><p><strong>Fastest route:</strong> add .30/2+.20, multiply by .85, add (1−.85)/3.</p><p><strong>Worked answer:</strong> C receives .35, so its next score is .05+.85(.35)=.3475. B passes its entire score to C; A splits it. HITS additionally identifies pages pointing to many good authorities as hubs, such as a departmental directory, while the definitive course page can be an authority. Link evidence needs content and spam controls because link farms can distort both signals.</p><p><strong>Topic-specific trap:</strong> teleportation is not added once for every inbound link.</p>
 <ul>
 <li>Forgetting to divide a source score by its outdegree.</li>

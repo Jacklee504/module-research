@@ -64,6 +64,7 @@
 <h3>Exam bridge</h3>
 <p>Explain how clustering could diversify search results. <strong>Outline:</strong> form topical clusters; select representatives; benefit for ambiguous queries; choose k/quality measure; failure mode.</p>
 <h2>High-value traps and corrections</h2>
+<p><strong>Paper basis for the integrated practice:</strong> syllabus/concept practice, not claimed as an adaptation of a verified local-paper prompt.</p>
 <h2>Integrated paper-style practice - cluster research abstracts [8 marks]</h2><p><strong>Scenario.</strong> TF-IDF abstracts are A=(4,0), B=(3,1), C=(0,4), D=(1,3); dimensions are retrieval and biology terms. Starting centroids are A and C. Run one k-means assignment/update step and state one limitation.</p><p><strong>Question-demand diagnosis:</strong> “run one step” requires assignments and new centroids, not a definition.</p><p><strong>Fastest route:</strong> compare squared distances, then mean the assigned points.</p><p><strong>Worked answer:</strong> B is distance squared 2 from A and 18 from C, so joins A; D is 18 from A and 2 from C, so joins C. New centroids are (3.5,.5) and (.5,3.5). Later iterations repeat this until stable. The clusters reflect the chosen vocabulary and k, not independently understood themes; synonymy, polysemy and length can mislead, so normalisation and qualitative inspection are required.</p><p><strong>Topic-specific trap:</strong> a k-means centroid is a mean, not necessarily an original document.</p>
 <ul>
 <li>Updating centroids before all assignments are considered.</li>

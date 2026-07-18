@@ -64,6 +64,7 @@
 <h3>Exam bridge</h3>
 <p>Design recommendations for an online course platform. <strong>Outline:</strong> signals; algorithm; cold-start path; accuracy plus completion/diversity measures; privacy and feedback-loop risk.</p>
 <h2>High-value traps and corrections</h2>
+<p><strong>Paper basis for the integrated practice:</strong> local 2021/22 Question 1(a) verified collaborative-filtering recommendation design; this ratings table is newly written.</p>
 <h2>Integrated paper-style practice - neighbour recommendation [8 marks]</h2><p><strong>Scenario.</strong> Maya rates A=5, B=1 and has not seen C. Leon rates A=4, B=1, C=5; Noor rates A=1, B=5, C=1. Predict C and state one cold-start limitation.</p><p><strong>Question-demand diagnosis:</strong> use shared ratings to identify a useful neighbour, rather than averaging all C ratings.</p><p><strong>Fastest route:</strong> compare A/B patterns, then use a positively similar, mean-centred or weighted estimate.</p><p><strong>Worked answer:</strong> Leon aligns with Maya, liking A and disliking B; Noor is anti-correlated. A collaborative filter should give Leon a strong positive weight and predict a high C rating. Averaging Leon and Noor would discard the preference evidence. A new user has no overlap for similarity, so onboarding ratings, content features or a popularity prior are needed; a new item has the analogous interaction-data problem.</p><p><strong>Topic-specific trap:</strong> similarity needs ratings on the same items.</p>
 <ul>
 <li>Calling missing data a negative rating.</li>
