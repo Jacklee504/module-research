@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Homotopy and Simply Connected Spaces</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Homotopy and Simply Connected Spaces</h1>
+<p>Make deformation arguments explicit through a continuous parameter.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>State a homotopy precisely, construct elementary contractions, and distinguish simple connectedness from mere connectedness.<strong>Exam use:</strong> Formula, continuity, image containment, endpoint maps and base/path conditions appear.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Identify the two maps f,g:X→Y.</li>
+<li>Give H:X×[0,1]→Y with H(x,0)=f(x), H(x,1)=g(x).</li>
+<li>Check H remains in Y and is continuous.</li>
+<li><strong>Question interpretation:</strong> For homotopic, supply a continuous H(x,t) with both endpoint maps; for simply connected, include path-connectedness and contract every based loop.</li>
+</ol>
+<h2>Definitions</h2>
+<p>f and g are <strong>homotopic</strong> if such a continuous H exists. X is <strong>simply connected</strong> if it is path connected and every loop is homotopic to a constant loop. A star-shaped subset of Rⁿ is contractible, hence simply connected.<strong>Rapid recall:</strong> A homotopy H:Xx[0,1]->Y satisfies H(x,0)=f(x), H(x,1)=g(x). A contraction is a homotopy from id_X to a constant; contractible spaces are simply connected when nonempty.</p>
+<h2>Proof method</h2>
+<p>For a star-shaped set with centre x₀, use H(x,t)=(1−t)x+tx₀. The line segment condition keeps H in X; polynomial operations give continuity.<strong>Exam workflow:</strong> Write the candidate formula, verify it stays inside the target, prove continuity, and check both t=0 and t=1 exactly.</p>
+<h2>Worked simple example</h2>
+<p>R² is contractible: H(x,t)=(1−t)x deforms the identity to the constant map at 0.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Show the unit disk D^2 is contractible. Define H(x,t)=(1-t)x. Since ||H(x,t)||=(1-t)||x||&lt;=1, the image remains in D^2; scalar multiplication is continuous; H(x,0)=x and H(x,1)=0. Therefore id_D is homotopic to the constant map, so every loop contracts and D^2 is simply connected.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Show any two constant maps X→R are homotopic. <strong>Check:</strong> linearly interpolate their values.</p>
+<p>
+<strong>2. Exam style:</strong> Prove a star-shaped U⊆Rⁿ is simply connected. <strong>Check:</strong> contract U to its star centre, then contract loops.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: explain why S^1 is not contractible using the supplied theorem that a retraction D^2->S^1 cannot exist. Check if S^1 contracted, the standard extension argument would construct such a retraction; clearly state dependence on the no-retraction theorem rather than treating a picture as proof.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Giving a family H without endpoint checks.</li>
+<li>Failing to prove H takes values in the target space.</li>
+<li>Calling a connected space simply connected without addressing loops.</li>
+<li><strong>Recovery rule:</strong> A formula that leaves the space is not a homotopy in that space; verify the codomain condition for every t.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can write the domain and endpoint equations of H.</li>
+<li>I can contract a star-shaped set.</li>
+<li>I know S¹ is connected but not simply connected.</li>
+<li><strong>Final 60-second audit:</strong> Formula, continuity, image containment, endpoint maps and base/path conditions appear.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>Medium-high confidence:</strong> homotopy appears in both latest papers; simply connected/star-shaped work is explicit in 2023/24. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

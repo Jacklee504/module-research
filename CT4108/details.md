@@ -76,6 +76,12 @@ Unknown. There are no past papers currently available in this project, so there 
 
 CT4108 sounds academically interesting, especially if distributed systems, GPU programming, and parallel computing are appealing. From a marks-strategy perspective, it is currently uncertain: the CA is useful but only 30%, and the 70% exam has no past-paper evidence available yet. Treat it as interesting but higher exam risk until more assessment material is found.
 
+## Predictability Audit (2026-07-17)
+
+- **Status: Unknown / low confidence.** No local `CT4108/*.pdf` past-paper files are present, so no repeated paper pattern can be inferred.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT4108) supports distributed systems, message passing/replication, distributed algorithms, GPU/parallel computing and large-data technologies.
+- **Decision:** use the official outcomes to plan study, but make no forecast about assessment format, programming versus theory balance, or recurring questions.
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
@@ -87,3 +93,16 @@ Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or v
 - Distributed transactions: two-phase commit, sagas and compensation patterns.
 - Microservices communication: REST, gRPC, message queues and idempotency.
 - Observability for distributed systems: tracing, metrics, logs and failure diagnosis.
+
+## Topic Guides
+
+These beginner guides use the official CT4108 topic scope only. They support practice but do not predict the exam.
+
+- [Distributed foundations](distributed_foundations_revision_sheet.html)
+- [Message passing](message_passing_revision_sheet.html)
+- [Replication and consistency](replication_consistency_revision_sheet.html)
+- [Distributed algorithms](distributed_algorithms_revision_sheet.html)
+- [Concurrency and mutual exclusion](concurrency_mutual_exclusion_revision_sheet.html)
+- [Transactions and fault tolerance](transactions_fault_tolerance_revision_sheet.html)
+- [GPU and parallel programming](gpu_parallel_programming_revision_sheet.html)
+- [HPC, storage and large data](hpc_storage_large_data_revision_sheet.html)

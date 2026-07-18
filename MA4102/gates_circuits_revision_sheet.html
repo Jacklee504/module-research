@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4102 Gates and Circuits</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4102 overview</a>
+</nav>
+<p class="eyebrow">MA4102 Topic Guide</p>
+<h1>Gates and Circuits</h1>
+<p>Read a circuit in time order and preserve qubit ordering in every tensor product.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Controlled gates, Hadamards and circuit outputs are stable calculation targets.<strong>Exam use:</strong> Basis/qubit order, control-target roles, intermediate states, normalisation and final measurement interpretation are labelled.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Declare the basis order, normally |00&rang;,|01&rang;,|10&rang;,|11&rang;.</li>
+<li>Apply gates from right to left in an algebraic product, or left to right in a drawn circuit.</li>
+<li>Use tensor products for single-qubit gates on a register.</li>
+<li>Measure only after the final state is obtained.</li>
+<li><strong>Question interpretation:</strong> Read circuit time left-to-right but multiply matrices in operator order; declare whether |q0 q1> or another qubit ordering indexes the basis.</li>
+</ol>
+<h2>Notation and derivation</h2>
+<p>H|0&rang;=(|0&rang;+|1&rang;)/&radic;2, H|1&rang;=(|0&rang;−|1&rang;)/&radic;2. CNOT maps |c,t&rang; to |c,t&oplus;c&rang;; it is linear, so apply it term-by-term to a superposition.<strong>Rapid recall:</strong> H|0>=|+>, H|1>=|->; CNOT maps |a,b> to |a,a xor b>; tensor products act on ordered subsystems and unitary gates preserve norm.<strong>Exam workflow:</strong> Expand the state in the computational basis, apply each gate linearly, collect amplitudes, and use norm or reversibility as a check.</p>
+<h2>Worked calculation</h2>
+<p>Start |00&rang;. Apply H to qubit one: (|00&rang;+|10&rang;)/&radic;2. CNOT (first control) gives (|00&rang;+|11&rang;)/&radic;2, a Bell state.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Start |00>. Apply H on the first qubit: (|00>+|10>)/sqrt2. Apply CNOT with first control: (|00>+|11>)/sqrt2. Apply Z on the second: (|00>-|11>)/sqrt2. Z-basis outcomes 00 and 11 each have probability 1/2; the relative minus is invisible in this measurement but changes later interference.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Find XH|0&rang;. <strong>Check:</strong> X|+&rang;=|+&rang;.</p>
+<p>
+<strong>2.</strong> Compute the output of CNOT(H&otimes;I)|01&rang; in the stated ordering. <strong>Check:</strong> distribute CNOT across both terms.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: apply the inverse circuit CNOT then H on qubit 1 to (|00>+|11>)/sqrt2. Check CNOT gives (|00>+|10>)/sqrt2=|+0>, then H gives |00>.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Reversing matrix/circuit order.</li>
+<li>Changing control and target.</li>
+<li>Using a different basis order halfway through.</li>
+<li><strong>Recovery rule:</strong> Gate diagrams and matrix products use opposite-looking orders; write the state after each gate to avoid reversing time.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can write H, X, Z and CNOT actions.</li>
+<li>I annotate control/target and qubit order.</li>
+<li>I can convert the output to probabilities.</li>
+<li><strong>Final 60-second audit:</strong> Basis/qubit order, control-target roles, intermediate states, normalisation and final measurement interpretation are labelled.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>CNOT/Hadamard, controlled-H and circuit-output questions occur in 2022–26. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

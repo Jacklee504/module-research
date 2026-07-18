@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4344 Cosets and Normality</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4344 overview</a>
+</nav>
+<p class="eyebrow">MA4344 Topic Guide</p>
+<h1>Cosets and Normal Subgroups</h1>
+<p>Use cosets to count, and normality to form quotients.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Prove left/right coset facts and deploy the high-yield index-2 normality argument.<strong>Exam use:</strong> Coset side, partition/count, normality criterion, counterexample element and quotient permission are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Write the relevant left and right cosets.</li>
+<li>Use the coset equivalence criterion or a bijection to count.</li>
+<li>For normality, prove gH=Hg for every g, or use a kernel/index argument.</li>
+<li>Only form G/H after normality is established.</li>
+<li><strong>Question interpretation:</strong> For cosets, prove equality/disjointness before counting; for normality, use a correct equivalent test; for quotient, verify normality before multiplying cosets.</li>
+</ol>
+<h2>Key terms</h2>
+<p>gH, Hg, index, normal subgroup H&triangleleft;G, quotient group. Left and right cosets have equal cardinality; in a finite group their numbers agree.<strong>Rapid recall:</strong> Left cosets partition G and each has |H| elements; H normal iff gH=Hg for all g iff gHg^{-1}=H; every index-2 subgroup is normal.</p>
+<h2>Proof method</h2>
+<p>If [G:H]=2, there are just H and G\H as left cosets, and just H and G\H as right cosets. Thus gH=Hg for each g, so H is normal.<strong>Exam workflow:</strong> Start from a nonempty intersection to prove two cosets equal, apply the partition to get Lagrange, and use the smallest suitable normality criterion.</p>
+<h2>Worked simple proof</h2>
+<p>
+<strong>Claim:</strong> every subgroup H of index 2 is normal. If g&isin;H then gH=H=Hg. If g&notin;H, both gH and Hg are the unique coset other than H, hence equal.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Prove index 2 implies normal. There are exactly two left cosets: H and GH; likewise the right cosets are H and GH. For g in H, gH=H=Hg. For g notin H, both gH and Hg are the unique non-H coset GH. Hence gH=Hg for every g and H is normal.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> List the left cosets of 2Z in Z. <strong>Check:</strong> 2Z and 1+2Z.</p>
+<p>
+<strong>2.</strong> Let H&le;G and |G|=30, |H|=15. Prove H&triangleleft;G and state |G/H|. <strong>Check:</strong> index 2; quotient has order 2.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: in S3 let H={&lt;e>,(12)}. List left and right cosets and decide normality. Check (13)H={(13),(123)} while H(13)={(13),(132)}, so H is not normal despite having order 2.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Treating left and right cosets as equal without normality.</li>
+<li>Writing a quotient by a non-normal subgroup.</li>
+<li>Assuming a subgroup of any small index is normal.</li>
+<li><strong>Recovery rule:</strong> A subgroup of order 2 need not be normal; the automatic theorem is index 2.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can use aH=bH iff b<sup>−1</sup>a&isin;H.</li>
+<li>I can prove index 2 implies normal.</li>
+<li>I can separate coset counting from quotient construction.</li>
+<li><strong>Final 60-second audit:</strong> Coset side, partition/count, normality criterion, counterexample element and quotient permission are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: cosets, left/right index equality and index-2 normality are explicit recent-paper targets. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS4423 BFS and Shortest Paths</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CS4423 overview</a>
+</nav>
+<p class="eyebrow">CS4423 Topic Guide</p>
+<h1>BFS and Shortest Paths</h1>
+<p>Explore level by level to obtain unweighted shortest-path distances.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose and relevance</h2>
+<p>BFS is the safest recurring local pattern and directly supports the official traversal outcome. In an unweighted graph it finds minimum-hop distance from a source.<strong>Exam use:</strong> Neighbour order, every queue transition, distances, predecessors and the requested reconstructed path agree.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>Name the source, show queue/levels, record each first discovery’s predecessor, then report distances and BFS tree. Say “shortest in edges”, not necessarily lowest weight.<strong>Question interpretation:</strong> For traverse, obey the stated neighbour order; for shortest path, record predecessor as well as distance; for justify, invoke the layer invariant.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>
+<strong>Queue:</strong> FIFO frontier; <strong>predecessor:</strong> vertex that first discovers another.</li>
+<li>dist(s)=0; first-discovered v from u gets dist(v)=dist(u)+1.</li>
+<li>Predecessor edges form a BFS tree of the reachable component.</li>
+<li>For positive weighted edges, use Dijkstra, not ordinary BFS.</li>
+<li><strong>Rapid recall:</strong> BFS uses a FIFO queue and assigns unweighted distance d(s,v) when v is first discovered; vertices leave the queue in nondecreasing distance.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Discover and enqueue s with distance 0.</li>
+<li>Dequeue u; scan neighbours in stated order.</li>
+<li>For each undiscovered v, set predecessor u, distance+1, enqueue.</li>
+<li>Follow predecessors backwards to reconstruct a path.</li>
+<li><strong>Exam workflow:</strong> Maintain queue, visited, distance and predecessor columns, and reconstruct a path by following predecessors backwards.</li>
+</ol>
+<h2>Worked starter question and model answer</h2>
+<p>
+<strong>Question:</strong> A-B, A-C, B-D, C-D; start A alphabetically.</p>
+<p>
+<strong>Model answer:</strong> Levels: {A}, {B,C}, {D}. B←A, C←A, D←B; distances 0,1,1,2. A-B-D is one shortest A–D path; A-C-D is another.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>On edges AB, AC, BD, CE, DE, EF, run BFS from A with alphabetical neighbours. Queue states: [A]; after A, [B,C] with d=1; after B, [C,D] with d(D)=2; after C, [D,E] with d(E)=2; after D no new vertex; after E, [F] with d(F)=3. Predecessors A&lt;-B&lt;-D and A&lt;-C&lt;-E&lt;-F show a shortest A-F path A-C-E-F of length 3.</p>
+<h2>Graduated practice</h2>
+<h3>Prompt 1</h3>
+<p>What is an unreachable vertex’s BFS distance? <strong>Check:</strong> ∞/undefined and no predecessor.</p>
+<h3>Exam bridge</h3>
+<p>Give BFS pseudocode and find distances, predecessors and a spanning tree. <strong>Check:</strong> FIFO queue, first discovery only, level-based correctness, and note one tree does not list all ties.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: add edge BF and rerun only affected layers. Check F moves from distance 3 to 2 with predecessor B; no vertex can have distance below its BFS discovery layer.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Using a stack.</li>
+<li>Overwriting predecessors after first discovery.</li>
+<li>Applying BFS to arbitrary weighted edges.</li>
+<li><strong>Recovery rule:</strong> Mark a vertex visited when it is enqueued, not when dequeued, or duplicate queue entries can corrupt the predecessor tree.</li>
+</ul>
+<h2>Final checklist</h2>
+<ul>
+<li>Are queue order and tie-breaking visible?</li>
+<li>Did I separate distances from tree edges?</li>
+<li>Did I state the unweighted assumption?</li>
+<li><strong>Final 60-second audit:</strong> Neighbour order, every queue transition, distances, predecessors and the requested reconstructed path agree.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>BFS appears in every reviewed 2017/18–2024/25 paper through distances, predecessors, trees or shortest paths. Official scope supports traversal, not exact wording.</p>
+<p>
+<a href="details.html">Back to CS4423 overview</a>
+</p>
+</article>
+</main>
+</body>
+</html>

@@ -114,6 +114,23 @@ Main implication: the module appears to have moved back to Semester 1. The 2024/
 
 CT561 looks like a strong predictable module if system dynamics and diagram/equation modelling suit you. Lecturer continuity is good, and the paper pattern is highly repetitive. The main caution is planning: the current page and 2025/26 paper place it in Semester 1, even though 2024/25 was Semester 2.
 
+## Topic Guides
+
+- [Stock-and-flow modelling](stock_flow_modelling_revision_sheet.html)
+- [Feedback loops](feedback_loops_revision_sheet.html)
+- [Numerical integration](numerical_integration_revision_sheet.html)
+- [SIR and public-health models](sir_public_health_models_revision_sheet.html)
+- [Workforce and stock management](workforce_stock_management_revision_sheet.html)
+- [Vensim, validation and policy analysis](vensim_validation_policy_analysis_revision_sheet.html)
+- [Continuous versus agent-based simulation](continuous_vs_agent_based_simulation_revision_sheet.html)
+- [Supporting simulation concepts](supporting_simulation_concepts_revision_sheet.html)
+
+## Predictability Audit (2026-07-17)
+
+- **Status: High.** Local evidence is `2016_2017.pdf`, `2017_2018.pdf`, `2018_2019.pdf`, `2019_2020.pdf`, `2021_2022.pdf`, `2023_2024.pdf`, `2024_2025.pdf`, and `2025_2026.pdf`; stock-flow models, feedback, numerical integration and system-dynamics scenarios recur through the long archive.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT561) still names system dynamics, feedback, numerical integration, sensitivity analysis and Vensim, directly supporting the repeated core.
+- **Decision:** High applies to modelling skills and topic families; use the current Semester 1 offering and teaching material for timing and exact wording.
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Connectedness</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Connectedness</h1>
+<p>Use separations and continuous images to transfer interval intuition.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Prove a space is connected, find a separation when it is not, and apply the continuous-image theorem.<strong>Exam use:</strong> Nonempty, disjoint, open-in-space and union conditions are all checked, or the preservation theorem's hypotheses are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Write a proposed separation as two disjoint nonempty open sets covering X.</li>
+<li>For positive results, use a known connected source and a continuous surjection.</li>
+<li>For homeomorphism questions, compare what point removal does to connectedness.</li>
+<li><strong>Question interpretation:</strong> For prove connected, rule out a separation or use a continuous image; for disprove, give two nonempty disjoint open-in-the-space sets whose union is the space.</li>
+</ol>
+<h2>Definitions</h2>
+<p>X is <strong>connected</strong> if it has no separation X=U∪V with U,V disjoint nonempty open subsets. A continuous image of a connected space is connected. Intervals in R are connected.<strong>Rapid recall:</strong> A separation is X=U union V with U,V disjoint, nonempty and open in X. Continuous images of connected spaces are connected; connected subsets of R are intervals.</p>
+<h2>Proof method</h2>
+<p>Assume f(X)=U∪V is a separation. Then f⁻¹(U),f⁻¹(V) are a separation of X, contradicting connectedness.<strong>Exam workflow:</strong> Assume a separation, push it through a map or exploit an intermediate-value argument, and explicitly obtain the contradiction to nonemptiness/disjointness.</p>
+<h2>Worked simple example</h2>
+<p>[0,1] is connected. Hence f([0,1]) is connected for any continuous f; for f(t)=e²πit this gives connectedness of S¹.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Show X={(x,y) in R^2: xy=1} is disconnected. Let U=X intersect {x>0} and V=X intersect {x&lt;0}. They are open in the subspace X, disjoint, nonempty ((1,1) in U and (-1,-1) in V), and U union V=X because xy=1 forbids x=0. Thus U,V form a separation.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Show {0,1} with the discrete topology is disconnected. <strong>Check:</strong> {0} and {1} separate it.</p>
+<p>
+<strong>2. Exam style:</strong> If f:X→Y is continuous and onto and X connected, prove Y connected. <strong>Check:</strong> pull a separation of Y back under f.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove the closure of a connected set A is connected. Check if cl(A)=U union V were a separation and A met both, intersections would separate A; so A lies in one, say U. Since U is also closed in cl(A), cl(A) subset U, contradicting nonempty V.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Forgetting the sets in a separation must be nonempty.</li>
+<li>Using images rather than preimages in the theorem proof.</li>
+<li>Assuming every connected space is path connected.</li>
+<li><strong>Recovery rule:</strong> The separating sets need only be open in the subspace under discussion, not necessarily open in the ambient space.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state a separation exactly.</li>
+<li>I can use the continuous-image proof.</li>
+<li>I can build a simple disconnected counterexample.</li>
+<li><strong>Final 60-second audit:</strong> Nonempty, disjoint, open-in-space and union conditions are all checked, or the preservation theorem's hypotheses are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> connectedness, surjections and homeomorphism distinctions recur throughout the newest format. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

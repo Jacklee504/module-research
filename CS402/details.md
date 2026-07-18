@@ -93,6 +93,12 @@ High, with a lecturer-change warning. CS402 is one of the more predictable modul
 
 CS402 is highly predictable at syllabus/topic level but has lecturer-change risk. It is a good choice if you are comfortable with modular arithmetic, number theory and calculation-heavy exams, but current teaching materials should be weighted above exact past-paper formatting. The 30% CA is useful, but the 70% exam means the main decision should be whether the maths style and current lecturer approach suit you.
 
+## Predictability Audit (2026-07-17)
+
+- **Status: High for core topics and calculation forms; not a promise of lecturer-specific wording.** Local evidence is `2017_2018.pdf`, `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`; the four-question format is stable from 2018/19 onward, unlike the older ten-question paper.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CS402) retains substitution ciphers, RSA, primality/factorisation, Diffie-Hellman/ElGamal and elliptic curves. It supports the core calculations, while the listed current staff do not establish that the latest past-paper setter continues.
+- **Decision:** retain High only at syllabus/topic level and prioritise current teaching materials for exact emphasis.
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
@@ -103,3 +109,12 @@ Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or v
 - LFSRs and stream ciphers: period, connection polynomial and keystream generation.
 - Diffie-Hellman and ElGamal: numerical shared-key/encryption examples over finite fields.
 - Elliptic curve cryptography basics: point addition over finite fields and why ECC is used.
+
+## Topic Guides
+
+- [Classical ciphers](classical_ciphers_revision_sheet.html): shifts, affine/Hill ciphers and Kerckhoffs's principle.
+- [Symmetric crypto and perfect security](symmetric_perfect_security_revision_sheet.html): Shannon/OTP, stream/block ciphers and LFSRs.
+- [RSA](rsa_revision_sheet.html): key construction, modular exponentiation and correctness.
+- [Number theory and primality](number_theory_primality_revision_sheet.html): inverses, fast powers and cautious primality testing.
+- [Public-key protocols](public_key_protocols_revision_sheet.html): Diffie–Hellman and ElGamal.
+- [Elliptic-curve cryptography](elliptic_curve_cryptography_revision_sheet.html): finite-field points and group arithmetic.

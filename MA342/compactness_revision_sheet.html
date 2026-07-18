@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Compactness</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Compactness</h1>
+<p>Convert arbitrary open covers into finite arguments.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>State compactness exactly and deploy the standard closed-subset and continuous-image proof patterns.<strong>Exam use:</strong> The cover is arbitrary when proving compactness, explicit when disproving it, and every theorem hypothesis is named.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Begin with an arbitrary open cover.</li>
+<li>Identify the finite subcover supplied by a known compact set.</li>
+<li>For a closed subset, add the open complement and remove it after selecting finitely many sets.</li>
+<li><strong>Question interpretation:</strong> For prove compact, begin with an arbitrary open cover; for disprove, exhibit one explicit cover with no finite subcover; for preserve, name the continuous-image theorem and verify its hypotheses.</li>
+</ol>
+<h2>Definitions</h2>
+<p>X is <strong>compact</strong> iff every open cover of X has a finite subcover. In a compact space, every closed subset is compact. In R, closed bounded intervals are compact (Heine–Borel).<strong>Rapid recall:</strong> Compact means every open cover has a finite subcover. Closed subsets of compact spaces and continuous images of compact spaces are compact; Heine-Borel is restricted to Euclidean space.</p>
+<h2>Proof method</h2>
+<p>Given a cover of closed F⊆X, add X\F; compactness gives a finite subcover, and discard X\F to cover F.<strong>Exam workflow:</strong> Keep the quantifiers visible: choose an arbitrary cover, modify or pull it back, invoke compactness once, then translate the finite subcover back to the target.</p>
+<h2>Worked simple example</h2>
+<p>{0}∪{1/n:n≥1} is compact in R because it is closed and bounded; equivalently, use Heine–Borel.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Prove (0,1) is not compact without citing Heine-Borel. Let U_n=(1/n,1) for n>=2. These sets cover (0,1): for x>0 choose n>1/x. Any finite subfamily has a largest index N and its union is U_N=(1/N,1), which misses 1/(N+1). Hence this particular open cover has no finite subcover.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Is (0,1) compact in R? <strong>Check:</strong> no; use the cover (1/n,1).</p>
+<p>
+<strong>2. Exam style:</strong> Prove a closed F⊆X is compact when X is compact. <strong>Check:</strong> add X\F to an arbitrary cover of F.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: if X is compact, Y Hausdorff and f:X->Y continuous and bijective, prove f is a homeomorphism. Check a closed F subset X is compact, f(F) is compact, hence closed in Hausdorff Y; thus f is closed and f^{-1} is continuous.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Choosing a finite cover instead of proving a finite subcover of an arbitrary cover.</li>
+<li>Using Heine–Borel outside Euclidean space.</li>
+<li>Forgetting closedness in the closed-subset theorem.</li>
+<li><strong>Recovery rule:</strong> A sequence argument is not automatically available in an arbitrary topological space; use open covers unless sequential compactness has been established.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the open-cover definition.</li>
+<li>I can give a noncompact open-cover counterexample.</li>
+<li>I can reproduce the closed-subset proof.</li>
+<li><strong>Final 60-second audit:</strong> The cover is arbitrary when proving compactness, explicit when disproving it, and every theorem hypothesis is named.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> compactness and closed subsets of compact spaces recur in 2023/24 and 2024/25. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4344 Homomorphisms</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4344 overview</a>
+</nav>
+<p class="eyebrow">MA4344 Topic Guide</p>
+<h1>Homomorphisms and Isomorphisms</h1>
+<p>Let kernels and images expose a group's structure.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Recognise maps, calculate kernel/image, and invoke the first isomorphism theorem with the correct quotient.<strong>Exam use:</strong> Well-definedness, operation law, kernel, image, normality and quotient/image orders are all checked.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Verify &phi;(xy)=&phi;(x)&phi;(y).</li>
+<li>Find ker &phi; and im &phi; explicitly.</li>
+<li>State normality of the kernel and apply G/ker&phi;&cong;im&phi;.</li>
+<li>For finite groups, use |G|=|ker&phi;||im&phi;.</li>
+<li><strong>Question interpretation:</strong> For homomorphism, verify operation preservation; for kernel/image, calculate as sets and use them to test injectivity/surjectivity; for quotient, state the first isomorphism theorem.</li>
+</ol>
+<h2>Key terms</h2>
+<p>Homomorphism, kernel, image, injective iff kernel is {e}, surjective, isomorphism, quotient. The first isomorphism theorem is G/ker&phi;&cong;im&phi;.<strong>Rapid recall:</strong> ker phi is normal, im phi is a subgroup, phi injective iff ker phi={e}, and G/ker phi is isomorphic to im phi.</p>
+<h2>Proof method</h2>
+<p>For a proposed isomorphism, prove it is a homomorphism and then prove bijectivity (often by identifying kernel and image). Never merely note that two groups have the same order.<strong>Exam workflow:</strong> Check the map on general products, solve phi(g)=e, describe all attained values, then verify orders in the proposed isomorphism.</p>
+<h2>Worked simple proof</h2>
+<p>
+<strong>Claim:</strong> &phi;:Z&rarr;Z<sub>6</sub>, n&mapsto;n mod 6, gives Z/6Z&cong;Z<sub>6</sub>. It is a homomorphism, ker&phi;=6Z and im&phi;=Z<sub>6</sub>; the first isomorphism theorem gives the result.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Define phi:Z12->Z8 by phi([x]12)=[2x]8. This is not well-defined: [0]12=[12]12 but phi(0)=0 while phi(12)=24=0 mod 8, actually these agree; in general changing x by 12 changes 2x by 24, divisible by 8, so it is well-defined. Kernel solves 2x=0 mod 8, giving classes x=0,4,8; image={0,2,4,6}. Thus Z12/ker has order 4 and is isomorphic to 2Z8.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Find ker and image of &phi;:Z<sub>12</sub>&rarr;Z<sub>4</sub>, [x]&mapsto;[x]. <strong>Check:</strong> image is all of Z<sub>4</sub>; kernel has three elements.</p>
+<p>
+<strong>2.</strong> If &phi;:G&rarr;H is a homomorphism of finite groups with |G|=60 and |ker&phi;|=5, find |im&phi;| and justify it. <strong>Check:</strong> 12, by the homomorphism counting formula.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: decide whether [x]12 -> [3x]8 is well-defined. Check changing by 12 changes output by 36, not divisible by 8, so it is not; test [0]=[12] gives 0 versus 4.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Writing G/ker&phi;&cong;H without proving surjectivity.</li>
+<li>Forgetting kernels are subsets of the domain.</li>
+<li>Using additive notation on one side and multiplicative notation inconsistently.</li>
+<li><strong>Recovery rule:</strong> For maps on residue classes, well-definedness comes before homomorphism properties.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can find a kernel by solving &phi;(g)=e.</li>
+<li>I know the first isomorphism theorem exactly.</li>
+<li>I can convert kernel size into image size for finite groups.</li>
+<li><strong>Final 60-second audit:</strong> Well-definedness, operation law, kernel, image, normality and quotient/image orders are all checked.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: isomorphism and homomorphism consequences recur across the reviewed papers, including the two newest. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

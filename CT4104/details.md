@@ -118,6 +118,25 @@ These questions are derived from the published learning outcomes and module desc
 3. You are authorised to assess a web application. Explain what safe reconnaissance should establish before testing, and why discovering domains or services outside the agreed scope must not expand the assessment automatically. Watch: [The Cyber Mentor: Ethical Hacking in 15 Hours, Part 2](https://www.youtube.com/watch?v=sH4JCwjybGs)
 4. An exposed administrative interface relies on one reusable password. Analyse the risk and recommend layered controls that reduce both credential-guessing risk and the damage from a compromised password. Watch: [Computerphile: Diceware and Passwords](https://www.youtube.com/watch?v=Pe_3cFuSw1E)
 
+## Predictability Audit (2026-07-17)
+
+- **Status: Unknown / low confidence.** No local `CT4104/*.pdf` past-paper files are present, so there is no evidence for repeated topics, form, or lecturer continuity.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT4104) is the revision-scope source: applied cryptography, TLS/IPSec/X.509, OpenSSL, threat analysis and authorised pen-testing.
+- **Decision:** do not make exam predictions. Use official outcomes and current teaching/CA material only until local papers become available.
+
+## Topic Guides
+
+Official-page-derived revision frameworks only: no local CT4104 papers are stored, so these question plans are lower-confidence study support, not predictions of assessment format.
+
+- [Security foundations](security_foundations_revision_sheet.html)
+- [Cryptography, hashes, MACs and signatures](cryptography_hashes_macs_signatures_revision_sheet.html)
+- [X.509](x509_revision_sheet.html)
+- [TLS](tls_revision_sheet.html)
+- [IPSec](ipsec_revision_sheet.html)
+- [OpenSSL](openssl_revision_sheet.html)
+- [Threat analysis](threat_analysis_revision_sheet.html)
+- [Ethical hacking and pen-testing](ethical_hacking_pentesting_revision_sheet.html)
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.

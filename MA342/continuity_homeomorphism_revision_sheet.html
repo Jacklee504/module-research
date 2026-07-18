@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Continuity and Homeomorphism</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Continuity and Homeomorphism</h1>
+<p>Prove structure is preserved by maps rather than visual resemblance.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Test continuity through preimages and rule in or out homeomorphisms using invariants.<strong>Exam use:</strong> Domain/codomain topologies, arbitrary-open-set preimage, bijection and inverse-continuity evidence are separated.</p>
+<h2>Question plan</h2>
+<ol>
+<li>For continuity, start with an arbitrary open set in the codomain.</li>
+<li>For a homeomorphism, prove bijective, continuous, and continuous inverse—or invoke a justified theorem.</li>
+<li>Use compactness, connectedness or point-removal properties to disprove a proposed homeomorphism.</li>
+<li><strong>Question interpretation:</strong> For continuity use preimages of arbitrary open sets; for homeomorphism prove bijection plus continuity in both directions; for non-homeomorphism choose a preserved invariant.</li>
+</ol>
+<h2>Definitions</h2>
+<p>f:X→Y is <strong>continuous</strong> iff f⁻¹(V) is open in X for every open V⊆Y. A <strong>homeomorphism</strong> is a bijective continuous map with continuous inverse; homeomorphic spaces have the same topological properties.<strong>Rapid recall:</strong> f is continuous iff f^{-1}(U) is open for every open U. A homeomorphism is a bijective continuous map with continuous inverse and preserves compactness, connectedness and separation properties.</p>
+<h2>Proof method</h2>
+<p>Calculate preimages, not images. For non-homeomorphism, assume one exists and transfer a preserved property to obtain a contradiction.<strong>Exam workflow:</strong> Name the topology on domain and codomain, compute a general preimage, and never infer inverse continuity from bijectivity alone unless a compact-to-Hausdorff theorem applies.</p>
+<h2>Worked simple example</h2>
+<p>The map f:R→R, f(x)=2x, is a homeomorphism: it is bijective and f⁻¹((a,b))=(a/2,b/2); its inverse y↦y/2 is continuous by the same argument.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let f:R->(0,infinity), f(x)=e^x. It is bijective with inverse ln. For an open V in (0,infinity), f^{-1}(V)=ln(V), open because ln is continuous; similarly the inverse is continuous. Hence f is a homeomorphism. In contrast R is not homeomorphic to S^1: removing one point disconnects R into two rays, while S^1 minus any point remains connected.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Prove a constant map X→Y is continuous. <strong>Check:</strong> each preimage is X or ∅.</p>
+<p>
+<strong>2. Exam style:</strong> Show [0,1] is not homeomorphic to S¹. <strong>Check:</strong> removing an interior point disconnects [0,1], whereas removing one point from S¹ leaves a connected space.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove the identity id:(R,discrete)->(R,usual) is continuous but its inverse is not. Check preimages of usual-open sets are discrete-open; the singleton {0} is open in the discrete codomain but not in the usual domain for the reverse map.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Testing images of opens instead of preimages.</li>
+<li>Calling a continuous bijection a homeomorphism without an inverse argument.</li>
+<li>Using an invariant that is not actually topological.</li>
+<li><strong>Recovery rule:</strong> A continuous bijection need not be a homeomorphism; verify inverse continuity or cite a theorem that supplies it.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the preimage definition exactly.</li>
+<li>I can prove a simple affine homeomorphism.</li>
+<li>I can use connectedness to separate non-homeomorphic spaces.</li>
+<li><strong>Final 60-second audit:</strong> Domain/codomain topologies, arbitrary-open-set preimage, bijection and inverse-continuity evidence are separated.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> continuity, homeomorphism comparisons and compact-Hausdorff refinements appear in the recent papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Neighbourhoods, Interior, Closure and Density</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Neighbourhoods, Interior, Closure and Density</h1>
+<p>Use open sets to classify boundary behaviour.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Compute interior and closure, and prove density via neighbourhood intersections.<strong>Exam use:</strong> Ambient topology, neighbourhood criterion, both inclusions and endpoint behaviour are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Specify the ambient topology.</li>
+<li>For interior, seek the largest open subset contained in A.</li>
+<li>For closure/density, test every open neighbourhood of a point.</li>
+<li><strong>Question interpretation:</strong> For interior or closure, test arbitrary neighbourhoods; for dense, prove every nonempty open set meets the subset; for boundary, calculate closure minus interior.</li>
+</ol>
+<h2>Definitions</h2>
+<p>N is a <strong>neighbourhood</strong> of x if it contains an open U with x∈U⊆N. int(A) is the largest open subset of A. x∈cl(A) iff every open neighbourhood of x meets A. A is dense iff cl(A)=X.<strong>Rapid recall:</strong> int A is the largest open subset of A; cl A consists of points whose every neighbourhood meets A; bd A=cl A minus int A; A is dense iff cl A=X.</p>
+<h2>Proof method</h2>
+<p>Prove two inclusions for a computed closure. To show density, take an arbitrary nonempty open set and find a point of A in it.<strong>Exam workflow:</strong> Prove both inclusions, state whether openness is ambient or subspace, and use a carefully chosen neighbourhood to exclude a point from a closure.</p>
+<h2>Worked simple example</h2>
+<p>In R, int([0,1])=(0,1) and cl((0,1))=[0,1]: any interval around 0 or 1 meets (0,1).</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>In R with the usual topology, for A=Q intersect (0,1), int A is empty because every interval contains irrationals. Its closure is [0,1]: every neighbourhood of a point in [0,1] meets Q intersect (0,1), while a point outside [0,1] has a small interval disjoint from A. Hence bd A=[0,1].</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Find cl({1/n:n≥1}) in R. <strong>Check:</strong> include 0.</p>
+<p>
+<strong>2. Exam style:</strong> Prove an infinite subset A of a cofinite space X is dense. <strong>Check:</strong> every nonempty open set has finite complement and therefore meets A.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: in the subspace X=[0,1], find interior and closure of A=[0,1/2). Check int_X A=[0,1/2), since [0,epsilon)=X intersect (-1,epsilon) is open in X; cl_X A=[0,1/2]. This differs from ambient interior in R.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Treating closure as A plus only “visible” endpoints.</li>
+<li>Using metric-ball intuition without checking the topology.</li>
+<li>For density, checking only one neighbourhood.</li>
+<li><strong>Recovery rule:</strong> Endpoints can be interior points in a subspace; always name the ambient space before computing.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the neighbourhood test for closure.</li>
+<li>I can compute examples in R and cofinite spaces.</li>
+<li>I can turn density into an open-set intersection proof.</li>
+<li><strong>Final 60-second audit:</strong> Ambient topology, neighbourhood criterion, both inclusions and endpoint behaviour are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> closure appears in 2023/24; neighbourhoods, interior and cofinite density in 2024/25. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

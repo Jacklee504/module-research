@@ -7,10 +7,10 @@ credits: 5
 exam_weight: 70%
 ca_weight: 30%
 assessment: 70% exam / 30% CA
-predictability: Medium-High
+predictability: Medium
 lecturer: Effirul Ramlan
 lecturer_risk: Low-medium
-priority: Required, recent style predictable
+priority: Required; recent pattern with material-drift risk
 module_url: https://www.universityofgalway.ie/course-information/module/CT417
 ---
 
@@ -25,8 +25,8 @@ module_url: https://www.universityofgalway.ie/course-information/module/CT417
 - Current module page validity: Valid from 2026 onwards.
 - Current teachers/administrators: Deirdre King, Geraldine Healy, Effirul Ramlan.
 - Past papers reviewed: 2019/20, 2021/22, 2023/24, 2024/25, 2025/26.
-- Predictability: Medium-High.
-- Recent style predictability: High for the DevSecOps/security/design-pattern paper style.
+- Predictability: Medium.
+- Recent DevSecOps/security/design-pattern pattern: useful, but not a guaranteed paper style.
 
 ## Recommendation
 
@@ -60,9 +60,19 @@ Source: https://www.universityofgalway.ie/course-information/module/CT417
 
 ## Predictability Rating
 
-Medium-High overall. High if judged only from the recent 2023/24, 2024/25 and 2025/26 pattern.
+Medium overall. The 2023/24-2025/26 DevSecOps/security/testing/design-pattern pattern is useful recent evidence, but the older archive shows material drift.
 
 The module is not repetitive in the older CT421 sense of exact topic slots over many years, because the paper has clearly evolved. But the newest two papers are extremely similar in structure and skills tested, and 2023/24 already points toward the same DevSecOps/security/testing/design-pattern direction.
+
+## Topic Guides
+
+- [CI/CD and Git Workflows](cicd_git_workflows_revision_sheet.html)
+- [Automated Testing and Security Tooling](automated_testing_security_tooling_revision_sheet.html)
+- [Vulnerabilities, Countermeasures and Metrics](vulnerabilities_countermeasures_metrics_revision_sheet.html)
+- [Refactoring and Design Patterns](refactoring_design_patterns_revision_sheet.html)
+- [Software Architecture](software_architecture_revision_sheet.html)
+- [Secure Software Engineering and DevSecOps](secure_software_engineering_devsecops_revision_sheet.html)
+- [Legacy and Background Topics](legacy_background_topics_revision_sheet.html)
 
 ## Evidence From Past Papers
 
@@ -106,7 +116,13 @@ The module is not repetitive in the older CT421 sense of exact topic slots over 
 
 ## Bottom Line
 
-CT417 is now much more predictable than the old placeholder note suggested. The safest preparation route is to prioritise the recent DevSecOps/security/testing/design-pattern pattern, especially 2024/25 and 2025/26. The main risk is historical content drift: older papers contain formal specification, architecture and virtualisation material that may still be examinable but is less central in the newest pattern.
+CT417 has a useful recent pattern, but its overall predictability is Medium. Prioritise the recent DevSecOps/security/testing/design-pattern material, especially 2024/25 and 2025/26, while covering the full current outcome set because older papers contain formal specification, architecture and virtualisation material.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium.** Local evidence is `2019_2020.pdf`, `2021_2022.pdf`, `2023_2024.pdf`, `2024_2025.pdf`, and `2025_2026.pdf`. The 2024/25-2025/26 DevSecOps/testing/design-pattern papers are useful recent evidence, but the archive shows material drift from formal specification and earlier architecture content.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT417) supports DevSecOps, CI/CD, testing/quality, architecture and design patterns. It does not establish the recent four-question layout or exclude older official themes.
+- **Decision:** prioritise the two most recent papers by recency, but cover every current outcome; call only the recent topic cluster a pattern, not a guaranteed paper template.
 
 ## Short Learning Material
 

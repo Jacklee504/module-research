@@ -7,7 +7,7 @@ credits: 5
 exam_weight: 80%
 ca_weight: 20%
 assessment: 80% exam / 20% CA
-predictability: High
+predictability: Medium-High
 lecturer: Mary Kelly / Collette McLoughlin / Gotz Pfeiffer
 lecturer_risk: High
 priority: Exam-heavy but staff-change risk
@@ -54,11 +54,11 @@ module_url: https://www.universityofgalway.ie/course-information/module/CS4423
   - 2021/22, 2022/23 and 2023/24: A. Carnevale.
   - 2017/18 and 2018/19: Gotz Pfeiffer.
 - Gotz Pfeiffer links the current page to older papers, but the recent starred lecturers were A. Carnevale and Niall Madden. Mary Kelly and Collette McLoughlin do not appear as starred lecturers on the reviewed papers.
-- Main implication: CS4423 is predictable at syllabus/topic level, but exact paper style and emphasis could change. Current lecture notes and tutorial sheets should be weighted heavily.
+- Main implication: CS4423 has a Medium-High syllabus/topic pattern, but exact paper style and emphasis could change. Current lecture notes and tutorial sheets should be weighted heavily.
 
 ## Predictability Rating
 
-High, especially from 2021/22 to 2024/25. The exam is very repetitive in topic coverage and question style, although the 2024/25 paper changed format from four large questions to seven shorter questions.
+Medium-High at core-topic level. Graph traversal, centrality and random-graph work recur, but the 2024/25 paper changed from four large questions to seven shorter questions, so exact format is low-confidence.
 
 ## Evidence From Past Papers
 
@@ -85,7 +85,25 @@ High, especially from 2021/22 to 2024/25. The exam is very repetitive in topic c
 
 ## Overall Judgement
 
-CS4423 is predictable but exam-heavy. It is not ideal for a CA-first strategy because only 20% is continuous assessment. Still, the exam pattern is strong enough that it could be a good choice if the mathematical/network-science style suits you and you are willing to prepare the repeated question types carefully.
+CS4423 is medium-high at core-topic level but exam-heavy. It is not ideal for a CA-first strategy because only 20% is continuous assessment. The recurring core can still reward targeted preparation, provided the current teaching material sets the final emphasis.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium-High (topic-level); low confidence for exact format.** Local evidence is `2017_2018.pdf`, `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`. Graph traversal, centrality and random-graph work recur, but the latest paper changed from four broad questions to seven short questions.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CS4423) still names graph traversal, centrality and random graph generators. It supports those core topic families, not claims that Prufer codes, Bow-Tie diagrams or any question slot will recur.
+- **Decision:** prepare the recurring core and use the most recent format as a reference only; treat older specialist topics as coverage rather than prediction.
+
+## Topic Guides
+
+- [Graph Foundations](graph_foundations_revision_sheet.html)
+- [BFS and Shortest Paths](bfs_shortest_paths_revision_sheet.html)
+- [Centrality](centrality_revision_sheet.html)
+- [Random Graphs](random_graphs_revision_sheet.html)
+- [Small-World Networks](small_world_revision_sheet.html)
+- [Prufer Codes and Trees](prufer_codes_trees_revision_sheet.html)
+- [Connectivity and Directed Networks](connectivity_revision_sheet.html)
+- [Bipartite, Affiliation and Laplacian Networks](bipartite_affiliation_laplacian_revision_sheet.html)
+- [Secondary Applications](secondary_applications_revision_sheet.html)
 
 ## Short Learning Material
 

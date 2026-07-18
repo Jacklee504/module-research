@@ -7,7 +7,7 @@ credits: 5
 exam_weight: 70%
 ca_weight: 30%
 assessment: 70% exam / 30% CA
-predictability: Medium-High
+predictability: Medium
 lecturer: Michael Schukat / Jawad Manzoor
 lecturer_risk: Low
 priority: Good if systems/protocols suit you
@@ -53,7 +53,7 @@ module_url: https://www.universityofgalway.ie/course-information/module/CT420
 
 ## Predictability Rating
 
-Medium-High. The repeated core is strong, especially in recent papers, but the module appears to have shifted over time. Older papers include a broader mix of redundancy, POSIX, RAID, Hamming codes, VoIP, RTP/RTCP and scheduling. Recent papers split more clearly into hard real-time/synchronisation topics and soft real-time/web protocol topics such as QUIC, HTTP/2 and performance analysis.
+Medium. Timing/scheduling and synchronisation recur, but the module has shifted over time. Older papers include a broader mix of redundancy, POSIX, RAID, Hamming codes, VoIP and RTP/RTCP, while recent papers split more clearly into hard real-time/synchronisation and soft real-time/web-protocol material.
 
 ## Evidence From Past Papers
 
@@ -71,7 +71,7 @@ The current module page is valid from 2026 onwards and explicitly mentions QUIC 
 ## Assessment Strategy
 
 - This is 70% exam and 30% CA, so it is not CA-heavy but still has a meaningful CA component.
-- The paper is technical and broad. It is predictable if prepared by topic blocks rather than by memorising single questions.
+- The paper is technical and broad. Prepare repeatable topic blocks rather than predicting a fixed question set.
 - Highest-value preparation areas:
   - NTP: robustness, RTD, offset, ntpq output interpretation.
   - PTP: E2E/P2P, transparent clocks, boundary clocks, hardware timestamping, BMCA, grandmaster redundancy.
@@ -85,7 +85,26 @@ The current module page is valid from 2026 onwards and explicitly mentions QUIC 
 
 ## Overall Judgement
 
-CT420 is a reasonable target if systems, protocols and timing suit you. It is less cleanly repetitive than CT421 or CT4100 because the format and topic emphasis have changed, but the recent pattern is strong enough to be useful. The 30% CA is helpful, but the 70% exam means it should not be chosen purely for CA marks.
+CT420 is a reasonable target if systems, protocols and timing suit you. Its Medium rating reflects format and topic-emphasis drift, while the recent pattern remains useful as coverage evidence. The 30% CA is helpful, but the 70% exam means it should not be chosen purely for CA marks.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium (topic families only).** Local evidence is `2017_2018.pdf`, `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`. Timing/scheduling and synchronisation recur, but formats and emphasis vary substantially; recent web/QUIC material is not evidence that older slots persist unchanged.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT420) still supports real-time timing, protocols and performance material, including the recent QUIC/HTTP direction recorded above. It does not validate a fixed section or question order.
+- **Decision:** weight `2023_2024.pdf` and `2024_2025.pdf` most heavily and retain older topics only where they map to current lectures/outcomes.
+
+## Topic Guides
+
+Beginner-friendly guides organised by topic; they build reusable methods and do not predict a fixed question order.
+
+- [Real-time foundations](realtime_foundations_revision_sheet.html)
+- [Scheduling and schedulability](scheduling_revision_sheet.html)
+- [Time synchronisation](time_synchronisation_revision_sheet.html)
+- [Concurrency and priority protocols](concurrency_priority_revision_sheet.html)
+- [Soft real-time and multimedia](soft_realtime_multimedia_revision_sheet.html)
+- [QUIC, HTTP/2 and HTTP/3](quic_http_revision_sheet.html)
+- [Protocol analysis tools](protocol_analysis_revision_sheet.html)
+- [Fault tolerance and redundancy](fault_tolerance_redundancy_revision_sheet.html) (historical/lower-confidence)
 
 ## Short Learning Material
 

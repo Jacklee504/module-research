@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4102 Algorithms</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4102 overview</a>
+</nav>
+<p class="eyebrow">MA4102 Topic Guide</p>
+<h1>Algorithms: Grover, QFT and Deutsch–Jozsa</h1>
+<p>For exam calculations, show the small-state transformation at every named algorithm step.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Grover and QFT are strong recurring targets; Deutsch–Jozsa also appears in the archive.<strong>Exam use:</strong> Basis order, normalisation, every stage vector, oracle convention and final probabilities are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>State the input basis and dimension N.</li>
+<li>For Grover: prepare uniform state, apply oracle, then diffusion.</li>
+<li>For QFT: use F<sub>N</sub>|x&rang;=N<sup>−½</sup>&sum;<sub>y</sub>&omega;<sup>xy</sup>|y&rang;, &omega;=e<sup>2&pi;i/N</sup>.</li>
+<li>Write exact amplitudes first; only then give probabilities.</li>
+<li><strong>Question interpretation:</strong> Name the algorithmic stage, write the complete small state before and after it, and turn amplitudes into probabilities only at the measurement step.</li>
+</ol>
+<h2>Notation and derivation</h2>
+<p>Grover's diffusion D=2|s&rang;&lang;s|−I reflects amplitudes about their mean. QFT is unitary because its phase columns are orthogonal roots-of-unity sums.<strong>Rapid recall:</strong> Grover uses phase-oracle plus diffusion and about pi sqrt(N)/4 iterations; QFT maps |x> to N^{-1/2} sum_y exp(2 pi i xy/N)|y>; Deutsch-Jozsa distinguishes constant from balanced with one oracle query.<strong>Exam workflow:</strong> Fix basis order, apply one gate/operator at a time, retain signs and phases, then state the measurement distribution and success claim.</p>
+<h2>Worked calculation</h2>
+<p>For N=4 with marked |00&rang;, |s&rang; has amplitudes ½. Oracle changes them to (−½,½,½,½). Their mean is ¼; diffusion maps each a to 2(¼)−a, giving (1,0,0,0): success probability 1.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>For Grover search on two qubits with marked |11>, start |s>=(1/2)(1,1,1,1). The oracle gives (1/2)(1,1,1,-1), whose mean amplitude is 1/4. Diffusion reflects each amplitude a about the mean: a'=2(1/4)-a, producing (0,0,0,1). One iteration therefore yields |11> with probability 1.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Apply the N=2 QFT to |1&rang;. <strong>Check:</strong> (|0&rang;−|1&rang;)/&radic;2.</p>
+<p>
+<strong>2.</strong> Carry out one Grover iteration for N=4 with a different marked basis state. <strong>Check:</strong> oracle flips amplitude, not probability.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: compute QFT_4|2>. Check amplitudes are (1/2)exp(2 pi i*2y/4), y=0,...,3, giving (1/2)(1,-1,1,-1); all measurement probabilities are 1/4.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Using the wrong sign in diffusion.</li>
+<li>Forgetting QFT normalisation.</li>
+<li>Overclaiming Shor detail: it is official scope, but is not comparably evidenced in 2021–26 papers.</li>
+<li><strong>Recovery rule:</strong> Global phase is unobservable, but relative signs control interference; do not discard them during intermediate steps.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can perform a one-iteration Grover table.</li>
+<li>I know the finite-QFT definition.</li>
+<li>I distinguish official scope from recurring evidence.</li>
+<li><strong>Final 60-second audit:</strong> Basis order, normalisation, every stage vector, oracle convention and final probabilities are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Grover/QFT recur across 2021–26; Deutsch–Jozsa occurs in 2023. Shor is lower-confidence for exam emphasis. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

@@ -7,7 +7,7 @@ credits: 5
 exam_weight: 60%
 ca_weight: 40%
 assessment: 60% exam / 40% CA
-predictability: High
+predictability: Medium-High
 lecturer: Dane Flannery
 lecturer_risk: Low
 priority: Strong proof-heavy maths option with better CA
@@ -25,7 +25,7 @@ module_url: https://www.universityofgalway.ie/course-information/module/MA4344
 - Current module page validity: Valid from 2025 onwards.
 - Current teachers/administrators: Dane Flannery, Mary Kelly, Collette McLoughlin.
 - Past papers reviewed: 2021/22, 2022/23, 2023/24, 2024/25.
-- Predictability: High, especially if the Dane Flannery paper style continues.
+- Predictability: Medium-High; the Dane Flannery recent-paper pattern is useful but not guaranteed.
 
 ## Recommendation
 
@@ -35,7 +35,7 @@ The main caveat is topic style: this is proof-heavy algebra, not a calculation-l
 
 ## Predictability Judgment
 
-Predictability is high for the recent format.
+Predictability is Medium-High. The recent format is strong evidence, but it does not cover the whole current syllabus and earlier papers differ.
 
 The 2023/24 and 2024/25 papers both use the same overall structure:
 
@@ -72,6 +72,20 @@ The lecturer risk looks low. Dane Flannery is the starred lecturer on the two mo
 - Prepare group action examples carefully: action on a set, stabilisers, kernels, conjugation action, and embeddings into symmetric groups.
 - Keep older topics on a secondary list: Burnside counting, finite abelian classification, direct products, alternating groups and automorphisms.
 
+## Topic Guides
+
+Prioritise the first eight guides as recent-paper core preparation. The final guide covers current-scope and older-paper topics, explicitly at lower confidence rather than as a prediction.
+
+- [Subgroups and Lagrange's theorem](subgroups_lagrange_revision_sheet.html)
+- [Homomorphisms and isomorphisms](homomorphisms_isomorphisms_revision_sheet.html)
+- [Cosets and normal subgroups](cosets_normal_subgroups_revision_sheet.html)
+- [Group actions](group_actions_revision_sheet.html)
+- [Class equation and p-groups](class_equation_p_groups_revision_sheet.html)
+- [Cauchy's theorem and finite abelian groups](cauchy_finite_abelian_revision_sheet.html)
+- [Sylow theorems](sylow_revision_sheet.html)
+- [Simple groups and non-simplicity](simple_groups_revision_sheet.html)
+- [Lower-frequency and current-scope topics — lower confidence](lower_frequency_topics_revision_sheet.html)
+
 ## Official Module Information
 
 Source: https://www.universityofgalway.ie/course-information/module/MA4344
@@ -91,6 +105,12 @@ Source: https://www.universityofgalway.ie/course-information/module/MA4344
 - CS402: indirect overlap through algebraic structures used in cryptography.
 - MA342: shared proof-heavy abstract maths style, but little direct content overlap.
 - MA3101: both are proof-heavy maths options, but MA3101 appears much less predictable because of frequent lecturer/content changes.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium-High.** Local evidence is `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`. The latest two papers strongly repeat group-action, class-equation and Sylow proof patterns, but the earlier papers differ.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA4344) supports group actions, orbit-stabilizer, Sylow theory and finite simple groups. It also includes finite automata/regular languages, so the recent-paper emphasis must not be treated as the full syllabus.
+- **Decision:** prioritise recent proof templates while retaining all current outcomes, especially outcomes less visible in the latest papers.
 
 ## Short Learning Material
 

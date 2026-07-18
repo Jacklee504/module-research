@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS4423 Small-World Networks</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CS4423 overview</a>
+</nav>
+<p class="eyebrow">CS4423 Topic Guide</p>
+<h1>Small-World Networks</h1>
+<p>Explain how a few shortcuts can preserve local clustering while shrinking paths.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose and relevance</h2>
+<p>The Watts–Strogatz model explains networks that are locally clustered yet globally reachable. Local papers repeatedly pair it with clustering and path length.<strong>Exam use:</strong> Baseline, rewiring rule, path-length evidence, clustering evidence and the trade-off across beta are all addressed.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>Describe the starting ring lattice, the rewiring probability p, and compare low/high p. Then connect p to clustering C and characteristic path length L; never just call a graph “small world” without the comparison.<strong>Question interpretation:</strong> For explain, compare path length and clustering to a random and a regular baseline; for construct, state the rewiring convention and what remains fixed.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>
+<strong>Clustering coefficient:</strong> fraction of possible neighbour-neighbour links that exist.</li>
+<li>
+<strong>Characteristic path length:</strong> average shortest-path distance.</li>
+<li>Watts–Strogatz: ring lattice → randomly rewire each edge with probability p.</li>
+<li>Small-world signature: high C relative to random graph, low L comparable to random graph.</li>
+<li><strong>Rapid recall:</strong> A small-world network combines high local clustering with short characteristic path length; Watts-Strogatz interpolates from a ring lattice (beta=0) toward a random graph as beta increases.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Specify n, local neighbourhood k and p.</li>
+<li>Describe p=0 lattice and p≈1 random-like endpoint.</li>
+<li>Explain how a small p adds shortcuts.</li>
+<li>Compare C and L against appropriate baselines.</li>
+<li><strong>Exam workflow:</strong> Compute local clustering from edges among neighbours, calculate representative shortest paths or mean length, then interpret both metrics together.</li>
+</ol>
+<h2>Worked starter question and model answer</h2>
+<p>
+<strong>Question:</strong> What changes when p increases slightly from 0?</p>
+<p>
+<strong>Model answer:</strong> A few long-range edges create shortcuts, so L can fall sharply. Many local triangles remain, so C initially stays relatively high: this is the small-world region.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Take the 6-cycle and add shortcut A-D. Originally d(A,D)=3; now it is 1. Distances from A change from (to B,C,D,E,F)=(1,2,3,2,1), sum 9, to (1,2,1,2,1), sum 7. One shortcut lowers access distance, but the plain cycle still has local clustering 0; therefore this graph alone demonstrates short paths, not the full small-world combination.</p>
+<h2>Graduated practice</h2>
+<h3>Prompt 1</h3>
+<p>At p=0, what structure is generated? <strong>Check:</strong> the original regular ring lattice.</p>
+<h3>Exam bridge</h3>
+<p>Compare a ring lattice, Watts–Strogatz graph and Erdős–Rényi graph using C and L. <strong>Check:</strong> lattice high C/high L; random low C/low L; small-world high C with low L after limited rewiring.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: in a ring where each vertex links to its two nearest neighbours on each side, explain why clustering is positive and what a few long-range rewirings do. Check neighbours share lattice edges, while shortcuts reduce long geodesics; excessive rewiring eventually destroys much local clustering.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Saying more rewiring always improves “small-worldness”.</li>
+<li>Confusing clustering with density.</li>
+<li>Ignoring the baseline comparison.</li>
+<li><strong>Recovery rule:</strong> Short average paths alone do not establish a small world; the clustering comparison is a separate required claim.</li>
+</ul>
+<h2>Final checklist</h2>
+<ul>
+<li>Can I state the construction?</li>
+<li>Can I explain C and L?</li>
+<li>Did I contrast both baselines?</li>
+<li><strong>Final 60-second audit:</strong> Baseline, rewiring rule, path-length evidence, clustering evidence and the trade-off across beta are all addressed.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Watts–Strogatz, clustering and path-length comparisons recur in the local archive. This is a strong topic family, not assurance of a calculation.</p>
+<p>
+<a href="details.html">Back to CS4423 overview</a>
+</p>
+</article>
+</main>
+</body>
+</html>

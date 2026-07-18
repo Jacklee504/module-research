@@ -7,10 +7,10 @@ credits: 5
 exam_weight: 70%
 ca_weight: 30%
 assessment: 70% exam / 30% CA
-predictability: High
+predictability: Medium-High
 lecturer: James Cruickshank
 lecturer_risk: Low-medium
-priority: Predictable but proof-heavy analysis
+priority: Recurring proof patterns, but proof-heavy analysis
 module_url: https://www.universityofgalway.ie/course-information/module/MA490
 ---
 
@@ -25,17 +25,17 @@ module_url: https://www.universityofgalway.ie/course-information/module/MA490
 - Current module page validity: Valid from 2025 onwards.
 - Current teachers/administrators: James Cruickshank, Collette McLoughlin.
 - Past papers reviewed: 2018/19, 2019/20, 2021/22, 2022/23, 2023/24.
-- Predictability: High for structure and recurring topic types, but the module is proof-heavy and conceptually demanding.
+- Predictability: Medium-High for recurring proof families, but the module is proof-heavy and conceptually demanding.
 
 ## Recommendation
 
 MA490 gives Semester 1 another researched option, but it is not a CA-maximising module. It is 70% exam / 30% CA and the subject matter is abstract real analysis: sigma-algebras, measures, measurable functions, integrals, convergence theorems, Borel-Cantelli and Cantor-set style questions.
 
-The exam is very predictable in structure. The risk is not surprise; the risk is whether measure theory proofs are comfortable enough under exam pressure. It is probably a better pick than an unresearched or disliked module if you like analysis, but it is not as strategically attractive as the 40% CA Semester 2 options.
+The exam has recurring structure and proof families, but exact questions remain variable. The risk is both proof performance under pressure and over-relying on the short-question menu. It is probably a better pick than an unresearched or disliked module if you like analysis, but it is not as strategically attractive as the 40% CA Semester 2 options.
 
 ## Predictability Judgment
 
-Predictability is high.
+Predictability is Medium-High.
 
 The most stable structure is:
 
@@ -92,6 +92,12 @@ Source: https://www.universityofgalway.ie/course-information/module/MA490
 - MA3101: both are Semester 1 maths options, but MA3101 appears less predictable because lecturer/content changes are a concern.
 - MA4344: similar proof burden, but different algebraic content.
 - MA4102: both are Semester 1 maths-heavy options; MA490 is analysis/probability foundations, MA4102 is quantum linear algebra.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium-High.** Local evidence is `2018_2019.pdf`, `2019_2020.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, and `2023_2024.pdf`. Definitions, measurable functions and integration recur, with the newest two papers the closest structural match; the archive is still too small and proof wording too variable to promise exact questions.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA490) supports set operations, measures, integration on real/probability spaces, term-by-term integration and proof writing.
+- **Decision:** use recurring proof families and the recent structure for practice, but revise the full outcome set rather than betting on the short-question menu.
 
 ## Short Learning Material
 

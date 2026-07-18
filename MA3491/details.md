@@ -86,6 +86,17 @@ The change from 4 to 5 questions does not reduce predictability because the topi
 - Hamming and cyclic codes are among the safest topics: parity-check construction, single-error correction, generator/check polynomials and cyclic-shift arguments.
 - Weight enumerators appeared in 2022/23 and 2023/24 but not 2024/25, so treat them as useful secondary preparation.
 
+## Topic Guides
+
+- [Coding bounds and block-code parameters](coding_bounds_revision_sheet.html)
+- [Finite-field construction](finite_field_construction_revision_sheet.html)
+- [Finite-field arithmetic](finite_field_arithmetic_revision_sheet.html)
+- [Linear codes: generator and parity-check matrices](linear_codes_revision_sheet.html)
+- [Syndrome decoding and standard arrays](decoding_revision_sheet.html)
+- [Hamming codes](hamming_codes_revision_sheet.html)
+- [Cyclic codes](cyclic_codes_revision_sheet.html)
+- [Secondary coding topics](secondary_coding_topics_revision_sheet.html) — weight enumerators and BCH are lower-confidence based on the local paper pattern.
+
 ## Year-by-Year Notes
 
 ### 2018-2019
@@ -158,6 +169,12 @@ Highest-return preparation:
 7. Prepare perfect/MDS/self-dual definitions and short proofs.
 
 This module should reward past-paper drilling heavily. It is a strong candidate if the CA is manageable and the algebra style suits you.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: High for the core coding/finite-field skills.** Local evidence is `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`; finite-field arithmetic, linear/Hamming/cyclic codes and code parameters repeat, and recent papers share a five-question structure.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA3491) directly lists finite fields, generator/parity-check matrices, minimum distance, Hamming, cyclic and BCH codes.
+- **Decision:** past-paper drilling is well supported for these skills, while the 4-to-5-question format change means exact paper mechanics remain secondary.
 
 ## Short Learning Material
 

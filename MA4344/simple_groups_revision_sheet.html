@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4344 Simple Groups</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4344 overview</a>
+</nav>
+<p class="eyebrow">MA4344 Topic Guide</p>
+<h1>Simple Groups and Non-Simplicity</h1>
+<p>Find a proper nontrivial normal subgroup using Sylow, actions, or the centre.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Build short, complete proofs that a finite group cannot be simple.<strong>Exam use:</strong> Candidate normal subgroup, all Sylow possibilities, intersection/count or action kernel, and proper/nontrivial conclusion are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Choose a normal-subgroup source: unique Sylow subgroup, nontrivial centre, or action kernel.</li>
+<li>Prove the subgroup is normal.</li>
+<li>Check it is neither {e} nor G.</li>
+<li>Finish with the definition of simple.</li>
+<li><strong>Question interpretation:</strong> To prove non-simple, produce a proper nontrivial normal subgroup via a unique Sylow subgroup, centre, kernel or action; to prove simple, eliminate every possible normal subgroup order.</li>
+</ol>
+<h2>Key terms</h2>
+<p>Simple group, proper nontrivial normal subgroup, centre, kernel, conjugation action. A simple group has only {e} and G as normal subgroups.<strong>Rapid recall:</strong> Simple means only {e} and G are normal (and usually nontrivial). A homomorphism from a simple group has trivial or whole kernel; a nontrivial action can embed it when the kernel is trivial.</p>
+<h2>Proof method</h2>
+<p>Start with Sylow counts. If a count is forced to 1, its Sylow subgroup is normal. If all counts evade uniqueness, count elements in distinct Sylow subgroups or use a permutation action to construct a proper kernel.<strong>Exam workflow:</strong> Assume a normal subgroup, constrain its order by Lagrange/Sylow, and turn its coset or conjugation action into a kernel/order contradiction.</p>
+<h2>Worked simple proof</h2>
+<p>
+<strong>Claim:</strong> no group of order 21 is simple. n<sub>7</sub> divides 3 and is 1 mod 7, so n<sub>7</sub>=1. The unique order-7 Sylow subgroup is proper, nontrivial and normal.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>No group G of order 30 is simple. Sylow gives n5 divides 6 and n5=1 mod 5, so n5=1 or 6; n3 divides 10 and n3=1 mod 3, so n3=1 or 10. If neither is 1, distinct Sylow subgroups contribute 6*4=24 elements of order 5 and 10*2=20 of order 3, disjoint except identity, exceeding 30. Hence one Sylow subgroup is normal.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Prove a group with nontrivial proper centre is not simple. <strong>Check:</strong> Z(G) is normal.</p>
+<p>
+<strong>2.</strong> Show no group of order 45 is simple. <strong>Check:</strong> use n<sub>5</sub> divides 9 and is 1 mod 5.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove a group of order 56 is not simple using the action on Sylow 7-subgroups. Check n7 divides 8 and is 1 mod 7, so n7=1 or 8. If 8, action gives G->S8; develop the kernel argument or combine Sylow counts carefully rather than claiming the embedding alone contradicts orders.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Finding a subgroup but never proving normality.</li>
+<li>Calling G itself a witness to non-simplicity.</li>
+<li>Stopping at a possible Sylow count rather than resolving it.</li>
+<li><strong>Recovery rule:</strong> Counting nonidentity elements from different Sylow p-subgroups is safe because their intersection is trivial; state that reason.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the definition of simple.</li>
+<li>I can turn a unique Sylow subgroup into a complete proof.</li>
+<li>I can verify properness and nontriviality.</li>
+<li><strong>Final 60-second audit:</strong> Candidate normal subgroup, all Sylow possibilities, intersection/count or action kernel, and proper/nontrivial conclusion are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: non-simple group order arguments follow Sylow work in recent papers; the current outcomes also name finite simple groups. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

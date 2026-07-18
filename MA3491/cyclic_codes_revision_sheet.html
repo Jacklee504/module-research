@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 Cyclic Codes</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA3491 overview</a>
+</nav>
+<p class="eyebrow">MA3491 Topic Guide</p>
+<h1>Cyclic Codes and Generator Polynomials</h1>
+<p>Represent length-n words modulo x<sup>n</sup>−1: multiplying by x is a cyclic shift.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Cyclic codes convert shift closure into polynomial divisibility and give efficient encoders.<strong>Exam use:</strong> Field, modulus x^n-1, divisor test, dimension, coefficient order and final remainder/codeword are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Factor x<sup>n</sup>−1 over F<sub>q</sub>.</li>
+<li>Choose a monic divisor g(x); calculate h(x)=(x<sup>n</sup>−1)/g(x).</li>
+<li>Use k=n−deg g and encode c(x)=m(x)g(x).</li>
+<li>Check divisibility or use h for parity/check reasoning.</li>
+<li><strong>Question interpretation:</strong> For cyclic, move between word and polynomial representations; for generate, verify g divides x^n-1 and reduce multiples modulo the stated field.</li>
+</ol>
+<h2>Formulas</h2>
+<p>C is cyclic iff its word polynomials form an ideal ⟨g(x)⟩ in F<sub>q</sub>[x]/(x<sup>n</sup>−1), where g|x<sup>n</sup>−1. Parameters: [n,k] with k=n−deg g; g(x)h(x)=x<sup>n</sup>−1.<strong>Rapid recall:</strong> A length-n cyclic code is an ideal &lt;g(x)> in F_q[x]/(x^n-1), where monic g divides x^n-1; dimension k=n-deg g and h=(x^n-1)/g is the check polynomial.</p>
+<h2>Derivation</h2>
+<p>A cyclic shift is x c(x) reduced modulo x<sup>n</sup>−1. Every ideal in F<sub>q</sub>[x] is principal, so the code has a unique monic generator divisor. Messages of degree below k give distinct multiples m g.<strong>Exam workflow:</strong> Fix coefficient order, factor x^n-1 over the field, multiply message polynomials of degree below k by g, and check a cyclic shift remains divisible by g.</p>
+<h2>Worked example</h2>
+<p>Over F<sub>2</sub>, x<sup>3</sup>−1=x<sup>3</sup>+1=(x+1)(x<sup>2</sup>+x+1). Choose g=x+1. Then k=2 and c=(1+x)(1+x)=1+x<sup>2</sup>, the word 101; h=x<sup>2</sup>+x+1.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Over F_2, n=7 and g(x)=x^3+x+1 gives k=4. For m(x)=x^3+x, c=m g=(x^3+x)(x^3+x+1)=x^6+x^3+x^2+x (middle x^4 terms cancel). Coefficient vector from x^0 to x^6 is (0,1,1,1,0,0,1). Multiplying by x modulo x^7-1 gives 1+x^2+x^3+x^4, another multiple modulo the quotient, so the shift stays in C.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> For the example, find k for g=x<sup>2</sup>+x+1. <strong>Check:</strong> k=1.</p>
+<p>
+<strong>2.</strong> Factor x<sup>7</sup>−1 over F<sub>2</sub>, choose a divisor g, state [n,k], and construct two codewords. <strong>Check:</strong> show g divides the modulus and keep polynomial coefficients in F<sub>2</sub>.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: decide whether r(x)=x^6+x^4+x^3+x is in this code. Check division by g over F_2: subtract x^3g=x^6+x^4+x^3, leaving remainder x. The remainder is nonzero, so r is not a codeword; the subtraction is coefficient-wise XOR.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Using any polynomial rather than a divisor of x<sup>n</sup>−1.</li>
+<li>Reversing deg g and k.</li>
+<li>Forgetting reduction modulo x<sup>n</sup>−1 for shifts.</li>
+<li><strong>Recovery rule:</strong> Coefficient order is a convention, but changing it midway changes the reported word even if the polynomial calculation is right.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can factor the modulus.</li>
+<li>I can calculate h and k.</li>
+<li>I can encode by multiplying m and g.</li>
+<li><strong>Final 60-second audit:</strong> Field, modulus x^n-1, divisor test, dimension, coefficient order and final remainder/codeword are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Generator/check polynomial and cyclic-shift questions recur across all locally reviewed years, 2018–2025.</p>
+</article>
+</main>
+</body>
+</html>

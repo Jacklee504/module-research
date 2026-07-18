@@ -99,6 +99,12 @@ This matters: if the newer format continues, broad coverage of the fundamentals 
 
 CT4100 looks like a good target despite being 70% exam. The past papers are strongly repetitive, the lecturer overlap with CT421 is useful, and the repeated topics are clear. The main downside is only 30% CA and the newer compulsory-question format, which means weak spots are harder to avoid.
 
+## Predictability Audit (2026-07-17)
+
+- **Status: High for recurring IR topic families; conditional for format.** Local evidence is `2021_2022.pdf`, `2023_2024.pdf`, `2024_2025.pdf`, and `2025_2026.pdf`. The 2025/26 compulsory 40-mark Question 1 changes the otherwise repeated four-equal-question choice structure.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT4100) still covers IR models, weighting, web search, recommender systems and learning in IR. It therefore supports model/evaluation/retrieval preparation, not a fixed question split.
+- **Decision:** prepare broadly enough for a compulsory fundamentals question and do not predict optional-question placement from pre-2025/26 papers.
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.
@@ -110,3 +116,17 @@ Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or v
 - Query expansion and relevance feedback: Rocchio, pseudo-relevance feedback and local analysis.
 - Recommender systems basics: collaborative filtering, cold start, difficult users and evaluation.
 - Web search/link analysis: PageRank, HITS and document similarity.
+
+## Topic Guides
+
+Beginner-friendly topic guides with worked practice and exam-bridge prompts:
+
+- [Retrieval models](retrieval_models_revision_sheet.html)
+- [Term weighting](term_weighting_revision_sheet.html)
+- [Retrieval evaluation](evaluation_revision_sheet.html)
+- [Query difficulty prediction](query_difficulty_revision_sheet.html)
+- [Relevance feedback and query expansion](relevance_feedback_revision_sheet.html)
+- [Recommender systems](recommender_systems_revision_sheet.html)
+- [Document similarity and clustering](document_similarity_clustering_revision_sheet.html)
+- [Web search: PageRank and HITS](web_search_revision_sheet.html)
+- [Learning to rank](learning_to_rank_revision_sheet.html)

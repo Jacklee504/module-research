@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS4423 Connectivity</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CS4423 overview</a>
+</nav>
+<p class="eyebrow">CS4423 Topic Guide</p>
+<h1>Connectivity and Directed Networks</h1>
+<p>Be explicit about whether travel must follow edge direction.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose and relevance</h2>
+<p>Connectivity determines whether vertices can reach one another. Directed networks require the distinction between weak and strong connectivity; both recur in the local archive.<strong>Exam use:</strong> Direction convention, searches/reachability witnesses, component membership and condensation interpretation agree.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>State whether the graph is directed. For weak components, ignore directions; for strong components, require mutual directed reachability. Support each component claim with paths or a traversal argument.<strong>Question interpretation:</strong> For connected components ignore no directions unless told; for directed graphs distinguish weak from strong connectivity and prove each reachability claim.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>
+<strong>Connected:</strong> undirected path between every pair.</li>
+<li>
+<strong>Weakly connected:</strong> connected after directions are ignored.</li>
+<li>
+<strong>Strongly connected:</strong> directed paths both u→v and v→u for every pair in the component.</li>
+<li>
+<strong>Bow-Tie:</strong> SCC core with IN, OUT, tendrils and disconnected parts.</li>
+<li><strong>Rapid recall:</strong> An undirected graph is connected when every pair has a path; a digraph is strongly connected when both directed reachabilities hold, and weakly connected when its underlying undirected graph is connected.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Mark edge directions and identify candidate reachability groups.</li>
+<li>For weak components, replace arrows with lines.</li>
+<li>For SCCs, run/reason with reachability from a vertex and back to it.</li>
+<li>Classify remaining vertices relative to a core only if the diagram supports it.</li>
+<li><strong>Exam workflow:</strong> Run a search from a candidate vertex, repeat on the transpose for strong connectivity, and exhibit unreachable ordered pairs or component sets when the property fails.</li>
+</ol>
+<h2>Worked starter question and model answer</h2>
+<p>
+<strong>Question:</strong> A→B, B→A, B→C. Find weak and strong components.</p>
+<p>
+<strong>Model answer:</strong> Ignoring arrows gives one weak component {A,B,C}. A and B form an SCC because each reaches the other; C alone is an SCC because C cannot return to B.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>For arcs A->B, B->C, C->A, C->D, D->E, E->D, the underlying graph is connected, so the digraph is weakly connected. SCCs are {A,B,C} and {D,E}: vertices in the first reach the second through C->D, but E cannot reach A. The condensation has one arc {A,B,C}->{D,E} and is acyclic.</p>
+<h2>Graduated practice</h2>
+<h3>Prompt 1</h3>
+<p>Does one directed path A→C prove A and C are strongly connected? <strong>Check:</strong> no; C→A is also required.</p>
+<h3>Exam bridge</h3>
+<p>Find SCCs and draw a Bow-Tie-style interpretation. <strong>Check:</strong> give reachability evidence, distinguish IN/OUT from the SCC, and do not force every directed graph into a full Bow-Tie taxonomy.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: what single added arc makes the digraph strongly connected? Check E->A (or D->A) creates a return route from the second SCC to the first, so every vertex reaches every other.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Ignoring direction for strong connectivity.</li>
+<li>Calling a DAG strongly connected.</li>
+<li>Using “reachable from” as if it meant mutually reachable.</li>
+<li><strong>Recovery rule:</strong> One directed path A to B does not establish strong connectivity; the reverse reachability must also be shown.</li>
+</ul>
+<h2>Final checklist</h2>
+<ul>
+<li>Did I specify weak or strong?</li>
+<li>Have I shown return paths?</li>
+<li>Is any Bow-Tie label justified?</li>
+<li><strong>Final 60-second audit:</strong> Direction convention, searches/reachability witnesses, component membership and condensation interpretation agree.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Strong/weak connectedness, SCCs and Bow-Tie diagrams appear across the local archive. They are valuable coverage; topic order remains uncertain.</p>
+<p>
+<a href="details.html">Back to CS4423 overview</a>
+</p>
+</article>
+</main>
+</body>
+</html>

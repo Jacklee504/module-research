@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 Hamming Codes</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA3491 overview</a>
+</nav>
+<p class="eyebrow">MA3491 Topic Guide</p>
+<h1>Binary Hamming Codes</h1>
+<p>Distinct nonzero columns in H make each single-bit error announce its position.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Hamming codes are a compact construction of perfect single-error-correcting binary codes.<strong>Exam use:</strong> Parameters, column convention, syndrome arithmetic, flipped bit, parity recheck and perfect-code count appear.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Set n=2<sup>m</sup>−1 and k=n−m.</li>
+<li>Make H whose columns are every nonzero m-bit vector once.</li>
+<li>Use C=ker H; row-reduce H to derive a G if requested.</li>
+<li>Decode a one-error word from its syndrome column.</li>
+<li><strong>Question interpretation:</strong> For construct, use each nonzero m-bit column once; for decode, read the syndrome as a column label under the stated ordering; for perfect, verify the sphere count.</li>
+</ol>
+<h2>Formulas</h2>
+<p>Binary Hamming code: [2<sup>m</sup>−1, 2<sup>m</sup>−1−m, 3]. It has 2<sup>n−m</sup> words and t=1; sphere packing is an equality.<strong>Rapid recall:</strong> Binary Hamming codes have [2^m-1,2^m-1-m,3]; distinct nonzero H columns correct one error, and 2^k(1+n)=2^n.</p>
+<h2>Derivation</h2>
+<p>No column of H is zero and no two columns agree, so a nonzero codeword cannot have weight 1 or 2; d≥3. Every nonzero syndrome is a column, so every one-bit error has a distinct syndrome. Counting gives 2<sup>k</sup>(1+n)=2<sup>n</sup>, hence perfect and d=3.<strong>Exam workflow:</strong> Freeze column order, derive G in systematic form if requested, calculate syndrome by XOR, correct one bit and check Hc^T=0.</p>
+<h2>Worked example</h2>
+<p>For m=3, n=7. Take H with columns 001,010,011,100,101,110,111. A syndrome 101 points to position 5, so flip bit 5.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>For m=3 choose H columns 001,010,011,100,101,110,111. If r=1101000, syndrome is 001 xor 010 xor 100=111, so flip bit 7 to get c=1101001. Recheck: 001 xor 010 xor 100 xor 111=000. The [7,4,3] code has 16 codewords and ball size 8, giving 16*8=128=2^7, hence perfect.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Give [n,k,d] for m=4. <strong>Check:</strong> [15,11,3].</p>
+<p>
+<strong>2.</strong> Construct H for m=3, prove it corrects one error, and verify the sphere-packing equality. <strong>Check:</strong> include both distinct-column and counting arguments.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove d_min=3 from the columns of H. Check no zero column rules out weight 1 and no repeated columns rules out weight 2; columns 001 xor 010 xor 011=0 exhibit a weight-3 codeword.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Including the zero column.</li>
+<li>Using n=2<sup>m</sup> rather than 2<sup>m</sup>−1.</li>
+<li>Reading syndrome bits in a different order from H.</li>
+<li><strong>Recovery rule:</strong> The binary value of a syndrome names a bit only if the column ordering uses that convention; otherwise locate the matching column directly.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can build H.</li>
+<li>I can recover n and k.</li>
+<li>I can explain perfect single-error correction.</li>
+<li><strong>Final 60-second audit:</strong> Parameters, column convention, syndrome arithmetic, flipped bit, parity recheck and perfect-code count appear.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Construction, parameters and single-error correction are exceptionally consistent across the 2018–2025 archive.</p>
+</article>
+</main>
+</body>
+</html>

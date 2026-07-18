@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS402 - Number Theory and Primality</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav" aria-label="Navigation">
+<a href="details.html">CS402 Overview</a>
+<a href="rsa_revision_sheet.html">RSA</a>
+<a href="elliptic_curve_cryptography_revision_sheet.html">Elliptic curves</a>
+</nav>
+<p class="eyebrow">CS402 Revision</p>
+<h1>Number Theory and Primality</h1>
+<p>Make modular calculations auditable and distinguish a test from a proof.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Number theory supplies the engine for RSA and protocols. The high-value habit is to write a short chain of justified congruences: factor/exponent decomposition, repeated squaring, reductions, and a clear conclusion about what the result does—or does not—prove.<strong>Exam use:</strong> Hypotheses, exponent decomposition, modular reductions and the exact strength of the conclusion are explicit.</p>
+<h2>What the question asks, and plan</h2>
+<ol>
+<li>State modulus and relevant theorem assumptions, especially coprimality.</li>
+<li>For <em>aᵇ mod n</em>, make a repeated-squaring table and combine only needed powers.</li>
+<li>For primality, apply the named test exactly and label its conclusion.</li>
+<li>For a counterexample, show the congruence then define pseudoprime/Carmichael accurately.</li>
+<li><strong>Question interpretation:</strong> For compute, expose the binary exponent decomposition; for test, state whether the outcome proves composite or only fails to prove prime; for inverse, show extended Euclid.</li>
+</ol>
+<h2>Terms and formulas</h2>
+<ul>
+<li>
+<strong>Congruence:</strong> <em>a≡b mod n</em> iff <em>n</em> divides <em>a−b</em>.</li>
+<li>
+<strong>Inverse:</strong> <em>a⁻¹ mod n</em> exists iff <em>gcd(a,n)=1</em>; find it by extended Euclid.</li>
+<li>
+<strong>Fermat's little theorem:</strong> prime <em>p</em> and <em>p∤a</em> imply <em>a^(p−1)≡1 mod p</em>.</li>
+<li>
+<strong>Euler:</strong> coprime <em>a,n</em> implies <em>a^φ(n)≡1 mod n</em>.</li>
+<li>
+<strong>Fermat pseudoprime to base a:</strong> composite <em>n</em> with <em>a^(n−1)≡1 mod n</em>. <strong>Carmichael:</strong> composite passing this for every base coprime to it.</li>
+<li><strong>Rapid recall:</strong> a has an inverse mod n exactly when gcd(a,n)=1; Fermat and Euler reduce powers only under their hypotheses, while a Fermat pass is not a primality proof.</li>
+</ul>
+<h2>Derivation and method</h2>
+<p>Repeated squaring rewrites an exponent in binary. To calculate <em>7¹³ mod 15</em>, build powers 7, 7², 7⁴, 7⁸ and multiply those for 13=8+4+1. A Fermat pass cannot prove a number prime because composites can be pseudoprimes; a failed congruence does prove compositeness. This one-way conclusion is often the key sentence.<strong>Exam workflow:</strong> Build powers a,a^2,a^4,... in a table, multiply only the powers selected by the binary expansion, and attach the logical conclusion to the final residue.</p>
+<h2>Fully worked simple example</h2>
+<p>Compute <em>7¹³ mod 15</em>. <em>7²=49≡4</em>; <em>7⁴≡4²=16≡1</em>; <em>7⁸≡1</em>. Hence <em>7¹³=7⁸·7⁴·7≡1·1·7=7 mod 15</em>. For a Fermat test, 15 is composite and <em>2¹⁴ mod 15=4</em>, not 1, so base 2 detects compositeness; this is a conclusive failure, not a primality proof procedure.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Find 17^{-1} mod 43 and then 17^{41} mod 43. Euclid gives 43=2*17+9, 17=9+8, 9=8+1, hence 1=2*43-5*17, so 17^{-1}=38. Since 43 is prime, 17^42=1 and therefore 17^41=17^{-1}=38 mod 43. The theorem use is valid because gcd(17,43)=1.</p>
+<h2>Two graded prompts</h2>
+<h3>1. Foundation — 6 marks</h3>
+<p>Find <em>3¹³ mod 17</em> by repeated squaring. <strong>Exam bridge:</strong> powers/reductions (4), correct combination (2). <strong>Check:</strong> 13=8+4+1 and result is 12.</p>
+<h3>2. Exam bridge — 8 marks</h3>
+<p>State Fermat's test and explain why passing it for one base does not establish primality. <strong>Check:</strong> give hypotheses, the pass condition, and the pseudoprime caveat; a failed test has the stronger conclusion.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: test 341 with Fermat base 2 and interpret the result. Check: 341=11*31 and 2^10=1 mod 341, so 2^340=(2^10)^34=1; 341 passes this base despite being composite, demonstrating a base-2 pseudoprime rather than primality.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Applying Fermat/Euler without checking its hypothesis.</li>
+<li>Reducing an exponent modulo <em>φ(n)</em> when the base is not coprime to <em>n</em>.</li>
+<li>Calling a probable-prime test a proof.</li>
+<li>Skipping intermediate reductions and losing arithmetic marks.</li>
+<li><strong>Recovery rule:</strong> When a test returns 1, write 'passes this base' unless a separate theorem supplies a proof of primality.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>Theorem and assumptions named?</li>
+<li>Exponent decomposition shown?</li>
+<li>Pass/fail conclusion stated at correct strength?</li>
+<li>Inverse validated by gcd?</li>
+<li><strong>Final 60-second audit:</strong> Hypotheses, exponent decomposition, modular reductions and the exact strength of the conclusion are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Fast exponentiation, Fermat, pseudoprimes and Carmichael-number reasoning occur across the archive and support the official primality/factorisation outcome. Specific primality-test variants are <strong>lower confidence</strong>: learn the distinction between test and proof, then follow current notes for named algorithms. <a href="details.html">Back to CS402 overview.</a>
+</p>
+</article>
+</main>
+</body>
+</html>

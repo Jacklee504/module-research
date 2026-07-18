@@ -70,6 +70,12 @@ High. The exam is predictable at the topic and question-type level, even when th
 
 CT421 looks like a strong module to target. The 40% CA weighting gives a meaningful chance to bank marks early, and the 60% written exam appears highly pattern-based from the four available past papers.
 
+## Predictability Audit (2026-07-17)
+
+- **Status: High at topic/question-type level.** Local evidence is `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`; search, evolutionary computation, multi-agent/game-theory and explainability/artificial-life themes repeat across the four papers.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT421) retains search, evolutionary computation, multi-agent systems, artificial life and neural-network explainability.
+- **Decision:** the core pattern is evidence-backed, but retain the full official scope and do not infer that the same topic must occupy the same numbered question.
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.

@@ -2,22 +2,26 @@
 
 High-level comparison of researched modules. Keep detailed evidence and question analysis inside each module directory.
 
+## Predictability Audit Status (2026-07-17)
+
+Predictability is a past-paper evidence judgement, not an assessment guarantee. **High** means repeated local papers support core topic/skill patterns and the current official module page still includes those outcomes. **Medium-High** means the core repeats but format, recency, or coverage has a meaningful caveat. **Medium** means the archive shows material or format drift. **Unknown** means no local papers are available. Exact question order, marks and lecturer-specific wording are not predicted unless separately supported by current teaching material.
+
 ## Optional Modules Researched
 
 | Module | Name | Predictability | Exam | CA | Lecturer fit | Priority | Detail |
 |---|---|---:|---:|---:|---|---|---|
 | CT421 | Artificial Intelligence | High | 60% | 40% | Low change risk; Colm O'Riordan stable | Strong target | [CT421/details.md](CT421/details.md) |
 | CT4108 | Distributed Systems | Unknown | 70% | 30% | Unknown; no past papers | Interesting but higher exam risk | [CT4108/details.md](CT4108/details.md) |
-| CS4423 | Networks | High | 80% | 20% | High change risk; current staff differ from recent papers | Exam-heavy but staff-change risk | [CS4423/details.md](CS4423/details.md) |
+| CS4423 | Networks | Medium-High | 80% | 20% | High change risk; current staff differ from recent papers | Exam-heavy; core topics repeat but latest format changed | [CS4423/details.md](CS4423/details.md) |
 | CT4100 | Information Retrieval | High | 70% | 30% | Low change risk; Colm O'Riordan stable | Good target, but exam-heavy | [CT4100/details.md](CT4100/details.md) |
-| CT420 | Real Time Systems | Medium-High | 70% | 30% | Low risk; Michael Schukat and Jawad Manzoor are starred recent lecturers and listed currently | Good if systems/protocols suit you | [CT420/details.md](CT420/details.md) |
+| CT420 | Real Time Systems | Medium | 70% | 30% | Low risk; Michael Schukat and Jawad Manzoor are starred recent lecturers and listed currently | Good if systems/protocols suit you; format/topic emphasis drift | [CT420/details.md](CT420/details.md) |
 | CS402 | Cryptography | High | 70% | 30% | Meaningful risk; latest starred lecturers are not on current page, though Tobias Rossmann gives older continuity | Predictable but lecturer-change risk | [CS402/details.md](CS402/details.md) |
 | CT561 | Systems Modelling and Simulation | High | 70% | 30% | Low risk; Jim Duggan stable | Predictable; note semester move | [CT561/details.md](CT561/details.md) |
-| MA490 | Measure Theory | High | 70% | 30% | Low-medium risk; James Cruickshank is starred on latest paper and listed currently | Predictable but proof-heavy analysis | [MA490/details.md](MA490/details.md) |
+| MA490 | Measure Theory | Medium-High | 70% | 30% | Low-medium risk; James Cruickshank is starred on latest paper and listed currently | Recurring proof families; exact questions remain variable | [MA490/details.md](MA490/details.md) |
 | MA4102 | Algebraic Foundations of Quantum Computing | High | 70% | 30% | Medium-high risk; starred lecturer alternates between Michael Mc Gettrick and Mark Howard | Predictable, but maths-heavy | [MA4102/details.md](MA4102/details.md) |
 | MA3491 | Fields and Applications | High | 60% | 40% | Low risk; Emil Skoldberg is starred on recent papers and listed currently | Strong maths option with better CA | [MA3491/details.md](MA3491/details.md) |
 | MA342 | Topology | Medium-High | 70% | 30% | Low-medium risk; Tobias Rossmann is starred on latest papers and listed currently | Proof-heavy; less CA-friendly | [MA342/details.md](MA342/details.md) |
-| MA4344 | Advanced Group Theory | High | 60% | 40% | Low risk; Dane Flannery is starred on latest papers and listed currently | Strong proof-heavy maths option with better CA | [MA4344/details.md](MA4344/details.md) |
+| MA4344 | Advanced Group Theory | Medium-High | 60% | 40% | Low risk; Dane Flannery is starred on latest papers and listed currently | Strong recent proof pattern; retain full official scope | [MA4344/details.md](MA4344/details.md) |
 
 ## Mandatory / Project Workload
 
@@ -25,8 +29,8 @@ The current GY350 Year 4 course page marks CT417, CT4101 and CT4104 as required.
 
 | Module | Name | Status | Semester | Credits | Exam | CA | Staff / Notes | Detail |
 |---|---|---|---:|---:|---:|---:|---|---|
-| CT417 | Software Engineering III | Required | 1 | 5 | 70% | 30% | Medium-High predictability; Effirul Ramlan is starred on recent papers and listed currently | [CT417/details.md](CT417/details.md) |
-| CT4101 | Machine Learning | Required | 1 | 5 | 70% | 30% | High predictability; Frank Glavin is starred on latest paper and listed currently; Michael Madden gives older continuity | [CT4101/details.md](CT4101/details.md) |
+| CT417 | Software Engineering III | Required | 1 | 5 | 70% | 30% | Medium predictability; recent DevSecOps pattern, but historical content drift | [CT417/details.md](CT417/details.md) |
+| CT4101 | Machine Learning | Required | 1 | 5 | 70% | 30% | Medium-High predictability; two recent-format papers support core ML blocks | [CT4101/details.md](CT4101/details.md) |
 | CT4104 | Computer and Network Security | Required | 2 | 5 | 60% | 40% | No local past papers; best CA split among required exam modules; plan from official outcomes rather than repetition | [CT4104/details.md](CT4104/details.md) |
 | CT413 | Final Year Project | Project route / check registration | 1 and 2 | 10 | 0% | 100% | Major CA opportunity; plan as full-year practical workload, roughly October to March | [CT413/details.md](CT413/details.md) |
 
@@ -34,7 +38,7 @@ The current GY350 Year 4 course page marks CT417, CT4101 and CT4104 as required.
 
 - CT413 is the biggest CA opportunity in the year: 10 credits, 100% CA. Plan it as a full-year workload, roughly October to March.
 - CT4104 is also strategically important because it is required and has 40% CA, but it should be treated as less exam-predictable because no local past papers are available.
-- CT417 and CT4101 are required but more exam-heavy at 70% exam / 30% CA. CT4101 is highly predictable; CT417 is medium-high overall and high for the recent paper style.
+- CT417 and CT4101 are required but more exam-heavy at 70% exam / 30% CA. CT4101 is medium-high at core-topic level; CT417 is medium because its recent DevSecOps pattern sits alongside older content drift.
 - Official status caveat: CT413 should be confirmed with registration/programme guidance because the public GY350 page labels it optional while the CS project path likely makes it practically necessary.
 
 ## Semester Planning

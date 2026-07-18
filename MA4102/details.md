@@ -146,6 +146,26 @@ Highest-return preparation:
 
 If taking this module, past-paper drilling should be very effective. The best approach is to build worked templates for each recurring question type and then practise with changed numbers.
 
+## Predictability Audit (2026-07-17)
+
+- **Status: High at skill/topic level.** Local evidence is `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, `2024_2025.pdf`, and `2025_2026.pdf`; five 2-hour papers repeat state/density calculations, entanglement, circuits, no-cloning, quantum channels and Grover/QFT work despite changes in starred examiner.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA4102) retains qubits/qudits, density operators/CPTP maps/POVMs, no-cloning, gates, teleportation and Grover/Shor.
+- **Decision:** the repeated skills are evidence-backed; do not treat one setter's wording or optional-question choice as guaranteed.
+
+## Topic Guides
+
+Each guide includes a purpose, calculation plan, notation/derivation, a worked calculation, two graduated exam bridges with checks, mistakes, checklist, and a backlink to the relevant paper evidence.
+
+- [Qubits, qudits and state vectors](qubits_qudits_revision_sheet.html)
+- [Density matrices, purity and entropy](density_matrices_revision_sheet.html)
+- [Entanglement and reduced states](entanglement_revision_sheet.html)
+- [Gates and circuits](gates_circuits_revision_sheet.html)
+- [Quantum channels and Kraus operators](channels_revision_sheet.html)
+- [Projective measurements and POVMs](measurements_revision_sheet.html)
+- [Algorithms: Grover, QFT and Deutsch–Jozsa](algorithms_revision_sheet.html) — Shor is official scope but lower-confidence for paper emphasis.
+- [No-cloning and core proofs](no_cloning_proofs_revision_sheet.html)
+- [Quantum teleportation](teleportation_revision_sheet.html)
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.

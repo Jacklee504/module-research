@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4344 Group Actions</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4344 overview</a>
+</nav>
+<p class="eyebrow">MA4344 Topic Guide</p>
+<h1>Group Actions</h1>
+<p>Translate symmetry into homomorphisms, orbits and stabilisers.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Construct action homomorphisms and use orbit-stabiliser without losing track of the set being acted on.<strong>Exam use:</strong> Action law, point, stabiliser calculation, orbit index and partition/Burnside check are shown.</p>
+<h2>Question plan</h2>
+<ol>
+<li>State G, X and the rule g·x.</li>
+<li>Check e·x=x and (gh)·x=g·(h·x).</li>
+<li>Find orbit Gx and stabiliser G<sub>x</sub>.</li>
+<li>Use |Gx|=[G:G<sub>x</sub>] for finite G; identify the kernel for faithfulness.</li>
+<li><strong>Question interpretation:</strong> For an action, verify identity and compatibility; for orbit-stabiliser, name the point and compute its stabiliser; for counting, separate orbits from elements.</li>
+</ol>
+<h2>Key terms</h2>
+<p>Action, orbit, stabiliser, kernel, faithful action, permutation representation &rho;:G&rarr;Sym(X), conjugation action.<strong>Rapid recall:</strong> An action is a homomorphism G->Sym(X); Orb(x) is in bijection with G/Stab(x), so |Orb(x)|=[G:Stab(x)] for finite G; Burnside averages fixed-point counts.</p>
+<h2>Proof method</h2>
+<p>Send g to the permutation x&mapsto;g·x. Check &rho;(gh)=&rho;(g)&rho;(h); its kernel consists of elements fixing every point. If the action is faithful, &rho; embeds G in Sym(X).<strong>Exam workflow:</strong> Write the action map, find stabilisers by solving g.x=x, use orbit-stabiliser, and audit that orbit sizes partition X.</p>
+<h2>Worked simple proof</h2>
+<p>
+<strong>Claim:</strong> S<sub>3</sub> acting on {1,2,3} has |Orb(1)|=3. Every point can be sent to 1 by a permutation, so the orbit is the whole set; therefore |Stab(1)|=6/3=2.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let D4 act on the four vertices of a square. For a vertex v, the stabiliser contains identity and the reflection through v and the opposite vertex, so has size 2. Since |D4|=8, orbit-stabiliser gives |Orb(v)|=8/2=4, as expected. For the action on diagonals, rotations by 0 and 180 fix both diagonals while 90 and 270 swap them; reflection counts depend on axis and can feed Burnside.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Let C<sub>4</sub> rotate the vertices of a square. Find the orbit and stabiliser of one vertex. <strong>Check:</strong> orbit size 4; stabiliser is trivial.</p>
+<p>
+<strong>2.</strong> Prove a faithful action of G on n points gives G&le;S<sub>n</sub>. <strong>Check:</strong> use the action homomorphism and trivial kernel.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: use Burnside to count binary necklaces of length 4 under rotations. Check fixed strings for rotations 0,1,2,3 are 16,2,4,2, so orbits=(16+2+4+2)/4=6.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Using orbit-stabiliser before checking the action.</li>
+<li>Calling an action faithful when a nonidentity element fixes all points.</li>
+<li>Confusing a point stabiliser with the kernel.</li>
+<li><strong>Recovery rule:</strong> The stabiliser is a subgroup of G, while the orbit is a subset of X; do not multiply their sets or swap their sizes.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the action axioms.</li>
+<li>I can form the permutation representation.</li>
+<li>I can compute an orbit and stabiliser.</li>
+<li><strong>Final 60-second audit:</strong> Action law, point, stabiliser calculation, orbit index and partition/Burnside check are shown.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: embeddings into symmetric groups, kernels and conjugacy/orbit arguments recur strongly. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

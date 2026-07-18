@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Subspaces and Constructions</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Subspaces and Constructions</h1>
+<p>Build and use subspace, product and quotient topologies.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Translate a construction into its defining open sets and then prove the requested property from that definition.<strong>Exam use:</strong> Construction, defining preimage/basis rule, ambient versus subspace openness and saturation are visible.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Name the construction and its underlying set.</li>
+<li>Write the defining rule for opens or a basis.</li>
+<li>Use the universal map only when its continuity criterion is relevant.</li>
+<li><strong>Question interpretation:</strong> For subspace, write U=X intersect O; for product, use basis rectangles; for quotient, test openness through the quotient map preimage.</li>
+</ol>
+<h2>Definitions</h2>
+<p>For Y⊆X, the <strong>subspace topology</strong> is {Y∩U:U open in X}. A basis for X×Y consists of U×V with U,V open. The <strong>quotient topology</strong> declares W open when q⁻¹(W) is open.<strong>Rapid recall:</strong> Subspace opens are X intersect ambient opens; product topology has basis UxV; quotient topology declares U open exactly when q^{-1}(U) is open.</p>
+<h2>Proof method</h2>
+<p>For subspaces, express the target set as Y∩U. For quotients, pull the set back along q; never assume images of open sets are open.<strong>Exam workflow:</strong> Identify the defining map or inclusion, translate the claim to preimages/basis elements, and keep saturation in mind for quotient sets.</p>
+<h2>Worked simple example</h2>
+<p>If X=R and Y=[0,1], then [0,1/2)=Y∩(-1,1/2), so it is open in the subspace Y.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let q:[0,1]->S^1 identify 0~1 via q(t)=e^{2 pi i t}. For an open arc U in S^1 avoiding 1, q^{-1}(U) is an open interval in (0,1), hence open in [0,1]. For an arc containing 1, its preimage is [0,epsilon) union (1-epsilon,1], also subspace-open. Thus q is compatible with the quotient topology; the endpoint pieces must both be included.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> List the subspace opens on {0} inside R. <strong>Check:</strong> ∅ and {0}.</p>
+<p>
+<strong>2. Exam style:</strong> Let q:[0,1]→S¹ send t to e²πit. Explain why q identifies 0 and 1 and supports the quotient description of S¹. <strong>Check:</strong> state the equivalence relation and use q⁻¹ for openness.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove projection pi_X:XxY->X is open. Check a basic open rectangle UxV maps to U when V nonempty; an arbitrary open set is a union of basic rectangles, and projection commutes with unions, so its image is open.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Using U∩Y but forgetting U must be open in X.</li>
+<li>Claiming every subset of a product is a basis element.</li>
+<li>Replacing quotient preimages by images.</li>
+<li><strong>Recovery rule:</strong> The image of an open set under a quotient map need not be open unless its full saturated preimage is open.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can compute a subspace topology.</li>
+<li>I can state a product basis.</li>
+<li>I can use the quotient definition in the correct direction.</li>
+<li><strong>Final 60-second audit:</strong> Construction, defining preimage/basis rule, ambient versus subspace openness and saturation are visible.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> subspace, product and quotient work, including S¹ from [0,1], recurs in both latest papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

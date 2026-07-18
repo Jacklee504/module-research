@@ -7,10 +7,10 @@ credits: 5
 exam_weight: 70%
 ca_weight: 30%
 assessment: 70% exam / 30% CA
-predictability: High
+predictability: Medium-High
 lecturer: Michael Madden / Frank Glavin
 lecturer_risk: Low-medium
-priority: Required predictable exam module
+priority: Required; Medium-High core-topic pattern
 module_url: https://www.universityofgalway.ie/course-information/module/CT4101
 ---
 
@@ -25,11 +25,11 @@ module_url: https://www.universityofgalway.ie/course-information/module/CT4101
 - Current module page validity: Valid from 2024 onwards.
 - Current teachers/administrators: Michael Madden, Deirdre King, Frank Glavin.
 - Past papers reviewed: 2019/20, 2021/22, 2023/24.
-- Predictability: High.
+- Predictability: Medium-High at core-topic level.
 
 ## Recommendation
 
-This is required and exam-heavy, but the exam looks very predictable at the topic level. The paper repeatedly tests core ML definitions, evaluation metrics, cross-validation, ROC curves, hyperparameter search, kNN/k-means, distance metrics, normalisation, overfitting/underfitting, curse of dimensionality, decision trees, entropy/information gain, neural-network basics and encoding.
+This is required and exam-heavy, but the core ML topic pattern is medium-high confidence. The paper repeatedly tests ML definitions, evaluation metrics, cross-validation, ROC curves, hyperparameter search, kNN/k-means, distance metrics, normalisation, overfitting/underfitting, curse of dimensionality, decision trees, entropy/information gain, neural-network basics and encoding.
 
 Because CA is only 30%, this is not a top CA-leverage module, but it is a good module to prepare systematically. It also reinforces CT421 and CT4100 through classification, regression, clustering, evaluation, learning curves, decision trees and practical data-processing concepts.
 
@@ -68,9 +68,21 @@ Source: https://www.universityofgalway.ie/course-information/module/CT4101
 
 ## Predictability Rating
 
-High. The exact datasets and wording change, but the same conceptual blocks recur strongly.
+Medium-High at core-topic level. The exact datasets and wording change, and only two papers share the newer format, but the same conceptual blocks recur strongly.
 
-The exam is predictable in the useful way: if you prepare the standard answer frameworks and calculation methods, many questions become variations of familiar tasks.
+The recurring core is useful: if you prepare standard answer frameworks and calculation methods, many questions become variations of familiar tasks, while the full current outcome set still needs coverage.
+
+## Topic Guides
+
+- [ML Foundations](ml_foundations_revision_sheet.html)
+- [Data Preparation](data_preparation_revision_sheet.html)
+- [kNN and k-means](knn_kmeans_revision_sheet.html)
+- [Evaluation](evaluation_revision_sheet.html)
+- [Model Selection](model_selection_revision_sheet.html)
+- [Generalisation](generalisation_revision_sheet.html)
+- [Decision Trees](decision_trees_revision_sheet.html)
+- [Neural-Network Basics](neural_network_basics_revision_sheet.html)
+- [Bayesian/Probabilistic Learning](bayesian_probabilistic_learning_revision_sheet.html)
 
 ## Evidence From Past Papers
 
@@ -125,7 +137,13 @@ The exam is predictable in the useful way: if you prepare the standard answer fr
 
 ## Bottom Line
 
-CT4101 is a highly predictable required module. The risk is not surprise topics so much as breadth: the paper can sample many standard ML areas. The best approach is to build a compact formula/diagram/definition bank and practise the recurring calculations from 2021/22 and 2023/24.
+CT4101 is a medium-high predictability required module at core-topic level. The risk is both breadth and limited recent-format evidence: the paper can sample many standard ML areas. Build a compact formula/diagram/definition bank and practise the recurring calculations from 2021/22 and 2023/24.
+
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium-High (topic-level); not High for exact coverage.** Local evidence is `2019_2020.pdf`, `2021:2022.pdf`, and `2023_2024.pdf`; the latter two share the four-question, answer-three format, while 2019/20 differs.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/CT4101) explicitly retains classification, regression, clustering, preprocessing, model selection/evaluation, hyperparameters and neural networks. That supports the core recurring ML blocks, but not a guarantee of each named calculation or question order.
+- **Decision:** weight 2021/22 and 2023/24 most heavily, revise the full official outcome set, and use older-paper topics as secondary coverage.
 
 ## Short Learning Material
 

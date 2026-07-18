@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA490 Convergence</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html#topic-guides">MA490 topic guides</a>
+</nav>
+<p class="eyebrow">MA490 Topic Guide</p>
+<h1>Convergence of Functions</h1>
+<p>Separate pointwise, uniform and almost-uniform claims before proving them.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Classify function convergence and produce compact proofs or counterexamples.<strong>Exam use:</strong> Domain, candidate limit, quantifier/supremum calculation, epsilon choice and endpoint behaviour are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Find the candidate pointwise limit.</li>
+<li>For uniform convergence, inspect sup<sub>x</sub>|f<sub>n</sub>−f|.</li>
+<li>For a failure, choose x depending on n.</li>
+<li>For almost-uniform convergence, first choose an exceptional set of small measure.</li>
+<li><strong>Question interpretation:</strong> For pointwise, fix x then choose N depending on x; for uniform, make one N work for all x or calculate the supremum norm; for counterexample, choose x_n that tracks the worst case.</li>
+</ol>
+<h2>Definitions</h2>
+<p>Pointwise convergence fixes x before n tends to infinity. Uniform convergence requires sup<sub>x</sub>|f<sub>n</sub>(x)−f(x)|→0. Almost-uniform convergence permits removal of a measurable set of arbitrarily small measure before uniform convergence.<strong>Rapid recall:</strong> Uniform convergence means sup_x |f_n-f|->0 and implies pointwise convergence; a uniform limit of continuous functions is continuous, while pointwise limits need not be.</p>
+<h2>Proof method</h2>
+<p>To disprove uniform convergence, give ε&gt;0 and, for every N, choose n≥N and x<sub>n</sub> with error at least ε. Never let x depend on n in a pointwise proof.<strong>Exam workflow:</strong> First find the pointwise limit, then maximise the error or produce an epsilon and adversarial x_n; keep the quantifier order visible.</p>
+<h2>Worked simple example</h2>
+<p>On [0,1], f<sub>n</sub>(x)=x<sup>n</sup> converges pointwise to f with f(x)=0 for x&lt;1 and f(1)=1, but not uniformly because f<sub>n</sub>(1)=f(1) is harmless while values close to 1 keep large error against 0.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>For f_n(x)=x^n on [0,1], the pointwise limit is f(x)=0 for x&lt;1 and f(1)=1. Convergence is not uniform because each f_n is continuous but f is discontinuous; directly, for x&lt;1 the error is x^n and sup_{x&lt;1}x^n=1, though not attained, so sup_{[0,1]}|f_n-f|=1 for every n.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Basic:</strong> Does x<sup>n</sup> converge pointwise on [0,1]? <strong>Check:</strong> yes, to the stated discontinuous limit.</p>
+<p>
+<strong>2. Exam:</strong> Give a one-line obstruction to uniform convergence to a continuous function when the pointwise limit is discontinuous. <strong>Check:</strong> a uniform limit of continuous functions is continuous.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: on [0,a] with 0&lt;a&lt;1, prove x^n->0 uniformly. Check sup_{x in [0,a]}x^n=a^n->0; for epsilon choose N>log epsilon/log a, noting log a&lt;0 when handling the inequality.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Interchanging the order of quantifiers.</li>
+<li>Testing only a few fixed points for uniform convergence.</li>
+<li>Confusing almost everywhere with almost uniform.</li>
+<li><strong>Recovery rule:</strong> Testing only fixed points can never disprove uniform convergence; the bad point may depend on n.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can write the quantifiers for pointwise and uniform convergence.</li>
+<li>I can choose a moving bad point.</li>
+<li>I know the continuous-uniform-limit theorem.</li>
+<li><strong>Final 60-second audit:</strong> Domain, candidate limit, quantifier/supremum calculation, epsilon choice and endpoint behaviour are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Medium-high confidence: pointwise/uniform/almost-uniform comparisons appear in Q1-style questions and support later integration arguments. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

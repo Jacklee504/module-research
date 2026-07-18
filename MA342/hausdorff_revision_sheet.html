@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Hausdorff Spaces</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Hausdorff Spaces</h1>
+<p>Separate points and use compact-to-Hausdorff rigidity.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Test whether distinct points can be separated by disjoint open sets and exploit the compact-Hausdorff homeomorphism theorem.<strong>Exam use:</strong> Points are arbitrary and distinct, both neighbourhoods are open, containment and disjointness are proved, and theorem hypotheses are named.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Take arbitrary distinct x,y.</li>
+<li>Produce explicit disjoint open neighbourhoods, or show why none can exist.</li>
+<li>For a bijection compact→Hausdorff, establish continuity then invoke the theorem.</li>
+<li><strong>Question interpretation:</strong> For prove Hausdorff, start with arbitrary distinct points and construct disjoint neighbourhoods; for exploit, identify compactness plus Hausdorffness before declaring a set closed.</li>
+</ol>
+<h2>Definitions</h2>
+<p>X is <strong>Hausdorff</strong> if for x≠y there are disjoint open U,V with x∈U and y∈V. A continuous bijection from compact X to Hausdorff Y is a homeomorphism.<strong>Rapid recall:</strong> Hausdorff means distinct points have disjoint open neighbourhoods. Compact subsets of Hausdorff spaces are closed, and continuous maps from compact to Hausdorff spaces gain strong closedness properties.</p>
+<h2>Proof method</h2>
+<p>For the theorem, a closed C⊆X is compact; f(C) is compact and hence closed in Hausdorff Y. Thus f is a closed bijection, so f⁻¹ is continuous.<strong>Exam workflow:</strong> Fix x != y, use the structure available to choose neighbourhoods, verify disjointness, and keep the property relative to the specified topology.</p>
+<h2>Worked simple example</h2>
+<p>R is Hausdorff: for x&lt;y choose disjoint intervals around x and y, each with radius less than (y−x)/3.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>The cofinite topology on an infinite set X is not Hausdorff. Any nonempty open U,V have finite complements. If U and V were disjoint, X=(XU) union (XV) would be finite, contradiction. Thus no two nonempty opens are disjoint, so distinct points cannot have disjoint neighbourhoods. It is nevertheless T1 because every singleton has open cofinite complement.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Is an infinite cofinite space Hausdorff? <strong>Check:</strong> no: two nonempty opens always intersect.</p>
+<p>
+<strong>2. Exam style:</strong> Prove a continuous bijection f:X→Y is a homeomorphism if X is compact and Y Hausdorff. <strong>Check:</strong> show f is closed by compact images.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove the diagonal Delta={(x,x):x in X} is closed in XxX when X is Hausdorff. Check for (x,y) not in Delta choose disjoint U containing x and V containing y; UxV is an open neighbourhood disjoint from Delta, so the complement is open.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Finding neighbourhoods that are not disjoint.</li>
+<li>Assuming T₁ automatically means Hausdorff.</li>
+<li>Omitting continuity in the compact-Hausdorff theorem.</li>
+<li><strong>Recovery rule:</strong> T1 separates a point from another by one open set; it does not provide the pair of disjoint neighbourhoods required for Hausdorffness.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state Hausdorff separation.</li>
+<li>I can disprove it in an infinite cofinite topology.</li>
+<li>I can write the compact-Hausdorff proof chain.</li>
+<li><strong>Final 60-second audit:</strong> Points are arbitrary and distinct, both neighbourhoods are open, containment and disjointness are proved, and theorem hypotheses are named.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> Hausdorff questions and the compact-Hausdorff theorem are explicit in both latest papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

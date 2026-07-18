@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS4423 Random Graphs</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CS4423 overview</a>
+</nav>
+<p class="eyebrow">CS4423 Topic Guide</p>
+<h1>Random Graphs</h1>
+<p>Separate the model definition from the probability calculation it implies.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose and relevance</h2>
+<p>Erdős–Rényi models give a baseline for network structure. Random-graph questions recur strongly and match the official outcome on random graph generators and properties.<strong>Exam use:</strong> Model, number of trials/objects, occurrence probability, expectation formula and interpretation are stated.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>Name the model first: G(n,m) fixes m edges; G(n,p) independently includes each possible edge with p. Identify the random variable, use the correct number of possible edges, then interpret expectation or probability.<strong>Question interpretation:</strong> First identify G(n,p) versus G(n,m); then translate the requested count into indicator variables or a binomial distribution before substituting.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>Possible undirected edges N=C(n,2)=n(n−1)/2.</li>
+<li>G(n,p): M∼Binomial(N,p), E[M]=Np; degree ∼Binomial(n−1,p), E[k]=(n−1)p.</li>
+<li>G(n,m): each m-edge subset is equally likely; edge probability m/N.</li>
+<li>
+<strong>Giant component:</strong> a component containing a positive fraction of vertices.</li>
+<li><strong>Rapid recall:</strong> In G(n,p), |E| is Binomial(N,p) with N=n(n-1)/2, E|E|=Np, and a vertex degree is Binomial(n-1,p); a fixed k-edge pattern appears with factor p^k.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Write n, m or p and N=C(n,2).</li>
+<li>Choose binomial/expectation or counting method.</li>
+<li>Substitute, retain units (edges/degree/probability).</li>
+<li>Say what independence means and whether it fits the application.</li>
+<li><strong>Exam workflow:</strong> Count eligible labelled objects, multiply by the probability each occurs, and use linearity of expectation without assuming indicators are independent.</li>
+</ol>
+<h2>Worked starter question and model answer</h2>
+<p>
+<strong>Question:</strong> For G(5,0.2), find expected edges and expected degree.</p>
+<p>
+<strong>Model answer:</strong> N=10, so E[M]=10×0.2=2 edges. E[k]=(5−1)×0.2=0.8. These are averages across generated graphs, not guaranteed values in one graph.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>In G(6,1/2), N=15, so E|E|=15/2 and Var(|E|)=15/4. There are C(6,3)=20 vertex triples; each forms a triangle with probability (1/2)^3, hence the expected number of triangles is 20/8=2.5. Independence between different triangles is not needed for this expectation.</p>
+<h2>Graduated practice</h2>
+<h3>Prompt 1</h3>
+<p>In G(6,3), what is the probability a particular edge is present? <strong>Check:</strong> 3/C(6,2)=3/15=0.2.</p>
+<h3>Exam bridge</h3>
+<p>Contrast G(n,m) and G(n,p), then derive expected edge count and discuss realism. <strong>Check:</strong> fixed versus random edge count, correct N, and a limitation such as independent edges miss clustering/community structure.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: in G(8,1/4), find the expected isolated vertices. Check a fixed vertex is isolated with probability (3/4)^7, so expectation is 8(3/4)^7; do not multiply by an extra independence factor.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Using n² instead of C(n,2).</li>
+<li>Confusing fixed m with expected m.</li>
+<li>Reading expectation as certainty.</li>
+<li><strong>Recovery rule:</strong> Expected count may be non-integer; it is an average over graphs, not a promised count in one graph.</li>
+</ul>
+<h2>Final checklist</h2>
+<ul>
+<li>Did I state the model?</li>
+<li>Is the sample space right?</li>
+<li>Did I interpret the result?</li>
+<li><strong>Final 60-second audit:</strong> Model, number of trials/objects, occurrence probability, expectation formula and interpretation are stated.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>G(n,m), G(n,p), edge probabilities and dice/coin-style probability work recur in 2017/18–2024/25. Exact model/number choices are not predictable.</p>
+<p>
+<a href="details.html">Back to CS4423 overview</a>
+</p>
+</article>
+</main>
+</body>
+</html>

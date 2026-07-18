@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 Linear Codes</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA3491 overview</a>
+</nav>
+<p class="eyebrow">MA3491 Topic Guide</p>
+<h1>Linear Codes: G, H and Minimum Distance</h1>
+<p>Use the generator matrix to create codewords and the parity-check matrix to test them.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Linear-code questions link matrix algebra over F<sub>q</sub> to size, membership and error detection.<strong>Exam use:</strong> Field, dimensions, convention, generated words, parity orthogonality and distance/error capability are consistent.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Row-reduce G and read k=rank(G).</li>
+<li>Put G in standard form [I<sub>k</sub>|A] where useful.</li>
+<li>Use H=[−A<sup>T</sup>|I<sub>n−k</sub>] so GH<sup>T</sup>=0.</li>
+<li>Enumerate nonzero codewords for small k to find d.</li>
+<li><strong>Question interpretation:</strong> For encode use uG; for membership or decode use Hc^T; for distance exploit linearity so d_min is minimum nonzero codeword weight.</li>
+</ol>
+<h2>Formulas</h2>
+<p>C={uG:u∈F<sub>q</sub>
+<sup>k</sup>}; |C|=q<sup>k</sup>. A word v lies in C exactly when Hv<sup>T</sup>=0. For linear C, d=min{wt(c):c∈C,c≠0}.<strong>Rapid recall:</strong> An [n,k,d]_q linear code has q^k words; GH^T=0; in systematic form G=[I_k|P], H=[-P^T|I_{n-k}].</p>
+<h2>Derivation</h2>
+<p>Distinct messages give distinct uG when G has rank k, so there are q<sup>k</sup> words. Orthogonality GH<sup>T</sup>=0 makes every generated word satisfy the checks. Difference of two codewords is a codeword, so minimum pairwise distance is minimum nonzero weight.<strong>Exam workflow:</strong> State row-vector convention, perform all arithmetic in F_q, enumerate only independent messages if small, and cross-check every codeword with H.</p>
+<h2>Worked example</h2>
+<p>Over F<sub>2</sub>, G=[1 0 1; 0 1 1]. Then C={000,101,011,110}, so k=2, d=2. Here A=[1;1], hence H=[1 1 1]; each codeword has zero syndrome.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Over F_2 take G=[[1,0,1,1],[0,1,1,0]]. Messages 00,10,01,11 give 0000,1011,0110,1101 with weights 0,3,2,3, so d_min=2. With P=[[1,1],[1,0]], H=[P^T|I_2]=[[1,1,1,0],[1,0,0,1]], and GH^T=0.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Test whether 111 is in the example code. <strong>Check:</strong> H·111<sup>T</sup>=1 mod 2, so no.</p>
+<p>
+<strong>2.</strong> Given a standard-form G over F<sub>3</sub>, construct H and find d with a clear finite enumeration. <strong>Check:</strong> use −A<sup>T</sup>, not simply A<sup>T</sup>.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: how many errors can this code detect and correct? Check d=2 gives detection up to d-1=1 and guaranteed correction floor((d-1)/2)=0; a nonzero syndrome detects one error but cannot uniquely correct every one.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Doing ordinary real-number arithmetic.</li>
+<li>Counting rows of a non-full-rank G as k.</li>
+<li>Calling the least row weight d without checking combinations.</li>
+<li><strong>Recovery rule:</strong> Minimum distance includes pairs of distinct codewords; only linearity permits replacing that search by minimum nonzero weight.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can form H and check GH<sup>T</sup>=0.</li>
+<li>I know |C|.</li>
+<li>I can justify d for a linear code.</li>
+<li><strong>Final 60-second audit:</strong> Field, dimensions, convention, generated words, parity orthogonality and distance/error capability are consistent.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Generator/check matrices, standard form, membership and minimum distance are among the most stable 2018–2025 themes.</p>
+</article>
+</main>
+</body>
+</html>

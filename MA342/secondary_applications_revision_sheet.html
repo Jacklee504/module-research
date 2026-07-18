@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Secondary Applications</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Secondary Applications</h1>
+<p>Keep the older application material available without displacing current core revision.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Recognise Euler/triangulation, Brouwer, fundamental-theorem-of-algebra and Nash-style questions, while assigning them lower priority than current point-set topics.<strong>Exam use:</strong> Hypotheses, incidence count, algebraic rearrangement and structural conclusion are all justified.</p>
+<h2>Question plan</h2>
+<ol>
+<li>State the theorem or invariant being applied.</li>
+<li>Check its hypotheses in the concrete setting.</li>
+<li>Give only the requested consequence; do not replace a proof question with a slogan.</li>
+<li><strong>Question interpretation:</strong> Treat each named theorem as a conditional tool: state its hypotheses before using an Euler characteristic, fixed-point, or surface conclusion.</li>
+</ol>
+<h2>Definitions</h2>
+<p>For a suitable finite triangulation, the <strong>Euler characteristic</strong> is χ=V−E+F. <strong>Brouwer fixed point</strong>: every continuous map from a closed ball to itself has a fixed point. The topological proof of the <strong>FTA</strong> uses global properties of maps on the complex plane.<strong>Rapid recall:</strong> For a connected planar embedding V-E+F=2; Brouwer guarantees a fixed point for continuous self-maps of a closed disk; triangulation counts require edges/faces with their incidence assumptions.</p>
+<h2>Proof method</h2>
+<p>For a triangulation, count vertices, edges and faces carefully and use the stated Euler relation. For theorem applications, explicitly map the data to each hypothesis before drawing the conclusion.<strong>Exam workflow:</strong> Translate the object into the theorem's setting, count without double-counting, and separate a theorem application from heuristic geometry.</p>
+<h2>Worked simple example</h2>
+<p>A tetrahedron has V=4, E=6, F=4, so χ=4−6+4=2, as expected for a sphere-like surface.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Prove a simple connected planar graph with V>=3 satisfies E&lt;=3V-6. Each face boundary has at least 3 edges, so 3F&lt;=2E because each edge borders two faces. Euler gives F=2-V+E. Thus 3(2-V+E)&lt;=2E, hence E&lt;=3V-6. Therefore K_5, with E=10>9 when V=5, is nonplanar.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Compute χ for a triangle filled by one face. <strong>Check:</strong> 3−3+1=1.</p>
+<p>
+<strong>2. Exam style:</strong> Let f:[0,1]→[0,1] be continuous. Explain why f has a fixed point. <strong>Check:</strong> this is the one-dimensional fixed-point consequence; alternatively use g(x)=f(x)−x and IVT.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: show every continuous f:[0,1]->[0,1] has a fixed point. Check g(x)=f(x)-x is continuous, g(0)>=0 and g(1)&lt;=0; the intermediate value theorem supplies c with g(c)=0. This is a one-dimensional Brouwer instance.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Counting a shared edge twice in a triangulation.</li>
+<li>Applying Brouwer when the map does not send the closed ball to itself.</li>
+<li>Spending core-revision time on older applications without current lecture evidence.</li>
+<li><strong>Recovery rule:</strong> Euler's formula uses faces of a particular planar embedding and needs the connected-version constant 2; adjust for disconnected graphs.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can compute V−E+F for a small complex.</li>
+<li>I can state the fixed-point hypothesis and conclusion.</li>
+<li>I have completed the eight core guides before this sheet.</li>
+<li><strong>Final 60-second audit:</strong> Hypotheses, incidence count, algebraic rearrangement and structural conclusion are all justified.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>Lower confidence:</strong> Euler, triangulation, Brouwer, FTA and Nash material occurs in 2018–2022/23 papers but is much less visible in 2023/24–2024/25. Revise it after core material or when lectures signal its return. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4344 Subgroups and Lagrange</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4344 overview</a>
+</nav>
+<p class="eyebrow">MA4344 Topic Guide</p>
+<h1>Subgroups and Lagrange's Theorem</h1>
+<p>Turn subgroup information into divisibility and order conclusions.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Use subgroup tests and Lagrange's theorem efficiently in the recurring finite-group proof style.<strong>Exam use:</strong> Operation, nonempty/subgroup test, sizes, index/cosets and the exact divisibility implication are shown.</p>
+<h2>Question plan</h2>
+<ol>
+<li>State whether the group is finite and identify the subgroup.</li>
+<li>Apply |H| divides |G|, or use the order of an element via &lang;g&rang;.</li>
+<li>List only consequences justified by divisibility.</li>
+<li>For a matrix-parametrised set, first prove closure and identify the parameter map.</li>
+<li><strong>Question interpretation:</strong> For subgroup, apply a one-step test; for order conclusions, use Lagrange in the correct direction; for cyclic subgroups, distinguish element order from group order.</li>
+</ol>
+<h2>Key terms</h2>
+<p>
+<strong>Subgroup</strong>, cyclic subgroup &lang;g&rang;, order |g|, index [G:H], left coset. Lagrange: if H&le;G and G is finite, then |H| divides |G| and |G|=[G:H]|H|.<strong>Rapid recall:</strong> Nonempty H is a subgroup iff ab^{-1} in H for all a,b in H. For finite G, |H| divides |G| and ord(g) divides |G|; converses generally fail.</p>
+<h2>Proof method</h2>
+<p>Partition G into left cosets of H; multiplication by a representative bijects H with each coset, so every coset has |H| elements. For an element g, apply this to &lang;g&rang;.<strong>Exam workflow:</strong> Check nonemptiness, closure under ab^{-1}, then use coset partitions to justify divisibility and compute indices.</p>
+<h2>Worked simple proof</h2>
+<p>
+<strong>Claim:</strong> an element of a group of order 15 cannot have order 6. Since |g|=|&lang;g&rang;| divides 15 by Lagrange, 6∤15. Contradiction.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>In Z12 under addition, H={0,4,8}. It is nonempty and for a,b in H, a-b is again a multiple of 4 mod 12, so H&lt;=Z12. Its order is 3 and index 4. The cosets are H,1+H,2+H,3+H. Element 4 has order 3 since 3*4=0 mod 12 and no smaller positive multiple vanishes.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> If |G|=42, list possible orders of an element. <strong>Check:</strong> positive divisors of 42 only.</p>
+<p>
+<strong>2.</strong> Let H={[[1,n],[0,1]]:n&isin;Z}. Prove H&le;SL(2,Z) and show H&cong;Z. <strong>Check:</strong> multiply matrices to add parameters; n&mapsto;matrix(n) is an isomorphism.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: show K={sigma in S4:sigma(4)=4} is a subgroup and find its order/index. Check ab^{-1} fixes 4 when a,b do; restriction to {1,2,3} gives K isomorphic to S3, so |K|=6 and index 4.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Claiming every divisor of |G| is realised as an element order.</li>
+<li>Using Lagrange before establishing subgroup status.</li>
+<li>Confusing the order of G, H and an element.</li>
+<li><strong>Recovery rule:</strong> Lagrange says subgroup order must divide group order, not that every divisor occurs as a subgroup order.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state Lagrange with its hypotheses.</li>
+<li>I can use cyclic subgroups for element-order claims.</li>
+<li>I can prove a parametrised matrix set is a subgroup.</li>
+<li><strong>Final 60-second audit:</strong> Operation, nonempty/subgroup test, sizes, index/cosets and the exact divisibility implication are shown.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: Lagrange and the matrix-subgroup pattern occur in both 2023/24 and 2024/25. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

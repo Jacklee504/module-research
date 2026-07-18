@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CT421 - Explainability and Bio-Inspired AI Revision Sheet</title>
+    <link rel="stylesheet" href="../module_page.css">
+  </head>
+  <body>
+    <header class="module-header">
+      <nav class="top-nav" aria-label="Navigation">
+        <a href="details.html">CT421 Overview</a>
+        <a href="search_revision_sheet.html">Search Revision</a>
+        <a href="evolution_revision_sheet.html">Evolution Revision</a>
+        <a href="mas_revision_sheet.html">MAS Revision</a>
+      </nav>
+      <p class="eyebrow">CT421 Revision</p>
+      <h1>Explainability and Bio-Inspired AI</h1>
+      <p>The recurring Question 4 material: explainability, artificial life, neuro-evolution, ant colony optimisation, and symbolic versus connectionist AI.</p>
+    </header>
+    <main class="module-shell">
+<article class="module-content">
+<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> explainability communicates why a model output arose; ACO builds solutions probabilistically from pheromone and heuristic information, then reinforces good paths and evaporates old trails. <strong>Compare:</strong> symbolic models expose rules; connectionist models can learn complex patterns but are harder to inspect. <strong>Question cue:</strong> explain mechanism, application and limitation.</p><h2>Worked practice 1 — paper-derived ACO</h2><p><strong>Question demand:</strong> Describe one ACO iteration for routing. <strong>Plan/choice:</strong> construction, evaluation, reinforcement and evaporation. <strong>Worked answer:</strong> ants choose edges by pheromone/heuristic probability, score complete routes, deposit more pheromone on good routes, evaporate all trails to prevent lock-in. <strong>Mark-winning points:</strong> all four stages. <strong>Common trap:</strong> pheromone only increases.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Choose an explanation for a high-stakes classifier. <strong>Plan/choice:</strong> distinguish global model understanding from local decision explanation and validate usefulness. <strong>Worked answer:</strong> provide auditable feature/decision explanation appropriate to user, test fidelity/stability and disclose limits; a post-hoc explanation is not proof the black box is causal. <strong>Mark-winning points:</strong> audience and limitation. <strong>Common trap:</strong> one explanation makes model transparent.</p>
+<h2>Explainability</h2>
+
+        <h3>Black-box models</h3>
+        <p>A <strong>black-box model</strong> makes predictions accurately but does not make its reasoning easy for humans to inspect. Deep neural networks are often called black boxes because many learned weights interact in complex ways.</p>
+        <p><strong>Why it matters:</strong> explanations support trust, debugging, bias detection, accountability, and safe use in high-stakes domains such as healthcare, lending, and law.</p>
+
+        <h3>Ways to explain deep learning</h3>
+        <ul>
+          <li><strong>Feature importance:</strong> show which input features most affected a prediction.</li>
+          <li><strong>Saliency or attention maps:</strong> highlight image regions or tokens that influenced the output.</li>
+          <li><strong>Local surrogate explanations:</strong> approximate one prediction with a simpler interpretable model.</li>
+          <li><strong>Interpretable-by-design models:</strong> use simpler rules or symbolic components where explanation is more important than raw accuracy.</li>
+        </ul>
+
+        <h2>Artificial Life and Neuro-Evolution</h2>
+
+        <h3>Artificial life</h3>
+        <p><strong>Artificial life</strong> studies life-like behaviour in simulated systems. Its main ideas are local interaction, adaptation, decentralisation, and emergence: complex global behaviour can arise from simple individual rules.</p>
+        <p><strong>Example:</strong> In the Boids model, simple separation, alignment, and cohesion rules create flocking behaviour without a leader. The Game of Life similarly produces complex patterns from simple cell rules.</p>
+
+        <h3>Neuro-evolution</h3>
+        <p><strong>Neuro-evolution</strong> uses an evolutionary algorithm to optimise a neural network's weights, architecture, or both.</p>
+        <ul>
+          <li><strong>Representation:</strong> a chromosome can be a vector of weights or a graph encoding nodes and connections.</li>
+          <li><strong>Advantages:</strong> does not require gradients, can optimise architecture, and can work with delayed or sparse rewards.</li>
+          <li><strong>Limitations:</strong> evaluating many networks is computationally expensive and can be slow for large networks.</li>
+        </ul>
+
+        <h2>Ant Colony Optimisation</h2>
+        <p><strong>Ant Colony Optimisation (ACO)</strong> is a search method inspired by ants finding routes. Artificial ants construct solutions probabilistically, preferring paths with stronger pheromone trails and often shorter distances. Good solutions deposit pheromone; evaporation reduces old pheromone so the search does not get stuck too early.</p>
+        <p><strong>Example:</strong> For a shortest-path or travelling-salesperson problem, ants repeatedly build paths. Shorter routes deposit more pheromone, making them more likely to be selected in later iterations.</p>
+
+        <h2>Symbolic versus Connectionist AI</h2>
+        <ul>
+          <li><strong>Symbolic AI:</strong> represents knowledge with rules and symbols. It is interpretable and supports explicit reasoning, but can be brittle and difficult to scale from raw data.</li>
+          <li><strong>Connectionist AI:</strong> learns patterns using neural networks. It handles noisy, high-dimensional data well, but generally needs more data and is harder to explain.</li>
+        </ul>
+
+        <h2>Question interpretation and independent practice</h2>
+        <ul>
+          <li>Start with a one-sentence definition, then explain the mechanism. For ACO, that means ants construct paths, pheromone reinforces good ones, and evaporation preserves exploration.</li>
+          <li>Use the example named in the question to prove understanding: Boids for emergence, a network path for ACO, or medical diagnosis for symbolic versus connectionist AI.</li>
+          <li>For compare-and-contrast questions, give one strength and one limitation of each approach. For explainability, include why it matters and two concrete explanation methods.</li>
+        </ul>
+
+        <h2>Exam Practice: Question 4</h2>
+
+        <h3>Question 1: Explainability in deep learning (2021/22 to 2024/25, 8-9 marks)</h3>
+        <p><strong>Question:</strong> Explain why black-box deep learning models can be problematic and describe two ways to make them more interpretable.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>A black-box model is difficult to understand internally, even when accurate.</li>
+          <li>This is problematic for trust, bias detection, debugging, accountability, and high-stakes decisions.</li>
+          <li>Feature-importance or saliency methods show which inputs influenced one output.</li>
+          <li>Local surrogate models explain one prediction with a simpler approximation. These explanations help, but may not fully describe the whole model.</li>
+        </ul>
+
+        <h3>Question 2: Ant Colony Optimisation (2023/24 and 2024/25, 8-9 marks)</h3>
+        <p><strong>Question:</strong> Explain ACO, including pheromones and evaporation, and show how it can find a short path.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>Ants construct candidate paths, biased by pheromone strength and path quality.</li>
+          <li>After each iteration, good or short paths deposit more pheromone.</li>
+          <li>Evaporation reduces old pheromone, preserving exploration and preventing early paths from dominating forever.</li>
+          <li>Over many iterations, short routes receive more pheromone and become more likely to be selected.</li>
+        </ul>
+
+        <h3>Question 3: Neuro-evolution (2021/22 and 2022/23, 9 marks)</h3>
+        <p><strong>Question:</strong> Explain neuro-evolution, including representation, advantages, and limitations.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>Neuro-evolution evolves neural-network weights, architecture, or both using a GA.</li>
+          <li>A chromosome can be a list of connection weights or a graph of nodes and edges.</li>
+          <li>It works without gradients and can optimise architectures or sparse-reward tasks.</li>
+          <li>It is expensive because many candidate networks must be evaluated, especially for large networks.</li>
+        </ul>
+
+        <h3>Question 4: Artificial life (2021/22, 2022/23, and 2023/24, 8 marks)</h3>
+        <p><strong>Question:</strong> With reference to an existing system, explain the main properties of an artificial-life system. Include an example of complex behaviour emerging from simple rules.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>Artificial life simulates life-like properties such as decentralised interaction, adaptation, evolution, and emergence.</li>
+          <li>In Boids, each agent follows only separation, alignment, and cohesion rules.</li>
+          <li>Despite no central controller, the group displays flocking behaviour. This is emergence: complex global behaviour arising from simple local rules.</li>
+          <li>Algorithms such as ACO use this idea by copying useful properties of a natural system.</li>
+        </ul>
+
+        <h3>Question 5: Symbolic versus connectionist AI (2024/25, 8 marks)</h3>
+        <p><strong>Question:</strong> Compare symbolic AI and connectionist AI. Using one application, discuss an advantage and limitation of each.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>Symbolic AI uses explicit rules and symbols. It is interpretable, but manually built rule systems can be brittle.</li>
+          <li>Connectionist AI learns patterns using neural networks. It handles raw, noisy data well, but usually needs much more training data and is harder to explain.</li>
+          <li>For medical diagnosis, a rule system can explain its conclusion clearly; a neural network may detect subtle patterns in scans but needs explanation methods to justify a decision.</li>
+        </ul>
+        <h2>High-value traps and final review</h2>
+        <h3>Worked example: one ACO update</h3>
+        <p><strong>Problem:</strong> Two routes have equal heuristic desirability, but route A has stronger pheromone after a shorter previous tour.</p>
+        <p><strong>Model reasoning:</strong> An ant is more likely to select A because stronger pheromone biases construction toward previously good routes. After tours are evaluated, short routes add more pheromone; evaporation then reduces every trail so an early route cannot dominate forever. Thus reinforcement exploits quality while evaporation preserves exploration.</p>
+        <h3>Common mistakes</h3>
+        <ul><li>Describing pheromone reinforcement but omitting evaporation.</li><li>Calling emergence a centrally planned behaviour.</li><li>Claiming an explanation method makes a black-box model fully transparent.</li></ul>
+        <h3>Final checklist</h3>
+        <ul><li>Define the Q4 subtopic, explain its mechanism, then apply it to the named example.</li><li>For comparisons, give a strength and limitation of both approaches.</li><li>For ACO, include construction, reinforcement, and evaporation.</li></ul>
+        <p><strong>Past-paper confidence:</strong> Question 4 subtopics are variable and should be treated as relevant topic areas rather than a guaranteed exact position.</p>
+      </article>
+    </main>
+  </body>
+</html>

@@ -162,6 +162,12 @@ Highest-return preparation:
 
 This module is predictable enough to prepare for, but its marks depend heavily on writing precise proofs under time pressure.
 
+## Predictability Audit (2026-07-17)
+
+- **Status: Medium-High.** Local evidence is `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`. The newest two papers closely repeat definitions, compactness, connectedness and construction/proof work, but the archive has an older ten-question format and staff change.
+- **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA342) retains topology, continuity/homeomorphism, subspace/quotient constructions, compactness and connectedness.
+- **Decision:** use recent papers for proof-practice priority, but treat exact format and older topical weighting as conditional.
+
 ## Short Learning Material
 
 Use Degreed/Percipio-style catalogues for short tutorials, guided projects, or video chapters. Prefer material under 3 hours per topic.

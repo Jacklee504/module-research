@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 Finite-Field Arithmetic</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA3491 overview</a>
+</nav>
+<p class="eyebrow">MA3491 Topic Guide</p>
+<h1>Arithmetic in Finite Fields</h1>
+<p>Add coefficients mod p; multiply polynomials; reduce only using the defining relation.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Accurate field arithmetic underpins inverse, order and coding calculations.<strong>Exam use:</strong> Base field, defining relation, expansion, every reduction and multiplication-back check are visible.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Write the modulus relation f(α)=0.</li>
+<li>Add/multiply in F<sub>p</sub>[x].</li>
+<li>Reduce powers of α and coefficients mod p.</li>
+<li>For an inverse, use Euclid or solve a product equation.</li>
+<li><strong>Question interpretation:</strong> For add, reduce coefficients; for multiply, expand then reduce by the defining polynomial; for inverse, solve with extended Euclid in F_p[x].</li>
+</ol>
+<h2>Formulas</h2>
+<p>In F<sub>q</sub>, a≠0 implies a<sup>q−1</sup>=1, hence a<sup>−1</sup>=a<sup>q−2</sup>. The nonzero elements form a cyclic group of order q−1.<strong>Rapid recall:</strong> In F_p[x]/(f), nonzero classes form a field only when f is irreducible; equality means polynomial congruence modulo f, not evaluation at a number.</p>
+<h2>Derivation</h2>
+<p>Multiplication by a nonzero a permutes F<sub>q</sub>
+<sup>×</sup>; multiplying every element gives a·P=P, so a<sup>q−1</sup>=1. In a quotient, replace each occurrence of α<sup>m</sup> from f(α)=0.<strong>Exam workflow:</strong> Reduce coefficients after each operation, replace the leading power using f(x)=0, and verify an inverse by multiplying back to 1.</p>
+<h2>Worked example</h2>
+<p>In F<sub>4</sub> with α<sup>2</sup>+α+1=0, α<sup>2</sup>=α+1. Then (α+1)α=α<sup>2</sup>+α=1, so (α+1)<sup>−1</sup>=α.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>In F_2[x]/(x^3+x+1), let alpha be the class of x, so alpha^3=alpha+1. Compute (alpha^2+1)(alpha^2+alpha)=alpha^4+alpha^3+alpha^2+alpha. Since alpha^4=alpha(alpha+1)=alpha^2+alpha and alpha^3=alpha+1, the sum is (alpha^2+alpha)+(alpha+1)+alpha^2+alpha=alpha+1.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> In this F<sub>4</sub>, calculate (α+1)<sup>2</sup>. <strong>Check:</strong> α<sup>2</sup>+1=α.</p>
+<p>
+<strong>2.</strong> In F<sub>8</sub> with α<sup>3</sup>=α+1, find an inverse of α<sup>2</sup>+1. <strong>Check:</strong> use the Euclidean algorithm or test the seven nonzero elements and show the reduction.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: find (alpha+1)^{-1}. Check (alpha+1)(alpha^2+alpha)=alpha^3+alpha=1 using alpha^3=alpha+1, so the inverse is alpha^2+alpha.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Treating α as an integer.</li>
+<li>Reducing with the wrong sign in odd characteristic.</li>
+<li>Using Fermat’s exponent p−2 instead of q−2.</li>
+<li><strong>Recovery rule:</strong> Over F_2, subtraction equals addition; do not carry signs or integer coefficients into the reduced polynomial.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I record the relation first.</li>
+<li>I reduce coefficients mod p.</li>
+<li>I can verify an inverse by multiplication.</li>
+<li><strong>Final 60-second audit:</strong> Base field, defining relation, expansion, every reduction and multiplication-back check are visible.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Multiplication, inverse, order and primitive-element calculations recur in the local 2018–2025 papers.</p>
+</article>
+</main>
+</body>
+</html>
