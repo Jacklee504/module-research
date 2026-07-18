@@ -1,1 +1,64 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA4102 Measurements</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">MA4102 overview</a></nav><p class="eyebrow">MA4102 Topic Guide</p><h1>Projective Measurements and POVMs</h1><p>Verify operators first; probabilities follow from the Born rule.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>Basis/projective measurement is asked in 2021/22, 2022/23, 2024/25 and 2025/26. A POVM calculation is explicit in 2021/22 and 2024/25 Question 3(ii); parity projectors appear in 2022/23 and 2025/26 Question 5(c). This is a <strong>6--13 mark</strong> family.</p><h2>Rapid refresher</h2><table><thead><tr><th>Measurement</th><th>Conditions</th><th>Outcome k</th></tr></thead><tbody><tr><td>Projectors &Pi;<sub>k</sub></td><td>&Pi;<sub>k</sub><sup>2</sup>=&Pi;<sub>k</sub>=&Pi;<sub>k</sub><sup>&dagger;</sup>, &sum;&Pi;<sub>k</sub>=I</td><td>p<sub>k</sub>=&lang;&psi;|&Pi;<sub>k</sub>|&psi;&rang;</td></tr><tr><td>POVM E<sub>k</sub></td><td>E<sub>k</sub>&ge;0, &sum;E<sub>k</sub>=I</td><td>p<sub>k</sub>=Tr(E<sub>k</sub>&rho;)</td></tr><tr><td>Post-state</td><td>projective case</td><td>&Pi;<sub>k</sub>|&psi;&rang;/&radic;p<sub>k</sub></td></tr></tbody></table><h2>How to answer</h2><ol><li>State positivity/idempotence and completeness appropriate to the question.</li><li>Compute probability before normalising a post-state.</li><li>For degenerate projectors, retain the projected superposition.</li></ol><h2>Practice question -- parity measurement (20 marks)</h2><p><strong>Inspired by:</strong> 2025/26 Question 5(c) and 2024/25 Question 3(ii).</p><p>Let &Pi;<sub>e</sub>=|00&rangle;&lang;00|+|11&rangle;&lang;11| and &Pi;<sub>o</sub>=|01&rangle;&lang;01|+|10&rangle;&lang;10|.</p><h3>(a) Show these form a projective measurement. [8 marks]</h3><p><strong>Demand / quickest route:</strong> use orthogonal basis projectors. <strong>Answer:</strong> each is Hermitian and idempotent; cross terms vanish, and &Pi;<sub>e</sub>+&Pi;<sub>o</sub>=I on the four-dimensional computational basis. Thus they satisfy the projective-measurement requirements. <strong>Trap:</strong> show only completeness.</p><h3>(b) Measure |&beta;<sub>00</sub>&rangle;=(|00&rangle;+|11&rangle;)/&radic;2. [6 marks]</h3><p><strong>Demand / quickest route:</strong> apply &Pi;<sub>e</sub>. <strong>Answer:</strong> &Pi;<sub>e</sub>|&beta;<sub>00</sub>&rangle;=|&beta;<sub>00</sub>&rangle;, so p(even)=1 and the post-state is unchanged; p(odd)=0. <strong>Trap:</strong> add the two amplitudes then square.</p><h3>(c) Give p(even) for (|00&rangle;+|01&rangle;+|10&rangle;)/&radic;3. [6 marks]</h3><p><strong>Answer:</strong> projection leaves |00&rangle;/&radic;3, hence p(even)=1/3 and conditional state |00&rangle;. <strong>Trap:</strong> treat parity as a rank-one measurement.</p><h2>Past-paper basis</h2><p>Primary evidence: MA4102 2021/22 and 2024/25 Question 3(ii); MA4102 2022/23 and 2025/26 Question 5(c).</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4102 Measurements</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4102 overview</a>
+</nav>
+<p class="eyebrow">MA4102 Topic Guide</p>
+<h1>Projective Measurements and POVMs</h1>
+<p>Validate effects first, then use trace formulas for probabilities and updates.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Projective-measurement validity, changed bases and POVM probabilities repeatedly appear.<strong>Exam use:</strong> Validity, completeness, trace probabilities, sum-to-one audit and the justified update rule are all shown.</p>
+<h2>Question plan</h2>
+<ol>
+<li>For projectors, check P<sub>j</sub>
+<sup>2</sup>=P<sub>j</sub>, P<sub>j</sub>
+<sup>&dagger;</sup>=P<sub>j</sub>, and &sum;P<sub>j</sub>=I.</li>
+<li>For POVM effects, check E<sub>j</sub>&ge;0 and &sum;E<sub>j</sub>=I.</li>
+<li>Use p(j)=Tr(P<sub>j</sub>&rho;) or Tr(E<sub>j</sub>&rho;).</li>
+<li>For a projective outcome, update to P<sub>j</sub>&rho;P<sub>j</sub>/p(j).</li>
+<li><strong>Question interpretation:</strong> For valid measurement, check positivity, orthogonality/idempotence where projective, and completeness; for outcomes, calculate traces and distinguish probability from post-state.</li>
+</ol>
+<h2>Notation and derivation</h2>
+<p>The trace rule is the density-matrix form of Born's rule. Completeness ensures &sum;<sub>j</sub>p(j)=Tr((&sum;P<sub>j</sub>)&rho;)=1.<strong>Rapid recall:</strong> Projectors obey P_j^2=P_j=P_j^dagger and P_jP_k=0; POVM effects obey E_j>=0 and sum E_j=I; an instrument/Kraus choice, not effects alone, determines post-measurement state.<strong>Exam workflow:</strong> Validate operators before using Born's rule, calculate every outcome probability, check they sum to one, and normalise the conditional state.</p>
+<h2>Worked calculation</h2>
+<p>Measure |+&rang; in the Z basis: P<sub>0</sub>=|0&rang;&lang;0| and P<sub>1</sub>=|1&rang;&lang;1|. Both probabilities are Tr(P<sub>j</sub>|+&rang;&lang;+|)=½; the outcome state is |j&rang;.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let rho=[[3/4,1/4],[1/4,1/4]] and measure in the X basis with P_+=1/2[[1,1],[1,1]], P_-=1/2[[1,-1],[-1,1]]. Then p(+)=Tr(P_+rho)=3/4 and p(-)=1/4. Conditional projective states are |+>&lt;+| and |->&lt;-|. The probabilities sum to 1 and differ from the Z-basis diagonal probabilities 3/4,1/4 for a different reason: coherence contributes in the X basis.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Check whether {½I,½I} is a POVM. <strong>Check:</strong> both effects are positive and sum to I.</p>
+<p>
+<strong>2.</strong> For a supplied &rho; and POVM, calculate each outcome probability and verify they total one. <strong>Check:</strong> preserve complex conjugation in matrix products.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: E0=diag(1,1/2), E1=diag(0,1/2). Verify a POVM and find probabilities on |+>. Check both are positive, E0+E1=I, and probabilities are 3/4 and 1/4. Effects alone do not specify the conditional states.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Assuming every POVM effect is a projector.</li>
+<li>Using amplitudes directly with a mixed state.</li>
+<li>Skipping the completeness check.</li>
+<li><strong>Recovery rule:</strong> Do not use rho_j=E_j rho E_j/p_j for a general POVM; a compatible measurement operator M_j with E_j=M_j^dagger M_j is needed.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I distinguish projector, effect and Kraus operator.</li>
+<li>I can use the trace probability rule.</li>
+<li>I state post-measurement state where required.</li>
+<li><strong>Final 60-second audit:</strong> Validity, completeness, trace probabilities, sum-to-one audit and the justified update rule are all shown.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>POVM and projective-measurement questions appear in 2021, 2022, 2024 and 2026. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

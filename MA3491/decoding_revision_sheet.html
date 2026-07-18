@@ -1,13 +1,64 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MA3491 Decoding</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">MA3491 overview</a></nav><p class="eyebrow">MA3491 Topic Guide</p><h1>Syndromes, Cosets and Decoding</h1><p>The syndrome depends only on the error, so it identifies a chosen coset leader.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>Syndrome tables/standard arrays and decoding are Q3 in 2018/19-2024/25, with standard arrays explicit in 2023/24.</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>For r=c+e, s=rH^T=eH^T. Map each syndrome to a minimum-weight coset leader e, then output c=r-e.</td><td>Nearest-neighbour decoding is conditional on the selected leader/tie convention; verify final syndrome zero.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Syndrome tables/standard arrays and decoding are Q3 in 2018/19-2024/25, with standard arrays explicit in 2023/24.</p>
-<h3>(a) Describe syndrome decoding of r using a known H and syndrome table. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Compute s, look up e(s), subtract in Fq, then check cH^T=0.</p><p><strong>Mark-aware answer:</strong> Because cH^T=0, the syndrome of r equals the syndrome of its error. The lookup chooses e; c=r-e is the decoded codeword. A zero syndrome selects e=0.</p><p><strong>Trap:</strong> Do not correct a nonzero syndrome by changing an arbitrary coordinate.</p>
-<h3>(b) Construct the first two rows of a standard array for a linear code. [6 marks]</h3><p><strong>Question demand:</strong> First row is C; choose a lowest-weight unused coset leader e and add it to every codeword. <strong>Quickest route:</strong> First row is C; choose a lowest-weight unused coset leader e and add it to every codeword.</p><p><strong>Mark-aware answer:</strong> Write the codewords in row one. Choose e not already used, preferably minimum weight, and list e+C underneath; each row is a coset with a common syndrome. Repeat until every ambient word appears.</p><p><strong>Trap:</strong> Do not choose a new leader from a previous coset.</p>
-<h3>(c) Explain what a tie means in nearest-neighbour decoding. [4 marks]</h3><p><strong>Question demand:</strong> Identify two codewords/coset leaders at equal minimum distance and state a convention. <strong>Quickest route:</strong> Identify two codewords/coset leaders at equal minimum distance and state a convention.</p><p><strong>Mark-aware answer:</strong> If r is equally close to two codewords, unique nearest-neighbour decoding is impossible. An answer must report the ambiguity or apply the explicitly supplied tie-breaking rule; it cannot claim a uniquely corrected word.</p><p><strong>Trap:</strong> A syndrome table may encode a convention but does not remove mathematical ambiguity.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>Syndrome tables/standard arrays and decoding are Q3 in 2018/19-2024/25, with standard arrays explicit in 2023/24. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 Decoding</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA3491 overview</a>
+</nav>
+<p class="eyebrow">MA3491 Topic Guide</p>
+<h1>Syndromes, Cosets and Decoding</h1>
+<p>The syndrome depends only on the error, so it identifies a chosen coset leader.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Decoding turns a received word into the nearest plausible codeword.<strong>Exam use:</strong> Matrix orientation, mod-field arithmetic, syndrome-to-leader map, correction and zero-syndrome verification are shown.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Compute s=Hr<sup>T</sup>.</li>
+<li>Match s to a syndrome-table error leader e.</li>
+<li>Output c=r−e (same as r+e in binary).</li>
+<li>State the correction guarantee from d.</li>
+<li><strong>Question interpretation:</strong> For decode, compute syndrome first, map it to a declared coset leader, correct, then verify the corrected word is a codeword.</li>
+</ol>
+<h2>Formulas</h2>
+<p>If r=c+e and Hc<sup>T</sup>=0, then Hr<sup>T</sup>=He<sup>T</sup>. Unique correction is guaranteed up to t=⌊(d−1)/2⌋ errors.<strong>Rapid recall:</strong> s(r)=Hr^T=He^T because Hc^T=0; equal syndromes identify a coset, and standard-array decoding chooses a minimum-weight representative when one is unique.</p>
+<h2>Derivation</h2>
+<p>Linearity gives H(c+e)<sup>T</sup>=Hc<sup>T</sup>+He<sup>T</sup>=He<sup>T</sup>. Each coset e+C has one syndrome; choosing its lowest-weight representative implements nearest-neighbour decoding.<strong>Exam workflow:</strong> Label columns of H by bit position, calculate mod 2, flip the selected position, and recompute syndrome zero as an audit.</p>
+<h2>Worked example</h2>
+<p>For H=[1 1 1] over F<sub>2</sub>, r=111 has syndrome 1. Choose leader e=001, giving c=110, a codeword. This table has several weight-one leaders with the same syndrome, so this particular code does not uniquely correct every one-bit error.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Use H with columns 001,010,011,100,101,110,111 and receive r=1011010. XOR columns 1,3,4,6 gives 001 xor 011 xor 100 xor 110=000, so r is already a codeword. If r'=1011011, its syndrome is column 7=111; under single-error decoding flip bit 7 to recover r. The conclusion depends on the at-most-one-error assumption.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> With the above H, find the syndrome of 101. <strong>Check:</strong> 0, so it is a codeword.</p>
+<p>
+<strong>2.</strong> Build a syndrome table for a given H with distinct nonzero columns and decode a received word. <strong>Check:</strong> explain why column i is the syndrome of an error in position i.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: if syndrome equals column 3 but the channel may introduce two errors, explain the ambiguity. Check e3 and any two-error pattern whose two columns XOR to column 3 share the syndrome; nearest-neighbour correction is a decoding choice, not proof of the true error.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Subtracting the syndrome from r instead of an error vector.</li>
+<li>Assuming any code can correct one error.</li>
+<li>Not specifying a leader when syndromes collide.</li>
+<li><strong>Recovery rule:</strong> A nonzero syndrome identifies a coset, not automatically the physical error unless the leader assumption is justified.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can compute H r<sup>T</sup>.</li>
+<li>I distinguish syndrome from error.</li>
+<li>I state the t-error guarantee.</li>
+<li><strong>Final 60-second audit:</strong> Matrix orientation, mod-field arithmetic, syndrome-to-leader map, correction and zero-syndrome verification are shown.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Syndrome and standard-array decoding occurs repeatedly, notably in the recent 2022–2025 papers.</p>
+</article>
+</main>
+</body>
+</html>

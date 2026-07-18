@@ -1,1 +1,64 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA490 Measures and Probability</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html#topic-guides">MA490 topic guides</a></nav><p class="eyebrow">MA490 Topic Guide</p><h1>Measures and Probability Spaces</h1><p>State countable additivity exactly, then disjointise before calculating.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>Definitions and continuity of measures occur in 2018/19 Question 2, 2019/20 Question 2, 2021/22 Question 2 and 2022/23--2023/24 Question 2: a highly recurrent <strong>6--8%</strong> proof family.</p><h2>Rapid refresher</h2><table><thead><tr><th>Term</th><th>Requirement</th><th>Trap</th></tr></thead><tbody><tr><td>Measure</td><td>&mu;(&empty;)=0; disjoint countable additivity</td><td>add overlapping sets</td></tr><tr><td>Probability</td><td>&mu;(&Omega;)=1</td><td>forget sigma-algebra</td></tr><tr><td>Continuity above</td><td>A<sub>n</sub>&darr;A, &mu;(A<sub>1</sub>)&lt;&infin; &rArr; &mu;(A<sub>n</sub>)&rarr;&mu;(A)</td><td>subtract infinities</td></tr></tbody></table><h2>Practice question -- continuity (14 marks)</h2><p><strong>Inspired by:</strong> 2018/19 Question 2 and 2022/23 Question 2(b).</p><h3>(a) State measure and probability-space definitions. [6 marks]</h3><p><strong>Answer:</strong> a measure maps a sigma-algebra to [0,&infin;], sends &empty; to 0, and is countably additive on pairwise disjoint sets; a probability space is (&Omega;,&F,P) with P(&Omega;)=1. <strong>Trap:</strong> replace countable by finite additivity.</p><h3>(b) Prove continuity from below for A<sub>n</sub>&uarr;A. [8 marks]</h3><p><strong>Route / answer:</strong> set B<sub>1</sub>=A<sub>1</sub>, B<sub>n</sub>=A<sub>n</sub>\A<sub>n-1</sub>. The B<sub>n</sub> are disjoint, A=disjoint union B<sub>n</sub>, and &mu;(A<sub>N</sub>)=&sum;<sub>n&le;N</sub>&mu;(B<sub>n</sub>)&rarr;&mu;(A). <strong>Trap:</strong> invoke additivity on nested A<sub>n</sub>.</p><h2>Past-paper basis</h2><p>Primary evidence: MA490 2018/19--2023/24 Question 2. Practice follows the definition/proof marks but is adapted.</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA490 Measures and Probability</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html#topic-guides">MA490 topic guides</a>
+</nav>
+<p class="eyebrow">MA490 Topic Guide</p>
+<h1>Measures and Probability Spaces</h1>
+<p>Use countable additivity to turn structure into calculations.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>State the measure and probability-space definitions, then prove standard consequences such as monotonicity, subadditivity and continuity.<strong>Exam use:</strong> Sigma-algebra domain, disjoint decomposition, monotone direction, finiteness and limiting set operation are shown.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Identify the measurable space (Ω,F).</li>
+<li>State non-negativity, null empty set and countable additivity exactly.</li>
+<li>Make unions disjoint before using additivity.</li>
+<li>For a limit of sets, rewrite it as disjoint increments.</li>
+<li><strong>Question interpretation:</strong> For verify a measure, check empty set and countable additivity on disjoint families; for calculate, decompose into disjoint pieces before applying additivity.</li>
+</ol>
+<h2>Definitions</h2>
+<p>A measure μ:F→[0,∞] has μ(∅)=0 and is countably additive on disjoint sets. A probability measure additionally has μ(Ω)=1. A probability space is (Ω,F,P).<strong>Rapid recall:</strong> A measure mu maps a sigma-algebra to [0,infinity], has mu(empty)=0 and countable additivity; probability adds mu(Omega)=1; continuity from below always holds, while continuity from above needs finite measure of the first set.</p>
+<h2>Proof method</h2>
+<p>For continuity from below, set B<sub>1</sub>=A<sub>1</sub> and B<sub>n</sub>=A<sub>n</sub>\A<sub>n−1</sub>. The B<sub>n</sub> are disjoint and their union is the increasing limit. Apply countable additivity.<strong>Exam workflow:</strong> Rewrite unions disjointly, apply additivity or continuity in the correct direction, and state any finiteness hypothesis before subtracting infinities.</p>
+<h2>Worked simple example</h2>
+<p>On Ω={1,2,3,4} with P({i})=1/4, P({1,2}∪{2,3})=3/4. Do not add 1/2+1/2 without removing the overlap.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>If A_n increases to A, write B_1=A_1 and B_n=A_n minus A_{n-1}. The B_n are disjoint, A is their union, and A_N is union_{n&lt;=N}B_n. Thus mu(A_N)=sum_{n&lt;=N}mu(B_n) increases to sum_n mu(B_n)=mu(A). This proves continuity from below directly from countable additivity.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Basic:</strong> Show μ(A)≤μ(B) when A⊆B. <strong>Check:</strong> write B=A disjoint-union (B\A).</p>
+<p>
+<strong>2. Exam:</strong> Derive countable subadditivity for arbitrary A<sub>n</sub>. <strong>Check:</strong> replace A<sub>n</sub> by disjoint new parts contained in A<sub>n</sub>.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: for decreasing A_n with mu(A_1)&lt;infinity, prove mu(intersection A_n)=lim mu(A_n). Check apply continuity from below to B_n=A_1 minus A_n, then use finite subtraction mu(B_n)=mu(A_1)-mu(A_n).</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Using additivity for overlapping sets.</li>
+<li>Forgetting that μ may be infinite.</li>
+<li>Using continuity from above without a finite initial measure when required.</li>
+<li><strong>Recovery rule:</strong> Do not write infinity-infinity in a continuity-from-above proof; the finite first-measure hypothesis prevents it.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can distinguish a measurable space from a measure space.</li>
+<li>I can disjointise a union.</li>
+<li>I can state the finite-measure condition for continuity from above.</li>
+<li><strong>Final 60-second audit:</strong> Sigma-algebra domain, disjoint decomposition, monotone direction, finiteness and limiting set operation are shown.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: definitions, subadditivity and continuity from below/above are repeated long-question targets. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

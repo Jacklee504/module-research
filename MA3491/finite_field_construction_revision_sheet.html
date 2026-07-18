@@ -1,13 +1,63 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MA3491 Finite-Field Construction</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">MA3491 overview</a></nav><p class="eyebrow">MA3491 Topic Guide</p><h1>Constructing Finite Fields</h1><p>A field of order p^m comes from a degree-m irreducible polynomial over Fp.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>Irreducibility and quotient construction are Q2 in every 2018/19-2024/25 paper (F8,F16,F25,F27 examples).</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Fp[x]/(f) is a field iff f is irreducible. Its elements are degree &lt;m representatives; f(alpha)=0 supplies reductions.</td><td>For degree 2 or 3, no root proves irreducible. For higher degree, rule out factors of relevant degrees.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Irreducibility and quotient construction are Q2 in every 2018/19-2024/25 paper (F8,F16,F25,F27 examples).</p>
-<h3>(a) Construct F8 from f=x^3+x+1 over F2. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Test f(0),f(1); neither is zero, so the cubic has no linear factor and is irreducible. Let alpha be x mod f.</p><p><strong>Mark-aware answer:</strong> F8=F2[alpha] with alpha^3=alpha+1. Its elements are 0,1,alpha,alpha+1,alpha2,alpha2+1,alpha2+alpha,alpha2+alpha+1.</p><p><strong>Trap:</strong> Do not say every polynomial quotient is a field.</p>
-<h3>(b) Show x<sup>2</sup>+x+1 is irreducible over F<sub>5</sub>. [6 marks]</h3><p><strong>Question demand:</strong> Test all five field elements for roots; a quadratic is reducible iff it has a root. <strong>Quickest route:</strong> Test all five field elements for roots; a quadratic is reducible iff it has a root.</p><p><strong>Mark-aware answer:</strong> Evaluate f(0)=1,f(1)=3,f(2)=2,f(3)=3,f(4)=1 mod 5. There is no root in F5, so the quadratic has no linear factor and is irreducible.</p><p><strong>Trap:</strong> Use arithmetic mod 5; 5 is zero in F5.</p>
-<h3>(c) Explain why a degree-m construction has exactly p<sup>m</sup> elements. [4 marks]</h3><p><strong>Question demand:</strong> Count coefficient choices in unique degree-less-than-m representatives. <strong>Quickest route:</strong> Count coefficient choices in unique degree-less-than-m representatives.</p><p><strong>Mark-aware answer:</strong> Every residue class has a unique representative a0+a1 alpha+...+a(m-1)alpha<sup>m-1</sup>, with each ai in Fp. There are p choices for each of m coefficients, so p<sup>m</sup> elements.</p><p><strong>Trap:</strong> Distinct polynomial expressions may represent the same class before reduction.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>Irreducibility and quotient construction are Q2 in every 2018/19-2024/25 paper (F8,F16,F25,F27 examples). Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 Finite-Field Construction</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA3491 overview</a>
+</nav>
+<p class="eyebrow">MA3491 Topic Guide</p>
+<h1>Constructing Finite Fields</h1>
+<p>A field of order p<sup>m</sup> comes from a degree-m irreducible polynomial over F<sub>p</sub>.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Construction questions test irreducibility, quotient notation and a usable representation for later arithmetic.<strong>Exam use:</strong> Prime p, degree m, complete irreducibility test, p^m representatives and defining reduction relation are given.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Identify p and required degree m.</li>
+<li>Test a candidate polynomial for irreducibility.</li>
+<li>Write F<sub>p</sub>[x]/(f), define α=x mod f, and list the basis 1,α,…,α<sup>m−1</sup>.</li>
+<li><strong>Question interpretation:</strong> For construct F_{p^m}, choose and prove irreducible a degree-m polynomial, then name residue representatives and the defining relation.</li>
+</ol>
+<h2>Formulas</h2>
+<p>If f is irreducible of degree m, F<sub>p</sub>[x]/(f) has p<sup>m</sup> elements. Every element is a<sub>0</sub>+a<sub>1</sub>α+…+a<sub>m−1</sub>α<sup>m−1</sup>; f(α)=0 supplies reduction.<strong>Rapid recall:</strong> F_p[x]/(f) has p^m elements and is a field exactly when f is irreducible of degree m; for degree 2 or 3, irreducible is equivalent to having no root in F_p.</p>
+<h2>Derivation</h2>
+<p>Division by f gives one unique remainder of degree below m for each coset, hence p choices for each of m coefficients. Irreducibility makes the ideal maximal, so the quotient is a field.<strong>Exam workflow:</strong> Test every base-field root when the degree permits, list all coefficient tuples, and distinguish irreducibility from primitiveness unless the latter is requested.</p>
+<h2>Worked example</h2>
+<p>Over F<sub>2</sub>, f=x<sup>3</sup>+x+1 has no roots (f(0)=f(1)=1), hence is irreducible. F<sub>8</sub>=F<sub>2</sub>[x]/(f), with α<sup>3</sup>=α+1 and elements a+bα+cα<sup>2</sup>.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Construct F_9 using f(x)=x^2+1 over F_3. This fails: f(1)=2 but f(0)=1 and f(2)=4+1=2, so actually it has no root and is irreducible. Let alpha^2=-1=2. The nine elements are a+b alpha with a,b in F_3. For example (1+alpha)^2=1+2alpha+alpha^2=2alpha mod 3.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Construct F<sub>4</sub>. <strong>Check:</strong> use x<sup>2</sup>+x+1; α<sup>2</sup>=α+1.</p>
+<p>
+<strong>2.</strong> Justify that x<sup>2</sup>+2 over F<sub>5</sub> is reducible or irreducible, then construct the appropriate quotient if irreducible. <strong>Check:</strong> test roots; 2 is not a square mod 5, so irreducible.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: explain why x^2+x+1 does not construct F_4 over F_2. Check f(1)=1+1+1=1 mod 2 and f(0)=1, so it actually has no root and is irreducible; therefore it does construct F_4. Correct the premise rather than forcing the requested conclusion.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Using a reducible modulus.</li>
+<li>Writing x=α without stating the quotient.</li>
+<li>Listing p<sup>m</sup> coefficients rather than p<sup>m</sup> elements.</li>
+<li><strong>Recovery rule:</strong> Evaluate roots in the base field with modular arithmetic; a question's suggested conclusion may be false and must not override the calculation.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can choose the polynomial degree.</li>
+<li>I can prove low-degree irreducibility.</li>
+<li>I can state the reduction relation.</li>
+<li><strong>Final 60-second audit:</strong> Prime p, degree m, complete irreducibility test, p^m representatives and defining reduction relation are given.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Construction/irreducibility for F8, F16, F25 and F27 appears repeatedly in 2018–2025.</p>
+</article>
+</main>
+</body>
+</html>

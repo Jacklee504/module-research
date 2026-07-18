@@ -1,1 +1,65 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA4344 Class Equation</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">MA4344 Topic Guide</p><h1>Class Equation and p-Groups</h1><p>Use conjugation orbits and divisibility modulo p to force a nontrivial centre.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>The class equation, nontrivial centre of a p-group, and groups of order p<sup>2</sup> are a three-part sequence in 2023/24 and 2024/25 Question 3(b), worth <strong>6+5+5 marks</strong>.</p><h2>Rapid refresher</h2><table><thead><tr><th>Object</th><th>Formula</th><th>Meaning</th></tr></thead><tbody><tr><td>Conjugacy orbit</td><td>|cl(y)|=[G:C<sub>G</sub>(y)]</td><td>orbit-stabiliser</td></tr><tr><td>Class equation</td><td>|G|=|Z(G)|+&sum;[G:C<sub>G</sub>(y<sub>i</sub>)]</td><td>noncentral classes</td></tr><tr><td>p-group</td><td>|G|=p<sup>n</sup></td><td>noncentral class sizes divisible by p</td></tr></tbody></table><h2>How to answer</h2><ol><li>Explicitly name conjugation as the action.</li><li>Separate central singleton orbits.</li><li>Reduce the class equation mod p, then use a centre/quotient argument.</li></ol><h2>Practice question -- p<sup>2</sup> groups (16 marks)</h2><p><strong>Inspired by:</strong> 2024/25 Question 3(b).</p><h3>(a) Prove a finite p-group has nontrivial centre. [7 marks]</h3><p><strong>Answer route:</strong> class equation mod p. <strong>Answer:</strong> every noncentral orbit has size [G:C<sub>G</sub>(y)], a nontrivial power of p, hence divisible by p. Thus p divides |Z(G)|; since e&isin;Z(G), |Z(G)|&ge;p. <strong>Trap:</strong> assert every conjugacy class has p elements.</p><h3>(b) Prove a group G of order p<sup>2</sup> is abelian. [6 marks]</h3><p><strong>Answer:</strong> |Z(G)| is p or p<sup>2</sup>. The latter is done. If |Z(G)|=p, then G/Z(G) has order p and is cyclic; a group with cyclic G/Z(G) is abelian, contradiction to Z(G)&ne;G. Hence G=Z(G). <strong>Trap:</strong> claim all p-groups are abelian.</p><h3>(c) State C<sub>G</sub>(y). [3 marks]</h3><p><strong>Answer:</strong> {g&isin;G:gy=yg}. <strong>Trap:</strong> give the centre, which requires commuting with every element.</p><h2>Past-paper basis</h2><p>Primary evidence: MA4344 2023/24 and 2024/25 Question 3(b).</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4344 Class Equation</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4344 overview</a>
+</nav>
+<p class="eyebrow">MA4344 Topic Guide</p>
+<h1>Class Equation and p-Groups</h1>
+<p>Use conjugacy classes to force central elements.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Prove the nontrivial-centre theorem and quickly derive the order-p² abelian result.<strong>Exam use:</strong> Centre term, representatives, centralizers, divisibility/mod-p step and final group consequence are justified.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Use conjugation as the action.</li>
+<li>Separate central elements from noncentral conjugacy classes.</li>
+<li>Apply orbit-stabiliser: class size [G:C<sub>G</sub>(x)].</li>
+<li>Reduce the class equation modulo p.</li>
+<li><strong>Question interpretation:</strong> For class equation, identify central singleton classes and express every other class size as an index; for p-groups, reduce the equation modulo p.</li>
+</ol>
+<h2>Key terms</h2>
+<p>Centre Z(G), centraliser C<sub>G</sub>(x), conjugacy class Cl(x), class equation: |G|=|Z(G)|+&sum;[G:C<sub>G</sub>(x<sub>i</sub>)].<strong>Rapid recall:</strong> |G|=|Z(G)|+sum [G:C_G(x_i)]; noncentral conjugacy-class sizes divide |G| and exceed 1; a finite p-group has nontrivial centre.</p>
+<h2>Proof method</h2>
+<p>For a finite p-group, every noncentral conjugacy class has size divisible by p. Hence |Z(G)|&equiv;|G|&equiv;0 mod p, so Z(G) is nontrivial.<strong>Exam workflow:</strong> Choose noncentral class representatives, justify each class size is a positive power of p, take the class equation modulo p, then extract the structural consequence.</p>
+<h2>Worked simple proof</h2>
+<p>
+<strong>Claim:</strong> every group G of order p² is abelian. The centre has order p or p². If p², done. If p, then G/Z(G) has order p, hence cyclic; a group with cyclic central quotient is abelian.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let |G|=p^2. The p-group centre theorem gives |Z(G)| divisible by p and greater than 1, so |Z(G)| is p or p^2. If it were p, G/Z(G) would have order p and be cyclic. But if G/Z(G) is cyclic then G is abelian, forcing Z(G)=G, contradiction. Hence |Z(G)|=p^2 and G is abelian.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Why does a noncentral conjugacy class in a p-group have size divisible by p? <strong>Check:</strong> its size is a nontrivial power of p.</p>
+<p>
+<strong>2.</strong> Prove that a group of order 49 is abelian. <strong>Check:</strong> apply the p² theorem with p=7.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: if |G|=8 and |Z(G)|=2, what can noncentral class sizes be? Check they are powers of 2 dividing 8 and cannot be 1; the six noncentral elements must partition into sizes 2 or 4, constrained by centralizer indices.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Including central elements again in the noncentral sum.</li>
+<li>Claiming every conjugacy class has p elements.</li>
+<li>Using G/Z(G) cyclic without stating why that implies G abelian.</li>
+<li><strong>Recovery rule:</strong> The class equation sums one term per conjugacy class representative, not one term per noncentral element.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I know the class equation.</li>
+<li>I can do the reduction modulo p.</li>
+<li>I can prove groups of order p² are abelian.</li>
+<li><strong>Final 60-second audit:</strong> Centre term, representatives, centralizers, divisibility/mod-p step and final group consequence are justified.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: class equation, nontrivial centres and p² groups are repeated in the two newest papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

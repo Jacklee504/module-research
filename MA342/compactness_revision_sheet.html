@@ -1,14 +1,64 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MA342 Compactness</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">MA342 overview</a></nav><p class="eyebrow">MA342 Topic Guide</p><h1>Compactness</h1><p>Convert arbitrary open covers into finite arguments.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>Compactness is Q2 in both 2023/24 and 2024/25, with closed subsets of compact spaces and lower-limit/cofinite tests.</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Compact means every open cover has a finite subcover. A closed subset F of compact X is compact. Continuous images of compact spaces are compact.</td><td>To disprove compactness exhibit one cover with no finite subcover.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Compactness is Q2 in both 2023/24 and 2024/25, with closed subsets of compact spaces and lower-limit/cofinite tests.</p>
-<h3>(a) Prove a closed F subset X is compact when X is compact. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Adjoin X\F to an arbitrary open cover of F, take a finite subcover of X, then discard X\F.</p><p><strong>Mark-aware answer:</strong> If {U_i} covers F, {U_i} union {X\F} covers X. Compactness gives finitely many U_i plus perhaps X\F covering X; the finitely many U_i cover F. Hence F is compact.</p><p><strong>Trap:</strong> Do not start from a particular cover when proving compactness; it must be arbitrary.</p>
-<h3>(b) Give an explicit open cover showing R is not compact in its usual topology. [6 marks]</h3><p><strong>Question demand:</strong> Use U<sub>n</sub>=(-n,n) and show any finite choice is bounded. <strong>Quickest route:</strong> Use U<sub>n</sub>=(-n,n) and show any finite choice is bounded.</p><p><strong>Mark-aware answer:</strong> {(-n,n):n in N} covers R. A finite subfamily has largest index N, so its union is (-N,N), which misses N+1. Hence no finite subcover exists and R is not compact.</p><p><strong>Trap:</strong> An unbounded set can be compact in another topology; name the usual topology.</p>
-<h3>(c) State the finite-subcover proof of compactness of [0,1] in R. [4 marks]</h3><p><strong>Question demand:</strong> Invoke Heine-Borel with its hypotheses. <strong>Quickest route:</strong> Invoke Heine-Borel with its hypotheses.</p><p><strong>Mark-aware answer:</strong> [0,1] is closed and bounded in Euclidean R; by Heine-Borel it is compact. Equivalently, every open cover admits a finite subcover by the theorem.</p><p><strong>Trap:</strong> Heine-Borel is a theorem about Euclidean spaces, not arbitrary topological spaces.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>Compactness is Q2 in both 2023/24 and 2024/25, with closed subsets of compact spaces and lower-limit/cofinite tests. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-<p><a href="details.html#past-papers">Back to MA342 past papers.</a></p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Compactness</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Compactness</h1>
+<p>Convert arbitrary open covers into finite arguments.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>State compactness exactly and deploy the standard closed-subset and continuous-image proof patterns.<strong>Exam use:</strong> The cover is arbitrary when proving compactness, explicit when disproving it, and every theorem hypothesis is named.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Begin with an arbitrary open cover.</li>
+<li>Identify the finite subcover supplied by a known compact set.</li>
+<li>For a closed subset, add the open complement and remove it after selecting finitely many sets.</li>
+<li><strong>Question interpretation:</strong> For prove compact, begin with an arbitrary open cover; for disprove, exhibit one explicit cover with no finite subcover; for preserve, name the continuous-image theorem and verify its hypotheses.</li>
+</ol>
+<h2>Definitions</h2>
+<p>X is <strong>compact</strong> iff every open cover of X has a finite subcover. In a compact space, every closed subset is compact. In R, closed bounded intervals are compact (Heine–Borel).<strong>Rapid recall:</strong> Compact means every open cover has a finite subcover. Closed subsets of compact spaces and continuous images of compact spaces are compact; Heine-Borel is restricted to Euclidean space.</p>
+<h2>Proof method</h2>
+<p>Given a cover of closed F⊆X, add X\F; compactness gives a finite subcover, and discard X\F to cover F.<strong>Exam workflow:</strong> Keep the quantifiers visible: choose an arbitrary cover, modify or pull it back, invoke compactness once, then translate the finite subcover back to the target.</p>
+<h2>Worked simple example</h2>
+<p>{0}∪{1/n:n≥1} is compact in R because it is closed and bounded; equivalently, use Heine–Borel.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Prove (0,1) is not compact without citing Heine-Borel. Let U_n=(1/n,1) for n>=2. These sets cover (0,1): for x>0 choose n>1/x. Any finite subfamily has a largest index N and its union is U_N=(1/N,1), which misses 1/(N+1). Hence this particular open cover has no finite subcover.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Is (0,1) compact in R? <strong>Check:</strong> no; use the cover (1/n,1).</p>
+<p>
+<strong>2. Exam style:</strong> Prove a closed F⊆X is compact when X is compact. <strong>Check:</strong> add X\F to an arbitrary cover of F.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: if X is compact, Y Hausdorff and f:X->Y continuous and bijective, prove f is a homeomorphism. Check a closed F subset X is compact, f(F) is compact, hence closed in Hausdorff Y; thus f is closed and f^{-1} is continuous.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Choosing a finite cover instead of proving a finite subcover of an arbitrary cover.</li>
+<li>Using Heine–Borel outside Euclidean space.</li>
+<li>Forgetting closedness in the closed-subset theorem.</li>
+<li><strong>Recovery rule:</strong> A sequence argument is not automatically available in an arbitrary topological space; use open covers unless sequential compactness has been established.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the open-cover definition.</li>
+<li>I can give a noncompact open-cover counterexample.</li>
+<li>I can reproduce the closed-subset proof.</li>
+<li><strong>Final 60-second audit:</strong> The cover is arbitrary when proving compactness, explicit when disproving it, and every theorem hypothesis is named.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> compactness and closed subsets of compact spaces recur in 2023/24 and 2024/25. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

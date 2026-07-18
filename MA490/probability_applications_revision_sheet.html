@@ -1,1 +1,65 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA490 Probability Applications</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html#topic-guides">MA490 topic guides</a></nav><p class="eyebrow">MA490 Topic Guide</p><h1>Probability Applications</h1><p>Identify the event first; use independence only where it has actually been given.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>Bernoulli/share-price spaces and limsup events occur in 2018/19, 2019/20 and 2021/22 Question 1 and Question 4; 2023/24 retains probability short questions. These are <strong>short applied calculations</strong>, not a claim of a recent fixed long-question family.</p><h2>Rapid refresher</h2><table><thead><tr><th>Event</th><th>Meaning</th><th>Route</th></tr></thead><tbody><tr><td>limsup A<sub>n</sub></td><td>infinitely many A<sub>n</sub> occur</td><td>&cap;<sub>N</sub>&cup;<sub>n&ge;N</sub>A<sub>n</sub></td></tr><tr><td>independent events</td><td>P(&cap;A<sub>i</sub>)=&prod;P(A<sub>i</sub>)</td><td>finite intersections</td></tr><tr><td>increasing events</td><td>P(&cup;A<sub>n</sub>)=lim P(A<sub>n</sub>)</td><td>continuity below</td></tr></tbody></table><h2>Practice question -- increasing independent events (16 marks)</h2><p><strong>Inspired by:</strong> 2021/22 Question 1(f) and 2019/20 Question 1(e).</p><h3>(a) Define limsup A<sub>n</sub>. [4 marks]</h3><p><strong>Answer:</strong> &cap;<sub>N=1</sub><sup>&infin;</sup>&cup;<sub>n&ge;N</sub>A<sub>n</sub>, the event that infinitely many A<sub>n</sub> occur. <strong>Trap:</strong> use &cup;<sub>N</sub>&cap;<sub>n&ge;N</sub>A<sub>n</sub>, which is liminf.</p><h3>(b) If A<sub>n</sub> is increasing and P(A<sub>1</sub>)&gt;0, what is limsup A<sub>n</sub>? [5 marks]</h3><p><strong>Answer:</strong> because increasing means A<sub>n</sub>&sube;A<sub>n+1</sub>, every point in &cup;A<sub>n</sub> is in all later sets; hence limsup A<sub>n</sub>=&cup;A<sub>n</sub> and P(limsup)=lim P(A<sub>n</sub>). <strong>Trap:</strong> confuse increasing with independent.</p><h3>(c) Explain where independence would enter a Borel--Cantelli calculation. [7 marks]</h3><p><strong>Answer:</strong> for independent A<sub>n</sub>, divergence of &sum;P(A<sub>n</sub>) gives P(limsup A<sub>n</sub>)=1 by the second Borel--Cantelli lemma; convergence gives probability zero without independence. <strong>Trap:</strong> use the divergence conclusion without independence.</p><h2>Past-paper basis</h2><p>Primary evidence: MA490 2018/19, 2019/20 and 2021/22 probability/limsup/Bernoulli questions. The adapted practice is paper-shaped but does not claim a local verbatim question.</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA490 Probability Applications</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html#topic-guides">MA490 topic guides</a>
+</nav>
+<p class="eyebrow">MA490 Topic Guide</p>
+<h1>Probability Applications</h1>
+<p>Translate event language into measurable sets before calculating.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Handle event sequences, Bernoulli-style spaces and Borel-Cantelli arguments with the correct hypotheses.<strong>Exam use:</strong> Event translation, limsup/liminf form, series calculation, independence requirement and almost-sure conclusion are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Name each event A<sub>n</sub> and write the target as limsup or liminf when appropriate.</li>
+<li>Check measurability and whether independence is actually given.</li>
+<li>Compute or bound the series ΣP(A<sub>n</sub>).</li>
+<li>State the exact Borel-Cantelli direction being used.</li>
+<li><strong>Question interpretation:</strong> Translate verbal events into sets, decide independence versus disjointness, and identify limsup/liminf before invoking Borel-Cantelli or continuity.</li>
+</ol>
+<h2>Definitions</h2>
+<p>
+<code>limsup A_n</code> is the event that infinitely many A<sub>n</sub> occur. First Borel-Cantelli: if ΣP(A<sub>n</sub>)&lt;∞, then P(limsup A<sub>n</sub>)=0. With independence, divergence gives probability one in the second lemma.<strong>Rapid recall:</strong> limsup A_n means infinitely often, intersection_m union_{n>=m}A_n; liminf means eventually always, union_m intersection_{n>=m}A_n; independent events satisfy P(A intersect B)=P(A)P(B).</p>
+<h2>Proof method</h2>
+<p>For the first lemma, bound the probability of a tail union by its tail sum, then let the tail start tend to infinity. Avoid claiming the converse without independence.<strong>Exam workflow:</strong> Write the event algebra first, use complements when simpler, and attach every probabilistic theorem to its independence or summability hypotheses.</p>
+<h2>Worked simple example</h2>
+<p>If P(A<sub>n</sub>)=2<sup>−n</sup>, then ΣP(A<sub>n</sub>) is finite, so only finitely many A<sub>n</sub> occur almost surely.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>For independent Bernoulli trials with success probability p in (0,1), let A_n be success at trial n. Since sum P(A_n)=infinity and the events are independent, the second Borel-Cantelli lemma gives P(A_n infinitely often)=1. For failures the same argument uses 1-p, so almost surely both successes and failures occur infinitely often.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Basic:</strong> What does P(limsup A<sub>n</sub>)=0 say in words? <strong>Check:</strong> infinitely many occurrences has probability zero.</p>
+<p>
+<strong>2. Exam:</strong> Can you infer P(limsup A<sub>n</sub>)=1 from ΣP(A<sub>n</sub>)=∞ alone? <strong>Check:</strong> no, independence or a suitable substitute is needed.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: if P(A_n)=2^{-n}, show only finitely many A_n occur a.s., without independence. Check sum P(A_n)=1&lt;infinity; the first Borel-Cantelli lemma gives P(limsup A_n)=0.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Confusing “probability zero” with impossibility.</li>
+<li>Using the second Borel-Cantelli lemma without independence.</li>
+<li>Reading limsup as eventual occurrence.</li>
+<li><strong>Recovery rule:</strong> Disjoint non-null events cannot be independent: their intersection has probability 0 while the product is positive.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can translate “infinitely often”.</li>
+<li>I can identify which lemma applies.</li>
+<li>I can state the independence caveat.</li>
+<li><strong>Final 60-second audit:</strong> Event translation, limsup/liminf form, series calculation, independence requirement and almost-sure conclusion are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Medium-high confidence: Borel-Cantelli and event-sequence reasoning recur. Specific Bernoulli/share-price dressings are historical variants, not a prediction. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

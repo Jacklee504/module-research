@@ -1,14 +1,81 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS402 - Symmetric Crypto and Perfect Security</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS402 Overview</a><a href="classical_ciphers_revision_sheet.html">Classical ciphers</a><a href="rsa_revision_sheet.html">RSA</a></nav><p class="eyebrow">CS402 Topic Guide</p><h1>Symmetric Crypto and Perfect Security</h1><p>Define security exactly, then connect it to ciphers, Shannon and LFSRs.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>Q2 in 2018/19-2024/25 repeatedly tests cryptosystem/perfect-security definitions, Shannon's theorem, stream/block ciphers and LFSR period or recovery.</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>A symmetric cryptosystem is (P,C,K,E,D) with D<sub>k</sub>(E<sub>k</sub>(p))=p. Perfect secrecy means P(P=p|C=c)=P(P=p). An LFSR recurrence is over F<sub>2</sub>.</td><td>One-time pad is perfectly secret with uniform independent key of message length; stream ciphers combine a keystream, block ciphers transform fixed blocks.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Q2 in 2018/19-2024/25 repeatedly tests cryptosystem/perfect-security definitions, Shannon's theorem, stream/block ciphers and LFSR period or recovery.</p>
-<h3>(a) State Shannon's key-space condition and use it to assess a proposed perfectly secure system. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Define the conditional-probability criterion; then compare |K|, |C| and |P| and state the missing distribution assumption.</p><p><strong>Mark-aware answer:</strong> For perfect secrecy with every ciphertext possible, Shannon gives |K| >= |C| >= |P|. The OTP attains this when each key is uniform and used once: for any c and p exactly one key k=c-p maps p to c, with equal probability.</p><p><strong>Trap:</strong> A long key alone is not enough: reuse or a non-uniform key breaks the OTP argument.</p>
-<h3>(b) An LFSR has connection polynomial 1+X+X<sup>3</sup> and initial bits 001. Generate enough terms to find its least period. [6 marks]</h3><p><strong>Question demand:</strong> Write the recurrence from the polynomial, tabulate states, and stop only when the complete initial state reappears. <strong>Quickest route:</strong> Write the recurrence from the polynomial, tabulate states, and stop only when the complete initial state reappears.</p><p><strong>Mark-aware answer:</strong> Use s<sub>i+3</sub>=s<sub>i+1</sub>+s<sub>i</sub> over F2. Record successive 3-bit states; the least period is the first return to 001, not the first repeated output bit.</p><p><strong>Trap:</strong> A repeated single bit does not establish an LFSR period.</p>
-<h3>(c) Contrast a stream cipher with a block cipher in one operational use case. [4 marks]</h3><p><strong>Question demand:</strong> State input unit, keystream/block transformation, then one suitable use and limitation. <strong>Quickest route:</strong> State input unit, keystream/block transformation, then one suitable use and limitation.</p><p><strong>Mark-aware answer:</strong> A stream cipher combines plaintext with a keystream symbol by symbol and suits low-latency streams, but keystream reuse is dangerous. A block cipher transforms fixed-size blocks and is normally used with a mode of operation for longer messages.</p><p><strong>Trap:</strong> Do not call a mode of operation itself a block cipher.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>Q2 in 2018/19-2024/25 repeatedly tests cryptosystem/perfect-security definitions, Shannon's theorem, stream/block ciphers and LFSR period or recovery. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-<p><a href="details.html">Back to CS402 overview.</a></p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS402 - Symmetric Crypto and Perfect Security</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav" aria-label="Navigation">
+<a href="details.html">CS402 Overview</a>
+<a href="classical_ciphers_revision_sheet.html">Classical ciphers</a>
+<a href="rsa_revision_sheet.html">RSA</a>
+</nav>
+<p class="eyebrow">CS402 Revision</p>
+<h1>Symmetric Crypto and Perfect Security</h1>
+<p>Define security precisely, then connect it to ciphers and finite examples.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>This topic turns definitions into small proof-like answers. Be able to distinguish shared-key operation from public-key operation, explain perfect secrecy, and reason about a cipher's key/message possibilities rather than merely saying it is “strong”.<strong>Exam use:</strong> Quantifiers, distributions, compatible-key count and every OTP condition are stated before the conclusion.</p>
+<h2>What the question asks, and plan</h2>
+<ol>
+<li>State the experiment: plaintext, randomly selected key, ciphertext observed by an adversary.</li>
+<li>Give the formal condition or counting/probability argument.</li>
+<li>Apply it to the specified scheme, including assumptions on keys.</li>
+<li>For LFSR/block/stream parts, define the object and show the requested state/period calculation.</li>
+<li><strong>Question interpretation:</strong> For define, write the quantified probability equality; for prove, count compatible keys for each message/ciphertext; for critique, test key distribution, length, secrecy and reuse.</li>
+</ol>
+<h2>Terms and formulas</h2>
+<ul>
+<li>
+<strong>Symmetric cipher:</strong> communicating parties share a secret key for encryption/decryption.</li>
+<li>
+<strong>Perfect secrecy:</strong> <em>P(M=m | C=c)=P(M=m)</em> for every possible <em>m,c</em>; seeing ciphertext changes no message probability.</li>
+<li>
+<strong>One-time pad:</strong> <em>c=m⊕k</em>, with uniformly random, secret, message-length key used once.</li>
+<li>
+<strong>Block/stream cipher:</strong> transforms fixed blocks / combines plaintext with a keystream, commonly by XOR.</li>
+<li>
+<strong>LFSR:</strong> a shift register whose feedback is a linear mod-2 combination; a non-zero degree-<em>r</em> state has period at most <em>2ʳ−1</em>.</li>
+<li><strong>Rapid recall:</strong> Perfect secrecy means P(M=m|C=c)=P(M=m) for every relevant m,c; OTP achieves it only with a uniform secret key at least as long as the message and never reused.</li>
+</ul>
+<h2>Derivation and method</h2>
+<p>For the one-time pad and any fixed <em>m,c</em>, exactly one key <em>k=m⊕c</em> produces <em>c</em>. If all keys are equally likely, every message is equally compatible with that ciphertext, so the posterior equals the prior. Reusing a pad breaks this: <em>c₁⊕c₂=m₁⊕m₂</em>, leaking a relationship. For an LFSR, write the state order and feedback taps before shifting; do not infer a maximal period without proof.<strong>Exam workflow:</strong> Fix arbitrary m and c, solve for the unique key, use uniformity to calculate the conditional probability, and state exactly where the argument fails if a key is reused.</p>
+<h2>Fully worked simple example</h2>
+<p>Let messages and keys be two bits, each key uniform. For observed <em>c=10</em>, message <em>m=00</em> needs <em>k=10</em>; message <em>m=01</em> needs <em>k=11</em>; similarly each message has exactly one key. Thus each remains probability 1/4 after observing <em>c</em>: this toy one-time pad is perfectly secret. If the same key encrypts <em>m₁=01,m₂=11</em>, then <em>c₁⊕c₂=10=m₁⊕m₂</em>, which is leakage.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let two two-bit messages use the same OTP key. If c1=01 and c2=10, then c1 xor c2=11=m1 xor m2. If the attacker knows m1=00, they recover k=01 and m2=c2 xor k=11. Thus each ciphertext alone had the OTP counting property, but reuse creates a deterministic relation and destroys perfect secrecy for the joint experiment.</p>
+<h2>Two graded prompts</h2>
+<h3>1. Foundation — 6 marks</h3>
+<p>Give the conditions under which a one-time pad has perfect secrecy. <strong>Exam bridge:</strong> random/uniform key (2), as long as message (1), secret (1), used once (2). <strong>Check:</strong> computational difficulty is not the reason.</p>
+<h3>2. Exam bridge — 8 marks</h3>
+<p>Contrast block and stream ciphers and explain why repeating a stream-cipher keystream is dangerous. <strong>Check:</strong> describe data unit/keystream and derive the XOR relation between two plaintexts.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: messages {0,1} have priors 3/4 and 1/4 and C=M xor K with uniform K. For c=0, compute the posterior. Check P(C=0)=1/2, P(M=0,C=0)=3/8, so P(M=0|C=0)=3/4, unchanged; the nonuniform message prior does not prevent OTP perfect secrecy.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Calling any large-key cipher perfectly secure.</li>
+<li>Omitting the distribution and single-use assumptions.</li>
+<li>Equating an LFSR's possible maximum period with its actual period.</li>
+<li>Confusing encryption confidentiality with authentication.</li>
+<li><strong>Recovery rule:</strong> Do not replace information-theoretic equality with 'brute force is difficult'; those are different security claims.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>Formal condition or compatibility argument present?</li>
+<li>Key assumptions explicit?</li>
+<li>Bit operations and state order shown?</li>
+<li>Security claim limited to what was proved?</li>
+<li><strong>Final 60-second audit:</strong> Quantifiers, distributions, compatible-key count and every OTP condition are stated before the conclusion.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Symmetric definitions, Shannon/perfect-security reasoning, block/stream ciphers and LFSRs are recurring Q2 material in 2018/19–2024/25. Exact LFSR polynomials and wording may vary, so use current teaching for emphasis. <a href="details.html">Back to CS402 overview.</a>
+</p>
+</article>
+</main>
+</body>
+</html>

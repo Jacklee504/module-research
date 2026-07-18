@@ -1,6 +1,129 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT421 - Evolutionary Computation Revision Sheet</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav" aria-label="Navigation">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CT421 - Evolutionary Computation Revision Sheet</title>
+    <link rel="stylesheet" href="../module_page.css">
+  </head>
+  <body>
+    <header class="module-header">
+      <nav class="top-nav" aria-label="Navigation">
         <a href="details.html">CT421 Overview</a>
         <a href="search_revision_sheet.html">Search Revision</a>
         <a href="mas_revision_sheet.html">MAS Revision</a>
-      </nav><p class="eyebrow">Exam topic guide</p><h1>Genetic Algorithms</h1><p>GA uses population, fitness, selection, crossover, mutation and replacement.</p></header><main class="module-shell"><article class="module-content"><h2>What the local papers show</h2><p>GA design is Q2 in every local paper 2021/22-2024/25: schema theorem/operators plus constrained allocation/knapsack.</p><h2>Rapid exam refresher</h2><p>GA uses population, fitness, selection, crossover, mutation and replacement. Schema theorem favours short low-order above-average patterns; selection exploits, mutation explores, crossover recombines but can disrupt. Penalise or repair infeasible candidates.</p><h2>Answer route</h2><ol><li>Identify calculation, representation, comparison, design or evaluation.</li><li>State the algorithm, equation or diagram before applying it.</li><li>Finish with a specific limitation, assumption or trade-off.</li></ol><h2>Adapted exam practice - Allocate jobs to constrained processors. [15]</h2><h3>(a) [7-9 marks]</h3><p>(a) <strong>Demand:</strong> encode/score legal decisions. <strong>Quickest route:</strong> gene per task -> decode -> objective minus penalty/repair. <strong>Answer:</strong> gene i selects its processor; reward low makespan/value while penalising/repairing capacity violations. <strong>Trap:</strong> ignore infeasibility.</p><h3>(b) [7-8 marks]</h3><p>(b) <strong>Demand:</strong> relate operators to balance. <strong>Quickest route:</strong> selection, crossover, mutation, diversity. <strong>Answer:</strong> tournament selection exploits, crossover combines valid segments, mutation changes assignments and restores exploration. <strong>Trap:</strong> crossover always improves fitness.</p><h2>Paper basis</h2><p>GA design is Q2 in every local paper 2021/22-2024/25: schema theorem/operators plus constrained allocation/knapsack. Practice is adapted, not verbatim; its multi-part mark shape follows local papers.</p></article></main></body></html>
+      </nav>
+      <p class="eyebrow">CT421 Revision</p>
+      <h1>Genetic Algorithms</h1>
+      <p>The recurring Question 2 material: representation, fitness, selection, crossover, mutation, schema theorem, and exploration versus exploitation.</p>
+    </header>
+    <main class="module-shell">
+<article class="module-content">
+<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> GA evolves encoded candidates through fitness-based selection, crossover and mutation; representation and constraint handling determine whether operators preserve valid solutions. <strong>Compare:</strong> crossover recombines, mutation maintains exploration. <strong>Question cue:</strong> justify every design choice against objective/constraints.</p><h2>Worked practice 1 — paper-derived GA design</h2><p><strong>Question demand:</strong> Design a GA for timetable construction. <strong>Plan/choice:</strong> choose valid encoding, penalised fitness and repair. <strong>Worked answer:</strong> encode assignments, reward satisfied preferences and heavily penalise clashes; select, crossover compatible segments, mutate a small assignment and repair invalid timetables. <strong>Mark-winning points:</strong> fitness and constraints. <strong>Common trap:</strong> vague “optimise fitness”.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Diagnose premature convergence. <strong>Plan/choice:</strong> link low diversity to selection/mutation and propose measured change. <strong>Worked answer:</strong> overly strong selection loses alternatives; reduce pressure, increase/adapt mutation, use diversity/elitism carefully and compare repeated-run fitness. <strong>Mark-winning points:</strong> exploration-exploitation. <strong>Common trap:</strong> mutation only makes solutions worse.</p>
+<h2>Core Genetic Algorithm</h2>
+        <p>A <strong>genetic algorithm (GA)</strong> maintains a population of candidate solutions. Each generation evaluates fitness, selects parents, creates new candidates through crossover and mutation, then replaces some or all of the population.</p>
+
+        <h3>Representation</h3>
+        <p>A <strong>chromosome representation</strong> encodes one candidate solution. It must represent valid solutions clearly and allow sensible crossover and mutation.</p>
+        <p>For task allocation, chromosome position i can store the processor assigned to task i. For student-project allocation, position i can store the project assigned to student i.</p>
+
+        <h3>Fitness function</h3>
+        <p>A <strong>fitness function</strong> scores solution quality. It should reward the objective and penalise invalid solutions. For allocation, it could reward low cost or high preference satisfaction and subtract a large penalty for capacity violations or duplicate assignments.</p>
+
+        <h3>Selection, crossover, and mutation</h3>
+        <ul>
+          <li><strong>Selection:</strong> favours fitter parents. Tournament selection is a simple common approach.</li>
+          <li><strong>Crossover:</strong> combines parts of two parents to create offspring. It mainly exploits good building blocks.</li>
+          <li><strong>Mutation:</strong> makes a small random change to a chromosome. It introduces new variation and helps avoid stagnation.</li>
+        </ul>
+
+        <h3>Exploration versus exploitation</h3>
+        <p><strong>Exploration</strong> searches new areas of the solution space; mutation and diverse parent selection support it. <strong>Exploitation</strong> improves known promising areas; selection and crossover support it. Too much exploitation causes premature convergence, while too much exploration makes progress slow.</p>
+
+        <h3>Hill climbing</h3>
+        <p><strong>Hill climbing</strong> starts with one solution and repeatedly moves to a better neighbouring solution. It strongly exploits local improvements, is simple and fast, but can get stuck at a local optimum, plateau, or ridge. Random restarts or occasional worse moves increase exploration.</p>
+
+        <h3>Schema theorem</h3>
+        <p>A <strong>schema</strong> is a pattern in chromosomes, such as 1*0*, where * means any value. Informally, the schema theorem says short, low-order, above-average schemas tend to receive more copies in future generations.</p>
+        <ul>
+          <li>Selection increases above-average schemas.</li>
+          <li>Crossover can preserve useful schemas but may disrupt long schemas.</li>
+          <li>Mutation creates variation but can disrupt a schema if its rate is too high.</li>
+        </ul>
+
+        <h2>Question interpretation and independent practice</h2>
+        <ol>
+          <li>Ask what one complete solution must decide. If it assigns every item, task, or student, use one gene per item, task, or student.</li>
+          <li>Ask what the objective rewards. Sum that quantity in the fitness function: value, preference score, or low completion time.</li>
+          <li>List the constraints separately. Penalise invalid solutions heavily, or repair them after crossover and mutation.</li>
+          <li>Choose an operator that makes a meaningful small change. For an allocation, moving one item or task is a natural mutation.</li>
+          <li>Check that crossover can produce invalid assignments. If it can, state a repair step. This is often an easy source of marks.</li>
+        </ol>
+
+        <h2>Exam Practice: Genetic Algorithms</h2>
+
+        <h3>Question 1: Design a GA for resource allocation (2024/25, 15 marks)</h3>
+        <p><strong>Question:</strong> Design a genetic algorithm to allocate tasks to processors with time, memory, and capability constraints.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li><strong>Chromosome:</strong> gene i gives the processor assigned to task i.</li>
+          <li><strong>Fitness:</strong> reward low completion time or balanced load; apply a large penalty where processor memory or capability constraints are violated.</li>
+          <li><strong>Selection:</strong> use tournament selection so fitter valid allocations are more likely to become parents.</li>
+          <li><strong>Crossover:</strong> combine task assignments from two parents, then repair invalid assignments if needed.</li>
+          <li><strong>Mutation:</strong> move one task to another compatible processor. This introduces alternatives and reduces premature convergence.</li>
+        </ul>
+
+        <h3>Question 2: Schema theorem (2021/22, 2022/23, and 2023/24, 11 marks)</h3>
+        <p><strong>Question:</strong> Explain the schema theorem and the effects of selection, crossover, and mutation.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>A schema is a pattern shared by many chromosomes, for example 1*0*.</li>
+          <li>Above-average, short, low-order schemas are likely to increase because selection chooses fitter solutions more often.</li>
+          <li>Crossover recombines useful patterns but can break a pattern if the crossover point falls inside it.</li>
+          <li>Mutation maintains diversity and can create useful patterns, but a high rate may destroy them.</li>
+        </ul>
+
+        <h3>Question 3: Exploration and exploitation (2024/25, 10 marks)</h3>
+        <p><strong>Question:</strong> Discuss exploration and exploitation with respect to genetic-algorithm operators and a hill-climbing approach.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>In a GA, selection and crossover exploit good current solutions. Mutation, random initialisation, and diversity mechanisms explore new areas.</li>
+          <li>Too much exploitation causes premature convergence; too much exploration makes the search almost random.</li>
+          <li>Hill climbing is mostly exploitation: it selects a better neighbouring solution. It can get stuck at a local optimum or plateau.</li>
+          <li>Random restarts or occasional worse moves give hill climbing more exploration.</li>
+        </ul>
+
+        <h3>Question 4: Student-project allocation (2022/23, 14 marks)</h3>
+        <p><strong>Question:</strong> A university must assign unique projects to students, where each student ranks their top ten projects. Explain how a GA could solve this problem using a fitness function, representation, and operators.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>Chromosome position i stores the project assigned to student i. Ensure no project appears twice, either through a permutation encoding or a repair step.</li>
+          <li>Fitness is the sum of preference scores, with high penalties for duplicate or unacceptable assignments.</li>
+          <li>Use tournament selection; use a permutation-preserving crossover and a swap mutation between two students.</li>
+          <li>Keep the best valid solution from each generation to avoid losing a strong allocation.</li>
+        </ul>
+
+        <h3>Question 5: Multiple knapsack (2021/22 and 2023/24, 14 marks)</h3>
+        <p><strong>Question:</strong> Items have values and weights, and must be placed in containers with fixed weight capacities. Describe a GA that maximises total value without exceeding any capacity.</p>
+        <p><strong>Short model answer:</strong></p>
+        <ul>
+          <li>Chromosome gene i stores the container chosen for item i, or 0 if it is not selected.</li>
+          <li>Fitness is the total value of selected items minus a very large penalty for every overweight container.</li>
+          <li>Use tournament selection. One-point crossover combines parent assignments, then a repair step removes or moves items from overloaded containers.</li>
+          <li>Mutation moves one item to another container, adds an unselected item, or removes an item to restore capacity.</li>
+        </ul>
+        <p><strong>How this answer is derived:</strong> The problem says every item needs a placement decision, so use one gene per item. It asks to maximise value, so add item values in the fitness function. It also says capacities cannot be exceeded, so add a penalty and a repair step. Finally, mutation should alter one placement because moving one item is the smallest natural change to a packing solution.</p>
+        <h2>High-value traps and final review</h2>
+        <h3>Worked example: fitness for a small allocation</h3>
+        <p><strong>Problem:</strong> A chromosome assigns three tasks to processors. It has completion cost 12 but exceeds one memory limit by 2 units; use a penalty of 10 per excess unit.</p>
+        <p><strong>Model reasoning:</strong> Start from the objective, so lower cost is better. Penalise the violation: adjusted cost = 12 + (2 &times; 10) = 32. The GA should prefer a valid allocation with a lower adjusted cost; state that repair can also restore feasibility after an operator.</p>
+        <h3>Common mistakes</h3>
+        <ul><li>Using an encoding that cannot represent every required decision.</li><li>Rewarding the objective but forgetting constraint penalties or repair.</li><li>Describing mutation without saying how it creates a valid nearby candidate.</li></ul>
+        <h3>Final checklist</h3>
+        <ul><li>Give representation, fitness, selection, crossover, mutation, and constraint handling.</li><li>Link each operator to exploration or exploitation where asked.</li><li>Use the wording of the problem to justify each design choice.</li></ul>
+        <p><strong>Past-paper confidence:</strong> Core Question 1&ndash;4 evolution themes are high confidence at topic level, but their exact paper position is not guaranteed.</p>
+      </article>
+    </main>
+  </body>
+</html>

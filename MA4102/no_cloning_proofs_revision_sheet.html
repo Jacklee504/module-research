@@ -1,1 +1,62 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA4102 No-Cloning Proofs</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">MA4102 overview</a></nav><p class="eyebrow">MA4102 Topic Guide</p><h1>No-Cloning and Core Proofs</h1><p>Use preservation of inner products to rule out a universal copier.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>No-cloning is explicitly examined in 2022/23 Question 4(b), 2023/24 Question 3(ii), 2024/25 Question 4(i), and 2025/26 Question 4(b): a highly recurrent <strong>6--9 mark proof</strong>. No-deleting also occurs in 2022/23 Question 4(c).</p><h2>Rapid refresher</h2><table><thead><tr><th>Assumption</th><th>Unitary consequence</th><th>Contradiction</th></tr></thead><tbody><tr><td>U(|&psi;&rangle;|0&rangle;)=|&psi;&rangle;|&psi;&rangle;</td><td>inner products preserved</td><td>&lang;&phi;|&psi;&rang;=&lang;&phi;|&psi;&rang;<sup>2</sup></td></tr><tr><td>Distinct nonorthogonal states</td><td>0&lt;|&lang;&phi;|&psi;&rang;|&lt;1</td><td>x=x<sup>2</sup> is impossible</td></tr><tr><td>Orthogonal known states</td><td>can be copied conditionally</td><td>the theorem is universal</td></tr></tbody></table><h2>How to answer</h2><ol><li>Assume one fixed unitary clones every state.</li><li>Apply it to two nonorthogonal states with the same blank register.</li><li>Take the inner product on both sides and invoke unitarity.</li><li>Name a concrete pair, e.g. |0&rangle; and |+&rangle;, for the contradiction.</li></ol><h2>Practice question -- no universal copier (12 marks)</h2><p><strong>Inspired by:</strong> 2023/24 Question 3(ii) and 2025/26 Question 4(b).</p><h3>(a) Prove that no unitary U can clone every qubit. [9 marks]</h3><p><strong>Demand / quickest route:</strong> inner-product proof. <strong>Answer:</strong> suppose U(|&psi;&rangle;|0&rangle;)=|&psi;&rangle;|&psi;&rangle; and similarly for |&phi;&rangle;. Unitarity preserves the input inner product, so &lang;&phi;|&psi;&rang;=&lang;&phi;|&psi;&rang;<sup>2</sup>. Choose |&phi;&rangle;=|0&rangle; and |&psi;&rangle;=|+&rangle;, whose overlap 1/&radic;2 is neither zero nor one: contradiction. <strong>Trap:</strong> compare output vectors without using unitarity.</p><h3>(b) Why does this not prohibit copying |0&rangle; or |1&rangle; when promised? [3 marks]</h3><p><strong>Answer:</strong> an operation may copy a fixed known orthonormal set; the proof excludes one U that clones every unknown state, including nonorthogonal pairs. <strong>Trap:</strong> claim all copying is impossible.</p><h2>Past-paper basis</h2><p>Primary evidence: MA4102 2022/23 Question 4(b), 2023/24 Question 3(ii), 2024/25 Question 4(i), and 2025/26 Question 4(b).</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4102 No-Cloning Proofs</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4102 overview</a>
+</nav>
+<p class="eyebrow">MA4102 Topic Guide</p>
+<h1>No-Cloning and Core Proofs</h1>
+<p>State the assumed universal operation, apply it to two arbitrary states, and force a contradiction.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>No-cloning is a repeated proof request; its proof structure is concise and high-return.<strong>Exam use:</strong> Universal assumption, fixed blank, preserved quantity/linearity, explicit unequal states and qualified conclusion are present.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Assume a unitary U clones every |&psi;&rang; with blank |b&rang;.</li>
+<li>Write U(|&psi;&rang;|b&rang;)=|&psi;&rang;|&psi;&rang; and similarly for |&phi;&rang;.</li>
+<li>Take inner products and use unitary preservation.</li>
+<li>Choose nonorthogonal distinct states to contradict the result.</li>
+<li><strong>Question interpretation:</strong> For prove impossible, assume one fixed physical operation works on arbitrary inputs, apply it to two states, and compare inner products or linear superpositions.</li>
+</ol>
+<h2>Notation and derivation</h2>
+<p>Unitarity gives &lang;&phi;|&psi;&rang;=&lang;&phi;|&psi;&rang;<sup>2</sup>. Let c=&lang;&phi;|&psi;&rang;. Then c=c<sup>2</sup>, so c is 0 or 1; arbitrary distinct nonorthogonal states have neither value. Thus no universal cloner exists.<strong>Rapid recall:</strong> A universal cloner would satisfy U|psi>|0>=|psi>|psi>; unitarity preserves inner products, forcing &lt;phi|psi>=&lt;phi|psi>^2, possible only for orthogonal or identical pairs.<strong>Exam workflow:</strong> Quantify over arbitrary states, keep the blank state fixed, take inner products on both sides, solve the resulting scalar equation, and state the contradiction.</p>
+<h2>Worked calculation</h2>
+<p>Take |&psi;&rang;=|0&rang; and |&phi;&rang;=|+&rang;. Their overlap is 1/&radic;2. Cloning would require 1/&radic;2=1/2, impossible.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Assume U clones |0> and |+>. Input overlap is &lt;0|+>&lt;0|0>=1/sqrt2. Output overlap is (&lt;0|+>)^2=1/2. Unitarity requires equality, but 1/sqrt2 !=1/2, contradiction. Thus no unitary clones this nonorthogonal pair, and hence no universal perfect cloner exists.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Fill in the inner-product line in the cloning proof. <strong>Check:</strong> the blank register contributes &lang;b|b&rang;=1.</p>
+<p>
+<strong>2.</strong> Prove unitaries preserve purity: Tr[(U&rho;U<sup>&dagger;</sup>)<sup>2</sup>]=Tr(&rho;<sup>2</sup>). <strong>Check:</strong> use U<sup>&dagger;</sup>U=I and cyclicity of trace.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: use linearity instead. Check if U clones |0> and |1>, then on |+>|0> linearity gives (|00>+|11>)/sqrt2, whereas a clone of |+> is (|00>+|01>+|10>+|11>)/2; they differ.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Only showing two basis states can be cloned.</li>
+<li>Forgetting the claim is universal.</li>
+<li>Calling c=c<sup>2</sup> a contradiction without selecting nonorthogonal states.</li>
+<li><strong>Recovery rule:</strong> The theorem forbids unknown arbitrary-state perfect cloning, not copying a known orthogonal classical basis.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can reproduce the four proof moves.</li>
+<li>I name the unitary and blank state.</li>
+<li>I can use trace cyclicity in companion proofs.</li>
+<li><strong>Final 60-second audit:</strong> Universal assumption, fixed blank, preserved quantity/linearity, explicit unequal states and qualified conclusion are present.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>No-cloning appears in 2022–26; related no-deleting appears in 2022. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

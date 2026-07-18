@@ -1,14 +1,82 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS402 - RSA</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS402 Overview</a><a href="number_theory_primality_revision_sheet.html">Number theory</a><a href="public_key_protocols_revision_sheet.html">Public-key protocols</a></nav><p class="eyebrow">CS402 Topic Guide</p><h1>RSA</h1><p>Show key construction, modular arithmetic and why decryption returns the message.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>RSA is Q3 in every 2018/19-2024/25 paper: key generation, encryption/decryption, invalid-key checks and a security claim.</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>n=pq; phi(n)=(p-1)(q-1); gcd(e,phi)=1; d=e<sup>-1</sup> mod phi; c=m<sup>e</sup> mod n; m=c<sup>d</sup> mod n.</td><td>Public key is (n,e); factoring n permits phi(n) and d. Fast powers use repeated squaring.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> RSA is Q3 in every 2018/19-2024/25 paper: key generation, encryption/decryption, invalid-key checks and a security claim.</p>
-<h3>(a) For p=11, q=17, e=7, construct the key and encrypt m=8. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Compute n and phi; use extended Euclid for d; square-and-multiply 8<sup>7</sup> mod 187.</p><p><strong>Mark-aware answer:</strong> n=187, phi=160 and 7<sup>-1</sup>=23 mod 160 because 7(23)-160=1. Public key (187,7), private d=23. 8<sup>2</sup>=64, 8<sup>4</sup>=169, so 8<sup>7</sup>=169*64*8=134 mod 187.</p><p><strong>Trap:</strong> Do not invert e modulo n, and do not say a primality test would factor n.</p>
-<h3>(b) Show why decrypting m<sup>e</sup> with d returns m for every residue modulo pq. [6 marks]</h3><p><strong>Question demand:</strong> Use ed=1+k(p-1)(q-1); prove congruence separately mod p and mod q, then apply CRT. <strong>Quickest route:</strong> Use ed=1+k(p-1)(q-1); prove congruence separately mod p and mod q, then apply CRT.</p><p><strong>Mark-aware answer:</strong> Modulo p, if p divides m both powers are 0; otherwise Fermat gives m<sup>p-1</sup>=1 and m<sup>ed</sup>=m. The same argument holds mod q. Since the two residues agree mod p and q, CRT gives m<sup>ed</sup>=m mod pq.</p><p><strong>Trap:</strong> Euler's theorem alone only covers gcd(m,n)=1; include the divisible case.</p>
-<h3>(c) Explain why a fast primality test would not by itself break RSA. [4 marks]</h3><p><strong>Question demand:</strong> Separate deciding primality from factoring a composite modulus. <strong>Quickest route:</strong> Separate deciding primality from factoring a composite modulus.</p><p><strong>Mark-aware answer:</strong> RSA uses public n=pq already known to be composite. A primality algorithm does not reveal p and q, whereas factoring n would yield phi(n) and hence d. Therefore the claim confuses primality testing with factorisation.</p><p><strong>Trap:</strong> Do not say RSA depends on primality being hard to decide.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>RSA is Q3 in every 2018/19-2024/25 paper: key generation, encryption/decryption, invalid-key checks and a security claim. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-<p><a href="details.html">Back to CS402 overview.</a></p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS402 - RSA</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav" aria-label="Navigation">
+<a href="details.html">CS402 Overview</a>
+<a href="number_theory_primality_revision_sheet.html">Number theory</a>
+<a href="public_key_protocols_revision_sheet.html">Public-key protocols</a>
+</nav>
+<p class="eyebrow">CS402 Revision</p>
+<h1>RSA</h1>
+<p>Show the key construction, modular arithmetic and the reason decryption returns the message.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>RSA is a central repeatable calculation. A full answer checks every key condition, shows the exponentiation, and states the number-theory fact that justifies the round trip.<strong>Exam use:</strong> Key validity, inverse working, square-and-multiply table, public/private labels and the appropriate correctness proof are present.</p>
+<h2>What the question asks, and plan</h2>
+<ol>
+<li>From primes calculate <em>n=pq</em> and <em>φ(n)=(p−1)(q−1)</em>.</li>
+<li>Choose/check <em>e</em> with <em>gcd(e,φ(n))=1</em>.</li>
+<li>Find <em>d≡e⁻¹ mod φ(n)</em>; state public <em>(n,e)</em>, private <em>d</em>.</li>
+<li>Encrypt <em>c=mᵉ mod n</em>, decrypt <em>m=cᵈ mod n</em>, using repeated squaring.</li>
+<li>Explain correctness with <em>ed=1+kφ(n)</em> and Euler's theorem.</li>
+<li><strong>Question interpretation:</strong> For generate, show the gcd and inverse; for encrypt/decrypt, show modular powers; for prove correct, handle both primes rather than quietly assuming gcd(m,n)=1.</li>
+</ol>
+<h2>Terms and formulas</h2>
+<ul>
+<li>
+<strong>Modulus:</strong> <em>n=pq</em>, product of distinct secret primes.</li>
+<li>
+<strong>Euler totient:</strong> <em>φ(pq)=(p−1)(q−1)</em> for distinct primes.</li>
+<li>
+<strong>Public/private exponents:</strong> <em>ed≡1 mod φ(n)</em>.</li>
+<li>
+<strong>Euler:</strong> if <em>gcd(m,n)=1</em>, then <em>m^φ(n)≡1 mod n</em>.</li>
+<li>
+<strong>Security intuition:</strong> recovering <em>d</em> from the public key is tied to factoring <em>n</em>; tiny classroom keys are deliberately insecure.</li>
+<li><strong>Rapid recall:</strong> n=pq, lambda(n)=lcm(p-1,q-1) or phi(n)=(p-1)(q-1), gcd(e,lambda)=1, and ed=1 mod lambda; CRT gives correctness even when m shares a factor with n.</li>
+</ul>
+<h2>Derivation and method</h2>
+<p>Since <em>ed=1+kφ(n)</em>, decrypting gives <em>(mᵉ)ᵈ=m^(1+kφ(n))=m(m^φ(n))ᵏ≡m mod n</em> when coprime. In an exam, find inverses with the extended Euclidean algorithm and calculate powers by squaring; do not attempt a huge exponent directly. State any required message/coprimality assumptions.<strong>Exam workflow:</strong> Use extended Euclid for d, repeated squaring for powers, and a mod-p/mod-q argument followed by the Chinese remainder theorem for a complete correctness proof.</p>
+<h2>Fully worked simple example</h2>
+<p>Take <em>p=3,q=11</em>. Then <em>n=33, φ=20</em>. Choose <em>e=3</em>; its inverse mod 20 is <em>d=7</em>. Encrypt <em>m=4</em>: <em>c=4³=64≡31 mod 33</em>. Decrypt: <em>31²≡4</em>, so <em>31⁴≡16</em> and <em>31⁷=31⁴·31²·31≡16·4·31≡4 mod 33</em>. Public key is (33,3); private exponent is 7.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Take p=5,q=11,e=3. Then n=55, phi=40, and 1=3*27-2*40, so d=27. Encrypt m=12: 12^2=34, 12^4=1 mod 55, hence c=12^3=23. Decrypt 23^27: 23^2=34, 23^4=1, and 27=16+8+2+1, so 23^27=1*1*34*23=782=12 mod 55. Public key (55,3); private exponent 27.</p>
+<h2>Two graded prompts</h2>
+<h3>1. Foundation — 7 marks</h3>
+<p>For <em>p=5,q=11,e=3</em>, find <em>n,φ(n),d</em>. <strong>Exam bridge:</strong> values (3), coprimality (1), inverse working (3). <strong>Check:</strong> <em>n=55,φ=40,d=27</em>.</p>
+<h3>2. Exam bridge — 8 marks</h3>
+<p>Explain why an RSA public key may be published but <em>d</em> must not be. <strong>Check:</strong> distinguish public encryption parameters from the factorisation/private inverse; do not claim RSA is secure merely because exponentiation is hard.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove RSA correctness for every residue m mod pq. Check modulo p: if p divides m both sides are 0; otherwise Fermat and ed=1 mod p-1 give m^{ed}=m. Repeat modulo q, then CRT implies equality mod pq. This closes the gap in the coprime-only Euler proof.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Using <em>n</em> instead of <em>φ(n)</em> when finding <em>d</em>.</li>
+<li>Choosing <em>e</em> not coprime to <em>φ(n)</em>.</li>
+<li>Swapping public/private components or forgetting modulus reductions.</li>
+<li>Presenting the classroom example as realistic secure RSA.</li>
+<li><strong>Recovery rule:</strong> If the message is not coprime to n, switch to the prime-by-prime proof; do not cite Euler's theorem outside its hypothesis.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>p, q, n and φ all shown?</li>
+<li>gcd and inverse checked?</li>
+<li>Fast exponentiation working visible?</li>
+<li>Correctness/security claim qualified?</li>
+<li><strong>Final 60-second audit:</strong> Key validity, inverse working, square-and-multiply table, public/private labels and the appropriate correctness proof are present.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>RSA key generation, encryption/decryption, valid-key checks and reasoning recur strongly in 2018/19–2024/25. They match the current official outcome on RSA; exact parameter sizes and proof detail remain lecturer-dependent. <a href="details.html">Back to CS402 overview.</a>
+</p>
+</article>
+</main>
+</body>
+</html>

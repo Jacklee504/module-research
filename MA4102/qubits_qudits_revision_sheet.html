@@ -1,1 +1,63 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA4102 Qubits and Qudits</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">MA4102 overview</a></nav><p class="eyebrow">MA4102 Topic Guide</p><h1>Qubits, Qudits and State Vectors</h1><p>Normalise, change basis, then use squared moduli and state collapse.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>Computational-basis qutrit measurement is a repeated multi-part family: 2022/23 Question 2(a), 2025/26 Question 2(a), and the same state-vector/density-matrix block appears in 2021/22 and 2024/25. Expect a <strong>4--7 mark calculation</strong> followed by a related operation.</p><h2>Rapid refresher</h2><table><thead><tr><th>Object</th><th>Use</th><th>Check</th></tr></thead><tbody><tr><td>|&psi;&rang;=&sum;&alpha;<sub>j</sub>|j&rangle;</td><td>State in a d-dimensional orthonormal basis</td><td>&sum;|&alpha;<sub>j</sub>|<sup>2</sup>=1</td></tr><tr><td>Basis outcome j</td><td>p(j)=|&lang;j|&psi;&rang;|<sup>2</sup></td><td>post-state |j&rangle; if outcome j</td></tr><tr><td>Basis change</td><td>&gamma;<sub>k</sub>=&lang;b<sub>k</sub>|&psi;&rang;</td><td>conjugate bra coefficients</td></tr></tbody></table><h2>How to answer</h2><ol><li>Write the stated basis and the amplitude for each requested outcome.</li><li>Check the norm before applying Born's rule.</li><li>Square the modulus, never the complex amplitude itself.</li><li>State the collapsed vector, not merely its probability.</li></ol><h2>Practice question -- qutrit state (17 marks)</h2><p><strong>Inspired by:</strong> 2022/23 Question 2(a,b) and 2025/26 Question 2(a,b).</p><p>Let |&psi;&rang;=(|0&rangle;+2i|1&rangle;+3i|2&rangle;)/&radic;14.</p><h3>(a) Find p(2) and the state after outcome 2. [7 marks]</h3><p><strong>Demand / quickest route:</strong> read the |2&rangle; amplitude and apply Born's rule. <strong>Answer:</strong> &lang;2|&psi;&rang;=3i/&radic;14, so p(2)=|3i/&radic;14|<sup>2</sup>=9/14. A rank-one computational measurement collapses the system to |2&rangle;. <strong>Trap:</strong> writing (3i/&radic;14)<sup>2</sup>=-9/14.</p><h3>(b) Write &rho;=|&psi;&rang;&lang;&psi;|. [4 marks]</h3><p><strong>Demand / quickest route:</strong> form column times conjugate transpose. <strong>Answer:</strong> &rho;=(1/14)[[1,-2i,-3i],[2i,4,6],[3i,6,9]]. It is Hermitian and has trace one. <strong>Trap:</strong> transpose without complex conjugation.</p><h3>(c) Give all computational-basis probabilities. [6 marks]</h3><p><strong>Demand / quickest route:</strong> square each coefficient modulus. <strong>Answer:</strong> (1/14,4/14,9/14), summing to one; this is the required normalisation audit. <strong>Trap:</strong> omit the sum-to-one check.</p><h2>Past-paper basis</h2><p>Primary evidence: MA4102 2022/23 Question 2 and 2025/26 Question 2; closely related state/density blocks occur in 2021/22 and 2024/25. Adapted practice preserves their multi-part, mark-led form.</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4102 Qubits and Qudits</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4102 overview</a>
+</nav>
+<p class="eyebrow">MA4102 Topic Guide</p>
+<h1>Qubits, Qudits and State Vectors</h1>
+<p>Normalise a complex state, change basis carefully, then square amplitudes for probabilities.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>These are the foundation calculations behind repeated qutrit and qubit questions.<strong>Exam use:</strong> Dimension, norm, conjugated inner products, modulus-squared probabilities and global/relative phase distinction are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Write the state in the stated orthonormal basis.</li>
+<li>Check &lang;&psi;|&psi;&rang;=1; normalise if needed.</li>
+<li>For outcome j use p(j)=|&lang;j|&psi;&rang;|<sup>2</sup>.</li>
+<li>State the post-measurement basis vector when asked.</li>
+<li><strong>Question interpretation:</strong> For state validity, normalise complex amplitudes; for basis change, compute inner products with basis vectors; for measurement, square moduli and sum degenerate outcomes.</li>
+</ol>
+<h2>Notation and derivation</h2>
+<p>|&psi;&rang;=&sum;<sub>j=0</sub>
+<sup>d−1</sup>&alpha;<sub>j</sub>|j&rang;, with &sum;|&alpha;<sub>j</sub>|<sup>2</sup>=1. The Born rule gives p(j)=|&alpha;<sub>j</sub>|<sup>2</sup>; the probabilities sum to one exactly because the vector is normalised.<strong>Rapid recall:</strong> A d-level pure state is a unit vector up to global phase; probabilities are |amplitude|^2; relative phase affects interference, and tensor-product dimension multiplies.<strong>Exam workflow:</strong> Calculate the norm first, factor out any global phase only after identifying it, and preserve complex conjugation in inner products.</p>
+<h2>Worked calculation</h2>
+<p>For |&psi;&rang;=(|0&rang;+i|1&rang;)/&radic;2, p(0)=1/2 and p(1)=|i/&radic;2|<sup>2</sup>=1/2. In the computational basis the column is (1,i)<sup>T</sup>/&radic;2.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Normalise |psi>=(1+i)|0>+2|1>. Norm squared is |1+i|^2+4=2+4=6, so |psi>=((1+i)|0>+2|1>)/sqrt6. In the X basis, &lt;+|psi>=(3+i)/sqrt12 with probability 10/12=5/6; &lt;-|psi>=(-1+i)/sqrt12 with probability 2/12=1/6. The probabilities sum to 1.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Normalise |v&rang;=2|0&rang;−i|1&rang;. <strong>Check:</strong> divide by &radic;5.</p>
+<p>
+<strong>2.</strong> A qutrit has coefficients (1,1,i)/&radic;3. Give all computational-basis probabilities and the state after outcome 2. <strong>Check:</strong> each probability is 1/3; outcome 2 leaves |2&rang;.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: for qutrit (|0>+omega|1>+|2>)/sqrt3 with |omega|=1, give computational probabilities and discuss omega. Check each outcome is 1/3; omega is a relative phase that can affect another basis measurement.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Squaring a complex amplitude instead of its modulus.</li>
+<li>Forgetting that a qutrit has three basis outcomes.</li>
+<li>Mixing a global phase with a relative phase.</li>
+<li><strong>Recovery rule:</strong> Square the modulus of a complex amplitude, not the complex number itself.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can normalise complex vectors.</li>
+<li>I can apply the Born rule and state collapse.</li>
+<li>I label the basis used.</li>
+<li><strong>Final 60-second audit:</strong> Dimension, norm, conjugated inner products, modulus-squared probabilities and global/relative phase distinction are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Qutrit measurement and state-vector work occurs throughout 2021–26. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

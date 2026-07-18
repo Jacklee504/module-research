@@ -1,14 +1,76 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS4423 Prufer Codes and Trees</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS4423 overview</a></nav><p class="eyebrow">CS4423 Topic Guide</p><h1>Prufer Codes and Trees</h1><p>Encode a labelled tree by repeatedly removing its smallest leaf.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>Prufer encoding/decoding and degree-sequence reasoning recur in the local archive, notably 2017/18-2023/24 specialist tree questions.</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>A tree on n labels maps to a word of length n-2. Delete the smallest current leaf and record its neighbour. degree(v)=1+occurrences(v).</td><td>Decode by joining the smallest label absent from the remaining word to its first symbol; finish by joining the final two labels.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Prufer encoding/decoding and degree-sequence reasoning recur in the local archive, notably 2017/18-2023/24 specialist tree questions.</p>
-<h3>(a) Decode the Prufer word (4,4,5,2) on labels 1,...,6 and give degrees. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> At each step choose the smallest label not in the remaining word, add its edge, delete the first symbol.</p><p><strong>Mark-aware answer:</strong> Edges: 1-4, 3-4, 4-5, 5-2, then 2-6. Frequencies give degrees d(4)=3,d(5)=2,d(2)=2 and all other labels degree 1.</p><p><strong>Trap:</strong> Do not choose merely any leaf when the convention is the smallest.</p>
-<h3>(b) Prove the degree-frequency rule for a Prufer code. [6 marks]</h3><p><strong>Question demand:</strong> Explain when a label is deleted and when it is written. <strong>Quickest route:</strong> Explain when a label is deleted and when it is written.</p><p><strong>Mark-aware answer:</strong> A vertex v is written once whenever a smaller/current leaf adjacent to v is deleted. It remains until all but one incident edge have been removed, then v is deleted as a leaf without being written. Thus it appears deg(v)-1 times, so deg(v)=1+frequency(v).</p><p><strong>Trap:</strong> The final two vertices are joined but not written.</p>
-<h3>(c) How many labelled trees are there on n fixed labels? [4 marks]</h3><p><strong>Question demand:</strong> Use the bijection with words of length n-2. <strong>Quickest route:</strong> Use the bijection with words of length n-2.</p><p><strong>Mark-aware answer:</strong> Every labelled tree corresponds bijectively to a Prufer sequence of length n-2 over n labels. There are n choices at each position, hence n<sup>n-2</sup> trees.</p><p><strong>Trap:</strong> Do not count sequences of length n-1.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>Prufer encoding/decoding and degree-sequence reasoning recur in the local archive, notably 2017/18-2023/24 specialist tree questions. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-<p><a href="details.html">Back to CS4423 overview.</a></p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CS4423 Prufer Codes and Trees</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CS4423 overview</a>
+</nav>
+<p class="eyebrow">CS4423 Topic Guide</p>
+<h1>Prufer Codes and Trees</h1>
+<p>Encode a labelled tree by repeatedly removing its smallest leaf.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose and relevance</h2>
+<p>Prufer codes establish a one-to-one correspondence between labelled trees on n vertices and sequences of length n−2. They are a recurring specialist calculation topic.<strong>Exam use:</strong> Word length, smallest-leaf rule, every emitted edge and the degree-frequency identity all verify the result.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>For encoding, state the tie rule, remove the smallest labelled leaf, record its neighbour and repeat n−2 times. For decoding, repeatedly join the first code element to the smallest label absent from the remaining code.<strong>Question interpretation:</strong> For encode, repeatedly remove the smallest labelled leaf; for decode, choose the smallest label absent from the remaining code; for count, apply Cayley's formula only to labelled trees.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>A tree on n vertices has n−1 edges.</li>
+<li>Prufer sequence length = n−2.</li>
+<li>deg(v)=1 + occurrences of v in the Prufer code.</li>
+<li>Number of labelled trees on n vertices is nⁿ⁻² (Cayley’s formula).</li>
+<li><strong>Rapid recall:</strong> A tree on n labelled vertices has a Prufer word of length n-2; label v appears deg(v)-1 times; there are n^{n-2} labelled trees.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Encoding: find smallest leaf; write its neighbour; delete leaf.</li>
+<li>Continue until two vertices remain.</li>
+<li>Decoding: choose smallest label absent from current code.</li>
+<li>Join it to first entry, delete both; finally join the last two labels.</li>
+<li><strong>Exam workflow:</strong> Keep a live degree table from code frequencies, update it after each emitted edge, and finish by joining the last two degree-one vertices.</li>
+</ol>
+<h2>Worked starter question and model answer</h2>
+<p>
+<strong>Question:</strong> Decode [2,2] on labels {1,2,3,4}.</p>
+<p>
+<strong>Model answer:</strong> Smallest absent is 1: add 1-2. Remaining [2], smallest absent is 3: add 3-2. Join remaining 2-4. Degrees are 1,3,1,1, agreeing with occurrences plus one.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Decode code (4,4,2) on {1,2,3,4,5}. Initial degrees from frequencies are d=(1,2,1,3,1). Smallest leaf 1 joins 4; now 3 joins 4; 4 becomes a leaf and joins 2; finally leaves 2 and 5 join. Edges are {14,34,24,25}. Degrees (1,2,1,3,1) match occurrence counts plus one.</p>
+<h2>Graduated practice</h2>
+<h3>Prompt 1</h3>
+<p>What is code length for a 7-vertex tree? <strong>Check:</strong> 5.</p>
+<h3>Exam bridge</h3>
+<p>Encode a labelled tree, reconstruct it, and infer its degree sequence from the code. <strong>Check:</strong> show every leaf choice, use the smallest-label rule, end with final edge, then use occurrences+1.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: encode the tree with edges {12,13,34,35,56}. Check remove leaves 2, then 1, then 4, then 3, recording neighbours (1,3,3,5); length 4=n-2.</p>
+<h2>Common mistakes</h2>
+<ul>
+<li>Recording the leaf rather than its neighbour.</li>
+<li>Using arbitrary rather than stated smallest-leaf tie-breaking.</li>
+<li>Forgetting the final edge in decoding.</li>
+<li><strong>Recovery rule:</strong> During decoding, choose the smallest label absent from the current remaining suffix, not absent from the original code.</li>
+</ul>
+<h2>Final checklist</h2>
+<ul>
+<li>Is length n−2?</li>
+<li>Did I show deletions?</li>
+<li>Did I verify degrees?</li>
+<li><strong>Final 60-second audit:</strong> Word length, smallest-leaf rule, every emitted edge and the degree-frequency identity all verify the result.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Prufer encoding, decoding and degree questions recur in local 2017/18–2024/25 papers but are less central than BFS/centrality/random graphs.</p>
+<p>
+<a href="details.html">Back to CS4423 overview</a>
+</p>
+</article>
+</main>
+</body>
+</html>

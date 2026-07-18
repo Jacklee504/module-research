@@ -1,1 +1,69 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>MA4102 Channels</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">MA4102 overview</a></nav><p class="eyebrow">MA4102 Topic Guide</p><h1>Quantum Channels and Kraus Operators</h1><p>Check completeness, then apply each Kraus branch to the density matrix.</p></header><main class="module-shell"><article class="module-content"><h2>What repeatedly appears in the papers</h2><p>Phase/amplitude damping or Kraus maps are asked in 2021/22 and 2024/25 Question 3(i), 2023/24 Question 3(i), and 2025/26 Question 4(d): a recurring <strong>6--13 mark</strong> channel calculation/proof family.</p><h2>Rapid refresher</h2><table><thead><tr><th>Requirement</th><th>Formula</th><th>Exam interpretation</th></tr></thead><tbody><tr><td>Kraus channel</td><td>&Phi;(&rho;)=&sum;<sub>k</sub>E<sub>k</sub>&rho;E<sub>k</sub><sup>&dagger;</sup></td><td>completely positive form</td></tr><tr><td>Trace preservation</td><td>&sum;<sub>k</sub>E<sub>k</sub><sup>&dagger;</sup>E<sub>k</sub>=I</td><td>test before describing noise</td></tr><tr><td>Unitary dilation</td><td>Tr<sub>E</sub>[U(&rho;&otimes;|0&rangle;&lang;0|)U<sup>&dagger;</sup>]</td><td>environment discarded</td></tr></tbody></table><h2>How to answer</h2><ol><li>Compute E<sub>k</sub><sup>&dagger;</sup>E<sub>k</sub> separately and sum.</li><li>Apply the map to a generic &rho; only after the check.</li><li>Describe which Bloch components/coherences change, rather than merely naming the channel.</li></ol><h2>Practice question -- Pauli channel (15 marks)</h2><p><strong>Inspired by:</strong> 2025/26 Question 4(d).</p><p>Let E<sub>0</sub>=&radic;(1-3&lambda;/4)I and E<sub>1,2,3</sub>=&radic;(&lambda;/4){X,Y,Z}.</p><h3>(a) Verify trace preservation. [6 marks]</h3><p><strong>Demand / quickest route:</strong> Pauli matrices are unitary. <strong>Answer:</strong> &sum;E<sub>k</sub><sup>&dagger;</sup>E<sub>k</sub>=(1-3&lambda;/4)I+3(&lambda;/4)I=I. For 0&le;&lambda;&le;1 all weights are nonnegative. <strong>Trap:</strong> sum E<sub>k</sub> instead of E<sub>k</sub><sup>&dagger;</sup>E<sub>k</sub>.</p><h3>(b) Give &Phi;(&rho;). [5 marks]</h3><p><strong>Answer:</strong> &Phi;(&rho;)=(1-3&lambda;/4)&rho;+(&lambda;/4)(X&rho;X+Y&rho;Y+Z&rho;Z). <strong>Trap:</strong> omit the adjoint on the right in the Kraus rule.</p><h3>(c) Describe the effect. [4 marks]</h3><p><strong>Answer:</strong> it randomly applies a Pauli error; increasing &lambda; depolarises the qubit, shrinking its Bloch vector toward the maximally mixed state. <strong>Trap:</strong> describe it as a deterministic X flip.</p><h2>Past-paper basis</h2><p>Primary evidence: MA4102 2021/22 and 2024/25 Question 3(i), 2023/24 Question 3(i), and 2025/26 Question 4(d).</p></article></main></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA4102 Quantum Channels</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA4102 overview</a>
+</nav>
+<p class="eyebrow">MA4102 Topic Guide</p>
+<h1>Quantum Channels and Kraus Operators</h1>
+<p>Apply every Kraus branch, add them, then explicitly check trace preservation.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Channels connect the CPTP definition to repeated Kraus and damping/depolarising calculations.<strong>Exam use:</strong> All Kraus branches, completeness order, resulting matrix, trace and physical parameter range are shown.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Write &Epsilon;(&rho;)=&sum;<sub>k</sub>E<sub>k</sub>&rho;E<sub>k</sub>
+<sup>&dagger;</sup>.</li>
+<li>Calculate each branch before summing.</li>
+<li>Check &sum;<sub>k</sub>E<sub>k</sub>
+<sup>&dagger;</sup>E<sub>k</sub>=I for trace preservation.</li>
+<li>State why the map is completely positive: it has Kraus form.</li>
+<li><strong>Question interpretation:</strong> For validate, calculate sum K_i^dagger K_i; for apply, evaluate each K_i rho K_i^dagger branch and add; for interpret, separate state change from outcome-conditioned measurement.</li>
+</ol>
+<h2>Notation and derivation</h2>
+<p>A quantum channel is CPTP. Trace preservation follows from Tr(&sum;E<sub>k</sub>&rho;E<sub>k</sub>
+<sup>&dagger;</sup>)=Tr((&sum;E<sub>k</sub>
+<sup>&dagger;</sup>E<sub>k</sub>)&rho;)=Tr(&rho;).<strong>Rapid recall:</strong> A channel is completely positive and trace preserving; a Kraus form E(rho)=sum_i K_i rho K_i^dagger is trace preserving iff sum_i K_i^dagger K_i=I.<strong>Exam workflow:</strong> Keep the input matrix symbolic until each branch is visible, add entries, and audit trace and positivity on the result.</p>
+<h2>Worked calculation</h2>
+<p>For dephasing with E<sub>0</sub>=&radic;(1−p)I and E<sub>1</sub>=&radic;p Z, &Epsilon;(|+&rang;&lang;+|) has diagonal entries ½ and off-diagonals (1−2p)/2. Also E<sub>0</sub>
+<sup>&dagger;</sup>E<sub>0</sub>+E<sub>1</sub>
+<sup>&dagger;</sup>E<sub>1</sub>=I.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>For amplitude damping K0=[[1,0],[0,sqrt(1-gamma)]], K1=[[0,sqrt(gamma)],[0,0]], input |1>&lt;1| gives K0 rho K0^dagger=(1-gamma)|1>&lt;1| and K1 rho K1^dagger=gamma|0>&lt;0|. Thus E(rho)=diag(gamma,1-gamma), trace 1. Also K0^dagger K0+K1^dagger K1=I.</p>
+<h2>Graduated exam bridge</h2>
+<p>
+<strong>1.</strong> Verify trace preservation for the displayed dephasing Kraus pair. <strong>Check:</strong> scalars square to 1−p and p.</p>
+<p>
+<strong>2.</strong> Apply amplitude damping Kraus operators to |1&rang;&lang;1| and interpret the result. <strong>Check:</strong> output is a mixture, with ground-state probability p.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: apply the channel to rho=[[a,b],[b*,d]]. Check E(rho)=[[a+gamma d,sqrt(1-gamma)b],[sqrt(1-gamma)b*,(1-gamma)d]]; trace a+d is preserved.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Omitting the dagger.</li>
+<li>Checking &sum;E<sub>k</sub>E<sub>k</sub>
+<sup>&dagger;</sup> instead of the required order.</li>
+<li>Calling an arbitrary linear map CPTP.</li>
+<li><strong>Recovery rule:</strong> Trace preservation checks K_i^dagger K_i, not K_i K_i^dagger; the latter tests a different unital property.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I know the Kraus update.</li>
+<li>I can verify trace preservation.</li>
+<li>I can identify loss of coherence in a matrix.</li>
+<li><strong>Final 60-second audit:</strong> All Kraus branches, completeness order, resulting matrix, trace and physical parameter range are shown.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Kraus, phase/amplitude damping and depolarising channels recur in 2021 and 2023–26. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

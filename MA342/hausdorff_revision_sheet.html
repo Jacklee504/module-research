@@ -1,14 +1,64 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MA342 Hausdorff Spaces</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">MA342 overview</a></nav><p class="eyebrow">MA342 Topic Guide</p><h1>Hausdorff Spaces</h1><p>Separate points and use compact-to-Hausdorff rigidity.</p></header>
-<main class="module-shell"><article class="module-content">
-<h2>What the local papers support</h2><p>Hausdorff definition/examples occur in 2023/24 Q2 and 2024/25 Q2; the compact-Hausdorff homeomorphism theorem is prominent in 2023/24.</p>
-<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Hausdorff: distinct x,y have disjoint open neighbourhoods. Metric spaces are Hausdorff. Infinite cofinite spaces are not Hausdorff.</td><td>A continuous bijection compact to Hausdorff is a homeomorphism because it maps closed subsets to compact, hence closed, subsets.</td></tr></tbody></table>
-<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Hausdorff definition/examples occur in 2023/24 Q2 and 2024/25 Q2; the compact-Hausdorff homeomorphism theorem is prominent in 2023/24.</p>
-<h3>(a) Is Z with cofinite topology Hausdorff? Justify. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Choose distinct m,n. Any nonempty open neighbourhoods are cofinite; their intersection is cofinite and nonempty since Z is infinite.</p><p><strong>Mark-aware answer:</strong> No. Two nonempty cofinite sets have finite-complement union as complement of their intersection, so their intersection cannot be empty in infinite Z. Thus m,n cannot be separated.</p><p><strong>Trap:</strong> Do not infer Hausdorffness just because singleton sets are named.</p>
-<h3>(b) Prove every metric space is Hausdorff. [6 marks]</h3><p><strong>Question demand:</strong> For x!=y choose disjoint balls with radius less than half their distance. <strong>Quickest route:</strong> For x!=y choose disjoint balls with radius less than half their distance.</p><p><strong>Mark-aware answer:</strong> Let r=d(x,y)/3>0. B(x,r) and B(y,r) are open. If z belonged to both, triangle inequality gives d(x,y)<=d(x,z)+d(z,y)<2r=2d(x,y)/3, impossible. Thus they separate x,y.</p><p><strong>Trap:</strong> Using radius d(x,y) can leave the balls overlapping.</p>
-<h3>(c) Use compact-Hausdorff rigidity to justify a proposed inverse is continuous. [4 marks]</h3><p><strong>Question demand:</strong> Check compact domain, Hausdorff codomain, continuous bijection. <strong>Quickest route:</strong> Check compact domain, Hausdorff codomain, continuous bijection.</p><p><strong>Mark-aware answer:</strong> If f:X->Y is continuous and bijective, X compact and Y Hausdorff, then f is a homeomorphism. Therefore f<sup>-1</sup> is continuous without an extra preimage calculation.</p><p><strong>Trap:</strong> The theorem needs both compactness and Hausdorffness.</p>
-<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
-<h2>Past-paper basis</h2><p>Hausdorff definition/examples occur in 2023/24 Q2 and 2024/25 Q2; the compact-Hausdorff homeomorphism theorem is prominent in 2023/24. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
-<p><a href="details.html#past-papers">Back to MA342 past papers.</a></p>
-</article></main></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Hausdorff Spaces</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Hausdorff Spaces</h1>
+<p>Separate points and use compact-to-Hausdorff rigidity.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Test whether distinct points can be separated by disjoint open sets and exploit the compact-Hausdorff homeomorphism theorem.<strong>Exam use:</strong> Points are arbitrary and distinct, both neighbourhoods are open, containment and disjointness are proved, and theorem hypotheses are named.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Take arbitrary distinct x,y.</li>
+<li>Produce explicit disjoint open neighbourhoods, or show why none can exist.</li>
+<li>For a bijection compact→Hausdorff, establish continuity then invoke the theorem.</li>
+<li><strong>Question interpretation:</strong> For prove Hausdorff, start with arbitrary distinct points and construct disjoint neighbourhoods; for exploit, identify compactness plus Hausdorffness before declaring a set closed.</li>
+</ol>
+<h2>Definitions</h2>
+<p>X is <strong>Hausdorff</strong> if for x≠y there are disjoint open U,V with x∈U and y∈V. A continuous bijection from compact X to Hausdorff Y is a homeomorphism.<strong>Rapid recall:</strong> Hausdorff means distinct points have disjoint open neighbourhoods. Compact subsets of Hausdorff spaces are closed, and continuous maps from compact to Hausdorff spaces gain strong closedness properties.</p>
+<h2>Proof method</h2>
+<p>For the theorem, a closed C⊆X is compact; f(C) is compact and hence closed in Hausdorff Y. Thus f is a closed bijection, so f⁻¹ is continuous.<strong>Exam workflow:</strong> Fix x != y, use the structure available to choose neighbourhoods, verify disjointness, and keep the property relative to the specified topology.</p>
+<h2>Worked simple example</h2>
+<p>R is Hausdorff: for x&lt;y choose disjoint intervals around x and y, each with radius less than (y−x)/3.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>The cofinite topology on an infinite set X is not Hausdorff. Any nonempty open U,V have finite complements. If U and V were disjoint, X=(XU) union (XV) would be finite, contradiction. Thus no two nonempty opens are disjoint, so distinct points cannot have disjoint neighbourhoods. It is nevertheless T1 because every singleton has open cofinite complement.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Is an infinite cofinite space Hausdorff? <strong>Check:</strong> no: two nonempty opens always intersect.</p>
+<p>
+<strong>2. Exam style:</strong> Prove a continuous bijection f:X→Y is a homeomorphism if X is compact and Y Hausdorff. <strong>Check:</strong> show f is closed by compact images.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: prove the diagonal Delta={(x,x):x in X} is closed in XxX when X is Hausdorff. Check for (x,y) not in Delta choose disjoint U containing x and V containing y; UxV is an open neighbourhood disjoint from Delta, so the complement is open.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Finding neighbourhoods that are not disjoint.</li>
+<li>Assuming T₁ automatically means Hausdorff.</li>
+<li>Omitting continuity in the compact-Hausdorff theorem.</li>
+<li><strong>Recovery rule:</strong> T1 separates a point from another by one open set; it does not provide the pair of disjoint neighbourhoods required for Hausdorffness.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state Hausdorff separation.</li>
+<li>I can disprove it in an infinite cofinite topology.</li>
+<li>I can write the compact-Hausdorff proof chain.</li>
+<li><strong>Final 60-second audit:</strong> Points are arbitrary and distinct, both neighbourhoods are open, containment and disjointness are proved, and theorem hypotheses are named.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> Hausdorff questions and the compact-Hausdorff theorem are explicit in both latest papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>
