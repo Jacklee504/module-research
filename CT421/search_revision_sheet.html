@@ -19,12 +19,22 @@
     </header>
     <main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> BFS expands shallowest, DFS deepest, uniform-cost lowest path cost, A* lowest g+h with admissible h. Minimax backs MAX/MIN leaf utilities; alpha-beta prunes branches that cannot change result. <strong>Question cue:</strong> state frontier rule, completeness/optimality, then trace.</p><h2>Worked practice 1 — paper-derived adversarial search</h2><p><strong>Question demand:</strong> Back up a small MAX/MIN tree. <strong>Plan/choice:</strong> label levels, evaluate leaves, take min then max. <strong>Worked answer:</strong> each MIN returns its smallest child, root MAX chooses largest returned value; alpha-beta skips a child once its bound cannot beat an ancestor bound. <strong>Mark-winning points:</strong> labelled direction/order. <strong>Common trap:</strong> pruning changes minimax value.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Choose search for an optimal path with non-negative costs. <strong>Plan/choice:</strong> compare UCS/A* and heuristic condition. <strong>Worked answer:</strong> UCS is optimal but expands by g only; A* remains optimal with admissible/consistent h and usually expands less. Report time/space caveat. <strong>Mark-winning points:</strong> condition for guarantee. <strong>Common trap:</strong> BFS optimal for unequal costs.</p>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Definitions:</strong> BFS expands shallowest, DFS deepest, uniform-cost lowest path cost, A* lowest g+h with admissible h. Minimax backs MAX/MIN leaf utilities; alpha-beta prunes branches that cannot change result. <strong>Question cue:</strong> state frontier rule, completeness/optimality, then trace.</p>
+<h2>Worked practice 1 — paper-derived adversarial search</h2>
+<p>
+<strong>Question demand:</strong> Back up a small MAX/MIN tree. <strong>Plan/choice:</strong> label levels, evaluate leaves, take min then max. <strong>Worked answer:</strong> each MIN returns its smallest child, root MAX chooses largest returned value; alpha-beta skips a child once its bound cannot beat an ancestor bound. <strong>Mark-winning points:</strong> labelled direction/order. <strong>Common trap:</strong> pruning changes minimax value.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Choose search for an optimal path with non-negative costs. <strong>Plan/choice:</strong> compare UCS/A* and heuristic condition. <strong>Worked answer:</strong> UCS is optimal but expands by g only; A* remains optimal with admissible/consistent h and usually expands less. Report time/space caveat. <strong>Mark-winning points:</strong> condition for guarantee. <strong>Common trap:</strong> BFS optimal for unequal costs.</p>
 <h2>Tree Search</h2>
 
         <h3>Breadth-first search (BFS)</h3>
-        <p><strong>BFS</strong> explores all nodes at depth 0, then depth 1, then depth 2, using a queue.</p>
+        <p>
+<strong>BFS</strong> explores all nodes at depth 0, then depth 1, then depth 2, using a queue.</p>
         <ul>
           <li>Complete if the branching factor is finite.</li>
           <li>Finds a shortest path when every step has equal cost.</li>
@@ -32,7 +42,8 @@
         </ul>
 
         <h3>Depth-first search (DFS)</h3>
-        <p><strong>DFS</strong> follows one branch as deeply as possible before backtracking, using a stack or recursion.</p>
+        <p>
+<strong>DFS</strong> follows one branch as deeply as possible before backtracking, using a stack or recursion.</p>
         <ul>
           <li>Low memory: approximately O(bm), where m is maximum depth.</li>
           <li>Time can be O(b<sup>m</sup>).</li>
@@ -40,7 +51,8 @@
         </ul>
 
         <h3>Iterative deepening (IDDFS)</h3>
-        <p><strong>Iterative deepening</strong> runs DFS repeatedly with limits 0, 1, 2, and so on.</p>
+        <p>
+<strong>Iterative deepening</strong> runs DFS repeatedly with limits 0, 1, 2, and so on.</p>
         <ul>
           <li>Complete and finds a shortest shallow solution with equal step costs.</li>
           <li>Uses DFS-like memory: approximately O(bd).</li>
@@ -51,22 +63,28 @@
 
         <h3>Game tree and minimax</h3>
         <p>A <strong>game tree</strong> represents possible moves. <strong>Minimax</strong> assumes one player tries to maximise a score while the opponent tries to minimise it. Terminal positions receive scores, then values are backed up the tree: max nodes choose the largest child value and min nodes choose the smallest.</p>
-        <p><strong>MAS connection:</strong> Minimax models two competing agents. For a large game tree, use a depth limit and a heuristic evaluation function rather than expanding to every terminal state.</p>
+        <p>
+<strong>MAS connection:</strong> Minimax models two competing agents. For a large game tree, use a depth limit and a heuristic evaluation function rather than expanding to every terminal state.</p>
 
         <h3>Alpha-beta pruning</h3>
-        <p><strong>Alpha-beta pruning</strong> avoids searching branches that cannot change the final minimax decision.</p>
+        <p>
+<strong>Alpha-beta pruning</strong> avoids searching branches that cannot change the final minimax decision.</p>
         <ul>
-          <li><strong>Alpha:</strong> the best value found so far for MAX.</li>
-          <li><strong>Beta:</strong> the best value found so far for MIN.</li>
+          <li>
+<strong>Alpha:</strong> the best value found so far for MAX.</li>
+          <li>
+<strong>Beta:</strong> the best value found so far for MIN.</li>
           <li>Prune when alpha is greater than or equal to beta.</li>
           <li>It returns the same answer as minimax but examines fewer nodes.</li>
         </ul>
 
         <h3>Monte Carlo Tree Search (MCTS)</h3>
-        <p><strong>MCTS</strong> builds a tree gradually through four stages: select a promising node, expand a new child, simulate a rollout, and backpropagate the result. It is useful when a full game tree is too large to enumerate.</p>
+        <p>
+<strong>MCTS</strong> builds a tree gradually through four stages: select a promising node, expand a new child, simulate a rollout, and backpropagate the result. It is useful when a full game tree is too large to enumerate.</p>
 
         <h3>Novelty search</h3>
-        <p><strong>Novelty search</strong> rewards solutions for behaving differently from previously explored solutions rather than only for improving a fitness score. It can escape deceptive local optima, but needs a useful behaviour measure and may explore irrelevant novelty.</p>
+        <p>
+<strong>Novelty search</strong> rewards solutions for behaving differently from previously explored solutions rather than only for improving a fitness score. It can escape deceptive local optima, but needs a useful behaviour measure and may explore irrelevant novelty.</p>
 
         <h2>Question interpretation and independent practice</h2>
         <ul>
@@ -78,8 +96,11 @@
         <h2>Exam Practice: Search</h2>
 
         <h3>Question 1: BFS, DFS, and iterative deepening (2023/24 and 2024/25, 9-10 marks)</h3>
-        <p><strong>Question:</strong> Compare BFS, DFS, and iterative deepening in visit order, time complexity, space complexity, and completeness.</p>
-        <p><strong>Short model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Compare BFS, DFS, and iterative deepening in visit order, time complexity, space complexity, and completeness.</p>
+        <p>
+<strong>Short model answer:</strong>
+</p>
         <ul>
           <li>BFS visits level by level. It is complete and shortest-path for equal costs, but uses O(b<sup>d</sup>) time and memory.</li>
           <li>DFS follows one branch before backtracking. It uses O(bm) memory but can take O(b<sup>m</sup>) time, is not complete in infinite spaces, and is not optimal.</li>
@@ -87,8 +108,11 @@
         </ul>
 
         <h3>Question 2: Minimax and alpha-beta pruning (2021/22 and 2024/25, 8-10 marks)</h3>
-        <p><strong>Question:</strong> Explain minimax and alpha-beta pruning with respect to a two-player game.</p>
-        <p><strong>Short model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Explain minimax and alpha-beta pruning with respect to a two-player game.</p>
+        <p>
+<strong>Short model answer:</strong>
+</p>
         <ul>
           <li>Build a game tree of legal moves. Score terminal states, or use a heuristic at a depth limit.</li>
           <li>MAX chooses the highest child value; MIN chooses the lowest. Backing values up identifies MAX's best move.</li>
@@ -97,12 +121,17 @@
         </ul>
 
         <h3>Question 3: Monte Carlo Tree Search (2024/25, 5 marks)</h3>
-        <p><strong>Question:</strong> Explain the main aspects of MCTS.</p>
-        <p><strong>Short model answer:</strong> MCTS repeatedly selects a promising node, expands one new child, simulates a rollout, and backpropagates the result. It balances exploring less-visited nodes with exploiting nodes that have good results. It is useful for very large game trees where full minimax search is infeasible.</p>
+        <p>
+<strong>Question:</strong> Explain the main aspects of MCTS.</p>
+        <p>
+<strong>Short model answer:</strong> MCTS repeatedly selects a promising node, expands one new child, simulates a rollout, and backpropagates the result. It balances exploring less-visited nodes with exploiting nodes that have good results. It is useful for very large game trees where full minimax search is infeasible.</p>
 
         <h3>Question 4: Extending minimax (2021/22 and 2022/23, 8-10 marks)</h3>
-        <p><strong>Question:</strong> Minimax is usually applied to a two-player game where all states can be listed. Explain how it could be extended for a three-player game and for a game where all states cannot be enumerated.</p>
-        <p><strong>Short model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Minimax is usually applied to a two-player game where all states can be listed. Explain how it could be extended for a three-player game and for a game where all states cannot be enumerated.</p>
+        <p>
+<strong>Short model answer:</strong>
+</p>
         <ul>
           <li>For three players, store a utility vector such as (u1, u2, u3). At each player's turn, choose the successor that maximises that player's own utility. This is often called max-n.</li>
           <li>When the tree is too large, search only to a fixed depth and use a heuristic evaluation function for unfinished positions.</li>
@@ -110,23 +139,43 @@
         </ul>
 
         <h3>Question 5: Novelty search (2022/23 and 2023/24, 7 marks)</h3>
-        <p><strong>Question:</strong> Explain the motivation for novelty search and, using a domain of your choice, explain how it could be implemented.</p>
-        <p><strong>Short model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Explain the motivation for novelty search and, using a domain of your choice, explain how it could be implemented.</p>
+        <p>
+<strong>Short model answer:</strong>
+</p>
         <ul>
           <li>Novelty search rewards different behaviour rather than direct progress on the objective, helping search escape deceptive local optima.</li>
           <li>For a maze robot, define behaviour as the final position or the route taken. Keep an archive of sufficiently novel behaviours.</li>
           <li>Give high novelty scores to candidates far from their nearest behavioural neighbours, then select them for future generations.</li>
           <li>A weakness is that novelty depends on a good behaviour descriptor; otherwise it may explore unhelpful differences.</li>
         </ul>
+        <h2>Integrated paper-style practice - adversarial search [9 marks]</h2>
+        <p><strong>Scenario.</strong> A root MAX has two MIN children. The left MIN has terminal values 3 and 5; the right MIN has terminal values 2 and an unvisited final leaf. Evaluate left-to-right with alpha-beta pruning. State MAX's move and whether the last leaf is needed.</p>
+        <p><strong>Question-demand diagnosis:</strong> this is a value-backup trace, not merely a definition of alpha-beta. Labels, visit order and a pruning justification earn the marks.</p>
+        <p><strong>Fastest route:</strong> evaluate left MIN first to set root alpha=3. At right MIN, the first leaf sets beta=2; beta is then no greater than alpha.</p>
+        <p><strong>Worked answer:</strong> Left MIN returns min(3,5)=3, so MAX's alpha becomes 3. Right MIN's first child returns 2, so its beta is 2. Because beta &le; alpha, the unvisited leaf cannot make right MIN return a value above 2, and cannot displace MAX's already available value 3. Prune it. The root chooses the left move with minimax value 3. The prune changes work, not the minimax decision. With a depth limit, terminal values would instead be heuristic evaluations and should be justified as estimates.</p>
+        <p><strong>Topic-specific trap:</strong> never prune a branch merely because its current value looks poor without comparing the relevant alpha and beta bounds.</p>
         <h2>High-value traps and final review</h2>
         <h3>Worked example: choosing BFS</h3>
-        <p><strong>Problem:</strong> A maze has equal-cost moves and the goal is first found at depth 3. Which basic search should find a shortest route?</p>
-        <p><strong>Model reasoning:</strong> The step costs are equal and the question asks for a shortest route. BFS expands level by level, so it reaches every depth-3 route before any deeper route. Therefore choose BFS; mention that its memory use is the trade-off.</p>
+        <p>
+<strong>Problem:</strong> A maze has equal-cost moves and the goal is first found at depth 3. Which basic search should find a shortest route?</p>
+        <p>
+<strong>Model reasoning:</strong> The step costs are equal and the question asks for a shortest route. BFS expands level by level, so it reaches every depth-3 route before any deeper route. Therefore choose BFS; mention that its memory use is the trade-off.</p>
         <h3>Common mistakes</h3>
-        <ul><li>Calling DFS optimal or complete in an infinite search tree.</li><li>Claiming alpha-beta changes the move chosen by minimax.</li><li>Giving a complexity without stating whether it is time or space.</li></ul>
+        <ul>
+<li>Calling DFS optimal or complete in an infinite search tree.</li>
+<li>Claiming alpha-beta changes the move chosen by minimax.</li>
+<li>Giving a complexity without stating whether it is time or space.</li>
+</ul>
         <h3>Final checklist</h3>
-        <ul><li>State visit order, completeness, optimality, time, and space when comparing searches.</li><li>For minimax, label MAX/MIN and back values up from leaves.</li><li>For alpha-beta, state that pruning preserves the minimax result.</li></ul>
-        <p><strong>Past-paper confidence:</strong> Core Question 1&ndash;4 search themes are high confidence at topic level, but their exact paper position is not guaranteed.</p>
+        <ul>
+<li>State visit order, completeness, optimality, time, and space when comparing searches.</li>
+<li>For minimax, label MAX/MIN and back values up from leaves.</li>
+<li>For alpha-beta, state that pruning preserves the minimax result.</li>
+</ul>
+        <p>
+<strong>Past-paper confidence:</strong> Core Question 1&ndash;4 search themes are high confidence at topic level, but their exact paper position is not guaranteed.</p>
       </article>
     </main>
   </body>

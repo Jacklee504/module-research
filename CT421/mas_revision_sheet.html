@@ -18,8 +18,17 @@
     </header>
     <main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> agents have autonomy, interaction and local goals; coordination mechanisms allocate resources or resolve conflicts. In games, strategy/payoff determine best response; auctions choose allocation/payment rules. <strong>Question cue:</strong> define mechanism, sequence messages/actions, then give incentive/efficiency limitation.</p><h2>Worked practice 1 — paper-derived auction</h2><p><strong>Question demand:</strong> Allocate a task by auction. <strong>Plan/choice:</strong> name roles, bids and winner rule. <strong>Worked answer:</strong> manager announces task, agents compute bids from cost/capability, winner is selected by stated rule and confirms commitment; discuss truthful-bidding/communication assumptions. <strong>Mark-winning points:</strong> full protocol. <strong>Common trap:</strong> auction automatically fair/optimal.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Compare central allocation and distributed negotiation. <strong>Plan/choice:</strong> compare information, scalability, failure and incentive effects. <strong>Worked answer:</strong> central control can optimise globally with full data but is bottleneck/single failure; negotiation scales autonomy but needs protocol and may be inefficient/strategic. <strong>Mark-winning points:</strong> concrete MAS implication. <strong>Common trap:</strong> cooperation means no conflict.</p>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Definitions:</strong> agents have autonomy, interaction and local goals; coordination mechanisms allocate resources or resolve conflicts. In games, strategy/payoff determine best response; auctions choose allocation/payment rules. <strong>Question cue:</strong> define mechanism, sequence messages/actions, then give incentive/efficiency limitation.</p>
+<h2>Worked practice 1 — paper-derived auction</h2>
+<p>
+<strong>Question demand:</strong> Allocate a task by auction. <strong>Plan/choice:</strong> name roles, bids and winner rule. <strong>Worked answer:</strong> manager announces task, agents compute bids from cost/capability, winner is selected by stated rule and confirms commitment; discuss truthful-bidding/communication assumptions. <strong>Mark-winning points:</strong> full protocol. <strong>Common trap:</strong> auction automatically fair/optimal.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Compare central allocation and distributed negotiation. <strong>Plan/choice:</strong> compare information, scalability, failure and incentive effects. <strong>Worked answer:</strong> central control can optimise globally with full data but is bottleneck/single failure; negotiation scales autonomy but needs protocol and may be inefficient/strategic. <strong>Mark-winning points:</strong> concrete MAS implication. <strong>Common trap:</strong> cooperation means no conflict.</p>
 <h2>The Core Idea</h2>
         <p>A <strong>multi-agent system (MAS)</strong> contains two or more autonomous agents that interact in a shared environment. Each agent can perceive, decide, and act. Their objectives may be aligned, opposed, or partly shared.</p>
         <p>MAS is useful when information is distributed, a single central controller is impractical, or separate decision-makers compete for scarce resources. Examples include delivery vehicles choosing jobs, trading systems, robots sharing tasks, and software agents allocating cloud computing resources.</p>
@@ -29,23 +38,28 @@
 
         <h3>Payoff matrix</h3>
         <p>A <strong>payoff matrix</strong> shows the payoff received by each agent for every combination of actions. It models strategic interaction: an agent's best action can depend on what another agent chooses.</p>
-        <p><strong>MAS connection:</strong> It models decisions made by self-interested agents whose outcomes depend on one another.</p>
+        <p>
+<strong>MAS connection:</strong> It models decisions made by self-interested agents whose outcomes depend on one another.</p>
 
         <h3>Dominant strategy</h3>
         <p>A <strong>dominant strategy</strong> is an action that gives an agent at least as good a payoff as every alternative, regardless of what the other agents do.</p>
-        <p><strong>MAS connection:</strong> An agent with a dominant strategy has a clear individual choice without needing to predict another agent's action. When all agents use dominant strategies, the outcome is a dominant-strategy equilibrium.</p>
+        <p>
+<strong>MAS connection:</strong> An agent with a dominant strategy has a clear individual choice without needing to predict another agent's action. When all agents use dominant strategies, the outcome is a dominant-strategy equilibrium.</p>
 
         <h3>Nash equilibrium</h3>
         <p>A <strong>Nash equilibrium</strong> is a set of strategies in which no agent can improve its payoff by changing strategy alone, assuming every other agent keeps their strategy unchanged.</p>
-        <p><strong>MAS connection:</strong> It predicts stable behaviour among self-interested agents, though the stable outcome is not necessarily best for the group.</p>
+        <p>
+<strong>MAS connection:</strong> It predicts stable behaviour among self-interested agents, though the stable outcome is not necessarily best for the group.</p>
 
         <h3>Prisoner's Dilemma</h3>
         <p>The <strong>Prisoner's Dilemma</strong> is a two-agent game where each agent is individually better off defecting, regardless of the other agent's choice, but both would be better off if both cooperated. Mutual defection is the Nash equilibrium, even though mutual cooperation is socially preferable.</p>
-        <p><strong>MAS connection:</strong> It explains why agents with shared long-term interests may still fail to cooperate when they optimise only immediate individual reward. It applies to resource sharing, traffic routing, and distributed task allocation.</p>
+        <p>
+<strong>MAS connection:</strong> It explains why agents with shared long-term interests may still fail to cooperate when they optimise only immediate individual reward. It applies to resource sharing, traffic routing, and distributed task allocation.</p>
 
         <h3>Repeated games and tit-for-tat</h3>
         <p>A <strong>repeated game</strong> is played more than once, so an agent can respond to another agent's past behaviour. <strong>Tit-for-tat</strong> starts by cooperating, then repeats the other agent's previous action: cooperate after cooperation and defect after defection.</p>
-        <p><strong>MAS connection:</strong> Repeated interaction can make cooperation rational. Tit-for-tat rewards cooperative agents and discourages exploitation.</p>
+        <p>
+<strong>MAS connection:</strong> Repeated interaction can make cooperation rational. Tit-for-tat rewards cooperative agents and discourages exploitation.</p>
 
         <h2>Question interpretation and independent practice</h2>
         <ul>
@@ -57,8 +71,11 @@
         <h2>Exam Practice: Game Theory</h2>
 
         <h3>Question 1: Dominant strategy and Nash equilibrium (2024/25, 6 marks)</h3>
-        <p><strong>Question:</strong> Using the Prisoner's Dilemma as an example game, explain the terms dominant strategy and Nash equilibrium.</p>
-        <p><strong>Model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Using the Prisoner's Dilemma as an example game, explain the terms dominant strategy and Nash equilibrium.</p>
+        <p>
+<strong>Model answer:</strong>
+</p>
         <ul>
           <li>A dominant strategy is best whatever the other player does. In the Prisoner's Dilemma, defection is dominant for both players.</li>
           <li>A Nash equilibrium is an outcome where no player benefits by changing alone. Mutual defection is therefore a Nash equilibrium.</li>
@@ -66,8 +83,11 @@
         </ul>
 
         <h3>Question 2: Cooperation in the Prisoner's Dilemma (2023/24, 10 marks)</h3>
-        <p><strong>Question:</strong> Explain the Prisoner's Dilemma and outline mechanisms that can promote cooperation in a population playing the game.</p>
-        <p><strong>Model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Explain the Prisoner's Dilemma and outline mechanisms that can promote cooperation in a population playing the game.</p>
+        <p>
+<strong>Model answer:</strong>
+</p>
         <ul>
           <li>Each agent can cooperate or defect. Defection benefits the individual, but mutual cooperation gives the best combined result.</li>
           <li>Repeated games help because a defector can be punished in later rounds.</li>
@@ -80,39 +100,57 @@
         <h3>Auction</h3>
         <p>An <strong>auction</strong> is a protocol for allocating a scarce item, resource, or task using bids from agents. A bid represents an agent's value for the item or its cost of completing the task.</p>
         <ul>
-          <li><strong>English auction:</strong> the price increases until only one bidder remains.</li>
-          <li><strong>Dutch auction:</strong> the price decreases until a bidder accepts.</li>
-          <li><strong>First-price sealed-bid auction:</strong> the highest bid wins and pays its own bid.</li>
-          <li><strong>Second-price sealed-bid (Vickrey) auction:</strong> the highest bid wins but pays the second-highest bid.</li>
+          <li>
+<strong>English auction:</strong> the price increases until only one bidder remains.</li>
+          <li>
+<strong>Dutch auction:</strong> the price decreases until a bidder accepts.</li>
+          <li>
+<strong>First-price sealed-bid auction:</strong> the highest bid wins and pays its own bid.</li>
+          <li>
+<strong>Second-price sealed-bid (Vickrey) auction:</strong> the highest bid wins but pays the second-highest bid.</li>
         </ul>
-        <p><strong>MAS connection:</strong> Auctions let agents allocate resources without a central planner knowing every agent's private valuation. Delivery vehicles could bid for jobs based on distance, capacity, and expected profit.</p>
+        <p>
+<strong>MAS connection:</strong> Auctions let agents allocate resources without a central planner knowing every agent's private valuation. Delivery vehicles could bid for jobs based on distance, capacity, and expected profit.</p>
 
         <h3>Task allocation</h3>
-        <p><strong>Task allocation</strong> is assigning tasks to agents so that work is completed efficiently. Agents may differ in skills, location, cost, and current workload.</p>
-        <p><strong>MAS connection:</strong> It is a core coordination problem. Auctions, negotiation, a central scheduler, and the Contract Net Protocol are all possible methods.</p>
+        <p>
+<strong>Task allocation</strong> is assigning tasks to agents so that work is completed efficiently. Agents may differ in skills, location, cost, and current workload.</p>
+        <p>
+<strong>MAS connection:</strong> It is a core coordination problem. Auctions, negotiation, a central scheduler, and the Contract Net Protocol are all possible methods.</p>
 
         <h3>Negotiation</h3>
-        <p><strong>Negotiation</strong> is a process in which agents exchange proposals and counter-proposals to reach an agreement about price, task ownership, deadlines, resource quantities, or constraints.</p>
-        <p><strong>MAS connection:</strong> It resolves conflicts when no single agent controls all relevant information or resources. It is flexible, but requires more communication and time than a simple auction.</p>
+        <p>
+<strong>Negotiation</strong> is a process in which agents exchange proposals and counter-proposals to reach an agreement about price, task ownership, deadlines, resource quantities, or constraints.</p>
+        <p>
+<strong>MAS connection:</strong> It resolves conflicts when no single agent controls all relevant information or resources. It is flexible, but requires more communication and time than a simple auction.</p>
 
         <h3>Contract Net Protocol</h3>
         <p>The <strong>Contract Net Protocol</strong> is a distributed task-allocation protocol. A manager agent announces a task, contractor agents submit bids, the manager awards the task, and the selected contractor performs it.</p>
-        <p><strong>MAS connection:</strong> It lets agents organise work without a system-wide controller, particularly when each agent knows its own availability and cost best.</p>
+        <p>
+<strong>MAS connection:</strong> It lets agents organise work without a system-wide controller, particularly when each agent knows its own availability and cost best.</p>
 
         <h2>Exam Practice: Auctions and Negotiation</h2>
 
         <h3>Question 3: English versus Dutch auctions (2021/22, 2022/23, and 2024/25, 9-10 marks)</h3>
-        <p><strong>Question:</strong> Compare the English auction protocol with the Dutch auction protocol. Include the protocol, rational bidder strategy, and limitations.</p>
-        <p><strong>Model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Compare the English auction protocol with the Dutch auction protocol. Include the protocol, rational bidder strategy, and limitations.</p>
+        <p>
+<strong>Model answer:</strong>
+</p>
         <ul>
-          <li><strong>English:</strong> price rises; bidders drop out; the last bidder wins. Bid up to your private value. It gives more information but can be slow and enable collusion.</li>
-          <li><strong>Dutch:</strong> price falls; the first bidder to accept wins. Wait for a lower price, but risk another agent accepting first. It is fast but more strategically uncertain.</li>
+          <li>
+<strong>English:</strong> price rises; bidders drop out; the last bidder wins. Bid up to your private value. It gives more information but can be slow and enable collusion.</li>
+          <li>
+<strong>Dutch:</strong> price falls; the first bidder to accept wins. Wait for a lower price, but risk another agent accepting first. It is fast but more strategically uncertain.</li>
           <li>Both allocate a scarce resource. English auctions can be more informative; Dutch auctions prioritise speed.</li>
         </ul>
 
         <h3>Question 4: Negotiating more than price (2021/22 and 2022/23, 8 marks)</h3>
-        <p><strong>Question:</strong> Auctions allow agents to agree on a price. Suggest an efficient approach for agents to negotiate agreement on several attributes in addition to price.</p>
-        <p><strong>Model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Auctions allow agents to agree on a price. Suggest an efficient approach for agents to negotiate agreement on several attributes in addition to price.</p>
+        <p>
+<strong>Model answer:</strong>
+</p>
         <ul>
           <li>Use multi-attribute negotiation: price, deadline, quality, and quantity are all part of each offer.</li>
           <li>Each agent weights attributes using a utility function, then sends offers and counter-offers.</li>
@@ -123,36 +161,52 @@
         <h2>Cooperation and Communication</h2>
 
         <h3>Cooperative distributed problem solving</h3>
-        <p><strong>Cooperative distributed problem solving (CDPS)</strong> occurs when agents share an overall goal and divide a problem into smaller parts. They coordinate actions and share relevant information to solve the joint problem.</p>
-        <p><strong>MAS connection:</strong> This is the cooperative side of MAS. Examples include robots searching separate areas after a disaster or services jointly planning a delivery route.</p>
+        <p>
+<strong>Cooperative distributed problem solving (CDPS)</strong> occurs when agents share an overall goal and divide a problem into smaller parts. They coordinate actions and share relevant information to solve the joint problem.</p>
+        <p>
+<strong>MAS connection:</strong> This is the cooperative side of MAS. Examples include robots searching separate areas after a disaster or services jointly planning a delivery route.</p>
 
         <h3>Agent communication</h3>
-        <p><strong>Agent communication</strong> is the exchange of structured messages between agents. Messages can communicate information, requests, proposals, commitments, acceptances, or refusals.</p>
+        <p>
+<strong>Agent communication</strong> is the exchange of structured messages between agents. Messages can communicate information, requests, proposals, commitments, acceptances, or refusals.</p>
         <p>An <strong>agent communication language (ACL)</strong> is a formal language for these message types. Typical communicative acts include <code>inform</code>, <code>request</code>, <code>propose</code>, <code>accept</code>, and <code>reject</code>.</p>
-        <p><strong>MAS connection:</strong> Agents cannot coordinate, negotiate, or use the Contract Net Protocol without clear communication. The message's intended action matters, not only its raw data.</p>
+        <p>
+<strong>MAS connection:</strong> Agents cannot coordinate, negotiate, or use the Contract Net Protocol without clear communication. The message's intended action matters, not only its raw data.</p>
 
         <h3>Speech acts</h3>
         <p>A <strong>speech act</strong> describes what an agent intends to do by sending a message, rather than merely the information contained in that message. For example, an agent may inform another agent of a fact, request an action, propose a deal, accept an offer, or reject it.</p>
-        <p><strong>MAS connection:</strong> Speech acts give communication an agreed meaning, allowing agents to conduct protocols such as negotiation or Contract Net reliably.</p>
+        <p>
+<strong>MAS connection:</strong> Speech acts give communication an agreed meaning, allowing agents to conduct protocols such as negotiation or Contract Net reliably.</p>
 
         <h2>Exam Practice: Communication</h2>
 
         <h3>Question 5: Speech acts in a negotiation setting (2023/24, 7 marks)</h3>
-        <p><strong>Question:</strong> Explain what is meant by speech acts within multi-agent systems. In a negotiation setting, provide examples of speech acts agents could use.</p>
-        <p><strong>Model answer:</strong> Speech acts are message types defined by their intended action. They let agents distinguish information, requests, offers, and commitments during structured interaction.</p>
+        <p>
+<strong>Question:</strong> Explain what is meant by speech acts within multi-agent systems. In a negotiation setting, provide examples of speech acts agents could use.</p>
+        <p>
+<strong>Model answer:</strong> Speech acts are message types defined by their intended action. They let agents distinguish information, requests, offers, and commitments during structured interaction.</p>
         <ul>
-          <li><code>inform</code>: &quot;The delivery job is 12 km away.&quot;</li>
-          <li><code>request</code>: &quot;Please submit a bid for this job.&quot;</li>
-          <li><code>propose</code>: &quot;I can complete the job for EUR 20 by 14:00.&quot;</li>
-          <li><code>counter-propose</code>: &quot;I can accept EUR 20 if the deadline is extended to 14:30.&quot;</li>
-          <li><code>accept</code>: &quot;I accept your proposed price and deadline.&quot;</li>
-          <li><code>reject</code>: &quot;I reject the offer because the deadline is not feasible.&quot;</li>
+          <li>
+<code>inform</code>: &quot;The delivery job is 12 km away.&quot;</li>
+          <li>
+<code>request</code>: &quot;Please submit a bid for this job.&quot;</li>
+          <li>
+<code>propose</code>: &quot;I can complete the job for EUR 20 by 14:00.&quot;</li>
+          <li>
+<code>counter-propose</code>: &quot;I can accept EUR 20 if the deadline is extended to 14:30.&quot;</li>
+          <li>
+<code>accept</code>: &quot;I accept your proposed price and deadline.&quot;</li>
+          <li>
+<code>reject</code>: &quot;I reject the offer because the deadline is not feasible.&quot;</li>
         </ul>
         <p>They let agents negotiate and coordinate without ambiguity.</p>
 
         <h3>Question 6: Advantages and limitations of game theory (2021/22, 8 marks)</h3>
-        <p><strong>Question:</strong> Using the Prisoner's Dilemma, discuss the advantages and limitations of game theory for modelling strategic decision making.</p>
-        <p><strong>Short model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Using the Prisoner's Dilemma, discuss the advantages and limitations of game theory for modelling strategic decision making.</p>
+        <p>
+<strong>Short model answer:</strong>
+</p>
         <ul>
           <li>Game theory gives a precise model of agents, actions, payoffs, and strategic outcomes such as Nash equilibrium.</li>
           <li>The Prisoner's Dilemma shows clearly why individually rational choices can produce a poor group outcome.</li>
@@ -161,8 +215,11 @@
         </ul>
 
         <h3>Question 7: Tit-for-tat and noise (2024/25, 9 marks)</h3>
-        <p><strong>Question:</strong> Explain tit-for-tat in the iterated Prisoner's Dilemma, why it can be successful, and how noise affects it.</p>
-        <p><strong>Short model answer:</strong></p>
+        <p>
+<strong>Question:</strong> Explain tit-for-tat in the iterated Prisoner's Dilemma, why it can be successful, and how noise affects it.</p>
+        <p>
+<strong>Short model answer:</strong>
+</p>
         <ul>
           <li>Tit-for-tat cooperates in the first round, then repeats the opponent's previous move.</li>
           <li>It is successful because it is cooperative, retaliates after defection, and returns to cooperation when the opponent does.</li>
@@ -187,16 +244,34 @@
           <li>Give a concrete example.</li>
           <li>State a benefit and limitation where relevant.</li>
         </ol>
-        <p><strong>Example:</strong> &quot;An auction is a decentralised resource-allocation mechanism in which agents submit bids based on private valuations. In a delivery MAS, vehicles can bid for jobs according to distance and capacity. This avoids a central controller needing all information, but strategic bidding may lead to inefficient outcomes.&quot;</p>
+        <p>
+<strong>Example:</strong> &quot;An auction is a decentralised resource-allocation mechanism in which agents submit bids based on private valuations. In a delivery MAS, vehicles can bid for jobs according to distance and capacity. This avoids a central controller needing all information, but strategic bidding may lead to inefficient outcomes.&quot;</p>
+        <h2>Integrated paper-style practice - Contract Net under uncertainty [9 marks]</h2>
+        <p><strong>Scenario.</strong> A manager agent must allocate an urgent medicine delivery. Vehicle A bids EUR 12 and estimates 20 minutes; B bids EUR 9 and estimates 32 minutes. The delivery must arrive within 25 minutes, and estimates can be wrong. Specify a Contract Net exchange, select a contractor, and state one protocol safeguard.</p>
+        <p><strong>Question-demand diagnosis:</strong> provide the protocol sequence, then apply a stated multi-attribute decision rule rather than choosing the lowest bid automatically.</p>
+        <p><strong>Fastest route:</strong> announce task and deadline, receive structured bids, reject infeasible B, award to A, require acknowledgement and monitor commitment.</p>
+        <p><strong>Worked answer:</strong> The manager sends a call for proposals containing the 25-minute deadline and required capability. Contractors return price, estimated arrival and confidence. Under the hard deadline, B is infeasible despite the lower price, so the manager accepts A's bid, notifies B of rejection and receives A's commitment. A should update the manager on delay; a timeout or missed acknowledgement lets the manager re-auction or escalate. The manager can also require a reliability history or contingency vehicle because a low cost estimate is not a guarantee. This is decentralised allocation: vehicles compute private cost and availability, while the manager applies the advertised criterion.</p>
+        <p><strong>Topic-specific trap:</strong> an auction/Contract Net award is not complete until the selected contractor accepts the commitment.</p>
         <h2>High-value traps and final review</h2>
         <h3>Worked example: Contract Net task allocation</h3>
-        <p><strong>Problem:</strong> A manager has a delivery task. Vehicle A bids EUR 12 and Vehicle B bids EUR 9, with both able to meet the deadline.</p>
-        <p><strong>Model reasoning:</strong> The manager announces the task, contractors bid using their local cost information, then the manager evaluates feasible bids. If cost is the stated criterion, B wins at EUR 9; the manager awards the task and B confirms or performs it. This shows decentralised allocation, not merely a price comparison.</p>
+        <p>
+<strong>Problem:</strong> A manager has a delivery task. Vehicle A bids EUR 12 and Vehicle B bids EUR 9, with both able to meet the deadline.</p>
+        <p>
+<strong>Model reasoning:</strong> The manager announces the task, contractors bid using their local cost information, then the manager evaluates feasible bids. If cost is the stated criterion, B wins at EUR 9; the manager awards the task and B confirms or performs it. This shows decentralised allocation, not merely a price comparison.</p>
         <h3>Common mistakes</h3>
-        <ul><li>Confusing a protocol sequence with an agent's private utility.</li><li>Saying a Nash equilibrium guarantees the best group outcome.</li><li>Listing speech acts without explaining their role in coordination.</li></ul>
+        <ul>
+<li>Confusing a protocol sequence with an agent's private utility.</li>
+<li>Saying a Nash equilibrium guarantees the best group outcome.</li>
+<li>Listing speech acts without explaining their role in coordination.</li>
+</ul>
         <h3>Final checklist</h3>
-        <ul><li>Define the mechanism, sequence its agent actions, and use a concrete MAS example.</li><li>For comparisons, include strategy plus one benefit and limitation.</li><li>Distinguish cooperation, competition, allocation, and communication.</li></ul>
-        <p><strong>Past-paper confidence:</strong> Core Question 1&ndash;4 MAS themes are high confidence at topic level, but their exact paper position is not guaranteed.</p>
+        <ul>
+<li>Define the mechanism, sequence its agent actions, and use a concrete MAS example.</li>
+<li>For comparisons, include strategy plus one benefit and limitation.</li>
+<li>Distinguish cooperation, competition, allocation, and communication.</li>
+</ul>
+        <p>
+<strong>Past-paper confidence:</strong> Core Question 1&ndash;4 MAS themes are high confidence at topic level, but their exact paper position is not guaranteed.</p>
       </article>
     </main>
   </body>

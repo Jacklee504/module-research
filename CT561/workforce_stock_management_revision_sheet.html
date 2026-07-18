@@ -1,12 +1,86 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Workforce and Stock Management</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="sir_public_health_models_revision_sheet.html">Previous topic: SIR models</a><a href="vensim_validation_policy_analysis_revision_sheet.html">Next topic: Vensim and validation</a></nav><p class="eyebrow">CT561 Topic Guide</p><h1>Workforce and Stock Management</h1><p>Goal-seeking policies adjust an accumulated resource toward a target, often with delay.</p></header><main class="module-shell">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT561 Workforce and Stock Management</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CT561 overview</a>
+<a href="sir_public_health_models_revision_sheet.html">Previous topic: SIR models</a>
+<a href="vensim_validation_policy_analysis_revision_sheet.html">Next topic: Vensim and validation</a>
+</nav>
+<p class="eyebrow">CT561 Topic Guide</p>
+<h1>Workforce and Stock Management</h1>
+<p>Goal-seeking policies adjust an accumulated resource toward a target, often with delay.</p>
+</header>
+<main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions/equations:</strong> desired staff=students/desired student-staff ratio; discrepancy=desired-actual; adjustment=discrepancy/adjustment time. Stock management combines an anchor (replacement for departures) and adjustment to close gap. <strong>Question cue:</strong> show actual/desired/discrepancy, all flows and delayed behaviour.</p><h2>Worked practice 1 — paper-derived staff target</h2><p><strong>Question demand:</strong> 10000 students, ratio 20, staff 500; change ratio to 10. <strong>Plan/choice:</strong> calculate desired before/after. <strong>Worked answer:</strong> initially desired=500/equilibrium; new desired=1000, discrepancy=500, so hires include gap/AT plus replacement quits. <strong>Mark-winning points:</strong> direction and equilibrium. <strong>Common trap:</strong> ratio numerator/denominator reversed.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Explain overshoot risk after target change. <strong>Plan/choice:</strong> trace adjustment delay/pipeline. <strong>Worked answer:</strong> short AT increases corrective hires; recruitment/training delay lets hiring continue after gap shrinks, producing overshoot/oscillation. Test AT scenarios and include attrition. <strong>Mark-winning points:</strong> delay mechanism. <strong>Common trap:</strong> faster correction always better.</p>
-<h2>Purpose and relevance</h2><p>Inventory, staffing and capacity problems share an anchor-and-adjust structure: compare an actual stock with a desired stock and adjust through a limited flow.</p>
-<h2>What a question really asks — answer plan</h2><p>Identify actual stock, target, gap, adjustment time and adjustment flow. Draw the balancing loop, then explain how a delay in hiring, delivery or training changes behaviour.</p>
-<h2>Key terms and formulas</h2><ul><li><strong>Gap:</strong> <code>desired stock − actual stock</code>.</li><li><strong>Adjustment flow:</strong> often <code>gap / adjustment time</code>.</li><li><strong>Anchor:</strong> desired/target stock; <strong>adjust:</strong> corrective flow.</li><li><strong>Pipeline:</strong> hires in training or orders in transit; it is a stock, not a delay label.</li><li><strong>Little’s Law:</strong> <code>WIP = throughput × cycle time</code>, when averages and a stable system make it applicable.</li></ul>
-<h2>Method derivation</h2><ol><li>Set the target from demand, workload or coverage rule.</li><li>Calculate the gap between target and actual resource.</li><li>Convert the gap into a feasible rate using adjustment time.</li><li>Add attrition, completions or delivery delays as separate flows/stocks.</li><li>Test a shock: does the loop correct smoothly, oscillate, or overshoot?</li></ol>
-<h2>Worked practice 3 — foundational calculation</h2><p><strong>Problem:</strong> A team has 40 staff, target 50, and recruitment adjustment time 5 months. Ignore attrition. Find hiring rate.</p><p><strong>Answer:</strong> Gap = 10 staff. Hiring = 10/5 = 2 staff/month. Workforce is the stock; hiring is its inflow. A training pipeline would delay when hires become productive, so immediate adjustment may be unrealistic.</p>
-<h2>Question interpretation and independent practice</h2><h3>Prompt 1</h3><p>Inventory is 70, target 100 and adjustment time 3 weeks. <strong>Check:</strong> order rate = 10 units/week, before any delivery delay/capacity cap.</p><h3>Exam bridge</h3><p>Model an ageing workforce with recruitment, training and retirement; recommend one policy. <strong>Check:</strong> show pipeline/age stocks where needed, identify delays, then assess a trade-off rather than merely saying “hire more”.</p>
-<h2>High-value traps and corrections</h2><ul><li>Making a target a material stock without reason.</li><li>Forgetting attrition or the training pipeline.</li><li>Using Little’s Law on a clearly non-stationary, non-average snapshot.</li></ul><h2>Final answer checklist</h2><ul><li>I have actual, desired, gap and adjustment time.</li><li>Flows have correct units.</li><li>I mention delay-driven overshoot risk.</li></ul><h2>Past-paper note</h2><p>Workforce, capacity and stock-management patterns recur in CT561’s systems-dynamics papers. Scenario wording varies, so learn the structure rather than a diagram by rote.</p>
-</article></main></body></html>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Definitions/equations:</strong> desired staff=students/desired student-staff ratio; discrepancy=desired-actual; adjustment=discrepancy/adjustment time. Stock management combines an anchor (replacement for departures) and adjustment to close gap. <strong>Question cue:</strong> show actual/desired/discrepancy, all flows and delayed behaviour.</p>
+<h2>Worked practice 1 — paper-derived staff target</h2>
+<p>
+<strong>Question demand:</strong> 10000 students, ratio 20, staff 500; change ratio to 10. <strong>Plan/choice:</strong> calculate desired before/after. <strong>Worked answer:</strong> initially desired=500/equilibrium; new desired=1000, discrepancy=500, so hires include gap/AT plus replacement quits. <strong>Mark-winning points:</strong> direction and equilibrium. <strong>Common trap:</strong> ratio numerator/denominator reversed.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Explain overshoot risk after target change. <strong>Plan/choice:</strong> trace adjustment delay/pipeline. <strong>Worked answer:</strong> short AT increases corrective hires; recruitment/training delay lets hiring continue after gap shrinks, producing overshoot/oscillation. Test AT scenarios and include attrition. <strong>Mark-winning points:</strong> delay mechanism. <strong>Common trap:</strong> faster correction always better.</p>
+<h2>Purpose and relevance</h2>
+<p>Inventory, staffing and capacity problems share an anchor-and-adjust structure: compare an actual stock with a desired stock and adjust through a limited flow.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>Identify actual stock, target, gap, adjustment time and adjustment flow. Draw the balancing loop, then explain how a delay in hiring, delivery or training changes behaviour.</p>
+<h2>Key terms and formulas</h2>
+<ul>
+<li>
+<strong>Gap:</strong> <code>desired stock − actual stock</code>.</li>
+<li>
+<strong>Adjustment flow:</strong> often <code>gap / adjustment time</code>.</li>
+<li>
+<strong>Anchor:</strong> desired/target stock; <strong>adjust:</strong> corrective flow.</li>
+<li>
+<strong>Pipeline:</strong> hires in training or orders in transit; it is a stock, not a delay label.</li>
+<li>
+<strong>Little’s Law:</strong> <code>WIP = throughput × cycle time</code>, when averages and a stable system make it applicable.</li>
+</ul>
+<h2>Method derivation</h2>
+<ol>
+<li>Set the target from demand, workload or coverage rule.</li>
+<li>Calculate the gap between target and actual resource.</li>
+<li>Convert the gap into a feasible rate using adjustment time.</li>
+<li>Add attrition, completions or delivery delays as separate flows/stocks.</li>
+<li>Test a shock: does the loop correct smoothly, oscillate, or overshoot?</li>
+</ol>
+<h2>Worked practice 3 — foundational calculation</h2>
+<p>
+<strong>Problem:</strong> A team has 40 staff, target 50, and recruitment adjustment time 5 months. Ignore attrition. Find hiring rate.</p>
+<p>
+<strong>Answer:</strong> Gap = 10 staff. Hiring = 10/5 = 2 staff/month. Workforce is the stock; hiring is its inflow. A training pipeline would delay when hires become productive, so immediate adjustment may be unrealistic.</p>
+<h2>Question interpretation and independent practice</h2>
+<h3>Prompt 1</h3>
+<p>Inventory is 70, target 100 and adjustment time 3 weeks. <strong>Check:</strong> order rate = 10 units/week, before any delivery delay/capacity cap.</p>
+<h3>Exam bridge</h3>
+<p>Model an ageing workforce with recruitment, training and retirement; recommend one policy. <strong>Check:</strong> show pipeline/age stocks where needed, identify delays, then assess a trade-off rather than merely saying “hire more”.</p>
+<h2>High-value traps and corrections</h2>
+<h2>Integrated paper-style practice - workforce adjustment [8 marks]</h2><p><strong>Scenario.</strong> A service has 80 staff, desired workforce 100, average tenure 20 months and hiring delay 4 months. Explain the attrition and hiring flows needed in a stock-flow policy, and why an aggressive gap-closing rule can overshoot.</p><p><strong>Question-demand diagnosis:</strong> connect desired-stock gap to delayed flows, not simply subtract 80 from 100.</p><p><strong>Fastest route:</strong> attrition=80/20=4 staff/month; specify hires from the gap through a delayed pipeline.</p><p><strong>Worked answer:</strong> Workforce is a stock. Attrition initially drains 4 staff/month. A hiring pipeline should recruit enough to replace attrition and close the 20-person gap over a stated adjustment time, but successful recruits join only after four months. If managers respond to the visible gap without accounting for people already in training, they continue recruiting after the gap is effectively covered and workforce overshoots. Track the pipeline as its own stock and test alternative adjustment times.</p><p><strong>Topic-specific trap:</strong> hires are an inflow rate, not an immediate addition when a vacancy is announced.</p>
+<ul>
+<li>Making a target a material stock without reason.</li>
+<li>Forgetting attrition or the training pipeline.</li>
+<li>Using Little’s Law on a clearly non-stationary, non-average snapshot.</li>
+</ul>
+<h2>Final answer checklist</h2>
+<ul>
+<li>I have actual, desired, gap and adjustment time.</li>
+<li>Flows have correct units.</li>
+<li>I mention delay-driven overshoot risk.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Workforce, capacity and stock-management patterns recur in CT561’s systems-dynamics papers. Scenario wording varies, so learn the structure rather than a diagram by rote.</p>
+</article>
+</main>
+</body>
+</html>

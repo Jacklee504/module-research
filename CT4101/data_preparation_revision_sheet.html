@@ -1,12 +1,84 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT4101 Data Preparation</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">CT4101 overview</a><a href="ml_foundations_revision_sheet.html">Previous topic: ML foundations</a><a href="knn_kmeans_revision_sheet.html">Next topic: kNN and k-means</a></nav><p class="eyebrow">CT4101 Topic Guide</p><h1>Data Preparation</h1><p>Make inputs meaningful and comparable before a model sees them.</p></header><main class="module-shell">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT4101 Data Preparation</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CT4101 overview</a>
+<a href="ml_foundations_revision_sheet.html">Previous topic: ML foundations</a>
+<a href="knn_kmeans_revision_sheet.html">Next topic: kNN and k-means</a>
+</nav>
+<p class="eyebrow">CT4101 Topic Guide</p>
+<h1>Data Preparation</h1>
+<p>Make inputs meaningful and comparable before a model sees them.</p>
+</header>
+<main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> preparation handles missingness, encoding, scaling and leakage. Standardisation z=(x-mu)/sigma is fitted on training data only; distance methods are scale-sensitive. <strong>Question cue:</strong> name defect, transformation, fitting split and algorithm consequence.</p><h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) scaling</h2><p><strong>Question demand:</strong> Prepare age (0-100) and income (0-100000) for kNN. <strong>Plan/choice:</strong> prevent income dominating Euclidean distance. <strong>Worked answer:</strong> fit min-max or z-score parameters on training data, transform validation/test with them, then use distance. <strong>Mark-winning points:</strong> no test leakage. <strong>Common trap:</strong> numeric category codes imply order.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Prepare clinical data with missing values and rare outcome. <strong>Plan/choice:</strong> profile missing mechanism, impute within pipeline, encode/scale and stratify split. <strong>Worked answer:</strong> preserve a missingness indicator where informative; fit imputer/scaler on folds; evaluate recall/precision. <strong>Mark-winning points:</strong> data provenance and leakage control. <strong>Common trap:</strong> delete rows automatically.</p>
-<h2>Purpose and relevance</h2><p>Preprocessing removes avoidable distortions: missing values, incompatible scales, and categories that algorithms cannot directly use. It is especially important for distance-based methods.</p>
-<h2>What a question really asks — answer plan</h2><p>“Why normalise?” asks for the failure caused by raw values, the transformation, and its effect. Name the affected algorithm, show the formula if requested, then explain the result.</p>
-<h2>Prerequisites, vocabulary and formulas</h2><ul><li><strong>Missing value:</strong> unknown entry; impute, remove, or use a supported model strategy.</li><li><strong>One-hot encoding:</strong> turn a category into indicator columns.</li><li>Min–max: x′ = (x − min)/(max − min).</li><li>z-score: z = (x − μ)/σ, giving mean 0 and standard deviation 1.</li><li><strong>Data leakage:</strong> using information unavailable at prediction time.</li></ul>
-<h2>Step-by-step method</h2><ol><li>Inspect types, units, missingness and target balance.</li><li>Split first (or fit transformations only on training folds).</li><li>Encode categories and handle missing values using training data.</li><li>Scale numeric features when the method uses distances or gradients.</li><li>Apply the fitted transformation unchanged to validation/test data.</li></ol>
-<h2>Worked practice 3 — foundational calculation</h2><p><strong>Question:</strong> Features are age (20–80) and income (€20,000–€200,000). Why scale before kNN?</p><p><strong>Model answer:</strong> Euclidean distance is dominated by the larger numerical range, income, even if age is useful. Standardising both features makes a one-standard-deviation change comparable. Fit μ and σ on training cases only, then use them for all later cases.</p>
-<h2>Question interpretation and independent practice</h2><h3>Prompt 1</h3><p>Encode colours red, blue, green. <strong>Check:</strong> three binary columns (or two with a stated reference); do not assign red=1, blue=2, green=3 unless ordinal order exists.</p><h3>Exam bridge</h3><p>Outline a safe preprocessing pipeline for a labelled dataset with missing numeric values, a city category, and train/test evaluation. <strong>Check:</strong> split before fitting; impute and one-hot encode; scale where appropriate; fit all choices on training only; mention leakage.</p>
-<h2>High-value traps and corrections</h2><ul><li>Scaling before splitting and leaking test statistics.</li><li>Treating nominal category codes as numeric distances.</li><li>Deleting rows automatically without considering bias or lost data.</li></ul><h2>Final answer checklist</h2><ul><li>Did I name the data problem and the remedy?</li><li>Did I say transformations are fitted on training data?</li><li>Did I connect scaling to the algorithm?</li></ul><h2>Past-paper note</h2><p>Normalisation and distance-related preparation appear in local 2021/22 and 2023/24 papers; use 2019/20 for wider context. Exact wording is not guaranteed.</p>
-</article></main></body></html>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Definitions:</strong> preparation handles missingness, encoding, scaling and leakage. Standardisation z=(x-mu)/sigma is fitted on training data only; distance methods are scale-sensitive. <strong>Question cue:</strong> name defect, transformation, fitting split and algorithm consequence.</p>
+<h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) scaling</h2>
+<p>
+<strong>Question demand:</strong> Prepare age (0-100) and income (0-100000) for kNN. <strong>Plan/choice:</strong> prevent income dominating Euclidean distance. <strong>Worked answer:</strong> fit min-max or z-score parameters on training data, transform validation/test with them, then use distance. <strong>Mark-winning points:</strong> no test leakage. <strong>Common trap:</strong> numeric category codes imply order.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Prepare clinical data with missing values and rare outcome. <strong>Plan/choice:</strong> profile missing mechanism, impute within pipeline, encode/scale and stratify split. <strong>Worked answer:</strong> preserve a missingness indicator where informative; fit imputer/scaler on folds; evaluate recall/precision. <strong>Mark-winning points:</strong> data provenance and leakage control. <strong>Common trap:</strong> delete rows automatically.</p>
+<h2>Purpose and relevance</h2>
+<p>Preprocessing removes avoidable distortions: missing values, incompatible scales, and categories that algorithms cannot directly use. It is especially important for distance-based methods.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>“Why normalise?” asks for the failure caused by raw values, the transformation, and its effect. Name the affected algorithm, show the formula if requested, then explain the result.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>
+<strong>Missing value:</strong> unknown entry; impute, remove, or use a supported model strategy.</li>
+<li>
+<strong>One-hot encoding:</strong> turn a category into indicator columns.</li>
+<li>Min–max: x′ = (x − min)/(max − min).</li>
+<li>z-score: z = (x − μ)/σ, giving mean 0 and standard deviation 1.</li>
+<li>
+<strong>Data leakage:</strong> using information unavailable at prediction time.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Inspect types, units, missingness and target balance.</li>
+<li>Split first (or fit transformations only on training folds).</li>
+<li>Encode categories and handle missing values using training data.</li>
+<li>Scale numeric features when the method uses distances or gradients.</li>
+<li>Apply the fitted transformation unchanged to validation/test data.</li>
+</ol>
+<h2>Worked practice 3 — foundational calculation</h2>
+<p>
+<strong>Question:</strong> Features are age (20–80) and income (€20,000–€200,000). Why scale before kNN?</p>
+<p>
+<strong>Model answer:</strong> Euclidean distance is dominated by the larger numerical range, income, even if age is useful. Standardising both features makes a one-standard-deviation change comparable. Fit μ and σ on training cases only, then use them for all later cases.</p>
+<h2>Question interpretation and independent practice</h2>
+<h3>Prompt 1</h3>
+<p>Encode colours red, blue, green. <strong>Check:</strong> three binary columns (or two with a stated reference); do not assign red=1, blue=2, green=3 unless ordinal order exists.</p>
+<h3>Exam bridge</h3>
+<p>Outline a safe preprocessing pipeline for a labelled dataset with missing numeric values, a city category, and train/test evaluation. <strong>Check:</strong> split before fitting; impute and one-hot encode; scale where appropriate; fit all choices on training only; mention leakage.</p>
+<h2>High-value traps and corrections</h2>
+<h2>Integrated syllabus-based practice - leakage-safe preparation [8 marks]</h2><p><strong>Scenario.</strong> A hospital model predicts readmission from age, income, ward and a “days until follow-up” field recorded after discharge. Age is missing for 8% of records and income ranges from 0 to 200,000. Specify a safe preparation pipeline.</p><p><strong>Question-demand diagnosis:</strong> identify the temporal leak, then explain missing-value and scale treatment within a train/test split.</p><p><strong>Fastest route:</strong> remove post-outcome information; split first; fit imputation and scaling on training only.</p><p><strong>Worked answer:</strong> Exclude days-until-follow-up because it is unavailable when the prediction is made. Split by patient/time before learning transformations. Fit a median age imputer and, if informative, a missingness indicator on training data; encode ward categorically and standardise income using training mean and variance. Apply the fixed transforms to validation/test records. This prevents the held-out distribution, and especially future outcome-linked data, leaking into model selection.</p><p><strong>Topic-specific trap:</strong> fitting a scaler on all rows before splitting is leakage even without an explicit label column.</p>
+<ul>
+<li>Scaling before splitting and leaking test statistics.</li>
+<li>Treating nominal category codes as numeric distances.</li>
+<li>Deleting rows automatically without considering bias or lost data.</li>
+</ul>
+<h2>Final answer checklist</h2>
+<ul>
+<li>Did I name the data problem and the remedy?</li>
+<li>Did I say transformations are fitted on training data?</li>
+<li>Did I connect scaling to the algorithm?</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Normalisation and distance-related preparation appear in local 2021/22 and 2023/24 papers; use 2019/20 for wider context. Exact wording is not guaranteed.</p>
+</article>
+</main>
+</body>
+</html>

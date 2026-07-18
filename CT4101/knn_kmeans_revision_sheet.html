@@ -1,12 +1,82 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT4101 kNN and k-means</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">CT4101 overview</a><a href="data_preparation_revision_sheet.html">Previous topic: Data preparation</a><a href="evaluation_revision_sheet.html">Next topic: Evaluation</a></nav><p class="eyebrow">CT4101 Topic Guide</p><h1>kNN and k-means</h1><p>Two similar names, two different jobs: predict from labelled neighbours or form unlabelled groups.</p></header><main class="module-shell">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT4101 kNN and k-means</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CT4101 overview</a>
+<a href="data_preparation_revision_sheet.html">Previous topic: Data preparation</a>
+<a href="evaluation_revision_sheet.html">Next topic: Evaluation</a>
+</nav>
+<p class="eyebrow">CT4101 Topic Guide</p>
+<h1>kNN and k-means</h1>
+<p>Two similar names, two different jobs: predict from labelled neighbours or form unlabelled groups.</p>
+</header>
+<main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Compare:</strong> kNN is supervised prediction from labelled neighbours; k-means is unsupervised centroid clustering. Both depend on scaled distances; kNN chooses k by validation, k-means alternates assignment and mean update. <strong>Question cue:</strong> state task, metric, k selection and limitation.</p><h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) kNN</h2><p><strong>Question demand:</strong> Choose k for regression. <strong>Plan/choice:</strong> use CV MAE/RMSE across candidates, optionally inverse-distance weights. <strong>Worked answer:</strong> select the k with best validation error; weighting reduces influence of distant neighbours but can increase variance. <strong>Mark-winning points:</strong> validation separation. <strong>Common trap:</strong> mean label for classification.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Cluster customers with k-means. <strong>Plan/choice:</strong> scale features, assess k/seeds and interpret. <strong>Worked answer:</strong> initialise centroids, assign nearest, recompute means to convergence; use elbow/silhouette and business profiles, repeat seeds. <strong>Mark-winning points:</strong> unsupervised/no labels. <strong>Common trap:</strong> no centroid update.</p>
-<h2>Purpose and relevance</h2><p>kNN is a lazy supervised method: nearby labelled examples vote (or average). k-means is unsupervised: it repeatedly assigns points to centroids and moves centroids to the means of their assigned points.</p>
-<h2>What a question really asks — answer plan</h2><p>For an algorithm question, distinguish the task first. Then give the numbered loop, calculate distances/updates carefully, and finish with one limitation such as scaling or local optima.</p>
-<h2>Prerequisites, vocabulary and formulas</h2><ul><li>Euclidean distance: d(x,z) = √Σ(xᵢ − zᵢ)².</li><li><strong>kNN:</strong> k is neighbour count; classify by majority vote, regress by mean.</li><li><strong>k-means centroid:</strong> coordinate-wise mean of a cluster.</li><li><strong>Within-cluster sum of squares (WCSS):</strong> Σ‖x − centroid‖²; elbow plots it against k.</li></ul>
-<h2>Step-by-step method</h2><ol><li>Scale inputs if their units differ.</li><li>kNN: calculate all query distances, select k smallest, then vote/average.</li><li>k-means: choose k initial centroids, assign every point to nearest, recompute means, repeat until assignments stop changing.</li><li>State that different initial centroids can give different local solutions.</li></ol>
-<h2>Worked practice 3 — foundational calculation</h2><p><strong>Question:</strong> For query 3, labelled points are 1:A, 2:A, 6:B. Use kNN with k=2 on this line.</p><p><strong>Model answer:</strong> Distances from 3 are 2, 1, 3. The two closest labels are A and A, so predict A. This is classification because labels are classes.</p>
-<h2>Question interpretation and independent practice</h2><h3>Prompt 1</h3><p>Points (1,1) and (3,3) are in one k-means cluster. Find its centroid. <strong>Check:</strong> ((1+3)/2,(1+3)/2)=(2,2).</p><h3>Exam bridge</h3><p>Compare kNN and k-means: task, labels, training work, prediction/assignment work, k, and scaling. <strong>Check:</strong> kNN needs labels and defers work until query; k-means has no labels and iterates during fitting. In both, k and distances matter, so scale when units differ.</p>
-<h2>High-value traps and corrections</h2><ul><li>Calling k-means classification because it produces groups.</li><li>Using the mean label for kNN classification.</li><li>Forgetting to recompute centroids after assignment.</li></ul><h2>Final answer checklist</h2><ul><li>Have I said supervised vs unsupervised?</li><li>Are distances and ties handled explicitly?</li><li>Did I mention scaling and a limitation?</li></ul><h2>Past-paper note</h2><p>kNN/k-means, distances, scaling and elbow reasoning recur in local 2019/20, 2021/22 and 2023/24 papers; use this as a revision priority, not an exact forecast.</p>
-</article></main></body></html>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Compare:</strong> kNN is supervised prediction from labelled neighbours; k-means is unsupervised centroid clustering. Both depend on scaled distances; kNN chooses k by validation, k-means alternates assignment and mean update. <strong>Question cue:</strong> state task, metric, k selection and limitation.</p>
+<h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) kNN</h2>
+<p>
+<strong>Question demand:</strong> Choose k for regression. <strong>Plan/choice:</strong> use CV MAE/RMSE across candidates, optionally inverse-distance weights. <strong>Worked answer:</strong> select the k with best validation error; weighting reduces influence of distant neighbours but can increase variance. <strong>Mark-winning points:</strong> validation separation. <strong>Common trap:</strong> mean label for classification.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Cluster customers with k-means. <strong>Plan/choice:</strong> scale features, assess k/seeds and interpret. <strong>Worked answer:</strong> initialise centroids, assign nearest, recompute means to convergence; use elbow/silhouette and business profiles, repeat seeds. <strong>Mark-winning points:</strong> unsupervised/no labels. <strong>Common trap:</strong> no centroid update.</p>
+<h2>Purpose and relevance</h2>
+<p>kNN is a lazy supervised method: nearby labelled examples vote (or average). k-means is unsupervised: it repeatedly assigns points to centroids and moves centroids to the means of their assigned points.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>For an algorithm question, distinguish the task first. Then give the numbered loop, calculate distances/updates carefully, and finish with one limitation such as scaling or local optima.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>Euclidean distance: d(x,z) = √Σ(xᵢ − zᵢ)².</li>
+<li>
+<strong>kNN:</strong> k is neighbour count; classify by majority vote, regress by mean.</li>
+<li>
+<strong>k-means centroid:</strong> coordinate-wise mean of a cluster.</li>
+<li>
+<strong>Within-cluster sum of squares (WCSS):</strong> Σ‖x − centroid‖²; elbow plots it against k.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Scale inputs if their units differ.</li>
+<li>kNN: calculate all query distances, select k smallest, then vote/average.</li>
+<li>k-means: choose k initial centroids, assign every point to nearest, recompute means, repeat until assignments stop changing.</li>
+<li>State that different initial centroids can give different local solutions.</li>
+</ol>
+<h2>Worked practice 3 — foundational calculation</h2>
+<p>
+<strong>Question:</strong> For query 3, labelled points are 1:A, 2:A, 6:B. Use kNN with k=2 on this line.</p>
+<p>
+<strong>Model answer:</strong> Distances from 3 are 2, 1, 3. The two closest labels are A and A, so predict A. This is classification because labels are classes.</p>
+<h2>Question interpretation and independent practice</h2>
+<h3>Prompt 1</h3>
+<p>Points (1,1) and (3,3) are in one k-means cluster. Find its centroid. <strong>Check:</strong> ((1+3)/2,(1+3)/2)=(2,2).</p>
+<h3>Exam bridge</h3>
+<p>Compare kNN and k-means: task, labels, training work, prediction/assignment work, k, and scaling. <strong>Check:</strong> kNN needs labels and defers work until query; k-means has no labels and iterates during fitting. In both, k and distances matter, so scale when units differ.</p>
+<h2>High-value traps and corrections</h2>
+<h2>Integrated syllabus-based practice - kNN versus k-means [8 marks]</h2><p><strong>Scenario.</strong> Labelled points near (0,0) are red and near (10,10) blue. An unlabelled point x=(2,1) has three nearest labelled neighbours, red, red, blue. Explain its kNN label, then explain why k-means cannot directly supply that label.</p><p><strong>Question-demand diagnosis:</strong> separate supervised prediction from unsupervised grouping.</p><p><strong>Fastest route:</strong> vote among the k labelled neighbours, then contrast labels with centroids.</p><p><strong>Worked answer:</strong> With k=3 and equal weights, x is red by majority vote; a distance-weighted variant reinforces nearby red evidence. k-means could place x in a cluster whose centroid is near the red region, but it has no class labels and cluster identifiers are arbitrary. Use scaled features and choose k by validation for kNN; for k-means, inspect cluster quality and interpret clusters after fitting.</p><p><strong>Topic-specific trap:</strong> k in kNN is neighbours, while k in k-means is clusters.</p>
+<ul>
+<li>Calling k-means classification because it produces groups.</li>
+<li>Using the mean label for kNN classification.</li>
+<li>Forgetting to recompute centroids after assignment.</li>
+</ul>
+<h2>Final answer checklist</h2>
+<ul>
+<li>Have I said supervised vs unsupervised?</li>
+<li>Are distances and ties handled explicitly?</li>
+<li>Did I mention scaling and a limitation?</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>kNN/k-means, distances, scaling and elbow reasoning recur in local 2019/20, 2021/22 and 2023/24 papers; use this as a revision priority, not an exact forecast.</p>
+</article>
+</main>
+</body>
+</html>

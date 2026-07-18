@@ -1,12 +1,85 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT4101 ML Foundations</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">CT4101 overview</a><a href="bayesian_probabilistic_learning_revision_sheet.html">Previous topic: Bayesian learning</a><a href="data_preparation_revision_sheet.html">Next topic: Data preparation</a></nav><p class="eyebrow">CT4101 Topic Guide</p><h1>Machine Learning Foundations</h1><p>Start here: decide what kind of learning problem you have before choosing an algorithm.</p></header><main class="module-shell">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT4101 ML Foundations</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CT4101 overview</a>
+<a href="bayesian_probabilistic_learning_revision_sheet.html">Previous topic: Bayesian learning</a>
+<a href="data_preparation_revision_sheet.html">Next topic: Data preparation</a>
+</nav>
+<p class="eyebrow">CT4101 Topic Guide</p>
+<h1>Machine Learning Foundations</h1>
+<p>Start here: decide what kind of learning problem you have before choosing an algorithm.</p>
+</header>
+<main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> supervised learning maps features x to labelled target y; classification predicts a discrete label, regression a numeric value, clustering finds unlabelled structure. <strong>Question cue:</strong> infer task from target type, then justify algorithm and metric; accuracy is not universal.</p><h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) task choice</h2><p><strong>Question demand:</strong> Classify spam versus predict house price. <strong>Plan/choice:</strong> identify y. <strong>Worked answer:</strong> spam is binary classification (e.g. logistic/tree) with precision/recall; price is regression (e.g. kNN/regressor) with MAE/RMSE. <strong>Mark-winning points:</strong> application, algorithm, metric linked. <strong>Common trap:</strong> calling all prediction classification.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Select a learning approach for fraud with rare positives. <strong>Plan/choice:</strong> specify labels, split, imbalance method and decision metric. <strong>Worked answer:</strong> use supervised classification, stratified validation, class weighting/resampling, PR/recall and threshold chosen from costs; audit false positives. <strong>Mark-winning points:</strong> target and objective. <strong>Common trap:</strong> high accuracy proves utility.</p>
-<h2>Purpose and relevance</h2><p>Machine learning (ML) learns a pattern from examples so it can make useful predictions on new examples. This vocabulary supports almost every other CT4101 answer.</p>
-<h2>What a question really asks — answer plan</h2><p>“Classify this task” asks you to identify the <em>target</em> and the available labels. State the task, name the learning setting, give a suitable algorithm, then justify it from the output type.</p>
-<h2>Prerequisites, vocabulary and formulas</h2><ul><li><strong>Feature/input x:</strong> information used to predict.</li><li><strong>Target/label y:</strong> wanted output.</li><li><strong>Supervised:</strong> training examples include y; <strong>unsupervised:</strong> no supplied y.</li><li><strong>Classification:</strong> a discrete class; <strong>regression:</strong> a number; <strong>clustering:</strong> groups similar unlabelled cases.</li><li><strong>Training / validation / test:</strong> fit / choose / final unbiased check.</li></ul>
-<h2>Step-by-step method</h2><ol><li>Write what one row represents.</li><li>Ask whether a correct output is supplied.</li><li>If yes, decide whether it is a class or number. If no, consider clustering.</li><li>Name one algorithm and one sensible evaluation measure.</li></ol>
-<h2>Worked practice 3 — foundational calculation</h2><p><strong>Question:</strong> A hospital has past patient records labelled “readmitted” or “not readmitted”. What task is this?</p><p><strong>Model answer:</strong> This is supervised binary classification: each record has an input and a two-valued label. Logistic regression, a decision tree, or kNN could predict the class. Accuracy alone may be insufficient if readmissions are rare; report recall and precision too.</p>
-<h2>Question interpretation and independent practice</h2><h3>Prompt 1</h3><p>Predict next month’s electricity use from past weather and use. <strong>Check:</strong> supervised regression because the target is numeric.</p><h3>Exam bridge</h3><p>Explain classification, regression and clustering with one application each, and contrast supervised and unsupervised learning. <strong>Check:</strong> define all four terms, tie classification/regression to labelled outputs, and give a clustering example with no labels; do not say clustering predicts a known class.</p>
-<h2>High-value traps and corrections</h2><ul><li>Calling every prediction “classification”.</li><li>Confusing a feature with a label.</li><li>Claiming unsupervised learning has a correct answer for every training row.</li></ul><h2>Final answer checklist</h2><ul><li>Can I identify x and y?</li><li>Can I justify task type from y?</li><li>Can I name an appropriate metric?</li></ul><h2>Past-paper note</h2><p>Core task categories recur across local 2019/20, 2021/22 and 2023/24 papers. This is a topic pattern, not a prediction of exact question order.</p>
-</article></main></body></html>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Definitions:</strong> supervised learning maps features x to labelled target y; classification predicts a discrete label, regression a numeric value, clustering finds unlabelled structure. <strong>Question cue:</strong> infer task from target type, then justify algorithm and metric; accuracy is not universal.</p>
+<h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) task choice</h2>
+<p>
+<strong>Question demand:</strong> Classify spam versus predict house price. <strong>Plan/choice:</strong> identify y. <strong>Worked answer:</strong> spam is binary classification (e.g. logistic/tree) with precision/recall; price is regression (e.g. kNN/regressor) with MAE/RMSE. <strong>Mark-winning points:</strong> application, algorithm, metric linked. <strong>Common trap:</strong> calling all prediction classification.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Select a learning approach for fraud with rare positives. <strong>Plan/choice:</strong> specify labels, split, imbalance method and decision metric. <strong>Worked answer:</strong> use supervised classification, stratified validation, class weighting/resampling, PR/recall and threshold chosen from costs; audit false positives. <strong>Mark-winning points:</strong> target and objective. <strong>Common trap:</strong> high accuracy proves utility.</p>
+<h2>Purpose and relevance</h2>
+<p>Machine learning (ML) learns a pattern from examples so it can make useful predictions on new examples. This vocabulary supports almost every other CT4101 answer.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>“Classify this task” asks you to identify the <em>target</em> and the available labels. State the task, name the learning setting, give a suitable algorithm, then justify it from the output type.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>
+<strong>Feature/input x:</strong> information used to predict.</li>
+<li>
+<strong>Target/label y:</strong> wanted output.</li>
+<li>
+<strong>Supervised:</strong> training examples include y; <strong>unsupervised:</strong> no supplied y.</li>
+<li>
+<strong>Classification:</strong> a discrete class; <strong>regression:</strong> a number; <strong>clustering:</strong> groups similar unlabelled cases.</li>
+<li>
+<strong>Training / validation / test:</strong> fit / choose / final unbiased check.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Write what one row represents.</li>
+<li>Ask whether a correct output is supplied.</li>
+<li>If yes, decide whether it is a class or number. If no, consider clustering.</li>
+<li>Name one algorithm and one sensible evaluation measure.</li>
+</ol>
+<h2>Worked practice 3 — foundational calculation</h2>
+<p>
+<strong>Question:</strong> A hospital has past patient records labelled “readmitted” or “not readmitted”. What task is this?</p>
+<p>
+<strong>Model answer:</strong> This is supervised binary classification: each record has an input and a two-valued label. Logistic regression, a decision tree, or kNN could predict the class. Accuracy alone may be insufficient if readmissions are rare; report recall and precision too.</p>
+<h2>Question interpretation and independent practice</h2>
+<h3>Prompt 1</h3>
+<p>Predict next month’s electricity use from past weather and use. <strong>Check:</strong> supervised regression because the target is numeric.</p>
+<h3>Exam bridge</h3>
+<p>Explain classification, regression and clustering with one application each, and contrast supervised and unsupervised learning. <strong>Check:</strong> define all four terms, tie classification/regression to labelled outputs, and give a clustering example with no labels; do not say clustering predicts a known class.</p>
+<h2>High-value traps and corrections</h2>
+<h2>Integrated syllabus-based practice - frame the task [8 marks]</h2><p><strong>Scenario.</strong> A council has historic applications with features (household size, area, rent) and outcomes: grant approved yes/no and eventual annual energy saving in kWh. Propose two learning tasks, suitable targets and evaluation measures.</p><p><strong>Question-demand diagnosis:</strong> decide whether each target is categorical or continuous, then make evaluation match the decision.</p><p><strong>Fastest route:</strong> map approval to classification and kWh to regression, naming an error measure and a validation split.</p><p><strong>Worked answer:</strong> Approval is binary classification; estimate a calibrated approval probability and assess precision/recall or ROC alongside fairness by relevant groups, because false approval and rejection costs differ. Energy saving is regression; predict kWh and evaluate MAE or RMSE on a held-out time-aware set. Do not use accuracy for the continuous target. Both tasks need representative training data, a baseline and monitoring for policy or population shift.</p><p><strong>Topic-specific trap:</strong> a prediction target is not a feature available only after the council has made its decision.</p>
+<ul>
+<li>Calling every prediction “classification”.</li>
+<li>Confusing a feature with a label.</li>
+<li>Claiming unsupervised learning has a correct answer for every training row.</li>
+</ul>
+<h2>Final answer checklist</h2>
+<ul>
+<li>Can I identify x and y?</li>
+<li>Can I justify task type from y?</li>
+<li>Can I name an appropriate metric?</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Core task categories recur across local 2019/20, 2021/22 and 2023/24 papers. This is a topic pattern, not a prediction of exact question order.</p>
+</article>
+</main>
+</body>
+</html>

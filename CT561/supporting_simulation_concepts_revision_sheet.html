@@ -1,12 +1,86 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Supporting Simulation Concepts</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="continuous_vs_agent_based_simulation_revision_sheet.html">Previous topic: Continuous vs agent-based</a><a href="stock_flow_modelling_revision_sheet.html">Next topic: Stock-and-flow</a></nav><p class="eyebrow">CT561 Topic Guide</p><h1>Supporting Simulation Concepts</h1><p>Use these concepts to make core modelling answers precise and to handle shorter comparison or interpretation parts.</p></header><main class="module-shell">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT561 Supporting Simulation Concepts</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CT561 overview</a>
+<a href="continuous_vs_agent_based_simulation_revision_sheet.html">Previous topic: Continuous vs agent-based</a>
+<a href="stock_flow_modelling_revision_sheet.html">Next topic: Stock-and-flow</a>
+</nav>
+<p class="eyebrow">CT561 Topic Guide</p>
+<h1>Supporting Simulation Concepts</h1>
+<p>Use these concepts to make core modelling answers precise and to handle shorter comparison or interpretation parts.</p>
+</header>
+<main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Definitions:</strong> equilibrium has zero net flow; first-order smoothing adjusts output toward input over adjustment time; Little's Law L=lambda W applies stable average flow systems. Boundaries, units and delays determine plausible behaviour. <strong>Question cue:</strong> state assumptions before selecting a supporting method.</p><h2>Worked practice 1 — paper-derived smoothing</h2><p><strong>Question demand:</strong> Explain smoothing a noisy demand input. <strong>Plan/choice:</strong> adjustment stock/flow. <strong>Worked answer:</strong> Smoothed=INTEG((Input-Smoothed)/AT,initial); larger AT filters more noise but responds later. <strong>Mark-winning points:</strong> adjustment-time direction. <strong>Common trap:</strong> smoothing removes delay.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Apply Little's Law to service capacity. <strong>Plan/choice:</strong> check steady average conditions then calculate. <strong>Worked answer:</strong> L=lambda W, so with throughput 20/day and mean time 3 days, average WIP=60; do not apply to a transient snapshot without averaging. <strong>Mark-winning points:</strong> conditions/units. <strong>Common trap:</strong> use any backlog instantly.</p>
-<h2>Purpose and relevance</h2><p>Delays, smoothing, equilibrium, boundaries and uncertainty explain why a model behaves as it does. They also help distinguish CT561’s system-dynamics emphasis from adjacent simulation methods.</p>
-<h2>What a question really asks — answer plan</h2><p>Define the term in the model’s own units, connect it to a stock/flow or feedback mechanism, then explain its behavioural consequence. For method comparisons, state scope and uncertainty rather than overclaiming.</p>
-<h2>Key terms and formulas</h2><ul><li><strong>Equilibrium:</strong> inflow = outflow, so a stock is momentarily constant.</li><li><strong>Delay:</strong> a cause affects a result later; often represented by a pipeline stock.</li><li><strong>Smoothing:</strong> a perceived/average signal changes gradually, reducing reaction to noise but adding delay.</li><li><strong>Model boundary:</strong> what is endogenous versus treated as external.</li><li><strong>Monte Carlo:</strong> repeated random sampling to quantify output uncertainty; <strong>discrete-event:</strong> state changes at events; <strong>queueing:</strong> arrivals, service and waiting.</li></ul>
-<h2>Method derivation</h2><ol><li>State the system purpose and boundary.</li><li>Locate accumulations, delays and information used for decisions.</li><li>Find equilibrium by setting net flow to zero.</li><li>For uncertainty, choose inputs to vary, distributions/justification and output summaries.</li><li>Explain whether a discrete-event, Monte Carlo or queueing view is genuinely required by the question.</li></ol>
-<h2>Worked practice 3 — foundational calculation</h2><p><strong>Problem:</strong> A store orders from perceived sales, calculated as a smoothed average of actual sales. Sales jump for one week. Explain the likely effect.</p><p><strong>Answer:</strong> Perceived sales rises gradually, so ordering responds with delay and is less sensitive to a one-week spike. If the smoothing time is too long, the store may under-order initially; the delay can interact with delivery delay and create oscillation.</p>
-<h2>Question interpretation and independent practice</h2><h3>Prompt 1</h3><p>A queue’s arrival rate equals service rate. What can you conclude? <strong>Check:</strong> the average content may be at equilibrium, but variability/initial queue and assumptions still matter.</p><h3>Exam bridge</h3><p>For a call-centre decision, decide whether system dynamics, discrete-event simulation, Monte Carlo or queueing analysis is most suitable. <strong>Check:</strong> match it to the question (long-term staffing feedback versus individual waits/random arrivals), then state uncertainty and data requirements.</p>
-<h2>High-value traps and corrections</h2><ul><li>Assuming equilibrium means the system has no flows.</li><li>Calling every time lag a delay stock without modelling its mechanism.</li><li>Using Monte Carlo, discrete-event or queueing terminology as if it were CT561’s central assessed method.</li></ul><h2>Final answer checklist</h2><ul><li>I state boundary, units and assumptions.</li><li>I relate delay/smoothing to behaviour.</li><li>I choose an adjacent method only when its event/randomness question warrants it.</li></ul><h2>Past-paper note</h2><p>Equilibrium, delays, smoothing and Little’s Law are useful supporting concepts in CT561 materials. Discrete-event simulation, Monte Carlo and queueing are lower-confidence exam targets: use current teaching material to confirm their depth.</p>
-</article></main></body></html>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Definitions:</strong> equilibrium has zero net flow; first-order smoothing adjusts output toward input over adjustment time; Little's Law L=lambda W applies stable average flow systems. Boundaries, units and delays determine plausible behaviour. <strong>Question cue:</strong> state assumptions before selecting a supporting method.</p>
+<h2>Worked practice 1 — paper-derived smoothing</h2>
+<p>
+<strong>Question demand:</strong> Explain smoothing a noisy demand input. <strong>Plan/choice:</strong> adjustment stock/flow. <strong>Worked answer:</strong> Smoothed=INTEG((Input-Smoothed)/AT,initial); larger AT filters more noise but responds later. <strong>Mark-winning points:</strong> adjustment-time direction. <strong>Common trap:</strong> smoothing removes delay.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Apply Little's Law to service capacity. <strong>Plan/choice:</strong> check steady average conditions then calculate. <strong>Worked answer:</strong> L=lambda W, so with throughput 20/day and mean time 3 days, average WIP=60; do not apply to a transient snapshot without averaging. <strong>Mark-winning points:</strong> conditions/units. <strong>Common trap:</strong> use any backlog instantly.</p>
+<h2>Purpose and relevance</h2>
+<p>Delays, smoothing, equilibrium, boundaries and uncertainty explain why a model behaves as it does. They also help distinguish CT561’s system-dynamics emphasis from adjacent simulation methods.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>Define the term in the model’s own units, connect it to a stock/flow or feedback mechanism, then explain its behavioural consequence. For method comparisons, state scope and uncertainty rather than overclaiming.</p>
+<h2>Key terms and formulas</h2>
+<ul>
+<li>
+<strong>Equilibrium:</strong> inflow = outflow, so a stock is momentarily constant.</li>
+<li>
+<strong>Delay:</strong> a cause affects a result later; often represented by a pipeline stock.</li>
+<li>
+<strong>Smoothing:</strong> a perceived/average signal changes gradually, reducing reaction to noise but adding delay.</li>
+<li>
+<strong>Model boundary:</strong> what is endogenous versus treated as external.</li>
+<li>
+<strong>Monte Carlo:</strong> repeated random sampling to quantify output uncertainty; <strong>discrete-event:</strong> state changes at events; <strong>queueing:</strong> arrivals, service and waiting.</li>
+</ul>
+<h2>Method derivation</h2>
+<ol>
+<li>State the system purpose and boundary.</li>
+<li>Locate accumulations, delays and information used for decisions.</li>
+<li>Find equilibrium by setting net flow to zero.</li>
+<li>For uncertainty, choose inputs to vary, distributions/justification and output summaries.</li>
+<li>Explain whether a discrete-event, Monte Carlo or queueing view is genuinely required by the question.</li>
+</ol>
+<h2>Worked practice 3 — foundational calculation</h2>
+<p>
+<strong>Problem:</strong> A store orders from perceived sales, calculated as a smoothed average of actual sales. Sales jump for one week. Explain the likely effect.</p>
+<p>
+<strong>Answer:</strong> Perceived sales rises gradually, so ordering responds with delay and is less sensitive to a one-week spike. If the smoothing time is too long, the store may under-order initially; the delay can interact with delivery delay and create oscillation.</p>
+<h2>Question interpretation and independent practice</h2>
+<h3>Prompt 1</h3>
+<p>A queue’s arrival rate equals service rate. What can you conclude? <strong>Check:</strong> the average content may be at equilibrium, but variability/initial queue and assumptions still matter.</p>
+<h3>Exam bridge</h3>
+<p>For a call-centre decision, decide whether system dynamics, discrete-event simulation, Monte Carlo or queueing analysis is most suitable. <strong>Check:</strong> match it to the question (long-term staffing feedback versus individual waits/random arrivals), then state uncertainty and data requirements.</p>
+<h2>High-value traps and corrections</h2>
+<h2>Integrated paper-style practice - smooth a noisy signal [8 marks]</h2><p><strong>Scenario.</strong> Monthly demand is 100, 140 and 80 units. A manager uses first-order exponential smoothing with smoothing time 2 months and DT=1, starting forecast 100. Calculate two forecast updates and explain the delay trade-off.</p><p><strong>Question-demand diagnosis:</strong> use the stock-like smoothing equation rather than averaging all observations.</p><p><strong>Fastest route:</strong> Forecast'=Forecast+(Actual−Forecast)DT/smoothing time.</p><p><strong>Worked answer:</strong> After demand 140, forecast=100+(40)/2=120. After demand 80, forecast=120+(−40)/2=100. Smoothing removes some noise and avoids reacting fully to a one-month spike, but it lags a genuine step change. Choose the smoothing time against the operational cost of overreaction versus delayed response, then test behaviour on historical and extreme patterns.</p><p><strong>Topic-specific trap:</strong> a smoothing time of two does not mean “average exactly the last two values”.</p>
+<ul>
+<li>Assuming equilibrium means the system has no flows.</li>
+<li>Calling every time lag a delay stock without modelling its mechanism.</li>
+<li>Using Monte Carlo, discrete-event or queueing terminology as if it were CT561’s central assessed method.</li>
+</ul>
+<h2>Final answer checklist</h2>
+<ul>
+<li>I state boundary, units and assumptions.</li>
+<li>I relate delay/smoothing to behaviour.</li>
+<li>I choose an adjacent method only when its event/randomness question warrants it.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Equilibrium, delays, smoothing and Little’s Law are useful supporting concepts in CT561 materials. Discrete-event simulation, Monte Carlo and queueing are lower-confidence exam targets: use current teaching material to confirm their depth.</p>
+</article>
+</main>
+</body>
+</html>

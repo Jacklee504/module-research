@@ -1,12 +1,82 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT4101 Neural Network Basics</title><link rel="stylesheet" href="../module_page.css"></head><body><header class="module-header"><nav class="top-nav"><a href="details.html">CT4101 overview</a><a href="decision_trees_revision_sheet.html">Previous topic: Decision trees</a><a href="bayesian_probabilistic_learning_revision_sheet.html">Next topic: Bayesian learning</a></nav><p class="eyebrow">CT4101 Topic Guide</p><h1>Neural-Network Basics</h1><p>Follow one neuron from weighted inputs to an output, then explain how learning improves it.</p></header><main class="module-shell">
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CT4101 Neural Network Basics</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">CT4101 overview</a>
+<a href="decision_trees_revision_sheet.html">Previous topic: Decision trees</a>
+<a href="bayesian_probabilistic_learning_revision_sheet.html">Next topic: Bayesian learning</a>
+</nav>
+<p class="eyebrow">CT4101 Topic Guide</p>
+<h1>Neural-Network Basics</h1>
+<p>Follow one neuron from weighted inputs to an output, then explain how learning improves it.</p>
+</header>
+<main class="module-shell">
 <article class="module-content">
-<h2>Exam-use protocol</h2><p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2><p><strong>Equation:</strong> neuron output a=f(sum wixi+b); loss measures output-target error and backpropagation changes weights by gradients. Activations add non-linearity; one-hot encodes nominal classes. <strong>Question cue:</strong> show weighted sum, activation, loss role and a learning consequence.</p><h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) neuron</h2><p><strong>Question demand:</strong> x=(2,1), w=(.5,-1), b=.5; compute pre-activation. <strong>Plan/choice:</strong> sum then apply named activation. <strong>Worked answer:</strong> z=2(.5)+1(-1)+.5=.5; ReLU gives .5, sigmoid gives 1/(1+e^-.5). <strong>Mark-winning points:</strong> activation after sum. <strong>Common trap:</strong> apply it per input.</p><h2>Worked practice 2 — synthesis / design</h2><p><strong>Question demand:</strong> Design output/encoding for three-class diagnosis. <strong>Plan/choice:</strong> one-hot target plus three-output softmax and cross-entropy. <strong>Worked answer:</strong> represent classes (1,0,0) etc.; softmax probabilities sum to one; train/validate separately and inspect per-class recall. <strong>Mark-winning points:</strong> target/output consistency. <strong>Common trap:</strong> ordinally encode nominal classes.</p>
-<h2>Purpose and relevance</h2><p>Neural networks compose simple units into flexible functions. CT4101 basics usually concern neuron diagrams, weighted sums, activation functions, simple encoding, and the difference between a model’s output and its learned weights.</p>
-<h2>What a question really asks — answer plan</h2><p>For a neuron calculation, write the weighted sum plus bias, apply the named activation, then state the output. For an explanation, identify inputs, weights, bias, activation and output in that order.</p>
-<h2>Prerequisites, vocabulary and formulas</h2><ul><li>Pre-activation a=Σwᵢxᵢ+b.</li><li>Step: output 1 when a≥0, otherwise 0. Sigmoid σ(a)=1/(1+e<sup>−a</sup>).</li><li><strong>Weight:</strong> strength/direction of an input; <strong>bias:</strong> adjustable offset.</li><li><strong>One-hot encoding:</strong> one active output position per mutually exclusive class.</li><li>Training adjusts weights to reduce a loss; backpropagation computes useful gradients through layers.</li></ul>
-<h2>Step-by-step method</h2><ol><li>Label all inputs and their weights.</li><li>Multiply each x by w and add them with b.</li><li>Apply the stated activation exactly; do not invent a threshold.</li><li>For learning explanations: forward pass → loss → backpropagated gradients → small weight update.</li></ol>
-<h2>Worked practice 3 — foundational calculation</h2><p><strong>Question:</strong> A step neuron has x₁=1, x₂=0, w₁=.7, w₂=−.2, b=−.5. Find output.</p><p><strong>Model answer:</strong> a=.7(1)+(−.2)(0)−.5=.2. Since .2≥0, the step activation outputs 1. The bias shifts the boundary; it is not a third input feature.</p>
-<h2>Question interpretation and independent practice</h2><h3>Prompt 1</h3><p>One-hot encode classes cat, dog, rabbit when dog is observed. <strong>Check:</strong> [0,1,0] if that order is declared.</p><h3>Exam bridge</h3><p>Draw/explain an artificial neuron and describe at a high level how a network learns from a labelled example. <strong>Check:</strong> diagram has x, w, Σ+b, activation, output; explain a loss and updates based on error. Avoid claiming a neuron stores training examples.</p>
-<h2>High-value traps and corrections</h2><ul><li>Omitting the bias.</li><li>Applying activation to each input rather than the summed value.</li><li>Calling one-hot encoding a ranking of categories.</li></ul><h2>Final answer checklist</h2><ul><li>Did I show Σwᵢxᵢ+b?</li><li>Did I name the activation?</li><li>Can I distinguish weights, output and loss?</li></ul><h2>Past-paper note</h2><p>Basic neural-network, activation and encoding material is present in local 2019/20 and 2023/24 evidence, while the official scope includes neural networks. It does not predict exact depth or wording.</p>
-</article></main></body></html>
+<h2>Exam-use protocol</h2>
+<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
+<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
+<p>
+<strong>Equation:</strong> neuron output a=f(sum wixi+b); loss measures output-target error and backpropagation changes weights by gradients. Activations add non-linearity; one-hot encodes nominal classes. <strong>Question cue:</strong> show weighted sum, activation, loss role and a learning consequence.</p>
+<h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) neuron</h2>
+<p>
+<strong>Question demand:</strong> x=(2,1), w=(.5,-1), b=.5; compute pre-activation. <strong>Plan/choice:</strong> sum then apply named activation. <strong>Worked answer:</strong> z=2(.5)+1(-1)+.5=.5; ReLU gives .5, sigmoid gives 1/(1+e^-.5). <strong>Mark-winning points:</strong> activation after sum. <strong>Common trap:</strong> apply it per input.</p>
+<h2>Worked practice 2 — synthesis / design</h2>
+<p>
+<strong>Question demand:</strong> Design output/encoding for three-class diagnosis. <strong>Plan/choice:</strong> one-hot target plus three-output softmax and cross-entropy. <strong>Worked answer:</strong> represent classes (1,0,0) etc.; softmax probabilities sum to one; train/validate separately and inspect per-class recall. <strong>Mark-winning points:</strong> target/output consistency. <strong>Common trap:</strong> ordinally encode nominal classes.</p>
+<h2>Purpose and relevance</h2>
+<p>Neural networks compose simple units into flexible functions. CT4101 basics usually concern neuron diagrams, weighted sums, activation functions, simple encoding, and the difference between a model’s output and its learned weights.</p>
+<h2>What a question really asks — answer plan</h2>
+<p>For a neuron calculation, write the weighted sum plus bias, apply the named activation, then state the output. For an explanation, identify inputs, weights, bias, activation and output in that order.</p>
+<h2>Prerequisites, vocabulary and formulas</h2>
+<ul>
+<li>Pre-activation a=Σwᵢxᵢ+b.</li>
+<li>Step: output 1 when a≥0, otherwise 0. Sigmoid σ(a)=1/(1+e<sup>−a</sup>).</li>
+<li>
+<strong>Weight:</strong> strength/direction of an input; <strong>bias:</strong> adjustable offset.</li>
+<li>
+<strong>One-hot encoding:</strong> one active output position per mutually exclusive class.</li>
+<li>Training adjusts weights to reduce a loss; backpropagation computes useful gradients through layers.</li>
+</ul>
+<h2>Step-by-step method</h2>
+<ol>
+<li>Label all inputs and their weights.</li>
+<li>Multiply each x by w and add them with b.</li>
+<li>Apply the stated activation exactly; do not invent a threshold.</li>
+<li>For learning explanations: forward pass → loss → backpropagated gradients → small weight update.</li>
+</ol>
+<h2>Worked practice 3 — foundational calculation</h2>
+<p>
+<strong>Question:</strong> A step neuron has x₁=1, x₂=0, w₁=.7, w₂=−.2, b=−.5. Find output.</p>
+<p>
+<strong>Model answer:</strong> a=.7(1)+(−.2)(0)−.5=.2. Since .2≥0, the step activation outputs 1. The bias shifts the boundary; it is not a third input feature.</p>
+<h2>Question interpretation and independent practice</h2>
+<h3>Prompt 1</h3>
+<p>One-hot encode classes cat, dog, rabbit when dog is observed. <strong>Check:</strong> [0,1,0] if that order is declared.</p>
+<h3>Exam bridge</h3>
+<p>Draw/explain an artificial neuron and describe at a high level how a network learns from a labelled example. <strong>Check:</strong> diagram has x, w, Σ+b, activation, output; explain a loss and updates based on error. Avoid claiming a neuron stores training examples.</p>
+<h2>High-value traps and corrections</h2>
+<h2>Integrated syllabus-based practice - trace a neuron [8 marks]</h2><p><strong>Scenario.</strong> A sigmoid output neuron has inputs x=(2,1), weights w=(.4,-.6) and bias .2. Calculate its pre-activation and output, then state how one labelled error changes the network during learning.</p><p><strong>Question-demand diagnosis:</strong> distinguish weighted sum from activation and explain back-propagated gradient use.</p><p><strong>Fastest route:</strong> z=.4(2)-.6(1)+.2=.4, then sigmoid(.4)&asymp;.599.</p><p><strong>Worked answer:</strong> The output is about .599. Given a target, compute a loss, use the chain rule to obtain the gradient of that loss with respect to output weights, hidden weights and biases, then update parameters opposite the gradient by a learning rate. A positive error does not mean every weight increases: the gradient's sign depends on input, activation derivative and downstream contribution. Validate to detect overfitting.</p><p><strong>Topic-specific trap:</strong> sigmoid is applied after adding the bias, not separately to every input.</p>
+<ul>
+<li>Omitting the bias.</li>
+<li>Applying activation to each input rather than the summed value.</li>
+<li>Calling one-hot encoding a ranking of categories.</li>
+</ul>
+<h2>Final answer checklist</h2>
+<ul>
+<li>Did I show Σwᵢxᵢ+b?</li>
+<li>Did I name the activation?</li>
+<li>Can I distinguish weights, output and loss?</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>Basic neural-network, activation and encoding material is present in local 2019/20 and 2023/24 evidence, while the official scope includes neural networks. It does not predict exact depth or wording.</p>
+</article>
+</main>
+</body>
+</html>
