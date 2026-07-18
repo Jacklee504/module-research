@@ -33,14 +33,16 @@
 <p>To disprove uniform convergence, give ε&gt;0 and, for every N, choose n≥N and x<sub>n</sub> with error at least ε. Never let x depend on n in a pointwise proof.<strong>Exam workflow:</strong> First find the pointwise limit, then maximise the error or produce an epsilon and adversarial x_n; keep the quantifier order visible.</p>
 <h2>Worked simple example</h2>
 <p>On [0,1], f<sub>n</sub>(x)=x<sup>n</sup> converges pointwise to f with f(x)=0 for x&lt;1 and f(1)=1, but not uniformly because f<sub>n</sub>(1)=f(1) is harmless while values close to 1 keep large error against 0.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — pointwise but not uniform convergence of x<sup>n</sup> [9 marks]</h3>
+<p><strong>Prompt.</strong> Find the pointwise limit of x<sup>n</sup> on [0,1] and prove the convergence is not uniform. <strong>Question-demand diagnosis.</strong> The endpoint and a uniform obstruction must both appear. <strong>Fastest route.</strong> Give the discontinuous limit and use either continuity of uniform limits or the supremum error. <strong>Topic-specific trap.</strong> Testing only fixed interior x misses the bad points that approach 1 with n.</p>
 <p>For f_n(x)=x^n on [0,1], the pointwise limit is f(x)=0 for x&lt;1 and f(1)=1. Convergence is not uniform because each f_n is continuous but f is discontinuous; directly, for x&lt;1 the error is x^n and sup_{x&lt;1}x^n=1, though not attained, so sup_{[0,1]}|f_n-f|=1 for every n.</p>
 <h2>Graduated exam bridges</h2>
 <p>
 <strong>1. Basic:</strong> Does x<sup>n</sup> converge pointwise on [0,1]? <strong>Check:</strong> yes, to the stated discontinuous limit.</p>
 <p>
 <strong>2. Exam:</strong> Give a one-line obstruction to uniform convergence to a continuous function when the pointwise limit is discontinuous. <strong>Check:</strong> a uniform limit of continuous functions is continuous.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — restore uniform convergence on a shortened interval [8 marks]</h3>
+<p><strong>Prompt.</strong> For 0&lt;a&lt;1, prove x<sup>n</sup>→0 uniformly on [0,a] and give an ε–N choice. <strong>Question-demand diagnosis.</strong> A supremum calculation must be converted into the requested quantifier proof. <strong>Fastest route.</strong> Use sup<sub>[0,a]</sub>x<sup>n</sup>=a<sup>n</sup> and solve a<sup>N</sup>&lt;ε. <strong>Topic-specific trap.</strong> Dividing logarithmic inequalities by log a reverses the sign because log a&lt;0.</p>
 <p>Paper-style synthesis: on [0,a] with 0&lt;a&lt;1, prove x^n->0 uniformly. Check sup_{x in [0,a]}x^n=a^n->0; for epsilon choose N>log epsilon/log a, noting log a&lt;0 when handling the inequality.</p>
 <h2>Mistakes</h2>
 <ul>

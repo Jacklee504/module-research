@@ -32,14 +32,16 @@
 <sup>d−1</sup>&alpha;<sub>j</sub>|j&rang;, with &sum;|&alpha;<sub>j</sub>|<sup>2</sup>=1. The Born rule gives p(j)=|&alpha;<sub>j</sub>|<sup>2</sup>; the probabilities sum to one exactly because the vector is normalised.<strong>Rapid recall:</strong> A d-level pure state is a unit vector up to global phase; probabilities are |amplitude|^2; relative phase affects interference, and tensor-product dimension multiplies.<strong>Exam workflow:</strong> Calculate the norm first, factor out any global phase only after identifying it, and preserve complex conjugation in inner products.</p>
 <h2>Worked calculation</h2>
 <p>For |&psi;&rang;=(|0&rang;+i|1&rang;)/&radic;2, p(0)=1/2 and p(1)=|i/&radic;2|<sup>2</sup>=1/2. In the computational basis the column is (1,i)<sup>T</sup>/&radic;2.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — normalise then measure in the X basis [9 marks]</h3>
+<p><strong>Prompt.</strong> Normalise (1+i)|0&gt;+2|1&gt;, then calculate the probabilities of + and − outcomes. <strong>Question-demand diagnosis.</strong> Normalisation precedes the basis change; probabilities follow from squared overlap moduli. <strong>Fastest route.</strong> Sum coefficient moduli squared, divide by √6, then take &lt;±|ψ&gt;. <strong>Topic-specific trap.</strong> Square the complex modulus, not the complex amplitude itself.</p>
 <p>Normalise |psi>=(1+i)|0>+2|1>. Norm squared is |1+i|^2+4=2+4=6, so |psi>=((1+i)|0>+2|1>)/sqrt6. In the X basis, &lt;+|psi>=(3+i)/sqrt12 with probability 10/12=5/6; &lt;-|psi>=(-1+i)/sqrt12 with probability 2/12=1/6. The probabilities sum to 1.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Normalise |v&rang;=2|0&rang;−i|1&rang;. <strong>Check:</strong> divide by &radic;5.</p>
 <p>
 <strong>2.</strong> A qutrit has coefficients (1,1,i)/&radic;3. Give all computational-basis probabilities and the state after outcome 2. <strong>Check:</strong> each probability is 1/3; outcome 2 leaves |2&rang;.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — qutrit phases and measurement [8 marks]</h3>
+<p><strong>Prompt.</strong> For (|0&gt;+ω|1&gt;+|2&gt;)/√3 with |ω|=1, give computational probabilities and explain what information they hide. <strong>Question-demand diagnosis.</strong> The result combines a numerical distribution with a phase interpretation. <strong>Fastest route.</strong> Take the modulus of each computational amplitude, then contrast with a changed-basis measurement. <strong>Topic-specific trap.</strong> A relative phase is not a global phase just because computational probabilities match.</p>
 <p>Paper-style synthesis: for qutrit (|0>+omega|1>+|2>)/sqrt3 with |omega|=1, give computational probabilities and discuss omega. Check each outcome is 1/3; omega is a relative phase that can affect another basis measurement.</p>
 <h2>Mistakes</h2>
 <ul>

@@ -33,14 +33,16 @@
 <p>At stage n there are 2<sup>n</sup> intervals, each of length 3<sup>−n</sup>, so their total length is (2/3)<sup>n</sup>. Its limit is zero, proving the Cantor set has Lebesgue measure zero.<strong>Exam workflow:</strong> Track the construction stage or ternary digits, address nonunique expansions, and separate uncountability from positive measure.</p>
 <h2>Worked simple example</h2>
 <p>1/3=0.1<sub>3</sub>=0.0222…<sub>3</sub>. The second expansion uses only 0 and 2, so 1/3 belongs to the Cantor set.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — a ternary membership proof and measure-zero conclusion [9 marks]</h3>
+<p><strong>Prompt.</strong> Show that 1/4 belongs to the Cantor set using a ternary expansion, then explain why the full Cantor set has Lebesgue measure zero. <strong>Question-demand diagnosis.</strong> This combines a concrete digit calculation with the stage-length argument. <strong>Fastest route.</strong> Write 1/4=Σ2/3<sup>2k</sup>, then bound stage-n length by (2/3)<sup>n</sup>. <strong>Topic-specific trap.</strong> An uncountable set can still have measure zero.</p>
 <p>Show 1/4 is in the Cantor set. Since 1/4=sum_{k>=1} 2/3^{2k}, its ternary expansion is 0.020202..._3, using only 0 and 2. The Cantor set has measure at most the stage-n total (2/3)^n, whose limit is 0, so it has measure zero despite containing this and uncountably many other points.</p>
 <h2>Graduated exam bridges</h2>
 <p>
 <strong>1. Basic:</strong> Does 1/2 lie in the Cantor set? <strong>Check:</strong> 1/2=0.111…<sub>3</sub>, so no valid 0/2-only expansion exists.</p>
 <p>
 <strong>2. Exam:</strong> Explain why endpoint ambiguity does not invalidate the digit test. <strong>Check:</strong> membership needs one permissible ternary expansion.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — inject binary sequences into the Cantor set [9 marks]</h3>
+<p><strong>Prompt.</strong> Construct an injection from {0,1}<sup>N</sup> to the Cantor set and conclude that it is uncountable. <strong>Question-demand diagnosis.</strong> The map and its injectivity, including ternary-expansion ambiguity, must be addressed. <strong>Fastest route.</strong> Send (b<sub>k</sub>) to Σ2b<sub>k</sub>/3<sup>k</sup> and compare the first differing digit. <strong>Topic-specific trap.</strong> Do not silently use ambiguous terminal-2/terminal-0 expansions without fixing a convention.</p>
 <p>Paper-style synthesis: construct an injection from binary sequences to C. Check map (b_k) to sum 2b_k/3^k; distinct sequences first differ at some digit and yield distinct points, apart from endpoint ambiguity avoided by the chosen 0/2 expansion convention. Thus C is uncountable.</p>
 <h2>Mistakes</h2>
 <ul>

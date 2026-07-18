@@ -31,14 +31,16 @@
 <p>Purity is P=Tr(&rho;<sup>2</sup>): P=1 for a pure state and P&lt;1 for a nontrivial mixture. S(&rho;)=−Tr(&rho;log<sub>2</sub>&rho;)=−&sum;&lambda;<sub>j</sub>log<sub>2</sub>&lambda;<sub>j</sub>, using eigenvalues &lambda;<sub>j</sub>.<strong>Rapid recall:</strong> rho is positive semidefinite with trace 1; pure iff rho^2=rho iff Tr(rho^2)=1; a proper mixture and a coherent superposition can have the same basis probabilities but different off-diagonal entries.<strong>Exam workflow:</strong> Write each ket as a column, form outer products, add with probabilities, then check Hermiticity, trace and eigenvalues.</p>
 <h2>Worked calculation</h2>
 <p>For |+&rang;=(|0&rang;+|1&rang;)/&radic;2, &rho;=½[[1,1],[1,1]]. Since &rho;<sup>2</sup>=&rho;, P=1 and S=0.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — a nonorthogonal two-state ensemble [9 marks]</h3>
+<p><strong>Prompt.</strong> Build ρ for the equally weighted ensemble {|0&gt;,|+&gt;}, find its eigenvalues and purity, and classify it. <strong>Question-demand diagnosis.</strong> The ensemble weights must be applied to outer products before any purity test. <strong>Fastest route.</strong> Add the two weighted matrices, use trace and determinant for the 2×2 eigenvalues, then evaluate Tr(ρ²). <strong>Topic-specific trap.</strong> Equal classical weights do not imply the maximally mixed state when the preparation kets are nonorthogonal.</p>
 <p>The ensemble {1/2,|0>; 1/2,|+>} has rho=(1/2)[[1,0],[0,0]]+(1/4)[[1,1],[1,1]]=[[3/4,1/4],[1/4,1/4]]. Its determinant is 1/8 and trace 1, so eigenvalues are (1 +/- 1/sqrt(2))/2. Purity Tr(rho^2)=1-2 det rho=3/4&lt;1, hence mixed.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Find &rho; and purity for ½|0&rang;&lang;0|+½|1&rang;&lang;1|. <strong>Check:</strong> diag(½,½), P=½.</p>
 <p>
 <strong>2.</strong> Given a 2×2 density matrix, find its eigenvalues and Von Neumann entropy. <strong>Check:</strong> entropy uses eigenvalues, not entries.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — distinguish coherence from maximal mixing [8 marks]</h3>
+<p><strong>Prompt.</strong> Compare the constructed ensemble state with I/2 using entries, purity and Bloch-vector interpretation. <strong>Question-demand diagnosis.</strong> A comparison needs matched quantities, not just the word “mixed”. <strong>Fastest route.</strong> Read the off-diagonal entries, then contrast Tr(ρ²) and the Bloch vector. <strong>Topic-specific trap.</strong> Identical-looking diagonal populations do not determine whether a state has coherence.</p>
 <p>Paper-style synthesis: compare this with the maximally mixed state I/2. Check both may give nontrivial basis probabilities, but I/2 has purity 1/2 and zero Bloch vector, while the ensemble state has coherence 1/4 and purity 3/4.</p>
 <h2>Mistakes</h2>
 <ul>

@@ -34,14 +34,16 @@
 <h2>Worked simple proof</h2>
 <p>
 <strong>Claim:</strong> S<sub>3</sub> acting on {1,2,3} has |Orb(1)|=3. Every point can be sent to 1 by a permutation, so the orbit is the whole set; therefore |Stab(1)|=6/3=2.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — orbit-stabiliser for the square action [9 marks]</h3>
+<p><strong>Prompt.</strong> Let D<sub>4</sub> act on a square’s vertices. Find a vertex stabiliser and use orbit-stabiliser to calculate its orbit. <strong>Question-demand diagnosis.</strong> Identify actual symmetries before substituting cardinalities. <strong>Fastest route.</strong> List identity and the reflection through the selected vertex/opposite vertex, then use |G|=|Orb(v)||Stab(v)|. <strong>Topic-specific trap.</strong> D<sub>4</sub> here has eight symmetries, not four.</p>
 <p>Let D4 act on the four vertices of a square. For a vertex v, the stabiliser contains identity and the reflection through v and the opposite vertex, so has size 2. Since |D4|=8, orbit-stabiliser gives |Orb(v)|=8/2=4, as expected. For the action on diagonals, rotations by 0 and 180 fix both diagonals while 90 and 270 swap them; reflection counts depend on axis and can feed Burnside.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Let C<sub>4</sub> rotate the vertices of a square. Find the orbit and stabiliser of one vertex. <strong>Check:</strong> orbit size 4; stabiliser is trivial.</p>
 <p>
 <strong>2.</strong> Prove a faithful action of G on n points gives G&le;S<sub>n</sub>. <strong>Check:</strong> use the action homomorphism and trivial kernel.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — Burnside count of binary necklaces [8 marks]</h3>
+<p><strong>Prompt.</strong> Count length-four binary necklaces up to rotation. <strong>Question-demand diagnosis.</strong> Burnside requires fixed-string counts for <em>each</em> rotation before averaging. <strong>Fastest route.</strong> Use fixed counts 16,2,4,2 for rotations by 0,1,2,3 positions. <strong>Topic-specific trap.</strong> Dividing 16 by four misses strings with nontrivial rotational symmetry.</p>
 <p>Paper-style synthesis: use Burnside to count binary necklaces of length 4 under rotations. Check fixed strings for rotations 0,1,2,3 are 16,2,4,2, so orbits=(16+2+4+2)/4=6.</p>
 <h2>Mistakes</h2>
 <ul>

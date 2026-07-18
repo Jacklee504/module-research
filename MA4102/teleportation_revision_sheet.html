@@ -31,14 +31,16 @@
 <p>After the gates, the state is ½[|00&rang;|&psi;&rang;+|01&rang;X|&psi;&rang;+|10&rang;Z|&psi;&rang;+|11&rang;XZ|&psi;&rang;]. Each two-bit outcome has probability 1/4; Bob restores |&psi;&rang; with I, X, Z, or ZX (convention noted).<strong>Rapid recall:</strong> With input |psi>=alpha|0>+beta|1> and Bell pair |Phi+>, outcomes Phi+,Phi-,Psi+,Psi- leave Bob with I|psi>, Z|psi>, X|psi>, XZ|psi> respectively, up to global phase.<strong>Exam workflow:</strong> Expand all eight computational-basis terms, regroup by Alice's Bell states, retain the overall factor 1/2, then verify each branch probability and correction.</p>
 <h2>Worked calculation</h2>
 <p>For |&psi;&rang;=|1&rang; and Alice outcome 01, Bob has X|1&rang;=|0&rang;. Applying X restores |1&rang;.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — correction from a Bell-measurement outcome [9 marks]</h3>
+<p><strong>Prompt.</strong> Use the supplied teleportation identity with input |1&gt;; for Alice’s Ψ− outcome, determine Bob’s state and the correction that returns |1&gt;. <strong>Question-demand diagnosis.</strong> The Bell branch, Pauli order, global phase and classical correction all matter. <strong>Fastest route.</strong> Substitute |1&gt; into the Ψ− branch and apply the inverse Pauli correction. <strong>Topic-specific trap.</strong> A global minus changes no physical state, but it is not licence to apply the wrong Pauli order.</p>
 <p>Using |Phi+>=(|00>+|11>)/sqrt2 and |Psi+>=(|01>+|10>)/sqrt2, the standard identity is (1/2)[|Phi+>|psi>+|Phi->Z|psi>+|Psi+>X|psi>+|Psi->XZ|psi>]. For input |1>, Alice's outcome Psi- therefore leaves Bob with XZ|1>=-|0>; applying ZX (the inverse up to global phase) returns |1>. Each Bell outcome has probability 1/4.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Give Bob’s correction for Alice’s outcome 10. <strong>Check:</strong> apply Z (up to the declared ordering convention).</p>
 <p>
 <strong>2.</strong> Derive the grouped four-branch expression from &alpha;|0&rang;+&beta;|1&rang;. <strong>Check:</strong> preserve all ½ factors and qubit labels.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — why teleportation cannot signal [8 marks]</h3>
+<p><strong>Prompt.</strong> Explain, using Bob’s reduced state before the two classical bits arrive, why teleportation is not faster-than-light communication. <strong>Question-demand diagnosis.</strong> This requires an operational reduced-state argument, not merely the word “classical”. <strong>Fastest route.</strong> Average over the four equally likely Bell outcomes and identify I/2. <strong>Topic-specific trap.</strong> Entanglement supplies correlation; it does not let Bob choose or read Alice’s outcome locally.</p>
 <p>Paper-style synthesis: explain why teleportation does not signal faster than light. Check before Alice's two bits arrive, Bob's averaged reduced state is I/2, independent of alpha,beta; only the classical message selects the correcting Pauli.</p>
 <h2>Mistakes</h2>
 <ul>

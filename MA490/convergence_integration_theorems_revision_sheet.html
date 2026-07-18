@@ -33,14 +33,16 @@
 <p>For an application, do not re-prove the theorem: verify each hypothesis in a separate sentence. For a series, use partial sums as the increasing sequence when all summands are non-negative.<strong>Exam workflow:</strong> Find the pointwise/a.e. limit, test measurability and sign/monotonicity/domination, state the theorem in the needed direction, then compute both sides.</p>
 <h2>Worked simple example</h2>
 <p>On [0,1], f<sub>n</sub>(x)=min(nx,1) increases to 1 except at 0, and ∫f<sub>n</sub>→∫1=1. The theorem legitimises the limit calculation.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — diagnose a failed dominated-convergence argument [9 marks]</h3>
+<p><strong>Prompt.</strong> For f<sub>n</sub>(x)=n1<sub>(0,1/n)</sub>(x), decide whether DCT applies and reconcile the a.e. limit with the integrals. <strong>Question-demand diagnosis.</strong> State the missing hypothesis, not merely that the theorem “fails”. <strong>Fastest route.</strong> Compute ∫f<sub>n</sub>=1 and show a common integrable dominator would have impossible growth near zero. <strong>Topic-specific trap.</strong> Pointwise or a.e. convergence alone never licenses interchange of limit and integral.</p>
 <p>On (0,1), let f_n(x)=n 1_(0,1/n)(x). Then f_n->0 a.e. but integrals equal 1. DCT cannot use a common integrable dominator: any g dominating all f_n satisfies g(x)>=n when x&lt;1/n, forcing severe growth near 0; indeed the unchanged integrals contradict the DCT conclusion. Fatou only yields 0&lt;=1, which is valid.</p>
 <h2>Graduated exam bridges</h2>
 <p>
 <strong>1. Basic:</strong> Can MCT apply to f<sub>n</sub>(x)=1/n? <strong>Check:</strong> not as an increasing sequence; it decreases.</p>
 <p>
 <strong>2. Exam:</strong> For non-negative measurable g<sub>k</sub>, justify ∫Σg<sub>k</sub>=Σ∫g<sub>k</sub>. <strong>Check:</strong> apply MCT to partial sums.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — a valid DCT application on [0,1] [8 marks]</h3>
+<p><strong>Prompt.</strong> Use DCT to prove ∫<sub>0</sub><sup>1</sup>x<sup>n</sup>dx→0, stating the exceptional point and a dominator. <strong>Question-demand diagnosis.</strong> All DCT hypotheses must be matched to the displayed sequence. <strong>Fastest route.</strong> Note x<sup>n</sup>→0 off {1} and |x<sup>n</sup>|≤1∈L¹. <strong>Topic-specific trap.</strong> The point x=1 is harmless only because it is a null exceptional set.</p>
 <p>Paper-style synthesis: let f_n(x)=x^n on [0,1]. Check f_n->0 a.e. (the point x=1 is exceptional), |f_n|&lt;=1 with 1 integrable, so DCT gives integral f_n ->0; directly integral=1/(n+1).</p>
 <h2>Mistakes</h2>
 <ul>

@@ -31,14 +31,17 @@
 <p>Grover's diffusion D=2|s&rang;&lang;s|−I reflects amplitudes about their mean. QFT is unitary because its phase columns are orthogonal roots-of-unity sums.<strong>Rapid recall:</strong> Grover uses phase-oracle plus diffusion and about pi sqrt(N)/4 iterations; QFT maps |x> to N^{-1/2} sum_y exp(2 pi i xy/N)|y>; Deutsch-Jozsa distinguishes constant from balanced with one oracle query.<strong>Exam workflow:</strong> Fix basis order, apply one gate/operator at a time, retain signs and phases, then state the measurement distribution and success claim.</p>
 <h2>Worked calculation</h2>
 <p>For N=4 with marked |00&rang;, |s&rang; has amplitudes ½. Oracle changes them to (−½,½,½,½). Their mean is ¼; diffusion maps each a to 2(¼)−a, giving (1,0,0,0): success probability 1.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — one Grover iterate on a marked two-qubit state [9 marks]</h3>
+<p><strong>Prompt.</strong> With marked state |11&gt; and the supplied uniform state, carry out the oracle and one diffusion iterate, then give the measured success probability.</p>
+<p><strong>Question-demand diagnosis.</strong> This is a state-by-state calculation: a named oracle phase flip alone is not an answer. <strong>Fastest route.</strong> Record the four amplitudes, calculate their mean after the oracle, then reflect each amplitude. <strong>Topic-specific trap.</strong> Diffusion reflects amplitudes, not probabilities; retain the negative marked amplitude until the reflection.</p>
 <p>For Grover search on two qubits with marked |11>, start |s>=(1/2)(1,1,1,1). The oracle gives (1/2)(1,1,1,-1), whose mean amplitude is 1/4. Diffusion reflects each amplitude a about the mean: a'=2(1/4)-a, producing (0,0,0,1). One iteration therefore yields |11> with probability 1.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Apply the N=2 QFT to |1&rang;. <strong>Check:</strong> (|0&rang;−|1&rang;)/&radic;2.</p>
 <p>
 <strong>2.</strong> Carry out one Grover iteration for N=4 with a different marked basis state. <strong>Check:</strong> oracle flips amplitude, not probability.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — exact four-dimensional QFT [8 marks]</h3>
+<p><strong>Prompt.</strong> Compute F<sub>4</sub>|2&gt; exactly and state the four computational-basis probabilities. <strong>Question-demand diagnosis.</strong> The required conclusion is an amplitude vector <em>and</em> a probability distribution. <strong>Fastest route.</strong> Substitute x=2 into the finite-QFT phase formula for y=0,1,2,3 before squaring moduli. <strong>Topic-specific trap.</strong> A relative minus affects later interference even when all four final probabilities are equal.</p>
 <p>Paper-style synthesis: compute QFT_4|2>. Check amplitudes are (1/2)exp(2 pi i*2y/4), y=0,...,3, giving (1/2)(1,-1,1,-1); all measurement probabilities are 1/4.</p>
 <h2>Mistakes</h2>
 <ul>

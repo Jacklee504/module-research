@@ -33,14 +33,16 @@
 <p>For products, first establish f+g and f−g are measurable, then use <code>fg=((f+g)^2−(f−g)^2)/4</code>. For pointwise limits, use rational thresholds to express {lim f<sub>n</sub>&gt;a} measurably.<strong>Exam workflow:</strong> Choose the simplest generating family, calculate the preimage with all threshold cases, and invoke sigma-algebra closure explicitly.</p>
 <h2>Worked simple example</h2>
 <p>If f=1<sub>A</sub> with A∈F, then f is measurable because inverse images of Borel sets are one of ∅, A, A<sup>c</sup>, X.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — threshold-set proof for an indicator affine transform [8 marks]</h3>
+<p><strong>Prompt.</strong> For measurable A, prove f=2·1<sub>A</sub>−1 is measurable by analysing {f&gt;a} for every real a. <strong>Question-demand diagnosis.</strong> All threshold regimes, including endpoints, must be stated. <strong>Fastest route.</strong> Split at a=−1 and a=1 to obtain X, A or ∅. <strong>Topic-specific trap.</strong> Saying “it is a step function” is not a proof unless A’s measurability is used.</p>
 <p>Let A be measurable and f=2 1_A-1. For a&lt;-1, {f>a}=X; for -1&lt;=a&lt;1, it is A; for a>=1, it is empty. Every case is measurable, so f is measurable. This proof also shows why measurability of A is exactly what the step function needs.</p>
 <h2>Graduated exam bridges</h2>
 <p>
 <strong>1. Basic:</strong> Why is f² measurable when f is? <strong>Check:</strong> square is continuous, so compose it with f.</p>
 <p>
 <strong>2. Exam:</strong> Prove max(f,g) is measurable. <strong>Check:</strong> max(f,g)=(f+g+|f−g|)/2.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — countable supremum of measurable functions [8 marks]</h3>
+<p><strong>Prompt.</strong> If f<sub>n</sub> are measurable, prove g=sup<sub>n</sub>f<sub>n</sub> is measurable. <strong>Question-demand diagnosis.</strong> Convert a real threshold preimage into a countable σ-algebra operation. <strong>Fastest route.</strong> Write {g&gt;a}=∪<sub>n</sub>{f<sub>n</sub>&gt;a}. <strong>Topic-specific trap.</strong> An uncountable supremum cannot be handled by this countable-union proof without further argument.</p>
 <p>Paper-style synthesis: if f_n are measurable, prove g=sup_n f_n is measurable. Check {g>a}=union_n {f_n>a}, a countable union of measurable sets. State why countability matters.</p>
 <h2>Mistakes</h2>
 <ul>

@@ -37,14 +37,16 @@
 <p>For dephasing with E<sub>0</sub>=&radic;(1−p)I and E<sub>1</sub>=&radic;p Z, &Epsilon;(|+&rang;&lang;+|) has diagonal entries ½ and off-diagonals (1−2p)/2. Also E<sub>0</sub>
 <sup>&dagger;</sup>E<sub>0</sub>+E<sub>1</sub>
 <sup>&dagger;</sup>E<sub>1</sub>=I.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — amplitude damping of an excited qubit [9 marks]</h3>
+<p><strong>Prompt.</strong> For the displayed K<sub>0</sub>, K<sub>1</sub> and input |1&gt;&lt;1|, calculate every Kraus branch, the output state, and verify trace preservation. <strong>Question-demand diagnosis.</strong> This asks for a channel application and validation, not a verbal description of damping. <strong>Fastest route.</strong> Multiply each branch separately, add, then calculate ΣK†K. <strong>Topic-specific trap.</strong> Trace preservation uses K†K, whereas ΣKK† tests a different unital condition.</p>
 <p>For amplitude damping K0=[[1,0],[0,sqrt(1-gamma)]], K1=[[0,sqrt(gamma)],[0,0]], input |1>&lt;1| gives K0 rho K0^dagger=(1-gamma)|1>&lt;1| and K1 rho K1^dagger=gamma|0>&lt;0|. Thus E(rho)=diag(gamma,1-gamma), trace 1. Also K0^dagger K0+K1^dagger K1=I.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Verify trace preservation for the displayed dephasing Kraus pair. <strong>Check:</strong> scalars square to 1−p and p.</p>
 <p>
 <strong>2.</strong> Apply amplitude damping Kraus operators to |1&rang;&lang;1| and interpret the result. <strong>Check:</strong> output is a mixture, with ground-state probability p.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — damping an arbitrary density matrix [8 marks]</h3>
+<p><strong>Prompt.</strong> Apply the same amplitude-damping channel to ρ=[[a,b],[b*,d]] and show that its trace is unchanged. <strong>Question-demand diagnosis.</strong> The variables make the off-diagonal scaling as important as population transfer. <strong>Fastest route.</strong> Compute K<sub>0</sub>ρK<sub>0</sub>† and K<sub>1</sub>ρK<sub>1</sub>† entrywise. <strong>Topic-specific trap.</strong> Do not replace b* by b unless the question explicitly makes b real.</p>
 <p>Paper-style synthesis: apply the channel to rho=[[a,b],[b*,d]]. Check E(rho)=[[a+gamma d,sqrt(1-gamma)b],[sqrt(1-gamma)b*,(1-gamma)d]]; trace a+d is preserved.</p>
 <h2>Mistakes</h2>
 <ul>

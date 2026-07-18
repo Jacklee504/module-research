@@ -33,14 +33,16 @@
 <p>For continuity from below, set B<sub>1</sub>=A<sub>1</sub> and B<sub>n</sub>=A<sub>n</sub>\A<sub>n−1</sub>. The B<sub>n</sub> are disjoint and their union is the increasing limit. Apply countable additivity.<strong>Exam workflow:</strong> Rewrite unions disjointly, apply additivity or continuity in the correct direction, and state any finiteness hypothesis before subtracting infinities.</p>
 <h2>Worked simple example</h2>
 <p>On Ω={1,2,3,4} with P({i})=1/4, P({1,2}∪{2,3})=3/4. Do not add 1/2+1/2 without removing the overlap.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — continuity from below from countable additivity [9 marks]</h3>
+<p><strong>Prompt.</strong> For A<sub>n</sub>↑A, prove μ(A)=lim μ(A<sub>n</sub>) directly from countable additivity. <strong>Question-demand diagnosis.</strong> The increasing sequence must be converted to disjoint increments. <strong>Fastest route.</strong> Set B<sub>1</sub>=A<sub>1</sub>, B<sub>n</sub>=A<sub>n</sub>\A<sub>n−1</sub> and sum. <strong>Topic-specific trap.</strong> Additivity cannot be applied directly to the nested A<sub>n</sub>.</p>
 <p>If A_n increases to A, write B_1=A_1 and B_n=A_n minus A_{n-1}. The B_n are disjoint, A is their union, and A_N is union_{n&lt;=N}B_n. Thus mu(A_N)=sum_{n&lt;=N}mu(B_n) increases to sum_n mu(B_n)=mu(A). This proves continuity from below directly from countable additivity.</p>
 <h2>Graduated exam bridges</h2>
 <p>
 <strong>1. Basic:</strong> Show μ(A)≤μ(B) when A⊆B. <strong>Check:</strong> write B=A disjoint-union (B\A).</p>
 <p>
 <strong>2. Exam:</strong> Derive countable subadditivity for arbitrary A<sub>n</sub>. <strong>Check:</strong> replace A<sub>n</sub> by disjoint new parts contained in A<sub>n</sub>.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — continuity from above with finite initial measure [9 marks]</h3>
+<p><strong>Prompt.</strong> If A<sub>n</sub>↓ and μ(A<sub>1</sub>)&lt;∞, prove μ(∩A<sub>n</sub>)=lim μ(A<sub>n</sub>). <strong>Question-demand diagnosis.</strong> The finite-measure hypothesis must be used when subtracting. <strong>Fastest route.</strong> Apply continuity from below to A<sub>1</sub>\A<sub>n</sub>, then rearrange finite quantities. <strong>Topic-specific trap.</strong> ∞−∞ is undefined; omitting finiteness invalidates this proof.</p>
 <p>Paper-style synthesis: for decreasing A_n with mu(A_1)&lt;infinity, prove mu(intersection A_n)=lim mu(A_n). Check apply continuity from below to B_n=A_1 minus A_n, then use finite subtraction mu(B_n)=mu(A_1)-mu(A_n).</p>
 <h2>Mistakes</h2>
 <ul>

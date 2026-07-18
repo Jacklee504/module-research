@@ -34,14 +34,16 @@
 <p>For the first lemma, bound the probability of a tail union by its tail sum, then let the tail start tend to infinity. Avoid claiming the converse without independence.<strong>Exam workflow:</strong> Write the event algebra first, use complements when simpler, and attach every probabilistic theorem to its independence or summability hypotheses.</p>
 <h2>Worked simple example</h2>
 <p>If P(A<sub>n</sub>)=2<sup>−n</sup>, then ΣP(A<sub>n</sub>) is finite, so only finitely many A<sub>n</sub> occur almost surely.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — infinitely many Bernoulli successes and failures [9 marks]</h3>
+<p><strong>Prompt.</strong> In independent Bernoulli trials with 0&lt;p&lt;1, prove that successes and failures each occur infinitely often almost surely. <strong>Question-demand diagnosis.</strong> Apply the second Borel–Cantelli lemma separately to two independent event sequences. <strong>Fastest route.</strong> Note both probability series diverge and each trial family is independent. <strong>Topic-specific trap.</strong> “Infinitely often” is a limsup event, not an assertion about every sufficiently late trial.</p>
 <p>For independent Bernoulli trials with success probability p in (0,1), let A_n be success at trial n. Since sum P(A_n)=infinity and the events are independent, the second Borel-Cantelli lemma gives P(A_n infinitely often)=1. For failures the same argument uses 1-p, so almost surely both successes and failures occur infinitely often.</p>
 <h2>Graduated exam bridges</h2>
 <p>
 <strong>1. Basic:</strong> What does P(limsup A<sub>n</sub>)=0 say in words? <strong>Check:</strong> infinitely many occurrences has probability zero.</p>
 <p>
 <strong>2. Exam:</strong> Can you infer P(limsup A<sub>n</sub>)=1 from ΣP(A<sub>n</sub>)=∞ alone? <strong>Check:</strong> no, independence or a suitable substitute is needed.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — finite occurrence without independence [8 marks]</h3>
+<p><strong>Prompt.</strong> If P(A<sub>n</sub>)=2<sup>−n</sup>, prove A<sub>n</sub> occurs only finitely often almost surely without assuming independence. <strong>Question-demand diagnosis.</strong> Identify the direction of Borel–Cantelli that needs summability only. <strong>Fastest route.</strong> Sum the geometric series and invoke the first lemma for limsup A<sub>n</sub>. <strong>Topic-specific trap.</strong> Probability zero for infinitely many occurrences is not the same as logical impossibility.</p>
 <p>Paper-style synthesis: if P(A_n)=2^{-n}, show only finitely many A_n occur a.s., without independence. Check sum P(A_n)=1&lt;infinity; the first Borel-Cantelli lemma gives P(limsup A_n)=0.</p>
 <h2>Mistakes</h2>
 <ul>

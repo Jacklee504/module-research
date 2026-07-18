@@ -31,14 +31,16 @@
 <p>H|0&rang;=(|0&rang;+|1&rang;)/&radic;2, H|1&rang;=(|0&rang;−|1&rang;)/&radic;2. CNOT maps |c,t&rang; to |c,t&oplus;c&rang;; it is linear, so apply it term-by-term to a superposition.<strong>Rapid recall:</strong> H|0>=|+>, H|1>=|->; CNOT maps |a,b> to |a,a xor b>; tensor products act on ordered subsystems and unitary gates preserve norm.<strong>Exam workflow:</strong> Expand the state in the computational basis, apply each gate linearly, collect amplitudes, and use norm or reversibility as a check.</p>
 <h2>Worked calculation</h2>
 <p>Start |00&rang;. Apply H to qubit one: (|00&rang;+|10&rang;)/&radic;2. CNOT (first control) gives (|00&rang;+|11&rang;)/&radic;2, a Bell state.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — track a Bell-generating circuit and a phase gate [9 marks]</h3>
+<p><strong>Prompt.</strong> Starting at |00&gt;, apply H on qubit one, controlled-NOT, then Z on qubit two; state the final state and Z-basis probabilities. <strong>Question-demand diagnosis.</strong> Credit is for intermediate states in the declared qubit order. <strong>Fastest route.</strong> Expand after H, apply CNOT term-by-term, then apply Z only to terms with target bit 1. <strong>Topic-specific trap.</strong> The relative minus is invisible in this measurement but cannot be discarded before later gates.</p>
 <p>Start |00>. Apply H on the first qubit: (|00>+|10>)/sqrt2. Apply CNOT with first control: (|00>+|11>)/sqrt2. Apply Z on the second: (|00>-|11>)/sqrt2. Z-basis outcomes 00 and 11 each have probability 1/2; the relative minus is invisible in this measurement but changes later interference.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Find XH|0&rang;. <strong>Check:</strong> X|+&rang;=|+&rang;.</p>
 <p>
 <strong>2.</strong> Compute the output of CNOT(H&otimes;I)|01&rang; in the stated ordering. <strong>Check:</strong> distribute CNOT across both terms.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — undo an entangling circuit [8 marks]</h3>
+<p><strong>Prompt.</strong> Apply CNOT followed by H on the first qubit to (|00&gt;+|11&gt;)/√2 and identify the recovered basis state. <strong>Question-demand diagnosis.</strong> This is an inverse-circuit calculation, so operation order is decisive. <strong>Fastest route.</strong> Write the state after CNOT before applying H linearly. <strong>Topic-specific trap.</strong> A drawn circuit runs left-to-right while the corresponding matrix product is read right-to-left.</p>
 <p>Paper-style synthesis: apply the inverse circuit CNOT then H on qubit 1 to (|00>+|11>)/sqrt2. Check CNOT gives (|00>+|10>)/sqrt2=|+0>, then H gives |00>.</p>
 <h2>Mistakes</h2>
 <ul>

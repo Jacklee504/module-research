@@ -31,14 +31,16 @@
 <p>Tr<sub>B</sub>(|a&rang;&lang;c|&otimes;|b&rang;&lang;d|)=&lang;d|b&rang;|a&rang;&lang;c|. A pure product state has pure reduction; a pure entangled state has mixed reductions.<strong>Rapid recall:</strong> A pure bipartite state is separable iff its coefficient matrix has rank 1 iff either reduced density matrix is pure; partial trace satisfies Tr_B(|i>&lt;j| tensor |k>&lt;l|)=delta_kl |i>&lt;j|.<strong>Exam workflow:</strong> Form |psi>&lt;psi|, trace matching basis indices of the discarded subsystem, then compute determinant, rank or purity of the reduction.</p>
 <h2>Worked calculation</h2>
 <p>For |&Phi;<sup>+</sup>&rang;=(|00&rang;+|11&rang;)/&radic;2, cross terms vanish under Tr<sub>B</sub>, so &rho;<sub>A</sub>=½(|0&rang;&lang;0|+|1&rang;&lang;1|)=I/2. Its purity is 1/2, hence |&Phi;<sup>+</sup>&rang; is entangled.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — certify a two-qubit state as maximally entangled [9 marks]</h3>
+<p><strong>Prompt.</strong> For the supplied four-amplitude state, form its coefficient matrix, reduce to subsystem A, and decide whether it is maximally entangled. <strong>Question-demand diagnosis.</strong> The conclusion must be justified by a reduction or rank criterion for a pure bipartite state. <strong>Fastest route.</strong> Use ρ<sub>A</sub>=CC†, then inspect its eigenvalues or purity. <strong>Topic-specific trap.</strong> Four nonzero product-basis amplitudes do not by themselves prove entanglement.</p>
 <p>For |psi>=(|00>+|01>+|10>-|11>)/2, coefficient matrix C=(1/2)[[1,1],[1,-1]]. Then rho_A=CC^dagger=I/2, with purity 1/2 and rank 2. Therefore |psi> is maximally entangled. Although four product-basis amplitudes appear, no product factorisation exists because det C=-1/2 !=0.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Reduce |00&rang; and decide whether it is entangled. <strong>Check:</strong> &rho;<sub>A</sub>=|0&rang;&lang;0|, purity 1.</p>
 <p>
 <strong>2.</strong> For a|00&rang;+b|11&rang;, find S(&rho;<sub>A</sub>). <strong>Check:</strong> eigenvalues are |a|<sup>2</sup>,|b|<sup>2</sup>.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — partially entangled Bell-type state [8 marks]</h3>
+<p><strong>Prompt.</strong> Find the entanglement entropy of √3/2|00&gt;+1/2|11&gt;. <strong>Question-demand diagnosis.</strong> Entropy is obtained from the reduced state’s eigenvalues, not from the four-state vector entries directly. <strong>Fastest route.</strong> Trace out either qubit and evaluate the binary entropy of 3/4,1/4. <strong>Topic-specific trap.</strong> A state can be entangled without being maximally entangled.</p>
 <p>Paper-style synthesis: for |phi>=sqrt(3)/2|00>+1/2|11>, find entanglement entropy. Check reduced eigenvalues are 3/4,1/4, so S=-3/4 log2(3/4)-1/4 log2(1/4), strictly between 0 and 1.</p>
 <h2>Mistakes</h2>
 <ul>

@@ -34,14 +34,16 @@
 <h2>Worked simple proof</h2>
 <p>
 <strong>Claim:</strong> &phi;:Z&rarr;Z<sub>6</sub>, n&mapsto;n mod 6, gives Z/6Z&cong;Z<sub>6</sub>. It is a homomorphism, ker&phi;=6Z and im&phi;=Z<sub>6</sub>; the first isomorphism theorem gives the result.</p>
-<h3>Medium/hard paper-style synthesis</h3>
+<h3>Practice 1 — kernel and image of a quotient-group homomorphism [9 marks]</h3>
+<p><strong>Prompt.</strong> For φ:Z<sub>12</sub>→Z<sub>8</sub>, [x]↦[2x], prove well-definedness and find kernel, image and the first-isomorphism conclusion. <strong>Question-demand diagnosis.</strong> Definition on representatives must be checked before using kernel algebra. <strong>Fastest route.</strong> Test x→x+12, solve 2x≡0 (mod 8), then list even residue classes. <strong>Topic-specific trap.</strong> A formula that looks homomorphic can still fail to be well-defined on residue classes.</p>
 <p>Define phi:Z12->Z8 by phi([x]12)=[2x]8. This is not well-defined: [0]12=[12]12 but phi(0)=0 while phi(12)=24=0 mod 8, actually these agree; in general changing x by 12 changes 2x by 24, divisible by 8, so it is well-defined. Kernel solves 2x=0 mod 8, giving classes x=0,4,8; image={0,2,4,6}. Thus Z12/ker has order 4 and is isomorphic to 2Z8.</p>
 <h2>Graduated exam bridge</h2>
 <p>
 <strong>1.</strong> Find ker and image of &phi;:Z<sub>12</sub>&rarr;Z<sub>4</sub>, [x]&mapsto;[x]. <strong>Check:</strong> image is all of Z<sub>4</sub>; kernel has three elements.</p>
 <p>
 <strong>2.</strong> If &phi;:G&rarr;H is a homomorphism of finite groups with |G|=60 and |ker&phi;|=5, find |im&phi;| and justify it. <strong>Check:</strong> 12, by the homomorphism counting formula.</p>
-<h3>Hard paper-style synthesis</h3>
+<h3>Practice 2 — reject a non-well-defined residue formula [8 marks]</h3>
+<p><strong>Prompt.</strong> Decide whether [x]<sub>12</sub>↦[3x]<sub>8</sub> is well-defined. <strong>Question-demand diagnosis.</strong> One pair of equal input classes with unequal images is decisive. <strong>Fastest route.</strong> Compare representatives 0 and 12. <strong>Topic-specific trap.</strong> Checking only additivity of the integer formula does not establish a map from Z<sub>12</sub>.</p>
 <p>Paper-style synthesis: decide whether [x]12 -> [3x]8 is well-defined. Check changing by 12 changes output by 36, not divisible by 8, so it is not; test [0]=[12] gives 0 versus 4.</p>
 <h2>Mistakes</h2>
 <ul>
