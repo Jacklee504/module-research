@@ -1,76 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS4423 Centrality</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CS4423 overview</a>
-</nav>
-<p class="eyebrow">CS4423 Topic Guide</p>
-<h1>Centrality</h1>
-<p>Choose “important” according to the network role meant by the question.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose and relevance</h2>
-<p>Centrality ranks vertices using different meanings of importance. It is a major repeat area and an explicit official learning outcome.<strong>Exam use:</strong> Metric choice, normalisation, distance/path evidence, tie handling and contextual interpretation are all shown.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Identify the role: direct ties, close access, route control or endorsement. State the formula, calculate visibly, rank vertices and interpret the result in context.<strong>Question interpretation:</strong> Translate 'many contacts' to degree, 'quick access' to closeness, 'broker' to betweenness and 'endorsed by important neighbours' to eigenvector centrality before calculating.</p>
-<h2>Prerequisites, vocabulary and formulas</h2>
-<ul>
-<li>Degree Cᴅ(v)=deg(v), optionally /(n−1).</li>
-<li>Closeness C꜀(v)=(n−1)/Σᵤd(v,u).</li>
-<li>Betweenness Cᴮ(v)=Σₛ≠v≠ₜσₛₜ(v)/σₛₜ.</li>
-<li>Eigenvector: Ax=λx; important neighbours contribute more.</li>
-<li><strong>Rapid recall:</strong> Degree is local; closeness uses reciprocal total distance; betweenness splits credit among tied geodesics; eigenvector scores satisfy Ax=lambda x and require a stated normalisation.</li>
-</ul>
-<h2>Step-by-step method</h2>
-<ol>
-<li>Check direction, disconnectedness and normalisation.</li>
-<li>Compute degrees or distance table.</li>
-<li>For betweenness, list shortest paths and split tied credit.</li>
-<li>Rank and explain what the metric captures/misses.</li>
-<li><strong>Exam workflow:</strong> Build one distance table, list every unordered endpoint pair for betweenness, split sigma_st(v)/sigma_st, then interpret the ranking in the network's language.</li>
-</ol>
-<h2>Worked starter question and model answer</h2>
-<p>
-<strong>Question:</strong> Compare degree and betweenness in A-B-C.</p>
-<p>
-<strong>Model answer:</strong> Degrees are 1,2,1; B is highest. B lies on the sole A–C shortest path, so its unnormalised betweenness is 1, versus 0 for A,C: B is an intermediary.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>For path A-B-C-D, degrees are (1,2,2,1). Distance sums are (6,4,4,6), so normalised closeness is (1/2,3/4,3/4,1/2). Of the six unordered pairs, B lies on A-C and A-D, giving raw betweenness 2; C lies on A-D and B-D, also 2; endpoints score 0. Thus B and C tie as access points and brokers, while degree alone cannot separate them.</p>
-<h2>Graduated practice</h2>
-<h3>Prompt 1</h3>
-<p>Which measure suits “brokerage”? <strong>Check:</strong> betweenness, because it counts control of shortest routes.</p>
-<h3>Exam bridge</h3>
-<p>Calculate degree, closeness and betweenness; recommend one for information brokerage. <strong>Check:</strong> show paths, handle ties, choose betweenness, and do not claim all centralities mean the same thing.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: add edge A-D and recompute betweenness. Check the graph becomes a 4-cycle; each vertex lies on the two equal shortest paths for its opposite pair and receives 1/2 raw credit, so all tie.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Using edge count for closeness.</li>
-<li>Giving every tied shortest path full betweenness credit.</li>
-<li>Ignoring direction/disconnected vertices.</li>
-<li><strong>Recovery rule:</strong> When shortest paths tie, divide the contribution; counting every path as one inflates betweenness.</li>
-</ul>
-<h2>Final checklist</h2>
-<ul>
-<li>Did I state the convention?</li>
-<li>Can paths be reproduced?</li>
-<li>Did I interpret, not merely rank?</li>
-<li><strong>Final 60-second audit:</strong> Metric choice, normalisation, distance/path evidence, tie handling and contextual interpretation are all shown.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Degree, closeness, betweenness and occasional eigenvector centrality recur in 2017/18–2024/25 local papers and match official centrality scope.</p>
-<p>
-<a href="details.html">Back to CS4423 overview</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS4423 Centrality</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS4423 overview</a></nav><p class="eyebrow">CS4423 Topic Guide</p><h1>Centrality</h1><p>Choose “important” according to the role meant by the question.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Degree, closeness, betweenness and occasional eigenvector centrality recur in 2017/18-2024/25 papers.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Degree counts ties; closeness is inverse total distance; betweenness counts shortest paths through a vertex; eigenvector rewards important neighbours.</td><td>Normalisation and disconnected-graph conventions matter; interpret the metric in the scenario.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Degree, closeness, betweenness and occasional eigenvector centrality recur in 2017/18-2024/25 papers.</p>
+<h3>(a) Compare a broker, a locally popular node and a node close to all others. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Map broker to betweenness, local popularity to degree, reachability to closeness; calculate paths before scores.</p><p><strong>Mark-aware answer:</strong> A broker can have modest degree but high betweenness because many shortest paths use it. High degree only means many direct neighbours. Closeness needs finite/reachable-distance handling in a disconnected graph.</p><p><strong>Trap:</strong> Do not call all centralities interchangeable importance.</p>
+<h3>(b) Compute normalised degree centrality of a vertex of degree 3 in an undirected graph with 8 vertices. [6 marks]</h3><p><strong>Question demand:</strong> Use degree divided by the maximum possible degree n-1. <strong>Quickest route:</strong> Use degree divided by the maximum possible degree n-1.</p><p><strong>Mark-aware answer:</strong> The maximum possible degree is 7, so normalised degree centrality is 3/7. State whether the paper wants raw degree 3 or the normalised score 3/7.</p><p><strong>Trap:</strong> Do not divide by the number of edges.</p>
+<h3>(c) Explain why closeness is awkward on a disconnected graph. [4 marks]</h3><p><strong>Question demand:</strong> Refer to infinite/unreachable distances and name a convention. <strong>Quickest route:</strong> Refer to infinite/unreachable distances and name a convention.</p><p><strong>Mark-aware answer:</strong> Ordinary closeness uses the reciprocal of total distance, but unreachable vertices produce infinite distance. One must restrict to a component or use harmonic closeness, which sums reciprocal finite distances.</p><p><strong>Trap:</strong> Reporting a finite score without a disconnected-graph convention is incomplete.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Degree, closeness, betweenness and occasional eigenvector centrality recur in 2017/18-2024/25 papers. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS4423 overview.</a></p>
+</article></main></body></html>

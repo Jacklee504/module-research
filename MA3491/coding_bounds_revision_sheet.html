@@ -1,66 +1,13 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MA3491 Coding Bounds</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">MA3491 overview</a>
-</nav>
-<p class="eyebrow">MA3491 Topic Guide</p>
-<h1>Coding Bounds and Block-Code Parameters</h1>
-<p>Turn a code question into q, n, M and d before choosing a bound.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose</h2>
-<p>Bounds say what size a q-ary code can possibly have, and let you recognise perfect and MDS cases.<strong>Exam use:</strong> q,n,M,d,t, ball volume, integer rounding and comparison/interpretation of bounds are shown.</p>
-<h2>Question plan</h2>
-<ol>
-<li>State q, length n, size M and minimum distance d.</li>
-<li>Choose Singleton for a general size bound; choose sphere packing when error correction matters.</li>
-<li>Substitute carefully, then interpret equality.</li>
-<li><strong>Question interpretation:</strong> Extract q,n,M,d first; decide whether the question asks an upper bound, existence, or perfect packing before selecting Singleton, Hamming or Gilbert-Varshamov.</li>
-</ol>
-<h2>Formulas</h2>
-<p>For C⊆F<sub>q</sub>
-<sup>n</sup>, |C|=M: <strong>Singleton:</strong> M≤q<sup>n−d+1</sup>. If t=⌊(d−1)/2⌋, <strong>sphere packing:</strong> M∑<sub>i=0</sub>
-<sup>t</sup>(n choose i)(q−1)<sup>i</sup>≤q<sup>n</sup>.<strong>Rapid recall:</strong> Singleton: M&lt;=q^{n-d+1}; Hamming with t=floor((d-1)/2): M sum_{i=0}^t C(n,i)(q-1)^i &lt;= q^n; equality means perfect packing.</p>
-<h2>Derivation</h2>
-<p>Delete d−1 coordinates. No two codewords can become equal, or their original distance would be at most d−1; there are q<sup>n−d+1</sup> remaining words. For sphere packing, radius-t balls about codewords are disjoint, so their total size fits in F<sub>q</sub>
-<sup>n</sup>.<strong>Exam workflow:</strong> Compute t carefully, write the ball volume, substitute all parameters, and round an upper bound down only at the final integer step.</p>
-<h2>Worked example</h2>
-<p>A binary (n=7,M=16,d=3) code has t=1. Sphere packing gives 16(1+7)=128=2<sup>7</sup>, so it is perfect. Singleton gives 16≤2<sup>5</sup>.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>For a binary (n=7,d=3) code, t=1 and a Hamming ball has volume C(7,0)+C(7,1)=8. Therefore M*8&lt;=2^7=128, so M&lt;=16. The [7,4,3] Hamming code has M=2^4=16 and meets equality, hence is perfect. Singleton only gives M&lt;=2^5=32 and is weaker here.</p>
-<h2>Graduated exam bridge</h2>
-<p>
-<strong>1.</strong> Apply Singleton to a ternary (5,M,3) code. <strong>Check:</strong> M≤3<sup>3</sup>=27.</p>
-<p>
-<strong>2.</strong> Prove the Singleton bound, then decide whether a binary (5,4,3) code is perfect. <strong>Check:</strong> write the puncturing argument; t=1 gives 4(1+5)=24≠32, so not perfect.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: bound a ternary length-6 code with d=3. Check t=1, ball volume 1+6(3-1)=13, so M&lt;=floor(3^6/13)=56; Singleton gives M&lt;=3^4=81, so Hamming is stronger.</p>
-<h2>Mistakes</h2>
-<ul>
-<li>Using d rather than t in the ball radius.</li>
-<li>Calling equality in Singleton “perfect”; it means MDS.</li>
-<li>Forgetting (q−1)<sup>i</sup>.</li>
-<li><strong>Recovery rule:</strong> Use t=floor((d-1)/2), not d-1; otherwise the Hamming balls correspond to a decoding radius the code cannot guarantee.</li>
-</ul>
-<h2>Checklist</h2>
-<ul>
-<li>I can identify all four parameters.</li>
-<li>I can explain why balls are disjoint.</li>
-<li>I state what equality means.</li>
-<li><strong>Final 60-second audit:</strong> q,n,M,d,t, ball volume, integer rounding and comparison/interpretation of bounds are shown.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Bounds and minimum distance recur throughout the 2018–2025 local archive, including recent Singleton and sphere-packing proofs.</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MA3491 Coding Bounds</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">MA3491 overview</a></nav><p class="eyebrow">MA3491 Topic Guide</p><h1>Coding Bounds and Block-Code Parameters</h1><p>Turn a code question into q, n, M and d before choosing a bound.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Bounds are Q1 in every 2018/19-2024/25 paper; sphere packing and Singleton are both explicit in 2022/23-2024/25.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>t=floor((d-1)/2). Sphere packing: M sum_{i=0}^t C(n,i)(q-1)^i <= q^n. Singleton: M <= q<sup>n-d+1</sup>.</td><td>Perfect means equality in sphere packing; MDS means equality in Singleton.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Bounds are Q1 in every 2018/19-2024/25 paper; sphere packing and Singleton are both explicit in 2022/23-2024/25.</p>
+<h3>(a) For a ternary code n=8,d=3, give both upper bounds. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Set t=1. Calculate the ball volume 1+8(2)=17, then apply each formula.</p><p><strong>Mark-aware answer:</strong> Sphere packing gives M <= floor(3<sup>8</sup>/17)=385. Singleton gives M <= 3<sup>6</sup>=729. The sphere-packing bound is tighter here.</p><p><strong>Trap:</strong> Do not use d instead of t in the ball radius.</p>
+<h3>(b) Prove the Singleton bound for a q-ary (n,M,d) code. [6 marks]</h3><p><strong>Question demand:</strong> Delete d-1 fixed coordinates and use injectivity of the remaining words. <strong>Quickest route:</strong> Delete d-1 fixed coordinates and use injectivity of the remaining words.</p><p><strong>Mark-aware answer:</strong> Puncture any d-1 coordinates. If two codewords became equal, their original distance would be at most d-1, contradiction. Thus M distinct shortened words lie in q<sup>n-d+1</sup> possibilities, so M<=q<sup>n-d+1</sup>.</p><p><strong>Trap:</strong> Do not delete d coordinates; injectivity may then fail.</p>
+<h3>(c) Decide whether a code meeting the sphere-packing bound is perfect. [4 marks]</h3><p><strong>Question demand:</strong> State the equality criterion and radius t. <strong>Quickest route:</strong> State the equality criterion and radius t.</p><p><strong>Mark-aware answer:</strong> A code is perfect exactly when radius-t Hamming balls about its codewords are disjoint and cover the entire ambient space, equivalently equality holds in the sphere-packing bound.</p><p><strong>Trap:</strong> MDS refers to Singleton equality, not sphere-packing equality.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Bounds are Q1 in every 2018/19-2024/25 paper; sphere packing and Singleton are both explicit in 2022/23-2024/25. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+</article></main></body></html>

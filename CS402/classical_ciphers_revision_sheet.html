@@ -1,79 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS402 - Classical Ciphers</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav" aria-label="Navigation">
-<a href="details.html">CS402 Overview</a>
-<a href="symmetric_perfect_security_revision_sheet.html">Symmetric security</a>
-<a href="rsa_revision_sheet.html">RSA</a>
-</nav>
-<p class="eyebrow">CS402 Revision</p>
-<h1>Classical Ciphers</h1>
-<p>Secure the marks in shifts, affine/Hill arithmetic and short principles answers.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose</h2>
-<p>Classical ciphers are a dependable calculation-and-explanation cluster: translate letters to residues, state the convention, show modular workings, then interpret the result. They also make the modern security lesson tangible: the algorithm may be public; the key must not be.<strong>Exam use:</strong> Every symbol row, modular inverse, determinant/gcd test and final plaintext/ciphertext label is visible.</p>
-<h2>What the question asks, and plan</h2>
-<ol>
-<li>Write the alphabet/residue convention and modulus (usually <em>n</em>, or 27 if the paper defines a 27-symbol alphabet).</li>
-<li>Identify the map: shift, affine, or matrix/Hill; encryption and decryption reverse each other.</li>
-<li>Calculate every residue modulo <em>n</em>, converting only at the end.</li>
-<li>For a definition question, give the principle, consequence and one example.</li>
-<li><strong>Question interpretation:</strong> For calculate or decrypt, declare the alphabet convention and modulus before touching the symbols; for explain or assess, separate invertibility from security.</li>
-</ol>
-<h2>Terms and formulas</h2>
-<ul>
-<li>
-<strong>Caesar/shift:</strong> <em>E(x)=x+k mod n</em>; <em>D(y)=y-k mod n</em>.</li>
-<li>
-<strong>Affine:</strong> <em>E(x)=ax+b mod n</em>; it is invertible only if <em>gcd(a,n)=1</em>, and <em>D(y)=a⁻¹(y-b) mod n</em>.</li>
-<li>
-<strong>Hill:</strong> block vector <em>x</em> maps to <em>Kx mod n</em>; decrypt with <em>K⁻¹</em>, which exists iff <em>gcd(det K,n)=1</em>.</li>
-<li>
-<strong>Kerckhoffs's principle:</strong> security should depend on secrecy of the key, not secrecy of the algorithm.</li>
-<li><strong>Rapid recall:</strong> Affine keys require gcd(a,n)=1 and use a^{-1}; Hill keys require gcd(det K,n)=1 and K^{-1}=(det K)^{-1} adj(K) modulo n.</li>
-</ul>
-<h2>Derivation and method</h2>
-<p>Decryption must undo encryption. For affine encryption, subtract <em>b</em>, then multiply by the inverse of <em>a</em>: <em>a⁻¹(E(x)-b)=a⁻¹(ax)=x mod n</em>. For a Hill key, find the determinant, check it has a modular inverse, form the adjugate, multiply by that inverse, and reduce every entry modulo <em>n</em>. That invertibility check is a mark-saving first step.<strong>Exam workflow:</strong> Keep a residue row beside the letter row, reduce after every multiplication, and verify decryption by re-encrypting one block.</p>
-<h2>Fully worked simple example</h2>
-<p>Use A=0,…,Z=25 and affine key <em>a=5,b=8</em>. Encrypt H=7: <em>E(7)=5×7+8=43≡17</em>, so H becomes R. Decrypt R=17: <em>5⁻¹≡21 mod 26</em>; <em>D(17)=21(17-8)=189≡7</em>, giving H. The inverse exists because <em>gcd(5,26)=1</em>.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>Use A=0,...,Z=25 and K=[[3,3],[2,5]]. Since det K=9 and 9^{-1}=3 mod 26, K^{-1}=3[[5,-3],[-2,3]]=[[15,17],[20,9]]. Encrypt HI=(7,8)^T: Kx=(45,54)^T=(19,2)^T, so TC. Check: K^{-1}(19,2)^T=(319,398)^T=(7,8)^T, recovering HI. This also proves this key is usable; merely writing det K != 0 would not.</p>
-<h2>Two graded prompts</h2>
-<h3>1. Foundation — 6 marks</h3>
-<p>With A=0 and <em>E(x)=7x+3 mod 26</em>, encrypt C and state whether this is a valid affine key. <strong>Exam bridge:</strong> substitution (2), modular result (2), gcd validity (2). <strong>Check:</strong> C=2, so 17=P; <em>gcd(7,26)=1</em>.</p>
-<h3>2. Exam bridge — 8 marks</h3>
-<p>Explain why publishing a cipher algorithm is compatible with security, then state one weakness of a Caesar cipher. <strong>Check:</strong> name Kerckhoffs's principle; key secrecy is the assumption; only 26 shifts makes exhaustive search easy.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: with A=0 and E(x)=11x+7 mod 26, decrypt R and decide whether changing b to 8 affects invertibility. Check: 11^{-1}=19, so x=19(17-7)=190=8 mod 26, hence I; b changes the shift but invertibility still depends on gcd(11,26)=1.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Changing A=0/A=1 conventions halfway through.</li>
-<li>Using an affine multiplier with no inverse.</li>
-<li>Forgetting to reduce negative residues modulo <em>n</em>.</li>
-<li>Calling obscurity of an algorithm a security proof.</li>
-<li><strong>Recovery rule:</strong> If a negative residue appears, add a multiple of 26 before translating it back to a letter; do not silently switch A=0 to A=1.</li>
-</ul>
-<h2>Checklist</h2>
-<ul>
-<li>Convention and modulus stated?</li>
-<li>Inverse/existence check shown?</li>
-<li>All workings reduced modulo <em>n</em>?</li>
-<li>Definition answer includes consequence?</li>
-<li><strong>Final 60-second audit:</strong> Every symbol row, modular inverse, determinant/gcd test and final plaintext/ciphertext label is visible.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Shift, affine/Hill and Kerckhoffs-style questions recur in the 2018/19–2024/25 evidence. Vigenère appears only occasionally and is <strong>lower confidence</strong>; practise its mechanism but do not let it displace the core. The 2017/18 ten-question format is older evidence, not a format prediction. <a href="details.html">Back to CS402 overview.</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS402 - Classical Ciphers</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS402 Overview</a><a href="symmetric_perfect_security_revision_sheet.html">Symmetric security</a><a href="rsa_revision_sheet.html">RSA</a></nav><p class="eyebrow">CS402 Topic Guide</p><h1>Classical Ciphers</h1><p>Secure the marks in shifts, affine/Hill arithmetic and short principles answers.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>2018/19, 2021/22, 2022/23 and 2023/24 Q1 repeat a shift decode, a Hill/affine calculation and a short principle or Vigenere part.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Shift: C=P+k mod 27; affine: C=aP+b with gcd(a,27)=1; Hill: C=AP and P=A<sup>-1</sup>C; Vigenere adds a repeated key.</td><td>A shift uses one displacement; Hill uses invertible matrices; Kerckhoffs says the system may be public but the key secret.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> 2018/19, 2021/22, 2022/23 and 2023/24 Q1 repeat a shift decode, a Hill/affine calculation and a short principle or Vigenere part.</p>
+<h3>(a) Known E maps to S in Z<sub>27</sub>. Decode the first word of a ciphertext and explain why a non-unit Hill determinant is fatal. [5 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Find k=S-E mod 27, then subtract it from every symbol; for Hill check det(A) is a unit before inverting.</p><p><strong>Mark-aware answer:</strong> k=14 (with A=0,...,Z=25, space=26). Thus P=C-14 mod 27; write the converted first word. For Hill, det(A) must have gcd(det(A),27)=1 so A<sup>-1</sup> exists and decryption is unique.</p><p><strong>Trap:</strong> Do not use mod 26 when the paper gives the 27-character alphabet.</p>
+<h3>(b) Given A=[[2,3],[7,5]] over Z<sub>26</sub>, find A<sup>-1</sup>. [6 marks]</h3><p><strong>Question demand:</strong> Compute det=-11=15 mod 26; invert 15 mod 26, then multiply the adjugate. <strong>Quickest route:</strong> Compute det=-11=15 mod 26; invert 15 mod 26, then multiply the adjugate.</p><p><strong>Mark-aware answer:</strong> 15<sup>-1</sup>=7 mod 26. Thus A<sup>-1</sup>=7[[5,-3],[-7,2]]=[[9,5],[3,14]] mod 26. Check AA<sup>-1</sup>=I mod 26.</p><p><strong>Trap:</strong> Reducing negative entries is part of the calculation; do not use ordinary real inversion.</p>
+<h3>(c) Use the key FAB to encrypt BEATLES in the 27-symbol alphabet. [4 marks]</h3><p><strong>Question demand:</strong> Repeat key FABFABF, convert symbols to numbers, and add componentwise mod 27. <strong>Quickest route:</strong> Repeat key FABFABF, convert symbols to numbers, and add componentwise mod 27.</p><p><strong>Mark-aware answer:</strong> With A=0, F=5, B=1, the key values are 5,0,1,5,0,1,5. Add these to B,E,A,T,L,E,S modulo 27 and convert each resulting residue back using the stated table.</p><p><strong>Trap:</strong> A Vigenere key is repeated; it is not a single Caesar displacement.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>2018/19, 2021/22, 2022/23 and 2023/24 Q1 repeat a shift decode, a Hill/affine calculation and a short principle or Vigenere part. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS402 overview.</a></p>
+</article></main></body></html>

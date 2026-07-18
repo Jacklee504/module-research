@@ -1,80 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS4423 Secondary Applications</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CS4423 overview</a>
-</nav>
-<p class="eyebrow">CS4423 Topic Guide</p>
-<h1>Secondary Applications</h1>
-<p>Maintain coverage of older or intermittent applications without treating them as predictions.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose and relevance</h2>
-<p>Structural balance, game theory/markets, transport networks and PageRank connect network methods to applications mentioned in the official description. Local evidence makes them older or intermittent: revise after the core eight guide families and weight current teaching heavily.<strong>Exam use:</strong> Application-to-graph mapping, rule/metric, calculation, update convention and limitation are explicit.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Translate the story into a network model, state the relevant concept, carry out the small calculation/diagram, then explain the result and its assumptions. Begin by naming the application’s status as directed/signed/weighted where relevant.<strong>Question interpretation:</strong> Identify the named application model, define its nodes and edges, then separate a structural metric from a causal or domain claim.</p>
-<h2>Prerequisites, vocabulary and formulas</h2>
-<ul>
-<li>
-<strong>Structural balance:</strong> signed triangle is balanced when the product of signs is positive.</li>
-<li>
-<strong>PageRank:</strong> r=αPᵀr+(1−α)v; score flows through incoming links with damping.</li>
-<li>
-<strong>Game/network market:</strong> agents choose actions/links under incentives; equilibrium is no unilateral profitable deviation.</li>
-<li>
-<strong>Transport:</strong> weighted/directed edges may represent cost, time or capacity.</li>
-<li><strong>Rapid recall:</strong> Structural balance tests signed triads; assortativity compares endpoint attributes/degrees; community quality compares within-group connection to a baseline; diffusion rules require an explicit update convention.</li>
-</ul>
-<h2>Step-by-step method</h2>
-<ol>
-<li>Define nodes, edges, signs/weights and direction.</li>
-<li>Select the appropriate application concept.</li>
-<li>Show a small diagram, iteration or payoff comparison.</li>
-<li>Interpret realistically and state one modelling limitation.</li>
-<li><strong>Exam workflow:</strong> Translate the narrative into a small labelled graph, calculate the requested local quantity, and finish with one limitation of the model.</li>
-</ol>
-<h2>Worked starter question and model answer</h2>
-<p>
-<strong>Question:</strong> A signed triangle has +, −, − edges. Is it balanced?</p>
-<p>
-<strong>Model answer:</strong> The product is (+)(−)(−)=+, so it is balanced: two mutually opposed relationships can be consistent when both parties oppose the same third party.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>In a signed triangle with signs AB=+, BC=-, AC=-, the product is (+)(-)(-)=+, so the triad is balanced: A and B are friends sharing an enemy C. If AC flips to +, the product becomes negative and the triad is unbalanced. The calculation classifies the sign pattern; it does not prove the relationships will evolve toward balance.</p>
-<h2>Graduated practice</h2>
-<h3>Prompt 1</h3>
-<p>Why does PageRank use damping? <strong>Check:</strong> it prevents rank traps and represents random jumps, making a stable distribution possible.</p>
-<h3>Exam bridge</h3>
-<p>Model a web, market or transport scenario as a network and justify a measure/algorithm. <strong>Check:</strong> make representation choices explicit, apply the relevant method, interpret output, and name a limitation rather than overclaiming causality.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: a threshold node adopts when at least half its neighbours have adopted. On path A-B-C-D with A and D initially active, apply synchronous updates. Check B and C each see one of two neighbours active, so both adopt in round 1 and the cascade completes; asynchronous wording could change intermediate states and must be declared.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Calling a signed triangle balanced by visual intuition alone.</li>
-<li>Confusing PageRank with plain in-degree.</li>
-<li>Assuming a network model proves real-world causation.</li>
-<li><strong>Recovery rule:</strong> Do not infer causation from a network association or silently choose synchronous updates when the question leaves timing ambiguous.</li>
-</ul>
-<h2>Final checklist</h2>
-<ul>
-<li>Did I model the application precisely?</li>
-<li>Did I state assumptions?</li>
-<li>Did I label it secondary/intermittent?</li>
-<li><strong>Final 60-second audit:</strong> Application-to-graph mapping, rule/metric, calculation, update convention and limitation are explicit.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Structural balance, game theory, transport and PageRank are older/intermittent in 2017/18–2024/25 local evidence. The official module page mentions markets and document/web networks, but does not guarantee these methods or question positions.</p>
-<p>
-<a href="details.html">Back to CS4423 overview</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS4423 Secondary Applications</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS4423 overview</a></nav><p class="eyebrow">CS4423 Topic Guide</p><h1>Secondary Applications</h1><p>Maintain coverage of older or intermittent applications without treating them as predictions.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Background coverage only: structural balance, markets/game theory, transport and PageRank occur in older/intermittent local papers, unlike the stronger BFS/centrality/random-graph core.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Balance: a signed triangle is balanced when its signs multiply to positive. PageRank is a damped stationary distribution. Transport questions need a graph model before a metric.</td><td>Label this material lower priority and follow current teaching; it is not paper-predicted.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Background coverage only: structural balance, markets/game theory, transport and PageRank occur in older/intermittent local papers, unlike the stronger BFS/centrality/random-graph core.</p>
+<h3>(a) A signed triangle has edges +,+,-. Is it balanced, and what is the quickest check? [6 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Multiply signs or count negative edges.</p><p><strong>Mark-aware answer:</strong> The product is negative (one negative edge), so the triangle is unbalanced. Equivalently a balanced signed triangle has zero or two negative edges.</p><p><strong>Trap:</strong> Do not treat this background page as evidence of a fixed upcoming question.</p>
+<h3>(b) Write one PageRank update with damping d. [6 marks]</h3><p><strong>Question demand:</strong> State teleportation plus incoming contributions divided by out-degree. <strong>Quickest route:</strong> State teleportation plus incoming contributions divided by out-degree.</p><p><strong>Mark-aware answer:</strong> For N vertices, PR(v)=(1-d)/N+d sum<sub>u->v</sub>PR(u)/outdeg(u), with a stated dangling-node treatment. Iterate from an initial distribution until the requested tolerance.</p><p><strong>Trap:</strong> Do not pass all rank from a dangling node nowhere.</p>
+<h3>(c) Model a transport problem as a network and name one useful metric. [4 marks]</h3><p><strong>Question demand:</strong> Specify vertices, edges, weight/direction, then tie the metric to the question. <strong>Quickest route:</strong> Specify vertices, edges, weight/direction, then tie the metric to the question.</p><p><strong>Mark-aware answer:</strong> Represent stations as vertices and routes as edges; use directed/weighted edges if travel time differs by direction. Betweenness can identify transfer bottlenecks, while weighted shortest paths give fastest journeys.</p><p><strong>Trap:</strong> This is background coverage; do not assert it is a recent repeated family.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Background coverage only: structural balance, markets/game theory, transport and PageRank occur in older/intermittent local papers, unlike the stronger BFS/centrality/random-graph core. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS4423 overview.</a></p>
+</article></main></body></html>

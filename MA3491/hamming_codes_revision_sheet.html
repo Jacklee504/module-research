@@ -1,64 +1,13 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MA3491 Hamming Codes</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">MA3491 overview</a>
-</nav>
-<p class="eyebrow">MA3491 Topic Guide</p>
-<h1>Binary Hamming Codes</h1>
-<p>Distinct nonzero columns in H make each single-bit error announce its position.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose</h2>
-<p>Hamming codes are a compact construction of perfect single-error-correcting binary codes.<strong>Exam use:</strong> Parameters, column convention, syndrome arithmetic, flipped bit, parity recheck and perfect-code count appear.</p>
-<h2>Question plan</h2>
-<ol>
-<li>Set n=2<sup>m</sup>−1 and k=n−m.</li>
-<li>Make H whose columns are every nonzero m-bit vector once.</li>
-<li>Use C=ker H; row-reduce H to derive a G if requested.</li>
-<li>Decode a one-error word from its syndrome column.</li>
-<li><strong>Question interpretation:</strong> For construct, use each nonzero m-bit column once; for decode, read the syndrome as a column label under the stated ordering; for perfect, verify the sphere count.</li>
-</ol>
-<h2>Formulas</h2>
-<p>Binary Hamming code: [2<sup>m</sup>−1, 2<sup>m</sup>−1−m, 3]. It has 2<sup>n−m</sup> words and t=1; sphere packing is an equality.<strong>Rapid recall:</strong> Binary Hamming codes have [2^m-1,2^m-1-m,3]; distinct nonzero H columns correct one error, and 2^k(1+n)=2^n.</p>
-<h2>Derivation</h2>
-<p>No column of H is zero and no two columns agree, so a nonzero codeword cannot have weight 1 or 2; d≥3. Every nonzero syndrome is a column, so every one-bit error has a distinct syndrome. Counting gives 2<sup>k</sup>(1+n)=2<sup>n</sup>, hence perfect and d=3.<strong>Exam workflow:</strong> Freeze column order, derive G in systematic form if requested, calculate syndrome by XOR, correct one bit and check Hc^T=0.</p>
-<h2>Worked example</h2>
-<p>For m=3, n=7. Take H with columns 001,010,011,100,101,110,111. A syndrome 101 points to position 5, so flip bit 5.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>For m=3 choose H columns 001,010,011,100,101,110,111. If r=1101000, syndrome is 001 xor 010 xor 100=111, so flip bit 7 to get c=1101001. Recheck: 001 xor 010 xor 100 xor 111=000. The [7,4,3] code has 16 codewords and ball size 8, giving 16*8=128=2^7, hence perfect.</p>
-<h2>Graduated exam bridge</h2>
-<p>
-<strong>1.</strong> Give [n,k,d] for m=4. <strong>Check:</strong> [15,11,3].</p>
-<p>
-<strong>2.</strong> Construct H for m=3, prove it corrects one error, and verify the sphere-packing equality. <strong>Check:</strong> include both distinct-column and counting arguments.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: prove d_min=3 from the columns of H. Check no zero column rules out weight 1 and no repeated columns rules out weight 2; columns 001 xor 010 xor 011=0 exhibit a weight-3 codeword.</p>
-<h2>Mistakes</h2>
-<ul>
-<li>Including the zero column.</li>
-<li>Using n=2<sup>m</sup> rather than 2<sup>m</sup>−1.</li>
-<li>Reading syndrome bits in a different order from H.</li>
-<li><strong>Recovery rule:</strong> The binary value of a syndrome names a bit only if the column ordering uses that convention; otherwise locate the matching column directly.</li>
-</ul>
-<h2>Checklist</h2>
-<ul>
-<li>I can build H.</li>
-<li>I can recover n and k.</li>
-<li>I can explain perfect single-error correction.</li>
-<li><strong>Final 60-second audit:</strong> Parameters, column convention, syndrome arithmetic, flipped bit, parity recheck and perfect-code count appear.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Construction, parameters and single-error correction are exceptionally consistent across the 2018–2025 archive.</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>MA3491 Hamming Codes</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">MA3491 overview</a></nav><p class="eyebrow">MA3491 Topic Guide</p><h1>Binary Hamming Codes</h1><p>Distinct nonzero columns in H make each single-bit error announce its position.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Hamming codes are Q4 in every 2018/19-2024/25 paper, including construction, single-error decoding and perfection in 2024/25.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>Ham(r,q) has parity-check columns one representative of each 1-D subspace of Fq^r. Binary length 2^r-1, dimension n-r, d=3.</td><td>For one error ae_j, syndrome is a times column j; locate j and correct it.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Hamming codes are Q4 in every 2018/19-2024/25 paper, including construction, single-error decoding and perfection in 2024/25.</p>
+<h3>(a) Construct H for binary Ham(3,2) and decode a nonzero syndrome. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> List all seven nonzero 3-bit columns. Match syndrome to its column and flip that coordinate.</p><p><strong>Mark-aware answer:</strong> H has each nonzero vector in F2^3 once. If s equals column j, the received word has a single error in position j; flip that bit and recheck syndrome 0. It corrects one error because d=3.</p><p><strong>Trap:</strong> Do not include the zero column or duplicate a nonzero column.</p>
+<h3>(b) State the parameters of Ham(r,q) and prove its minimum distance is 3. [6 marks]</h3><p><strong>Question demand:</strong> Use one representative per 1-D subspace for length; rule out weights 1 and 2 from H columns; exhibit/argue a dependent triple. <strong>Quickest route:</strong> Use one representative per 1-D subspace for length; rule out weights 1 and 2 from H columns; exhibit/argue a dependent triple.</p><p><strong>Mark-aware answer:</strong> The length is n=(q<sup>r</sup>-1)/(q-1), dimension n-r, and d=3. No codeword has weight 1 because no H column is zero; none has weight 2 because no two columns are scalar multiples. Three suitable projective columns are dependent, giving a weight-3 codeword, hence d=3.</p><p><strong>Trap:</strong> For q>2, columns are projective representatives, not all nonzero vectors.</p>
+<h3>(c) Show why a Hamming code is perfect. [4 marks]</h3><p><strong>Question demand:</strong> Use t=1 and count radius-one balls against q<sup>n</sup>. <strong>Quickest route:</strong> Use t=1 and count radius-one balls against q<sup>n</sup>.</p><p><strong>Mark-aware answer:</strong> Each radius-one ball has 1+n(q-1)=q<sup>r</sup> words. With q<sup>n-r</sup> codewords, their total is q<sup>n</sup>. Since d=3 makes balls disjoint, they cover the space and the code is perfect.</p><p><strong>Trap:</strong> d=3 corrects one error; it does not correct two.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Hamming codes are Q4 in every 2018/19-2024/25 paper, including construction, single-error decoding and perfection in 2024/25. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+</article></main></body></html>

@@ -1,79 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS402 - Public-Key Protocols</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav" aria-label="Navigation">
-<a href="details.html">CS402 Overview</a>
-<a href="rsa_revision_sheet.html">RSA</a>
-<a href="elliptic_curve_cryptography_revision_sheet.html">Elliptic curves</a>
-</nav>
-<p class="eyebrow">CS402 Revision</p>
-<h1>Public-Key Protocols</h1>
-<p>Keep public values, secret exponents and attacker assumptions separate.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose</h2>
-<p>Diffie–Hellman and ElGamal questions reward a disciplined message flow. Mark every published value, calculate each party's result, then name the discrete-logarithm assumption and the authentication limitation.<strong>Exam use:</strong> Actors, public values, private values, shared result, assumption and authentication status are all labelled.</p>
-<h2>What the question asks, and plan</h2>
-<ol>
-<li>Write shared public parameters: group/modulus <em>p</em> and generator <em>g</em>.</li>
-<li>Name each secret exponent and derived public value.</li>
-<li>Use modular exponentiation to calculate the shared secret or ciphertext.</li>
-<li>Show why both expressions agree, then state an active-attacker caveat.</li>
-<li><strong>Question interpretation:</strong> For run, label public transmissions and private exponents; for attack or discuss, identify the missing authentication or nonce requirement rather than merely saying discrete logs are hard.</li>
-</ol>
-<h2>Terms and formulas</h2>
-<ul>
-<li>
-<strong>Discrete logarithm problem:</strong> given <em>g,gˣ</em> in a chosen group, recover <em>x</em>; intended hard problem for suitable parameters.</li>
-<li>
-<strong>Diffie–Hellman:</strong> Alice publishes <em>A=gᵃ</em>, Bob publishes <em>B=gᵇ</em>; both obtain <em>s=Bᵃ=Aᵇ=gᵃᵇ mod p</em>.</li>
-<li>
-<strong>ElGamal public key:</strong> <em>y=gˣ mod p</em>; encrypt message <em>m</em> with fresh <em>k</em>: <em>(c₁,c₂)=(gᵏ,m yᵏ) mod p</em>; decrypt with <em>m=c₂(c₁ˣ)⁻¹ mod p</em>.</li>
-<li>
-<strong>Authentication:</strong> assurance of peer identity; unauthenticated DH alone does not provide it.</li>
-<li><strong>Rapid recall:</strong> DH shares g^{ab}; ElGamal sends (g^k, m y^k) and recovers m by dividing by (g^k)^x; unauthenticated DH is vulnerable to man-in-the-middle substitution.</li>
-</ul>
-<h2>Derivation and method</h2>
-<p>DH works because exponent multiplication commutes: <em>(gᵃ)ᵇ=gᵃᵇ=(gᵇ)ᵃ</em>. In ElGamal, <em>c₁ˣ=(gᵏ)ˣ=gᵏˣ=yᵏ</em>, so multiplying <em>c₂</em> by its inverse removes the mask. Write this cancellation rather than only asserting it. Fresh <em>k</em> matters: reusing it can expose relations between messages.<strong>Exam workflow:</strong> Draw a two-column message flow, calculate powers by squaring, and finish with one sentence tying confidentiality or failure to the precise assumption.</p>
-<h2>Fully worked simple example</h2>
-<p>Use <em>p=23,g=5</em>. Alice takes <em>a=6</em>, hence <em>A=5⁶≡8</em>. Bob takes <em>b=15</em>, hence <em>B=5¹⁵≡19</em>. Alice obtains <em>19⁶≡2 mod 23</em>; Bob obtains <em>8¹⁵≡2 mod 23</em>. Their shared value is 2. These tiny parameters are only for arithmetic practice.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>Use ElGamal with p=23, g=5, private x=6, so y=5^6=8. Encrypt m=7 with k=3: c1=5^3=10 and y^k=8^3=6 mod 23, so c2=7*6=19. Decrypt: c1^x=10^6=6; 6^{-1}=4 mod 23, hence m=19*4=76=7. Reusing k would repeat c1 and relate the masked messages.</p>
-<h2>Two graded prompts</h2>
-<h3>1. Foundation — 7 marks</h3>
-<p>For <em>p=23,g=5,a=4,b=3</em>, calculate A, B and the shared secret. <strong>Exam bridge:</strong> public values (3), both secret computations (3), equality/explanation (1). <strong>Check:</strong> A=4, B=10, shared secret=18.</p>
-<h3>2. Exam bridge — 8 marks</h3>
-<p>Why does ordinary Diffie–Hellman not by itself prevent a man-in-the-middle attack? Give one remedy. <strong>Check:</strong> attacker can replace public values and negotiate separate secrets; authenticate keys/messages, e.g. signatures/certificates.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: Mallory replaces both DH public values in an unauthenticated exchange. Explain the two resulting secrets. Check: Alice shares g^{am} with Mallory and Bob shares g^{bm} with Mallory; Alice and Bob do not share g^{ab}, so the discrete-log problem was not broken.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Publishing an exponent instead of its group power.</li>
-<li>Using the same exponent/nonce notation for separate parties.</li>
-<li>Assuming confidentiality automatically authenticates a peer.</li>
-<li>Reusing ElGamal's ephemeral <em>k</em>.</li>
-<li><strong>Recovery rule:</strong> Never describe a transmitted group element as the secret exponent; write A=g^a (public) and a (private) separately.</li>
-</ul>
-<h2>Checklist</h2>
-<ul>
-<li>Public versus secret values labelled?</li>
-<li>All powers reduced mod p?</li>
-<li>Agreement/cancellation derived?</li>
-<li>Hardness and authentication limitations stated?</li>
-<li><strong>Final 60-second audit:</strong> Actors, public values, private values, shared result, assumption and authentication status are all labelled.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Diffie–Hellman and ElGamal calculations/reasoning recur in Q4-area evidence and are explicit official learning outcomes. Treat exact protocol variants and parameter conventions as current-teaching dependent. <a href="details.html">Back to CS402 overview.</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS402 - Public-Key Protocols</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS402 Overview</a><a href="rsa_revision_sheet.html">RSA</a><a href="elliptic_curve_cryptography_revision_sheet.html">Elliptic curves</a></nav><p class="eyebrow">CS402 Topic Guide</p><h1>Public-Key Protocols</h1><p>Keep public values, secret exponents and attacker assumptions separate.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Diffie-Hellman and ElGamal appear in the 2017/18-2024/25 archive, most often as a Q3/Q4 numerical protocol part.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>DH: publish g,a=g<sup>x</sup>,b=g<sup>y</sup>; shared s=b<sup>x</sup>=a<sup>y</sup>. ElGamal encrypts with a fresh r and masks using h<sup>r</sup>.</td><td>Security is based on discrete-log/DH hardness in the selected group; all exponentiation is modulo the group modulus.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Diffie-Hellman and ElGamal appear in the 2017/18-2024/25 archive, most often as a Q3/Q4 numerical protocol part.</p>
+<h3>(a) In Z*<sub>29</sub> with g=2, Alice chooses x=5 and Bob y=4. Find public values and shared key. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Compute A=2<sup>5</sup>, B=2<sup>4</sup> mod 29, then B<sup>5</sup> (or A<sup>4</sup>) by squaring.</p><p><strong>Mark-aware answer:</strong> A=3 and B=16. The shared key is 16<sup>5</sup>=25 mod 29, equal to 3<sup>4</sup>. Alice and Bob publish A,B, not x,y.</p><p><strong>Trap:</strong> Do not transmit the shared key or treat g as secret.</p>
+<h3>(b) Describe ElGamal key generation, encryption and decryption in a cyclic group. [6 marks]</h3><p><strong>Question demand:</strong> Name g,x,h=g<sup>x</sup>; use fresh r; show the inverse cancellation. <strong>Quickest route:</strong> Name g,x,h=g<sup>x</sup>; use fresh r; show the inverse cancellation.</p><p><strong>Mark-aware answer:</strong> Publish (G,g,h) with h=g<sup>x</sup>. Encrypt m using fresh r as (c1,c2)=(g<sup>r</sup>,m h<sup>r</sup>). Decrypt c2(c1<sup>x</sup>)<sup>-1</sup>=m because c1<sup>x</sup>=g<sup>rx</sup>=h<sup>r</sup>.</p><p><strong>Trap:</strong> Reusing r can leak relations between messages.</p>
+<h3>(c) Explain the man-in-the-middle weakness of unauthenticated Diffie-Hellman. [4 marks]</h3><p><strong>Question demand:</strong> Identify the substituted public values and the two different keys. <strong>Quickest route:</strong> Identify the substituted public values and the two different keys.</p><p><strong>Mark-aware answer:</strong> An attacker can replace Alice's A with E<sub>A</sub> to Bob and Bob's B with E<sub>B</sub> to Alice. The attacker then shares one key with Alice and another with Bob, relaying/decrypting/re-encrypting traffic. Authentication binds public values to identities.</p><p><strong>Trap:</strong> DH alone establishes a key, not peer identity.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Diffie-Hellman and ElGamal appear in the 2017/18-2024/25 archive, most often as a Q3/Q4 numerical protocol part. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS402 overview.</a></p>
+</article></main></body></html>

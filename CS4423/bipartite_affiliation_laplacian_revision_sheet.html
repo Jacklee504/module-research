@@ -1,79 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS4423 Bipartite and Laplacian Networks</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CS4423 overview</a>
-</nav>
-<p class="eyebrow">CS4423 Topic Guide</p>
-<h1>Bipartite, Affiliation and Laplacian Networks</h1>
-<p>Keep two node types separate, then project or reconstruct with care.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose and relevance</h2>
-<p>Affiliation networks model membership between two kinds of entity; projections expose one-mode relationships. They appeared as newer local material, alongside Laplacian reconstruction, so treat them as current-syllabus coverage rather than a long repeat claim.<strong>Exam use:</strong> Node modes, matrix order, diagonal/weight convention, degree matrix and zero row-sum check are explicit.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Identify the two disjoint sets and write the incidence matrix B. For a projection, say which set is retained and whether weights count shared affiliations. For a Laplacian, use L=D−A and recover off-diagonal adjacency carefully.<strong>Question interpretation:</strong> For project, state which mode is retained and whether weights count shared affiliations; for Laplacian, preserve vertex order and distinguish D-A from adjacency.</p>
-<h2>Prerequisites, vocabulary and formulas</h2>
-<ul>
-<li>
-<strong>Bipartite:</strong> V=U∪W with edges only U–W.</li>
-<li>
-<strong>Incidence matrix</strong> B: Bᵢⱼ=1 when Uᵢ is affiliated with Wⱼ.</li>
-<li>One-mode projections: BBᵀ and BᵀB; off-diagonals count shared neighbours.</li>
-<li>
-<strong>Laplacian:</strong> L=D−A; Lᵢᵢ=deg(i), Lᵢⱼ=−Aᵢⱼ for i≠j.</li>
-<li><strong>Rapid recall:</strong> For incidence matrix B, one-mode projections are BB^T and B^TB (with diagonal often removed); the combinatorial Laplacian is L=D-A and L1=0.</li>
-</ul>
-<h2>Step-by-step method</h2>
-<ol>
-<li>List U and W separately; construct B with stated order.</li>
-<li>Multiply/select a projection and interpret its diagonal/off-diagonal entries.</li>
-<li>For L, read degrees from diagonal and Aᵢⱼ=−Lᵢⱼ off diagonal.</li>
-<li>Check symmetry and zero row sums for a simple undirected Laplacian.</li>
-<li><strong>Exam workflow:</strong> Label matrix rows and columns, multiply entrywise as shared-neighbour counts, then explain diagonal and weight conventions.</li>
-</ol>
-<h2>Worked starter question and model answer</h2>
-<p>
-<strong>Question:</strong> Students S1,S2 attend events E1,E2; S1 attends both, S2 only E2. What is the student projection?</p>
-<p>
-<strong>Model answer:</strong> B=[[1,1],[0,1]], so BBᵀ=[[2,1],[1,1]]. Ignoring diagonal self-counts, S1–S2 has weight 1 because they share E2.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>Let people p1,p2,p3 attend groups g1,g2 with B=[[1,1],[1,0],[0,1]]. Then BB^T=[[2,1,1],[1,1,0],[1,0,1]]. Removing the diagonal gives weighted person projection A=[[0,1,1],[1,0,0],[1,0,0]], degrees (2,1,1), and L=[[2,-1,-1],[-1,1,0],[-1,0,1]]. Each row sum is 0, providing a quick check.</p>
-<h2>Graduated practice</h2>
-<h3>Prompt 1</h3>
-<p>If Lᵢⱼ=−1 for i≠j in a simple graph, what is Aᵢⱼ? <strong>Check:</strong> 1: there is an edge.</p>
-<h3>Exam bridge</h3>
-<p>Construct an affiliation matrix, its projection and a graph from a Laplacian. <strong>Check:</strong> state node orders, interpret projection weights, use L=D−A, and check row sums.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: find the eigenvalue-0 multiplicity of that projection and interpret it. Check the projected graph is connected, so the multiplicity is 1; vector (1,1,1)^T spans the nullspace.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Joining nodes from the same bipartition directly in B.</li>
-<li>Treating projection diagonal as an ordinary edge weight.</li>
-<li>Forgetting Laplacian off-diagonals are negative adjacency.</li>
-<li><strong>Recovery rule:</strong> A projection diagonal records affiliation counts, not self-loops unless the question explicitly keeps it.</li>
-</ul>
-<h2>Final checklist</h2>
-<ul>
-<li>Are the two node sets explicit?</li>
-<li>Did I state the projection meaning?</li>
-<li>Does L have zero row sums?</li>
-<li><strong>Final 60-second audit:</strong> Node modes, matrix order, diagonal/weight convention, degree matrix and zero row-sum check are explicit.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Affiliation/bipartite networks, projections and Laplacian reconstruction are newer local additions, notably 2024/25. Official scope supports graph representation/traversal broadly; revise from current notes too.</p>
-<p>
-<a href="details.html">Back to CS4423 overview</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS4423 Bipartite and Laplacian Networks</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS4423 overview</a></nav><p class="eyebrow">CS4423 Topic Guide</p><h1>Bipartite, Affiliation and Laplacian Networks</h1><p>Keep two node types separate, then project or reconstruct with care.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Affiliation/bipartite and Laplacian material is newer local evidence, especially 2024/25; treat it as current coverage rather than a repeat prediction.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>For incidence B (people x groups), BB<sup>T</sup> gives a person projection and B<sup>T</sup>B a group projection; remove/interpret diagonal. L=D-A has zero row sums.</td><td>Bipartite edges only cross modes. Off-diagonal L entries are -A<sub>ij</sub>; diagonal is degree.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Affiliation/bipartite and Laplacian material is newer local evidence, especially 2024/25; treat it as current coverage rather than a repeat prediction.</p>
+<h3>(a) Given B, form a one-mode projection and state what an off-diagonal weight counts. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Fix row/column modes; multiply B by its transpose; interpret diagonal separately.</p><p><strong>Mark-aware answer:</strong> (BB<sup>T</sup>)<sub>ij</sub> counts groups shared by people i and j; its diagonal counts each person’s memberships. A projection is weighted unless deliberately thresholded.</p><p><strong>Trap:</strong> Do not mix B B<sup>T</sup> with B<sup>T</sup>B.</p>
+<h3>(b) Given L=D-A, reconstruct A and verify it is a graph Laplacian. [6 marks]</h3><p><strong>Question demand:</strong> Read A<sub>ij</sub>=-L<sub>ij</sub> off diagonal; verify diagonal degree and row sums. <strong>Quickest route:</strong> Read A<sub>ij</sub>=-L<sub>ij</sub> off diagonal; verify diagonal degree and row sums.</p><p><strong>Mark-aware answer:</strong> Set A<sub>ij</sub>=-L<sub>ij</sub> for i!=j and A<sub>ii</sub>=0. A valid simple-graph Laplacian is symmetric, has nonpositive off-diagonals, diagonal L<sub>ii</sub>=sum A<sub>ij</sub>, and every row sum zero.</p><p><strong>Trap:</strong> Do not copy diagonal entries of L into A.</p>
+<h3>(c) Explain what diagonal entries of BB<sup>T</sup> mean. [4 marks]</h3><p><strong>Question demand:</strong> Use the row as a membership indicator. <strong>Quickest route:</strong> Use the row as a membership indicator.</p><p><strong>Mark-aware answer:</strong> (BB<sup>T</sup>)<sub>ii</sub> is the dot product of person i's membership row with itself, so it counts that person's affiliations. It is not a self-loop unless the projection convention deliberately retains it.</p><p><strong>Trap:</strong> Remove or report the diagonal before interpreting a simple one-mode graph.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Affiliation/bipartite and Laplacian material is newer local evidence, especially 2024/25; treat it as current coverage rather than a repeat prediction. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS4423 overview.</a></p>
+</article></main></body></html>

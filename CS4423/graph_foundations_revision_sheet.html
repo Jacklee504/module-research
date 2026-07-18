@@ -1,79 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS4423 Graph Foundations</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CS4423 overview</a>
-</nav>
-<p class="eyebrow">CS4423 Topic Guide</p>
-<h1>Graph Foundations</h1>
-<p>Describe a network precisely before trying to analyse it.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose and relevance</h2>
-<p>Graph language turns a network into an object that can be counted, represented and analysed. It is foundational to the official outcome “describe a network in graph-theoretic terms”.<strong>Exam use:</strong> Vertex order, edge convention, matrix symmetry, row sums and an independent degree-sum check are visible.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>State whether it is directed, weighted, simple or bipartite; define vertices and edges; then give the requested order, size, degrees or matrix. Label every representation.<strong>Question interpretation:</strong> For represent, state simple/directed/weighted conventions; for derive a matrix or degree sequence, fix vertex order first; for prove, use the handshake identity with the right edge convention.</p>
-<h2>Prerequisites, vocabulary and formulas</h2>
-<ul>
-<li>
-<strong>Order</strong> n=|V|; <strong>size</strong> m=|E|.</li>
-<li>Undirected: Σdeg(v)=2m. Directed: Σin-deg=Σout-deg=m.</li>
-<li>
-<strong>Tree:</strong> connected acyclic graph.</li>
-<li>
-<strong>Adjacency matrix:</strong> Aᵢⱼ=1 (or a weight) when i is adjacent to j.</li>
-<li><strong>Rapid recall:</strong> For a simple undirected graph sum_v deg(v)=2|E|; adjacency is symmetric with zero diagonal; a simple graph with n vertices has at most n(n-1)/2 edges.</li>
-</ul>
-<h2>Step-by-step method</h2>
-<ol>
-<li>List V and E, including directions/weights.</li>
-<li>Count n and m; tabulate degrees.</li>
-<li>Use the handshaking check.</li>
-<li>Build A in one stated vertex order.</li>
-<li><strong>Exam workflow:</strong> Write V and E, freeze an ordering, construct the adjacency list and matrix independently, then use row sums and the handshake lemma as checks.</li>
-</ol>
-<h2>Worked starter question and model answer</h2>
-<p>
-<strong>Question:</strong> V={A,B,C}, E={{A,B},{B,C}}. Give n, m, degrees and A in order A,B,C.</p>
-<p>
-<strong>Model answer:</strong> n=3, m=2; degrees are 1,2,1 and sum to 4=2m. A=[[0,1,0],[1,0,1],[0,1,0]]. It is a connected tree.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>For V={a,b,c,d} and E={ab,ac,bc,cd}, order a,b,c,d. The adjacency rows are 0 1 1 0; 1 0 1 0; 1 1 0 1; 0 0 1 0. Degrees (2,2,3,1) sum to 8=2|E|. The graph is connected, contains triangle abc, and is not bipartite because of that odd cycle.</p>
-<h2>Graduated practice</h2>
-<h3>Prompt 1</h3>
-<p>A→B, A→C, C→A: give A’s degrees. <strong>Check:</strong> in=1, out=2.</p>
-<h3>Exam bridge</h3>
-<p>Represent an attributed transport or social network and explain graph choices. <strong>Check:</strong> define vertex/edge semantics, justify direction/weight, give a labelled representation and one limitation.</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: can a simple graph have degree sequence (3,3,1,1)? Check the sum is 8, but Havel-Hakimi gives (2,0,0) after removing a 3, then (-1,-1) after removing 2; therefore it is not graphical.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Counting an undirected edge twice.</li>
-<li>Using a symmetric matrix for a directed graph.</li>
-<li>Calling every connected graph a tree.</li>
-<li><strong>Recovery rule:</strong> A plausible even degree sum is necessary but not sufficient for a sequence to be graphical.</li>
-</ul>
-<h2>Final checklist</h2>
-<ul>
-<li>Did I define vertices and edges?</li>
-<li>Are labels and directions explicit?</li>
-<li>Did I check degree sums?</li>
-<li><strong>Final 60-second audit:</strong> Vertex order, edge convention, matrix symmetry, row sums and an independent degree-sum check are visible.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Definitions, trees, order/size, directed graphs and matrices recur across 2017/18–2024/25 local papers. This is core official scope, not a promised question.</p>
-<p>
-<a href="details.html">Back to CS4423 overview</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS4423 Graph Foundations</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS4423 overview</a></nav><p class="eyebrow">CS4423 Topic Guide</p><h1>Graph Foundations</h1><p>Describe a network precisely before trying to analyse it.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Graph definitions, order/size, directed edges and adjacency matrices recur across 2017/18-2024/25; they underpin the recurring traversal and centrality questions.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>For simple undirected G=(V,E), order=|V|, size=|E|, sum degrees=2|E|. A is symmetric and row sums give degrees.</td><td>For directed graphs distinguish in- and out-degree; a loop and parallel-edge convention must be stated.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Graph definitions, order/size, directed edges and adjacency matrices recur across 2017/18-2024/25; they underpin the recurring traversal and centrality questions.</p>
+<h3>(a) Given an undirected edge list, form A and verify the degree sum. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Fix a vertex order; put A<sub>ij</sub>=1 exactly when {v<sub>i</sub>,v<sub>j</sub>} is an edge; read row sums.</p><p><strong>Mark-aware answer:</strong> A is symmetric with zero diagonal for a simple loop-free graph. Sum the row degrees and check it equals twice the stated number of edges; this catches omitted or doubled edges.</p><p><strong>Trap:</strong> Do not silently change a directed graph into an undirected one.</p>
+<h3>(b) State and prove the handshaking lemma for a simple undirected graph. [6 marks]</h3><p><strong>Question demand:</strong> Count edge incidences two ways. <strong>Quickest route:</strong> Count edge incidences two ways.</p><p><strong>Mark-aware answer:</strong> Each edge has exactly two endpoints, so counting incidences by edges gives 2|E|. Counting them by vertices gives sum<sub>v</sub>deg(v). Therefore sum degrees=2|E|, and in particular the number of odd-degree vertices is even.</p><p><strong>Trap:</strong> Loops or directed edges require a stated convention.</p>
+<h3>(c) Convert an adjacency matrix to a degree list and identify an isolated vertex. [4 marks]</h3><p><strong>Question demand:</strong> Sum each row (and use symmetry only if the graph is undirected). <strong>Quickest route:</strong> Sum each row (and use symmetry only if the graph is undirected).</p><p><strong>Mark-aware answer:</strong> For a simple undirected graph, row i sum equals deg(v_i); a zero row identifies an isolated vertex. Check the total against twice the number of 1s above the diagonal.</p><p><strong>Trap:</strong> Counting both halves of a symmetric matrix as edges doubles the size.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Graph definitions, order/size, directed edges and adjacency matrices recur across 2017/18-2024/25; they underpin the recurring traversal and centrality questions. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS4423 overview.</a></p>
+</article></main></body></html>

@@ -1,81 +1,14 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CS402 - Elliptic-Curve Cryptography</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav" aria-label="Navigation">
-<a href="details.html">CS402 Overview</a>
-<a href="number_theory_primality_revision_sheet.html">Number theory</a>
-<a href="public_key_protocols_revision_sheet.html">Public-key protocols</a>
-</nav>
-<p class="eyebrow">CS402 Revision</p>
-<h1>Elliptic-Curve Cryptography</h1>
-<p>Work in a finite field, respect exceptional cases, and make the group law visible.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Purpose</h2>
-<p>ECC questions usually ask you to enumerate or combine points on a small curve. The aim is not real-world parameters: show finite-field arithmetic, identify inverse/order-two points, and connect the point group to a discrete-logarithm public-key construction.<strong>Exam use:</strong> Curve membership, exceptional case, inverse, reduced coordinates and an independent substitution check all appear.</p>
-<h2>What the question asks, and plan</h2>
-<ol>
-<li>Write the curve and field: <em>y²=x³+ax+b mod p</em>, with the stated prime <em>p</em>.</li>
-<li>For listing, tabulate squares/right-hand sides and retain matching residues.</li>
-<li>For addition, first test exceptional cases: identity, inverse points, or doubling.</li>
-<li>Calculate slope with a modular inverse, then x- and y-coordinates, reducing each modulo <em>p</em>.</li>
-<li><strong>Question interpretation:</strong> For list, test every field element; for add or double, identify the exceptional case before using a slope; for order, show the successive multiples until O.</li>
-</ol>
-<h2>Terms and formulas</h2>
-<ul>
-<li>
-<strong>Identity O:</strong> <em>P+O=P</em>; inverse of <em>(x,y)</em> is <em>(x,−y mod p)</em>.</li>
-<li>
-<strong>Order two:</strong> non-identity <em>P</em> with <em>2P=O</em>; over odd <em>p</em>, this means <em>y=0</em>.</li>
-<li>
-<strong>Addition, P≠Q:</strong> <em>λ=(y₂−y₁)(x₂−x₁)⁻¹</em>, <em>x₃=λ²−x₁−x₂</em>, <em>y₃=λ(x₁−x₃)−y₁</em> mod <em>p</em>.</li>
-<li>
-<strong>Doubling:</strong> <em>λ=(3x₁²+a)(2y₁)⁻¹ mod p</em>, then use the same coordinate formulas.</li>
-<li>
-<strong>ECC intuition:</strong> public <em>Q=dP</em>; recover <em>d</em> from P,Q is the elliptic-curve discrete-log problem for secure parameters.</li>
-<li><strong>Rapid recall:</strong> On y^2=x^3+ax+b over F_p, -P=(x,-y); P+(-P)=O; doubling uses lambda=(3x^2+a)(2y)^{-1}, unless y=0, when 2P=O.</li>
-</ul>
-<h2>Derivation and method</h2>
-<p>The usual real-number chord-and-tangent construction becomes algebra in a finite field: division means multiply by an inverse modulo <em>p</em>. If <em>Q=−P</em>, the vertical line gives O, so no slope inverse is needed. If <em>y=0</em>, P is its own inverse and has order two. These cases should be checked before applying a generic formula.<strong>Exam workflow:</strong> Check that supplied points lie on the curve, compute each inverse with a one-line congruence, and substitute the result back into the curve equation.</p>
-<h2>Fully worked simple example</h2>
-<p>On <em>y²=x³+2x+2 mod 17</em>, take P=(5,1). Double it: <em>λ=(3·25+2)(2)⁻¹=77·9≡9·9≡13 mod 17</em>. Then <em>x₃=13²−10=159≡6</em>; <em>y₃=13(5−6)−1=−14≡3</em>. Thus <em>2P=(6,3)</em>. Every inverse and reduction is shown, so the method can be checked.</p>
-<h3>Medium/hard paper-style synthesis</h3>
-<p>On y^2=x^3+2x+2 mod 17 with P=(5,1), the starter gives 2P=(6,3). Now compute 3P=2P+P: lambda=(1-3)(5-6)^{-1}=(-2)(-1)^{-1}=2 mod 17. Hence x_3=2^2-6-5=-7=10 and y_3=2(6-10)-3=-11=6, so 3P=(10,6). Verify 6^2=36=2 and 10^3+20+2=1022=2 mod 17.</p>
-<h2>Two graded prompts</h2>
-<h3>1. Foundation — 6 marks</h3>
-<p>On an odd-prime field curve, explain why a point (x,0) has order two. <strong>Exam bridge:</strong> inverse definition (3), conclude P=−P and P+P=O (3). <strong>Check:</strong> do not claim O has order two.</p>
-<h3>2. Exam bridge — 9 marks</h3>
-<p>Given a stated curve and two points P,Q, calculate P+Q and list the exceptional case you checked first. <strong>Check:</strong> slope inverse (3), coordinates (4), modular reductions and exceptional-case statement (2).</p>
-<h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: on y^2=x^3+x+1 over F_5, list all points and identify every order-two point. Check squares are {0,1,4}; the affine points are (0,1),(0,4),(2,1),(2,4),(3,1),(3,4),(4,2),(4,3), plus O, and there is no affine point with y=0, hence no order-two point.</p>
-<h2>Common mistakes</h2>
-<ul>
-<li>Using ordinary division instead of a modular inverse.</li>
-<li>Forgetting O or treating P+(−P) with the generic slope formula.</li>
-<li>Using the wrong sign in the y-coordinate formula.</li>
-<li>Confusing point order with field size.</li>
-<li><strong>Recovery rule:</strong> A zero denominator is a case split, not an invitation to divide: decide whether the points are inverses or whether a tangent is vertical.</li>
-</ul>
-<h2>Checklist</h2>
-<ul>
-<li>Curve/field and point membership stated?</li>
-<li>Exceptional cases checked first?</li>
-<li>Each inverse justified?</li>
-<li>Coordinates reduced modulo p?</li>
-<li><strong>Final 60-second audit:</strong> Curve membership, exceptional case, inverse, reduced coordinates and an independent substitution check all appear.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Finite-field point listing, order-two points and point arithmetic are visible in the later archived Q4 material and ECC is an official outcome. Exact curve forms and depth may change with teaching, so practise the general group-law method. <a href="details.html">Back to CS402 overview.</a>
-</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CS402 - Elliptic-Curve Cryptography</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CS402 Overview</a><a href="number_theory_primality_revision_sheet.html">Number theory</a><a href="public_key_protocols_revision_sheet.html">Public-key protocols</a></nav><p class="eyebrow">CS402 Topic Guide</p><h1>Elliptic-Curve Cryptography</h1><p>Work in a finite field, respect exceptional cases, and make the group law visible.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the local papers support</h2><p>Elliptic-curve descriptions or finite-field point calculations occur in 2018/19-2024/25 Q4, including order-2 points in 2022/23 and 2024/25.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Core rule</th><th>Exam distinction</th></tr></thead><tbody><tr><td>E: y<sup>2</sup>=x<sup>3</sup>+ax+b plus O. P+(x,y)=O iff y=0. Addition uses chord/tangent slope modulo p; reflect the third intersection.</td><td>Check nonsingularity and calculate in F<sub>p</sub>, not real-number arithmetic.</td></tr></tbody></table>
+<h2>Medium/hard adapted practice</h2><p><strong>Paper family:</strong> Elliptic-curve descriptions or finite-field point calculations occur in 2018/19-2024/25 Q4, including order-2 points in 2022/23 and 2024/25.</p>
+<h3>(a) List the points of y<sup>2</sup>=x<sup>3</sup>+2x<sup>2</sup>+2x over F<sub>5</sub> and identify an order-2 point. [8 marks]</h3><p><strong>Question demand:</strong> apply the definition/calculation with working. <strong>Quickest route:</strong> Tabulate squares y<sup>2</sup> in F5, evaluate the right side for x=0,...,4, add O, then use y=0 for order 2.</p><p><strong>Mark-aware answer:</strong> Right sides are 0,0,1,3,1. Hence points are (0,0),(1,0),(2,+/-1),(4,+/-1),O. (0,0) and (1,0) have order 2 because each equals its own inverse.</p><p><strong>Trap:</strong> Do not forget O or assume every x gives two points.</p>
+<h3>(b) State the exceptional cases in P+Q on an elliptic curve. [6 marks]</h3><p><strong>Question demand:</strong> Separate O, inverse points, distinct x values, and doubling. <strong>Quickest route:</strong> Separate O, inverse points, distinct x values, and doubling.</p><p><strong>Mark-aware answer:</strong> O is the identity. If Q=-P, then P+Q=O. For P!=Q with x<sub>P</sub>!=x<sub>Q</sub>, use slope (yQ-yP)/(xQ-xP); for P=Q with yP!=0 use (3xP<sup>2</sup>+a)/(2yP). If yP=0, then 2P=O.</p><p><strong>Trap:</strong> Division means multiplication by a nonzero inverse in the field.</p>
+<h3>(c) Why is the discriminant/non-singularity condition needed? [4 marks]</h3><p><strong>Question demand:</strong> State what failure creates and its effect on the group law. <strong>Quickest route:</strong> State what failure creates and its effect on the group law.</p><p><strong>Mark-aware answer:</strong> If the cubic has a repeated root, the curve is singular (a cusp or node). The usual chord-and-tangent formulas no longer give the intended elliptic-curve group. Non-singularity ensures a well-defined abelian group with O.</p><p><strong>Trap:</strong> Do not treat every cubic equation as an elliptic curve.</p>
+<h2>60-second exam audit</h2><ul><li>Have I named the object, convention and requested output?</li><li>Is every calculation/proof step visible enough to earn method marks?</li><li>Have I checked the topic-specific trap above?</li></ul>
+<h2>Past-paper basis</h2><p>Elliptic-curve descriptions or finite-field point calculations occur in 2018/19-2024/25 Q4, including order-2 points in 2022/23 and 2024/25. Practice is adapted, not copied verbatim, and retains the local multi-part, mark-allocation style.</p>
+<p><a href="details.html">Back to CS402 overview.</a></p>
+</article></main></body></html>
