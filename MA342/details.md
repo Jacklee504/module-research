@@ -24,11 +24,11 @@ module_url: https://www.universityofgalway.ie/course-information/module/MA342
 - Semester: Semester 2.
 - Current module page validity: Valid from 2025 onwards.
 - Current teachers/administrators: Mary Kelly, Collette McLoughlin, Tobias Rossmann.
-- Lecturer/staff-change risk: Low-medium for the latest paper style. Tobias Rossmann is the starred lecturer on the 2023-2024 and 2024-2025 papers and is also listed on the current page. Niall Madden appears as an unstarred internal examiner on those papers, so he should not be treated as the main lecturer-change risk.
+- Lecturer/staff-change risk: Low for the latest paper style. Tobias Rossmann is the starred lecturer on the 2023-2024, 2024-2025 and 2025-2026 papers and is also listed on the current page. The other internal examiner changed from Niall Madden to James Cruickshank in 2025-2026 without changing the four-question structure or core topic pattern.
 
 ## Recommendation
 
-MA342 is more predictable if you focus on the latest two papers rather than the full archive. The 2023-2024 and 2024-2025 papers have a very similar structure: four compulsory questions, each split into short definition/proof/application parts. The older papers are still useful for concepts, but they include Euler characteristic, Euler integrals, Brouwer/Nash/game theory style applications that are much less visible in the newest format.
+MA342 is more predictable if you focus on the latest three papers rather than the full archive. The 2023-2024, 2024-2025 and 2025-2026 papers share the same structure: four compulsory 25-mark questions, each split into short definition, example/counterexample and proof parts. The 2025-2026 paper strongly confirms that this is now a stable format. The older papers are still useful for concepts, but they include Euler characteristic, Euler integrals, Brouwer/Nash/game theory style applications that are absent from the latest three papers.
 
 This is not a good CA-maximisation pick because it is 70% exam / 30% CA. It may still be manageable if you like definitions, short proofs, compactness/connectedness arguments, quotient/product/subspace topologies and homeomorphism questions.
 
@@ -59,8 +59,7 @@ Source: https://www.universityofgalway.ie/course-information/module/MA342
 - 2022-2023
 - 2023-2024
 - 2024-2025
-
-No 2025-2026 paper was present locally at the time of review.
+- 2025-2026
 
 ## Exam Format
 
@@ -74,21 +73,21 @@ The format changed substantially across the archive:
   - Attempt 8 of 10 questions.
   - 10 questions, 25 marks each, total 200 available marks.
   - Transitional paper mixing old and newer styles.
-- 2023-2024 and 2024-2025:
+- 2023-2024, 2024-2025 and 2025-2026:
   - Answer all 4 questions.
   - Each question worth 25 marks.
   - Short, structured parts focused on core point-set topology.
 
-The most relevant prediction evidence is the latest two papers.
+The most relevant prediction evidence is the latest three papers. The 2025-2026 paper retains a two-hour duration and distributes the 25 marks in each question across several short parts, with individual allocations ranging from 3 to 10 marks.
 
 ## Repeated Question Patterns
 
 - Newer papers emphasise definitions and short proof arguments more than long applications.
-- Very safe basics: topology definitions, finite-set examples, cofinite/discrete topologies, bases, lower-limit topology, neighbourhoods, interiors and closures.
-- Strong preparation target: subspace, product and quotient topologies, including bases and showing `S1` as a quotient of `[0,1]`.
-- Compactness and Hausdorffness recur: definitions, standard/cofinite/lower-limit examples, closed subsets of compact spaces and compact-Hausdorff homeomorphism results.
-- Connectedness is consistently examinable: definitions, continuous images, IVT links and using connectedness to rule out homeomorphisms.
-- Homeomorphism and homotopy remain likely, but focus on definitions and short examples unless lectures emphasise applications.
+- Very safe basics: topology definitions, standard/cofinite/discrete topologies, bases, lower-limit topology, neighbourhoods, interiors, closures, accumulation points and density.
+- Strong preparation target: subspace, initial/final, product and quotient topologies. The 2025-2026 paper explicitly asks for final topology, `S1` as a quotient of `[0,1]`, and whether `R` can be a quotient of the Cantor set.
+- Compactness and Hausdorffness recur: definitions, lower-limit examples, compact subsets of Hausdorff spaces being closed, and compact-Hausdorff arguments involving the Cantor set.
+- Connectedness is consistently examinable: definitions, separations in discrete/indiscrete/subspace/cofinite examples, continuous images, the IVT link and using connectedness to rule out homeomorphisms.
+- Homeomorphism and homotopy remain highly likely. The 2025-2026 paper asks for three homeomorphism comparisons and an explicit linear homotopy between arbitrary maps `R^n -> R^n`.
 - Euler characteristic, triangulation, Brouwer/fundamental-theorem applications and Nash-style questions are older-pattern topics; keep them as secondary revision.
 
 ## Year-by-Year Notes
@@ -127,14 +126,25 @@ The most relevant prediction evidence is the latest two papers.
 - Format: Answer all 4 questions.
 - Topics: topology definition, cofinite/discrete topology, subspace topology, lower limit topology, neighbourhoods/interior, density in cofinite topology, compactness, closed subsets of compact spaces, Hausdorff, initial topology, connectedness, homeomorphism comparisons, Cantor set, continuous images of connected spaces, product topology, quotient topology, S1 as quotient, homotopy.
 
+### 2025-2026
+
+- Starred lecturer/internal examiner: Tobias Rossmann.
+- Other internal examiner: James Cruickshank.
+- Format: Answer all 4 questions; 25 marks each; 2 hours.
+- Q1: topology definition; standard and cofinite topologies; closure, interior and subspace topology; whether `[0,1]` has the discrete subspace topology; proving a set without accumulation points is closed.
+- Q2: lower-limit basis; density in the cofinite topology on `Z`; Hausdorffness and non-compactness of the lower-limit real line; proving a compact subspace of a Hausdorff space is closed.
+- Q3: final topology; connectedness; connected/disconnected classifications for four topologies on `Q`; homeomorphism comparisons among `S1`, `[0,1]`, `R` and `(0,infinity)`.
+- Q4: Cantor set as compact Hausdorff; continuous images of connected spaces and the IVT; `S1` as a quotient of `[0,1]`; impossibility of `R` as a quotient of the Cantor set; definition of homotopy and linear homotopy on `R^n`.
+
 ## Predictability Judgment
 
 Medium-High predictability.
 
 Reasons:
 
-- The latest two papers are very similar in structure and topic order.
+- The latest three papers are very similar in structure and topic order; 2025-2026 repeats the four compulsory 25-mark format for a third consecutive year.
 - Definitions, compactness, connectedness, Hausdorffness, subspace/product/quotient topology and homotopy recur strongly.
+- The latest paper adds direct evidence for final topology, accumulation-point arguments, connectedness classifications and Cantor-set quotient obstructions.
 - The current module page learning outcomes align well with the newest papers.
 
 Reasons for caution:
@@ -155,18 +165,18 @@ Reasons for caution:
 Highest-return preparation:
 
 1. Memorise exact definitions: topology, base, subspace, product, quotient, compact, connected, Hausdorff, homotopy, homeomorphism.
-2. Practise the 2023-2024 and 2024-2025 papers first.
-3. Prepare standard examples: cofinite topology, discrete topology, standard topology, lower limit topology, Cantor set, S1 as quotient of [0, 1].
-4. Drill short proofs: continuous image of connected is connected, closed subset of compact is compact, compact Hausdorff bijection is homeomorphism.
+2. Practise the 2025-2026 paper first, then 2024-2025 and 2023-2024.
+3. Prepare standard examples: cofinite, discrete, indiscrete, standard and lower-limit topologies; the rational line; the Cantor set; and S1 as a quotient of [0, 1].
+4. Drill short proofs: no accumulation points implies closed; compact subspace of Hausdorff implies closed; continuous image of connected is connected; compact images cannot equal non-compact `R`; and linear interpolation gives a homotopy in `R^n`.
 5. Keep older Euler characteristic material as secondary unless lectures indicate it is returning.
 
 This module is predictable enough to prepare for, but its marks depend heavily on writing precise proofs under time pressure.
 
-## Predictability Audit (2026-07-17)
+## Predictability Audit (2026-07-18)
 
-- **Status: Medium-High.** Local evidence is `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`. The newest two papers closely repeat definitions, compactness, connectedness and construction/proof work, but the archive has an older ten-question format and staff change.
+- **Status: Medium-High, strengthened by the new paper.** Local evidence now includes `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, `2024_2025.pdf`, and `2025_2026.pdf`. The newest three papers closely repeat the same four-question format and the same definitions, compactness, connectedness and construction/proof work.
 - **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA342) retains topology, continuity/homeomorphism, subspace/quotient constructions, compactness and connectedness.
-- **Decision:** use recent papers for proof-practice priority, but treat exact format and older topical weighting as conditional.
+- **Decision:** treat the four compulsory 25-mark format and core point-set question families as the primary preparation model; keep older Euler/Brouwer/Nash material secondary unless lectures explicitly revive it.
 
 ## Short Learning Material
 

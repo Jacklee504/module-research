@@ -60,8 +60,7 @@ Source: https://www.universityofgalway.ie/course-information/module/MA3491
 - 2022-2023
 - 2023-2024
 - 2024-2025
-
-No 2025-2026 paper was present locally at the time of review.
+- 2025-2026
 
 ## Exam Format
 
@@ -71,7 +70,7 @@ Stable in content, with a format shift after the older papers:
 - 2 hours.
 - Students answer all questions.
 - 2018-2019 and 2021-2022: 4 questions.
-- 2022-2023, 2023-2024 and 2024-2025: 5 questions.
+- 2022-2023 to 2025-2026: 5 questions.
 - Questions are broken into many small calculation/proof parts.
 
 The change from 4 to 5 questions does not reduce predictability because the topic blocks remain very stable.
@@ -84,10 +83,11 @@ The change from 4 to 5 questions does not reduce predictability because the topi
 - Linear-code calculations are high-return: generator matrices, standard form, parity-check matrices, minimum distance and codeword membership.
 - Decoding is very drillable: syndrome tables, standard arrays and nearest-neighbour decoding.
 - Hamming and cyclic codes are among the safest topics: parity-check construction, single-error correction, generator/check polynomials and cyclic-shift arguments.
-- Weight enumerators appeared in 2022/23 and 2023/24 but not 2024/25, so treat them as useful secondary preparation.
+- Weight enumerators appeared in 2022/23, 2023/24 and 2025/26. In 2025/26 they were paired with a cyclic-code question and MacWilliams' identity, so they are now a recurring secondary topic.
 
 ## Topic Guides
 
+- [Most likely exam questions](most_likely_questions.html) - recurring past-paper question families and wording variations, without solutions.
 - [Coding bounds and block-code parameters](coding_bounds_revision_sheet.html)
 - [Finite-field construction](finite_field_construction_revision_sheet.html)
 - [Finite-field arithmetic](finite_field_arithmetic_revision_sheet.html)
@@ -133,6 +133,13 @@ The change from 4 to 5 questions does not reduce predictability because the topi
 - Format: Answer all 5 questions.
 - Topics: sphere packing, Singleton bound and proof, repetition codes, perfect/MDS codes, F4 as vector space over F2, irreducibility over F5, F25 inverse, primitive elements, standard-form generator matrix, check matrix, minimum distance, self-dual code, syndrome decoding, Hamming codes, cyclic codes.
 
+### 2025-2026
+
+- Starred lecturer/internal examiner: Emil Skoldberg.
+- Other internal examiner: J. Cruickshank.
+- Format: Answer all 5 questions.
+- Topics: sphere packing, Singleton bound and proof, structured-code parameters, irreducibility over F2, F32 inverse, characteristic-p binomial identity, standard-form generator matrix, check matrix, minimum distance, self-duality, syndrome decoding, Hamming codes and perfection, cyclic codes, weight enumerators and MacWilliams' identity.
+
 ## Predictability Judgment
 
 High predictability.
@@ -165,14 +172,14 @@ Highest-return preparation:
 3. Drill generator matrices, standard form, parity-check matrices and minimum distance.
 4. Practise syndrome tables and decoding.
 5. Learn Hamming code construction and single-error correction cold.
-6. Practise cyclic-code generator/check polynomial questions.
-7. Prepare perfect/MDS/self-dual definitions and short proofs.
+6. Practise cyclic-code generator/check polynomial questions, including the link between a cyclic code and its dual where asked.
+7. Prepare perfect/MDS/self-dual definitions and short proofs; add the weight-enumerator definition and MacWilliams' identity after the core skills.
 
 This module should reward past-paper drilling heavily. It is a strong candidate if the CA is manageable and the algebra style suits you.
 
 ## Predictability Audit (2026-07-17)
 
-- **Status: High for the core coding/finite-field skills.** Local evidence is `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, and `2024_2025.pdf`; finite-field arithmetic, linear/Hamming/cyclic codes and code parameters repeat, and recent papers share a five-question structure.
+- **Status: High for the core coding/finite-field skills.** Local evidence is `2018_2019.pdf`, `2021_2022.pdf`, `2022_2023.pdf`, `2023_2024.pdf`, `2024_2025.pdf`, and `2025_2026.pdf`; finite-field arithmetic, linear/Hamming/cyclic codes and code parameters repeat, and the four most recent papers share a five-question structure.
 - **Applicability:** the current [official module page](https://www.universityofgalway.ie/course-information/module/MA3491) directly lists finite fields, generator/parity-check matrices, minimum distance, Hamming, cyclic and BCH codes.
 - **Decision:** past-paper drilling is well supported for these skills, while the 4-to-5-question format change means exact paper mechanics remain secondary.
 

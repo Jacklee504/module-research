@@ -1,86 +1,28 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CT561 Stock-and-Flow Modelling</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CT561 overview</a>
-<a href="supporting_simulation_concepts_revision_sheet.html">Previous topic: Supporting concepts</a>
-<a href="feedback_loops_revision_sheet.html">Next topic: Feedback loops</a>
-</nav>
-<p class="eyebrow">CT561 Topic Guide</p>
-<h1>Stock-and-Flow Modelling</h1>
-<p>Turn a verbal system into levels, rates, information links and equations before trying to simulate it.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Exam-use protocol</h2>
-<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
-<p>
-<strong>Definitions/equation:</strong> stock(t+DT)=stock(t)+(inflows-outflows)DT; stocks have units, flows stock/time and auxiliaries convey information. <strong>Question cue:</strong> translate nouns to stocks, verbs/rates to flows, specify equations/units and initial conditions.</p>
-<h2>Worked practice 1 — paper-derived translation</h2>
-<p>
-<strong>Question demand:</strong> Model customers gained/lost. <strong>Plan/choice:</strong> one stock with fractional flows. <strong>Worked answer:</strong> Customers=INTEG(gained-lost,C0); gained=.10 Customers/time, lost=.03 Customers/time, so net=.07 Customers/time. <strong>Mark-winning points:</strong> units and initial value. <strong>Common trap:</strong> call sales/week a stock.</p>
-<h2>Worked practice 2 — synthesis / design</h2>
-<p>
-<strong>Question demand:</strong> Build a resource-limited vaccination flow. <strong>Plan/choice:</strong> stocks Unvaccinated/Vaccinated; flow=min(people needing vaccine, vaccine supply, medic capacity). <strong>Worked answer:</strong> capacity=medics*productivity; VaccinesDispensed=min(Unvaccinated, Vaccines, capacity), update both stocks and state time units. <strong>Mark-winning points:</strong> physical constraint. <strong>Common trap:</strong> flow exceeds any resource.</p>
-<h2>Purpose and relevance</h2>
-<p>System dynamics represents how quantities accumulate and change through time. In CT561, a good stock-flow diagram is both an explanation and a model specification.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Underline quantities that exist <em>at a time</em> (stocks) and quantities measured <em>per time</em> (flows). Draw stocks first, add valves and clouds, then auxiliaries/information arrows. State units and write the stock equation.</p>
-<h2>Key terms and formulas</h2>
-<ul>
-<li>
-<strong>Stock/level:</strong> accumulated state, e.g. people in a queue [people].</li>
-<li>
-<strong>Flow/rate:</strong> change per time, e.g. arrivals [people/day].</li>
-<li>
-<strong>Auxiliary:</strong> calculated quantity; <strong>cloud:</strong> model boundary.</li>
-<li>
-<strong>Conservation:</strong> <code>Stock(t + DT) = Stock(t) + (inflow − outflow) × DT</code>.</li>
-<li>Each flow must have stock/time units; information arrows affect a rate but do not move material.</li>
-</ul>
-<h2>Method derivation</h2>
-<ol>
-<li>Choose the system boundary and time unit.</li>
-<li>List accumulations; make each one a rectangle.</li>
-<li>For each physical transfer, draw an inflow/outflow and name the rate.</li>
-<li>Add drivers and equations; check every equation’s units.</li>
-<li>Write initial values and explain expected behaviour.</li>
-</ol>
-<h2>Worked practice 3 — foundational calculation</h2>
-<p>
-<strong>Problem:</strong> A clinic starts with 80 waiting patients. Arrivals are 12/day and treatment is 10/day. Model one day.</p>
-<p>
-<strong>Answer:</strong> One stock, <em>Waiting patients</em>, has an arrival inflow and treatment outflow. Its net flow is 2 patients/day, so after one day it is <code>80 + (12 − 10) × 1 = 82</code> patients. The treatment rate may depend on staff capacity, but capacity is an auxiliary unless it accumulates.</p>
-<h2>Question interpretation and independent practice</h2>
-<h3>Prompt 1</h3>
-<p>A reservoir has 500 ML, rainfall adds 40 ML/day and demand removes 55 ML/day. Give the equation and value after two days. <strong>Check:</strong> 470 ML; distinguish the level from both daily rates.</p>
-<h3>Exam bridge</h3>
-<p>Draw and justify a stock-flow model for a software project’s work backlog, including rework. <strong>Check:</strong> include backlog, work completion, work discovery/rework, units, at least one information link, and assumptions.</p>
-<h2>High-value traps and corrections</h2>
-<p><strong>Paper basis for the integrated practice:</strong> local 2016/17 Question 1(b) and 2017/18 Question 1(a,b) verified stock-and-flow construction; this library system is newly written.</p>
-<h2>Integrated paper-style practice - translate a verbal system [8 marks]</h2><p><strong>Scenario.</strong> A library has 500 available books. Borrowing is 40/day and returns equal 8% of books on loan per day. Specify stocks, flows and one feedback connection, then explain the first stock update if 100 books are on loan.</p><p><strong>Question-demand diagnosis:</strong> distinguish accumulations from rates and make the conservation relation visible.</p><p><strong>Fastest route:</strong> use Available and On-loan as stocks; Borrowing and Return as opposing flows.</p><p><strong>Worked answer:</strong> Books on loan is a stock with inflow Borrowing and outflow Return; Available books is the complementary stock. Return=8 books/day initially. If borrowing remains 40/day, On-loan rises by 32 books in one day, while Available falls by 32. The availability stock can constrain borrowing, forming a balancing feedback: fewer available books limit new loans. Draw an information arrow for that dependence, not a material flow of “availability”.</p><p><strong>Topic-specific trap:</strong> a rate such as borrowing/day is not itself a stock.</p>
-<ul>
-<li>Drawing a causal arrow as though it transfers people or material.</li>
-<li>Calling “sales per week” a stock.</li>
-<li>Omitting initial conditions or mixing days and weeks.</li>
-</ul>
-<h2>Final answer checklist</h2>
-<ul>
-<li>Every stock has units and an initial value.</li>
-<li>Every flow has stock/time units.</li>
-<li>My stock equation matches the arrows.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Stock-flow translation is a recurrent core pattern across the local 2016/17–2025/26 archive. It supports topic-level preparation, not an exact paper-year prediction.</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Stock-and-Flow Modelling</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="supporting_simulation_concepts_revision_sheet.html">Previous topic: Supporting concepts</a><a href="feedback_loops_revision_sheet.html">Next topic: Feedback loops</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>Stock-and-Flow Modelling from Text</h1><p>The recurring exam task is to convert a scenario into stocks, material flows, auxiliaries, equations, units and signed information links.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Recent-paper question forms</h2>
+<ul><li><strong>One-stock workload model [10-12]:</strong> identify the backlog, its inflows/outflows and all stated pressure-response links.</li><li><strong>Two-stock university/workforce model [8-15]:</strong> Students and Staff, ratios, desired staff, attrition and hires.</li><li><strong>Resource-constrained transition [12]:</strong> a flow cannot exceed demand, available resource or operational capacity.</li><li><strong>Equation-to-model [8]:</strong> convert a differential equation into stock, flows, feedbacks and units.</li></ul>
+<p><strong>References:</strong> 2023/24 Q1(b), 2024/25 Q1(b), 2025/26 Q3(b), 2021/22 Q1(b), Q2(a,b), and 2016/17 Q2(a,b).</p>
+
+<h2>Construction order in the exam</h2>
+<ol><li>Circle quantities that exist <em>at a time</em>. These are stocks.</li><li>Underline quantities measured <em>per time</em>. These are flows.</li><li>Draw each stock as a rectangle, then add only the material inflows/outflows named in the question.</li><li>Add auxiliaries and information arrows. Give every arrow a sign if requested.</li><li>Write stock equations first. Add flow equations only when asked.</li><li>Check units: <code>people/day x day = people</code>.</li></ol>
+
+<h2>Core equations and diagram rules</h2>
+<div class="formula"><code>Stock = INTEG(total inflow - total outflow, initial stock)</code><br><code>Fractional inflow = stock x fraction/time</code><br><code>Fractional outflow = stock x fraction/time</code><br><code>Adjustment flow = (desired stock - actual stock)/adjustment time</code></div>
+<ul><li>A stock is an accumulation, such as Claims Backlog, Staff or Susceptible People.</li><li>A flow changes the stock, such as Claims Completed, Hires, Recoveries or Vaccinations.</li><li>An auxiliary changes a flow but does not itself accumulate, such as Work Pressure, Desired Staff or Average Productivity.</li><li>Clouds are optional unless your lecturer requires them. The stock, pipes, flow names, auxiliaries and information arrows are essential.</li></ul>
+
+<h2>Paper-derived model: resource-constrained vaccination [12]</h2>
+<p>2021/22 Q2(b) requires Unvaccinated People to move to Vaccinated People, limited by people waiting, vaccine stock and medic capacity.</p>
+<div class="formula"><code>Total Daily Capacity = Number of Medics x Average Productivity</code><br><code>Vaccines Dispensed = MIN(Unvaccinated People, Number of Vaccines, Total Daily Capacity)</code><br><code>Unvaccinated = INTEG(-Vaccines Dispensed, U0)</code><br><code>Vaccinated = INTEG(Vaccines Dispensed, 0)</code><br><code>Number of Vaccines = INTEG(-Vaccines Dispensed + Deliveries, V0)</code></div>
+<p>For 10,000 unvaccinated people, 100 medics, 20 vaccines/medic/day and 10,000 vaccines: capacity is 2,000/day, so the flow is 2,000/day. If vaccines are zero, the flow is zero even if medics are available.</p>
+
+<h2>Equation-to-stock-flow route</h2>
+<p>For the 2021/22 population equation <code>dP/dt = rP(1-P/C) - sP</code>, write:</p>
+<div class="formula"><code>Population = INTEG(Births - Decline, P0)</code><br><code>Births = r x Population x (1 - Population/Carrying Capacity)</code><br><code>Decline = s x Population</code></div>
+<p>The carrying-capacity term is a balancing feedback. Population reaches C only when decline is zero and the logistic inflow becomes zero at C. Give units for every variable.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>Every stock has an initial value or named initial condition.</li><li>Every material flow changes exactly the correct stock(s).</li><li>Ratios put the stated numerator above the stated denominator.</li><li>Use <code>MIN</code> when a paper gives multiple binding physical constraints.</li><li>Do not invent extra causal links or equations not supported by the scenario.</li></ul>
+</article></main></body></html>

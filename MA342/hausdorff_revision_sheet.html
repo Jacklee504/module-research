@@ -18,30 +18,30 @@
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>Test whether distinct points can be separated by disjoint open sets and exploit the compact-Hausdorff homeomorphism theorem.<strong>Exam use:</strong> Points are arbitrary and distinct, both neighbourhoods are open, containment and disjointness are proved, and theorem hypotheses are named.</p>
+<p>Test whether distinct points can be separated by disjoint open sets and exploit compact-Hausdorff consequences.<strong>Exam use:</strong> In 2025/26, Q2(c) assigns 6 marks to the definition and the lower-limit line, Q2(e) uses Hausdorffness in a 5-mark closedness proof, and Q4(a) asks why the Cantor set is compact Hausdorff.</p>
 <h2>Question plan</h2>
 <ol>
 <li>Take arbitrary distinct x,y.</li>
-<li>Produce explicit disjoint open neighbourhoods, or show why none can exist.</li>
-<li>For a bijection compact→Hausdorff, establish continuity then invoke the theorem.</li>
-<li><strong>Question interpretation:</strong> For prove Hausdorff, start with arbitrary distinct points and construct disjoint neighbourhoods; for exploit, identify compactness plus Hausdorffness before declaring a set closed.</li>
+<li>Produce explicit neighbourhoods that are open in the named topology and prove they are disjoint.</li>
+<li>When compactness is also present, decide whether the target conclusion is closedness or a homeomorphism.</li>
+<li><strong>Question interpretation:</strong> “Is X Hausdorff?” requires arbitrary distinct points, two named open neighbourhoods, and a disjointness check; a picture is not enough.</li>
 </ol>
 <h2>Definitions</h2>
 <p>X is <strong>Hausdorff</strong> if for x≠y there are disjoint open U,V with x∈U and y∈V. A continuous bijection from compact X to Hausdorff Y is a homeomorphism.<strong>Rapid recall:</strong> Hausdorff means distinct points have disjoint open neighbourhoods. Compact subsets of Hausdorff spaces are closed, and continuous maps from compact to Hausdorff spaces gain strong closedness properties.</p>
 <h2>Proof method</h2>
-<p>For the theorem, a closed C⊆X is compact; f(C) is compact and hence closed in Hausdorff Y. Thus f is a closed bijection, so f⁻¹ is continuous.<strong>Exam workflow:</strong> Fix x != y, use the structure available to choose neighbourhoods, verify disjointness, and keep the property relative to the specified topology.</p>
+<p>For a direct proof, fix x≠y and use the basis of the topology to construct disjoint neighbourhoods. For compact A⊆X and x∉A, separate x from every a∈A, take a finite subcover of A, and intersect only the finitely many neighbourhoods of x.<strong>Exam workflow:</strong> Fix arbitrary distinct points, choose topology-valid opens, verify membership and disjointness, then state the Hausdorff conclusion.</p>
 <h2>Worked simple example</h2>
 <p>R is Hausdorff: for x&lt;y choose disjoint intervals around x and y, each with radius less than (y−x)/3.</p>
 <h3>Medium/hard paper-style synthesis</h3>
-<p>The cofinite topology on an infinite set X is not Hausdorff. Any nonempty open U,V have finite complements. If U and V were disjoint, X=(XU) union (XV) would be finite, contradiction. Thus no two nonempty opens are disjoint, so distinct points cannot have disjoint neighbourhoods. It is nevertheless T1 because every singleton has open cofinite complement.</p>
+<p>The lower-limit real line R<sub>ℓ</sub> is Hausdorff. Given x&lt;y, take U=[x,y) and V=[y,y+1). Both are basic open sets, x∈U, y∈V, and U∩V=∅. Reversing the labels handles y&lt;x, so every pair of distinct points has disjoint open neighbourhoods.</p>
 <h2>Graduated exam bridges</h2>
 <p>
-<strong>1. Foundation:</strong> Is an infinite cofinite space Hausdorff? <strong>Check:</strong> no: two nonempty opens always intersect.</p>
+<strong>1. Foundation:</strong> Is an infinite cofinite space Hausdorff? <strong>Check:</strong> no: two nonempty opens always intersect, even though every singleton is closed.</p>
 <p>
-<strong>2. Exam style:</strong> Prove a continuous bijection f:X→Y is a homeomorphism if X is compact and Y Hausdorff. <strong>Check:</strong> show f is closed by compact images.</p>
+<strong>2. Exam style [5 marks]:</strong> Prove a compact subspace A of Hausdorff X is closed. <strong>Check:</strong> separate each x∉A from all of A using a finite subcover.</p>
 <h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: prove the diagonal Delta={(x,x):x in X} is closed in XxX when X is Hausdorff. Check for (x,y) not in Delta choose disjoint U containing x and V containing y; UxV is an open neighbourhood disjoint from Delta, so the complement is open.</p>
-<h2>Practice question - cofinite counterexample [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q2(e). <strong>Task.</strong> On an infinite set X with cofinite topology, decide whether X is Hausdorff and whether it is T<sub>1</sub>. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> prove non-Hausdorff from intersections of nonempty opens, then use complements of singletons for T<sub>1</sub>.</p><p><strong>Worked answer:</strong> If U,V are nonempty open sets, X\U and X\V are finite. Were U∩V empty, then X=(X\U)∪(X\V) would be finite, a contradiction. Thus no two nonempty open sets are disjoint, so distinct points cannot have disjoint neighbourhoods: X is not Hausdorff. For each x, X\{x} is cofinite and open, so {x} is closed. Hence X is T<sub>1</sub>.</p><p><strong>Topic-specific trap:</strong> T<sub>1</sub> does not imply Hausdorff.</p>
+<p>The Cantor set C is Hausdorff because it is a subspace of standard R, and subspaces of Hausdorff spaces are Hausdorff. It is compact because it is closed in the compact interval [0,1]. Both claims require naming the inherited topology and the relevant hereditary theorem.</p>
+<h2>Practice question - lower-limit Hausdorffness [6 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q2(c). <strong>Task.</strong> (a) Define what it means for a topological space to be Hausdorff. (b) Decide, with justification, whether the real line with the lower-limit topology is Hausdorff. [6 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> order arbitrary distinct points and use adjacent half-open basis intervals whose shared endpoint belongs only to the second interval.</p><p><strong>Worked answer:</strong> A topological space X is Hausdorff if for every x≠y there exist disjoint open sets U,V with x∈U and y∈V. Let x&lt;y in R<sub>ℓ</sub>. The basic-open sets U=[x,y) and V=[y,y+1) contain x and y respectively and are disjoint. If y&lt;x, interchange the labels. Therefore R<sub>ℓ</sub> is Hausdorff.</p><p><strong>Topic-specific trap:</strong> [x,y) and [y,y+1) work because the first interval excludes y; ordinary closed intervals would not be open in the lower-limit topology.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Finding neighbourhoods that are not disjoint.</li>
@@ -52,13 +52,14 @@
 <h2>Checklist</h2>
 <ul>
 <li>I can state Hausdorff separation.</li>
+<li>I can prove the lower-limit line is Hausdorff from its basis.</li>
 <li>I can disprove it in an infinite cofinite topology.</li>
 <li>I can write the compact-Hausdorff proof chain.</li>
 <li><strong>Final 60-second audit:</strong> Points are arbitrary and distinct, both neighbourhoods are open, containment and disjointness are proved, and theorem hypotheses are named.</li>
 </ul>
 <h2>Past-paper note</h2>
 <p>
-<strong>High confidence:</strong> Hausdorff questions and the compact-Hausdorff theorem are explicit in both latest papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+<strong>High confidence:</strong> Hausdorff definitions and consequences occur in all three papers from 2023/24 through 2025/26. The new paper directly tests lower-limit Hausdorffness in Q2(c), compact-subspace closedness in Q2(e), and the Cantor set’s Hausdorff property in Q4(a). <a href="details.html#past-papers">Back to paper evidence</a>.</p>
 </article>
 </main>
 </body>

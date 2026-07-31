@@ -13,35 +13,36 @@
 </nav>
 <p class="eyebrow">MA342 Topic Guide</p>
 <h1>Subspaces and Constructions</h1>
-<p>Build and use subspace, product and quotient topologies.</p>
+<p>Build and use subspace, product, final and quotient topologies.</p>
 </header>
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>Translate a construction into its defining open sets and then prove the requested property from that definition.<strong>Exam use:</strong> Construction, defining preimage/basis rule, ambient versus subspace openness and saturation are visible.</p>
+<p>Translate a construction into its defining open sets and then prove the requested property from that definition.<strong>Exam use:</strong> The 2025/26 paper asks for subspace topology in Q1(c), a 4-mark subspace example in Q1(d), final topology in Q3(a), and two quotient arguments worth 8 marks in Q4(c-d).</p>
 <h2>Question plan</h2>
 <ol>
 <li>Name the construction and its underlying set.</li>
 <li>Write the defining rule for opens or a basis.</li>
 <li>Use the universal map only when its continuity criterion is relevant.</li>
-<li><strong>Question interpretation:</strong> For subspace, write U=X intersect O; for product, use basis rectangles; for quotient, test openness through the quotient map preimage.</li>
+<li>For a proposed quotient, identify the continuous surjection and then exploit a property preserved by continuous images if a contradiction is requested.</li>
+<li><strong>Question interpretation:</strong> For subspace, intersect with ambient opens; for final or quotient topology, test all defining-map preimages; for a quotient obstruction, start from “continuous and onto”.</li>
 </ol>
 <h2>Definitions</h2>
-<p>For Y⊆X, the <strong>subspace topology</strong> is {Y∩U:U open in X}. A basis for X×Y consists of U×V with U,V open. The <strong>quotient topology</strong> declares W open when q⁻¹(W) is open.<strong>Rapid recall:</strong> Subspace opens are X intersect ambient opens; product topology has basis UxV; quotient topology declares U open exactly when q^{-1}(U) is open.</p>
+<p>For Y⊆X, the <strong>subspace topology</strong> is {Y∩U:U open in X}. A basis for X×Y consists of U×V with U,V open. Given topological spaces X<sub>i</sub>, a set Y and maps f<sub>i</sub>:X<sub>i</sub>→Y, the <strong>final topology</strong> on Y is {U⊆Y:f<sub>i</sub><sup>-1</sup>(U) is open in X<sub>i</sub> for every i}; it is the finest topology making all f<sub>i</sub> continuous. The quotient topology is the final topology for one surjection q:X→Y.<strong>Rapid recall:</strong> Subspace means ambient intersection; product means basis rectangles; final and quotient mean defining-map preimages.</p>
 <h2>Proof method</h2>
-<p>For subspaces, express the target set as Y∩U. For quotients, pull the set back along q; never assume images of open sets are open.<strong>Exam workflow:</strong> Identify the defining map or inclusion, translate the claim to preimages/basis elements, and keep saturation in mind for quotient sets.</p>
+<p>For subspaces, express the target set as Y∩U. For final and quotient topologies, pull the set back along every defining map; never assume images of open sets are open. A quotient map is continuous and surjective, so compactness and connectedness pass from domain to codomain.<strong>Exam workflow:</strong> Identify the inclusion or defining maps, write the preimage/basis rule, and name any continuous-image invariant used.</p>
 <h2>Worked simple example</h2>
 <p>If X=R and Y=[0,1], then [0,1/2)=Y∩(-1,1/2), so it is open in the subspace Y.</p>
 <h3>Medium/hard paper-style synthesis</h3>
-<p>Let q:[0,1]->S^1 identify 0~1 via q(t)=e^{2 pi i t}. For an open arc U in S^1 avoiding 1, q^{-1}(U) is an open interval in (0,1), hence open in [0,1]. For an arc containing 1, its preimage is [0,epsilon) union (1-epsilon,1], also subspace-open. Thus q is compatible with the quotient topology; the endpoint pieces must both be included.</p>
+<p>The subspace topology on [0,1] inherited from standard R is not discrete. If it were discrete, {1/2} would be open, so {1/2}=[0,1]∩U for some standard-open U⊆R. But any open U containing 1/2 contains an interval around 1/2 and hence other points of [0,1], a contradiction.</p>
 <h2>Graduated exam bridges</h2>
 <p>
-<strong>1. Foundation:</strong> List the subspace opens on {0} inside R. <strong>Check:</strong> ∅ and {0}.</p>
+<strong>1. Foundation [4 marks]:</strong> Is the standard subspace topology on [0,1] discrete? <strong>Check:</strong> no; the singleton {1/2} is not relatively open.</p>
 <p>
-<strong>2. Exam style:</strong> Let q:[0,1]→S¹ send t to e²πit. Explain why q identifies 0 and 1 and supports the quotient description of S¹. <strong>Check:</strong> state the equivalence relation and use q⁻¹ for openness.</p>
+<strong>2. Exam style [3 marks]:</strong> Define the final topology induced on Y by maps f<sub>i</sub>:X<sub>i</sub>→Y. <strong>Check:</strong> U is open exactly when every f<sub>i</sub><sup>-1</sup>(U) is open; call it the finest such topology.</p>
 <h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: prove projection pi_X:XxY->X is open. Check a basic open rectangle UxV maps to U when V nonempty; an arbitrary open set is a union of basic rectangles, and projection commutes with unions, so its image is open.</p>
-<h2>Practice question - quotient description of a circle [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q4(b-d). <strong>Task.</strong> Explain why S<sup>1</sup> is the quotient of [0,1] identifying 0~1. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> give the surjection q(t)=e<sup>2πit</sup>, identify exactly its endpoint fibres, establish that it is a quotient map, and then use the quotient-open-set rule.</p><p><strong>Worked answer:</strong> The map q:[0,1]→S<sup>1</sup>, q(t)=e<sup>2πit</sup>, is continuous and onto. Since [0,1] is compact and S<sup>1</sup> is Hausdorff, q is closed; every continuous surjective closed map is a quotient map. It satisfies q(0)=q(1)=1, while within [0,1) it is injective, so its fibres are exactly the equivalence classes that identify 0 and 1. By the quotient-map property, U⊆S<sup>1</sup> is open exactly when q<sup>-1</sup>(U) is open in [0,1]. Therefore the induced continuous bijection [0,1]/~→S<sup>1</sup> is a homeomorphism.</p><p><strong>Topic-specific trap:</strong> do not claim ordinary set identification automatically preserves topology; justify that q is quotient before transferring the topology.</p>
+<p>Standard R cannot be a quotient of the Cantor set C. A quotient presentation would supply a continuous surjection q:C→R. Since C is compact, its continuous image q(C)=R would be compact, contradicting the non-compactness of R.</p>
+<h2>Practice question - circle and Cantor quotients [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q4(c-d). <strong>Task.</strong> (a) Briefly explain why S<sup>1</sup> is a quotient of [0,1]. [5 marks] (b) Decide, with justification, whether standard R is a quotient of the Cantor set C. [3 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> for the positive example give the endpoint-identifying quotient map; for the negative example use compactness of continuous images.</p><p><strong>Worked answer:</strong> Define q:[0,1]→S<sup>1</sup> by q(t)=e<sup>2πit</sup>. It is continuous and onto, identifies exactly 0 and 1, and is closed because its domain is compact and its codomain Hausdorff. Hence q is a quotient map and S<sup>1</sup> is homeomorphic to [0,1]/(0~1). In contrast, if a quotient map p:C→R existed, it would be a continuous surjection. The Cantor set is compact, so p(C)=R would be compact, but standard R is not compact. Therefore R is not a quotient of C.</p><p><strong>Topic-specific trap:</strong> a quotient map is not merely a set-theoretic surjection; use its continuity in the compactness obstruction.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Using U∩Y but forgetting U must be open in X.</li>
@@ -53,12 +54,13 @@
 <ul>
 <li>I can compute a subspace topology.</li>
 <li>I can state a product basis.</li>
+<li>I can define the final topology for a family of maps.</li>
 <li>I can use the quotient definition in the correct direction.</li>
 <li><strong>Final 60-second audit:</strong> Construction, defining preimage/basis rule, ambient versus subspace openness and saturation are visible.</li>
 </ul>
 <h2>Past-paper note</h2>
 <p>
-<strong>High confidence:</strong> subspace, product and quotient work, including S¹ from [0,1], recurs in both latest papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+<strong>High confidence:</strong> construction questions occur in all three papers from 2023/24 through 2025/26. The new paper repeats subspaces and S¹ as a quotient, explicitly adds final topology for 3 marks, and adds the compactness obstruction to R being a quotient of C for 3 marks. Product and initial topology remain supported by the two preceding papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
 </article>
 </main>
 </body>

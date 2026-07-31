@@ -1,87 +1,34 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CT561 Feedback Loops</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CT561 overview</a>
-<a href="stock_flow_modelling_revision_sheet.html">Previous topic: Stock-and-flow</a>
-<a href="numerical_integration_revision_sheet.html">Next topic: Numerical integration</a>
-</nav>
-<p class="eyebrow">CT561 Topic Guide</p>
-<h1>Feedback Loops</h1>
-<p>Feedback explains why a system’s own output changes the causes that produced it.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Exam-use protocol</h2>
-<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
-<p>
-<strong>Definitions:</strong> a + link moves variables in same direction, - opposite; an even number of negative links is reinforcing, odd is balancing. Feedback is circular causation, not “good/bad”. <strong>Question cue:</strong> draw every link sign, trace a perturbation around each named loop and identify delay/side effect.</p>
-<h2>Worked practice 1 — paper-derived polarity</h2>
-<p>
-<strong>Question demand:</strong> Backlog raises pressure, pressure raises completion, completion lowers backlog. <strong>Plan/choice:</strong> multiply signs/trace increase. <strong>Worked answer:</strong> +,+,- yields balancing: a backlog increase ultimately increases its reduction. <strong>Mark-winning points:</strong> arrows and narrated trace. <strong>Common trap:</strong> “negative” means harmful.</p>
-<h2>Worked practice 2 — paper-derived workload synthesis</h2>
-<p>
-<strong>Question demand:</strong> Analyse overtime policy that raises completion but creates fatigue that slows work. <strong>Plan/choice:</strong> identify intended balancing loop and delayed reinforcing side effect. <strong>Worked answer:</strong> pressure->overtime->completion->backlog is balancing; overtime->fatigue->time/task->completion can reinforce backlog after delay. <strong>Mark-winning points:</strong> polarity and policy consequence. <strong>Common trap:</strong> omit delayed loop.</p>
-<h2>Purpose and relevance</h2>
-<p>Causal-loop diagrams reveal system structure before numbers are chosen. They are useful for explaining growth, correction, delays and unintended consequences.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Name variables as measurable nouns. Mark each direct link <strong>+</strong> or <strong>−</strong>, trace a closed path, then classify it as reinforcing or balancing and narrate the mechanism in words.</p>
-<h2>Key terms and rules</h2>
-<ul>
-<li>
-<strong>Positive link:</strong> cause rises, effect rises above what it otherwise would; cause falls, effect falls.</li>
-<li>
-<strong>Negative link:</strong> cause rises, effect falls below what it otherwise would.</li>
-<li>
-<strong>Reinforcing (R):</strong> amplifies change; an even number of negative links.</li>
-<li>
-<strong>Balancing (B):</strong> resists a gap or target; an odd number of negative links.</li>
-<li>
-<strong>Delay:</strong> effect occurs later; it can cause oscillation or overshoot.</li>
-</ul>
-<h2>Method derivation</h2>
-<ol>
-<li>State the question: growth, goal-seeking, or side effect?</li>
-<li>Connect variables with signed arrows, using “all else equal”.</li>
-<li>Count negative links around each closed loop.</li>
-<li>Label R/B and explain one run of the loop.</li>
-<li>Identify likely delays and where a policy might change structure.</li>
-</ol>
-<h2>Worked practice 3 — foundational calculation</h2>
-<p>
-<strong>Problem:</strong> More infections create more infectious people; more infectious people create more new infections.</p>
-<p>
-<strong>Answer:</strong> Both links are positive, so this is an R loop: infections increase the infectious population, which increases contact opportunities and hence infections. It is not “positive” because it is good; polarity describes direction.</p>
-<h2>Question interpretation and independent practice</h2>
-<h3>Prompt 1</h3>
-<p>As inventory rises, the inventory gap to a target falls; a larger gap increases ordering. Classify the loop. <strong>Check:</strong> one negative link, therefore balancing.</p>
-<h3>Exam bridge</h3>
-<p>Draw a workload-pressure-quality loop for a project and one delayed unintended side effect of adding staff. <strong>Check:</strong> label links/loops, explain the causal story, and avoid treating “more pressure” as automatically a negative arrow.</p>
-<h2>High-value traps and corrections</h2>
-<p><strong>Paper basis for the integrated practice:</strong> local 2016/17 Question 1(a,c) and 2024/25 Question 1(a) verified feedback-loop definition and polarity families; this hiring loop is newly written.</p>
-<h2>Integrated paper-style practice - determine loop polarity [8 marks]</h2><p><strong>Scenario.</strong> Hiring raises workforce; workforce raises completed work; completed work reduces backlog; backlog raises pressure to hire; pressure to hire raises Hiring. Determine loop polarity and explain a possible dynamic effect.</p><p><strong>Question-demand diagnosis:</strong> trace every signed causal link and count negative signs.</p><p><strong>Fastest route:</strong> follow the loop from hiring back to hiring: +, +, −, +.</p><p><strong>Worked answer:</strong> There is one negative link, completed work reducing backlog, so the loop is balancing. High backlog raises hiring, which eventually raises workforce and completion, reducing the original backlog pressure. Delays in recruitment can produce overshoot: management keeps hiring while the workforce is still too small, then discovers excess staff after backlog falls. State the delay explicitly rather than calling every loop with growth “reinforcing”.</p><p><strong>Topic-specific trap:</strong> polarity is based on the full closed loop, not whether an individual link is positive.</p>
-<ul>
-<li>Using “positive = desirable” or “negative = harmful”.</li>
-<li>Labelling a loop without showing signs.</li>
-<li>Leaving variables vague, such as “management”.</li>
-</ul>
-<h2>Final answer checklist</h2>
-<ul>
-<li>Each arrow has a polarity.</li>
-<li>I can trace and narrate every loop.</li>
-<li>I have considered delays and side effects.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Feedback polarity and recurring workload/correction structures appear frequently in the local archive. Treat this as a reusable technique rather than a promised question.</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Feedback Loops</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="stock_flow_modelling_revision_sheet.html">Previous topic: Stock-flow modelling</a><a href="numerical_integration_revision_sheet.html">Next topic: Numerical integration</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>Feedback Loops and Workload Policies</h1><p>Recent papers repeatedly turn a verbal workload scenario into a signed diagram, named loops and a policy judgement.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Repeated recent-paper structure</h2>
+<ul><li><strong>Define and classify [5-6]:</strong> link polarity, loop polarity, feedback, balancing and reinforcing behaviour.</li><li><strong>Build the model [10-12]:</strong> one backlog stock, stated flows/auxiliaries, link signs and stock equation where requested.</li><li><strong>Analyse policy loops [7-8]:</strong> name each loop, trace an increase around it, calculate polarity, then discuss unintended effects.</li></ul>
+<p><strong>References:</strong> 2023/24 Q1(b,c), 2024/25 Q1(a-c), 2025/26 Q3(a-c). Earlier close variants: 2016/17 Q1, 2018/19 Q2 and 2019/20 Q2.</p>
+
+<h2>Definitions that earn the short-question marks</h2>
+<ul><li><strong>Link polarity:</strong> a positive link means variables move in the same direction; a negative link means they move in opposite directions, other things equal.</li><li><strong>Feedback loop:</strong> a closed causal chain in which a variable eventually affects itself.</li><li><strong>Loop polarity:</strong> an even number of negative links gives reinforcing feedback; an odd number gives balancing feedback.</li><li><strong>Balancing loop:</strong> counters a change or closes a gap. <strong>Reinforcing loop:</strong> amplifies a change.</li></ul>
+<p>Always confirm with an increase-trace. For <code>Backlog +&gt; Pressure +&gt; Completed -&gt; Backlog</code>, an increase in backlog eventually causes a decrease in backlog. One negative link means balancing.</p>
+
+<h2>2025/26 claims-backlog model [12]</h2>
+<p>Use the exact structure from 2025/26 Q3(b):</p>
+<p><code>Claims Backlog = INTEG(New Claims + Reworked Claims - Claims Completed, Initial Backlog)</code></p>
+<ul><li>Claims Backlog <code>+</code> Work Pressure.</li><li>Pressure <code>-</code> Time per Claim; lower Time per Claim <code>+</code> Claims Completed.</li><li>Pressure <code>+</code> Temporary Staff; Temporary Staff <code>+</code> Claims Completed.</li><li>Pressure <code>+</code> Workweek; Workweek <code>+</code> Claims Completed.</li><li>Lower Time per Claim <code>+</code> Reworked Claims.</li><li>Temporary Staff <code>+</code> Time per Claim.</li><li>Workweek <code>+</code> Fatigue; Fatigue <code>-</code> Claims Completed.</li></ul>
+<p>Draw flows as pipes into/out of the stock. Pressure, time per claim, temporary staff, workweek and fatigue are auxiliaries with information arrows, not material flows.</p>
+
+<h2>Policy and side-effect loops [7]</h2>
+<table><thead><tr><th>Loop</th><th>Trace from a rising backlog</th><th>Polarity</th></tr></thead><tbody>
+<tr><td>Speed policy</td><td>Backlog +, Pressure +, Time per Claim -, Completed +, Backlog -</td><td>Balancing</td></tr>
+<tr><td>Temporary-staff policy</td><td>Backlog +, Pressure +, Temporary Staff +, Completed +, Backlog -</td><td>Balancing</td></tr>
+<tr><td>Workweek policy</td><td>Backlog +, Pressure +, Workweek +, Completed +, Backlog -</td><td>Balancing</td></tr>
+<tr><td>Rework side-effect</td><td>Backlog +, Pressure +, Time per Claim -, Reworked Claims -, Backlog +</td><td>Reinforcing</td></tr>
+<tr><td>Temporary-staff side-effect</td><td>Backlog +, Pressure +, Temporary Staff +, Time per Claim +, Completed -, Backlog -</td><td>Reinforcing</td></tr>
+<tr><td>Fatigue side-effect</td><td>Backlog +, Pressure +, Workweek +, Fatigue +, Completed -, Backlog -</td><td>Reinforcing</td></tr>
+</tbody></table>
+
+<h2>How to answer the discussion part</h2>
+<p>Do not say simply that overtime or temporary staff is good or bad. State that the immediate policy loops are balancing, but the quality, training and fatigue side-effects reinforce backlog. Delays make a policy look effective at first and harmful later. Recommend testing a combined policy that protects quality and sustainable capacity, and name the outcome measures: backlog, completion rate, rework and fatigue.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>Every stated variable appears once and every link has a sign.</li><li>Flows connect to the stock; information links do not.</li><li>Each requested loop is named, closed and traced.</li><li>Explain the management trade-off, including any delay.</li></ul>
+</article></main></body></html>

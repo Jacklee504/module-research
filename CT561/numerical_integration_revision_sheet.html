@@ -8,79 +8,63 @@
 </head>
 <body>
 <header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CT561 overview</a>
-<a href="feedback_loops_revision_sheet.html">Previous topic: Feedback loops</a>
-<a href="sir_public_health_models_revision_sheet.html">Next topic: SIR models</a>
-</nav>
-<p class="eyebrow">CT561 Topic Guide</p>
-<h1>Numerical Integration</h1>
-<p>Use a flow over a small time step to approximate the next value of a stock.</p>
+<nav class="top-nav"><a href="details.html">CT561 overview</a><a href="feedback_loops_revision_sheet.html">Previous topic: Feedback loops</a><a href="sir_public_health_models_revision_sheet.html">Next topic: SIR models</a></nav>
+<p class="eyebrow">CT561 Paper-Based Topic Guide</p>
+<h1>Graphical and Euler Integration</h1>
+<p>A recent-paper core: the same three-part integration question appears in 2023/24, 2024/25 and 2025/26, and closely matches earlier papers.</p>
 </header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Exam-use protocol</h2>
-<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
-<p>
-<strong>Equation:</strong> Euler: S(t+DT)=S(t)+(inflow-outflow)DT, assuming net flow is constant over the step. Smaller DT usually improves approximation but does not validate structure. <strong>Question cue:</strong> tabulate time, rates, net flow, DT and next stock with units.</p>
-<h2>Worked practice 1 — paper-derived Euler</h2>
-<p>
-<strong>Question demand:</strong> S=100, inflow=30/day, outflow=10/day, DT=.5 day. <strong>Plan/choice:</strong> net flow then multiply DT. <strong>Worked answer:</strong> net=20/day, change=10, Snext=110. <strong>Mark-winning points:</strong> rate-times-time units. <strong>Common trap:</strong> add flow without DT.</p>
-<h2>Worked practice 2 — paper-derived error analysis</h2>
-<p>
-<strong>Question demand:</strong> Explain when Euler overestimates a stock. <strong>Plan/choice:</strong> compare left-endpoint rate to changing net-flow curve. <strong>Worked answer:</strong> if net flow decreases over interval, holding its initial higher value overstates area/change; reduce DT or use higher-order method. <strong>Mark-winning points:</strong> graphical-integration rationale. <strong>Common trap:</strong> DT=5 uses five successive DT=1 updates.</p>
-<h2>Purpose and relevance</h2>
-<p>Most dynamic models cannot be solved neatly by hand. Euler integration approximates accumulation repeatedly and makes the assumptions visible.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Make a time table. At each row calculate inflow, outflow and net flow from the current stock, then update using the stated <code>DT</code>. State the approximation rule and discuss whether DT is small enough.</p>
-<h2>Key terms and formulas</h2>
+<main class="module-shell"><article class="module-content">
+<h2>What the recent paper asks</h2>
 <ul>
-<li>
-<strong>DT:</strong> simulation time step.</li>
-<li>
-<strong>Net flow:</strong> inflow − outflow.</li>
-<li>
-<strong>Euler:</strong> <code>S(t+DT)=S(t)+net flow(t)×DT</code>.</li>
-<li>
-<strong>Graphical integration:</strong> area under a net-flow curve changes the stock.</li>
-<li>Smaller DT usually reduces discretisation error, but does not repair bad structure or data.</li>
+<li><strong>Part (a) [12]:</strong> draw the stock-flow model including net flow, calculate net flow, then use graphical integration to plot the stock and explain each behaviour mode.</li>
+<li><strong>Part (b) [5]:</strong> describe Euler's method and assumptions; explain when forward Euler over- or underestimates the stock, supported by a short calculation.</li>
+<li><strong>Part (c) [8]:</strong> use Euler with the stated DT, normally a deliberately large time step.</li>
 </ul>
-<h2>Method derivation</h2>
+<p><strong>References:</strong> 2023/24 Q4(a-c), 2024/25 Q4(a-c), 2025/26 Q1(a-c). Older versions: 2018/19 Q1 and 2021/22 Q4.</p>
+
+<h2>Part (a): graphical integration</h2>
+<p>Draw a rectangle for the stock, pipes for the named inflow and outflow, and an auxiliary: <code>Net Flow = Inflow - Outflow</code>. Then write <code>Stock = INTEG(Net Flow, Initial Stock)</code>.</p>
 <ol>
-<li>Write the stock and its initial value.</li>
-<li>Evaluate rates at the start of the interval.</li>
-<li>Multiply net rate by DT and add it to the stock.</li>
-<li>Repeat, retaining units and rounded values sensibly.</li>
-<li>Check whether a known equilibrium or bound is violated.</li>
+<li>Calculate or sketch net flow first.</li>
+<li>Use only endpoints, zero crossings and changes in slope.</li>
+<li>For a straight net-flow segment, use <code>change in stock = (NF_start + NF_end)/2 x elapsed time</code>.</li>
+<li>Add each change to the previous stock value, then plot those points on a separate stock-time graph.</li>
 </ol>
-<h2>Worked practice 3 — foundational calculation</h2>
-<p>
-<strong>Problem:</strong> A stock starts at 100. Inflow is 20/day; outflow is 10% of the current stock/day; DT = 1 day. Find two steps.</p>
-<p>
-<strong>Answer:</strong> At day 0, net = 20 − 10 = 10, so S1 = 110. At day 1, net = 20 − 11 = 9, so S2 = 119. Euler used each interval’s starting stock; it did not continuously update within the day.</p>
-<h2>Question interpretation and independent practice</h2>
-<h3>Prompt 1</h3>
-<p>Starting stock 50, constant net flow −3/hour, DT 2 hours. Find the next stock. <strong>Check:</strong> 44; multiply the rate by two hours.</p>
-<h3>Exam bridge</h3>
-<p>Given a changing inflow/outflow graph, sketch the stock and explain where it rises, falls and peaks. <strong>Check:</strong> use the sign of net flow; a stock peaks where net flow crosses from positive to negative.</p>
-<h2>High-value traps and corrections</h2>
-<p><strong>Paper basis for the integrated practice:</strong> local 2018/19 Question 1(b), 2019/20 Question 1(b,c), and 2025/26 Question 1(b) verified Euler integration; this reservoir scenario is newly written.</p>
-<h2>Integrated paper-style practice - Euler stock update [8 marks]</h2><p><strong>Scenario.</strong> A reservoir starts at 100 ML. Inflow is 20 ML/day; outflow is 10% of current stock/day; DT=1 day. Calculate two Euler updates and explain one source of approximation error.</p><p><strong>Question-demand diagnosis:</strong> calculate rates at the start of each interval and retain units.</p><p><strong>Fastest route:</strong> net at day 0 is 20−10=10, then recompute from the new stock.</p><p><strong>Worked answer:</strong> S1=100+10(1)=110 ML. At day 1 the outflow is 11 ML/day, so net is 9 and S2=119 ML. Euler holds the start-of-step rate constant across each day. Because outflow rises continuously with stock, a large DT can misestimate the area under the net-flow curve; reduce DT and check convergence, but do not claim that this validates the reservoir model.</p><p><strong>Topic-specific trap:</strong> never add a rate to a stock without multiplying by DT.</p>
+<p><strong>Behaviour rule:</strong> positive net flow means stock rises; negative means it falls; zero net flow gives a maximum, minimum or flat segment. A falling positive net flow means the stock rises at a decreasing rate.</p>
+
+<h2>2025/26 worked route [12]</h2>
+<p>The 2025/26 graph has outflow 50 units/day. Inflow falls from 100 to 0 over days 0-5, is zero to day 10, rises to 100 by day 15, is constant to day 20, then falls to zero by day 25. The stock starts at 100.</p>
+<table><thead><tr><th>Day</th><th>Net flow</th><th>Stock</th><th>Reason</th></tr></thead><tbody>
+<tr><td>0</td><td>+50</td><td>100</td><td>Initial value</td></tr>
+<tr><td>2.5</td><td>0</td><td>162.5</td><td><code>100 + 0.5 x 2.5 x 50</code></td></tr>
+<tr><td>5</td><td>-50</td><td>100</td><td>Equal negative triangle</td></tr>
+<tr><td>10</td><td>-50</td><td>-150</td><td><code>100 - 50 x 5</code></td></tr>
+<tr><td>12.5</td><td>0</td><td>-212.5</td><td>Negative triangle</td></tr>
+<tr><td>15</td><td>+50</td><td>-150</td><td>Positive triangle</td></tr>
+</tbody></table>
+<p>The stock peaks at day 2.5 and reaches its minimum at day 12.5. Continue the same method to day 25. A negative stock is acceptable when the paper explicitly says so.</p>
+
+<h2>Part (b): Euler method [5]</h2>
+<p><code>S(t + DT) = S(t) + Net Flow(t) x DT</code>. Forward Euler replaces the area under the net-flow curve with a rectangle whose height is the net flow at the <strong>start</strong> of the interval.</p>
 <ul>
-<li>Adding a rate directly to a stock without × DT.</li>
-<li>Using the newly calculated stock to recompute an old interval.</li>
-<li>Claiming a smaller DT makes a model validated.</li>
+<li>Net flow is assumed constant during each time step.</li>
+<li>The stock is consequently approximated as changing linearly over that step.</li>
+<li>DT must be small enough for this approximation to be acceptable.</li>
 </ul>
-<h2>Final answer checklist</h2>
-<ul>
-<li>My table shows time, rates, net flow and stock.</li>
-<li>Units cancel correctly.</li>
-<li>I have said what Euler approximates.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Graphical and Euler-style integration are well-supported recurring skills in the 2016/17–2025/26 local papers; exact figures and framing vary.</p>
-</article>
-</main>
-</body>
-</html>
+<p>Forward Euler <strong>overestimates</strong> when net flow falls, since its left-hand rectangle is above the line. It <strong>underestimates</strong> when net flow rises. For the 2025/26 interval 0-2.5 with DT=0.5, the starting net flows are 50, 40, 30, 20 and 10, so Euler change is <code>(50+40+30+20+10) x 0.5 = 75</code>. The true triangle area is <code>0.5 x 2.5 x 50 = 62.5</code>, hence an overestimate of 12.5 units.</p>
+
+<h2>Part (c): Euler table [8]</h2>
+<p>With the same 2025/26 graph and <code>DT=5</code>, use the start-of-interval net flow:</p>
+<table><thead><tr><th>Interval</th><th>Starting net flow</th><th>Euler update</th><th>Stock</th></tr></thead><tbody>
+<tr><td>0-5</td><td>+50</td><td><code>100 + 50(5)</code></td><td>350</td></tr>
+<tr><td>5-10</td><td>-50</td><td><code>350 - 50(5)</code></td><td>100</td></tr>
+<tr><td>10-15</td><td>-50</td><td><code>100 - 50(5)</code></td><td>-150</td></tr>
+<tr><td>15-20</td><td>+50</td><td><code>-150 + 50(5)</code></td><td>100</td></tr>
+<tr><td>20-25</td><td>+50</td><td><code>100 + 50(5)</code></td><td>350</td></tr>
+</tbody></table>
+<p><strong>Answer:</strong> <code>S(25)=350</code>. Do not use the day-25 net flow because no later interval begins there.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>Rates have units of units/time; stock has units.</li><li>Do not add a rate directly to a stock without multiplying by time.</li><li>Graphical integration uses areas; Euler uses start-of-step rectangles.</li><li>For every stock graph, write the behaviour mode, not only points.</li></ul>
+</article></main>
+</body></html>

@@ -1,15 +1,113 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT417 - Secure Software Engineering and DevSecOps</title><link rel="stylesheet" href="../module_page.css"></head>
-<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CT417 Overview</a><a href="../module_research.html">All Modules</a></nav><p class="eyebrow">CT417 Revision</p><h1>Secure Software Engineering and DevSecOps</h1><p>Build security into decisions, code, pipeline and operations instead of treating it as a final test.</p></header><main class="module-shell"><article class="module-content"><h2>Rapid exam refresher</h2><ul><li>Threat model/review/dependencies/secrets/SAST/DAST/release/monitoring.</li><li>shift-left plus runtime.</li><li>SBOM/provenance.</li></ul>
-<h2>Purpose, scope and examiner demand</h2><p><strong>Secure software engineering</strong> integrates security throughout the development lifecycle. <strong>DevSecOps</strong> makes security a shared, automated and observable delivery responsibility. It is central to CT417’s official scope and connects the CI/CD, testing and vulnerability topics.</p>
-<h3>Exam focus by part</h3><ul><li>Threat model/review/dependencies/secrets/SAST/DAST/release/monitoring.</li><li>shift-left plus runtime.</li><li>SBOM/provenance.</li></ul><h2>Question-demand diagnosis and answer plan</h2><p>Scenarios ask how to shift security left or how to make a pipeline safer. Start with assets and abuse cases, then map controls across requirements, design, implementation, CI, deployment and operation. Explain ownership, evidence and the response path for a discovered issue.</p>
-<h3>Question-type cues</h3><ul><li><strong>Application cue:</strong> Secure payment-service release with libraries.</li><li><strong>Analysis cue:</strong> Critical dependency CVE after deploy.</li></ul><h2>Definitions, notation and discriminating comparisons</h2><ul><li><strong>Shift left:</strong> address security earlier when change is cheaper.</li><li><strong>Threat modelling:</strong> systematic reasoning about assets, attackers, entry points and mitigations.</li><li><strong>Abuse case:</strong> requirement written from a malicious or misuse perspective.</li><li><strong>Least privilege / defence in depth:</strong> minimum permissions / overlapping controls.</li><li><strong>SBOM:</strong> software bill of materials listing components and versions.</li><li><strong>Security gate:</strong> a release rule triggered by defined risk evidence.</li></ul>
-<h2>Step-by-step methods and solution routes</h2><ol><li>At requirements, identify assets, privacy/security constraints and abuse cases.</li><li>At design, threat-model trust boundaries and choose authentication, authorisation, validation and logging controls.</li><li>At implementation, use review, secure coding standards, secret scanning and dependency management.</li><li>In CI, automate tests, SAST, dependency/container checks and policy thresholds; make findings visible to developers.</li><li>Before/after deployment, use hardened configuration, least-privilege identities, DAST in approved environments, monitoring and incident response.</li><li>Feed incidents and metrics back into requirements, controls and training. This closes the DevSecOps loop.</li></ol>
-<h3>Reasoning checkpoints</h3><ol><li>Use and justify: Threat model/review/dependencies/secrets/SAST/DAST/release/monitoring.</li><li>Use and justify: shift-left plus runtime.</li><li>Use and justify: SBOM/provenance.</li></ol><h2>Worked examples and method extensions</h2><h3>Practice</h3><p>A student team is adding file upload to a public service and plans to “run a security scan before release.” Improve the plan.</p><h3>Model answer</h3><p>First threat-model uploads: an attacker may submit malware, huge files or files disguised as images, exposing storage and downstream users. Specify allowed types, size limits, authentication and retention. At design, store uploads outside the web root with a generated name and least-privilege service identity. In implementation, validate content and metadata, never trust the client filename, and review code. In CI run unit/integration tests, SAST and dependency checks; scan the built container and produce an SBOM. In staging, run permitted DAST and test upload abuse cases. In production monitor failures and quarantine events, patch dependencies, and use an incident runbook. A final scan alone is too late and cannot replace design controls.</p>
-<h3>Medium practice — question demand</h3><p>Secure payment-service release with libraries.</p><h3>Plan / choice of method</h3><p>Select the governing concepts before calculating: Threat model/review/dependencies/secrets/SAST/DAST/release/monitoring.; shift-left plus runtime.; SBOM/provenance. Apply them only under the assumptions stated in the question, and compare the result with the required condition.</p><h3>Worked answer</h3><p>Protected review, tests/scans, SBOM/signed immutable image, staging DAST, promote same digest, risk gate/monitor/rollback.</p><h3>Mark-winning points</h3><p>Credit requires the named mechanism, all intermediate values or protocol states, the final conclusion, and these topic checks: Threat model/review/dependencies/secrets/SAST/DAST/release/monitoring.; shift-left plus runtime.; SBOM/provenance.</p><h3>Common trap</h3><p>Blocking every low-risk warning without triage, thereby encouraging bypasses.</p><h2>Graded practice and hard extensions</h2><h3>1. Foundation</h3><p>What does “shift left” mean, and why is it not “security belongs only to developers”?</p><p><strong>Answer check:</strong> it means earlier feedback and design decisions, while operations, security specialists and product owners still share responsibility.</p><h3>2. Exam bridge</h3><p>Design a DevSecOps control map for a service that handles student records.</p><p><strong>Answer check:</strong> cover requirements/privacy, threat model and access design, reviews/scans/tests, protected deployment/secrets, monitoring/audit/incident response, evidence and feedback. Relate controls to sensitive data.</p>
-<h3>Hard practice — question demand</h3><p>Critical dependency CVE after deploy.</p><h3>Plan / choice of method</h3><p>Model the failure or boundary first, then apply these page-specific concepts in order: Threat model/review/dependencies/secrets/SAST/DAST/release/monitoring.; shift-left plus runtime.; SBOM/provenance. Finish by checking the final state against the deadline, security property, consistency contract, or performance requirement.</p><h3>Worked answer</h3><p>Assess exposure, contain/mitigate or upgrade, rebuild/sign/promote, regression-test/monitor and track SBOM/patch SLA with owned exception.</p><h3>Mark-winning points</h3><p>Credit requires the complete method sequence, explicit verification of the conclusion, and the limiting assumption/trade-off—not merely the recommended technology.</p><h3>Common trap</h3><p>Blocking every low-risk warning without triage, thereby encouraging bypasses.</p><h2>Topic-specific traps and diagnosis</h2><ul><li>Equating DevSecOps with installing one scanner.</li><li>Putting secrets in a repository or logs.</li><li>Ignoring authorisation, audit and recovery while discussing encryption.</li><li>Blocking every low-risk warning without triage, thereby encouraging bypasses.</li></ul>
-<h2>Exam marking checklist</h2><ul><li>Map controls across the lifecycle.</li><li>Name assets, threats/trust boundaries and responsible roles.</li><li>Include automated evidence plus operational monitoring.</li><li>Explain how findings are fixed and learned from.</li></ul>
-<h2>Paper-year pattern note</h2><p>DevSecOps and secure engineering are official current scope and align with the recent 2023/24–2025/26 security/pipeline cluster. Exact framework wording is not predictable, so revise lifecycle reasoning rather than a tool checklist.</p>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT417 - Secure Software Engineering and DevSecOps</title>
+  <link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT417 Overview</a>
+      <a href="cicd_git_workflows_revision_sheet.html">CI/CD and Git</a>
+      <a href="automated_testing_security_tooling_revision_sheet.html">Testing and security tooling</a>
+    </nav>
+    <p class="eyebrow">CT417 Topic Guide</p>
+    <h1>Secure Software Engineering and DevSecOps</h1>
+    <p>Use security evidence throughout delivery: prevent early, test automatically, release safely, and respond when production evidence changes the risk.</p>
+  </header>
 
-<h2>Practice-source note</h2><p>The added questions synthesise recurring local CT417 paper patterns: scenario-based CI/CD and tooling, vulnerability analysis, architecture, and refactoring. They are not presented as exact wording from a named year.</p>
-</article></main></body></html>
+  <main class="module-shell">
+    <article class="module-content">
+      <h2>What repeatedly appears in the papers</h2>
+      <p>The recent papers test this as a <strong>20-mark company scenario</strong>, not as a request to list DevSecOps buzzwords. 2024/25 and 2025/26 repeatedly ask you to diagnose a pipeline or security-tooling failure, propose practical changes, and justify the trade-offs.</p>
+      <ul>
+        <li><strong>Secure CI/CD design:</strong> automate integration, tests, security checks, staging, controlled release and rollback.</li>
+        <li><strong>SAST versus DAST:</strong> compare when they run, what they see, what they detect, source-code access, and a tool example.</li>
+        <li><strong>Tool failure and speed:</strong> diagnose OWASP ZAP reporting failures; improve SonarQube feedback without silently lowering assurance.</li>
+        <li><strong>Coverage and third-party risk:</strong> use coverage evidence to target tests; identify, assess and remediate vulnerable dependencies.</li>
+      </ul>
+
+      <h2>Rapid refresher: the control map</h2>
+      <table>
+        <thead><tr><th>Delivery point</th><th>What to name in an answer</th><th>Why it earns credit</th></tr></thead>
+        <tbody>
+          <tr><td>Pull request</td><td>Small branches, review, unit/integration tests, SAST, secret and dependency checks</td><td>Finds defects before merge and reduces integration conflict.</td></tr>
+          <tr><td>Staging</td><td>Production-like environment, automated regression tests, OWASP ZAP against an authorised target, published reports</td><td>Tests the running service and exposes configuration/integration faults before production.</td></tr>
+          <tr><td>Release</td><td>Versioned Docker image, security/quality gate, controlled deployment and rollback</td><td>Links the tested build to a recoverable release, rather than deploying an untraceable latest build.</td></tr>
+          <tr><td>Production incident</td><td>Detect, assess exposure, patch or mitigate, rebuild, regression-test, redeploy and monitor</td><td>Shows security work continues after a vulnerability or failure is discovered.</td></tr>
+        </tbody>
+      </table>
+
+      <h2>How to answer the scenario questions</h2>
+      <ol>
+        <li>Underline each stated failure: for example, manual testing, merge conflicts, late dependency CVEs, or no reports from ZAP.</li>
+        <li>Give one control that addresses that failure, explain <em>how</em> it works in the pipeline, then give the concrete benefit.</li>
+        <li>For an optimisation question, name the trade-off. Faster feedback must not mean abandoning coverage, security gates, or meaningful reporting.</li>
+        <li>For a tool question, distinguish configuration/environment/reporting failures from an actual vulnerability finding.</li>
+      </ol>
+
+      <h2>Practice question 1 - secure delivery scenario (20 marks)</h2>
+      <p><strong>Inspired by:</strong> 2024/25 Question 1 and 2025/26 Question 1.</p>
+      <p><strong>Scenario.</strong> HealthRoute runs a web and mobile appointment service. Releases are slow because tests are mainly manual; feature branches are merged late and often conflict; staging differs from production; and a vulnerable third-party library was discovered after release. The service handles health and payment data.</p>
+
+      <h3>(a) Recommend four specific CI/CD or DevSecOps improvements. Link each to a stated HealthRoute problem. [8 marks]</h3>
+      <p><strong>Answer route:</strong> use four distinct problems, not four names for one scanner.</p>
+      <p><strong>Model answer:</strong></p>
+      <ol>
+        <li><strong>Pull-request CI:</strong> trigger build, unit and integration tests on each pull request. Developers receive feedback before merge, so defects and incompatible changes are found earlier than in manual release testing.</li>
+        <li><strong>Frequent integration with protected main:</strong> use short-lived feature branches, required review and a passing CI status before merge. This reduces long-lived divergence and makes merge conflicts smaller and easier to resolve.</li>
+        <li><strong>Staging parity and automated regression testing:</strong> deploy the same versioned artefact to a production-like staging environment and run regression/API tests there. This catches configuration and integration faults that unit tests cannot see.</li>
+        <li><strong>Security gates and release safety:</strong> run SAST and dependency/secret scanning in CI; block or explicitly risk-accept critical findings. Build a versioned image, deploy it in a controlled way, and retain a tested rollback path. This addresses late library discovery and limits the impact of a bad release.</li>
+      </ol>
+      <p><strong>What earns the marks:</strong> a control, the pipeline point where it operates, the named scenario failure, and the resulting benefit. “Use DevSecOps” alone earns little.</p>
+
+      <h3>(b) Outline the key stages of a GitHub Actions pipeline that tests pull requests, builds and pushes an image after merge to <code>main</code>, then deploys to staging. [5 marks]</h3>
+      <p><strong>Model answer:</strong> Use a pull-request trigger for checkout, dependency installation, unit/integration tests and fast security checks. Use a <code>push</code>-to-<code>main</code> trigger only after the change is merged. In that job: checkout the exact commit; build and test; create and scan a versioned Docker image; push it to the registry; deploy that same version to staging; run a smoke test; publish status and reports. Production deployment should be a separate controlled promotion, not an accidental consequence of every commit.</p>
+
+      <h3>(c) A junior developer runs tests only after merging to <code>main</code>, deploys every successful commit directly to production, and has no rollback. State two risks and two improvements. [4 marks]</h3>
+      <p><strong>Model answer:</strong> Tests only on <code>main</code> allow a broken feature to enter the shared branch; run required checks on pull requests and protect <code>main</code>. Direct production deployment can expose users to untested configuration, regression or security failures; deploy the already-tested artefact to staging first and use progressive production release. With no rollback, recovery depends on an emergency code fix; retain the previous immutable version and automate or document rollback.</p>
+
+      <h3>(d) The vulnerable library has already reached production. Give a safe response sequence. [3 marks]</h3>
+      <p><strong>Model answer:</strong> Identify the deployed component and version from the dependency lockfile or release record, assess exploitability and exposure, then contain the risk (for example disable the affected feature or restrict access) while upgrading or applying the vendor mitigation. Rebuild, scan, regression-test and redeploy the patched version; monitor after deployment and record ownership and deadline. Do not simply update a dependency in a branch without confirming what production runs.</p>
+
+      <h2>Practice question 2 - repeated security automation pattern (20 marks)</h2>
+      <p><strong>Inspired by:</strong> 2024/25 Question 2 and 2025/26 Question 2. SAST/DAST, OWASP ZAP, SonarQube performance and coverage all appear in both papers.</p>
+
+      <h3>(a) Compare SAST and DAST by lifecycle timing, suitable vulnerabilities, source-code access, and one tool example each. [5 marks]</h3>
+      <p><strong>Model answer:</strong> SAST analyses source, bytecode or build artefacts without executing the running application. It runs early in development/CI and is useful for code-level patterns such as injection risks, insecure APIs, hard-coded secrets or unsafe data flow; SonarQube is an example. DAST probes a running application, normally in staging or an authorised test environment, so it can find runtime/configuration issues such as exposed endpoints, missing security headers, authentication/session weaknesses and some injection behaviour; OWASP ZAP is an example. SAST needs code or an analysable artefact; DAST does not need source code but needs a reachable, safely configured target. They complement rather than replace each other.</p>
+
+      <h3>(b) OWASP ZAP causes the pipeline to fail and produces no useful report. Give two likely technical causes and a resolution for each. [5 marks]</h3>
+      <p><strong>Model answer:</strong></p>
+      <ol>
+        <li><strong>Target reachability or startup:</strong> ZAP starts before the staging service is healthy, or the runner cannot reach the target network. Add a health check/retry, expose the authorised test endpoint to the runner, and fail clearly if it is unavailable.</li>
+        <li><strong>Authentication/report configuration:</strong> the scan is unauthenticated or uses the wrong context, so it sees only a login page; alternatively the report path is not persisted. Configure test credentials/context and scope, then upload the HTML/JSON report as a pipeline artefact even when the scan finds issues.</li>
+      </ol>
+      <p><strong>Exam technique:</strong> name the failure mechanism, then give an operational fix. “Configure ZAP correctly” is not a diagnosis.</p>
+
+      <h3>(c) SonarQube slows feedback. Propose two performance improvements without reducing scan quality, and give a trade-off for each. [5 marks]</h3>
+      <p><strong>Model answer:</strong></p>
+      <ol>
+        <li><strong>Cache dependencies and scanner data; use incremental or changed-code analysis where supported.</strong> This avoids downloading and reanalysing unchanged inputs on every run. The trade-off is cache invalidation and configuration complexity; scheduled/full scans are still needed to catch wider issues.</li>
+        <li><strong>Split fast pull-request analysis from a full main/nightly analysis, while keeping the quality gate for changed code.</strong> Developers get rapid, relevant feedback and the full scan preserves broader assurance. The trade-off is that some repository-wide findings arrive later, so ownership and reporting must make that delay visible.</li>
+      </ol>
+
+      <h3>(d) Coverage is low in payment logic. Explain how to use a coverage tool and give one efficient improvement strategy. [5 marks]</h3>
+      <p><strong>Model answer:</strong> Configure a tool such as JaCoCo, Istanbul or Coverage.py in the test job to produce line/branch coverage reports and publish them as build artefacts or quality-gate input. Inspect the payment package for unexecuted branches, especially error handling, authorisation decisions, rounding/limit boundaries and failure paths. Add focused unit tests around those branches using mocks or fakes for slow external gateways, then retain a smaller number of integration tests for the real boundary. This increases meaningful coverage without making every pull request wait for a large end-to-end suite.</p>
+
+      <h2>Final check before you finish an answer</h2>
+      <ul>
+        <li>Have I linked every proposed control to a fact in the scenario?</li>
+        <li>Have I said where the control runs and what evidence it produces?</li>
+        <li>For SAST/DAST, have I compared rather than merely defined them?</li>
+        <li>For tool failures, have I supplied a cause and a practical resolution?</li>
+        <li>For optimisation, have I acknowledged the assurance/feedback trade-off?</li>
+      </ul>
+
+      <h2>Past-paper basis</h2>
+      <p>This page uses the local 2024/25 and 2025/26 CT417 papers as its primary pattern evidence. The two practice sets are adapted scenarios, not claimed to be verbatim past-paper questions. Their mark allocations and subpart styles deliberately follow the repeated recent CT417 format.</p>
+    </article>
+  </main>
+</body>
+</html>

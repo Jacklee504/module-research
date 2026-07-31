@@ -156,6 +156,7 @@ If taking this module, past-paper drilling should be very effective. The best ap
 
 Each guide includes a purpose, calculation plan, notation/derivation, a worked calculation, two graduated exam bridges with checks, mistakes, checklist, and a backlink to the relevant paper evidence.
 
+- [Most asked exam questions](most_asked.html) - consolidated recurring exam-paper question families, lecturer weighting, worked answers, and flashcard timing.
 - [Qubits, qudits and state vectors](qubits_qudits_revision_sheet.html)
 - [Density matrices, purity and entropy](density_matrices_revision_sheet.html)
 - [Entanglement and reduced states](entanglement_revision_sheet.html)

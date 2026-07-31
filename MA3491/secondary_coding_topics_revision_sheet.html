@@ -18,16 +18,17 @@
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>This guide covers weight enumerators, perfect/MDS/self-dual ideas, repetition/check-digit examples, and a cautious BCH orientation.<strong>Exam use:</strong> Definition, field equations, basis, dimension identity, orthogonality and requested enumerator convention are shown.</p>
+<p>This guide covers weight enumerators, MacWilliams' identity, perfect/MDS/self-dual ideas, repetition/check-digit examples, and a cautious BCH orientation.<strong>Exam use:</strong> Definition, dual-code relation, field equations, basis, dimension identity, orthogonality and requested enumerator convention are shown.</p>
 <h2>Question plan</h2>
 <ol>
 <li>Identify the definition being tested.</li>
 <li>Compute a small explicit example before making a classification claim.</li>
+<li>For a MacWilliams question, identify whether the one- or two-variable enumerator convention is being used before substituting.</li>
 <li>For BCH, state the chosen roots/consecutive powers and derive g as their minimal-polynomial lcm.</li>
 <li><strong>Question interpretation:</strong> Identify whether the prompt concerns duality, equivalence, weight enumeration or a bound, and state the exact invariant before calculating.</li>
 </ol>
 <h2>Formulas</h2>
-<p>Weight enumerator W<sub>C</sub>(z)=Σ<sub>c∈C</sub>z<sup>wt(c)</sup>. Perfect means sphere-packing equality; MDS means Singleton equality. C is self-dual when C=C<sup>⊥</sup>, so n=2k. A BCH generator polynomial is lcm of the minimal polynomials of its prescribed consecutive roots.<strong>Rapid recall:</strong> C^perp={x:x dot c=0 for all c in C}, dim C+dim C^perp=n; monomial/permutation equivalence preserves length, dimension and weight distribution.</p>
+<p>Weight enumerator W<sub>C</sub>(z)=Σ<sub>c∈C</sub>z<sup>wt(c)</sup>. For a binary code, MacWilliams' identity is W<sub>C⊥</sub>(z)=|C|<sup>−1</sup>(1+z)<sup>n</sup>W<sub>C</sub>((1−z)/(1+z)). Perfect means sphere-packing equality; MDS means Singleton equality. C is self-dual when C=C<sup>⊥</sup>, so n=2k. A BCH generator polynomial is lcm of the minimal polynomials of its prescribed consecutive roots.<strong>Rapid recall:</strong> C^perp={x:x dot c=0 for all c in C}, dim C+dim C^perp=n; check the requested enumerator convention before applying MacWilliams.</p>
 <h2>Derivation</h2>
 <p>Enumerate codewords and group by weight to obtain W. Equality in the relevant bound gives the two classifications. For self-duality, dim C+dim C<sup>⊥</sup>=n, so equality of codes forces k=n/2. BCH roots make every codeword vanish at those roots; their minimal polynomials therefore divide g.<strong>Exam workflow:</strong> Translate the definition into a matrix nullspace, calculate over F_q, then verify dimensions and orthogonality as independent checks.</p>
 <h2>Worked example</h2>
@@ -57,7 +58,7 @@
 <li><strong>Final 60-second audit:</strong> Definition, field equations, basis, dimension identity, orthogonality and requested enumerator convention are shown.</li>
 </ul>
 <h2>Past-paper note</h2>
-<p>Weight enumerators appeared in 2022/23 and 2023/24, but not 2024/25; BCH is official scope yet not a stable local-paper pattern. Treat both as lower-confidence than the core topics.</p>
+<p>Weight enumerators appeared in 2022/23, 2023/24 and 2025/26. The 2025/26 paper paired them with a cyclic code, asked for the dual code's enumerator, and introduced MacWilliams' identity. Weight enumerators are therefore recurring secondary material; MacWilliams is a new one-paper extension. BCH is official scope yet not a stable local-paper pattern.</p>
 </article>
 </main>
 </body>

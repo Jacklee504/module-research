@@ -1,87 +1,35 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CT561 SIR and Public-Health Models</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CT561 overview</a>
-<a href="numerical_integration_revision_sheet.html">Previous topic: Numerical integration</a>
-<a href="workforce_stock_management_revision_sheet.html">Next topic: Workforce management</a>
-</nav>
-<p class="eyebrow">CT561 Topic Guide</p>
-<h1>SIR and Public-Health Models</h1>
-<p>SIR is a stock-flow model of movement from susceptibility to infection to removal.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Exam-use protocol</h2>
-<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
-<p>
-<strong>Frequency-dependent SIR notation used on this page:</strong> S, I and R are people in susceptible, infectious and removed stocks; N=S+I+R is the fixed closed population. The infection flow is F=βSI/N people/day, where β is the effective transmission rate (/day); recovery is G=γI people/day, where γ is the recovery rate (/day) and 1/γ is mean infectious duration. Hence dS/dt=−F, dI/dt=F−G and dR/dt=G. When S≈N, R₀=β/γ and early infections grow when R₀&gt;1; at any later time Rₑ=R₀S/N. If the alternative notation c,i,d occurs, c is contacts/person/day, i is infection probability/contact, d is mean infectious duration in days: β=ci, γ=1/d, so R₀=β/γ=cid. <strong>Question cue:</strong> declare this convention, define every parameter with units, then show which mechanism a policy changes.</p>
-<h2>Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt)</h2>
-<p>
-<strong>Question demand:</strong> Derive the initial growth threshold. <strong>Plan/choice:</strong> substitute F and G into dI/dt, then use S≈N and I&gt;0. <strong>Worked answer:</strong> dI/dt=βSI/N−γI=I(βS/N−γ). Initially S/N≈1, so growth requires β−γ&gt;0, equivalently β/γ&gt;1. Thus R₀=β/γ; in the c,i,d convention it is cid because β=ci and γ=1/d. <strong>Mark-winning points:</strong> state the closed-population/early-outbreak assumption and distinguish R₀ from the current infected count. <strong>Common trap:</strong> mixing β with c or γ with d without defining the conversion.</p>
-<h2>Worked practice 2 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt)</h2>
-<p>
-<strong>Question demand:</strong> Add quarantine and gradual vaccination. <strong>Plan/choice:</strong> split the infection transition, add a vaccinated stock/flow and preserve conservation. <strong>Worked answer:</strong> move a stated fraction of infectious people into a quarantine stock with a recovery flow, specify whether its transmission rate is zero or reduced, and add vaccination as a flow from S to protected/removed at a capacity-limited rate. Recalculate N as the sum of every live compartment, report attack rate as cumulative infected/N, and test the policy against a no-policy baseline. <strong>Mark-winning points:</strong> equations, units and conservation. <strong>Common trap:</strong> leaving quarantined people infectious without an explicit transmission assumption.</p>
-<h2>Purpose and relevance</h2>
-<p>The SIR structure is a compact way to connect feedback, stock-flow thinking and policy analysis in a public-health setting.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Define the population boundary and states, draw the S → I → R flows, give the infection and recovery equations, then say which parameter a proposed policy changes and why.</p>
-<h2>Key terms and formulas</h2>
-<ul>
-<li>
-<strong>S, I, R:</strong> susceptible, infectious and removed/recovered stocks.</li>
-<li>
-<strong>Frequency-dependent infection:</strong> <code>new infections = βSI/N</code>.</li>
-<li>
-<strong>Recovery:</strong> <code>recoveries = γI</code>; infectious duration is approximately <code>1/γ</code>.</li>
-<li>
-<strong>Basic reproduction number:</strong> <code>R₀ ≈ β/γ</code> in this simple form.</li>
-<li>
-<strong>Effective reproduction:</strong> <code>Rₑ ≈ R₀(S/N)</code>; growth requires Rₑ &gt; 1.</li>
-</ul>
-<h2>Method derivation</h2>
-<ol>
-<li>List who can enter and leave each state.</li>
-<li>Write conservation equations: dS/dt = −infection; dI/dt = infection − recovery; dR/dt = recovery.</li>
-<li>Check S+I+R remains N in a closed model.</li>
-<li>Map an intervention to β, γ or the available susceptible population.</li>
-<li>State assumptions: homogeneous mixing, fixed parameters, no births/deaths unless added.</li>
-</ol>
-<h2>Worked practice 3 — foundational calculation</h2>
-<p>
-<strong>Problem:</strong> N = 1,000, S = 990, I = 10, β = 0.3/day, γ = 0.1/day. Estimate flows now.</p>
-<p>
-<strong>Answer:</strong> New infections = 0.3×990×10/1000 = 2.97/day. Recoveries = 0.1×10 = 1/day. I initially rises by about 1.97/day. R₀ is about 3, but current growth is explained more directly by Rₑ ≈ 2.97.</p>
-<h2>Question interpretation and independent practice</h2>
-<h3>Prompt 1</h3>
-<p>Where would vaccination appear? <strong>Check:</strong> as a flow from S to protected/removed (or a lower initial S); explain the modelling choice.</p>
-<h3>Exam bridge</h3>
-<p>Extend SIR for quarantine or hospital capacity and discuss one benefit and limitation. <strong>Check:</strong> add explicit stocks/flows, say which feedback changes, and state an evidence/assumption caveat.</p>
-<h2>High-value traps and corrections</h2>
-<p><strong>Paper basis for the integrated practice:</strong> syllabus/concept practice. SIR material is present in the archive, but this numerical step was not traced to a specific prompt.</p>
-<h2>Integrated paper-style practice - one SIR step [8 marks]</h2><p><strong>Scenario.</strong> In a population N=1,000, S=990, I=10, R=0, beta=.30/day and gamma=.10/day. Using incidence betaSI/N and DT=1 day, calculate the next stocks and interpret the result.</p><p><strong>Question-demand diagnosis:</strong> calculate new infections and recoveries from the same starting state, conserving population.</p><p><strong>Fastest route:</strong> incidence=.30(990)(10)/1000=2.97; recovery=.10(10)=1.</p><p><strong>Worked answer:</strong> S'=987.03, I'=10+2.97−1=11.97, R'=1. The stocks still sum to 1,000. Infection grows initially because incidence exceeds recovery, but beta and gamma are model assumptions, not universal biological constants. Calibrate and validate against observed data, and state that contacts, reporting and interventions can make constant parameters unrealistic.</p><p><strong>Topic-specific trap:</strong> do not calculate recoveries from newly infected people in the same Euler interval.</p>
-<ul>
-<li>Treating R as necessarily “recovered” when it can mean removed.</li>
-<li>Using βSI without declaring a density-dependent convention.</li>
-<li>Calling R₀ the number infected at every later time.</li>
-</ul>
-<h2>Final answer checklist</h2>
-<ul>
-<li>All compartments and flows are labelled.</li>
-<li>Units for β and γ are consistent.</li>
-<li>The policy changes a defined mechanism.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>SIR/public-health extensions are a strong repeated topic family in local papers, but the exact disease scenario and requested extension are not predictable.</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 SIR and Public-Health Models</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="numerical_integration_revision_sheet.html">Previous topic: Numerical integration</a><a href="workforce_stock_management_revision_sheet.html">Next topic: Workforce management</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>SIR, SEIR and Public-Health Policy Models</h1><p>The safest long-question family: calculate lambda/R0/HIT, build the SIR structure, then extend it with quarantine, vaccination, cohorts or health-care capacity.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Recent-paper priority</h2>
+<ul><li><strong>Numerical SIR [5]:</strong> force of infection, R0 and herd immunity threshold.</li><li><strong>Build/extend SIR [12-15]:</strong> stocks, flows, feedbacks, equations and policy flag/parameters.</li><li><strong>Explain threshold/peak [6-10]:</strong> derive outbreak threshold or show <code>S/N = 1/R0</code> at the infection peak.</li><li><strong>Extensions [5-15]:</strong> quarantine, vaccination, finite resources, cohorts, SEIR, asymptomatic/symptomatic or hospital delay.</li></ul>
+<p><strong>Recent references:</strong> 2023/24 Q3(a,b), 2024/25 Q3(a-c), 2025/26 Q2(b,c). Durable earlier references: 2018/19 Q3 and 2021/22 Q3.</p>
+
+<h2>Core SIR model</h2>
+<p>Draw <code>[Susceptible] -- Infections --&gt; [Infectious] -- Recoveries --&gt; [Recovered]</code>.</p>
+<div class="formula"><code>lambda = beta x I/N</code><br><code>Infections = lambda x S = beta x I x S/N</code><br><code>Recoveries = I/D</code><br><code>S = INTEG(-Infections, S0)</code><br><code>I = INTEG(Infections - Recoveries, I0)</code><br><code>R = INTEG(Recoveries, R0)</code></div>
+<p><code>beta</code> is the effective contact/transmission rate per day. In the alternative paper notation, <code>beta = c x i</code>, where <code>c</code> is contacts/person/day and <code>i</code> is infection probability/contact. Then <code>R0 = beta x D = c x i x D</code>.</p>
+<ul><li><strong>Contagion:</strong> I increases Infections, which increases I. Reinforcing.</li><li><strong>Depletion:</strong> I increases Infections, which lowers S and later lowers Infections. Balancing.</li><li><strong>Recovery:</strong> I increases Recoveries, which lowers I. Balancing.</li></ul>
+
+<h2>2024/25 calculation [5]</h2>
+<p>For <code>N=10,000</code>, <code>I/N=0.02</code>, <code>R0=12</code> and <code>D=7 days</code>:</p>
+<div class="formula"><code>beta = R0/D = 12/7 = 1.714/day</code><br><code>lambda = beta x I/N = (12/7)(0.02) = 0.0343/day</code><br><code>Herd Immunity Threshold = 1 - 1/R0 = 1 - 1/12 = 0.9167 = 91.7%</code></div>
+<p>Lambda is a per-susceptible hazard. Total new infections is <code>lambda x S</code>, in people/day.</p>
+
+<h2>Peak and equilibrium derivation [6-10]</h2>
+<p>At the infection peak, <code>dI/dt=0</code>, so infections equal recoveries:</p>
+<p><code>betaIS/N = I/D</code>, therefore <code>betaS/N = 1/D</code>. Multiplying by <code>D</code> and using <code>R0=betaD</code> gives <code>R0S/N=1</code>. Hence <code>S/N=1/R0</code>.</p>
+<p>Susceptibles remain at the peak, but their fraction has fallen below the level needed to replace recoveries. The epidemic declines due to falling infectious people and reduced effective reproduction, not because S reaches zero.</p>
+
+<h2>Quarantine and vaccination extension [12]</h2>
+<p>Use the 2025/26 wording carefully: 20% of the <strong>infection flow</strong> enters Quarantine, not a later flow from Infectious to Quarantine. Quarantined people do not infect others and recover after two days.</p>
+<div class="formula"><code>To I = (1-QF) x lambda x S</code><br><code>To Q = QF x lambda x S</code><br><code>Recoveries I = I/2; Recoveries Q = Q/2</code><br><code>Vaccinations = Vaccination Fraction x S</code><br><code>Vaccination Fraction = INTEG((Maximum Fraction - Vaccination Fraction)/AT, 0)</code><br><code>Attack Rate = (I + Q + R)/N</code></div>
+<p>Vaccination is a flow from S to Vaccinated. It reduces S; quarantine reduces onward transmission. Always include all stocks in N and check population conservation.</p>
+
+<h2>Cohorts and advanced extensions</h2>
+<p>For young/elderly cohorts, replace each core stock with cohort stocks such as <code>Sy, Iy, Ry</code> and <code>Se, Ie, Re</code>. Use a contact matrix or separate force-of-infection terms if cross-group contact matters. For SEIR, add <code>Exposed = INTEG(Infections - E/latent delay, E0)</code>; the flow <code>E/latent delay</code> enters Infectious.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>State what every stock and parameter represents and give units.</li><li>Write the infection equation, not only the S-I-R labels.</li><li>Show named feedback loops if asked.</li><li>Map each policy to a specific flow or parameter.</li><li>Check all compartments sum to N.</li></ul>
+</article></main></body></html>

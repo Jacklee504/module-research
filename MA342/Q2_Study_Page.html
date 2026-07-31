@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MA342 Topology — Q2 Study Page</title>
+
+  <style>
+    :root {
+      --background: #f4f7fb;
+      --panel: #ffffff;
+      --text: #182033;
+      --muted: #5e687a;
+      --border: #dce3ee;
+
+      --blue: #315db2;
+      --blue-dark: #193464;
+      --blue-light: #edf3ff;
+
+      --green: #eaf8f0;
+      --green-border: #cce7d7;
+
+      --purple: #f3edff;
+      --purple-border: #dacdf1;
+
+      --yellow: #fff7da;
+      --yellow-border: #e9d99c;
+
+      --shadow: 0 8px 25px rgba(30, 45, 80, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 46px 20px;
+      color: white;
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue-dark),
+          var(--blue)
+        );
+    }
+
+    .header-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .course-name {
+      margin-bottom: 6px;
+      color: #dce8ff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+    }
+
+    header p {
+      max-width: 780px;
+      margin: 0;
+      color: #eef4ff;
+      font-size: 1.05rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 1050px;
+      margin: 16px auto;
+      padding: 0 16px;
+    }
+
+    button,
+    .toolbar-link {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: white;
+      color: var(--text);
+      font-size: 0.92rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    button:hover,
+    .toolbar-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    button.primary {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: white;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    nav,
+    section {
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      padding: 16px;
+    }
+
+    nav strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 3px 12px 3px 0;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 23px;
+    }
+
+    h2 {
+      margin-top: 0;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--border);
+      color: var(--blue-dark);
+    }
+
+    h3 {
+      margin: 23px 0 7px;
+      color: #24344f;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .box {
+      margin: 11px 0;
+      padding: 13px 15px;
+      border-radius: 10px;
+    }
+
+    .explanation {
+      border: 1px solid var(--green-border);
+      background: var(--green);
+    }
+
+    .answer {
+      border: 1px solid var(--purple-border);
+      background: var(--purple);
+    }
+
+    .formula {
+      overflow-x: auto;
+      border-left: 5px solid var(--blue);
+      background: var(--blue-light);
+      font-size: 1.04rem;
+    }
+
+    .warning {
+      border: 1px solid var(--yellow-border);
+      background: var(--yellow);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    table {
+      width: 100%;
+      margin: 12px 0;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 9px;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f2f5fa;
+    }
+
+    details {
+      margin: 11px 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    summary {
+      padding: 11px 13px;
+      background: #fafbfe;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    details .details-content {
+      padding: 2px 13px 13px;
+    }
+
+    .question {
+      margin: 9px 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--blue);
+      background: #fafcff;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    body.exam-mode .explanation-only {
+      display: none;
+    }
+
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 18px;
+      }
+
+      th,
+      td {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        font-size: 10.5pt;
+      }
+
+      header {
+        padding: 14px 0;
+        border-bottom: 2px solid black;
+        background: white;
+        color: black;
+      }
+
+      header p,
+      .course-name {
+        color: #222;
+      }
+
+      .toolbar,
+      nav {
+        display: none;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section {
+        margin: 0;
+        padding: 12px 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      h2,
+      h3 {
+        break-after: avoid;
+      }
+
+      details .details-content {
+        display: block !important;
+      }
+
+      summary {
+        padding-left: 0;
+        background: white;
+        list-style: none;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- MathJax configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [
+          ["\\(", "\\)"]
+        ],
+        displayMath: [
+          ["\\[", "\\]"]
+        ],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: [
+          "script",
+          "noscript",
+          "style",
+          "textarea",
+          "pre",
+          "code"
+        ]
+      }
+    };
+  </script>
+
+  <!-- MathJax dependency -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="course-name">
+      University of Galway · MA342 Topology
+    </div>
+
+    <h1>Question 2 Study Page</h1>
+
+    <p>
+      A focused revision guide covering the material asked in Question 2
+      of the 2023/24, 2024/25 and 2025/26 examination papers.
+    </p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="primary" onclick="window.print()">
+    Print / Save as PDF
+  </button>
+
+  <button onclick="toggleExamMode()">
+    Toggle exam mode
+  </button>
+
+  <button onclick="setAnswers(true)">
+    Open all worked answers
+  </button>
+
+  <button onclick="setAnswers(false)">
+    Close all worked answers
+  </button>
+
+  <a class="toolbar-link" href="#past-papers">
+    Past-paper questions
+  </a>
+</div>
+
+<main>
+
+<nav>
+  <strong>Contents</strong>
+
+  <a href="#lower-limit-base">Lower limit base</a>
+  <a href="#dense">Dense subsets</a>
+  <a href="#compact">Compactness</a>
+  <a href="#closed-compact">Closed subsets of compact spaces</a>
+  <a href="#real-compact">Compactness of real lines</a>
+  <a href="#hausdorff">Hausdorff spaces</a>
+  <a href="#cofinite-hausdorff">Cofinite topology</a>
+  <a href="#compact-closed">Compact subsets of Hausdorff spaces</a>
+  <a href="#homeomorphisms">Non-homeomorphic spaces</a>
+  <a href="#product">Product topology</a>
+  <a href="#past-papers">Past-paper questions</a>
+</nav>
+
+<section id="lower-limit-base">
+
+  <h2>1. Base for the lower limit topology</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    In the lower limit topology, the basic open intervals include their left
+    endpoint but not their right endpoint.
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+    A base for the lower limit topology on \(\mathbb R\) is
+  </div>
+
+  <div class="box formula">
+    \[
+    \mathcal B
+    =
+    \left\{
+      [a,b):
+      a,b\in\mathbb R,\ a<b
+    \right\}.
+    \]
+  </div>
+
+  <p>
+    Every open set in the lower limit topology is a union of intervals of the
+    form \([a,b)\).
+  </p>
+
+</section>
+
+<section id="dense">
+
+  <h2>
+    2. Dense subsets
+    <span class="tag">Asked 2/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A subset \(A\) is dense in \(X\) when every non-empty open set in \(X\)
+    contains at least one point of \(A\).
+  </div>
+
+  <div class="box answer">
+    <strong>Exam definition:</strong>
+    A subset \(A\subseteq X\) is dense in \(X\) if
+  </div>
+
+  <div class="box formula">
+    \[
+    \overline A=X.
+    \]
+  </div>
+
+  <p>
+    Equivalently, every non-empty open subset of \(X\) meets \(A\).
+  </p>
+
+  <h3>
+    Example of a proper dense subset of
+    \(\mathbb Z\) with the cofinite topology
+  </h3>
+
+  <div class="box answer">
+    Let
+    \[
+    A=2\mathbb Z,
+    \]
+    the set of even integers.
+
+    The set \(A\) is not equal to \(\mathbb Z\), but it is infinite.
+
+    Every non-empty open set in the cofinite topology has finite complement.
+    Therefore it cannot avoid the infinite set \(A\).
+
+    Hence every non-empty open set meets \(A\), so \(A\) is dense in
+    \(\mathbb Z\).
+  </div>
+
+  <h3>
+    Show that every infinite subset of \(\mathbb R\) is dense in the
+    cofinite topology
+  </h3>
+
+  <details open>
+    <summary>Worked answer</summary>
+
+    <div class="details-content">
+      <p>
+        Let \(A\subseteq\mathbb R\) be infinite.
+      </p>
+
+      <p>
+        Let \(U\) be a non-empty open set in the cofinite topology.
+        Then
+        \(\mathbb R\setminus U\) is finite.
+      </p>
+
+      <p>
+        If \(U\cap A=\varnothing\), then
+        \(A\subseteq\mathbb R\setminus U\).
+        This would place the infinite set \(A\) inside a finite set, which is
+        impossible.
+      </p>
+
+      <p>
+        Therefore every non-empty open set \(U\) meets \(A\).
+        Hence \(A\) is dense in \(\mathbb R\).
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="compact">
+
+  <h2>
+    3. Compact topological spaces
+    <span class="tag">Asked 3/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A space is compact if, whenever open sets cover the whole space, finitely
+    many of those open sets are already enough to cover it.
+  </div>
+
+  <div class="box answer">
+    <strong>Exam definition:</strong>
+    A topological space \(X\) is compact if every open cover of \(X\) has a
+    finite subcover.
+  </div>
+
+  <div class="box formula">
+    If
+    \[
+    X\subseteq\bigcup_{\alpha\in I}U_\alpha,
+    \]
+    where every \(U_\alpha\) is open, then there exist
+    \(\alpha_1,\ldots,\alpha_n\in I\) such that
+    \[
+    X\subseteq
+    U_{\alpha_1}\cup\cdots\cup U_{\alpha_n}.
+    \]
+  </div>
+
+  <h3>Meaning of the terms</h3>
+
+  <ul>
+    <li>
+      An <strong>open cover</strong> is a collection of open sets whose union
+      contains all of \(X\).
+    </li>
+
+    <li>
+      A <strong>finite subcover</strong> is a finite selection of those open
+      sets that still covers all of \(X\).
+    </li>
+  </ul>
+
+</section>
+
+<section id="closed-compact">
+
+  <h2>4. Closed subsets of compact spaces are compact</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Key idea:</strong>
+    Add the open complement of the closed subset to its open cover. This gives
+    an open cover of the whole compact space.
+  </div>
+
+  <details open>
+    <summary>Exam-ready proof</summary>
+
+    <div class="details-content">
+      <p>
+        Let \(X\) be compact and let \(A\subseteq X\) be closed.
+      </p>
+
+      <p>
+        Suppose
+        \(\{U_\alpha\}_{\alpha\in I}\)
+        is an open cover of \(A\).
+      </p>
+
+      <p>
+        Since \(A\) is closed,
+        \(X\setminus A\) is open.
+        Therefore
+      </p>
+
+      <div class="box formula">
+        \[
+        \{U_\alpha:\alpha\in I\}
+        \cup
+        \{X\setminus A\}
+        \]
+      </div>
+
+      <p>
+        is an open cover of \(X\).
+      </p>
+
+      <p>
+        Since \(X\) is compact, this cover has a finite subcover.
+        Removing \(X\setminus A\), if it was selected, leaves finitely many of
+        the sets \(U_\alpha\) that cover \(A\).
+      </p>
+
+      <p>
+        Therefore \(A\) is compact.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="real-compact">
+
+  <h2>5. Is \(\mathbb R\) compact?</h2>
+
+  <h3>Standard topology</h3>
+
+  <div class="box answer">
+    <strong>Answer:</strong>
+    The real line \(\mathbb R\) with the standard topology is not compact.
+  </div>
+
+  <details open>
+    <summary>Justification using an open cover</summary>
+
+    <div class="details-content">
+      <p>
+        Consider the open cover
+      </p>
+
+      <div class="box formula">
+        \[
+        \mathcal U
+        =
+        \{(-n,n):n\in\mathbb N\}.
+        \]
+      </div>
+
+      <p>
+        These intervals cover \(\mathbb R\), since every real number lies in
+        \((-n,n)\) for some sufficiently large \(n\).
+      </p>
+
+      <p>
+        However, any finite selection has a largest value \(N\), and its union
+        is contained in \((-N,N)\).
+        This does not cover all of \(\mathbb R\).
+      </p>
+
+      <p>
+        Therefore the cover has no finite subcover, so \(\mathbb R\) is not
+        compact.
+      </p>
+    </div>
+  </details>
+
+  <h3>Lower limit topology</h3>
+
+  <div class="box answer">
+    <strong>Answer:</strong>
+    The real line with the lower limit topology is not compact.
+  </div>
+
+  <details>
+    <summary>Justification</summary>
+
+    <div class="details-content">
+      <p>
+        Consider the collection
+      </p>
+
+      <div class="box formula">
+        \[
+        \mathcal U
+        =
+        \{[-n,n):n\in\mathbb N\}.
+        \]
+      </div>
+
+      <p>
+        Each interval \([-n,n)\) is open in the lower limit topology, and the
+        collection covers \(\mathbb R\).
+      </p>
+
+      <p>
+        Any finite selection has a largest value \(N\), so its union is
+        contained in \([-N,N)\), which does not cover all of
+        \(\mathbb R\).
+      </p>
+
+      <p>
+        Therefore there is no finite subcover, so the lower limit real line is
+        not compact.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="hausdorff">
+
+  <h2>
+    6. Hausdorff spaces
+    <span class="tag">Asked 2/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A space is Hausdorff if any two different points can be placed inside
+    separate open sets that do not overlap.
+  </div>
+
+  <div class="box answer">
+    <strong>Exam definition:</strong>
+    A topological space \(X\) is Hausdorff if, for every pair of distinct
+    points \(x,y\in X\), there exist open sets \(U\) and \(V\) such that
+  </div>
+
+  <div class="box formula">
+    \[
+    x\in U,
+    \qquad
+    y\in V,
+    \qquad
+    U\cap V=\varnothing.
+    \]
+  </div>
+
+  <h3>Standard topology on \(\mathbb R\)</h3>
+
+  <div class="box answer">
+    <strong>Answer:</strong>
+    The standard topology on \(\mathbb R\) is Hausdorff.
+  </div>
+
+  <details open>
+    <summary>Justification</summary>
+
+    <div class="details-content">
+      <p>
+        Let \(x,y\in\mathbb R\) with \(x<y\).
+        Choose
+      </p>
+
+      <div class="box formula">
+        \[
+        \varepsilon=\frac{y-x}{3}.
+        \]
+      </div>
+
+      <p>
+        Then the open intervals
+      </p>
+
+      <div class="box formula">
+        \[
+        (x-\varepsilon,x+\varepsilon)
+        \quad\text{and}\quad
+        (y-\varepsilon,y+\varepsilon)
+        \]
+      </div>
+
+      <p>
+        contain \(x\) and \(y\), respectively, and are disjoint.
+        Hence \(\mathbb R\) is Hausdorff.
+      </p>
+    </div>
+  </details>
+
+  <h3>Lower limit topology on \(\mathbb R\)</h3>
+
+  <div class="box answer">
+    <strong>Answer:</strong>
+    The lower limit topology on \(\mathbb R\) is Hausdorff.
+  </div>
+
+  <details>
+    <summary>Justification</summary>
+
+    <div class="details-content">
+      <p>
+        Let \(x,y\in\mathbb R\) with \(x<y\).
+        Choose a number \(c\) such that
+      </p>
+
+      <div class="box formula">
+        \[
+        x<c<y.
+        \]
+      </div>
+
+      <p>
+        Then
+        \([x,c)\)
+        is an open set containing \(x\), while
+        \([y,y+1)\)
+        is an open set containing \(y\).
+      </p>
+
+      <p>
+        Since \(c<y\), these sets are disjoint.
+        Therefore the lower limit topology is Hausdorff.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="cofinite-hausdorff">
+
+  <h2>7. Compactness and Hausdorffness of cofinite spaces</h2>
+
+  <h3>
+    Is \(\mathbb Z\) with the cofinite topology Hausdorff?
+  </h3>
+
+  <div class="box answer">
+    <strong>Answer:</strong>
+    No. The cofinite topology on the infinite set \(\mathbb Z\) is not
+    Hausdorff.
+  </div>
+
+  <details open>
+    <summary>Justification</summary>
+
+    <div class="details-content">
+      <p>
+        Suppose \(U\) and \(V\) are non-empty open sets in the cofinite
+        topology.
+      </p>
+
+      <p>
+        Their complements
+        \(\mathbb Z\setminus U\)
+        and
+        \(\mathbb Z\setminus V\)
+        are finite.
+      </p>
+
+      <p>
+        If \(U\cap V=\varnothing\), then
+      </p>
+
+      <div class="box formula">
+        \[
+        \mathbb Z
+        =
+        (\mathbb Z\setminus U)
+        \cup
+        (\mathbb Z\setminus V).
+        \]
+      </div>
+
+      <p>
+        The right-hand side is finite, which would imply that
+        \(\mathbb Z\) is finite. This is impossible.
+      </p>
+
+      <p>
+        Therefore any two non-empty open sets intersect.
+        Distinct points cannot have disjoint open neighbourhoods, so the space
+        is not Hausdorff.
+      </p>
+    </div>
+  </details>
+
+  <h3>
+    Is \(\mathbb R\) with the cofinite topology compact?
+  </h3>
+
+  <div class="box answer">
+    <strong>Answer:</strong>
+    Yes. Every set with the cofinite topology is compact.
+  </div>
+
+  <details>
+    <summary>Justification</summary>
+
+    <div class="details-content">
+      <p>
+        Let
+        \(\{U_\alpha\}_{\alpha\in I}\)
+        be an open cover of \(\mathbb R\).
+      </p>
+
+      <p>
+        Choose one non-empty member \(U_{\alpha_0}\).
+        Since it is open in the cofinite topology,
+      </p>
+
+      <div class="box formula">
+        \[
+        \mathbb R\setminus U_{\alpha_0}
+        \]
+      </div>
+
+      <p>
+        is finite.
+      </p>
+
+      <p>
+        For each remaining point in this finite complement, choose one set from
+        the cover containing that point.
+      </p>
+
+      <p>
+        Together with \(U_{\alpha_0}\), these finitely many sets cover
+        \(\mathbb R\).
+        Hence the space is compact.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="compact-closed">
+
+  <h2>8. Compact subsets of Hausdorff spaces are closed</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Key idea:</strong>
+    Separate a point outside the compact set from each point inside it.
+    Compactness reduces the resulting open cover to finitely many sets.
+  </div>
+
+  <details open>
+    <summary>Exam-ready proof</summary>
+
+    <div class="details-content">
+      <p>
+        Let \(X\) be Hausdorff and let \(A\subseteq X\) be compact.
+        We show that \(X\setminus A\) is open.
+      </p>
+
+      <p>
+        Let \(x\in X\setminus A\).
+        For every \(a\in A\), the Hausdorff property gives disjoint open sets
+        \(U_a\) and \(V_a\) such that
+      </p>
+
+      <div class="box formula">
+        \[
+        x\in U_a,
+        \qquad
+        a\in V_a.
+        \]
+      </div>
+
+      <p>
+        The collection
+        \(\{V_a:a\in A\}\)
+        is an open cover of \(A\).
+        Since \(A\) is compact, there exist
+        \(a_1,\ldots,a_n\in A\)
+        such that
+      </p>
+
+      <div class="box formula">
+        \[
+        A
+        \subseteq
+        V_{a_1}\cup\cdots\cup V_{a_n}.
+        \]
+      </div>
+
+      <p>
+        Define
+      </p>
+
+      <div class="box formula">
+        \[
+        U
+        =
+        U_{a_1}\cap\cdots\cap U_{a_n}.
+        \]
+      </div>
+
+      <p>
+        Then \(U\) is open and contains \(x\).
+        Also, \(U\) is disjoint from every
+        \(V_{a_i}\), so \(U\cap A=\varnothing\).
+      </p>
+
+      <p>
+        Hence \(U\subseteq X\setminus A\).
+        Every point of \(X\setminus A\) therefore has an open neighbourhood
+        contained in \(X\setminus A\).
+      </p>
+
+      <p>
+        Thus \(X\setminus A\) is open, so \(A\) is closed.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="homeomorphisms">
+
+  <h2>9. Showing spaces are not homeomorphic</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    Homeomorphic spaces must share topological properties such as compactness,
+    connectedness and the number of connected components.
+  </div>
+
+  <div class="box warning">
+    The 2023/24 paper asked for comparisons among
+    \([0,1]\), \((0,1)\), \(S^1\), and
+    \(\mathbb R\setminus\{0\}\).
+  </div>
+
+  <h3>\([0,1]\) and \((0,1)\)</h3>
+
+  <div class="box answer">
+    They are not homeomorphic because \([0,1]\) is compact, while
+    \((0,1)\) is not compact.
+  </div>
+
+  <h3>\([0,1]\) and \(S^1\)</h3>
+
+  <div class="box answer">
+    They are not homeomorphic.
+
+    Removing an interior point from \([0,1]\) disconnects it, while removing
+    any one point from \(S^1\) leaves a connected space homeomorphic to an
+    open interval.
+  </div>
+
+  <h3>
+    \([0,1]\) and \(\mathbb R\setminus\{0\}\)
+  </h3>
+
+  <div class="box answer">
+    They are not homeomorphic because \([0,1]\) is connected, while
+    \(\mathbb R\setminus\{0\}\) is disconnected.
+  </div>
+
+  <h3>\((0,1)\) and \(S^1\)</h3>
+
+  <div class="box answer">
+    They are not homeomorphic because \(S^1\) is compact, while
+    \((0,1)\) is not compact.
+  </div>
+
+  <h3>
+    \((0,1)\) and \(\mathbb R\setminus\{0\}\)
+  </h3>
+
+  <div class="box answer">
+    They are not homeomorphic because \((0,1)\) is connected, while
+    \(\mathbb R\setminus\{0\}\) is disconnected.
+  </div>
+
+  <h3>
+    \(S^1\) and \(\mathbb R\setminus\{0\}\)
+  </h3>
+
+  <div class="box answer">
+    They are not homeomorphic because \(S^1\) is connected and compact, while
+    \(\mathbb R\setminus\{0\}\) is disconnected and non-compact.
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Space</th>
+        <th>Compact?</th>
+        <th>Connected?</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>\([0,1]\)</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>\((0,1)\)</td>
+        <td>No</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>\(S^1\)</td>
+        <td>Yes</td>
+        <td>Yes</td>
+      </tr>
+
+      <tr>
+        <td>\(\mathbb R\setminus\{0\}\)</td>
+        <td>No</td>
+        <td>No</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<section id="product">
+
+  <h2>10. Base for the product topology</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    Basic open sets in \(X\times Y\) are products of open sets from \(X\) and
+    \(Y\).
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+    If \(X\) and \(Y\) are topological spaces, a base for the product topology
+    on \(X\times Y\) is
+  </div>
+
+  <div class="box formula">
+    \[
+    \mathcal B
+    =
+    \left\{
+      U\times V:
+      U\text{ is open in }X,\;
+      V\text{ is open in }Y
+    \right\}.
+    \]
+  </div>
+
+</section>
+
+<section id="past-papers">
+
+  <h2>11. Q2 questions from the three papers</h2>
+
+  <h3>2025/26</h3>
+
+  <div class="question">
+    <strong>(a)</strong>
+    Describe a base for the lower limit topology on \(\mathbb R\).
+  </div>
+
+  <div class="question">
+    <strong>(b)(i)</strong>
+    Define what it means for \(A\subseteq X\) to be dense in \(X\).
+  </div>
+
+  <div class="question">
+    <strong>(b)(ii)</strong>
+    Give a proper subset of \(\mathbb Z\) that is dense in the cofinite
+    topology.
+  </div>
+
+  <div class="question">
+    <strong>(c)(i)</strong>
+    Define what it means for a topological space to be Hausdorff.
+  </div>
+
+  <div class="question">
+    <strong>(c)(ii)</strong>
+    Determine whether the lower limit real line is Hausdorff.
+  </div>
+
+  <div class="question">
+    <strong>(d)(i)</strong>
+    Define what it means for a topological space to be compact.
+  </div>
+
+  <div class="question">
+    <strong>(d)(ii)</strong>
+    Determine whether the lower limit real line is compact.
+  </div>
+
+  <div class="question">
+    <strong>(e)</strong>
+    Show that a compact subspace of a Hausdorff space is closed.
+  </div>
+
+  <h3>2024/25</h3>
+
+  <div class="question">
+    <strong>(a)</strong>
+    Show that every infinite subset of \(\mathbb R\) is dense in the cofinite
+    topology.
+  </div>
+
+  <div class="question">
+    <strong>(b)</strong>
+    Define what it means for a topological space to be compact.
+  </div>
+
+  <div class="question">
+    <strong>(c)</strong>
+    Show that every closed subset of a compact topological space is compact.
+  </div>
+
+  <div class="question">
+    <strong>(d)</strong>
+    Determine whether \(\mathbb R\) with the lower limit topology is compact.
+  </div>
+
+  <div class="question">
+    <strong>(e)(i)</strong>
+    Define what it means for a topological space to be Hausdorff.
+  </div>
+
+  <div class="question">
+    <strong>(e)(ii)</strong>
+    Determine whether \(\mathbb Z\) with the cofinite topology is Hausdorff.
+  </div>
+
+  <div class="question">
+    <strong>(e)(iii)</strong>
+    Determine whether \(\mathbb R\) with the standard topology is Hausdorff.
+  </div>
+
+  <h3>2023/24</h3>
+
+  <div class="question">
+    <strong>(a)</strong>
+    Define what it means for a topological space to be compact.
+  </div>
+
+  <div class="question">
+    <strong>(b)</strong>
+    Determine whether \(\mathbb R\) with the standard topology is compact.
+  </div>
+
+  <div class="question">
+    <strong>(c)</strong>
+    Explain why any two of
+    \([0,1]\), \((0,1)\), \(S^1\), and
+    \(\mathbb R\setminus\{0\}\)
+    are non-homeomorphic.
+  </div>
+
+  <div class="question">
+    <strong>(d)</strong>
+    Write down a base for the product topology on \(X\times Y\).
+  </div>
+
+</section>
+
+<p class="small" style="text-align:center">
+  MA342 Q2 revision guide based on the 2023/24, 2024/25 and 2025/26
+  examination papers.
+</p>
+
+</main>
+
+<script>
+  function toggleExamMode() {
+    document.body.classList.toggle("exam-mode");
+  }
+
+  function setAnswers(openState) {
+    document.querySelectorAll("details").forEach(function(detailsElement) {
+      detailsElement.open = openState;
+    });
+  }
+</script>
+
+</body>
+</html>

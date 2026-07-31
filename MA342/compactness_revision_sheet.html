@@ -18,30 +18,30 @@
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>State compactness exactly and deploy the standard closed-subset and continuous-image proof patterns.<strong>Exam use:</strong> The cover is arbitrary when proving compactness, explicit when disproving it, and every theorem hypothesis is named.</p>
+<p>State compactness exactly, disprove it with a topology-valid cover, and combine it with Hausdorff separation.<strong>Exam use:</strong> In 2025/26, Q2(d) asks for the definition and non-compactness of the lower-limit line for 5 marks, while Q2(e) asks for the compact-subspace-of-Hausdorff closedness proof for 5 marks.</p>
 <h2>Question plan</h2>
 <ol>
 <li>Begin with an arbitrary open cover.</li>
-<li>Identify the finite subcover supplied by a known compact set.</li>
-<li>For a closed subset, add the open complement and remove it after selecting finitely many sets.</li>
-<li><strong>Question interpretation:</strong> For prove compact, begin with an arbitrary open cover; for disprove, exhibit one explicit cover with no finite subcover; for preserve, name the continuous-image theorem and verify its hypotheses.</li>
+<li>When disproving compactness, verify that every member of the proposed cover is open in the stated topology.</li>
+<li>When compactness meets Hausdorffness, separate one external point from every point of the compact subspace and then choose finitely many separations.</li>
+<li><strong>Question interpretation:</strong> “Is it compact?” needs a conclusion and proof; “show compact implies closed” requires the Hausdorff hypothesis at the point-separation step.</li>
 </ol>
 <h2>Definitions</h2>
-<p>X is <strong>compact</strong> iff every open cover of X has a finite subcover. In a compact space, every closed subset is compact. In R, closed bounded intervals are compact (Heine–Borel).<strong>Rapid recall:</strong> Compact means every open cover has a finite subcover. Closed subsets of compact spaces and continuous images of compact spaces are compact; Heine-Borel is restricted to Euclidean space.</p>
+<p>X is <strong>compact</strong> iff every open cover of X has a finite subcover. Closed subsets of compact spaces and continuous images of compact spaces are compact. Compact subspaces of Hausdorff spaces are closed. In Euclidean space, compactness is equivalent to closedness and boundedness by Heine–Borel.<strong>Rapid recall:</strong> To disprove compactness, one explicit open cover with no finite subcover is enough; to turn compact into closed, add Hausdorff separation.</p>
 <h2>Proof method</h2>
-<p>Given a cover of closed F⊆X, add X\F; compactness gives a finite subcover, and discard X\F to cover F.<strong>Exam workflow:</strong> Keep the quantifiers visible: choose an arbitrary cover, modify or pull it back, invoke compactness once, then translate the finite subcover back to the target.</p>
+<p>Let A be compact in Hausdorff X and x∉A. For each a∈A choose disjoint open U<sub>a</sub> containing a and V<sub>a</sub> containing x. Compactness reduces {U<sub>a</sub>} to U<sub>a1</sub>,…,U<sub>an</sub>. Then V=V<sub>a1</sub>∩⋯∩V<sub>an</sub> is an open neighbourhood of x disjoint from A. Thus X\A is open.<strong>Exam workflow:</strong> Use Hausdorffness point-by-point, compactness exactly once to make the family finite, and only then take the finite intersection around x.</p>
 <h2>Worked simple example</h2>
 <p>{0}∪{1/n:n≥1} is compact in R because it is closed and bounded; equivalently, use Heine–Borel.</p>
 <h3>Medium/hard paper-style synthesis</h3>
-<p>Prove (0,1) is not compact without citing Heine-Borel. Let U_n=(1/n,1) for n>=2. These sets cover (0,1): for x>0 choose n>1/x. Any finite subfamily has a largest index N and its union is U_N=(1/N,1), which misses 1/(N+1). Hence this particular open cover has no finite subcover.</p>
+<p>The lower-limit real line R<sub>ℓ</sub> is not compact. The basic-open sets U<sub>n</sub>=[n,n+1), n∈Z, cover R. Any finite subfamily covers only a bounded union of these intervals and therefore misses all sufficiently large positive and negative real numbers. Hence this open cover has no finite subcover.</p>
 <h2>Graduated exam bridges</h2>
 <p>
-<strong>1. Foundation:</strong> Is (0,1) compact in R? <strong>Check:</strong> no; use the cover (1/n,1).</p>
+<strong>1. Foundation:</strong> Why is the Cantor set compact Hausdorff? <strong>Check:</strong> it is closed in compact [0,1], and it inherits Hausdorffness from R.</p>
 <p>
 <strong>2. Exam style:</strong> Prove a closed F⊆X is compact when X is compact. <strong>Check:</strong> add X\F to an arbitrary cover of F.</p>
 <h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: if X is compact, Y Hausdorff and f:X->Y continuous and bijective, prove f is a homeomorphism. Check a closed F subset X is compact, f(F) is compact, hence closed in Hausdorff Y; thus f is closed and f^{-1} is continuous.</p>
-<h2>Practice question - use an open cover [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q2(b-d). <strong>Task.</strong> Prove that (0,1) is not compact using an explicit open cover, not Heine-Borel. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> exhibit a cover, prove coverage, then defeat every finite subfamily. Take U<sub>n</sub>=(1/n,1), n≥2.</p><p><strong>Worked answer:</strong> For x∈(0,1), choose n&gt;1/x; then 1/n&lt;x&lt;1, so x∈U<sub>n</sub>. Hence {U<sub>n</sub>} covers (0,1). A finite subfamily has a largest index N, and since the U<sub>n</sub> are nested, its union is U<sub>N</sub>=(1/N,1), which misses 1/(N+1). Thus this open cover has no finite subcover and (0,1) is not compact.</p><p><strong>Topic-specific trap:</strong> a cover by sets open in (0,1) need not be open in R; state the ambient space you use.</p>
+<p>If X is compact, Y Hausdorff and f:X→Y continuous and bijective, then f is a homeomorphism. For closed F⊆X, F is compact, so f(F) is compact and therefore closed in Hausdorff Y. Thus f is closed, which makes f<sup>-1</sup> continuous.</p>
+<h2>Practice question - lower-limit and Hausdorff compactness [10 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q2(d-e). <strong>Task.</strong> (a) Define compactness and decide, with justification, whether the lower-limit real line R<sub>ℓ</sub> is compact. [5 marks] (b) Let A be a compact subspace of a Hausdorff space X. Show that A is closed in X. [5 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> use the integer-indexed half-open cover for (a); for (b), separate a fixed x∉A from each a∈A and use compactness to retain only finitely many separating neighbourhoods.</p><p><strong>Worked answer:</strong> A space is compact if every open cover has a finite subcover. In R<sub>ℓ</sub>, {[n,n+1):n∈Z} is an open cover, but every finite subfamily has bounded union and cannot cover R, so R<sub>ℓ</sub> is not compact. For (b), fix x∈X\A. For each a∈A, Hausdorffness gives disjoint open sets U<sub>a</sub>∋a and V<sub>a</sub>∋x. Compactness supplies a finite cover A⊆U<sub>a1</sub>∪⋯∪U<sub>an</sub>. The open set V=V<sub>a1</sub>∩⋯∩V<sub>an</sub> contains x and is disjoint from A. Hence every x∈X\A has an open neighbourhood in X\A, so A is closed.</p><p><strong>Topic-specific trap:</strong> an infinite intersection of the V<sub>a</sub> need not be open; compactness is what reduces it to a finite intersection.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Choosing a finite cover instead of proving a finite subcover of an arbitrary cover.</li>
@@ -54,11 +54,12 @@
 <li>I can state the open-cover definition.</li>
 <li>I can give a noncompact open-cover counterexample.</li>
 <li>I can reproduce the closed-subset proof.</li>
+<li>I can prove a compact subspace of a Hausdorff space is closed.</li>
 <li><strong>Final 60-second audit:</strong> The cover is arbitrary when proving compactness, explicit when disproving it, and every theorem hypothesis is named.</li>
 </ul>
 <h2>Past-paper note</h2>
 <p>
-<strong>High confidence:</strong> compactness and closed subsets of compact spaces recur in 2023/24 and 2024/25. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+<strong>High confidence:</strong> compactness occurs throughout the latest three papers. The 2025/26 paper directly tests the definition and lower-limit non-compactness in Q2(d), compact subsets of Hausdorff spaces in Q2(e), compactness of the Cantor set in Q4(a), and compactness as a quotient obstruction in Q4(d). <a href="details.html#past-papers">Back to paper evidence</a>.</p>
 </article>
 </main>
 </body>

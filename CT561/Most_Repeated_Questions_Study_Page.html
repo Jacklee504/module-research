@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT561 - Repeated Past-Paper Questions</title>
+  <style>
+    :root {
+      --paper: #f4f6f8;
+      --surface: #fbfcfd;
+      --ink: #18232f;
+      --muted: #536273;
+      --line: #cdd6df;
+      --navy: #153b5b;
+      --blue: #1667a9;
+      --blue-wash: #eaf4fc;
+      --green-wash: #ecf6ef;
+      --amber-wash: #fff6df;
+      --answer-wash: #f4effa;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+
+    header { background: var(--navy); color: #f7fbff; border-bottom: 4px solid var(--blue); }
+    .header-inner, main, .toolbar { max-width: 1000px; margin: 0 auto; }
+    .header-inner { padding: 30px 20px 26px; }
+    .course { margin: 0 0 6px; color: #c8ddf1; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { margin-bottom: 8px; font-size: 2.1rem; line-height: 1.16; }
+    header p:last-child { max-width: 760px; margin-bottom: 0; color: #e6f0f8; }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 8px; padding: 13px 20px 0; }
+    button, .toolbar a {
+      min-height: 38px;
+      padding: 7px 11px;
+      border: 1px solid #b5c4d2;
+      border-radius: 5px;
+      background: var(--surface);
+      color: var(--navy);
+      font: inherit;
+      font-size: 0.9rem;
+      font-weight: 650;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    button:hover, .toolbar a:hover { border-color: var(--blue); background: var(--blue-wash); }
+    .primary { border-color: var(--blue); background: var(--blue); color: #ffffff; }
+
+    main { padding: 14px 20px 44px; }
+    nav, section {
+      margin: 0 0 14px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--surface);
+    }
+    nav { padding: 13px 15px; }
+    nav strong { display: block; margin-bottom: 5px; }
+    nav a { display: inline-block; margin: 3px 12px 3px 0; color: var(--blue); text-decoration: none; }
+    nav a:hover { text-decoration: underline; }
+    section { padding: 20px; }
+    h2 { margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line); color: var(--navy); font-size: 1.35rem; line-height: 1.24; }
+    h3 { margin: 16px 0 6px; color: var(--navy); font-size: 1.02rem; }
+    .tag { display: inline-block; margin-left: 7px; padding: 2px 7px; border: 1px solid #c9dced; border-radius: 999px; background: var(--blue-wash); color: var(--blue); font-size: 0.72rem; font-weight: 750; vertical-align: middle; }
+    .question, .note, .answer, .marking, .formula {
+      margin: 10px 0;
+      padding: 11px 13px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+    }
+    .question { background: #f7fbff; }
+    .note { background: var(--amber-wash); border-color: #e8d49a; }
+    .answer { background: var(--answer-wash); border-color: #d9cde9; }
+    .marking { background: var(--green-wash); border-color: #c7e1cf; }
+    .formula { background: var(--blue-wash); border-color: #c5dcec; overflow-x: auto; }
+    details { margin-top: 10px; border: 1px solid var(--line); border-radius: 5px; overflow: hidden; }
+    summary { padding: 9px 12px; background: var(--green-wash); font-weight: 700; cursor: pointer; }
+    .working { padding: 12px 13px 5px; }
+    ol, ul { padding-left: 21px; }
+    li { margin: 4px 0; }
+    table { width: 100%; margin: 10px 0; border-collapse: collapse; font-size: 0.94rem; }
+    th, td { padding: 7px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+    th { background: #edf2f6; }
+    code { color: #123f70; font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+    .small { color: var(--muted); font-size: 0.9rem; }
+    .exam-only { display: none; }
+    body.exam-mode .explanation { display: none; }
+    body.exam-mode .exam-only { display: block; }
+    @media (max-width: 640px) {
+      h1 { font-size: 1.76rem; }
+      section { padding: 15px; }
+      th, td { padding: 6px; font-size: 0.87rem; }
+    }
+    @media print {
+      body { background: #ffffff; font-size: 10.5pt; }
+      header { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
+      header p, .course { color: #222222 !important; }
+      .toolbar, nav { display: none; }
+      main { max-width: none; padding: 0; }
+      section { border: 0; border-radius: 0; break-inside: avoid; }
+      details { border: 0; }
+      summary { display: none; }
+      details .working { display: block !important; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <p class="course">University of Galway | CT561 Systems Modelling and Simulation</p>
+      <h1>Repeated Past-Paper Questions</h1>
+      <p>Fourteen high-frequency question families traced to the local 2016/17 to 2025/26 CT561 papers. Prompts retain the papers' structure and marks; workings show the minimum depth needed for a strong answer.</p>
+    </div>
+  </header>
+
+  <div class="toolbar">
+    <button class="primary" onclick="window.print()">Print / Save as PDF</button>
+    <button onclick="toggleExamMode()">Toggle exam mode</button>
+    <button onclick="setWorkings(true)">Open all workings</button>
+    <button onclick="setWorkings(false)">Close all workings</button>
+    <a href="#sources">Paper coverage</a>
+  </div>
+
+  <main>
+    <nav>
+      <strong>Question families</strong>
+      <a href="#graphical">1. Graphical integration</a>
+      <a href="#euler-theory">2. Euler theory and error</a>
+      <a href="#euler-worked">3. Euler calculation</a>
+      <a href="#feedback">4. Feedback terms</a>
+      <a href="#workload">5. Workload model and loops</a>
+      <a href="#flows">6. Fractional flows and goal seeking</a>
+      <a href="#anchor">7. Stock management</a>
+      <a href="#recruitment">8. Staff recruitment</a>
+      <a href="#effects">9. Effects structure</a>
+      <a href="#sir-numeric">10. SIR calculations</a>
+      <a href="#sir-core">11. Core SIR model</a>
+      <a href="#sir-threshold">12. SIR threshold and peak</a>
+      <a href="#sir-policy">13. SIR policy extension</a>
+      <a href="#little">14. Little's Law and delays</a>
+    </nav>
+
+    <section id="graphical">
+      <h2>1. Graphical Integration <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Draw a stock and flow model (include the net flow). Calculate and show the net flow. Use graphical integration to plot the stock over time, clearly explaining the different behaviour modes for each time interval. Assume the stock starts at 100 units.&quot; <span class="small">2025/26 Q1(a) [12]</span></div>
+      <div class="note explanation"><strong>Use the supplied graph.</strong> For the 2025/26 graph, inflow falls linearly from 100 to 0 over days 0-5, remains at 0 until day 10, rises to 100 by day 15, remains there to day 20, then falls to 0 by day 25. Outflow is 50 units/day throughout.</div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p><strong>Diagram and equations:</strong> draw <code>Inflow -&gt; [Stock] -&gt; Outflow</code>, plus an auxiliary <code>Net Flow = Inflow - Outflow</code>. Write <code>Stock = INTEG(Net Flow, 100)</code>.</p>
+          <p>Use only endpoints, zero crossings and slope changes. On a linear section, <code>change in stock = (NF_start + NF_end) / 2 x elapsed time</code>.</p>
+          <table>
+            <thead><tr><th>Day</th><th>Net flow</th><th>Stock</th><th>Reason</th></tr></thead>
+            <tbody>
+              <tr><td>0</td><td>+50</td><td>100</td><td>Initial value</td></tr>
+              <tr><td>2.5</td><td>0</td><td>162.5</td><td><code>100 + 0.5 x 2.5 x 50</code></td></tr>
+              <tr><td>5</td><td>-50</td><td>100</td><td>Equal negative triangle</td></tr>
+              <tr><td>10</td><td>-50</td><td>-150</td><td><code>100 - 50 x 5</code></td></tr>
+              <tr><td>12.5</td><td>0</td><td>-212.5</td><td>Negative triangle</td></tr>
+              <tr><td>15</td><td>+50</td><td>-150</td><td>Positive triangle</td></tr>
+              <tr><td>20</td><td>+50</td><td>100</td><td><code>-150 + 50 x 5</code></td></tr>
+              <tr><td>22.5</td><td>0</td><td>162.5</td><td>Positive triangle</td></tr>
+              <tr><td>25</td><td>-50</td><td>100</td><td>Equal negative triangle</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> Plot the listed stock points on a separate stock-versus-time graph. The stock rises at a decreasing rate to day 2.5, falls at an increasing rate to day 5, falls linearly to day 10, falls at a decreasing rate to day 12.5, then reverses these modes. It is permitted to be negative because the question says so.</div>
+      <div class="marking"><strong>What earns marks:</strong> the stock-flow diagram, the net-flow line, stock values from areas, and behaviour labels. The stock peaks or bottoms where net flow is zero.</div>
+    </section>
+
+    <section id="euler-theory">
+      <h2>2. Euler's Method, Assumptions and Error <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Describe Euler's method of integration, and state the underlying assumptions. Under what conditions will Euler's method overestimate the true value of a stock? Support your answer by considering the numerical integration of the net flow over the time interval 0-2.5 from the model in part (a), assuming DT=0.5.&quot; <span class="small">2025/26 Q1(b) [5]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p><code>S(t + DT) = S(t) + Net Flow(t) x DT</code>. Forward Euler replaces each area under a flow curve with a left-hand rectangle.</p>
+          <ul>
+            <li>Net flow is treated as constant within each <code>DT</code>.</li>
+            <li>The stock therefore changes linearly within that step.</li>
+            <li><code>DT</code> must be small enough for the approximation to be acceptable.</li>
+          </ul>
+          <p>From day 0 to 2.5, the net flow is <code>50, 40, 30, 20, 10, 0</code> at half-day intervals. Euler uses the first five values:</p>
+          <p><code>change = 50(0.5) + 40(0.5) + 30(0.5) + 20(0.5) + 10(0.5) = 75</code>.</p>
+          <p>The true graphical area is <code>0.5 x 2.5 x 50 = 62.5</code>.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> Forward Euler overestimates when net flow is falling over the interval because the starting flow is larger than the later flow. Here it overestimates the change by <code>75 - 62.5 = 12.5</code> units. If net flow rises, forward Euler underestimates.</div>
+      <div class="marking"><strong>Five-mark answer:</strong> equation, left-rectangle description, constant-flow/small-step assumptions, and the falling-flow explanation. Units are good practice but not a core assumption.</div>
+    </section>
+
+    <section id="euler-worked">
+      <h2>3. Euler Stock Calculation <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Based on the flows shown in part (a), calculate the stock using Euler's equation where DT=5.&quot; <span class="small">2025/26 Q1(c) [8]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p>Each Euler step covers five days. Use the net flow at the <strong>start</strong> of each interval only.</p>
+          <table>
+            <thead><tr><th>Interval</th><th>Starting net flow</th><th>Euler update</th><th>Stock</th></tr></thead>
+            <tbody>
+              <tr><td>0-5</td><td>+50</td><td><code>100 + 50(5)</code></td><td>350</td></tr>
+              <tr><td>5-10</td><td>-50</td><td><code>350 - 50(5)</code></td><td>100</td></tr>
+              <tr><td>10-15</td><td>-50</td><td><code>100 - 50(5)</code></td><td>-150</td></tr>
+              <tr><td>15-20</td><td>+50</td><td><code>-150 + 50(5)</code></td><td>100</td></tr>
+              <tr><td>20-25</td><td>+50</td><td><code>100 + 50(5)</code></td><td>350</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> <code>S(25) = 350 units</code>. The net flow at day 25 is not used because it starts no further Euler interval. A large <code>DT</code> gives a visibly inaccurate result here because the net flow changes substantially within each five-day step.</div>
+      <div class="marking"><strong>Common loss of marks:</strong> do not calculate one update per day when the paper gives <code>DT=5</code>, and do not use the end-of-step flow for forward Euler.</div>
+    </section>
+
+    <section id="feedback">
+      <h2>4. Link Polarity, Loop Polarity and Feedback <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Define a feedback loop, and describe the two different types of feedback. Summarise the advantages of adding feedback structures to a stock and flow model.&quot; <span class="small">2024/25 Q1(a) [5]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <ul>
+            <li>A <strong>positive link</strong> means two variables move in the same direction; a <strong>negative link</strong> means they move in opposite directions.</li>
+            <li>A <strong>feedback loop</strong> is a closed causal chain in which a variable eventually affects itself.</li>
+            <li>An even number of negative links makes a <strong>reinforcing</strong> loop. An odd number makes a <strong>balancing</strong> loop.</li>
+          </ul>
+          <p>For <code>Backlog +&gt; Pressure +&gt; Completed -&gt; Backlog</code>, there is one negative link. Increasing backlog ultimately increases completions, which reduces backlog: it is balancing.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> Reinforcing feedback amplifies a change, for example infection creating more infection. Balancing feedback resists a discrepancy, for example backlog creating work pressure and completions. Adding feedback makes delayed side-effects and unintended policy consequences visible, rather than treating flows as independent.</div>
+      <div class="marking"><strong>Exam technique:</strong> give a definition, state the odd/even rule, then trace an increase around a named loop. A bare B or R label is not a justification.</div>
+    </section>
+
+    <section id="workload">
+      <h2>5. Workload Stock-Flow Model and Policy Loops <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> Construct a stock and flow model of an insurance claims backlog with inflows New Claims and Reworked Claims, and outflow Claims Completed. Higher backlog raises Work Pressure. Pressure reduces Time per Claim, increases Temporary Staff and lengthens the Workweek; all raise Claims Completed. The side-effects are more Reworked Claims from shorter time per claim, more Time per Claim from temporary staff, and more Fatigue from a longer workweek which reduces Claims Completed. Identify the three policy loops and three side-effect loops. <span class="small">2025/26 Q3(b,c) [12, 7]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p><code>Claims Backlog = INTEG(New Claims + Reworked Claims - Claims Completed, Initial Backlog)</code>.</p>
+          <p><strong>Policy loops:</strong></p>
+          <ol>
+            <li>Backlog <code>+</code> Pressure <code>+</code> lower Time per Claim <code>+</code> Completed <code>-</code> Backlog: balancing.</li>
+            <li>Backlog <code>+</code> Pressure <code>+</code> Temporary Staff <code>+</code> Completed <code>-</code> Backlog: balancing.</li>
+            <li>Backlog <code>+</code> Pressure <code>+</code> Workweek <code>+</code> Completed <code>-</code> Backlog: balancing.</li>
+          </ol>
+          <p><strong>Side-effects:</strong> shorter Time per Claim raises Reworked Claims; more Temporary Staff raises Time per Claim and lowers Completed; a longer Workweek raises Fatigue and lowers Completed. Each feeds backlog back up and is reinforcing.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> The policies reduce backlog in the short run, but the side-effects can create a delayed increase in backlog. The best recommendation is not simply to increase the workweek; compare immediate balancing benefit with quality, training and fatigue costs, and use the model to test combined policies.</div>
+      <div class="marking"><strong>What to draw:</strong> one stock, its three named flows, all stated auxiliaries, information arrows, link signs and loop labels. Do not replace actual flows with circles.</div>
+    </section>
+
+    <section id="flows">
+      <h2>6. Fractional Flows and Adjustment to a Goal <span class="tag">6/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Describe, showing relevant examples, the following flows: Fractional Increase Rate; Fractional Decrease Rate; Adjustment to a Goal.&quot; <span class="small">2024/25 Q2(a) [6]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <div class="formula">
+            <code>Increase = Stock x fractional increase rate</code><br>
+            <code>Decrease = Stock x fractional decrease rate</code><br>
+            <code>Adjustment = (Goal - Actual) / adjustment time</code>
+          </div>
+          <ul>
+            <li>A fractional increase/decrease rate has units <code>1/time</code>; multiplying by the stock gives a flow in <code>units/time</code>.</li>
+            <li>Fractional growth or decline gives exponential behaviour when the fraction is constant.</li>
+            <li>Adjustment to a goal is positive below the goal, negative above it and zero at the goal, so it is a balancing structure.</li>
+          </ul>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> For a customer stock of 1,000 with gain fraction 10%/year, Customers Gained is 100/year. With loss fraction 3%/year, Customers Lost is 30/year. In a goal-seeking model, a target stock of 500 and actual stock of 450 with adjustment time 5 gives adjustment <code>(500 - 450)/5 = 10</code> units/year.</div>
+      <div class="marking"><strong>Minute detail:</strong> a fraction is not itself a flow. Write the stock multiplication, give units, and say how the sign of the discrepancy changes the adjustment.</div>
+    </section>
+
+    <section id="anchor">
+      <h2>7. Stock Management: Anchor and Adjustment <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Explain how the adjustment to a goal structure can be extended to the stock management structure. When explaining the stock management structure describe: (1) the anchor and (2) the adjustment. Show the delay structure that is used to construct the anchor.&quot; <span class="small">2024/25 Q2(b) [7]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p><strong>Adjustment:</strong> correct the gap between desired and actual stock: <code>(Desired Stock - Actual Stock) / adjustment time</code>.</p>
+          <p><strong>Anchor:</strong> replace expected losses so that a stock already at target stays at target: <code>Expected Losses = SMOOTH(Losses, expectation adjustment time)</code>.</p>
+          <p><strong>Total inflow:</strong> <code>Required Inflow = Expected Losses + Adjustment</code>.</p>
+          <p>At equilibrium, Actual = Desired, so Adjustment = 0 and Required Inflow = Expected Losses. The anchor is a smoothing/delay structure; the adjustment is a balancing goal-seeking structure.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> A simple goal-seeking model only corrects a gap. Stock management also anticipates normal outflows. The anchor prevents the stock drifting below target while the adjustment responds to a new discrepancy.</div>
+      <div class="marking"><strong>Key distinction:</strong> anchor = expected replacement flow, and adjustment = correction of target gap. Both should appear explicitly.</div>
+    </section>
+
+    <section id="recruitment">
+      <h2>8. Staff Recruitment as Stock Management <span class="tag">7/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> Design a stock and flow model with equations for University staff recruitment as a stock management structure. Staff starts at 500 in equilibrium; desired staff is based on Students and a desired student-to-staff ratio of 20. Students start in equilibrium at 10,000. At time 10, the desired ratio drops from 20 to 10. Plot staff to time 30 and identify the auxiliary that controls the speed of return to steady state. <span class="small">2024/25 Q2(c) [12]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <div class="formula">
+            <code>Desired Staff = Students / Desired Student Staff Ratio</code><br>
+            <code>Staff = INTEG(Hires - Quits, 500)</code><br>
+            <code>Quits = quit fraction x Staff</code><br>
+            <code>Expected Quits = SMOOTH(Quits, expectation adjustment time)</code><br>
+            <code>Hires = Expected Quits + (Desired Staff - Staff) / staff adjustment time</code>
+          </div>
+          <p>Initially <code>10,000 / 20 = 500</code>, so the discrepancy is zero. At time 10, desired staff becomes <code>10,000 / 10 = 1,000</code>. Hires exceed quits; staff rises smoothly and then settles at 1,000.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> The staff curve is flat at 500 until time 10, then rises towards 1,000 with a decreasing slope and settles at the new target. The <strong>staff adjustment time</strong> has the largest direct effect on how quickly this happens. Smaller adjustment time means faster correction, but can create unrealistic hiring rates.</div>
+      <div class="marking"><strong>Full answer needs:</strong> staff stock, hires and quits, student-to-staff ratio, desired staff, expected losses/anchor, discrepancy/adjustment and the balancing feedback loop.</div>
+    </section>
+
+    <section id="effects">
+      <h2>9. Effects Structure for Student Attrition <span class="tag">5/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> Construct equations for the effect of the student-to-staff ratio on student attrition. The reference ratio is 20 and reference attrition is 0.02. At ratio 30, attrition is five times its reference value; at ratio 15, it is half its reference value. State assumptions and show the effect relationship on an x-y plot. <span class="small">2016/17 Q4(b) [15]; also 2018/19 Q4(b)</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <div class="formula">
+            <code>Student Staff Ratio = Students / Staff</code><br>
+            <code>Normalised Ratio = Student Staff Ratio / 20</code><br>
+            <code>Attrition Fraction = 0.02 x Effect of Ratio(Normalised Ratio)</code><br>
+            <code>Attritions = Students x Attrition Fraction</code>
+          </div>
+          <p>The lookup/effect plot must pass through: <code>(0.75, 0.5)</code>, <code>(1.0, 1.0)</code>, and <code>(1.5, 5.0)</code>. The first coordinate is normalised ratio; the second is an effect multiplier.</p>
+          <p>Therefore: ratio 15 gives <code>0.02 x 0.5 = 0.01</code>; ratio 20 gives <code>0.02</code>; ratio 30 gives <code>0.02 x 5 = 0.10</code>.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> Use a dimensionless effect multiplier rather than directly guessing a nonlinear attrition equation. State how you interpolate between the three specified points and what happens outside the stated range, for example cap the effect to avoid impossible attrition fractions.</div>
+      <div class="marking"><strong>Common error:</strong> do not put 15, 20 and 30 directly on a normalised effect graph. Divide the ratio by its reference value first.</div>
+    </section>
+
+    <section id="sir-numeric">
+      <h2>10. SIR Numerical Calculations <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Suppose we have a town with 10,000 (=N) individuals, of which 2% were infectious with measles, with R0 = 12 and D = 7 days. Calculate the force of infection lambda. Calculate the Herd Immunity Threshold.&quot; <span class="small">2024/25 Q3(a) [5]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p><code>I/N = 0.02</code>. With <code>R0 = beta x D</code>, the effective contact rate is:</p>
+          <p><code>beta = R0/D = 12/7 = 1.714 per day</code>.</p>
+          <p><code>lambda = beta x I/N = (12/7)(0.02) = 0.0343 per day</code>.</p>
+          <p><code>HIT = 1 - 1/R0 = 1 - 1/12 = 0.9167</code>, or 91.67%.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> The force of infection is approximately <code>0.0343/day</code>, meaning a susceptible person faces about a 3.43% infection hazard per day in this simplified model. The herd immunity threshold is approximately <code>91.7%</code>.</div>
+      <div class="marking"><strong>Do not confuse:</strong> lambda is a per-susceptible rate; the total infection flow is <code>lambda x S</code> people/day.</div>
+    </section>
+
+    <section id="sir-core">
+      <h2>11. Core SIR Stocks, Flows and Feedbacks <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Show the Stocks, Flows and Feedbacks for the SIR Model. Show the structure and polarity of the following loops: Contagion, Depletion and Recovery. Explain the formulation of the number of infections (inflow to Infectious).&quot; <span class="small">2018/19 Q3(b) [12]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p>Draw <code>[Susceptible] -- Infections --&gt; [Infectious] -- Recoveries --&gt; [Recovered]</code>.</p>
+          <div class="formula">
+            <code>lambda = c x i x I / N</code><br>
+            <code>Infections = lambda x S = c x i x I x S / N</code><br>
+            <code>Recoveries = I / D</code><br>
+            <code>S = INTEG(-Infections, S0)</code><br>
+            <code>I = INTEG(Infections - Recoveries, I0)</code><br>
+            <code>R = INTEG(Recoveries, R0)</code>
+          </div>
+          <ul>
+            <li><strong>Contagion:</strong> I increases infections, which increases I: reinforcing.</li>
+            <li><strong>Depletion:</strong> I increases infections, which lowers S, which lowers infections and I: balancing.</li>
+            <li><strong>Recovery:</strong> I increases recoveries, which lowers I: balancing.</li>
+          </ul>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> <code>I/N</code> is the infectious proportion encountered by a susceptible person; <code>c</code> is contacts per day and <code>i</code> is the probability a contact transmits. Thus infections have units people/day. <code>R0 = c x i x D</code> when the population is fully susceptible.</div>
+      <div class="marking"><strong>Full-mark detail:</strong> use three rectangles for the stocks, pipe/valve flows between them, causal arrows for the loops, and explain every factor in the infection equation.</div>
+    </section>
+
+    <section id="sir-threshold">
+      <h2>12. R0, Equilibrium and the Infection Peak <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Show that when an outbreak is at its peak (dI/dt = 0), the proportion susceptible equals 1/R0. Explain why the SIR model conforms to the statement: the chain of transmission eventually breaks down due to a decline in infectives, not due to a complete lack of susceptibles.&quot; <span class="small">2018/19 Q3(c) [6]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p>At the peak, infections equal recoveries:</p>
+          <p><code>beta x I x S/N = I/D</code></p>
+          <p>For <code>I &gt; 0</code>, divide by <code>I</code>:</p>
+          <p><code>beta x S/N = 1/D</code></p>
+          <p>Multiply by <code>D</code> and use <code>R0 = beta x D</code>:</p>
+          <p><code>R0 x S/N = 1</code>, therefore <code>S/N = 1/R0</code>.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> The infection curve stops rising when each infectious person generates one new infection on average. Susceptibles remain after the peak, but their proportion is too low to sustain growth. Recovery then continues to remove infectious people, so infections decline.</div>
+      <div class="marking"><strong>Related equilibrium result:</strong> if <code>S=N</code>, equilibrium requires <code>beta D = 1</code>, equivalently <code>c i d = 1</code>. This is the outbreak threshold.</div>
+    </section>
+
+    <section id="sir-policy">
+      <h2>13. SIR Countermeasures: Quarantine and Vaccination <span class="tag">8/8 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> Extend the SIR model with a quarantine stock and a vaccinated stock. Twenty percent of new infections enter quarantine and recover after two days; quarantined people do not infect others. Only susceptible people are vaccinated through a fractional decrease flow. Vaccination fraction rises from 0 towards 0.15 by goal seeking. Let R0 = 2, N = 10,000 and one person initially infected. Specify all equations, show feedbacks, and include overall attack rate. <span class="small">2025/26 Q2(b) [12]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <div class="formula">
+            <code>beta = R0/D = 2/2 = 1 per day</code><br>
+            <code>lambda = beta x I/N</code><br>
+            <code>To I = (1 - QF) x lambda x S</code><br>
+            <code>To Q = QF x lambda x S</code><br>
+            <code>Vaccinations = Vaccination Fraction x S</code><br>
+            <code>Vaccination Fraction = INTEG((0.15 - Vaccination Fraction)/AT, 0)</code><br>
+            <code>Recoveries I = I/2; Recoveries Q = Q/2</code>
+          </div>
+          <p><code>S = INTEG(-To I - To Q - Vaccinations, 9999)</code>; <code>I = INTEG(To I - Recoveries I, 1)</code>; <code>Q = INTEG(To Q - Recoveries Q, 0)</code>; <code>R = INTEG(Recoveries I + Recoveries Q, 0)</code>; <code>V = INTEG(Vaccinations, 0)</code>.</p>
+          <p><code>Attack Rate = (I + Q + R)/N</code>. This counts people currently or previously infected, not vaccinated people.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> Quarantine reduces transmission immediately by diverting part of the infection flow into a non-transmitting stock. Vaccination removes susceptible people, strengthening the depletion feedback. Higher quarantine fraction and higher final vaccination fraction should both reduce final attack rate; the smallest attack-rate circles belong in the high-quarantine/high-vaccination corner.</div>
+      <div class="marking"><strong>Common loss of marks:</strong> do not move people from Infectious to Quarantine if the paper states that a fraction of the infection flow enters quarantine. Do not allow Vaccinated people to remain in the infection flow.</div>
+    </section>
+
+    <section id="little">
+      <h2>14. Little's Law and Delay Interpretation <span class="tag">3 papers</span></h2>
+      <div class="question"><strong>Past-paper question:</strong> &quot;Describe Little's Law, and why it is useful in helping understand the behaviour of systems in equilibrium. If a broadband provider has a pending pool of 5,000 installations and installs an average of 2,500 per month, what is the average waiting time (assume equilibrium)? Draw a stock and flow model to illustrate your answer.&quot; <span class="small">2017/18 Q4(a,b) [3, 3]</span></div>
+      <details>
+        <summary>Open workings</summary>
+        <div class="working">
+          <p><code>Stock = Throughput x Average Delay</code>, so <code>Average Delay = Stock / Throughput</code>.</p>
+          <p><code>Delay = 5,000 installations / 2,500 installations per month = 2 months</code>.</p>
+          <p>Draw <code>Installations Waiting</code> as the stock, with an inflow of installations requested and outflow of installations completed. Little's Law applies when the stock is in equilibrium: average inflow equals average outflow and the average stock is stable.</p>
+        </div>
+      </details>
+      <div class="answer"><strong>Answer:</strong> The average customer waits two months. Little's Law relates average stock, average throughput and average time in the system without requiring the exact individual delay distribution. A smooth delayed outflow generally indicates a distributed delay rather than every item leaving after one identical fixed delay.</div>
+      <div class="marking"><strong>Condition to state:</strong> this is an average steady-state relationship, not a claim that every individual waits exactly two months.</div>
+    </section>
+
+    <section id="sources">
+      <h2>Paper Coverage</h2>
+      <p>This page was rebuilt from the local CT561 papers: 2016/17, 2017/18, 2018/19, 2019/20, 2021/22, 2023/24, 2024/25 and 2025/26. The coverage labels count the recurring question family, not an exact identical sentence.</p>
+      <div class="note"><strong>How to use this page:</strong> first attempt the question with workings closed. Then compare against the answer and checklist. For chart questions, use the actual chart in the referenced paper because the values and time intervals change while the method and marks stay very similar.</div>
+    </section>
+  </main>
+
+  <script>
+    function setWorkings(open) {
+      document.querySelectorAll('details').forEach(function (item) { item.open = open; });
+    }
+    function toggleExamMode() {
+      document.body.classList.toggle('exam-mode');
+    }
+  </script>
+</body>
+</html>

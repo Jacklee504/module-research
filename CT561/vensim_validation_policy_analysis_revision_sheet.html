@@ -1,87 +1,21 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CT561 Vensim, Validation and Policy Analysis</title>
-<link rel="stylesheet" href="../module_page.css">
-</head>
-<body>
-<header class="module-header">
-<nav class="top-nav">
-<a href="details.html">CT561 overview</a>
-<a href="workforce_stock_management_revision_sheet.html">Previous topic: Workforce management</a>
-<a href="continuous_vs_agent_based_simulation_revision_sheet.html">Next topic: Continuous vs agent-based</a>
-</nav>
-<p class="eyebrow">CT561 Topic Guide</p>
-<h1>Vensim, Validation and Policy Analysis</h1>
-<p>A simulation result is useful only when its structure, units, behaviour and policy claims have been checked.</p>
-</header>
-<main class="module-shell">
-<article class="module-content">
-<h2>Exam-use protocol</h2>
-<p>Before writing, identify the command word: <strong>calculate/trace</strong> requires an ordered derivation; <strong>explain</strong> requires a definition, mechanism and assumption; <strong>compare/design</strong> requires matched criteria, a justified choice and a limitation. The topic-specific recall and worked routes below are the material to adapt—not text to copy blindly.</p>
-<h2>Part-by-part recall: definitions, assumptions and mechanics</h2>
-<p>
-<strong>Definitions:</strong> verification checks equations/units/implementation; validation tests structural and behavioural adequacy for a purpose. Policy analysis varies an intervention and reports sensitivity, not certainties. <strong>Question cue:</strong> name a concrete test, baseline, scenario range and decision-relevant outcome.</p>
-<h2>Worked practice 1 — paper-derived validation</h2>
-<p>
-<strong>Question demand:</strong> Validate a staffing model. <strong>Plan/choice:</strong> separate structure from behaviour. <strong>Worked answer:</strong> check dimensional consistency/stock conservation and extreme conditions, compare historical trend/known behaviour, then sensitivity-test attrition and adjustment time. <strong>Mark-winning points:</strong> named tests. <strong>Common trap:</strong> one fitted plot proves validity.</p>
-<h2>Worked practice 2 — synthesis / design policy analysis</h2>
-<p>
-<strong>Question demand:</strong> Recommend workload policy. <strong>Plan/choice:</strong> baseline plus alternatives over uncertain parameters, report side effects. <strong>Worked answer:</strong> simulate completion, backlog and fatigue under policy ranges; reject policies that improve short-term throughput but worsen delayed fatigue; disclose uncertainty. <strong>Mark-winning points:</strong> trade-off. <strong>Common trap:</strong> best one run is best policy.</p>
-<h2>Purpose and relevance</h2>
-<p>Vensim makes a stock-flow specification executable, but the assessment value is in explaining credible model-building, testing and cautious policy comparison.</p>
-<h2>What a question really asks — answer plan</h2>
-<p>Separate <em>verification</em> (implemented as intended) from <em>validation</em> (adequate for purpose). Name concrete tests, define a baseline, vary one policy/assumption at a time, compare outcomes and limits.</p>
-<h2>Key terms and formulas</h2>
-<ul>
-<li>
-<strong>Level:</strong> stock; <strong>rate:</strong> flow; <strong>auxiliary:</strong> algebraic helper; <strong>constant:</strong> fixed parameter.</li>
-<li>
-<strong>Units check:</strong> catches dimensionally impossible equations.</li>
-<li>
-<strong>Extreme-condition test:</strong> ask whether zero/very large inputs give sensible behaviour.</li>
-<li>
-<strong>Behaviour reproduction:</strong> compare shape/pattern, not only point fit.</li>
-<li>
-<strong>Sensitivity analysis:</strong> vary uncertain inputs and report whether conclusions change.</li>
-</ul>
-<h2>Method derivation</h2>
-<ol>
-<li>State decision purpose, boundary and performance measures.</li>
-<li>Build causal then stock-flow structure; set equations, units and initial values.</li>
-<li>Verify equations, units and boundary conditions in Vensim.</li>
-<li>Validate structure/behaviour against knowledge or data appropriate to the purpose.</li>
-<li>Run baseline and policy scenarios; communicate uncertainty and unintended effects.</li>
-</ol>
-<h2>Worked practice 3 — foundational calculation</h2>
-<p>
-<strong>Problem:</strong> A model says that doubling recruitment always doubles productive staff immediately. Give two checks and a repair.</p>
-<p>
-<strong>Answer:</strong> An extreme-condition/structure check exposes missing training delay; a units check confirms recruitment is staff/time. Add a trainee stock and graduation flow. Then vary training time and recruitment capacity to see whether the policy conclusion remains robust.</p>
-<h2>Question interpretation and independent practice</h2>
-<h3>Prompt 1</h3>
-<p>A flow is written as <code>inventory + orders/day</code>. What should you say? <strong>Check:</strong> it fails dimensional consistency; stocks and rates cannot be added.</p>
-<h3>Exam bridge</h3>
-<p>Propose a validation and sensitivity plan for a hospital-capacity policy model. <strong>Check:</strong> include purpose, tests, baseline metrics, parameter ranges, scenario comparison and what would make you cautious.</p>
-<h2>High-value traps and corrections</h2>
-<p><strong>Paper basis for the integrated practice:</strong> syllabus/concept practice. The archive was checked, but this Vensim validation/policy scenario was not traced to a specific prompt.</p>
-<h2>Integrated paper-style practice - validate a policy model [8 marks]</h2><p><strong>Scenario.</strong> A Vensim model predicts that a recruitment subsidy reduces a staffing backlog. The model matches historic backlog data but uses an assumed training delay. Give a validation and policy-analysis sequence.</p><p><strong>Question-demand diagnosis:</strong> historical fit alone is insufficient; test structure, parameters and behaviour under policy uncertainty.</p><p><strong>Fastest route:</strong> test units and boundary/structure first, then historical and extreme behaviour, then sensitivity runs.</p><p><strong>Worked answer:</strong> Check dimensional consistency and whether the hiring, training and attrition feedbacks represent the real process. Compare known historical patterns, including turning points, not only aggregate fit. Challenge the training delay with expert evidence and vary it across plausible values. Run baseline and subsidy policies under the same assumptions, reporting backlog, staffing and cost with uncertainty. If the subsidy helps only under one untested delay, present it as a conditional insight rather than a recommendation.</p><p><strong>Topic-specific trap:</strong> a calibrated curve can fit history for the wrong causal structure.</p>
-<ul>
-<li>Claiming a model is “validated” because it runs.</li>
-<li>Changing several assumptions and attributing the result to one policy.</li>
-<li>Presenting one fitted graph as proof of future accuracy.</li>
-</ul>
-<h2>Final answer checklist</h2>
-<ul>
-<li>I distinguish verification and validation.</li>
-<li>I name testable checks, not just “test it”.</li>
-<li>I report uncertainty alongside a policy recommendation.</li>
-</ul>
-<h2>Past-paper note</h2>
-<p>Vensim terminology, testing and policy sensitivity are explicit supporting themes in official scope and local CT561 materials; their exact mark allocation is less certain than the core modelling topics.</p>
-</article>
-</main>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Vensim, Validation and Policy Analysis</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="workforce_stock_management_revision_sheet.html">Previous topic: Workforce management</a><a href="continuous_vs_agent_based_simulation_revision_sheet.html">Next topic: Simulation methods</a></nav><p class="eyebrow">CT561 Supporting Topic Guide</p><h1>Vensim, Validation and Policy Analysis</h1><p>Use this as supporting material for design and discussion parts. The local papers favour actual model construction and policy consequences over a standalone validation essay.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the papers actually reward</h2>
+<ul><li>Write a valid Vensim-style stock-flow equation with units, initial values and causal links.</li><li>Use the time/shadow variable when a differential equation contains <code>t</code>. <span>2017/18 Q2(a)</span></li><li>Sketch and explain a policy scenario, such as a changed staff target or quarantine/vaccination setting. <span>2018/19 Q4(c), 2024/25 Q2(c), 2025/26 Q2(c), Q4(d)</span></li><li>Discuss policy trade-offs from feedback loops, not just the best-looking outcome. <span>2018/19 Q2(c), 2019/20 Q2(c), 2025/26 Q3(c)</span></li></ul>
+
+<h2>Vensim modelling checks</h2>
+<ul><li>Every stock must use <code>INTEG(net flow, initial value)</code>.</li><li>Every rate multiplied by time must give the stock unit.</li><li>Use a lookup/effect graph for a nonlinear empirical relationship, such as student-staff ratio affecting attrition.</li><li>Use <code>SMOOTH</code> or a first-order delay when the paper asks for expected losses, smoothing or an adjustment delay.</li><li>Use a control flag as a 0/1 multiplier when a policy can be activated/deactivated.</li></ul>
+
+<h2>Validation answer framework</h2>
+<p>Use this only when the question asks how reliable a model or policy is. Keep it linked to the actual structure:</p>
+<ol><li><strong>Structure:</strong> confirm stocks, flows, signs, conservation and dimensional consistency.</li><li><strong>Parameters:</strong> explain where contact rate, delay, attrition, productivity or effect-lookup values came from and vary uncertain values.</li><li><strong>Behaviour:</strong> compare trends, turning points and plausible extreme cases, not only one fitted curve.</li><li><strong>Policy:</strong> compare a baseline against alternatives using the same assumptions and report side-effects, delays and uncertainty.</li></ol>
+
+<h2>Policy-analysis route from recent papers</h2>
+<p>For the 2025/26 quarantine/vaccination model, run the baseline with low quarantine and low vaccination, then change one parameter at a time. Compare attack rate, infection peak and timing. Explain mechanism: quarantine reduces transmission; vaccination removes susceptible people. Do not claim that a lower peak alone is automatically best if the policy requires unavailable resources or only delays the peak.</p>
+<p>For a workforce target shock, plot actual Staff, Desired Staff, Hires and Expected Quits. Explain the effect of adjustment time and any recruitment pipeline on overshoot and settling time.</p>
+
+<h2>Common errors</h2>
+<ul><li>A historical fit alone does not validate causal structure.</li><li>Reducing DT improves numerical approximation; it does not validate the model.</li><li>One simulation run is not a policy recommendation.</li><li>Do not discuss policy without naming the flow, parameter or feedback it changes.</li></ul>
+</article></main></body></html>

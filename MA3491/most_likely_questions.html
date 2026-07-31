@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MA3491 / MA539 Most Likely Exam Questions</title>
+<link rel="stylesheet" href="../module_page.css">
+<style>
+  .question-bank { max-width: 1100px; }
+  .question-bank table { width: 100%; border-collapse: collapse; margin: 0 0 22px; font-size: 13px; }
+  .question-bank th, .question-bank td { padding: 9px 10px; border: 1px solid var(--line); text-align: left; vertical-align: top; }
+  .question-bank th { background: var(--surface-soft); font-weight: 800; }
+  .question-bank td:last-child { font-weight: 750; }
+  .question-bank .variation { padding: 14px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); }
+  .question-bank .signal { color: #39454b; }
+  .question-bank .source-list { font-size: 13px; color: var(--muted); }
+  @media (max-width: 720px) { .question-bank table { font-size: 12px; } .question-bank th, .question-bank td { padding: 7px; } }
+</style>
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav" aria-label="Navigation">
+<a href="details.html">MA3491 overview</a>
+<a href="#recurrence">Recurrence</a>
+<a href="#question-bank">Question bank</a>
+</nav>
+<p class="eyebrow">MA3491 / MA539 Study Document</p>
+<h1>Most Likely Exam Questions</h1>
+<p>Recurring past-paper question families and wording variations, without solutions.</p>
+</header>
+<main class="module-shell">
+<article class="module-content question-bank" id="question-bank">
+<h2>Scope</h2>
+<p>This solution-free question bank is distilled from the six local papers: 2018-19, 2021-22, 2022-23, 2023-24, 2024-25, and 2025-26. The 2024-25 paper uses the combined code <code>MA3491/MA539</code>.</p>
+<p>Its purpose is to make equivalent questions recognisable when the field, alphabet, numbers, or wording change. For example, “construct a check matrix” and “hence determine whether this word is a codeword” normally belong to one generator/check-matrix workflow, rather than two unrelated topics.</p>
+
+<h2 id="recurrence">Recurrence at a glance</h2>
+<table>
+<thead><tr><th>Question family</th><th>2018</th><th>2021</th><th>2022</th><th>2023</th><th>2024</th><th>2025</th><th>Priority</th></tr></thead>
+<tbody>
+<tr><td>Sphere-packing bound / block-code parameters</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Singleton bound / MDS or perfect-code consequence</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>High</td></tr>
+<tr><td>Finite-field irreducibility or factorisation</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Finite-field construction, arithmetic, inverse, order, or primitive elements</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Generator matrix, standard form, check matrix, or minimum distance</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Syndrome / nearest-neighbour / standard-array decoding</td><td>Yes</td><td>-</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Hamming-code definition, parity-check matrix, and single-error decoding</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Cyclic-code generator matrix, check polynomial, and check matrix</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Very high</td></tr>
+<tr><td>Weight enumerator / MacWilliams extension</td><td>-</td><td>-</td><td>Yes</td><td>Yes</td><td>-</td><td>Yes</td><td>Recurring secondary</td></tr>
+</tbody>
+</table>
+<p>The recent four papers use five questions. The stable broad pattern is: bounds and block-code parameters; finite fields; linear codes and decoding; Hamming codes; and cyclic codes. Weight enumerators appeared in 2022-23, 2023-24, and again inside the cyclic-code question in 2025-26.</p>
+
+<h2>1. Bounds and block-code parameters</h2>
+<h3>Sphere-packing bound - all six papers</h3>
+<p><strong>Core prompt:</strong> State the sphere-packing bound, then use it to obtain an upper bound on the number of codewords.</p>
+<div class="variation"><strong>Wording variations:</strong><ul>
+<li>“State the sphere packing bound and use it to show that a binary code of block length 8 that can correct all single errors can have at most ... code words.” (2018-19)</li>
+<li>“State the sphere packing bound, and determine which upper bound on the number of codewords in a block code with alphabet <code>F5</code>, block length 8, that corrects all single errors it gives.” (2021-22)</li>
+<li>“State the sphere packing bound, and determine the upper bound it gives on the number of code words in a 4-ary code with block length 8 and minimum distance 3.” (2022-23)</li>
+<li>The same question for a ternary code of length 8 and minimum distance 3. (2023-24)</li>
+<li>State the bound, then separately determine the upper bound for a binary code with block length 10 and minimum distance 5. (2024-25)</li>
+<li>The same split statement/application format for a binary code with block length 12 and minimum distance 5. (2025-26)</li>
+</ul></div>
+<p class="signal"><strong>Same-skill signal:</strong> “corrects all single errors” and “minimum distance 3” are different descriptions of the same type of application. Alphabet size and length are deliberately varied.</p>
+
+<h3>Singleton bound - the three most recent papers</h3>
+<p><strong>Core prompt:</strong> State the Singleton bound and determine an upper bound. Be ready for the proof version.</p>
+<div class="variation"><ul>
+<li>State the bound and apply it to a ternary code with length 8 and minimum distance 3. (2022-23)</li>
+<li>The same wording for a 4-ary code with length 8 and minimum distance 3. (2023-24)</li>
+<li>State the bound, prove it, then apply it to a ternary code with length 9 and minimum distance 3. (2024-25)</li>
+<li>The same three parts for a binary code with length 12 and minimum distance 5. (2025-26)</li>
+</ul></div>
+
+<h3>Structured-code size, minimum distance, and classification</h3>
+<p><strong>Core prompt:</strong> A code is described by a property of its words rather than by a matrix. Determine its size, parameters, minimum distance, or perfect/MDS status.</p>
+<div class="variation"><ul>
+<li>Four explicit words over <code>{A,B}</code>: determine minimum distance. (2018-19)</li>
+<li>All length-9 ternary words in which every symbol occurs exactly three times: determine minimum distance. (2021-22)</li>
+<li>All binary length-8 words with an equal number of 0s and 1s: find number of codewords and minimum distance. (2022-23)</li>
+<li>Palindromic words of even and odd block length: find number of codewords and minimum distance. (2023-24)</li>
+<li>A ternary 7-ply repetition code: determine parameters, then show whether it is perfect and MDS. (2024-25)</li>
+</ul></div>
+<p class="signal"><strong>Lower-priority older variation:</strong> ISBN checksum questions appear in 2018-19 and 2021-22, but not in the recent five-question pattern.</p>
+
+<h2>2. Finite fields and polynomial arithmetic</h2>
+<h3>Irreducibility or factorisation - all six papers</h3>
+<p><strong>Core prompt:</strong> Determine whether polynomial(s) in <code>Fq[x]</code> are irreducible; factor any reducible ones into irreducibles.</p>
+<div class="variation"><ul>
+<li>“Show that the ternary polynomial ... is irreducible.” (2018-19)</li>
+<li>For each polynomial in <code>F3[x]</code>, determine whether it is irreducible; if reducible, factor it into irreducibles. (2021-22)</li>
+<li>The same instruction in <code>F5[x]</code> for two cubics. (2022-23)</li>
+<li>Factor <code>x^6 - 1</code> in <code>F3[x]</code> into irreducibles. (2023-24)</li>
+<li>Show that a supplied quadratic in <code>F5[x]</code> is irreducible. (2024-25)</li>
+<li>Find all irreducible degree-2 polynomials in <code>F2[x]</code>, then show a supplied degree-5 polynomial is irreducible. (2025-26)</li>
+</ul></div>
+<p class="signal"><strong>Same-skill signal:</strong> “show irreducible,” “determine if irreducible,” and “factor into irreducibles” are one finite-field factorisation family.</p>
+
+<h3>Quotient-field construction and arithmetic</h3>
+<p><strong>Core prompt:</strong> After an irreducible polynomial is supplied or established, work in the quotient field it defines.</p>
+<div class="variation"><ul>
+<li>Construct the field of eight elements: give elements and describe addition/multiplication. (2018-19)</li>
+<li>Establish <code>F8 = Z2[x]/(f)</code>, then calculate a product. (2021-22)</li>
+<li>Establish <code>F27 = F3[x]/(f)</code>, then calculate a product represented by degree at most 2. (2022-23)</li>
+<li>Establish <code>F16 = F2[x]/(f)</code>, then work with residue classes. (2023-24)</li>
+<li>Use the supplied presentation of <code>F25</code> to calculate an inverse. (2024-25)</li>
+</ul></div>
+
+<h3>Multiplicative inverse, order, and primitive elements</h3>
+<div class="variation"><ul>
+<li>Calculate the inverse of <code>x²</code> in <code>F8</code>, <code>F27</code>, or <code>F16</code>, with a stated degree limit. (2021-22 to 2023-24)</li>
+<li>Calculate the inverse of <code>x + 3</code> in <code>F25</code>. (2024-25)</li>
+<li>Find the order of <code>x² + x</code> in <code>F16</code>. (2023-24)</li>
+<li>Define a primitive element, then prove a statement concerning inverses of powers and inverses of primitive elements. (2024-25)</li>
+</ul></div>
+<p class="signal"><strong>One-off extensions:</strong> polynomial gcd and units in polynomial rings (2018-19); treating <code>F4</code> as a vector space over <code>F2</code> (2024-25).</p>
+
+<h2>3. Linear codes, check matrices, and decoding</h2>
+<h3>Generator matrix to codewords and minimum distance - all six papers</h3>
+<p><strong>Core prompt:</strong> A linear code is presented by a generator matrix. List/generate codewords and determine minimum distance, possibly after putting the matrix in standard form.</p>
+<div class="variation"><ul>
+<li>“List the codewords of <code>C</code>. Hence find the minimum distance.” (2018-19)</li>
+<li>“Write down the code words of <code>C</code>. Determine the minimum distance.” (2021-22 and 2022-23)</li>
+<li>“What is the minimum distance of <code>C1</code>?” after listing its codewords. (2023-24)</li>
+<li>First construct a standard-form generator matrix and a check matrix, then determine minimum distance. (2024-25)</li>
+<li>The same sequence, followed by self-duality and syndrome decoding. (2025-26)</li>
+</ul></div>
+
+<h3>Standard form and check matrix - all six papers</h3>
+<div class="variation"><ul>
+<li>“Find a generator matrix in standard form ... Hence, construct a parity check matrix.” (2018-19 and 2021-22)</li>
+<li>“Construct a check matrix” when the given generator matrix is already in standard form. (2022-23 and 2023-24)</li>
+<li>“Construct a generator matrix in standard form”; then “Construct a check matrix.” (2024-25)</li>
+</ul></div>
+<p class="signal"><strong>Same-skill signal:</strong> “parity check matrix” and “check matrix” are the same target. “Hence” normally means use the standard-form result from the prior part.</p>
+
+<h3>Check-matrix consequences and decoding</h3>
+<div class="variation"><ul>
+<li>After constructing a check matrix, determine whether a supplied word is a codeword. (2021-22)</li>
+<li>A check matrix is supplied; determine minimum distance. (2022-23 and 2023-24)</li>
+<li>Construct a syndrome lookup/table and use it to decode word(s). (2018-19, 2022-23, 2023-24, 2024-25, 2025-26)</li>
+<li>Determine the result of nearest-neighbour decoding. (2022-23)</li>
+<li>Construct a standard array and decode received words. (2023-24)</li>
+<li>Show that a code is self-dual after standard form/check-matrix work. (2024-25 and 2025-26)</li>
+</ul></div>
+<p class="signal"><strong>Same-skill signal:</strong> “syndrome lookup table” and “syndrome table” are identical requests. Standard-array and nearest-neighbour wording are alternate representations of the same decoding theme.</p>
+
+<h2>4. Hamming codes</h2>
+<h3>The Hamming-code sequence - all six papers</h3>
+<p>Expect this four-part sequence: define <code>Ham(r,q)</code>; construct/write down a parity-check matrix; explain single-error correction; decode one or more words.</p>
+<div class="variation"><ul>
+<li>“What is the definition of the Hamming code <code>Ham(r,q)</code>?” appears in every paper.</li>
+<li>“Write down a parity check matrix” for <code>Ham(2,5)</code>. (2018-19 and 2021-22)</li>
+<li>“Construct a parity check matrix” for <code>Ham(2,7)</code>, <code>Ham(2,4)</code>, or <code>Ham(3,2)</code>. (2022-23 to 2025-26)</li>
+<li>“Explain how a single error can be corrected ... Decode the word(s) ...” appears in every paper.</li>
+</ul></div>
+<p class="signal"><strong>Recent extensions:</strong> state the parameters of <code>Ham(r,q)</code> and show that it is perfect. This exact extension repeated in 2024-25 and 2025-26.</p>
+
+<h2>5. Cyclic codes</h2>
+<h3>Generator polynomial to generator/check matrix - all six papers</h3>
+<p><strong>Core prompt:</strong> A cyclic code is specified by length, field, and generator polynomial. Construct its generator matrix, find the check polynomial, then construct or use a check matrix.</p>
+<div class="variation"><ul>
+<li>“Give the generator matrix ... Find the check polynomial ... Write down the check matrix and hence verify that ... is a codeword.” (2018-19)</li>
+<li>The same chain, ending “determine if any of the words ... is a codeword.” (2021-22)</li>
+<li>“Construct the generator matrix ... Find the check polynomial ... and hence construct a check matrix.” (2022-23 and 2023-24)</li>
+<li>The same two-part construction over <code>F4</code>, with the field multiplication supplied. (2024-25)</li>
+<li>Construct the generator and check matrices for a binary cyclic code, then use its dual in weight-enumerator parts. (2025-26)</li>
+</ul></div>
+<p class="signal"><strong>Same-skill signal:</strong> “give” and “construct,” or “verify” and “determine if,” do not change the generator/check-polynomial/check-matrix chain.</p>
+<p><strong>Latest-paper extensions:</strong> show a cyclic code is MDS; prove an odd-weight binary cyclic code of odd block length contains the all-ones word, using the sum of cyclic shifts. (2024-25)</p>
+
+<h2>6. Secondary family: weight enumerators</h2>
+<p>This occurred in 2022-23, 2023-24, and 2025-26: define the weight enumerator, then compute it for a small supplied code. In 2025-26 it was embedded in the cyclic-code question: compute the enumerator of <code>C⊥</code>, state MacWilliams' identity, use it to obtain low-degree terms of the enumerator of <code>C</code>, then determine minimum distance.</p>
+
+<h2>Suggested self-test set</h2>
+<ol>
+<li>Sphere-packing and Singleton bounds with changed alphabet/length.</li>
+<li>A structured-code size/minimum-distance question.</li>
+<li>Irreducibility/factorisation followed by quotient-field arithmetic.</li>
+<li>A finite-field inverse or multiplicative-order question.</li>
+<li>Generator matrix to standard form/check matrix/minimum distance.</li>
+<li>Syndrome or standard-array decoding.</li>
+<li>The full Hamming-code and cyclic-code construction sequences.</li>
+</ol>
+<p>Add weight enumerators and the one-off proof extensions only after these repeated core families are secure.</p>
+
+<h2>Source papers</h2>
+<ul class="source-list">
+<li><a href="2018_2019.pdf">2018-19</a></li>
+<li><a href="2021_2022.pdf">2021-22</a></li>
+<li><a href="2022_2023.pdf">2022-23</a></li>
+<li><a href="2023_2024.pdf">2023-24</a></li>
+<li><a href="2024_2025.pdf">2024-25</a></li>
+<li><a href="2025_2026.pdf">2025-26</a></li>
+</ul>
+</article>
+</main>
+</body>
+</html>

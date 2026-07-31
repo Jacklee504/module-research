@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>MA342 Topology — Q1 Study Page</title>
+
+  <style>
+    :root {
+      --background: #f4f7fb;
+      --panel: #ffffff;
+      --text: #182033;
+      --muted: #5e687a;
+      --border: #dce3ee;
+
+      --blue: #315db2;
+      --blue-dark: #193464;
+      --blue-light: #edf3ff;
+
+      --green: #eaf8f0;
+      --green-border: #cce7d7;
+
+      --purple: #f3edff;
+      --purple-border: #dacdf1;
+
+      --yellow: #fff7da;
+      --yellow-border: #e9d99c;
+
+      --shadow: 0 8px 25px rgba(30, 45, 80, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--background);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 46px 20px;
+      color: white;
+      background:
+        linear-gradient(
+          135deg,
+          var(--blue-dark),
+          var(--blue)
+        );
+    }
+
+    .header-inner {
+      max-width: 1050px;
+      margin: 0 auto;
+    }
+
+    .course-name {
+      margin-bottom: 6px;
+      color: #dce8ff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+    }
+
+    header p {
+      max-width: 780px;
+      margin: 0;
+      color: #eef4ff;
+      font-size: 1.05rem;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      max-width: 1050px;
+      margin: 16px auto;
+      padding: 0 16px;
+    }
+
+    button,
+    .toolbar-link {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: white;
+      color: var(--text);
+      font-size: 0.92rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    button:hover,
+    .toolbar-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    button.primary {
+      border-color: var(--blue);
+      background: var(--blue);
+      color: white;
+    }
+
+    main {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    nav,
+    section {
+      margin: 16px 0;
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    nav {
+      padding: 16px;
+    }
+
+    nav strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 3px 12px 3px 0;
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 23px;
+    }
+
+    h2 {
+      margin-top: 0;
+      padding-bottom: 9px;
+      border-bottom: 1px solid var(--border);
+      color: var(--blue-dark);
+    }
+
+    h3 {
+      margin: 23px 0 7px;
+      color: #24344f;
+    }
+
+    p {
+      margin: 8px 0;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    .box {
+      margin: 11px 0;
+      padding: 13px 15px;
+      border-radius: 10px;
+    }
+
+    .explanation {
+      border: 1px solid var(--green-border);
+      background: var(--green);
+    }
+
+    .answer {
+      border: 1px solid var(--purple-border);
+      background: var(--purple);
+    }
+
+    .formula {
+      overflow-x: auto;
+      border-left: 5px solid var(--blue);
+      background: var(--blue-light);
+      font-size: 1.04rem;
+    }
+
+    .warning {
+      border: 1px solid var(--yellow-border);
+      background: var(--yellow);
+    }
+
+    .tag {
+      display: inline-block;
+      margin-left: 6px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--blue-light);
+      color: var(--blue);
+      font-size: 0.75rem;
+      font-weight: 700;
+      vertical-align: middle;
+    }
+
+    table {
+      width: 100%;
+      margin: 12px 0;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 9px;
+      border: 1px solid var(--border);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f2f5fa;
+    }
+
+    details {
+      margin: 11px 0;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    summary {
+      padding: 11px 13px;
+      background: #fafbfe;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    details .details-content {
+      padding: 2px 13px 13px;
+    }
+
+    .question {
+      margin: 9px 0;
+      padding: 10px 12px;
+      border-left: 4px solid var(--blue);
+      background: #fafcff;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    body.exam-mode .explanation-only {
+      display: none;
+    }
+
+    mjx-container {
+      overflow-x: auto;
+      overflow-y: hidden;
+      max-width: 100%;
+    }
+
+    @media (max-width: 700px) {
+      section {
+        padding: 18px;
+      }
+
+      th,
+      td {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media print {
+      body {
+        background: white;
+        font-size: 10.5pt;
+      }
+
+      header {
+        padding: 14px 0;
+        border-bottom: 2px solid black;
+        background: white;
+        color: black;
+      }
+
+      header p,
+      .course-name {
+        color: #222;
+      }
+
+      .toolbar,
+      nav {
+        display: none;
+      }
+
+      main {
+        max-width: none;
+        padding: 0;
+      }
+
+      section {
+        margin: 0;
+        padding: 12px 0;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      h2,
+      h3 {
+        break-after: avoid;
+      }
+
+      details .details-content {
+        display: block !important;
+      }
+
+      summary {
+        padding-left: 0;
+        background: white;
+        list-style: none;
+      }
+
+      summary::-webkit-details-marker {
+        display: none;
+      }
+    }
+  </style>
+
+  <!-- MathJax configuration -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [
+          ["\\(", "\\)"]
+        ],
+        displayMath: [
+          ["\\[", "\\]"]
+        ],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: [
+          "script",
+          "noscript",
+          "style",
+          "textarea",
+          "pre",
+          "code"
+        ]
+      }
+    };
+  </script>
+
+  <!-- Loads MathJax so LaTeX is formatted properly -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="course-name">
+      University of Galway · MA342 Topology
+    </div>
+
+    <h1>Question 1 Study Page</h1>
+
+    <p>
+      A focused revision guide covering the material asked in Question 1
+      of the 2023/24, 2024/25 and 2025/26 examination papers.
+    </p>
+  </div>
+</header>
+
+<div class="toolbar">
+  <button class="primary" onclick="window.print()">
+    Print / Save as PDF
+  </button>
+
+  <button onclick="toggleExamMode()">
+    Toggle exam mode
+  </button>
+
+  <button onclick="setAnswers(true)">
+    Open all worked answers
+  </button>
+
+  <button onclick="setAnswers(false)">
+    Close all worked answers
+  </button>
+
+  <a class="toolbar-link" href="#past-papers">
+    Past-paper questions
+  </a>
+</div>
+
+<main>
+
+<nav>
+  <strong>Contents</strong>
+
+  <a href="#topology">Topology</a>
+  <a href="#standard">Standard topology</a>
+  <a href="#cofinite">Cofinite topology</a>
+  <a href="#subspace">Subspace topology</a>
+  <a href="#discrete">Discrete subspaces</a>
+  <a href="#base">Bases</a>
+  <a href="#lower-limit">Lower limit topology</a>
+  <a href="#neighbourhood">Neighbourhoods</a>
+  <a href="#interior">Interior</a>
+  <a href="#closure">Closure</a>
+  <a href="#accumulation">Accumulation points</a>
+  <a href="#past-papers">Past-paper questions</a>
+</nav>
+
+<section id="topology">
+
+  <h2>
+    1. Topology on a set
+    <span class="tag">Asked 3/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A topology is a collection of subsets of \(X\) that are declared to be
+    open. The collection must satisfy three rules.
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+
+    <p>
+      A topology on a set \(X\) is a collection \(\mathcal T\) of subsets of
+      \(X\) such that:
+    </p>
+
+    <ol>
+      <li>
+        \(\varnothing\in\mathcal T\) and \(X\in\mathcal T\);
+      </li>
+
+      <li>
+        the union of any collection of sets in \(\mathcal T\) belongs to
+        \(\mathcal T\);
+      </li>
+
+      <li>
+        the intersection of any finite collection of sets in
+        \(\mathcal T\) belongs to \(\mathcal T\).
+      </li>
+    </ol>
+
+    <p>
+      The elements of \(\mathcal T\) are called open sets.
+    </p>
+  </div>
+
+  <h3>Finite set with two distinct topologies</h3>
+
+  <div class="box formula">
+    \[
+    X=\{1,2,3,4\}.
+    \]
+
+    \[
+    \mathcal T_1=\{\varnothing,X\},
+    \qquad
+    \mathcal T_2=\{\varnothing,\{1\},X\}.
+    \]
+  </div>
+
+  <p>
+    These are distinct because
+    \(\{1\}\in\mathcal T_2\), but
+    \(\{1\}\notin\mathcal T_1\).
+  </p>
+
+</section>
+
+<section id="standard">
+
+  <h2>2. Standard topology on \(\mathbb R\)</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A set is open when every point in it has a small open interval around it
+    that remains completely inside the set.
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+
+    <p>
+      The standard topology on \(\mathbb R\) is the collection of all sets
+      \(U\subseteq\mathbb R\) such that, for every \(x\in U\), there exists
+      \(\varepsilon&gt;0\) for which
+    </p>
+
+    <div class="box formula">
+      \[
+      (x-\varepsilon,x+\varepsilon)\subseteq U.
+      \]
+    </div>
+  </div>
+
+  <p>
+    <strong>Short version:</strong>
+    The standard topology on \(\mathbb R\) consists of all unions of open
+    intervals.
+  </p>
+
+</section>
+
+<section id="cofinite">
+
+  <h2>
+    3. Cofinite topology
+    <span class="tag">Asked 2/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A set is open if it is empty or leaves out only finitely many elements of
+    \(X\).
+  </div>
+
+  <div class="box formula">
+    \[
+    \mathcal T_{\mathrm{cof}}
+    =
+    \{\varnothing\}
+    \cup
+    \left\{
+      U\subseteq X:
+      X\setminus U\text{ is finite}
+    \right\}.
+    \]
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+    The cofinite topology on \(X\) consists of the empty set and every subset
+    \(U\subseteq X\) whose complement \(X\setminus U\) is finite.
+  </div>
+
+  <h3>Cofinite versus discrete topology on \(\mathbb Z\)</h3>
+
+  <div class="box answer">
+    <p>
+      They do not coincide.
+    </p>
+
+    <p>
+      The set of even integers is open in the discrete topology because every
+      subset is open.
+    </p>
+
+    <p>
+      It is not open in the cofinite topology because its complement, the set
+      of odd integers, is infinite.
+    </p>
+  </div>
+
+  <h3>Cofinite versus standard topology on \(\mathbb R\)</h3>
+
+  <div class="box answer">
+    <p>
+      They do not coincide.
+    </p>
+
+    <p>
+      The interval \((0,1)\) is open in the standard topology, but it is not
+      open in the cofinite topology because
+      \(\mathbb R\setminus(0,1)\) is infinite.
+    </p>
+  </div>
+
+</section>
+
+<section id="subspace">
+
+  <h2>
+    4. Subspace topology
+    <span class="tag">Asked 3/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    Take an open set from \(X\) and keep only the part that lies inside \(A\).
+  </div>
+
+  <div class="box formula">
+    \[
+    \mathcal T_A
+    =
+    \{A\cap U:U\in\mathcal T\}.
+    \]
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+    A subset \(V\subseteq A\) is open in the subspace topology on \(A\) if
+    \(V=A\cap U\) for some open set \(U\) in \(X\).
+  </div>
+
+</section>
+
+<section id="discrete">
+
+  <h2>
+    5. Discrete and non-discrete subspaces
+    <span class="tag">Asked 3/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Key idea:</strong>
+    A topology is discrete if every subset is open. It is enough to show that
+    every singleton \(\{x\}\) is open.
+  </div>
+
+  <h3>\(\mathbb Z\) inside standard \(\mathbb R\)</h3>
+
+  <div class="box answer">
+    <p>
+      The subspace topology on \(\mathbb Z\) is discrete.
+    </p>
+
+    <p>
+      For every \(n\in\mathbb Z\),
+    </p>
+
+    <div class="box formula">
+      \[
+      \{n\}
+      =
+      \mathbb Z
+      \cap
+      \left(
+        n-\frac12,
+        n+\frac12
+      \right).
+      \]
+    </div>
+
+    <p>
+      The interval is open in \(\mathbb R\), so \(\{n\}\) is open in
+      \(\mathbb Z\).
+      Therefore every singleton, and hence every subset of \(\mathbb Z\), is
+      open.
+    </p>
+  </div>
+
+  <h3>\(\mathbb Q\) inside standard \(\mathbb R\)</h3>
+
+  <div class="box answer">
+    <p>
+      The subspace topology on \(\mathbb Q\) is not discrete.
+    </p>
+
+    <p>
+      Every open interval around a rational number \(q\) contains rational
+      numbers other than \(q\).
+      Therefore the singleton \(\{q\}\) is not open in \(\mathbb Q\).
+    </p>
+  </div>
+
+  <h3>\([0,1]\) inside standard \(\mathbb R\)</h3>
+
+  <div class="box answer">
+    <p>
+      The subspace topology on \([0,1]\) is not discrete.
+    </p>
+
+    <p>
+      For example, the singleton
+      \(\left\{\frac12\right\}\) is not open because every open interval
+      around \(\frac12\) contains other points of \([0,1]\).
+    </p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Subspace</th>
+        <th>Discrete?</th>
+        <th>Reason</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>\(\mathbb Z\subseteq\mathbb R\)</td>
+        <td>Yes</td>
+        <td>Each integer can be isolated by a small open interval.</td>
+      </tr>
+
+      <tr>
+        <td>\(\mathbb Q\subseteq\mathbb R\)</td>
+        <td>No</td>
+        <td>Every interval around a rational contains other rationals.</td>
+      </tr>
+
+      <tr>
+        <td>\([0,1]\subseteq\mathbb R\)</td>
+        <td>No</td>
+        <td>Points such as \(\frac12\) cannot be isolated.</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+<section id="base">
+
+  <h2>6. Base for a topology</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A base is a collection of basic open sets from which every open set can be
+    built by taking unions.
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+
+    <p>
+      A collection \(\mathcal B\) of open subsets of \(X\) is a base for a
+      topology \(\mathcal T\) if every open set \(U\in\mathcal T\) is a union
+      of elements of \(\mathcal B\).
+    </p>
+  </div>
+
+  <div class="box formula">
+    Equivalently, if \(U\) is open and \(x\in U\), then there exists
+    \(B\in\mathcal B\) such that
+    \[
+    x\in B\subseteq U.
+    \]
+  </div>
+
+</section>
+
+<section id="lower-limit">
+
+  <h2>
+    7. Lower limit topology on \(\mathbb R\)
+    <span class="tag">Asked 2/3 years</span>
+  </h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    The basic open intervals are \([a,b)\), rather than the standard open
+    intervals \((a,b)\).
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+    A base for the lower limit topology on \(\mathbb R\) is
+  </div>
+
+  <div class="box formula">
+    \[
+    \mathcal B
+    =
+    \left\{
+      [a,b):
+      a,b\in\mathbb R,\ a&lt;b
+    \right\}.
+    \]
+  </div>
+
+  <h3>Show that \([0,1)\) is open and closed</h3>
+
+  <details open>
+    <summary>Worked answer</summary>
+
+    <div class="details-content">
+      <p>
+        The set \([0,1)\) is open because it is itself a basic open set in the
+        lower limit topology.
+      </p>
+
+      <p>
+        Its complement is
+      </p>
+
+      <div class="box formula">
+        \[
+        \mathbb R\setminus[0,1)
+        =
+        (-\infty,0)\cup[1,\infty).
+        \]
+      </div>
+
+      <p>
+        Both \((-\infty,0)\) and \([1,\infty)\) are unions of basic open sets
+        of the form \([a,b)\).
+      </p>
+
+      <p>
+        Therefore the complement of \([0,1)\) is open, so \([0,1)\) is
+        closed.
+      </p>
+    </div>
+  </details>
+
+  <h3>Closure of \((0,1)\)</h3>
+
+  <div class="box answer">
+    In the lower limit topology,
+  </div>
+
+  <div class="box formula">
+    \[
+    \overline{(0,1)}
+    =
+    [0,1).
+    \]
+  </div>
+
+  <details>
+    <summary>Justification</summary>
+
+    <div class="details-content">
+      <p>
+        Every basic neighbourhood \([0,\varepsilon)\) of \(0\) meets
+        \((0,1)\), so \(0\) belongs to the closure.
+      </p>
+
+      <p>
+        The point \(1\) does not belong to the closure because \([1,2)\) is an
+        open neighbourhood of \(1\) that is disjoint from \((0,1)\).
+      </p>
+
+      <p>
+        Every point outside \([0,1]\) also has a basic open neighbourhood that
+        does not meet \((0,1)\).
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="neighbourhood">
+
+  <h2>8. Neighbourhood of a point</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A set \(N\) is a neighbourhood of \(x\) if it contains an open set around
+    \(x\).
+  </div>
+
+  <div class="box answer">
+    <strong>Exam answer:</strong>
+    A subset \(N\subseteq X\) is a neighbourhood of \(x\) if there exists an
+    open set \(U\) such that
+  </div>
+
+  <div class="box formula">
+    \[
+    x\in U\subseteq N.
+    \]
+  </div>
+
+  <div class="box warning">
+    The set \(N\) does not itself have to be open.
+  </div>
+
+</section>
+
+<section id="interior">
+
+  <h2>9. Interior \(A^\circ\)</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A point belongs to the interior of \(A\) if there is an open set around it
+    that stays completely inside \(A\).
+  </div>
+
+  <div class="box formula">
+    \[
+    A^\circ
+    =
+    \left\{
+      x\in A:
+      \exists U\text{ open with }x\in U\subseteq A
+    \right\}.
+    \]
+  </div>
+
+  <div class="box answer">
+    <strong>Equivalent statement:</strong>
+    \(A^\circ\) is the largest open subset of \(A\).
+  </div>
+
+  <h3>
+    Show that \(A\) is a neighbourhood of \(x\) if and only if
+    \(x\in A^\circ\)
+  </h3>
+
+  <details>
+    <summary>Worked answer</summary>
+
+    <div class="details-content">
+      <p>
+        Suppose first that \(A\) is a neighbourhood of \(x\).
+        Then there exists an open set \(U\) such that
+        \(x\in U\subseteq A\).
+        Therefore \(x\in A^\circ\).
+      </p>
+
+      <p>
+        Conversely, suppose that \(x\in A^\circ\).
+        Then there exists an open set \(U\) such that
+        \(x\in U\subseteq A\).
+        Therefore \(A\) is a neighbourhood of \(x\).
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="closure">
+
+  <h2>10. Closure \(\overline A\)</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A point belongs to the closure of \(A\) if every open set around it meets
+    \(A\).
+  </div>
+
+  <div class="box formula">
+    \[
+    \overline A
+    =
+    \left\{
+      x\in X:
+      \text{every open }U\text{ containing }x
+      \text{ satisfies }U\cap A\neq\varnothing
+    \right\}.
+    \]
+  </div>
+
+  <div class="box answer">
+    <strong>Equivalent statement:</strong>
+    \(\overline A\) is the smallest closed subset of \(X\) that contains
+    \(A\).
+  </div>
+
+  <h3>
+    If every neighbourhood of \(x\) meets \(A\), show that
+    \(x\in\overline A\)
+  </h3>
+
+  <details>
+    <summary>Worked answer</summary>
+
+    <div class="details-content">
+      <p>
+        Every open set \(U\) containing \(x\) is a neighbourhood of \(x\).
+      </p>
+
+      <p>
+        By assumption, every neighbourhood of \(x\) meets \(A\).
+        Therefore
+        \(U\cap A\neq\varnothing\).
+      </p>
+
+      <p>
+        Hence, by the definition of closure,
+        \(x\in\overline A\).
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="accumulation">
+
+  <h2>11. Accumulation points</h2>
+
+  <div class="box explanation explanation-only">
+    <strong>Explanation:</strong>
+    A point \(x\) is an accumulation point of \(A\) if every open set around
+    \(x\) contains a point of \(A\) other than \(x\).
+  </div>
+
+  <div class="box formula">
+    A point \(x\in X\) is an accumulation point of \(A\) if, for every open
+    set \(U\) containing \(x\),
+    \[
+    U\cap\left(A\setminus\{x\}\right)\neq\varnothing.
+    \]
+  </div>
+
+  <h3>
+    If \(A\) has no accumulation point in \(X\), show that \(A\) is closed
+  </h3>
+
+  <details>
+    <summary>Worked answer</summary>
+
+    <div class="details-content">
+      <p>
+        Let \(x\in X\setminus A\).
+      </p>
+
+      <p>
+        Since \(A\) has no accumulation points, \(x\) is not an accumulation
+        point of \(A\).
+        Therefore there exists an open set \(U\) containing \(x\) such that
+      </p>
+
+      <div class="box formula">
+        \[
+        U\cap\left(A\setminus\{x\}\right)=\varnothing.
+        \]
+      </div>
+
+      <p>
+        Since \(x\notin A\), this means
+        \(U\cap A=\varnothing\).
+        Therefore
+        \(U\subseteq X\setminus A\).
+      </p>
+
+      <p>
+        Thus every point of \(X\setminus A\) has an open neighbourhood
+        contained in \(X\setminus A\).
+        Hence \(X\setminus A\) is open, and therefore \(A\) is closed.
+      </p>
+    </div>
+  </details>
+
+</section>
+
+<section id="past-papers">
+
+  <h2>12. Q1 questions from the three papers</h2>
+
+  <h3>2025/26</h3>
+
+  <div class="question">
+    <strong>(a)</strong>
+    Let \(X\) be a set. Define what is meant by a topology on \(X\).
+  </div>
+
+  <div class="question">
+    <strong>(b)(i)</strong>
+    Define the standard topology on \(\mathbb R\).
+  </div>
+
+  <div class="question">
+    <strong>(b)(ii)</strong>
+    Define the cofinite topology on an arbitrary set \(X\).
+  </div>
+
+  <div class="question">
+    <strong>(b)(iii)</strong>
+    Do the standard topology and cofinite topology on \(\mathbb R\) coincide?
+    Justify your answer.
+  </div>
+
+  <div class="question">
+    <strong>(c)</strong>
+    Define the closure, interior and subspace topology.
+  </div>
+
+  <div class="question">
+    <strong>(d)</strong>
+    Is the subspace topology on \([0,1]\) discrete?
+    Justify your answer.
+  </div>
+
+  <div class="question">
+    <strong>(e)</strong>
+    Show that if \(A\) has no accumulation point in \(X\), then \(A\) is
+    closed.
+  </div>
+
+  <h3>2024/25</h3>
+
+  <div class="question">
+    <strong>(a)</strong>
+    Define a topology and give an example of a finite set with two distinct
+    topologies.
+  </div>
+
+  <div class="question">
+    <strong>(b)</strong>
+    Define the cofinite topology and compare it with the discrete topology on
+    \(\mathbb Z\).
+  </div>
+
+  <div class="question">
+    <strong>(c)</strong>
+    Define the subspace topology and determine whether the subspace topology on
+    \(\mathbb Z\) is discrete.
+  </div>
+
+  <div class="question">
+    <strong>(d)</strong>
+    Describe a base for the lower limit topology and show that \([0,1)\) is
+    both open and closed.
+  </div>
+
+  <div class="question">
+    <strong>(e)</strong>
+    Define neighbourhood and interior, then show that \(A\) is a neighbourhood
+    of \(x\) if and only if \(x\in A^\circ\).
+  </div>
+
+  <h3>2023/24</h3>
+
+  <div class="question">
+    <strong>(a)</strong>
+    Define a topology and give an example of a finite set with two distinct
+    topologies.
+  </div>
+
+  <div class="question">
+    <strong>(b)</strong>
+    Define the subspace topology and show that the subspace topology on
+    \(\mathbb Q\) is not discrete.
+  </div>
+
+  <div class="question">
+    <strong>(c)</strong>
+    Define a base for a topology and describe a base for the lower limit
+    topology.
+  </div>
+
+  <div class="question">
+    <strong>(d)</strong>
+    Define closure and show that if every neighbourhood of \(x\) meets \(A\),
+    then \(x\in\overline A\).
+  </div>
+
+  <div class="question">
+    <strong>(e)</strong>
+    Determine the closure of \((0,1)\) in the lower limit topology.
+  </div>
+
+</section>
+
+<p class="small" style="text-align:center">
+  MA342 Q1 revision guide based on the 2023/24, 2024/25 and 2025/26
+  examination papers.
+</p>
+
+</main>
+
+<script>
+  function toggleExamMode() {
+    document.body.classList.toggle("exam-mode");
+  }
+
+  function setAnswers(openState) {
+    document.querySelectorAll("details").forEach(function(detailsElement) {
+      detailsElement.open = openState;
+    });
+  }
+</script>
+
+</body>
+</html>

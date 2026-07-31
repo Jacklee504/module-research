@@ -18,30 +18,30 @@
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>Prove a space is connected, find a separation when it is not, and apply the continuous-image theorem.<strong>Exam use:</strong> Nonempty, disjoint, open-in-space and union conditions are all checked, or the preservation theorem's hypotheses are explicit.</p>
+<p>Classify spaces by constructing or ruling out separations, then transfer connectedness through continuous surjections.<strong>Exam use:</strong> The 2025/26 paper devotes 13 marks in Q3(b-c) to the definition and four topologies on Q, then 6 marks in Q4(b) to continuous images and the Intermediate Value Theorem.</p>
 <h2>Question plan</h2>
 <ol>
 <li>Write a proposed separation as two disjoint nonempty open sets covering X.</li>
-<li>For positive results, use a known connected source and a continuous surjection.</li>
-<li>For homeomorphism questions, compare what point removal does to connectedness.</li>
-<li><strong>Question interpretation:</strong> For prove connected, rule out a separation or use a continuous image; for disprove, give two nonempty disjoint open-in-the-space sets whose union is the space.</li>
+<li>For a positive result, rule out every possible separation or use a known connected source and a continuous surjection.</li>
+<li>When several topologies occur on the same set, restart the openness test for each topology.</li>
+<li><strong>Question interpretation:</strong> “For disconnected spaces, exhibit a separation” requires the two sets and all four checks; “brief justification” for connected cases still needs the decisive topology fact.</li>
 </ol>
 <h2>Definitions</h2>
 <p>X is <strong>connected</strong> if it has no separation X=U∪V with U,V disjoint nonempty open subsets. A continuous image of a connected space is connected. Intervals in R are connected.<strong>Rapid recall:</strong> A separation is X=U union V with U,V disjoint, nonempty and open in X. Continuous images of connected spaces are connected; connected subsets of R are intervals.</p>
 <h2>Proof method</h2>
-<p>Assume f(X)=U∪V is a separation. Then f⁻¹(U),f⁻¹(V) are a separation of X, contradicting connectedness.<strong>Exam workflow:</strong> Assume a separation, push it through a map or exploit an intermediate-value argument, and explicitly obtain the contradiction to nonemptiness/disjointness.</p>
+<p>If f:X→Y is continuous and onto and Y=U∪V were a separation, then f<sup>-1</sup>(U) and f<sup>-1</sup>(V) would be disjoint nonempty open sets covering X, contradicting connectedness of X. Surjectivity supplies nonemptiness and coverage.<strong>Exam workflow:</strong> For each candidate separation check open, disjoint, nonempty and covering; for a preservation theorem, use preimages and name where surjectivity is used.</p>
 <h2>Worked simple example</h2>
 <p>[0,1] is connected. Hence f([0,1]) is connected for any continuous f; for f(t)=e²πit this gives connectedness of S¹.</p>
 <h3>Medium/hard paper-style synthesis</h3>
-<p>Show X={(x,y) in R^2: xy=1} is disconnected. Let U=X intersect {x>0} and V=X intersect {x&lt;0}. They are open in the subspace X, disjoint, nonempty ((1,1) in U and (-1,-1) in V), and U union V=X because xy=1 forbids x=0. Thus U,V form a separation.</p>
+<p>On Q, connectedness depends on the topology. The discrete topology is disconnected via {0} and Q\{0}. The indiscrete topology is connected because it has no nonempty proper open set. The usual subspace topology is disconnected via Q∩(-∞,√2) and Q∩(√2,∞). The cofinite topology is connected because Q is infinite and any two nonempty cofinite-open sets intersect.</p>
 <h2>Graduated exam bridges</h2>
 <p>
-<strong>1. Foundation:</strong> Show {0,1} with the discrete topology is disconnected. <strong>Check:</strong> {0} and {1} separate it.</p>
+<strong>1. Foundation [3 marks]:</strong> Define connectedness using separations. <strong>Check:</strong> include open, disjoint, nonempty and covering.</p>
 <p>
-<strong>2. Exam style:</strong> If f:X→Y is continuous and onto and X connected, prove Y connected. <strong>Check:</strong> pull a separation of Y back under f.</p>
+<strong>2. Exam style [6 marks]:</strong> If f:X→Y is continuous and onto and X connected, prove Y connected, then explain the IVT consequence. <strong>Check:</strong> pull back a separation, then use that a connected subset of R is an interval.</p>
 <h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: prove the closure of a connected set A is connected. Check if cl(A)=U union V were a separation and A met both, intersections would separate A; so A lies in one, say U. Since U is also closed in cl(A), cl(A) subset U, contradicting nonempty V.</p>
-<h2>Practice question - prove a space disconnected [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q3(b) and Q4(a). <strong>Task.</strong> Show X={(x,y)∈R<sup>2</sup>:xy=1} is disconnected. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> construct a separation by the sign of x, with subspace-open sets.</p><p><strong>Worked answer:</strong> Put U=X∩{x&gt;0} and V=X∩{x&lt;0}. They are open in X because the two half-planes are open in R<sup>2</sup>. They are disjoint and nonempty: (1,1)∈U and (-1,-1)∈V. Every point of X has x≠0 because xy=1, hence U∪V=X. Thus U,V are a separation and X is disconnected.</p><p><strong>Topic-specific trap:</strong> saying 'two branches in a picture' is not a proof; establish relative openness and coverage.</p>
+<p>Let h:[a,b]→R be continuous and suppose h(a)≤y≤h(b). The interval [a,b] is connected, so h([a,b]) is connected by the continuous-image theorem. Connected subsets of R are intervals. Since h([a,b]) contains h(a) and h(b), it contains every value between them, in particular y. Thus h(c)=y for some c∈[a,b], which is the Intermediate Value Theorem.</p>
+<h2>Practice question - four topologies on Q [13 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q3(b-c). <strong>Task.</strong> (a) Define connectedness. [3 marks] (b) Decide whether Q is connected with each of the discrete, indiscrete, usual subspace and cofinite topologies. Exhibit a separation for every disconnected case and briefly justify every connected case. [10 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> use a singleton for the discrete case, the absence of proper opens for the indiscrete case, an irrational cut for the usual subspace case, and unavoidable intersections for the infinite cofinite case.</p><p><strong>Worked answer:</strong> A space is connected if it admits no separation into two disjoint nonempty open sets. With the discrete topology, Q is disconnected: {0} and Q\{0} form a separation. With the indiscrete topology, Q is connected because the only open sets are ∅ and Q, so no separation exists. With the topology inherited from standard R, put U=Q∩(-∞,√2) and V=Q∩(√2,∞). These sets are relatively open, nonempty, disjoint and cover Q because √2∉Q, so they form a separation. With the cofinite topology, Q is connected: if U and V were disjoint nonempty open sets, then Q=(Q\U)∪(Q\V) would be finite, contradicting that Q is infinite.</p><p><strong>Topic-specific trap:</strong> the rational cut must occur at an irrational number; cutting at a rational leaves that point uncovered unless the sets are changed.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Forgetting the sets in a separation must be nonempty.</li>
@@ -54,11 +54,13 @@
 <li>I can state a separation exactly.</li>
 <li>I can use the continuous-image proof.</li>
 <li>I can build a simple disconnected counterexample.</li>
+<li>I can classify the discrete, indiscrete, usual and cofinite topologies on Q.</li>
+<li>I can derive IVT from connected continuous images.</li>
 <li><strong>Final 60-second audit:</strong> Nonempty, disjoint, open-in-space and union conditions are all checked, or the preservation theorem's hypotheses are explicit.</li>
 </ul>
 <h2>Past-paper note</h2>
 <p>
-<strong>High confidence:</strong> connectedness, surjections and homeomorphism distinctions recur throughout the newest format. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+<strong>High confidence:</strong> connectedness recurs throughout all three papers in the newest format. The 2025/26 paper expands it into the 13-mark Q3(b-c) classification and repeats the continuous-surjection proof, now with an explicit IVT consequence, in Q4(b). <a href="details.html#past-papers">Back to paper evidence</a>.</p>
 </article>
 </main>
 </body>

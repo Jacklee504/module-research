@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MA3491 Hamming Codes</title>
+<title>MA3491 Hamming Codes over Finite Fields</title>
 <link rel="stylesheet" href="../module_page.css">
 </head>
 <body>
@@ -12,25 +12,25 @@
 <a href="details.html">MA3491 overview</a>
 </nav>
 <p class="eyebrow">MA3491 Topic Guide</p>
-<h1>Binary Hamming Codes</h1>
-<p>Distinct nonzero columns in H make each single-bit error announce its position.</p>
+<h1>Hamming Codes over Finite Fields</h1>
+<p>Projectively distinct nonzero columns in H make each single-symbol error announce its position and magnitude.</p>
 </header>
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>Hamming codes are a compact construction of perfect single-error-correcting binary codes.<strong>Exam use:</strong> Parameters, column convention, syndrome arithmetic, flipped bit, parity recheck and perfect-code count appear.</p>
+<p>Hamming codes are a compact construction of perfect single-error-correcting q-ary codes.<strong>Exam use:</strong> Definition, parameters, column convention, syndrome arithmetic, correction, parity recheck and perfect-code count appear.</p>
 <h2>Question plan</h2>
 <ol>
-<li>Set n=2<sup>m</sup>−1 and k=n−m.</li>
-<li>Make H whose columns are every nonzero m-bit vector once.</li>
+<li>Set n=(q<sup>r</sup>−1)/(q−1) and k=n−r.</li>
+<li>Make H from one representative of each one-dimensional subspace of F<sub>q</sub><sup>r</sup>.</li>
 <li>Use C=ker H; row-reduce H to derive a G if requested.</li>
-<li>Decode a one-error word from its syndrome column.</li>
-<li><strong>Question interpretation:</strong> For construct, use each nonzero m-bit column once; for decode, read the syndrome as a column label under the stated ordering; for perfect, verify the sphere count.</li>
+<li>Decode a one-error word from its syndrome: identify the column and, when q&gt;2, the nonzero error magnitude.</li>
+<li><strong>Question interpretation:</strong> For binary codes, use each nonzero r-bit column once. For general q, use no zero column and no two scalar-multiple columns; for perfect, verify the q-ary radius-one sphere count.</li>
 </ol>
 <h2>Formulas</h2>
-<p>Binary Hamming code: [2<sup>m</sup>−1, 2<sup>m</sup>−1−m, 3]. It has 2<sup>n−m</sup> words and t=1; sphere packing is an equality.<strong>Rapid recall:</strong> Binary Hamming codes have [2^m-1,2^m-1-m,3]; distinct nonzero H columns correct one error, and 2^k(1+n)=2^n.</p>
+<p>Hamming code Ham(r,q): [n,n−r,3], where n=(q<sup>r</sup>−1)/(q−1). It has q<sup>n−r</sup> words and t=1; sphere packing is an equality. Its check-matrix columns are one representative from each one-dimensional subspace of F<sub>q</sub><sup>r</sup>.<strong>Rapid recall:</strong> for q=2 this becomes [2<sup>r</sup>−1,2<sup>r</sup>−1−r,3]; in general, correct a syndrome by matching it to a nonzero scalar multiple of a column.</p>
 <h2>Derivation</h2>
-<p>No column of H is zero and no two columns agree, so a nonzero codeword cannot have weight 1 or 2; d≥3. Every nonzero syndrome is a column, so every one-bit error has a distinct syndrome. Counting gives 2<sup>k</sup>(1+n)=2<sup>n</sup>, hence perfect and d=3.<strong>Exam workflow:</strong> Freeze column order, derive G in systematic form if requested, calculate syndrome by XOR, correct one bit and check Hc^T=0.</p>
+<p>No column of H is zero and no two columns are scalar multiples, so a nonzero codeword cannot have weight 1 or 2; d≥3. An error of nonzero magnitude a in coordinate i has syndrome a times column i, so its position and magnitude are determined. Counting gives q<sup>n−r</sup>(1+n(q−1))=q<sup>n</sup>, hence perfect and d=3.<strong>Exam workflow:</strong> Freeze the column convention, derive G in systematic form if requested, calculate the syndrome in F<sub>q</sub>, correct the matching coordinate/magnitude, and check Hc^T=0.</p>
 <h2>Worked example</h2>
 <p>For m=3, n=7. Take H with columns 001,010,011,100,101,110,111. A syndrome 101 points to position 5, so flip bit 5.</p>
 <h3>Medium/hard paper-style synthesis</h3>
@@ -58,7 +58,7 @@
 <li><strong>Final 60-second audit:</strong> Parameters, column convention, syndrome arithmetic, flipped bit, parity recheck and perfect-code count appear.</li>
 </ul>
 <h2>Past-paper note</h2>
-<p>Construction, parameters and single-error correction are exceptionally consistent across the 2018–2025 archive.</p>
+<p>Definition, construction, single-error correction, parameters and perfection now form the same Q4 sequence in both 2024/25 and 2025/26; the broader construction/decoding family occurs throughout the 2018–2026 archive.</p>
 </article>
 </main>
 </body>

@@ -18,30 +18,30 @@
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>State a homotopy precisely, construct elementary contractions, and distinguish simple connectedness from mere connectedness.<strong>Exam use:</strong> Formula, continuity, image containment, endpoint maps and base/path conditions appear.</p>
+<p>State a homotopy precisely and exploit convex codomains to construct it by linear interpolation; keep contractions and simple connectedness as related secondary material.<strong>Exam use:</strong> The 2025/26 Q4(e) allocates 6 marks to the definition and to proving that arbitrary continuous maps R<sup>n</sup>→R<sup>n</sup> are homotopic.</p>
 <h2>Question plan</h2>
 <ol>
 <li>Identify the two maps f,g:X→Y.</li>
 <li>Give H:X×[0,1]→Y with H(x,0)=f(x), H(x,1)=g(x).</li>
-<li>Check H remains in Y and is continuous.</li>
-<li><strong>Question interpretation:</strong> For homotopic, supply a continuous H(x,t) with both endpoint maps; for simply connected, include path-connectedness and contract every based loop.</li>
+<li>Check H remains in Y and is continuous; convexity is the key codomain property for linear interpolation.</li>
+<li><strong>Question interpretation:</strong> “Define homotopic” needs the domain, codomain and both endpoint equations; “show homotopic” needs an explicit H plus continuity and codomain checks.</li>
 </ol>
 <h2>Definitions</h2>
-<p>f and g are <strong>homotopic</strong> if such a continuous H exists. X is <strong>simply connected</strong> if it is path connected and every loop is homotopic to a constant loop. A star-shaped subset of Rⁿ is contractible, hence simply connected.<strong>Rapid recall:</strong> A homotopy H:Xx[0,1]->Y satisfies H(x,0)=f(x), H(x,1)=g(x). A contraction is a homotopy from id_X to a constant; contractible spaces are simply connected when nonempty.</p>
+<p>Continuous maps f,g:X→Y are <strong>homotopic</strong> if there is a continuous H:X×[0,1]→Y satisfying H(x,0)=f(x) and H(x,1)=g(x) for every x∈X. A contraction is a homotopy from id<sub>X</sub> to a constant map. X is <strong>simply connected</strong> if it is path connected and every loop is homotopic to a constant loop.<strong>Rapid recall:</strong> Write H’s full type, continuity, both endpoint maps and why every intermediate value lies in Y.</p>
 <h2>Proof method</h2>
-<p>For a star-shaped set with centre x₀, use H(x,t)=(1−t)x+tx₀. The line segment condition keeps H in X; polynomial operations give continuity.<strong>Exam workflow:</strong> Write the candidate formula, verify it stays inside the target, prove continuity, and check both t=0 and t=1 exactly.</p>
+<p>For f,g:X→R<sup>n</sup>, use H(x,t)=(1−t)f(x)+tg(x). The vector-space operations and continuity of f,g make H continuous, and convexity of R<sup>n</sup> keeps the entire line segment in the codomain.<strong>Exam workflow:</strong> Write the interpolation, check t=0 and t=1, cite continuity of sums and scalar products, and name convexity when the codomain is a proper subset.</p>
 <h2>Worked simple example</h2>
 <p>R² is contractible: H(x,t)=(1−t)x deforms the identity to the constant map at 0.</p>
 <h3>Medium/hard paper-style synthesis</h3>
-<p>Show the unit disk D^2 is contractible. Define H(x,t)=(1-t)x. Since ||H(x,t)||=(1-t)||x||&lt;=1, the image remains in D^2; scalar multiplication is continuous; H(x,0)=x and H(x,1)=0. Therefore id_D is homotopic to the constant map, so every loop contracts and D^2 is simply connected.</p>
+<p>Let f,g:R<sup>n</sup>→R<sup>n</sup> be continuous. Define H(x,t)=(1−t)f(x)+tg(x). Then H(x,0)=f(x) and H(x,1)=g(x). The formula is continuous as a combination of continuous maps, and every value is in R<sup>n</sup>. Hence f and g are homotopic.</p>
 <h2>Graduated exam bridges</h2>
 <p>
-<strong>1. Foundation:</strong> Show any two constant maps X→R are homotopic. <strong>Check:</strong> linearly interpolate their values.</p>
+<strong>1. Foundation:</strong> Show any two constant maps X→R are homotopic. <strong>Check:</strong> linearly interpolate their values and verify both endpoints.</p>
 <p>
-<strong>2. Exam style:</strong> Prove a star-shaped U⊆Rⁿ is simply connected. <strong>Check:</strong> contract U to its star centre, then contract loops.</p>
+<strong>2. Exam style:</strong> Generalise the paper argument to maps f,g:X→C where C⊆R<sup>n</sup> is convex. <strong>Check:</strong> the segment between f(x) and g(x) remains in C.</p>
 <h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: explain why S^1 is not contractible using the supplied theorem that a retraction D^2->S^1 cannot exist. Check if S^1 contracted, the standard extension argument would construct such a retraction; clearly state dependence on the no-retraction theorem rather than treating a picture as proof.</p>
-<h2>Practice question - explicit contraction [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q4(e). <strong>Task.</strong> Show the unit disk D<sup>2</sup> is contractible, then state the simply-connected conclusion. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> provide a continuous homotopy that stays in D<sup>2</sup>, with both endpoint conditions.</p><p><strong>Worked answer:</strong> Define H:D<sup>2</sup>×[0,1]→D<sup>2</sup> by H(x,t)=(1-t)x. It is continuous. If ||x||≤1 then ||H(x,t)||=(1-t)||x||≤1, so it has the stated codomain. H(x,0)=x and H(x,1)=0, the constant map at the origin. Thus id<sub>D2</sub> is homotopic to a constant map, so D<sup>2</sup> is contractible. Every loop contracts by composing its homotopy with this contraction, so D<sup>2</sup> is simply connected.</p><p><strong>Topic-specific trap:</strong> contracting in the surrounding plane is insufficient unless the entire homotopy remains inside the space.</p>
+<p>Convexity is sufficient but not necessary for two maps to be homotopic. The straight-line formula can fail for a non-convex codomain: interpolating two points of S<sup>1</sup> generally passes through the disk rather than staying on the circle. A valid formula must land in the declared codomain for every (x,t).</p>
+<h2>Practice question - arbitrary maps into R<sup>n</sup> [6 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q4(e). <strong>Task.</strong> (a) Define what it means for continuous maps f,g:X→Y to be homotopic. (b) Let f,g:R<sup>n</sup>→R<sup>n</sup> be continuous. Show that f and g are homotopic. [6 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> give the complete definition, then use straight-line interpolation in the convex codomain R<sup>n</sup>.</p><p><strong>Worked answer:</strong> The maps f and g are homotopic if a continuous H:X×[0,1]→Y exists such that H(x,0)=f(x) and H(x,1)=g(x) for all x∈X. For maps R<sup>n</sup>→R<sup>n</sup>, define H(x,t)=(1−t)f(x)+tg(x). This map is continuous because f and g are continuous and vector addition and scalar multiplication are continuous. Moreover H(x,t)∈R<sup>n</sup> for every x and t, while H(x,0)=f(x) and H(x,1)=g(x). Thus f and g are homotopic.</p><p><strong>Topic-specific trap:</strong> do not use H(x,t)=(1−t)x unless f is the identity and g is the zero map; the paper asks about arbitrary f and g.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Giving a family H without endpoint checks.</li>
@@ -52,13 +52,14 @@
 <h2>Checklist</h2>
 <ul>
 <li>I can write the domain and endpoint equations of H.</li>
+<li>I can interpolate arbitrary maps into R<sup>n</sup>.</li>
 <li>I can contract a star-shaped set.</li>
 <li>I know S¹ is connected but not simply connected.</li>
 <li><strong>Final 60-second audit:</strong> Formula, continuity, image containment, endpoint maps and base/path conditions appear.</li>
 </ul>
 <h2>Past-paper note</h2>
 <p>
-<strong>Medium-high confidence:</strong> homotopy appears in both latest papers; simply connected/star-shaped work is explicit in 2023/24. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+<strong>High confidence for homotopy:</strong> homotopy appears in all three papers from 2023/24 through 2025/26. The new Q4(e) fixes the current 6-mark family as the exact definition plus straight-line homotopy between arbitrary continuous maps R<sup>n</sup>→R<sup>n</sup>. Simply connected/star-shaped work remains secondary evidence from 2023/24. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
 </article>
 </main>
 </body>

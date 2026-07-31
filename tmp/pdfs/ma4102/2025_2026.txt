@@ -1,0 +1,163 @@
+
+--- PAGE 1 ---
+Semester I Examinations 2025–2026
+Course Instance Codes(s) 4BCT1, 4BMS2, 4BS2, 4PHO1, 4PHY1, 3SPS1, 1AL1
+Exam(s) 4th Science.
+Module Codes MA4102
+Module Algebraic Foundations of Quantum Computing
+Paper No 1
+External Examiner Dr. Michael Mackey
+Internal Examiner(s) Dr. James Cruickshank
+⋆ Dr. Mark Howard
+Instructions: Answer FOUR questions
+Duration 2 Hours
+Number of Pages 3 (including this page)
+Discipline Mathematics
+Requirements:
+✓
+Release in Exam Venue Yes No
+✓
+Release to Library Yes No
+✓
+Repeat Yes No
+Statistical/ Log Tables: State Examination Commission’s Formulae and Tables
+Handout None
+Cambridge Tables None
+Graph Paper None
+Log Graph Paper None
+Other Materials None
+✓
+Graphic material in colour Yes No
+Page 1 of 3 P.T.O.
+
+--- PAGE 2 ---
+1. (a) [7 Marks] Let ψ = α 0 + β 1 be an arbitrary qubit state. By finding γ and δ such that
+| ⟩ | ⟩ | ⟩
+ψ = γ + + δ , determine the probability (as a function of α, β) of obtaining the outcomes
+| ⟩ | ⟩ |−⟩
+”+” and ” ” upon measuring ψ in the + , basis.
+− | ⟩ {| ⟩ |−⟩}
+(b) [6 Marks] Derive the same results as part (a) using a suitable projective measurement, remarking
+upon how the definition of a projective measurement is met.
+(c) [6 Marks] Write out the truth table for a controlled-Hadamard, C , gate.
+H
+(d) [6 Marks] What is the output state for the following circuit
+0
+| ⟩
+1
+| ⟩
+2. Consider the qutrit state given by
+1
+ψ = ( 0 + 2i 1 + 3i 2 )
+| ⟩ √14 | ⟩ | ⟩ | ⟩
+(a) [7 Marks] If a measurement is made in the computational basis 0 , 1 , 2 , what is the probability
+{| ⟩ | ⟩ | ⟩}
+of seeing the outcome “2”, and what is the post-measurement state in that case?
+(b) [4 Marks] Write out the density matrix ρ = ψ ψ .
+| ⟩ ⟨ |
+(c) [6 Marks] If we apply to ψ the unitary
+| ⟩
+ 
+√2 0 0
+1
+U =  0 1 1 
+√2  − 
+0 1 1
+what is the subsequent probability of seeing the outcome “2” in a computational basis measure-
+ment?
+(d) [8 Marks] Prove whether or not the following 2-qubit states are entangled
+   
+1 1
+1  1  1  1 
+(i)  −  (ii)  
+   
+2
+
+1
+
+√3
+
+1
+
+−
+1 0
+3. (a) [13 Marks] Let a be an n-qubit basis state (i.e., a 0, 1 n). Define ϕ to be
+| ⟩ ∈ { } | ⟩
+1 (cid:88)
+ϕ = x .
+| ⟩ √2n 1 | ⟩
+− x∈{0,1}n,x̸=a
+In the 2D subspace spanned by a , ϕ , we may write the Grover iterate as a 2 2 matrix G.
+{| ⟩ | ⟩} ×
+For searching a list of length four, write out the matrix G, the superposition of all basis states ψ ,
+| ⟩
+and finally G ψ (all in the a , ϕ basis).
+| ⟩ {| ⟩ | ⟩}
+(b) [12 Marks] Calculate the Quantum Fourier Transform of the following qudit states
+ 
+1  
+1
+1  0  1
+(i) √2  
+
+i  
+
+(ii) √3  
+e
+e
+−
+2
+2
+3 π
+3 π
+i
+i
+ 
+0
+Page 2 of 3 P.T.O.
+
+--- PAGE 3 ---
+4. (a) [7 Marks] Derive the state ψ⊥ orthogonal to the state ψ = α 0 + β 1 . Hence find the unitary
+| ⟩ | ⟩ | ⟩ | ⟩
+U mapping 0 , 1 to ψ , ψ⊥ and confirm that U U † = I.
+{| ⟩ | ⟩} {| ⟩ | ⟩}
+(b) [6 Marks] Prove the quantum no-cloning theorem i.e., the fact there does not exist a 2-qubit unitary
+that maps
+ψ 0 ψ ψ
+| ⟩ | ⟩ (cid:55)→ | ⟩ | ⟩
+for every qubit state ψ .
+| ⟩
+(c) [6 Marks] Simplify the following
+( 0 I)(α 00 + α 01 + α 10 + α 11 ).
+00 01 10 11
+⟨ | ⊗ | ⟩ | ⟩ | ⟩ | ⟩
+(d) [6 Marks] Let a set of Kraus operators be E k=3 = 1 √4 3λI, √λX, √λY, √λZ with
+{ k }k=0 2 { − }
+I, X, Y, Z denoting the usual identity and Pauli operators. The parameter λ is in the range
+{ }
+0 λ 1. Confirm that these Kraus operators make up a trace-preserving channel in the usual
+≤ ≤
+way, and describe the overall effect of this channel on an arbitrary state ρ.
+(cid:32) (cid:33)
+cos θ sin θ
+5. Let U θ = − and ψ = U θ 0 and ψ⊥ = U θ 1
+sin θ cos θ | ⟩ | ⟩ | ⟩ | ⟩
+(a) [8 Marks] Show that β
+0,0
+= √1 ( ψ, ψ + ψ⊥, ψ⊥ ) where as usual β
+0,0
+:= √1 ( 00 + 11 ).
+| ⟩ 2 | ⟩ | ⟩ | ⟩ 2 | ⟩ | ⟩
+(b) [9 Marks] Suppose Alice and Bob start with the state β . Alice applies U −1 on her qubit and
+| 0,0 ⟩ θ
+then measures in the computational basis. What pure state does Bob have if her measurement is
+zero? What pure state does Bob have if her measurement is one?
+(c) [8 Marks] Suppose that something called a “parity measurement” on two qubits comprises two
+projectors Π = 00 00 + 11 11 and Π = 01 01 + 10 10 . Show that the parity
+even odd
+| ⟩ ⟨ | | ⟩ ⟨ | | ⟩ ⟨ | | ⟩ ⟨ |
+measurement obeys the requirements of a projective measurement, and calculate the probability
+of getting the outcome “even” if the state β is measured.
+0,0
+| ⟩
+Page 3 of 3

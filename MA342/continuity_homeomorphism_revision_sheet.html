@@ -18,30 +18,30 @@
 <main class="module-shell">
 <article class="module-content">
 <h2>Purpose</h2>
-<p>Test continuity through preimages and rule in or out homeomorphisms using invariants.<strong>Exam use:</strong> Domain/codomain topologies, arbitrary-open-set preimage, bijection and inverse-continuity evidence are separated.</p>
+<p>Test continuity through preimages and rule in or out homeomorphisms using the cheapest valid invariant.<strong>Exam use:</strong> The 2025/26 Q3(d) groups three homeomorphism decisions into 9 marks: one point-removal argument, one compactness obstruction and one explicit positive construction.</p>
 <h2>Question plan</h2>
 <ol>
 <li>For continuity, start with an arbitrary open set in the codomain.</li>
 <li>For a homeomorphism, prove bijective, continuous, and continuous inverse—or invoke a justified theorem.</li>
-<li>Use compactness, connectedness or point-removal properties to disprove a proposed homeomorphism.</li>
-<li><strong>Question interpretation:</strong> For continuity use preimages of arbitrary open sets; for homeomorphism prove bijection plus continuity in both directions; for non-homeomorphism choose a preserved invariant.</li>
+<li>For each negative comparison, select one preserved property that distinguishes the pair and state both sides of the contrast.</li>
+<li><strong>Question interpretation:</strong> “Show not homeomorphic” needs a contradiction from a topological invariant; “show homeomorphic” needs an actual map with bijectivity and continuity in both directions.</li>
 </ol>
 <h2>Definitions</h2>
 <p>f:X→Y is <strong>continuous</strong> iff f⁻¹(V) is open in X for every open V⊆Y. A <strong>homeomorphism</strong> is a bijective continuous map with continuous inverse; homeomorphic spaces have the same topological properties.<strong>Rapid recall:</strong> f is continuous iff f^{-1}(U) is open for every open U. A homeomorphism is a bijective continuous map with continuous inverse and preserves compactness, connectedness and separation properties.</p>
 <h2>Proof method</h2>
-<p>Calculate preimages, not images. For non-homeomorphism, assume one exists and transfer a preserved property to obtain a contradiction.<strong>Exam workflow:</strong> Name the topology on domain and codomain, compute a general preimage, and never infer inverse continuity from bijectivity alone unless a compact-to-Hausdorff theorem applies.</p>
+<p>Calculate preimages, not images. For non-homeomorphism, assume h exists and transfer compactness, connectedness or a point-removal property to obtain a contradiction. A homeomorphism restricts to a homeomorphism after deleting corresponding points.<strong>Exam workflow:</strong> Name the invariant before using it, show the spaces differ on it, and for a positive map verify bijection, continuity and inverse continuity separately.</p>
 <h2>Worked simple example</h2>
 <p>The map f:R→R, f(x)=2x, is a homeomorphism: it is bijective and f⁻¹((a,b))=(a/2,b/2); its inverse y↦y/2 is continuous by the same argument.</p>
 <h3>Medium/hard paper-style synthesis</h3>
-<p>Let f:R->(0,infinity), f(x)=e^x. It is bijective with inverse ln. For an open V in (0,infinity), f^{-1}(V)=ln(V), open because ln is continuous; similarly the inverse is continuous. Hence f is a homeomorphism. In contrast R is not homeomorphic to S^1: removing one point disconnects R into two rays, while S^1 minus any point remains connected.</p>
+<p>The three 2025/26 comparisons use different fastest routes. S<sup>1</sup> is not homeomorphic to [0,1]: if h existed, delete h<sup>-1</sup>(1/2); the punctured circle is connected but [0,1]\{1/2} is disconnected. Standard R is not homeomorphic to [0,1] because the interval is compact and R is not. Finally, x↦e<sup>x</sup> is a homeomorphism R→(0,∞), with continuous inverse ln.</p>
 <h2>Graduated exam bridges</h2>
 <p>
-<strong>1. Foundation:</strong> Prove a constant map X→Y is continuous. <strong>Check:</strong> each preimage is X or ∅.</p>
+<strong>1. Foundation:</strong> Why does compactness rule out a homeomorphism R→[0,1]? <strong>Check:</strong> compactness is preserved, [0,1] is compact and R is not.</p>
 <p>
-<strong>2. Exam style:</strong> Show [0,1] is not homeomorphic to S¹. <strong>Check:</strong> removing an interior point disconnects [0,1], whereas removing one point from S¹ leaves a connected space.</p>
+<strong>2. Exam style:</strong> Show [0,1] is not homeomorphic to S¹. <strong>Check:</strong> remove an interior point of the interval and the corresponding point of the circle, then compare connectedness.</p>
 <h3>Hard paper-style synthesis</h3>
-<p>Paper-style synthesis: prove the identity id:(R,discrete)->(R,usual) is continuous but its inverse is not. Check preimages of usual-open sets are discrete-open; the singleton {0} is open in the discrete codomain but not in the usual domain for the reverse map.</p>
-<h2>Practice question - test a proposed homeomorphism [8 marks]</h2><p><strong>Inspired by:</strong> MA342 2024/25 Q3(c). <strong>Task.</strong> Prove f:R→(0,∞), f(x)=e<sup>x</sup>, is a homeomorphism. [8 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> establish bijection and continuity of both f and its inverse; the codomain has the subspace topology.</p><p><strong>Worked answer:</strong> The exponential is continuous and maps R into (0,∞). It is strictly increasing, so injective; for y&gt;0, x=ln y gives e<sup>x</sup>=y, so it is onto. Its inverse is ln:(0,∞)→R, and ln is continuous on its domain. Therefore f is a continuous bijection with continuous inverse, hence a homeomorphism.</p><p><strong>Topic-specific trap:</strong> a continuous bijection alone is not generally a homeomorphism; inverse continuity must be justified.</p>
+<p>To use point removal rigorously, suppose h:S<sup>1</sup>→[0,1] is a homeomorphism and let p=h<sup>-1</sup>(1/2). The restriction h|<sub>S¹\{p}</sub> is a homeomorphism onto [0,1]\{1/2}. But S<sup>1</sup>\{p} is homeomorphic to an open interval and is connected, whereas [0,1]\{1/2} is separated by [0,1/2) and (1/2,1]. Contradiction.</p>
+<h2>Practice question - three homeomorphism decisions [9 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q3(d). <strong>Task.</strong> (a) Show S<sup>1</sup> and [0,1] are not homeomorphic. (b) Show R and [0,1] are not homeomorphic. (c) Show R and (0,∞) are homeomorphic. [9 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> use point-removal connectedness for (a), compactness for (b), and the exponential/logarithm pair for (c).</p><p><strong>Worked answer:</strong> For (a), suppose h:S<sup>1</sup>→[0,1] were a homeomorphism and put p=h<sup>-1</sup>(1/2). Then h restricts to a homeomorphism S<sup>1</sup>\{p}→[0,1]\{1/2}, impossible because the first space is connected and the second is disconnected. For (b), [0,1] is compact while R is not, and homeomorphisms preserve compactness. For (c), f:R→(0,∞), f(x)=e<sup>x</sup>, is continuous and bijective; its inverse ln:(0,∞)→R is continuous. Therefore f is a homeomorphism.</p><p><strong>Topic-specific trap:</strong> connectedness alone does not distinguish S<sup>1</sup> from [0,1]; the distinguishing invariant is connectedness after deleting corresponding points.</p>
 <h2>Mistakes</h2>
 <ul>
 <li>Testing images of opens instead of preimages.</li>
@@ -54,11 +54,12 @@
 <li>I can state the preimage definition exactly.</li>
 <li>I can prove a simple affine homeomorphism.</li>
 <li>I can use connectedness to separate non-homeomorphic spaces.</li>
+<li>I can choose between compactness and point-removal arguments efficiently.</li>
 <li><strong>Final 60-second audit:</strong> Domain/codomain topologies, arbitrary-open-set preimage, bijection and inverse-continuity evidence are separated.</li>
 </ul>
 <h2>Past-paper note</h2>
 <p>
-<strong>High confidence:</strong> continuity, homeomorphism comparisons and compact-Hausdorff refinements appear in the recent papers. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+<strong>High confidence:</strong> homeomorphism comparisons occur throughout the newest three-paper format. The 2025/26 Q3(d) confirms the exact family S¹ versus [0,1], R versus [0,1], and R versus (0,∞), with 9 marks allocated to the three proofs. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
 </article>
 </main>
 </body>

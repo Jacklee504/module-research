@@ -1,0 +1,124 @@
+
+--- PAGE 1 ---
+Semester I Examinations 2021/22
+Exam Code(s) 4BMS2, 4BS2, 4BPT2, 1HA1, 1AL1
+Exam(s) 4th Science
+Module(s) Algebraic Foundations of Quantum Computing
+Module Code(s) MA4102
+External Examiner(s) Prof. Colva Roney-Dougal
+Internal Examiner(s) Prof. Go¨tz Pfeiffer
+*Dr. Michael Mc Gettrick
+Instructions Answer FOUR questions.
+Duration 2 hours
+No. of Pages 4 pages (including this cover page)
+Discipline Mathematics
+Requirements:
+(cid:88)
+Release to Library Yes No
+(cid:88)
+MCQ Yes No
+(cid:88)
+Statistical/Log Tables Yes No
+
+--- PAGE 2 ---
+1. (i) Consider the qutrit state given by
+1
+|ψ(cid:105) = (2 |0(cid:105) − 2i |1(cid:105) + i |2(cid:105)) .
+3
+(a) What is the probability of measuring the particle in the |2(cid:105) state?
+(b) Calculate the density matrix ρ .
+ψ
+(c) If we operate on |ψ(cid:105) using the unitary
+ 
+1 0 −1
+1 √
+U = √ 0 2 0  ,
+2
+1 0 1
+calculate the subsequent probability of measuring |2(cid:105).
+[14 marks]
+(ii) Consider the qubit state
+1
+(cid:18)√
+(1 − i)
+(cid:19)
+|ψ(cid:105) = 3 |0(cid:105) + √ |1(cid:105) .
+2 2
+(a) If |ψ(cid:105) is represented on the Bloch Sphere, calculate the corresponding
+angles θ and φ.
+(b) If we measure using the orthonormal basis |+(cid:105) and |−(cid:105), calculate the
+probability of obtaining |+(cid:105).
+[11 marks]
+2. Suppose we write a bipartite (2-qubit) state as a column vector with 4 compo-
+nents, using the standard basis |00(cid:105) = (1, 0, 0, 0)T , etc. Calculate (a) the purity
+and (b) the entanglement (using the Von Neumann entropy of the reduced density
+matrix) for the second qubit in each of the following cases.
+√
+       
+1 1 1 2
+√
+1  0  1  0  1  0  1  3
+(i) √   (ii) √   (iii)   (iv) √  
+2 −1 3 −1 2  0  2 2  1 
+    √  √ 
+0 −1 −3 2
+[25 marks]
+
+--- PAGE 3 ---
+3. (i) Given the orthonormal basis
+√ √
+1 6 − 6 1
+|g(cid:105) = √ |0(cid:105) + i √ |1(cid:105) , |h(cid:105) = √ |0(cid:105) + i √ |1(cid:105)
+7 7 7 7
+calculate the associated Kraus operators M and M for the phase damping
+g h
+channel U given by
+U (|10(cid:105)) = |10(cid:105) U (|11(cid:105)) = |11(cid:105)
+1 √
+U (|00(cid:105)) = (2 2 |00(cid:105) + i |01(cid:105))
+3
+1 √
+U (|01(cid:105)) = (i |00(cid:105) + 2 2 |01(cid:105))
+3
+(where the second qubit represents the environment). [13 marks]
+(ii) For the positive operator-valued measure (POVM) given by
+1 1
+E = |0(cid:105) (cid:104)0| , E = |+(cid:105) (cid:104)+| , E = 1 − E − E ,
+1 2 3 1 2
+2 3
+calculate the probability of each of the three outcomes when measuring the
+state
+−3 4
+|ψ(cid:105) = |0(cid:105) + |1(cid:105) .
+5 5
+[12 marks]
+4. (i) Draw the quantum circuit corresponding to each of the following operations
+on the given input. (You do not need to calculate the resulting output.)
+(a) (H ⊗ H)CN OT (2, 1)(H ⊗ I) |01(cid:105)
+(b) (I ⊗ H⊗2)SW AP (1, 3)(CR (1, 2)) |010(cid:105)
+π/3
+(c) (X⊗2)(SW AP )(Y ⊗ I) |11(cid:105)
+[15 marks]
+(ii) Calculate the Quantum Fourier Transform of the following qudit states:
+ 
+i
+ 
+1
+1 1  1 
+(a) √  i  (b) √  
+3 3
+−1
+−i  
+0
+[10 marks]
+
+--- PAGE 4 ---
+5. Suppose we are carrying out a Grover search of a list of length 32, for an item X
+which is guaranteed to occur exactly once.
+(i) Calculate the theoretical number of Grover iterates we should apply (this
+need not be a Natural Number). [6 marks]
+(ii) Calculate how many (integer) iterations we should do to maximize our
+success probability, and calculate the success probability at that point.
+[11 marks]
+(iii) How many iterations will give us the “second best” chance of finding X, and
+what is the associated probability? [8 marks]
