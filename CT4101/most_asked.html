@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT4101 Machine Learning - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h2 + p { color: #39454b; }
+    .question-bank .paper-list { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank .answer-frame { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+    .question-bank .source-scope { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
+    .question-bank code { font-size: 0.92em; }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT4101 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="calculation_flashcards.html">Formulae</a>
+      <a href="#most-repeated">Most repeated</a>
+      <a href="#lower-frequency">Lower frequency</a>
+      <a href="#study-order">Study order</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT4101 Study Document</p>
+    <h1>Machine Learning - Most Asked Exam Questions</h1>
+    <p>Consolidated question families from the local CT4101 papers. Similar prompts are grouped together, but meaningful repeated variations are retained.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2 id="how-to-use">How to Use This Document</h2>
+      <div class="source-scope">
+        <p><strong>Source scope:</strong> <a href="2019_2020.pdf" target="_blank" rel="noopener noreferrer">2019/20</a>, <a href="2021:2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>, and <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>.</p>
+        <p><strong>Format warning:</strong> 2021/22 and 2023/24 use the current-looking format: answer 3 of 4 questions, worth 25 marks each. 2019/20 uses an older two-section format. Weight the two newer papers more heavily, especially 2023/24 because Frank Glavin is the starred internal examiner and remains on the module team.</p>
+        <p><strong>How to read the evidence:</strong> <em>Archive frequency</em> counts all three local papers and shows stable module themes. <em>Current-format support</em> counts only 2021/22 and 2023/24 and is the better guide to likely current question shape. The 2019/20 paper remains useful for breadth because Michael Madden is still listed on the module team, but it should not determine paper structure.</p>
+      </div>
+      <ol>
+        <li>Revise by question family, then attempt each listed past-paper variation.</li>
+        <li>For calculation questions, practise the complete working, equation, diagram, and interpretation.</li>
+        <li>Use the consolidated prompt to see the common pattern, not as a prediction of exact wording.</li>
+      </ol>
+
+      <h2 id="learning-outcomes">Learning-Outcome Coverage</h2>
+      <p>The priority families below cover the outcomes with both official and past-paper support: ML task types, preprocessing, common algorithms, hyperparameters, evaluation and interpretation, and diagnosing common ML problems.</p>
+      <p><strong>Outcome-backed but weakly evidenced in the papers:</strong> practical model development with frameworks, deep learning/computer vision, and ethical issues/emerging trends. These remain in scope because they are on the current module page. Revise them after the repeated families; do not treat their absence from three papers as evidence that they cannot be examined.</p>
+
+      <h2 id="most-repeated">Most Repeated Question Families</h2>
+      <p class="priority-note">Frequency counts refer to the three available local papers. A family includes closely related prompts, while the original variations below make clear what you still need to know.</p>
+
+      <h2 id="ml-tasks">Priority 1 - ML Task Types, Labels, And Suitable Algorithms</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3; current-format support 2/2. This is the clearest recurring definition family.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q2(a) - distinguish classification and regression; give an application and algorithm for each.</li>
+        <li>2021/22 - Q1(a) - distinguish classification, regression, and clustering; give an application and algorithm for each.</li>
+        <li>2023/24 - Q1(a) - identify dependent and independent variables, identify the supervised task, and explain how the dataset would change for clustering.</li>
+        <li>2023/24 - Q1(b) - define classification, regression, and clustering; state supervised/unsupervised, an application, and a different algorithm for each.</li>
+        <li>2023/24 - Q1(c) - decide whether kNN can solve both a chlorinated/non-chlorinated prediction and a percentage prediction.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Given a dataset or real-world problem, identify whether it is classification, regression, or clustering; state whether labels are available; identify the input and output variables; then justify a suitable algorithm and application.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Classification is supervised learning that predicts a discrete class from labelled examples, such as spam versus non-spam; a decision tree can learn feature-based splits to predict the class. Regression is supervised learning that predicts a continuous numeric value, such as house price; linear regression learns the relationship between inputs and a numeric output. Clustering is unsupervised learning that groups similar unlabelled examples, such as customer segments; k-means repeatedly assigns examples to cluster centres and updates the centres. In a supervised dataset, independent variables are the input features and the dependent variable is the target to predict; clustering removes that target column.</p>
+      </div>
+
+      <h2 id="evaluation">Priority 2 - Evaluation, Confusion Matrices, ROC, Cross-Validation, And Hyperparameters</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3 for ROC/evaluation; current-format support 2/2 for confusion matrices, cross-validation, ROC, and grid search.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q4(a)-(b) - construct and interpret learning curves; discuss their use for multi-class classification, regression, and non-probabilistic classifiers.</li>
+        <li>2019/20 - Q4(c)-(d) - construct and interpret ROC curves; discuss their use for multi-class classification, regression, and non-probabilistic classifiers.</li>
+        <li>2021/22 - Q2(a) - make a confusion matrix and calculate misclassification rate, TNR, precision, and recall.</li>
+        <li>2021/22 - Q2(b) - define cross-validation and apply it to regression.</li>
+        <li>2021/22 - Q2(c) - compare binary classifiers using ROC curves, including labelled axes and ideal performance.</li>
+        <li>2021/22 - Q2(d) - define a hyperparameter and use grid search to select values.</li>
+        <li>2023/24 - Q2(a) - define a non-kNN hyperparameter and explain grid search.</li>
+        <li>2023/24 - Q2(b) - explain 5 times 5-fold stratified cross-validation for 500 examples, including fold sizes, classifiers built, and final performance estimate.</li>
+        <li>2023/24 - Q2(c) - compare binary classifiers using ROC curves, including labelled axes and ideal performance.</li>
+        <li>2023/24 - Q2(d) - make a confusion matrix and calculate FNR, TNR, precision, and interpret low FNR/FPR.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Given classifier results or a modelling scenario, build the correct evaluation procedure: confusion matrix and requested measures, cross-validation setup, ROC sketch and interpretation, then explain how hyperparameters should be selected without using test data for tuning.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> First choose the positive class and construct a 2 by 2 confusion matrix. Then use the requested formula: precision = TP / (TP + FP), recall or TPR = TP / (TP + FN), TNR = TN / (TN + FP), FNR = FN / (FN + TP), and FPR = FP / (FP + TN). ROC plots TPR on the y-axis against FPR on the x-axis across thresholds; the ideal point is top-left. Cross-validation repeatedly trains on folds and tests on the held-out fold, then averages the scores; stratification keeps class proportions similar in every fold. A hyperparameter is chosen before fitting, such as tree depth or an SVM C value; grid search evaluates combinations using validation or cross-validation and selects the best configuration.</p>
+      </div>
+      <p>Do not miss the newer-paper detail: 5 times 5-fold CV on 500 examples gives 100 examples per fold, 400 training examples per run, 25 trained classifiers, and a mean performance estimate across the 25 held-out results.</p>
+
+      <h2 id="knn-kmeans">Priority 3 - Nearest Neighbours, Clustering, Distance Measures, Scaling, And Choosing k</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3; current-format support 2/2. The exact algorithm comparison changes, but instance similarity is a central recurring block.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q2(b) - select k for kNN regression and discuss the impact of distance weighting.</li>
+        <li>2019/20 - Q3(b) - explain a scale-invariant similarity measure using a diagram and equation.</li>
+        <li>2021/22 - Q3(a) - compare k-means and kNN, including a brief description of each algorithm.</li>
+        <li>2021/22 - Q3(b) - use an elbow plot to choose k for k-means.</li>
+        <li>2021/22 - Q3(c) - give and calculate a distance metric for discrete attributes and one for continuous attributes.</li>
+        <li>2021/22 - Q3(d) - show why kNN often needs normalisation and apply z-normalisation.</li>
+        <li>2023/24 - Q1(c) - explain kNN for both classification and regression; describe three nearness measures with equations; give two rescaling approaches.</li>
+        <li>2023/24 - Q3(d)-(e) - compare k-means with hierarchical clustering and illustrate the elbow method.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain how a distance-based method uses similarity, decide whether kNN or a clustering method suits the task, choose or justify k, and explain why preprocessing is necessary before distance calculations.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> kNN is a supervised, lazy method: for classification it predicts the majority class among the k nearest labelled examples; for regression it averages or distance-weights their numeric targets. k-means is unsupervised: it assigns unlabelled examples to the nearest centroid and updates centroids until stable. Use a distance suitable for the features, such as Euclidean distance for continuous values and Hamming distance for discrete values. Scale features before distance-based learning so large-unit features do not dominate; z-normalisation uses <code>z = (x - mean) / standard deviation</code>, while min-max scaling maps values into a fixed range. The elbow method selects the point where increasing k gives only small further reductions in within-cluster variation.</p>
+      </div>
+      <p>Keep the distinctions separate: kNN versus k-means; k-means versus hierarchical clustering; classification versus regression kNN; distance weighting versus unweighted averaging; z-normalisation versus min-max scaling.</p>
+
+      <h2 id="generalisation">Priority 4 - Generalisation, Bias/Variance, Overfitting/Underfitting, Dimensionality, And Learning Curves</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3; current-format support 2/2. Expect a definition plus a diagnosis, sketch, mitigation, or comparison.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q2(c) - explain hypothesis language using diagrams, including underfitting and overfitting.</li>
+        <li>2019/20 - Q3(a) - define the curse of dimensionality and explain a mitigating heuristic with an ML example.</li>
+        <li>2019/20 - Q4(a)-(b) - construct, compare, and discuss the applicability of learning curves.</li>
+        <li>2021/22 - Q1(b) - define the curse of dimensionality and give a method to reduce its effect.</li>
+        <li>2021/22 - Q1(c) - define and sketch overfitting and underfitting in both classification and regression.</li>
+        <li>2023/24 - Q3(a) - explain bias and variance, relate them to overfitting/underfitting, and diagnose the current model.</li>
+        <li>2023/24 - Q3(b) - compare under-sampling and over-sampling for imbalanced data; define dimensionality and the curse of dimensionality; suggest solutions.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Diagnose whether a model or dataset is underfitting, overfitting, high-bias, high-variance, high-dimensional, or imbalanced; use an appropriate diagram or learning curve; then propose a justified remedy.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Underfitting is high bias: the model is too simple and performs poorly on both training and test data. Overfitting is high variance: the model fits training noise well but generalises poorly, so training performance is much better than test performance. A learning curve plots training and validation performance against training-set size and helps diagnose both cases. The curse of dimensionality means the feature space becomes sparse as the number of dimensions grows, making distance and data coverage less meaningful; reduce features, use feature selection or dimensionality reduction, collect more relevant data, or use methods less sensitive to distance. For imbalance, under-sampling removes majority examples while over-sampling duplicates or synthesises minority examples; both require care to avoid losing information or overfitting.</p>
+      </div>
+
+      <h2 id="trees">Priority 5 - Decision Trees, Entropy, Information Gain, And Tree Overfitting</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3; current-format support 2/2. The newest paper makes entropy and information-gain calculation especially important.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q3(c) - define pure inductive learning and give detailed decision-tree learning pseudocode and a sample tree.</li>
+        <li>2019/20 - Q3(d) - explain why decision-tree learning can be unstable and give a modification that reduces instability.</li>
+        <li>2021/22 - Q4(c) - define entropy and information gain.</li>
+        <li>2021/22 - Q4(d) - give detailed pseudocode for learning a classification decision tree.</li>
+        <li>2021/22 - Q4(e) - describe a method to combat decision-tree overfitting.</li>
+        <li>2023/24 - Q4(a) - explain entropy and information gain with equations.</li>
+        <li>2023/24 - Q4(b) - calculate entropy and information gain for a vowel/consonant split, showing all steps.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain or calculate how a classification decision tree chooses a split using entropy and information gain, then describe the induction process and how to control instability or overfitting.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Entropy measures class impurity: <code>H(S) = -sum p(c) log2 p(c)</code>. Information gain is the impurity reduction after a split: <code>IG(S, A) = H(S) - sum (|Sv| / |S|) H(Sv)</code>. At each node, a decision-tree learner tests candidate attributes, chooses the split with highest information gain, partitions the examples, and recurses until a stopping condition or pure node is reached. Trees can be unstable because small training-data changes can produce a different early split; pre-pruning, post-pruning, minimum samples per leaf, maximum depth, or ensembles can reduce overfitting and instability.</p>
+      </div>
+
+      <h2 id="regression">Priority 6 - Regression Models And Error Metrics</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3; current-format support 2/2. Error-metric calculations recur in both newer papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q6(a) - advise whether linear, logistic, or polynomial regression suits a tree-growth task; explain task type and data requirements.</li>
+        <li>2019/20 - Q6(b) - describe batch gradient descent for multiple linear regression, including initialisation, updates, convergence, and empirical error cost.</li>
+        <li>2021/22 - Q1(d) - give a domain-independent error measure and one in the dependent variable's units; calculate both and compare usefulness.</li>
+        <li>2023/24 - Q3(c) - compare regression and classification evaluation; calculate and give full names for MSE, RMSE, and MAE.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>For a numeric prediction task, choose a suitable regression approach, distinguish it from classification, and calculate or compare regression error measures with their appropriate interpretation.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Regression predicts a continuous number, while classification predicts a discrete class. MSE is mean squared error, the average of squared residuals; it penalises larger errors strongly but is in squared units. RMSE is the square root of MSE, so it is in the same units as the target. MAE is mean absolute error, the average absolute residual; it is also in target units and is less sensitive to outliers than MSE/RMSE. Linear regression fits a linear relationship; polynomial regression can model curvature but can overfit; logistic regression is used for classification probabilities, not ordinary continuous-value prediction. Batch gradient descent repeatedly updates all weights in the direction that reduces the empirical error until convergence.</p>
+      </div>
+
+      <h2 id="neural-networks">Priority 7 - Neural-Network Basics, Activation Functions, And Encoding</h2>
+      <p><strong>Evidence:</strong> Archive frequency 3/3 at a broad level; current-format support 2/2 for activation functions and encoding.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2019/20 - Q6(c) - describe an algorithm to build a linear classifier with multiple inputs, including the perceptron learning rule.</li>
+        <li>2021/22 - Q4(a) - compare threshold, logistic, and ReLU activation functions.</li>
+        <li>2021/22 - Q4(b) - define one-hot encoding with an example.</li>
+        <li>2023/24 - Q4(c) - explain a McCulloch-Pitts neuron with labelled diagram and equations.</li>
+        <li>2023/24 - Q4(d) - compare logistic and ReLU activation functions.</li>
+        <li>2023/24 - Q4(e) - compare binary and one-hot encoding, with examples and when each is needed.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain how a basic artificial neuron or perceptron produces an output, compare activation functions, and show how categorical data or labels should be encoded for a model.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> A neuron computes a weighted sum plus bias, <code>z = sum wi xi + b</code>, then applies an activation function to produce an output. A threshold function produces a hard 0/1 output, logistic maps values smoothly into 0 to 1, and ReLU returns 0 for negative inputs and the input for positive values. One-hot encoding represents a category using one binary position per possible category, for example red = [1,0,0], green = [0,1,0], blue = [0,0,1]; it is suitable for nominal categories because it does not imply an ordering. Binary encoding can use fewer bits but may create artificial relationships between categories. The perceptron learning rule adjusts weights after an error so predictions move toward the correct class.</p>
+      </div>
+
+      <h2 id="lower-frequency">Distinct Lower-Frequency Questions</h2>
+      <p>These are in the archive but occur only in 2019/20. They are worth knowing as backup material, but should come after the repeated families above.</p>
+
+      <h2 id="lazy-eager">Lazy Versus Eager Learning</h2>
+      <p><strong>Evidence:</strong> Archive frequency 1/3; current-format support 0/2. Appears in 2019/20 - Q1(c).</p>
+      <blockquote><p>Explain lazy and eager ML in a changing spam-detection scenario, including strengths, weaknesses, suitability, and an example algorithm from each category.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Lazy learners store training examples and defer generalisation until prediction time; kNN is an example. They adapt easily to new data but can be slower when predicting and require storage. Eager learners build a general model during training; decision trees are an example. They predict quickly but may need retraining as the data distribution changes. For frequently changing spam, a lazy approach can incorporate new labelled examples easily, though the choice should also consider prediction volume and retraining cost.</p>
+      </div>
+
+      <h2 id="bayesian">Bayesian Networks And Naive Bayes</h2>
+      <p><strong>Evidence:</strong> Archive frequency 1/3; current-format support 0/2. Appears in 2019/20 - Q5(a)-(c).</p>
+      <ul class="paper-list">
+        <li>Explain independence and conditional independence, including Bayesian-network notation.</li>
+        <li>Explain joint probability distributions, elementary propositions, atomic events, and compact Bayesian-network representation.</li>
+        <li>Calculate Naive Bayes text-classification probabilities, show all steps, and state assumptions.</li>
+      </ul>
+      <blockquote><p>Explain probabilistic independence and Bayesian-network representation, then apply Naive Bayes to a small text-classification dataset with explicit assumptions.</p></blockquote>
+
+      <h2 id="reinforcement">Reinforcement Learning And Q-Learning</h2>
+      <p><strong>Evidence:</strong> Archive frequency 1/3; current-format support 0/2. Appears in 2019/20 - Q1(a)-(b).</p>
+      <ul class="paper-list">
+        <li>Evaluate Q-learning choices for learning rate, discount factor, and exploration rate in a long-duration chess task.</li>
+        <li>Define the Markov property using chess as an example.</li>
+      </ul>
+      <blockquote><p>Given a sequential decision task, explain how Q-learning parameters affect learning and why the Markov property allows the current state to summarise the information needed for the next decision.</p></blockquote>
+
+      <h2 id="study-order">Recommended Study Order</h2>
+      <ol>
+        <li>2023/24 Question 1: task types, labels, kNN classification/regression, distance measures, and scaling.</li>
+        <li>2023/24 Question 2 plus 2021/22 Question 2: confusion matrices, ROC, cross-validation, and hyperparameter/grid-search answers.</li>
+        <li>2023/24 Question 3 plus 2021/22 Question 3: generalisation, dimensionality, error metrics, kNN/k-means, and elbow method.</li>
+        <li>2023/24 Question 4 plus 2021/22 Question 4: entropy/information gain calculations, decision trees, neurons, activation functions, and encoding.</li>
+        <li>Use 2019/20 to add learning curves, gradient descent, perceptrons, lazy/eager learning, Naive Bayes, and Q-learning after the core is secure.</li>
+      </ol>
+      <p>For a realistic paper attempt, do 2023/24 first, repeat only the subparts you could not answer, then use the matching 2021/22 variations. This develops flexible answer structures rather than memorising one paper.</p>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,109 @@
+===== 2024_2025.pdf PAGE 1 =====
+Semester II Examinations 2024–2025
+Exam Codes 4BA1, 3BA1, 4BME1, 4BPS1,
+1OA2, 1OA3, 4BCT1, 4BMS2, 4BS2
+Exam(s) 3rd and 4th year (Arts and Science),
+Study Abroad / International Exchange
+Module Codes CS402
+Module Cryptography
+Paper No. 1
+External Examiner Prof. Colva Roney-Dougal
+Internal Examiners Dr Niall Madden
+Dr Koushik Paul*
+Instructions: Answer all four questions.
+Each question carries 25 marks.
+All workings must be shown.
+Duration 2 Hours
+Number of Pages 3 (including this page)
+Discipline Mathematics
+Requirements: No special requirements
+Release to Library Yes
+Release in Exam Venue Yes
+MCQ No
+Statistical / Log Tables No
+Non-programmable Calculator Yes
+Mathematical Tables No
+Graph paper No
+Page 1 of 3
+
+===== 2024_2025.pdf PAGE 2 =====
+Q1. (a) A treasure hunt challenge uses a shift cipher over a 27-letter alphabet:
+A = 0, B = 1, . . . , Z = 25, = 26.
+A group of adventurers found a coded message:
+EULOOLDQWCZRUN
+The game master revealed that in a previous puzzle, the word TREASURE was encoded
+as WUHDVXUH using the same shift cipher. Using this information, determine the
+decoded message.
+[5 marks]
+(b) A Hill cipher over Z27 (where A = 0, B = 1, ..., Z = 25, and = 26) was used to encrypt
+a message. The ciphertext obtained is: LPDG. The encryption used the key matrix:
+3 7
+K =
+2 5
+! "
+Find the corresponding plaintext.
+[10 marks]
+(c) State Kerckho! ’s principle.
+[5 marks]
+(d) A digital lock system encrypts passcodes using a (1-dimensional) a”ne cipher over
+Z900 (passcodes range from 0 to 899). Find the total number of possible encryption
+keys for this system.
+[5 marks]
+Q2. (a) State (without proof) Shannon’s Theorem on perfectly secure cryptosystems.
+[5 marks]
+(b) Consider a symmetric cryptosystem with non-empty finite sets , , and of plain-
+P C K
+texts, ciphertexts, and keys, respectively and with encryption functions e :
+k
+P→C
+and decryption functions d : indexed by keys k . Suppose that our
+k
+C→P ↑K
+cryptosystem is perfectly secure. Show that .
+|K| ↓ |C| ↓ |P|
+[10 marks]
+(c) Briefly describe block ciphers and stream ciphers with examples.
+[5 marks]
+(d) Explain what is meant by a linear feedback shift register of length L.
+[5 marks]
+Q3. (a) Describe the key generation, encryption, and decryption steps of the RSA cryptosys-
+tem.
+[5 marks]
+(b) Determine with proper justification whether the following pairs of integers are valid
+RSA keys:
+(i) (n, e) = (299, 17)
+(ii) (n, e) = (323, 9)
+(iii) (n, e) = (385, 55)
+[6 marks]
+Page 2 of 3
+
+===== 2024_2025.pdf PAGE 3 =====
+(c) Alice encrypts the message m = 23 using the RSA cryptosystem and Bob’s public
+key (n, e) = (77, 17). Find the corresponding ciphertext (as an element of Z77 ).
+[5 marks]
+(d) What does it mean for a number n to be a pseudoprime? Give the definition of a
+Carmichael number.
+[4 marks]
+Q4. (a) Describe Fermat’s primality test (which is passed by every prime).
+[5 marks]
+(b) Describe the method of fast exponentiation for computing ae mod n, where a, e, n Z
+↑
+with e, n > 1.
+[5 marks]
+(c) Alice and Bob use the cyclic group Z→61 (multiplicative group modulo 61) with gen-
+erator g = 2 to perform a Di”e-Hellman key exchange. Alice secretly chooses a = 5
+and Bob secretly chooses b = 7. Determine their shared key (as an element of Z→61 ).
+[8 marks]
+(d) Describe the key generation, encryption, and decryption steps of the ElGamal cryp-
+tosystem.
+[6 marks]
+(e) Consider the elliptic curve E over Z7 defined by the equation:
+y2 = x3 + 2x + 3,
+with the point at infinity .
+O
+(i) Determine the set of points E(Z7 ) on this elliptic curve, including the point at
+infinity .
+O
+(ii) Find all points of order 2 in E(Z7 ).
+[6 marks]
+Page 3 of 3

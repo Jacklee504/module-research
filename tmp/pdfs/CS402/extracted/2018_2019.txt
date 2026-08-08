@@ -1,0 +1,82 @@
+===== 2018_2019.pdf PAGE 1 =====
+Semester II Examinations 2018/2019
+Exam Codes 3BME1, 4BME1, 1EM1, 1OA2, 4BCT1,
+4BS2, 4BMS2, 3BA1
+Exams 3rd and 4th year (Arts and Science)
+Module Cryptography
+Module Codes CS402, MA492
+External Examiner Prof. T. Brady
+Internal Examiners Prof. G. Ellis
+Dr T. Rossmann∗
+Instructions Answer all four questions.
+Each question carries 25 marks.
+Duration 2 hours
+No. of Pages 3 pages, including this one
+School Mathematics, Statistics and Applied Mathematics
+Requirements: No special requirements
+Release to Library Yes
+MCQ No
+Statistical / Log Tables No
+Release to Library Yes
+Non-programmable Calculator Yes
+Mathematical Tables No
+
+===== 2018_2019.pdf PAGE 2 =====
+Q1. (a) The ciphertext string
+ASISENGEHFGNONFVWTGNQWCVSE
+was produced using a shift cipher over the 27-letter alphabet
+A = 0, B = 1, . . . , Z = 25, = 26,
+where the final character indicates a space.
+By conducting a frequency analysis of a larger sample of ciphertexts, it has
+been found that the plaintext symbol E corresponds to the ciphertext sym-
+bol S. Determine the first word of the plaintext string corresponding to the
+ciphertext string given above. [10 marks]
+(b) Identify Z = {0, . . . , 25, 26} with {A, . . . , Z, } as in part (a). An affine
+27
+cipher over Z with unknown key (a, b) ∈ Z× × Z and encryption function
+27 27 27
+Z → Z , x (cid:55)→ ax + b
+27 27
+encrypts E as T and S as V. Determine (a, b). [5 marks]
+(c) State Kerckhoff ’s principle. [5 marks]
+(d) An affine cipher (of dimension 1) over Z is used to encrypt messages. Find
+55
+the number of possible keys. [5 marks]
+Q2. (a) State (without proof) Shannon’s Theorem on perfectly secure cryptosystems.
+[5 marks]
+(b) Briefly describe block ciphers and stream ciphers. [5 marks]
+(c) Explain what is meant by a linear feedback shift register of length L.
+[5 marks]
+(d) A linear feedback shift register of length 3 with connection polynomial
+C(X) = 1 + X + X3
+over Z is used to produce a pseudo-random sequence of binary digits with
+2
+initial values s = 0, s = 0, and s = 1. Determine the least period of the
+0 1 2
+resulting infinite sequence s , s , . . . . [10 marks]
+0 1
+2 of 3
+
+===== 2018_2019.pdf PAGE 3 =====
+Q3. (a) Briefly describe and contrast symmetric cryptography and public-key cryp-
+tography. [5 marks]
+(b) Describe the key generation step of the RSA cryptosystem. [5 marks]
+(c) Alice and Bob use the cyclic group Z× and its generator g = 2 to perform a
+25
+Diffie-Hellman key exchange. Alice secretly chooses a = 6 and Bob secretly
+chooses b = 3. Determine their shared key (as an element of Z ). [5 marks]
+25
+(d) Alice encrypts the message m = 23 using the RSA cryptosystem and Bob’s
+public key (n, e) = (77, 17). Find the corresponding ciphertext (as an ele-
+ment of Z ). [10 marks]
+77
+Q4. (a) Define Euler’s totient function and state (without proof) Euler’s Totient
+Theorem. [5 marks]
+(b) Describe the Fermat primality test. [5 marks]
+(c) Define Carmichael numbers and explain their role in primality testing.
+[5 marks]
+(d) Let E be the set of points of an elliptic curve over Q defined by the equation
+y2 = x3 + ax + b.
+Describe (either geometrically or algebraically) the usual operation of addi-
+tion on E which turns E into an abelian group. [10 marks]
+3 of 3

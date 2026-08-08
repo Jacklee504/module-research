@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MA342 Topology - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h2 + p { color: #39454b; }
+    .question-bank .paper-list { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank .answer-frame { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+    .question-bank .source-scope { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
+    .question-bank code { white-space: normal; }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">MA342 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="Q1_Study_Page.html">Q1 guide</a>
+      <a href="Q2_Study_Page.html">Q2 guide</a>
+      <a href="#most-repeated">Most repeated</a>
+      <a href="#legacy">Legacy backup</a>
+      <a href="#study-order">Study order</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">MA342 Study Document</p>
+    <h1>Topology - Most Asked Exam Questions</h1>
+    <p>Consolidated question families from the local MA342 papers, preserving repeated wording, marks, multipart structures, and meaningful variants.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2 id="how-to-use">How to Use This Document</h2>
+      <div class="source-scope">
+        <p><strong>Current source scope:</strong> the three Tobias Rossmann starred papers: <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>, and <a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>.</p>
+        <p><strong>Format warning:</strong> all three current papers require all four questions, each worth 25 marks, over two hours. Their shared question shape is the strongest prediction evidence. The earlier <a href="2018_2019.pdf" target="_blank" rel="noopener noreferrer">2018/19</a>, <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>, and <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a> papers use different starred examiners and formats, but recurrent legacy families are retained below so they are not lost.</p>
+      </div>
+      <ol>
+        <li>Revise by question family, not just by broad topic headings.</li>
+        <li>Attempt the listed paper variants before reading the reusable answer frame.</li>
+        <li>For every definition, memorise the full quantifiers and topology in which it is being stated.</li>
+        <li>For every proof, identify the requested conclusion first: a separating example, an open cover, a continuous image, or an invariant.</li>
+      </ol>
+
+      <h2 id="most-repeated">Most Repeated Current Question Families</h2>
+      <p class="priority-note">Each priority consolidates genuinely similar questions, but the paper-list keeps variants that require a different example, theorem, or proof move.</p>
+
+      <h2 id="foundations">Priority 1 - Topology Definitions, Standard Examples, Subspaces, Bases, Closure, And Interior</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers. This is the stable opening-question family.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q1(a) - define a topology and give two distinct topologies on a finite set. [5 marks]</li>
+        <li>2023/24 - Q1(b) - define a subspace topology and show the usual subspace topology on Q is not discrete. [5 marks]</li>
+        <li>2023/24 - Q1(c) - define a basis and give the lower-limit basis. [5 marks]</li>
+        <li>2023/24 - Q1(d)-(e) - define closure, prove the neighbourhood characterisation, and find the closure of (0,1) in the lower-limit topology. [10 marks]</li>
+        <li>2024/25 - Q1(a) - repeat topology definition plus two finite topologies. [5 marks]</li>
+        <li>2024/25 - Q1(b)-(d) - compare cofinite and discrete topologies on Z; show Z is discrete as a subspace of R; give the lower-limit basis and show [0,1) is clopen. [15 marks]</li>
+        <li>2024/25 - Q1(e) - define neighbourhood and interior, then prove the neighbourhood/interior equivalence. [5 marks]</li>
+        <li>2025/26 - Q1(a)-(e) - define topology, standard and cofinite topologies, closure, interior and subspace topology; decide whether [0,1] is discrete; prove no accumulation points implies closed. [25 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Let X be a set or topological space. State the exact definition requested, then work with a named topology or subspace: compare two topologies, give a basis, decide whether a subspace is discrete, or prove a closure/interior/accumulation-point claim by neighbourhoods.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> A topology τ on X contains ∅ and X, is closed under arbitrary unions and finite intersections. For subspaces, write opens as A∩U where U is open in the ambient space. For the lower-limit topology use the basis {[a,b):a&lt;b}; for cofinite spaces use ∅ and sets with finite complement. When deciding if a subspace is discrete, test a singleton: an interior point such as 1/2 in [0,1] cannot be relatively open, but Z is discrete in R because each n is isolated by a small interval. For closure use “every neighbourhood meets A”; for accumulation points use “every neighbourhood meets A\{x}”. To prove a set closed from no accumulation points, show every x outside it has an open neighbourhood disjoint from it.</p>
+      </div>
+      <p>Do not collapse these variants:</p>
+      <ul>
+        <li><strong>Q versus Z:</strong> Q is not discrete in the usual subspace topology; Z is discrete. The same definition appears, but the witness is different.</li>
+        <li><strong>Standard versus cofinite:</strong> an ordinary open interval has infinite complement, so it distinguishes the topologies on R; cofinite and discrete do not coincide on infinite Z.</li>
+        <li><strong>Closure versus interior:</strong> closure is a neighbourhood-intersection condition; interior is the largest open subset. An accumulation-point proof removes the point itself.</li>
+      </ul>
+
+      <h2 id="compactness">Priority 2 - Compactness, Hausdorffness, Cofinite And Lower-Limit Examples</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers, with both definitions/examples and reusable short theorems.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q2(a)-(b) - define compactness and decide whether standard R is compact. [9 marks]</li>
+        <li>2023/24 - Q3(a) - decide whether cofinite R is compact and Hausdorff. [6 marks]</li>
+        <li>2023/24 - Q3(c) - show a continuous bijection between compact Hausdorff spaces is a homeomorphism. [5 marks]</li>
+        <li>2024/25 - Q2(a)-(e) - dense subsets of cofinite R; compactness; closed subsets of compact spaces; non-compactness of lower-limit R; and Hausdorff comparisons for cofinite Z and standard R. [25 marks]</li>
+        <li>2025/26 - Q2(b)-(e) - cofinite density; define compactness and disprove compactness of lower-limit R; define and prove lower-limit Hausdorffness; prove a compact subspace of a Hausdorff space is closed. [22 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>For a standard, cofinite, or lower-limit topology, state compactness or Hausdorffness exactly, decide the property using a topology-valid cover or separation, then prove the associated compactness theorem under its stated hypotheses.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Compact means every open cover has a finite subcover. To disprove compactness of the lower-limit line, use the basic-open cover {[n,n+1):n∈Z}; every finite subfamily is bounded. A cofinite topology on an infinite set is compact but not Hausdorff: every open cover has a finite subcover, while two nonempty cofinite opens must intersect. For lower-limit R, if x&lt;y then [x,y) and [y,y+1) are disjoint basic neighbourhoods, so it is Hausdorff. For a compact A in Hausdorff X, separate x∉A from each a∈A, use compactness to select finitely many neighbourhoods of points of A, and intersect the corresponding finitely many neighbourhoods of x to show X\A is open.</p>
+      </div>
+      <p>Keep the theorem directions distinct:</p>
+      <ul>
+        <li>Closed subset of compact space ⇒ compact (2024/25).</li>
+        <li>Compact subspace of Hausdorff space ⇒ closed (2025/26, also older papers).</li>
+        <li>Continuous bijection compact → Hausdorff ⇒ homeomorphism (2023/24).</li>
+      </ul>
+
+      <h2 id="connectedness">Priority 3 - Connectedness, Separations, Continuous Images, And IVT</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers. The direct proof and IVT implication repeat, while the example family changes.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q3(b) - prove a continuous surjective image of a connected space is connected and derive IVT. [8 marks]</li>
+        <li>2024/25 - Q3(b) - define connectedness and give connected/disconnected examples. [8 marks]</li>
+        <li>2024/25 - Q4(a) - repeat the continuous-surjection proof and IVT consequence. [6 marks]</li>
+        <li>2025/26 - Q3(b)-(c) - define connectedness; classify Q with discrete, indiscrete, usual subspace and cofinite topologies, giving separations where required. [13 marks]</li>
+        <li>2025/26 - Q4(b) - repeat the continuous-surjection proof and IVT consequence. [6 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Define connectedness. Given an explicit topology, either exhibit a separation or rule one out; then prove that a continuous surjection preserves connectedness and explain its Intermediate Value Theorem consequence.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> A separation of X is X=U∪V where U and V are disjoint, nonempty, open subsets of X. A space is connected when no separation exists. If f:X→Y is continuous and onto and Y=U∪V were a separation, f<sup>-1</sup>(U) and f<sup>-1</sup>(V) would be a separation of X; continuity gives openness and surjectivity gives nonemptiness and coverage. For IVT, [a,b] is connected, so h([a,b]) is a connected subset of R and hence an interval containing h(a) and h(b).</p>
+      </div>
+      <p>2025/26 topology-on-Q answers to know:</p>
+      <ul>
+        <li>Discrete Q is disconnected: {0} and Q\{0} separate it.</li>
+        <li>Indiscrete Q is connected: it has no nonempty proper open set.</li>
+        <li>Usual subspace Q is disconnected: cut at the irrational √2.</li>
+        <li>Cofinite Q is connected: any two nonempty open sets intersect.</li>
+      </ul>
+
+      <h2 id="homeomorphisms">Priority 4 - Homeomorphism Comparisons And Invariants</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers. The exact pairs vary, but compactness, connectedness after point removal, and explicit maps recur.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q2(c) - compare [0,1], (0,1), S<sup>1</sup>, and R\{0}; justify all six non-homeomorphism comparisons. [12 marks]</li>
+        <li>2024/25 - Q3(c) - show R and [0,1] are not homeomorphic, R<sup>2</sup> and R are not homeomorphic, and R and (0,∞) are homeomorphic. [9 marks]</li>
+        <li>2025/26 - Q3(d) - show S<sup>1</sup> and [0,1] are not homeomorphic, R and [0,1] are not homeomorphic, and R and (0,∞) are homeomorphic. [9 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>For each listed pair of spaces, choose the cheapest topological invariant that distinguishes them, or construct an explicit continuous bijection with continuous inverse.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Homeomorphisms preserve compactness and connectedness, including connectedness after deleting corresponding points. [0,1] is compact and R is not, so they are not homeomorphic. S<sup>1</sup> and [0,1] are both compact and connected, so use point removal: delete the preimage of 1/2 under a hypothetical homeomorphism. The punctured circle remains connected, whereas [0,1]\{1/2} is disconnected. For a positive result, f(x)=e<sup>x</sup> is a homeomorphism R→(0,∞), with inverse ln.</p>
+      </div>
+
+      <h2 id="constructions">Priority 5 - Product, Initial/Final, And Quotient Topologies</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers. The construction changes, so retain the direction of every defining preimage condition.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q2(d) - write down a base for the product topology on X×Y. [4 marks]</li>
+        <li>2023/24 - Q4(a)-(b) - define the quotient topology on X/~ and show S<sup>1</sup> is a quotient of [0,1]. [9 marks]</li>
+        <li>2024/25 - Q3(a) - define the initial topology induced by a family of functions. [4 marks]</li>
+        <li>2024/25 - Q4(b)-(d) - repeat the product basis, quotient topology, and S<sup>1</sup> as a quotient of [0,1]. [13 marks]</li>
+        <li>2025/26 - Q3(a) - define the final topology with respect to a family of functions. [3 marks]</li>
+        <li>2025/26 - Q4(c)-(d) - explain why S<sup>1</sup> is a quotient of [0,1], then decide whether R is a quotient of the Cantor set. [8 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>State the construction precisely: basis rectangles for products, pullbacks for initial/final topologies, or the quotient-open-set rule. Then apply it to a quotient map, especially the endpoint identification [0,1]/(0~1), or use a preserved property to rule a quotient out.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> A product basis consists of U×V with U and V open. The initial topology is the coarsest topology making the given maps out of a set continuous; the final topology is the finest topology making the given maps into a set continuous. A quotient topology on X/~ declares W open exactly when q<sup>-1</sup>(W) is open in X. For S<sup>1</sup>, use q(t)=e<sup>2πit</sup>: it is a continuous surjection and identifies exactly 0 and 1. R cannot be a quotient of compact Cantor C because a quotient map would be a continuous surjection C→R, forcing R to be compact.</p>
+      </div>
+      <p><strong>Direction trap:</strong> initial topology concerns maps <em>out of</em> the set and is coarsest; final topology concerns maps <em>into</em> the set and is finest. Quotient topology is a final-topology instance.</p>
+
+      <h2 id="cantor">Priority 6 - Cantor Set: Definition, Images, Compactness, And Quotients</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers, with a different Cantor-set use each year.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q3(d) - show [0,1] is a continuous image of C, then decide whether C is a continuous image of [0,1]. [6 marks]</li>
+        <li>2024/25 - Q3(d) - define the Cantor set. [4 marks]</li>
+        <li>2025/26 - Q4(a) - define C and explain why it is compact Hausdorff. [5 marks]</li>
+        <li>2025/26 - Q4(d) - decide whether standard R is a quotient of C. [3 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Define the Cantor set, state its compact-Hausdorff properties, and reason carefully about what can be its continuous image or quotient using compactness, connectedness, and an explicit map where supplied.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Define C by repeatedly removing the open middle third from each remaining closed interval, equivalently as the points of [0,1] with a ternary expansion using only 0 and 2. It is compact because it is closed in compact [0,1], and Hausdorff because it is a subspace of R. Use compactness under continuous images to rule out a continuous surjection or quotient from C onto non-compact R. Do not reverse image claims automatically: [0,1] is a continuous image of C, but connectedness blocks a continuous surjection [0,1]→C because C is disconnected.</p>
+      </div>
+
+      <h2 id="homotopy">Priority 7 - Homotopy, Homotopy Equivalence, And Convex/Star-Shaped Spaces</h2>
+      <p><strong>Frequency:</strong> 3/3 current papers. The recurring core is the definition plus a constructive deformation.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q4(c)-(e) - define homotopy and homotopy equivalence, define simply connected, and show every star-shaped subset of R<sup>n</sup> is simply connected. [16 marks]</li>
+        <li>2024/25 - Q4(e) - define homotopy and show continuous f,g:R<sup>m</sup>→R<sup>n</sup> are homotopic. [6 marks]</li>
+        <li>2025/26 - Q4(e) - repeat the homotopy definition and show continuous f,g:R<sup>n</sup>→R<sup>n</sup> are homotopic. [6 marks]</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Define homotopy with its full domain, codomain, continuity and endpoint conditions. Then construct a homotopy by straight-line interpolation in a convex target, or a contraction in a star-shaped space.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Maps f,g:X→Y are homotopic if a continuous H:X×[0,1]→Y exists with H(x,0)=f(x) and H(x,1)=g(x). For maps into R<sup>n</sup>, take H(x,t)=(1−t)f(x)+tg(x). It is continuous and remains in R<sup>n</sup>. More generally this works for any convex target. For a star-shaped set with centre x<sub>0</sub>, H(x,t)=(1−t)x+tx<sub>0</sub> contracts the space, provided the entire line segment stays inside it.</p>
+      </div>
+
+      <h2 id="legacy">Legacy High-Frequency And Distinct Backup Questions</h2>
+      <p class="priority-note">These are deliberately retained. They have strong repetition in the older archive but no direct question-family evidence in the three current Tobias Rossmann papers.</p>
+
+      <h2 id="euler">Legacy Priority A - Euler Characteristic, Euler Integral, And Triangulations</h2>
+      <p><strong>Archive frequency:</strong> 3/3 older papers (2018/19, 2021/22, 2022/23); absent from 2023/24–2025/26.</p>
+      <ul class="paper-list">
+        <li>2018/19 - Q1-Q3 - triangulate a torus, prove the sphere Euler formula, and calculate an Euler integral from a weighted diagram.</li>
+        <li>2021/22 - Q1-Q3 - calculate a digital-image Euler characteristic, calculate an Euler integral, and triangulate an identification space from a square.</li>
+        <li>2022/23 - Q1-Q2 and Q4 - repeat digital-image Euler characteristic, Euler integral, and a detailed valid/invalid torus-triangulation task. [25 marks each]</li>
+      </ul>
+      <blockquote><p>Define χ=V−E+F or the Euler integral, then calculate it from a cell complex/weighted diagram; alternatively validate, construct, and count a triangulation before computing χ.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Backup answer frame:</strong> State precisely what is being counted and what assumptions permit the formula. For a triangulation, list vertices, edges and faces without double-counting and check that simplices meet correctly. For a weighted Euler integral, identify the level sets or use the inclusion-exclusion relation supplied in the question, showing each contribution before deriving the requested number of regions.</p>
+      </div>
+
+      <h2 id="legacy-applications">Legacy Priority B - Brouwer, FTA, Frobenius-Perron, And Nash Equilibrium</h2>
+      <p><strong>Archive frequency:</strong> 3/3 older papers as alternative long questions; absent from 2023/24–2025/26.</p>
+      <ul class="paper-list">
+        <li>2018/19 - Q9-Q10 - Brouwer fixed point and positive eigenvalues, FTA via winding number, and Nash equilibrium.</li>
+        <li>2021/22 - Q8-Q10 - Brouwer/positive eigenvalue, FTA, Brouwer via Euler characteristic, a surjection onto a triangle, and Nash equilibrium.</li>
+        <li>2022/23 - Q9-Q10 - Brouwer/Frobenius-Perron, FTA, and a mixed Nash-equilibrium game calculation. [25 marks each]</li>
+      </ul>
+      <blockquote><p>State the named theorem with all hypotheses, map the supplied algebraic or game-theoretic data to it, and derive exactly the requested consequence.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Backup answer frame:</strong> For Brouwer, verify a continuous self-map of a compact convex set such as a ball/simplex. For FTA questions, state exactly which homotopy/winding result has been granted before using it. For Nash questions, define strategies, payoffs and best responses; distinguish pure from mixed strategies and justify the equilibrium rather than naming one.</p>
+      </div>
+
+      <h2 id="legacy-distinct">Other Distinct Older Question Shapes</h2>
+      <ul class="paper-list">
+        <li><strong>Topology-axiom validation and components:</strong> test proposed open-set families, exhibit a failed axiom if necessary, and find connected components if valid. Appears in 2018/19 Q4, 2021/22 Q4, and 2022/23 Q3.</li>
+        <li><strong>Cofinite-space continuity:</strong> decide connectedness/compactness and give continuous or non-continuous self-maps of a cofinite space. Appears in 2018/19 Q5 and 2021/22 Q5; it complements the current cofinite compactness/Hausdorff family.</li>
+        <li><strong>Homotopy-equivalence variants:</strong> show S<sup>1</sup> is homotopy equivalent to C\{0}, or classify plane letters by homeomorphism/homotopy type. Appears in 2018/19 Q8, 2021/22 Q7, and 2022/23 Q8.</li>
+        <li><strong>Graph/dendrogram application:</strong> construct threshold graphs and a dendrogram from a distance table. Appears only in 2022/23 Q6.</li>
+        <li><strong>Older homeomorphism pair:</strong> decide whether Z and Q are homeomorphic in their usual subspace topologies. Appears only in 2021/22 Q6.</li>
+      </ul>
+
+      <h2 id="study-order">Recommended Study Order</h2>
+      <ol>
+        <li>Topology definitions, standard/cofinite/lower-limit examples, subspaces, closure/interior, and accumulation points.</li>
+        <li>Compactness and Hausdorffness: lower-limit/cofinite examples and the two compactness theorems.</li>
+        <li>Connectedness: separations, the four topologies on Q, continuous images, and IVT.</li>
+        <li>Homeomorphism comparisons, using compactness or punctured-space connectedness before attempting complicated invariants.</li>
+        <li>Product, initial/final and quotient constructions, especially S<sup>1</sup> from [0,1].</li>
+        <li>Cantor-set definitions, images, compactness and quotient obstructions.</li>
+        <li>Homotopy definitions and straight-line constructions in R<sup>n</sup>.</li>
+        <li>Only then revise Euler/triangulation and Brouwer/FTA/Nash legacy material, unless current lectures explicitly return to it.</li>
+      </ol>
+      <p>For timed practice, start with <a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>, then <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a> and <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>. Use the older papers to preserve the legacy families above, not to override the stable current exam format.</p>
+    </article>
+  </main>
+</body>
+</html>

@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT4101 - Lean Revision Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flashcard-bank td:first-child { width: 38%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 46%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print {
+      .top-nav { display: none; }
+      .module-header, .module-shell { padding: 18px; }
+      .module-content { border: 0; box-shadow: none; padding: 0; }
+      .flashcard-bank table { page-break-inside: auto; }
+      .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; white-space: normal; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Evidence"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT4101 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="calculation_flashcards.html">Formulae and calculations</a>
+      <a href="#core">Core concepts</a>
+      <a href="#evaluation">Evaluation</a>
+      <a href="#distance">Distance methods</a>
+      <a href="#generalisation">Generalisation</a>
+      <a href="#trees">Trees and neural nets</a>
+      <a href="#backup">Backup</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT4101 Quick Revision Flashcards</p>
+    <h1>Lean 63-Card ML Definitions Deck</h1>
+    <p>Short definitions, distinctions, and mechanisms drawn from the repeated CT4101 question families and current module scope.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Write the first column on the front of a card and the second on the back. Aim to answer in one or two sentences. Use the separate <a href="calculation_flashcards.html">formulae and calculation deck</a> for precision, recall, specificity, distance equations, entropy, error metrics, and activation equations. The evidence column distinguishes repeated current-format material from official-outcome and older-paper backup coverage.</p>
+
+      <h2 id="priority">Priority Reality Check</h2>
+      <div class="frequency-note">
+        <p><strong>Drill first:</strong> task types; evaluation and model selection; nearest-neighbour, clustering, distance and scaling; generalisation; decision trees; error metrics; neural-network basics and encoding. These have 2/2 current-format support in 2021/22 and 2023/24.</p>
+        <p><strong>Keep in scope:</strong> frameworks, deep learning/computer vision, and ethics. They are current learning outcomes but have no direct local-paper evidence.</p>
+        <p><strong>Use as backup:</strong> distance weighting, decision-tree instability, perceptrons, lazy/eager learning, Bayesian networks/Naive Bayes, and Q-learning. They appear in 2019/20 only, which uses an older format.</p>
+      </div>
+
+      <h2 id="core">1. Core ML Concepts</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is supervised learning?</td><td>Learning from labelled examples where each input has a known target/output.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is unsupervised learning?</td><td>Finding structure or patterns in unlabelled data, without a known target/output.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What are independent variables?</td><td>The input features used by the model to make a prediction.</td><td>2023/24</td></tr>
+        <tr><td>What is the dependent variable?</td><td>The target/output the model is trying to predict in supervised learning.</td><td>2023/24</td></tr>
+        <tr><td>What is classification?</td><td>Supervised learning that predicts a discrete class label, such as spam or not spam.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is regression?</td><td>Supervised learning that predicts a continuous numeric value, such as house price.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is clustering?</td><td>Unsupervised learning that groups similar unlabelled examples, such as customer segments.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How would a supervised dataset change for clustering?</td><td>Remove the target/output column; the algorithm groups rows using only their input features.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="evaluation">2. Evaluation And Model Selection</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is a hyperparameter?</td><td>A setting chosen before training that controls the learning process or model structure, such as maximum tree depth.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is grid search?</td><td>Trying a defined set of hyperparameter combinations and choosing the one with the best validation or cross-validation score.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is cross-validation?</td><td>Repeatedly training on part of the data and evaluating on a held-out part, then averaging the performance results.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is stratification in cross-validation?</td><td>Keeping approximately the same class proportions in each fold as in the full dataset.</td><td>2023/24</td></tr>
+        <tr><td>What do TP, FP, TN, and FN mean?</td><td>TP: positive correctly predicted positive. FP: negative wrongly predicted positive. TN: negative correctly predicted negative. FN: positive wrongly predicted negative.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is a ROC curve?</td><td>A graph of TPR on the y-axis against FPR on the x-axis across different classification thresholds.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>Where is ideal performance on a ROC curve?</td><td>At the top-left: TPR = 1 and FPR = 0.</td><td>2021/22, 2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="distance">3. kNN, k-Means, Distance, And Scaling</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is k-nearest neighbours (kNN)?</td><td>A supervised algorithm that predicts using the k closest labelled training examples.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>How does kNN perform classification and regression?</td><td>For classification, it assigns the most common class among the k nearest labelled examples. For regression, it predicts the average numerical output of the k nearest examples.</td><td>2019/20, 2023/24</td></tr>
+        <tr><td>What is k-means?</td><td>An unsupervised clustering algorithm that repeatedly assigns examples to the nearest centroid, recalculates each centroid, and stops when the clusters no longer change significantly.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is a centroid?</td><td>The mean position of all examples currently assigned to a cluster.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is the key difference between kNN and k-means?</td><td>kNN is supervised and predicts from labelled neighbours; k-means is unsupervised and groups unlabelled examples around centroids. In kNN, k is the number of neighbours; in k-means, k is the number of clusters.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is hierarchical clustering?</td><td>A clustering approach that builds a hierarchy of nested clusters, often by repeatedly merging the closest clusters. The result can be shown as a dendrogram.</td><td>2023/24</td></tr>
+        <tr><td>Compare k-means and hierarchical clustering.</td><td>k-means requires k to be chosen in advance and produces a fixed set of clusters. Hierarchical clustering builds a dendrogram, so the number of clusters can be chosen later by cutting the tree.</td><td>2023/24</td></tr>
+        <tr><td>What is a distance metric?</td><td>A numerical way to measure how different two examples are. A smaller distance means the examples are more similar.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>When are Euclidean and Hamming distance suitable?</td><td>Euclidean distance is suitable for continuous numeric features. Hamming distance is suitable for discrete or categorical representations.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>Why is feature scaling needed for distance-based algorithms?</td><td>Without scaling, a feature with a larger numerical range can dominate distance calculations, even if it is not more important.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>Compare z-normalisation and min-max scaling.</td><td>Z-normalisation gives a feature mean 0 and standard deviation 1. Min-max scaling maps values into a fixed range, usually 0 to 1.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is the elbow method?</td><td>Plot the within-cluster variation against different k values and choose the bend where increasing k gives only a small further improvement.</td><td>2021/22, 2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="generalisation">4. Generalisation, Dimensionality, And Data Problems</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is underfitting?</td><td>A model that is too simple to capture the real pattern, so it performs poorly on both training and test data.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>What is overfitting?</td><td>A model that fits training noise or quirks too closely, so training performance is much better than test performance.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>How can you identify underfitting and overfitting?</td><td>Underfitting gives poor performance on both training and test data. Overfitting gives much better training performance than test performance.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is high bias?</td><td>A systematic error caused by an overly simple model; it is associated with underfitting.</td><td>2023/24</td></tr>
+        <tr><td>What is high variance?</td><td>A model that is overly sensitive to its training data and may fit noise, so it performs well on training data but poorly on new data.</td><td>2023/24</td></tr>
+        <tr><td>What does dimensionality mean?</td><td>The number of features or attributes used to describe each example in a dataset.</td><td>2023/24</td></tr>
+        <tr><td>What is the curse of dimensionality?</td><td>As the number of features grows, data become sparse and distance/data coverage become less reliable, often needing far more data.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>How can the curse of dimensionality be reduced?</td><td>Use feature selection or dimensionality reduction, remove irrelevant features, collect more relevant data, or use less distance-sensitive methods.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>What is an imbalanced dataset?</td><td>One class has far more examples than another, making a model appear accurate while missing the minority class.</td><td>2023/24</td></tr>
+        <tr><td>Compare under-sampling and over-sampling.</td><td>Under-sampling removes majority-class examples and may lose useful information. Over-sampling adds or creates minority-class examples and can cause overfitting if done carelessly.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="trees">5. Decision Trees And Regression Metrics</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is entropy in a decision tree?</td><td>A measure of class impurity or uncertainty. A pure node has zero entropy.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is information gain?</td><td>The reduction in entropy after a split. A higher value means the split creates purer groups.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How does a decision tree choose a split?</td><td>It tests candidate attributes and chooses the split with the highest information gain, then repeats on each subset.</td><td>2019/20, 2021/22, 2023/24</td></tr>
+        <tr><td>When does decision-tree splitting stop?</td><td>When a node is pure, no useful split remains, or a stopping rule such as maximum depth or minimum samples is reached.</td><td>2019/20, 2021/22</td></tr>
+        <tr><td>How can decision-tree overfitting be reduced?</td><td>Limit depth, require minimum samples per leaf, pre-prune, post-prune, or use an ensemble.</td><td>2019/20, 2021/22</td></tr>
+        <tr><td>Compare MSE, RMSE, and MAE.</td><td>MSE averages squared errors, so it heavily penalises large errors and uses squared units. RMSE is the square root of MSE, so it uses the target's units but still heavily penalises large errors. MAE averages absolute errors, uses target units, and is less sensitive to outliers.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How are regression and classification evaluated differently?</td><td>Regression uses numerical error measures such as MSE, RMSE, and MAE. Classification uses confusion-matrix measures such as precision, recall, specificity, and ROC curves.</td><td>2021/22, 2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="neural">6. Neural-Network Basics And Encoding</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What does an artificial neuron do?</td><td>It combines input values using weights and a bias, then applies an activation function to produce an output.</td><td>2019/20, 2023/24</td></tr>
+        <tr><td>What is an activation function?</td><td>A function applied to a neuron's weighted input that determines its output and lets neural networks model non-linear patterns.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is a threshold activation function?</td><td>It outputs 1 when the weighted input reaches or exceeds a threshold; otherwise it outputs 0.</td><td>2021/22</td></tr>
+        <tr><td>What is the logistic activation function?</td><td>A smooth S-shaped function that maps any input to a value between 0 and 1.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is ReLU?</td><td>Rectified Linear Unit: it outputs 0 for negative inputs and the input itself for positive inputs.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>Compare logistic and ReLU activation functions.</td><td>Logistic smoothly maps inputs to values between 0 and 1. ReLU outputs 0 for negative inputs and the input itself for positive inputs.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is one-hot encoding?</td><td>Representing each category with its own binary position, for example red = [1,0,0], green = [0,1,0], blue = [0,0,1].</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>Compare one-hot and binary encoding.</td><td>One-hot encoding uses one binary position per category and is suitable for nominal categories because it implies no order. Binary encoding uses fewer columns but can imply artificial relationships between categories. Encoding is needed because ML models require numeric inputs or outputs.</td><td>2021/22, 2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="outcomes">7. Official-Outcome Coverage</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What are ML frameworks such as scikit-learn, TensorFlow, and Keras used for?</td><td>They provide tools to preprocess data, build/train models, tune settings, and evaluate results without implementing every algorithm from scratch.</td><td>Official outcome</td></tr>
+        <tr><td>What is deep learning?</td><td>A branch of ML using neural networks with multiple layers to learn complex representations from data.</td><td>Official outcome</td></tr>
+        <tr><td>What is computer vision in ML?</td><td>Using ML models to interpret images or video, such as classifying objects or detecting faces.</td><td>Official outcome</td></tr>
+        <tr><td>Why do ethical issues matter in ML?</td><td>Models can cause unfairness, privacy harms, discrimination, or unsafe decisions if data, design, and deployment are not evaluated responsibly.</td><td>Official outcome</td></tr>
+      </tbody></table>
+
+      <h2 id="backup">8. Older-Paper Backup</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is distance weighting in kNN?</td><td>Giving closer neighbours more influence than farther neighbours, usually by using a larger weight for a smaller distance.</td><td>2019/20 only</td></tr>
+        <tr><td>Why can decision trees be unstable?</td><td>A small change in training data can change an early split, which can create a very different whole tree.</td><td>2019/20 only</td></tr>
+        <tr><td>What does the perceptron learning rule do?</td><td>After an error, it changes weights and bias so the model's next output moves toward the correct class.</td><td>2019/20 only</td></tr>
+        <tr><td>Compare lazy and eager learning.</td><td>Lazy learners store examples and generalise at prediction time; kNN is an example. Eager learners build a model during training; a decision tree is an example.</td><td>2019/20 only</td></tr>
+        <tr><td>What is conditional independence and the Naive Bayes assumption?</td><td>Two events are conditionally independent given C when knowing one gives no extra information about the other once C is known. Naive Bayes assumes features are conditionally independent given the class label.</td><td>2019/20 only</td></tr>
+        <tr><td>What is the Markov property?</td><td>The current state contains all information needed for the next state or decision; the earlier history adds nothing once the current state is known.</td><td>2019/20 only</td></tr>
+        <tr><td>What do Q-learning's learning rate, discount factor, and exploration rate control?</td><td>Learning rate: how strongly new experience updates Q-values. Discount factor: how much future rewards matter. Exploration rate: how often the agent tries actions instead of its best-known action.</td><td>2019/20 only</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This is a quick-recall deck, not an exam-answer bank. It intentionally omits long procedures and full calculations. Use <a href="most_asked.html">most_asked.html</a> and the topic guides when you need to practise complete questions.</p>
+    </article>
+  </main>
+</body>
+</html>

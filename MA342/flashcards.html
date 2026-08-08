@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MA342 - Most-Asked Exam Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank h3 { margin: 26px 0 10px; color: #23313a; font-size: 1.08rem; }
+    .flashcard-bank h2 + h3 { margin-top: 14px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flashcard-bank td:first-child { width: 38%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 46%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print {
+      .top-nav { display: none; }
+      .module-header, .module-shell { padding: 18px; }
+      .module-content { border: 0; box-shadow: none; padding: 0; }
+      .flashcard-bank table { page-break-inside: auto; }
+      .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; white-space: normal; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Evidence"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">MA342 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#priority-1">Foundations</a>
+      <a href="#priority-2">Compactness</a>
+      <a href="#priority-3">Connectedness</a>
+      <a href="#priority-4">Homeomorphisms</a>
+      <a href="#priority-5">Constructions</a>
+      <a href="#priority-6">Cantor set</a>
+      <a href="#priority-7">Homotopy</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">MA342 Physical Flashcards</p>
+    <h1>56-Card Most-Asked Deck</h1>
+    <p>Full definitions, distinctions, examples, and proof methods from the three current MA342 papers.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Write the first column on the front of a card and the second on the back. This is a full-answer recall deck, not a replacement for the detailed <a href="most_asked.html">most-asked question guide</a>. Learn each back as a complete definition, justification, or proof method; do not treat it as a hint. The final column identifies the supporting current-format papers.</p>
+
+      <h2 id="frequency">Frequency Reality Check</h2>
+      <div class="frequency-note">
+        <p><strong>Drill first:</strong> topology definitions; subspaces; lower-limit and cofinite examples; closure/interior; compactness and Hausdorffness; connectedness; and standard homeomorphism comparisons. These are the stable early-to-middle exam families across all three current papers.</p>
+        <p><strong>Then drill:</strong> product, initial/final, and quotient topologies; Cantor-set arguments; and homotopy. They also recur in all three papers but are concentrated later in the paper.</p>
+        <p><strong>Scope:</strong> these cards deliberately track the current most-asked document. The legacy Euler/triangulation and Brouwer/FTA/Nash families remain in <a href="most_asked.html#legacy">the most-asked page's backup section</a>, rather than diluting this 56-card current-format deck.</p>
+      </div>
+
+      <h2 id="priority-1">Priority 1 - Core Topology, Subspaces, Bases, Closure, And Interior</h2>
+      <h3>Named Topologies</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Define a topology on X.</td><td>A collection τ of subsets of X such that ∅ and X belong to τ, arbitrary unions of members of τ belong to τ, and finite intersections of members of τ belong to τ.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>What is the standard topology on R?</td><td>The topology whose open sets are arbitrary unions of ordinary open intervals (a,b).</td><td>2025/26</td></tr>
+        <tr><td>What is the cofinite topology on X?</td><td>The topology whose open sets are ∅ together with all subsets U⊆X for which X\U is finite.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>What is the discrete topology on X?</td><td>The topology P(X), in which every subset of X is open.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>How can you show the standard and cofinite topologies on R are different?</td><td>The interval (0,1) is open in the standard topology. Its complement R\(0,1) is infinite, so (0,1) is not open in the cofinite topology. Therefore the two topologies differ.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Subspace Topology And Discreteness</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is the subspace topology on A⊆X?</td><td>The open sets of A are precisely the sets A∩U, where U is open in X. Thus V⊆A is open in A if and only if V=A∩U for some open U⊆X.</td><td>2023/24, 2025/26</td></tr>
+        <tr><td>When is a subspace discrete?</td><td>A subspace A is discrete if and only if every singleton {a}, with a∈A, is open in the subspace topology. Equivalently, every subset of A is open.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Why is Q not discrete in its usual subspace topology?</td><td>Every ordinary open interval containing q∈Q contains another rational. Therefore no interval intersects Q in {q}, so {q} is not open in Q.</td><td>2023/24</td></tr>
+        <tr><td>Why is Z discrete in its usual subspace topology?</td><td>For every n∈Z, (n−1/2,n+1/2)∩Z={n}. Thus every singleton of Z is open, so Z is discrete.</td><td>2024/25</td></tr>
+        <tr><td>Why is [0,1] not discrete in its usual subspace topology?</td><td>Every ordinary open interval containing 1/2 meets [0,1] in points other than 1/2. Thus {1/2} is not open in [0,1], so [0,1] is not discrete.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Bases And The Lower-Limit Topology</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is a basis, and what is the lower-limit basis on R?</td><td>A basis B is a collection of open sets such that every open set is a union of members of B. For the lower-limit topology on R, B={[a,b): a,b∈R and a&lt;b}.</td><td>2023/24, 2024/25</td></tr>
+        <tr><td>What does clopen mean, and why is [0,1) clopen in the lower-limit topology?</td><td>Clopen means both open and closed. [0,1) is a basic open set. Its complement is (−∞,0)∪[1,∞)=⋃<sub>n≥1</sub>[−n,0)∪⋃<sub>n≥1</sub>[1,n+1), so it is open; hence [0,1) is closed as well.</td><td>2024/25</td></tr>
+      </tbody></table>
+
+      <h3>Neighbourhoods, Interior, Closure, And Accumulation</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is a neighbourhood, and how does it characterise interior?</td><td>N⊆X is a neighbourhood of x if some open U satisfies x∈U⊆N. The interior A° is the largest open subset of A; equivalently, x∈A° if and only if A is a neighbourhood of x.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>What is the closure of A?</td><td>The closure cl(A) is the intersection of all closed subsets of X containing A. Equivalently, x∈cl(A) if and only if every neighbourhood of x meets A.</td><td>2023/24, 2025/26</td></tr>
+        <tr><td>What is an accumulation point of A?</td><td>A point x such that every neighbourhood of x contains a point of A other than x; equivalently, every neighbourhood of x meets A\{x}. Unlike a closure point, x itself cannot be the only point of A met by the neighbourhood.</td><td>2023/24, 2025/26</td></tr>
+        <tr><td>Why does having no accumulation points imply that A is closed?</td><td>Let x∈X\A. Since x is not an accumulation point of A, some neighbourhood N of x satisfies N∩(A\{x})=∅. As x∉A, N∩A=∅. Choose an open U with x∈U⊆N; then U⊆X\A. Thus X\A is open, so A is closed.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="priority-2">Priority 2 - Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples</h2>
+      <h3>Compactness And Non-Compact Examples</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What does compact mean?</td><td>A space X is compact if every open cover of X has a finite subcover: whenever X=⋃<sub>i∈I</sub>U<sub>i</sub> with every U<sub>i</sub> open, there are finitely many i<sub>1</sub>,…,i<sub>n</sub> with X=U<sub>i₁</sub>∪…∪U<sub>iₙ</sub>.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Is standard R compact?</td><td>No. The open sets (−n,n), n∈N, cover R. Any finite subfamily has a largest index N and is contained in (−N,N), so it misses points such as N+1.</td><td>2023/24</td></tr>
+        <tr><td>How can you disprove compactness of the lower-limit line?</td><td>The lower-limit open cover {[n,n+1):n∈Z} covers R. A finite subfamily covers only a bounded subset of R, so it cannot cover all of R; therefore the lower-limit line is not compact.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Cofinite Spaces</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What does dense mean, and which sets are dense in a cofinite space?</td><td>A⊆X is dense if cl(A)=X, equivalently if every nonempty open set meets A. In an infinite cofinite space, every infinite subset is dense: a nonempty open set has finite complement and therefore cannot be disjoint from an infinite A.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Is an infinite cofinite space compact?</td><td>Yes. Given an open cover, choose a nonempty member U. Its complement X\U is finite; choose one cover member for each point of X\U. Together with U, these finitely many sets form a finite subcover.</td><td>2023/24</td></tr>
+        <tr><td>Why is an infinite cofinite space not Hausdorff?</td><td>Any two nonempty open sets have finite complements. Their intersection has complement contained in the union of two finite sets, so it is nonempty when X is infinite. Thus distinct points cannot have disjoint open neighbourhoods.</td><td>2023/24, 2024/25</td></tr>
+      </tbody></table>
+
+      <h3>Hausdorff Separation</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What does Hausdorff mean?</td><td>A space X is Hausdorff if, for every distinct x,y∈X, there are disjoint open sets U,V with x∈U and y∈V.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Why is the lower-limit topology on R Hausdorff?</td><td>For x&lt;y, [x,y) and [y,y+1) are disjoint basic open neighbourhoods of x and y. Therefore any two distinct points can be separated by disjoint open sets.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Compactness Theorems</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Why is every closed subset of a compact space compact?</td><td>If A is closed in compact X and {U<sub>i</sub>} covers A, then {U<sub>i</sub>}∪{X\A} is an open cover of X. A finite subcover exists; removing X\A leaves a finite subcover of A.</td><td>2024/25</td></tr>
+        <tr><td>Why is a compact subspace of a Hausdorff space closed?</td><td>Let A be compact in Hausdorff X and x∉A. For each a∈A choose disjoint open sets U<sub>a</sub>∋a and V<sub>a</sub>∋x. Finitely many U<sub>a₁</sub>,…,U<sub>aₙ</sub> cover A. Then V=V<sub>a₁</sub>∩…∩V<sub>aₙ</sub> is an open neighbourhood of x disjoint from A. Thus X\A is open and A is closed.</td><td>2025/26</td></tr>
+        <tr><td>Why is a continuous bijection from compact X to Hausdorff Y a homeomorphism?</td><td>For every closed F⊆X, F is compact, so f(F) is compact and hence closed in Hausdorff Y. Thus f is a closed bijection, which makes f<sup>−1</sup> continuous. Since f is already continuous, it is a homeomorphism.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="priority-3">Priority 3 - Connectedness, Separations, Continuous Images, And IVT</h2>
+      <h3>Separations And Connectedness</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is a separation of X?</td><td>A pair U,V of disjoint, nonempty, open subsets of X whose union is X: X=U∪V.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>What does connected mean?</td><td>A space is connected if it has no separation; equivalently, its only clopen subsets are ∅ and X.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Connectedness Examples On Q</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Why is discrete Q disconnected?</td><td>{0} and Q\{0} are disjoint, nonempty, open sets whose union is Q.</td><td>2025/26</td></tr>
+        <tr><td>Why is indiscrete Q connected?</td><td>The only open sets are ∅ and Q, so there is no nonempty proper open set that could form a separation.</td><td>2025/26</td></tr>
+        <tr><td>Why is Q with the usual subspace topology disconnected?</td><td>Let U=Q∩(−∞,√2) and V=Q∩(√2,∞). They are nonempty, disjoint, relatively open in Q, and U∪V=Q because √2∉Q. Hence they form a separation.</td><td>2025/26</td></tr>
+        <tr><td>Why is cofinite Q connected?</td><td>Every two nonempty cofinite open subsets of the infinite set Q intersect. A separation would require two disjoint nonempty open sets, so no separation exists.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Continuous Images And The Intermediate Value Theorem</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Why is a continuous surjective image of a connected space connected?</td><td>Let f:X→Y be continuous and surjective, with X connected. If Y=U∪V were a separation, then f<sup>−1</sup>(U) and f<sup>−1</sup>(V) would be disjoint, nonempty, open sets covering X—a contradiction. Hence Y is connected.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>How does connectedness give the Intermediate Value Theorem?</td><td>For continuous h:[a,b]→R, the interval [a,b] is connected, so h([a,b]) is connected and therefore an interval. Every value t between h(a) and h(b) lies in h([a,b]), so h(c)=t for some c∈[a,b].</td><td>2023/24, 2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="priority-4">Priority 4 - Homeomorphisms And Invariants</h2>
+      <h3>Definition And Invariants</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is a homeomorphism?</td><td>A bijection f:X→Y such that both f and f<sup>−1</sup>:Y→X are continuous. It is an isomorphism of topological spaces.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>What properties are used as homeomorphism invariants in these papers?</td><td>Compactness and connectedness, including connectedness after deleting corresponding points.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Non-Homeomorphism Proofs</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Why are R and [0,1] not homeomorphic?</td><td>[0,1] is compact and R is not, and compactness is preserved by homeomorphisms.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Why are R<sup>2</sup> and R not homeomorphic?</td><td>If h:R→R<sup>2</sup> were a homeomorphism, then h would restrict to a homeomorphism R\{0}→R<sup>2</sup>\{h(0)}. But R\{0} is disconnected, whereas R<sup>2</sup>\{h(0)} is path-connected. This contradiction proves they are not homeomorphic.</td><td>2024/25</td></tr>
+        <tr><td>Why are S<sup>1</sup> and [0,1] not homeomorphic, and when is point removal useful?</td><td>If h:[0,1]→S<sup>1</sup> were a homeomorphism, remove an interior point 1/2 and its image h(1/2). The space [0,1]\{1/2} is disconnected, whereas S<sup>1</sup>\{h(1/2)} is connected. This contradiction shows they are not homeomorphic. Point removal is useful when simpler invariants agree but punctured spaces have different connectedness.</td><td>2023/24, 2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Constructing A Homeomorphism</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Give a homeomorphism R→(0,∞) and its inverse.</td><td>f(x)=e<sup>x</sup> is a continuous bijection from R to (0,∞), and f<sup>−1</sup>(y)=ln(y) is continuous. Therefore f is a homeomorphism.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="priority-5">Priority 5 - Product, Initial, Final, And Quotient Topologies</h2>
+      <h3>Product, Initial, And Final Topologies</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is a basis for the product topology on X×Y?</td><td>The sets U×V, where U is open in X and V is open in Y, form a basis. The product-open sets are arbitrary unions of these rectangles.</td><td>2023/24, 2024/25</td></tr>
+        <tr><td>Define the initial and final topologies.</td><td>For maps f<sub>i</sub>:X→Y<sub>i</sub>, the initial topology on X is the coarsest topology making every f<sub>i</sub> continuous; it is generated by f<sub>i</sub><sup>−1</sup>(U) for U open in Y<sub>i</sub>. For maps g<sub>i</sub>:X<sub>i</sub>→Y, the final topology on Y is the finest topology making every g<sub>i</sub> continuous; W⊆Y is open exactly when every g<sub>i</sub><sup>−1</sup>(W) is open in X<sub>i</sub>.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Quotient Topology And The Circle</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is the quotient topology on X/~?</td><td>Let q:X→X/~ send x to its equivalence class [x]. The quotient topology is the final topology for q: a set W⊆X/~ is open if and only if q<sup>−1</sup>(W) is open in X.</td><td>2023/24, 2024/25</td></tr>
+        <tr><td>Why is S<sup>1</sup> a quotient of [0,1], and how is the identification written?</td><td>The map q(t)=(cos(2πt),sin(2πt)) is a continuous surjection [0,1]→S<sup>1</sup>. It identifies exactly 0 and 1, so it induces a continuous bijection [0,1]/(0~1)→S<sup>1</sup>. The quotient is compact and S<sup>1</sup> is Hausdorff, so this bijection is a homeomorphism. Thus S<sup>1</sup>≅[0,1]/(0~1).</td><td>2023/24, 2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="priority-6">Priority 6 - Cantor Set: Definition, Compactness, Images, And Quotients</h2>
+      <h3>Construction And Ternary Description</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How is the Cantor set C constructed?</td><td>Start with C<sub>0</sub>=[0,1]. At each stage remove the open middle third of every closed interval remaining from the previous stage. The Cantor set is C=⋂<sub>n≥0</sub>C<sub>n</sub>.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>How can the Cantor set be described using ternary expansions?</td><td>C is the set of points in [0,1] having a ternary expansion that uses only the digits 0 and 2. Equivalently, its points are ∑<sub>n=1</sub><sup>∞</sup>2a<sub>n</sub>/3<sup>n</sup>, where each a<sub>n</sub> is 0 or 1.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Topological Properties</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Why is the Cantor set compact Hausdorff?</td><td>Each C<sub>n</sub> is closed in [0,1], so C=⋂C<sub>n</sub> is closed in compact [0,1]; hence C is compact. As a subspace of the Hausdorff space R, C is Hausdorff.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h3>Continuous Images And Quotient Obstructions</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Which continuous-image directions hold between C and [0,1]?</td><td>[0,1] is a continuous image of C: the restriction of the Cantor function sends ∑<sub>n=1</sub><sup>∞</sup>2a<sub>n</sub>/3<sup>n</sup> to ∑<sub>n=1</sub><sup>∞</sup>a<sub>n</sub>/2<sup>n</sup> and is surjective. Conversely, C cannot be a continuous image of [0,1], because a continuous image of connected [0,1] is connected, while C is disconnected.</td><td>2023/24</td></tr>
+        <tr><td>What property rules out a quotient map from C onto standard R?</td><td>A quotient map is a continuous surjection. Since C is compact, its continuous image would be compact; standard R is not compact. Therefore R cannot be a quotient of C.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="priority-7">Priority 7 - Homotopy And Star-Shaped/Convex Spaces</h2>
+      <h3>Homotopy Definitions</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>When are f,g:X→Y homotopic?</td><td>They are homotopic if there is a continuous H:X×[0,1]→Y such that H(x,0)=f(x) and H(x,1)=g(x) for every x∈X. H is a homotopy from f to g.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>When are X and Y homotopy equivalent?</td><td>When there are continuous maps f:X→Y and g:Y→X such that g∘f is homotopic to id<sub>X</sub> and f∘g is homotopic to id<sub>Y</sub>.</td><td>2023/24</td></tr>
+        <tr><td>What does simply connected mean?</td><td>A space X is simply connected if it is path-connected and every loop in X is homotopic, while fixing its endpoints, to a constant loop. Equivalently, its fundamental group is trivial.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h3>Constructing Homotopies</h3>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What straight-line homotopy works for maps into R<sup>n</sup>, and why?</td><td>For continuous f,g:X→R<sup>n</sup>, set H(x,t)=(1−t)f(x)+tg(x). This is continuous, has H(x,0)=f(x) and H(x,1)=g(x), and stays in R<sup>n</sup>; hence it is a homotopy.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>For what more general targets does straight-line interpolation work?</td><td>It works for a convex subset Y⊆R<sup>n</sup>: whenever y<sub>0</sub>,y<sub>1</sub>∈Y and t∈[0,1], (1−t)y<sub>0</sub>+ty<sub>1</sub> lies in Y. Thus the same formula gives a homotopy between maps into Y.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>How do you contract a star-shaped space with centre x<sub>0</sub>?</td><td>S is star-shaped with centre x<sub>0</sub> if, for every x∈S, the segment {(1−t)x+tx<sub>0</sub>:t∈[0,1]} lies in S. Then H(x,t)=(1−t)x+tx<sub>0</sub> contracts S to x<sub>0</sub>; hence S is contractible and therefore simply connected.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This current-format recall deck consolidates the 77 source cards in <a href="Flashcards.md">Flashcards.md</a> into 56 full-answer cards, ordered by the seven most-asked MA342 families. It also restores the homotopy-equivalence and simply-connectedness definitions asked in 2023/24. Use <a href="most_asked.html">most_asked.html</a> for full paper wording, mark allocations, question variants, and legacy backup material.</p>
+    </article>
+  </main>
+</body>
+</html>

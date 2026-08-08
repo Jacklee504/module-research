@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT417 Software Engineering III - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h2 + p { color: #39454b; }
+    .question-bank .paper-list { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank .answer-frame { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+    .question-bank .source-scope { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
+    .question-bank pre { overflow-x: auto; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #17212b; color: #eef6f7; }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT417 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="#most-repeated">Most repeated</a>
+      <a href="#lower-frequency">Lower frequency</a>
+      <a href="#study-order">Study order</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT417 Study Document</p>
+    <h1>Software Engineering III - Most Asked Exam Questions</h1>
+    <p>Consolidated question families from Effirul Ramlan's local CT417 papers, following the exam-question style and repeated subquestion patterns.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2 id="how-to-use">How to Use This Document</h2>
+      <div class="source-scope">
+        <p><strong>Source scope:</strong> only the Effirul Ramlan starred papers are used: <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>, and <a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>.</p>
+        <p><strong>Format warning:</strong> 2023/24 was answer all questions, 15 marks each. The 2024/25 and 2025/26 papers are answer any 3 questions, 20 marks each. The newest two papers are the strongest guide for current question shape.</p>
+      </div>
+      <ol>
+        <li>Revise by question family, not by broad topic alone.</li>
+        <li>For each family, practise the listed original subquestions from the PDFs.</li>
+        <li>Use the answer frame only after attempting the exam-style prompt.</li>
+        <li>Keep commands, definitions, comparisons, and short design patterns as flashcards.</li>
+      </ol>
+
+      <h2 id="most-repeated">Most Repeated Question Families</h2>
+      <p class="priority-note">The priorities below consolidate similar questions while preserving the original exam shape: scenario, subparts, marks, and practical action.</p>
+
+      <h2 id="cicd-github">Priority 1 - CI/CD, GitHub Actions, Docker Deployment, And Git Workflows</h2>
+      <p><strong>Frequency:</strong> 3/3 Effirul papers. This is the strongest current CT417 question family.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q4(a)-(b) - list CI advantages and discuss CI/CD adoption pitfalls.</li>
+        <li>2024/25 - Q1(a) - propose four CI/CD pipeline improvements for FoodieGo.</li>
+        <li>2024/25 - Q1(b) - write Git commands for status, add, commit, push, and merge feature branch into main.</li>
+        <li>2024/25 - Q1(c) - explain a GitHub Actions YAML build job for a Java/Maven app, tests, coverage, Docker build, and registry push.</li>
+        <li>2025/26 - Q1(a) - diagnose and fix a failed Docker pull: <code>manifest unknown</code> for <code>ghcr.io/skybankai/app:latest</code>.</li>
+        <li>2025/26 - Q1(b) - design a simplified GitHub Actions pipeline for a Node.js microservice.</li>
+        <li>2025/26 - Q1(c) - identify risks in a bad pipeline where tests only run on main, every commit deploys to production, and no rollback exists.</li>
+        <li>2025/26 - Q1(d) - explain how merge conflicts arise and how to prevent and resolve them.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Given a company with manual testing, integration conflicts, insecure releases, failed deployments, and weak rollback, propose a practical GitHub Actions CI/CD workflow and show how to diagnose, fix, and safely deploy changes using Git and Docker.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Start with pull-request checks: checkout, install dependencies, run tests, run coverage, and run security scans before merge. On merge to <code>main</code>, build a versioned Docker image, push it to the registry, deploy to staging, run smoke tests, and only then promote or deploy onward. Use feature branches and PR reviews to control integration. Avoid direct production deployment from every commit without gates or rollback. For Docker manifest errors, check that the expected image name and tag exist, identify whether the image was pushed under a commit SHA or different tag, then retag or rebuild and push the expected tag before redeploying.</p>
+      </div>
+      <p>Command patterns worth knowing:</p>
+      <pre><code>git status
+git add .
+git commit -m "Implemented new feature."
+git push origin feature-branch
+git checkout main
+git pull origin main
+git merge feature-branch
+
+docker pull ghcr.io/skybankai/app:latest
+docker build -t ghcr.io/skybankai/app:latest .
+docker push ghcr.io/skybankai/app:latest</code></pre>
+      <p>Merge-conflict answer structure:</p>
+      <ul>
+        <li>Explain cause: two branches modify the same lines, nearby code, or related files and Git cannot automatically combine them.</li>
+        <li>Prevent: small branches, frequent pull/rebase from <code>main</code>, early PRs, team communication around shared files, and avoid mixing refactors with feature work.</li>
+        <li>Resolve: fetch latest <code>main</code>, rebase or merge, inspect conflict markers, combine or choose the correct code, run tests, <code>git add</code>, continue the rebase or complete the merge, then push the branch.</li>
+      </ul>
+
+      <h2 id="sast-dast-testing">Priority 2 - SAST, DAST, SonarQube, OWASP ZAP, And Coverage</h2>
+      <p><strong>Frequency:</strong> 2/3 papers as a full 20-mark question, with JUnit also appearing in 2023/24.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q4(c) - design JUnit test cases for a simple Java <code>Calculator.add()</code> method.</li>
+        <li>2024/25 - Q2(a)-(c) - compare SAST and DAST, explain why they belong in CI/CD, and state the role of code coverage.</li>
+        <li>2024/25 - Q2(d) - propose two SonarQube optimisations, with justification and trade-offs.</li>
+        <li>2024/25 - Q2(e) - diagnose OWASP ZAP pipeline failures and missing reports.</li>
+        <li>2024/25 - Q2(f) - use coverage tools to find low-coverage Java business logic and increase coverage without slowing CI.</li>
+        <li>2025/26 - Q2(a) - compare SAST and DAST by lifecycle timing, vulnerability type, source-code access, and tool examples.</li>
+        <li>2025/26 - Q2(b) - identify two likely OWASP ZAP technical failure causes and practical resolutions.</li>
+        <li>2025/26 - Q2(c) - optimise SonarQube without reducing scan quality.</li>
+        <li>2025/26 - Q2(d) - use JaCoCo, Istanbul, or Coverage.py to identify low-coverage payment code and improve coverage efficiently.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain how SAST, DAST, unit testing, code coverage, SonarQube, and OWASP ZAP fit into a CI/CD pipeline, then troubleshoot performance or reporting problems without reducing useful scan quality.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> SAST analyses source code or compiled code before the application runs, so it is useful early in CI for code-level flaws and insecure patterns. DAST tests a running application from the outside, so it is useful against staging or production-like environments for runtime and configuration issues. SonarQube can be optimised with careful exclusions for generated files, dependencies, build outputs, and irrelevant artefacts, plus pull-request analysis focused on new code while full scans still run on <code>main</code>. OWASP ZAP failures often come from scanning before the app is running, wrong target URLs, authentication/session problems, blocked network access, or reports not being exported as CI artefacts. Coverage tools highlight untested files, methods, and branches; increase coverage by targeting critical paths and adding focused unit tests rather than slowing every pipeline with broad end-to-end tests.</p>
+      </div>
+      <p>Keep these distinctions separate:</p>
+      <ul>
+        <li><strong>SAST:</strong> early, static, source-aware, examples include SonarQube, Checkmarx, Semgrep, or CodeQL.</li>
+        <li><strong>DAST:</strong> later, dynamic, no source-code requirement, examples include OWASP ZAP or Burp Suite DAST.</li>
+        <li><strong>Coverage:</strong> tells you which code was exercised by tests; it does not prove correctness by itself.</li>
+        <li><strong>SonarQube optimisation:</strong> exclusions and PR/new-code analysis are valid, but do not exclude real production code.</li>
+      </ul>
+
+      <h2 id="vulnerabilities">Priority 3 - Vulnerability, Countermeasures, Zero-Day Lifecycle, Metrics, And Buffer Overflow</h2>
+      <p><strong>Frequency:</strong> 3/3 Effirul papers. This is the most repeated definition/security family.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q3(a)-(e) - define vulnerability, countermeasures, zero-day vulnerability, zero-day lifecycle, and buffer overflow exploitation.</li>
+        <li>2024/25 - Q3(a)-(f) - repeat vulnerability, countermeasures, zero-day, five-stage lifecycle, buffer overflow exploitation, and two buffer-overflow countermeasures.</li>
+        <li>2025/26 - Q3(a)-(c) - repeat vulnerability, countermeasures, and zero-day vulnerability.</li>
+        <li>2025/26 - Q3(d) - calculate average MTBF from MTTD and MTTR, identify best incident, and recommend MTTD/MTTR improvements.</li>
+        <li>2025/26 - Q3(e) - define and explain buffer overflow exploitation and discuss two countermeasures.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Define key security terms, explain the zero-day lifecycle, calculate operational incident metrics, and explain how buffer overflow attacks work plus how to reduce them.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> A vulnerability is a weakness that can be exploited to violate security. A countermeasure is a safeguard that reduces the risk, likelihood, or impact of exploitation. A zero-day vulnerability is unknown to, or unpatched by, the vendor at the time attackers can exploit it. Its lifecycle can be explained as discovery, weaponisation/exploit development, active exploitation, disclosure/detection, and patching/remediation. A buffer overflow occurs when a program writes more data into a fixed-size buffer than it can hold, overwriting adjacent memory such as local variables or a return address. Countermeasures include bounds checking, safer library functions, stack canaries, ASLR, DEP/NX, compiler hardening, input validation, and using memory-safe languages.</p>
+      </div>
+      <p>2025/26 metrics pattern:</p>
+      <ul>
+        <li>Use the question's given assumption even if it simplifies the real definition: <code>MTBF = MTTD + MTTR</code> for each incident.</li>
+        <li>Incident values: <code>4 + 2 = 6</code>, <code>0.5 + 1 = 1.5</code>, <code>6 + 4 = 10</code>.</li>
+        <li>Average: <code>(6 + 1.5 + 10) / 3 = 5.83 hours</code>.</li>
+        <li>Best operational performance is Incident 2 because it has the lowest MTTD, lowest MTTR, and lowest downtime.</li>
+        <li>MTTD improvements: automated alerting, centralised logs, alert correlation, security monitoring, SAST/DAST gates.</li>
+        <li>MTTR improvements: rollback, feature flags, blue-green/canary deployment, incident runbooks, automated redeploy or patch pipelines.</li>
+      </ul>
+
+      <h2 id="refactoring-patterns">Priority 4 - Refactoring, Design Patterns, Polymorphism, Factory Pattern, And Open/Closed Principle</h2>
+      <p><strong>Frequency:</strong> 2/3 papers as the full final question. It is extremely strong in the newest two papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2024/25 - Q4(a) - explain the importance of design patterns.</li>
+        <li>2024/25 - Q4(b) - explain why refactoring improves code reusability.</li>
+        <li>2024/25 - Q4(c) - refactor separate customer/manager authentication methods using an abstract <code>User</code> class and polymorphism.</li>
+        <li>2024/25 - Q4(d) - refactor account creation using a <code>UserFactory</code>.</li>
+        <li>2024/25 - Q4(e) - refactor the factory so adding roles such as Admin does not modify <code>createUser</code>, following the Open/Closed Principle.</li>
+        <li>2025/26 - Q4(a) - explain why refactoring improves code reusability.</li>
+        <li>2025/26 - Q4(b) - identify two concrete design problems and match each to an appropriate design pattern.</li>
+        <li>2025/26 - Q4(c) - refactor role-based conditionals using an abstract <code>User</code> interface/class, role-specific subclasses, and a <code>UserFactory</code>.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Given duplicated role-based controller code with conditionals for authentication or account creation, refactor it using object-oriented principles, a User abstraction, subclasses, and a factory that supports extension.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Refactoring improves reusability by removing duplication, separating responsibilities, and making behaviour easier to extend without changing unrelated code. Replace role conditionals with polymorphism: define a <code>User</code> interface or abstract class with methods such as <code>authenticate()</code> or <code>createAccount()</code>, then implement role-specific subclasses such as <code>Customer</code> and <code>Manager</code>. A <code>UserFactory</code> centralises object creation so controllers depend on the abstraction rather than concrete role classes. To follow Open/Closed Principle more strongly, replace a hardcoded switch with a registry/map of role names to creator functions, so new roles can be registered without modifying the factory method itself.</p>
+      </div>
+      <p>Reusable pseudocode shape:</p>
+      <pre><code>interface User {
+  void authenticate(String username, String password);
+}
+
+class Customer implements User {
+  public void authenticate(String username, String password) {
+    // customer-specific authentication
+  }
+}
+
+class UserController {
+  public void authenticate(User user, String username, String password) {
+    user.authenticate(username, password);
+  }
+}</code></pre>
+      <p>Pattern-matching hints:</p>
+      <ul>
+        <li>Many <code>if/else</code> or <code>switch</code> branches for user roles: polymorphism plus Factory Pattern.</li>
+        <li>Many payment methods selected by conditionals: Strategy Pattern or Factory plus Strategy.</li>
+        <li>Hardcoded email/SMS/push notification logic: Adapter, Strategy, or Observer depending on the wording.</li>
+        <li>Need to add new roles without editing old code: Open/Closed Principle and registration-based factory.</li>
+      </ul>
+
+      <h2 id="lower-frequency">Distinct Lower-Frequency Effirul Questions</h2>
+      <p>These are Effirul questions, but they appear mainly in 2023/24 and are less central to the newest 2024/25 and 2025/26 structure.</p>
+
+      <h2 id="agile">Agile Manifesto, Scrum, Changing Requirements, And Stakeholder Collaboration</h2>
+      <p><strong>Appears:</strong> 2023/24 - Q1(a)-(c) only.</p>
+      <ul class="paper-list">
+        <li>Q1(a) - describe the Agile Manifesto and list two core principles.</li>
+        <li>Q1(b) - choose a relevant Agile principle and propose two solutions for changing requirements and evolving data sources.</li>
+        <li>Q1(c) - using business-stakeholder and developer collaboration, suggest five steps to improve model accuracy and reliability.</li>
+      </ul>
+      <blockquote><p>Explain Agile principles in a project scenario, then apply one principle to concrete delivery problems such as changing requirements, evolving data, and stakeholder concerns.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Agile values individuals and interactions, working software, customer collaboration, and responding to change. For changing requirements, use short sprints, backlog refinement, sprint reviews, prioritisation, and regular stakeholder feedback. For reliability concerns, bring data scientists, developers, and business stakeholders together to define acceptance criteria, validate model performance, review real user feedback, adjust data sources, and iterate on the model with measurable quality targets.</p>
+      </div>
+
+      <h2 id="formal-specification">Formal Specification And Z-Style Cursor Schemas</h2>
+      <p><strong>Appears:</strong> 2023/24 - Q2(a)-(e) only.</p>
+      <ul class="paper-list">
+        <li>Q2(a) - list three advantages of formal specifications.</li>
+        <li>Q2(b) - describe an initial state schema for a cursor on a terminal display.</li>
+        <li>Q2(c) - define <code>DownKeyNormal</code> for pressing down when the cursor is not on the bottom line.</li>
+        <li>Q2(d) - define <code>DownKeyAtBottom</code> for pressing down when the cursor is on the bottom line.</li>
+        <li>Q2(e) - define the full behaviour.</li>
+      </ul>
+      <blockquote><p>List formal-specification benefits, then write small state and operation schemas for cursor movement with normal and boundary cases.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Formal specifications reduce ambiguity, support precise validation of requirements, and can reveal inconsistencies before implementation. For the cursor schema, define state variables such as <code>line</code> and <code>column</code> with invariants like <code>1 &lt;= line &lt;= numLines</code> and <code>1 &lt;= column &lt;= numColumns</code>. The initial state sets the cursor to a valid starting position. <code>DownKeyNormal</code> increments <code>line</code> when it is below <code>numLines</code> and leaves <code>column</code> unchanged. <code>DownKeyAtBottom</code> handles the boundary case by keeping the cursor on the bottom line or otherwise defining the specified no-op behaviour. The full operation combines normal and boundary schemas.</p>
+      </div>
+
+      <h2 id="study-order">Recommended Study Order</h2>
+      <ol>
+        <li>CI/CD, GitHub Actions, Git commands, Docker tags, rollback, and merge conflicts.</li>
+        <li>SAST versus DAST, SonarQube optimisation, OWASP ZAP troubleshooting, and coverage strategy.</li>
+        <li>Vulnerability definitions, zero-day lifecycle, MTTD/MTTR/MTBF, and buffer overflow countermeasures.</li>
+        <li>Refactoring, polymorphism, Factory Pattern, Strategy Pattern, and Open/Closed Principle.</li>
+        <li>Agile Manifesto and stakeholder-collaboration scenario answers.</li>
+        <li>Formal specification and Z-style cursor schemas as backup material unless lectures emphasise it again.</li>
+      </ol>
+      <p>For exam practice, prioritise 2025/26 and 2024/25 first, then use 2023/24 to cover the repeated security/CI roots and the lower-frequency Agile/formal-specification backup questions.</p>
+    </article>
+  </main>
+</body>
+</html>

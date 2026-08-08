@@ -1,0 +1,109 @@
+===== 2023_2024.pdf PAGE 1 =====
+Summer Examinations 2023/2024
+Course Instance Codes 3BA1, 4BA161, 4BME1, 4BMU1,
+1OA2, 1OA3, 4BCT1, 4BMS2, 4BS2
+Exams 3rd and 4th year (Arts and Science),
+Study Abroad / International Exchange
+Module Code CS402
+Module Cryptography
+External Examiner Prof. C. Roney-Dougal
+Internal Examiners Dr N. Madden
+∗Dr K. Jennings
+Instructions: Answer all four questions.
+Each question carries 25 marks.
+All workings must be shown.
+Duration 2 hours
+No. of Pages 4 pages, including this one
+Discipline Mathematics
+Requirements: No special requirements
+Release to Library Yes
+Release in Exam Venue Yes
+MCQ No
+Statistical / Log Tables No
+Non-programmable Calculator Yes
+Mathematical Tables No
+Graph paper No
+
+===== 2023_2024.pdf PAGE 2 =====
+The following table may be helpful throughout Q1:
+A B C D E F G H I J K L M N O P
+0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15
+Q R S T U V W X Y Z
+16 17 18 19 20 21 22 23 24 25 26
+Q1. (a) The ciphertext string
+JCRYGRY C
+was produced using a shift cipher over the 27-letter alphabet
+A = 0, B = 1, . . . , Z = 25, = 26,
+where the final character indicates a space.
+By conducting a frequency analysis of a larger sample of ciphertexts, it has
+been found that the plaintext symbol corresponds to the ciphertext sym-
+bol Y. Determine the plaintext string corresponding to the ciphertext string
+given above. [5 marks]
+(b) Identify Z = {0, . . . , 25, 26} with {A, . . . , Z, } as in part (a). The ciphertext
+27
+string ZLV was obtained using a 2-dimensional Hill cipher over Z with key
+27
+(cid:20) (cid:21)
+3 1
+.
+1 1
+Find the corresponding plaintext. [10 marks]
+(c) Briefly describe how the Vigenère cipher works. Using the key ‘FAB’ and the
+same 27 character alphabet as described in parts (a) and (b) above encrypt
+the plaintext ‘BEATLES’ with a Vigenère cipher. [10 marks]
+Q2. (a) Formally define what is meant by a (symmetric) cryptosystem. [5 marks]
+(b) Briefly describe what a perfectly secure (symmetric) cryptosystem is. Do
+perfectly secure cryptosystems exist? Justify your answer. [5 marks]
+(c) State and prove Shannon’s Theorem on perfect security (perfect secrecy).
+[15 marks]
+2 of 4
+
+===== 2023_2024.pdf PAGE 3 =====
+Q3. (a) Describe the difference between symmetric cryptosystems and public-key
+cryptosystems. Give an example of each type of cryptosystem along with
+an advantage and a disadvantage of each type. [5 marks]
+(b) Describe the key generation, encryption, and decryption steps of the RSA
+cryptosystem. [5 marks]
+(c) Decribe the method of fast exponentiation for computing ae mod n, where
+a, e, n ∈ Z with e, n ⩾ 1. [5 marks]
+(d) Bob claims that if an efficient algorithm for deciding whether an integer
+is prime were ever to be developed, then the RSA cryptosystem would no
+longer be secure. Do you agree with Bob? Justify your answer. [5 marks]
+(e) Bob claims that since 1105 is a Carmichael number, the Fermat primality
+test cannot detect that 1105 is composite. Alice disagrees and argues that for
+any composite n, a random choice of a ∈ {1, . . . , n−1} has a (possibly small)
+chance of satisfying gcd(a, n) > 1, in which case an−1 ̸≡ 1 (mod n). With
+whom (if anyone) of the two do you agree? Justify your answer. [5 marks]
+3 of 4
+
+===== 2023_2024.pdf PAGE 4 =====
+Q4. (a) A linear feedback shift register L of length 2 is used to encrypt messages us-
+ing a stream cipher. It is known that when the cipher is used to encrypt the
+plaintext string (x , x , x , x ) = (0, 1, 1, 1), then the corresponding cipher-
+0 1 2 3
+text string is (y , y , y , y ) = (1, 1, 1, 0). Find the connection polynomial of
+0 1 2 3
+L. [5 marks]
+(b) A linear feedback shift register of length 4 with connection polynomial
+C(X) = 1 + X + X2 + X4
+over Z is used to produce a pseudo-random sequence of binary digits with
+2
+initial values s = s = 1 and s = s = 0. Determine the least period of the
+0 2 1 3
+resulting infinite sequence s , s , . . . . [5 marks]
+0 1
+(c) Define what it means for a group to be cyclic. State (without proof) Gauss’s
+characterisation of those n ⩾ 1 for which the group Z× is cyclic. Is Z×
+n 315
+cyclic? Justify your answer. [5 marks]
+(d) Alice and Bob use the cyclic group Z× and its generator g = 2 to perform a
+29
+Diffie-Hellman key exchange. Alice secretly chooses a = 5 and Bob secretly
+chooses b = 4. Determine their shared key (as an element of Z× ). [5 marks]
+29
+(e) Let E be the set of points of the elliptic curve over R defined by the equation
+y2 = x3 + 3x,
+with point at infinity O.
+i. Find all points P ∈ E that satisfy P + P = O.
+ii. Find a point Q ∈ E with Q + Q ̸= O. [5 marks]
+4 of 4

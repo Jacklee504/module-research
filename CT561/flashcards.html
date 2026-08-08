@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT561 - Exam Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+    .flashcard-bank td:first-child { width: 34%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 50%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { border: 0; box-shadow: none; padding: 0; } .flashcard-bank tr { break-inside: avoid; } }
+    @media (max-width: 680px) { .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; } .flashcard-bank thead { display: none; } .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); } .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); } .flashcard-bank td:last-child { border-bottom: 0; } .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; } .flashcard-bank td:nth-child(1)::before { content: "Front"; } .flashcard-bank td:nth-child(2)::before { content: "Back"; } .flashcard-bank td:nth-child(3)::before { content: "Evidence"; } }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT561 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="Flashcards.md">Markdown source</a>
+      <a href="#1-graphical-and-euler-integration">Integration</a>
+      <a href="#2-feedback-workload-and-policy-loops">Feedback</a>
+      <a href="#3-fractional-rates-stock-management-and-workforce">Workforce</a>
+      <a href="#4-sir-proofs-and-public-health-extensions">SIR</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT561 Physical Flashcards</p>
+    <h1>55-Card Exam Deck</h1>
+    <p>Complete answers for the current CT561 question families, with legacy cards retained only for distinct older constructions.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Deck</h2>
+      <p class="instructions">Write the Front column on one side of a card and the Back column on the other. Each answer is intentionally exam-safe: it contains the condition, formula, direction or proof step needed to write the result without guessing. Use the linked <a href="most_asked.html">most-asked guide</a> for full paper wording, marks and variants. The source is <a href="Flashcards.md">Flashcards.md</a>.</p>
+      <div class="frequency-note"><p><strong>Drill first:</strong> graphical/Euler integration, workload feedback loops, SIR construction/proofs/interventions, and stock management/workforce models. They dominate all three current-format papers.</p><p><strong>Keep as focused backup:</strong> resource constraints, effects functions, Little's Law, analytical differential equations and logistic growth. They are distinct legacy questions, not current-format priorities.</p></div>
+
+      <h2 id="1-graphical-and-euler-integration">1. Graphical and Euler Integration</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What is the stock equation for one inflow and one outflow?</td><td><code>Stock = INTEG(Inflow - Outflow, Initial Stock)</code>. Net flow is <code>Inflow - Outflow</code>; it has units stock/time, while Stock has units stock.</td><td>Current Q4/Q1 integration</td></tr>
+        <tr><td>How is a stock change found by graphical integration on a linear net-flow interval?</td><td><code>change in stock = ((NF_start + NF_end)/2) x elapsed time</code>. This is the signed trapezoid area under net flow; add it to the starting stock.</td><td>Current Q4/Q1 integration</td></tr>
+        <tr><td>How does net-flow sign determine stock behaviour?</td><td>Positive net flow means the stock rises; negative net flow means it falls; zero net flow gives a horizontal tangent. If positive net flow is falling, stock rises at a decreasing rate; if negative net flow is falling, stock falls at an increasing rate.</td><td>Current Q4/Q1 integration</td></tr>
+        <tr><td>Where are stock maxima and minima on a net-flow graph?</td><td>A stock maximum occurs where net flow crosses from positive to negative. A stock minimum occurs where net flow crosses from negative to positive. Net flow equal to zero without a sign change gives a flat point, not necessarily an extremum.</td><td>Current Q4/Q1 integration</td></tr>
+        <tr><td>State forward Euler integration.</td><td><code>S(t+DT) = S(t) + NF(t) x DT</code>, where <code>NF(t)</code> is the net flow at the start of the interval. It approximates the integral by a left-endpoint rectangle.</td><td>Current Q4/Q1 integration</td></tr>
+        <tr><td>What assumptions underlie forward Euler in CT561 answers?</td><td>Net flow is treated as constant during each DT; therefore the stock is approximated as changing linearly over that step; DT must be small enough that this is an acceptable approximation.</td><td>Current Q4/Q1 integration</td></tr>
+        <tr><td>When does forward Euler overestimate or underestimate the true stock change for linear net flow?</td><td>It overestimates when net flow falls, because each left-endpoint rectangle is above the line. It underestimates when net flow rises, because each left-endpoint rectangle is below the line.</td><td>2023/24, 2024/25, 2025/26 Euler theory</td></tr>
+        <tr><td>Why is the end-of-step net flow not used in a forward Euler update?</td><td>An update for <code>[t, t+DT]</code> uses <code>NF(t)</code>. The value at <code>t+DT</code> begins the next interval; it is not part of the current left-endpoint rectangle.</td><td>Current Euler calculations</td></tr>
+        <tr><td>Give the 2025/26 Euler-error support calculation on days 0-2.5.</td><td>With DT=0.5, start-of-step net flows are 50, 40, 30, 20, 10. Euler change is <code>(50+40+30+20+10)x0.5 = 75</code>. The true triangular area is <code>0.5x2.5x50=62.5</code>, so Euler overestimates by 12.5 units.</td><td>2025/26 Q1(b)</td></tr>
+        <tr><td>What table should a full Euler calculation show?</td><td>One row per DT interval with time/interval, current or starting net flow, <code>NF x DT</code>, and next stock. Preserve units and use the stated DT, even when it is deliberately large.</td><td>Current Q4/Q1(c)</td></tr>
+      </tbody></table>
+
+      <h2 id="2-feedback-workload-and-policy-loops">2. Feedback, Workload and Policy Loops</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Define positive and negative causal-link polarity.</td><td>A positive link means an increase in the cause tends to increase the effect, and a decrease tends to decrease it, all else equal. A negative link means an increase in the cause tends to decrease the effect, and vice versa.</td><td>2024/25 Q1, 2025/26 Q3</td></tr>
+        <tr><td>Define feedback and loop polarity.</td><td>Feedback is a closed causal chain in which a variable eventually affects itself. Count negative links around the closed loop: an even number gives reinforcing polarity; an odd number gives balancing polarity. Confirm it with an increase-trace.</td><td>2023/24-2025/26 workload questions</td></tr>
+        <tr><td>Distinguish reinforcing and balancing feedback.</td><td>Reinforcing feedback amplifies an initial change, for example more infectious people cause more infections. Balancing feedback counteracts a change or closes a gap, for example backlog raises completions that reduce backlog.</td><td>2024/25 Q1(a), 2025/26 Q3(a)</td></tr>
+        <tr><td>Why add feedback structures to a stock-flow model?</td><td>They reveal how flows are causally generated, expose delayed side-effects and policy resistance, and explain behaviour over time rather than treating rates as independent inputs.</td><td>2024/25 Q1(a)</td></tr>
+        <tr><td>What is the stock equation for a workload backlog with new work, rework and completion?</td><td><code>Backlog = INTEG(New Work + Rework - Completed, Initial Backlog)</code>. New Work and Rework are material inflows; Completed is a material outflow. Pressure, fatigue and workweek are auxiliaries unless the paper explicitly makes them stocks.</td><td>2024/25 Q1(b), 2025/26 Q3(b)</td></tr>
+        <tr><td>Prove that a workload capacity policy is balancing.</td><td>Trace a rise in Backlog: <code>Backlog + -&gt; Pressure + -&gt; policy effort/capacity + -&gt; Completed + -&gt; Backlog -</code>. The final change reduces the original backlog, and there is one negative link, so the loop is balancing.</td><td>Current workload loop parts</td></tr>
+        <tr><td>Why is the shorter-time-per-task rework loop reinforcing?</td><td><code>Backlog + -&gt; Pressure + -&gt; Time per Task - -&gt; Rework + -&gt; Backlog +</code>. There are two negative links, so the initial rise in Backlog is amplified. State that lower time can reduce quality and create later rework.</td><td>2018/19, 2024/25, 2025/26 variants</td></tr>
+        <tr><td>Why is the workweek-fatigue loop reinforcing?</td><td><code>Backlog + -&gt; Pressure + -&gt; Workweek + -&gt; Fatigue + -&gt; Completed - -&gt; Backlog -</code>. Two negative links give reinforcing polarity. A delay in fatigue makes the policy look helpful before it worsens backlog.</td><td>2018/19, 2023/24-2025/26</td></tr>
+        <tr><td>Why can temporary staff create a reinforcing side-effect in the 2025/26 claims model?</td><td><code>Backlog + -&gt; Pressure + -&gt; Temporary Staff + -&gt; Time per Claim + -&gt; Completed - -&gt; Backlog -</code>. Two negative links make the loop reinforcing. The stated mechanism is that more temporary staff increases time per claim.</td><td>2025/26 Q3(b,c)</td></tr>
+        <tr><td>What makes a workload-policy discussion exam-safe?</td><td>Name the intended balancing loop and each delayed reinforcing side-effect; state the mechanism and affected outcome; then recommend testing a combined policy against backlog, completion, rework, fatigue and capacity rather than asserting that overtime or hiring is always best.</td><td>Current workload discussion parts</td></tr>
+      </tbody></table>
+
+      <h2 id="3-fractional-rates-stock-management-and-workforce">3. Fractional Rates, Stock Management and Workforce</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Define a fractional increase flow with units.</td><td><code>Increase = Stock x Fractional Increase Rate</code>. The fraction has units <code>1/time</code>, so Increase has units stock/time. With a constant positive fraction and no opposing flow, the stock shows exponential growth.</td><td>2021/22 Q1(a), 2024/25 Q2(a)</td></tr>
+        <tr><td>Define a fractional decrease flow with units.</td><td><code>Decrease = Stock x Fractional Decrease Rate</code>. The fraction has units <code>1/time</code>; the outflow has units stock/time. With a constant fraction and no inflow, the stock decays exponentially.</td><td>2021/22 Q1(a), 2024/25 Q2(a)</td></tr>
+        <tr><td>Define adjustment to a goal.</td><td><code>Adjustment = (Goal - Actual)/Adjustment Time</code>. It is positive below goal, negative above goal and zero at goal. It is a balancing feedback structure, and Adjustment Time has time units.</td><td>2019/20 Q3(a), 2024/25 Q2(a)</td></tr>
+        <tr><td>Give the first-order smoothing structure and explain AT.</td><td><code>Smoothed = INTEG((Input - Smoothed)/AT, Initial Smoothed)</code>. It is an adjustment-to-goal stock with Input as the goal. Larger AT produces a slower, smoother response; smaller AT tracks Input more closely.</td><td>2023/24 Q2(a)</td></tr>
+        <tr><td>How is the 2025/26 varying fractional decrease structure constructed?</td><td>Make the decrease fraction a goal-seeking state: <code>G = INTEG((G* - G)/AT, G0)</code>, then use <code>Outflow = S x G</code>. <code>G*</code> is the maximum/target fraction and AT controls how quickly the rate changes.</td><td>2025/26 Q2(a)</td></tr>
+        <tr><td>Distinguish the anchor from the adjustment in stock management.</td><td>The anchor replaces expected normal losses; the adjustment corrects the current desired-actual gap. A simple goal-seeking model has only the adjustment. Stock management combines both, so it can stay at target despite expected losses.</td><td>2023/24 Q2(b), 2024/25 Q2(b), 2025/26 Q4(b)</td></tr>
+        <tr><td>What equations express an anchor and total required inflow?</td><td><code>Expected Losses = SMOOTH(Actual Losses, Expectation Adjustment Time)</code> and <code>Required Inflow = Expected Losses + (Desired Stock - Actual Stock)/Adjustment Time</code>. At equilibrium, adjustment is zero and required inflow equals expected losses.</td><td>Stock management current papers</td></tr>
+        <tr><td>How is desired University staff calculated?</td><td><code>Desired Staff = Students / Desired Student-Staff Ratio</code>. Students are the numerator and the desired ratio is the denominator. For 10,000 students and ratio 20, desired staff is 500.</td><td>2018/19 onward; 2024/25 Q2(c)</td></tr>
+        <tr><td>Give a complete core University staff-recruitment model.</td><td><code>Staff = INTEG(Hires - Quits, Staff0)</code>; <code>Quits = Quit Fraction x Staff</code>; <code>Expected Quits = SMOOTH(Quits, Expectation Adjustment Time)</code>; <code>Hires = Expected Quits + (Desired Staff - Staff)/Staff Adjustment Time</code>; <code>Desired Staff = Students/Desired Ratio</code>.</td><td>2024/25 Q2(c)</td></tr>
+        <tr><td>What happens when the desired student-to-staff ratio falls from 20 to 10 with Students fixed at 10,000?</td><td>Desired Staff rises from <code>10,000/20=500</code> to <code>10,000/10=1,000</code>. The discrepancy becomes positive, hires exceed quits, and Staff rises towards 1,000 at a decreasing rate. Staff Adjustment Time most directly controls settling speed.</td><td>2018/19 Q4(c), 2024/25 Q2(c)</td></tr>
+        <tr><td>Give the three-stage ageing-chain workforce equations.</td><td><code>Trainees=INTEG(Hires-Progress TE-Attrition T,T0)</code>; <code>Experienced=INTEG(Progress TE-Progress ES-Attrition E,E0)</code>; <code>Seniors=INTEG(Progress ES-Attrition S,S0)</code>. Use <code>Progress TE=Trainees/Delay TE</code>, <code>Progress ES=Experienced/Delay ES</code>, stage-specific fractional attrition, and <code>Total Staff=Trainees+Experienced+Seniors</code>.</td><td>2017/18 Q4(d), 2025/26 Q4(c)</td></tr>
+      </tbody></table>
+
+      <h2 id="4-sir-proofs-and-public-health-extensions">4. SIR, Proofs and Public-Health Extensions</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Give the core frequency-dependent SIR equations.</td><td><code>lambda = beta I/N</code>; <code>Infections=lambda S=beta I S/N</code>; <code>Recoveries=I/D</code>; <code>S=INTEG(-Infections,S0)</code>; <code>I=INTEG(Infections-Recoveries,I0)</code>; <code>R=INTEG(Recoveries,R0)</code>. In a closed model, <code>N=S+I+R</code> is constant.</td><td>All SIR papers</td></tr>
+        <tr><td>Relate the <code>c, i, d</code> notation to beta and R0.</td><td><code>c</code> is contacts per infectious person per time, <code>i</code> is transmission probability per contact, and <code>d</code> is mean infectious duration. <code>beta=c i</code> and <code>R0=beta d=c i d</code>.</td><td>2018/19 Q3, 2023/24 Q3(a)</td></tr>
+        <tr><td>Define R0 and effective reproduction number.</td><td><code>R0</code> is the expected number of secondary infections caused by one infectious person in a wholly susceptible population under the model assumptions. In the basic SIR model, <code>Re=R0(S/N)</code>; infections grow when <code>Re&gt;1</code>.</td><td>2018/19 onward</td></tr>
+        <tr><td>Calculate lambda for N=10,000, 2% infectious, R0=12 and D=7.</td><td><code>beta=R0/D=12/7 per day</code>; <code>I/N=0.02</code>; therefore <code>lambda=beta I/N=(12/7)(0.02)=0.0343 per day</code>. This is per susceptible per day, not total new infections.</td><td>2024/25 Q3(a)</td></tr>
+        <tr><td>State and calculate the herd-immunity threshold in the basic SIR model.</td><td><code>HIT = 1 - 1/R0</code>. For <code>R0=12</code>, <code>HIT=1-1/12=11/12=0.9167</code>, or about 91.7%. It is the immune fraction needed under the model assumptions to make initial <code>Re</code> at most 1.</td><td>2016/17, 2019/20, 2024/25</td></tr>
+        <tr><td>Give the outbreak-threshold proof in a wholly susceptible population.</td><td>Start from <code>dI/dt = beta I S/N - I/D</code>. With <code>S=N</code> and <code>I&gt;0</code>, growth requires <code>beta - 1/D &gt; 0</code>, hence <code>beta D &gt; 1</code>. With <code>beta=c i</code> and <code>D=d</code>, this is <code>c i d &gt; 1</code>. The equilibrium threshold is <code>c i d=1</code>.</td><td>2017/18 Q3(a), 2023/24 Q3(a)</td></tr>
+        <tr><td>Prove that S/N=1/R0 at the infection peak.</td><td>At a peak, <code>dI/dt=0</code>, so <code>beta I S/N=I/D</code>. For <code>I&gt;0</code>, divide by I: <code>beta S/N=1/D</code>. Multiply by D and substitute <code>R0=beta D</code>: <code>R0 S/N=1</code>; therefore <code>S/N=1/R0</code>.</td><td>2018/19 Q3(c)</td></tr>
+        <tr><td>Name and classify the three standard SIR feedback loops.</td><td>Contagion is reinforcing: I raises Infections, which raises I. Depletion is balancing: I raises Infections, which lowers S and therefore lowers Infections. Recovery is balancing: I raises Recoveries, which lowers I.</td><td>2018/19 Q3(b)</td></tr>
+        <tr><td>How is quarantine modelled in the 2024/25 SIR question?</td><td>Keep core SIR, add Quarantine, and move a stated fraction of Infectious people to it, controlled by a <code>0</code> or <code>1</code> policy flag. Quarantined people recover at the same rate as I. State exactly whether Q transmits; do not assume it without the prompt.</td><td>2024/25 Q3(b)</td></tr>
+        <tr><td>How is quarantine modelled differently in 2025/26?</td><td>Split the infection flow itself: <code>To Q=QF x lambda x S</code> and <code>To I=(1-QF) x lambda x S</code>. Q receives new infections immediately, recovers at <code>Q/2</code>, and does not infect others. This differs from moving people later from I to Q.</td><td>2025/26 Q2(b)</td></tr>
+        <tr><td>How is goal-seeking vaccination added in 2025/26?</td><td>Add Vaccinated stock and <code>Vaccinations=Vaccination Fraction x S</code>. Make the fraction change by <code>Vaccination Fraction=INTEG((0.15-Vaccination Fraction)/AT,0)</code>. Vaccination removes only S, so Vaccinated people are not left in the infection flow.</td><td>2025/26 Q2(b)</td></tr>
+        <tr><td>Define overall attack rate for the 2025/26 model.</td><td><code>Attack Rate=(I+Q+R)/N</code> when I and Q are currently infected and R contains recovered infected people. Vaccinated people are excluded because they were not infected.</td><td>2025/26 Q2(b)</td></tr>
+        <tr><td>How should an SIR model be modified for cohorts such as young and elderly?</td><td>Replicate the disease states by cohort, for example <code>Sy,Iy,Ry</code> and <code>Se,Ie,Re</code>. Give each group its own infection and recovery flows; use within- and between-cohort contact terms or a contact matrix if groups mix. Sum all cohort stocks for total N.</td><td>2016/17 Q3(c), 2024/25 Q3(c)</td></tr>
+        <tr><td>What must the 2023/24 SEI2H2R construction include?</td><td>S to Exposed infection flow; Exposed split to Ia and Is by Fraction Symptomatic; Ia recovery after 4 days; Is split to direct recovery and hospital by Hospitalisation Fraction; hospital as a second-order 10-day delay; force of infection with Ia weighted at 50% of Is infectiousness.</td><td>2023/24 Q3(b)</td></tr>
+        <tr><td>How should the 2025/26 quarantine-vaccination bubble plot be interpreted?</td><td>x-axis is quarantine fraction, y-axis final vaccination fraction, and circle size is final attack rate. Largest circles should be at low quarantine and low vaccination; smallest at high/high. Explain that both policies reduce the susceptible-to-transmitting pathway, though the exact surface depends on model parameters.</td><td>2025/26 Q2(c)</td></tr>
+      </tbody></table>
+
+      <h2 id="5-supporting-and-legacy-backup-constructions">5. Supporting and Legacy-Backup Constructions</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How is a resource-constrained vaccination flow formulated?</td><td><code>Capacity=Number of Medics x Average Productivity</code>; <code>Vaccines Dispensed=MIN(Unvaccinated, Available Vaccines, Capacity)</code>. Move that flow from Unvaccinated to Vaccinated and subtract it from vaccine stock. The flow is zero if any binding resource is zero.</td><td>2016/17, 2017/18, 2021/22</td></tr>
+        <tr><td>How is an effects-function relationship constructed safely?</td><td>Normalise the independent variable by its reference, for example <code>Normalised Ratio=(Students/Staff)/Reference Ratio</code>. Use a dimensionless lookup multiplier, then <code>Attrition Fraction=Reference Attrition Fraction x Effect(Normalised Ratio)</code>. Plot every stated anchor point and bounds.</td><td>2016/17 Q4, 2018/19 Q4, 2019/20 Q3</td></tr>
+        <tr><td>State Little's Law and its condition.</td><td><code>Average Stock = Average Throughput x Average Delay</code>, equivalently <code>Average Delay=Average Stock/Average Throughput</code>. It applies to compatible averages in a stable system, where average inflow and outflow balance; it does not say each item has that exact delay.</td><td>2017/18 Q4, 2018/19 Q1(c)</td></tr>
+        <tr><td>Convert dS/dt=t with S(0)=0 into a stock-flow and analytical answer.</td><td>Use <code>S=INTEG(t,0)</code>, with t as the simulation-time auxiliary. Analytically, <code>S(t)=t^2/2</code>, so <code>S(20)=200</code>. If Euler is requested instead, use the stated DT rather than the analytical solution.</td><td>2017/18 Q2(a)</td></tr>
+        <tr><td>Convert logistic growth with decline into stock-flow form.</td><td>For <code>dP/dt=rP(1-P/C)-sP</code>, use <code>P=INTEG(Births-Decline,P0)</code>, <code>Births=rP(1-P/C)</code>, <code>Decline=sP</code>. The carrying-capacity term is balancing; P reaches C only if <code>s=0</code> and the system settles there.</td><td>2021/22 Q2(a)</td></tr>
+        <tr><td>How is customer doubling estimated from net fractional growth?</td><td>With fractional gain g1 and loss g2, net growth is <code>g=g1-g2</code>. For continuous exponential growth, <code>C(t)=C0 e^(g t)</code> and doubling time is <code>ln(2)/g</code>. State the model assumes a constant net fractional rate.</td><td>2021/22 Q2(c)</td></tr>
+        <tr><td>How do you infer reinforcing versus balancing one-stock structure from a graph?</td><td>Increasing at an increasing rate suggests reinforcing fractional growth, such as <code>Inflow=kS</code>. Rise towards a horizontal limit suggests balancing feedback, such as adjustment to a goal or carrying capacity. Give a separate stock-flow structure for each graph.</td><td>2023/24 Q1(a)</td></tr>
+        <tr><td>What is an inflection point on a stock trajectory?</td><td>It is where the stock curve changes concavity, from increasing slope to decreasing slope or vice versa. It corresponds to a local maximum or minimum of net flow, not automatically a maximum or minimum of stock.</td><td>2017/18 Q2(c)</td></tr>
+        <tr><td>What is a control flag in a policy model?</td><td>A parameter constrained to 0 or 1 that activates or deactivates a policy mechanism. For example, multiply a quarantine flow or quarantine fraction by the flag so 0 removes that pathway and 1 applies the stated policy.</td><td>2024/25 Q3(b)</td></tr>
+      </tbody></table>
+
+      <h2>Deck Scope</h2>
+      <p>This HTML deck is generated from the 55 cards in <a href="Flashcards.md">Flashcards.md</a>. It does not duplicate cards by rephrasing a recall task; it keeps distinct cards where changing the construction would lose marks, especially for the two quarantine formulations and the current workforce variants.</p>
+    </article>
+  </main>
+</body>
+</html>

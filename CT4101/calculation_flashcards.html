@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT4101 - Formulae and Calculation Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flashcard-bank td:first-child { width: 38%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 46%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { border: 0; box-shadow: none; padding: 0; } .flashcard-bank table { page-break-inside: auto; } .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; } }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; white-space: normal; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Evidence"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT4101 overview</a>
+      <a href="flashcards.html">Definitions deck</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#evaluation">Evaluation</a>
+      <a href="#distance">Distance and scaling</a>
+      <a href="#trees">Trees and regression</a>
+      <a href="#neural">Neural networks</a>
+      <a href="#backup">Older-paper backup</a>
+    </nav>
+    <p class="eyebrow">CT4101 Formulae and Calculation Flashcards</p>
+    <h1>Lean 28-Card Calculation Deck</h1>
+    <p>Equations, count rules, and calculation routes for the recurring quantitative parts of CT4101.</p>
+  </header>
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Write the prompt on the front and the equation or calculation route on the back. Say the denominator aloud before calculating. Use the separate <a href="flashcards.html">definitions deck</a> for concepts such as supervised learning, overfitting, and clustering.</p>
+      <h2>Priority Reality Check</h2>
+      <div class="frequency-note">
+        <p><strong>Drill first:</strong> confusion-matrix metrics, stratified cross-validation counts, distance/scaling, entropy/information gain, MSE/RMSE/MAE, and neuron activation calculations.</p>
+        <p><strong>Use as backup:</strong> cosine similarity, weighted kNN, batch gradient descent, perceptron updates, Naive Bayes, and Q-learning. These occur in 2019/20 only.</p>
+      </div>
+
+      <h2 id="evaluation">1. Evaluation And Cross-Validation</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How do you turn yes/no results into a confusion matrix?</td><td>Choose the positive class. Actual positive/predicted positive = TP; actual negative/predicted positive = FP; actual negative/predicted negative = TN; actual positive/predicted negative = FN.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is the misclassification-rate formula?</td><td><code>(FP + FN) / (TP + FP + TN + FN)</code>.</td><td>2021/22</td></tr>
+        <tr><td>What is the precision formula?</td><td><code>TP / (TP + FP)</code>. Denominator: every predicted positive.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is the recall/TPR formula?</td><td><code>TP / (TP + FN)</code>. Denominator: every actual positive.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is the specificity/TNR formula?</td><td><code>TN / (TN + FP)</code>. Denominator: every actual negative.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What are the FNR and FPR formulas?</td><td><code>FNR = FN / (FN + TP)</code>; <code>FPR = FP / (FP + TN)</code>.</td><td>2023/24</td></tr>
+        <tr><td>For k-fold CV with N cases, how many train/test cases and models are used?</td><td>Each fold tests <code>N / k</code> cases and trains on <code>N(k - 1) / k</code> cases. Train k models and average the k held-out scores.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>For 5 times 5-fold CV on 500 cases, what are the key counts?</td><td>Each fold has <code>500 / 5 = 100</code> cases. Each run trains on 400 and tests on 100. Total models = <code>5 x 5 = 25</code>; average the 25 test scores.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="distance">2. Distance, Similarity, And Scaling</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How is Euclidean distance calculated?</td><td><code>d(x,y) = sqrt(sum (xi - yi)^2)</code>. Square each feature difference, add them, then take the square root.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How is Hamming distance calculated?</td><td>Count positions where equal-length discrete representations differ. <code>[red, small, yes]</code> versus <code>[blue, small, no]</code> has distance 2.</td><td>2021/22</td></tr>
+        <tr><td>How is z-normalisation calculated?</td><td><code>z = (x - mean) / standard deviation</code>. Apply it separately to every numeric feature using training-data statistics.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How is min-max scaling to [0,1] calculated?</td><td><code>x' = (x - min) / (max - min)</code>.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="trees">3. Decision Trees And Regression Error</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How is entropy calculated?</td><td><code>H(S) = -sum p(c) log2 p(c)</code>. A pure set has entropy 0.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How is information gain calculated?</td><td><code>IG(S,A) = H(S) - sum (|Sv| / |S|) H(Sv)</code>. Parent entropy minus weighted child entropies.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is a residual?</td><td>The prediction error for one example: <code>actual - predicted</code>.</td><td>Regression foundation</td></tr>
+        <tr><td>How is MSE calculated?</td><td><code>MSE = (1/n) sum (actual - predicted)^2</code>.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How is RMSE calculated?</td><td><code>RMSE = sqrt(MSE)</code>. It is in the same units as the dependent variable.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>How is MAE calculated?</td><td><code>MAE = (1/n) sum |actual - predicted|</code>.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="neural">4. Neural-Network Calculations</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How does an artificial neuron calculate its output?</td><td>Calculate <code>z = sum wi xi + b</code>, then <code>output = f(z)</code>.</td><td>2023/24</td></tr>
+        <tr><td>How does a threshold neuron calculate its output?</td><td>Calculate <code>z</code>. Output 1 if <code>z</code> is at least the threshold; otherwise output 0.</td><td>2021/22</td></tr>
+        <tr><td>What is the logistic activation equation?</td><td><code>sigma(z) = 1 / (1 + e^(-z))</code>.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>What is the ReLU activation equation?</td><td><code>ReLU(z) = max(0, z)</code>.</td><td>2021/22, 2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="backup">5. Older-Paper Formula Backup</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How can weighted kNN regression be calculated?</td><td><code>prediction = sum(wi yi) / sum(wi)</code>, using larger weights for closer neighbours, for example <code>wi = 1 / di</code>.</td><td>2019/20 only</td></tr>
+        <tr><td>How is cosine similarity calculated?</td><td><code>cos(theta) = (x dot y) / (||x|| ||y||)</code>. It compares vector direction and is scale-invariant.</td><td>2019/20 only</td></tr>
+        <tr><td>What is the batch-gradient-descent update for linear regression?</td><td><code>theta_j := theta_j - alpha (1/n) sum (prediction - actual) xj</code>. Compute all updates from the full dataset before applying them.</td><td>2019/20 only</td></tr>
+        <tr><td>What is the perceptron weight update?</td><td><code>wi := wi + eta (target - prediction) xi</code>; update the bias similarly without <code>xi</code>.</td><td>2019/20 only</td></tr>
+        <tr><td>What is the Naive Bayes classification rule?</td><td>For each class C, compare <code>P(C) product P(xi | C)</code>. Choose the largest value.</td><td>2019/20 only</td></tr>
+        <tr><td>What is the Q-learning update equation?</td><td><code>Q(s,a) := Q(s,a) + alpha [r + gamma max Q(s',a') - Q(s,a)]</code>. Alpha is learning rate; gamma is discount factor.</td><td>2019/20 only</td></tr>
+      </tbody></table>
+      <h2>Scope</h2>
+      <p>This deck is for formulas and calculation routes, not complete worked questions. Use <a href="most_asked.html">most_asked.html</a> to practise showing the full working, diagrams, and interpretation needed for exam marks.</p>
+    </article>
+  </main>
+</body>
+</html>

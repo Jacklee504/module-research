@@ -1,0 +1,103 @@
+===== 2021_2022.pdf PAGE 1 =====
+Semester 2 Examinations 2021/2022
+Course Instance Codes 3BA1, 4BA161, 4BME1, 4BMU1,
+1OA2, 1OA3, 4BCT1, 4BMS2, 4BS2
+Exams 3rd and 4th year (Arts and Science),
+Study Abroad / International Exchange
+Module Code CS402
+Module Cryptography
+External Examiner Prof. C. Roney-Dougal
+Internal Examiners Dr N. Madden
+∗Dr T. Rossmann
+Instructions: Answer all four questions.
+Each question carries 25 marks.
+All workings must be shown.
+Duration 2 hours
+No. of Pages 3 pages, including this one
+Discipline Mathematics
+Requirements: No special requirements
+Release to Library Yes
+Release in Exam Venue Yes
+MCQ No
+Statistical / Log Tables No
+Non-programmable Calculator Yes
+Mathematical Tables No
+Graph paper No
+
+===== 2021_2022.pdf PAGE 2 =====
+Q1. (a) The ciphertext string
+IETZRBQUZIJRDTZDX
+was produced using a shift cipher over the 27-letter alphabet
+A = 0, B = 1, . . . , Z = 25, = 26,
+where the final character indicates a space.
+By conducting a frequency analysis of a larger sample of ciphertexts, it has
+been found that the plaintext symbol corresponds to the ciphertext sym-
+bol Q. Determine the first word of the plaintext string corresponding to the
+ciphertext string given above. [5 marks]
+(b) Identify Z = {0, . . . , 25, 26} with {A, . . . , Z, } as in part (a). The ciphertext
+27
+string NSRG was obtained using a 2-dimensional Hill cipher over Z with key
+27
+(cid:20) (cid:21)
+1 1
+.
+1 5
+Find the corresponding plaintext. [10 marks]
+(c) Describe what is meant by a brute force attack and describe a scenario where
+this is feasible. [5 marks]
+(d) An affine cipher (of dimension 1) over Z is used to encrypt messages. Find
+450
+the number of possible keys. [5 marks]
+Q2. (a) Formally define what is meant by a (symmetric) cryptosystem. [5 marks]
+(b) Briefly describe what a perfectly secure (symmetric) cryptosystem is. Do
+perfectly secure cryptosystems exist? [5 marks]
+(c) i. Explain what is meant by a linear feedback shift register (LFSR).
+ii. Discuss whether each LFSR is determined by its connection polynomial.
+iii. Give an example of a singular LFSR of length 3. [10 marks]
+(d) A linear feedback shift register of length 4 with connection polynomial
+C(X) = 1 + X + X2 + X4
+over Z is used to produce a pseudo-random sequence of binary digits with
+2
+initial values s = s = 1 and s = s = 0. Determine the least period of the
+0 2 1 3
+resulting infinite sequence s , s , . . . . [5 marks]
+0 1
+2 of 3
+
+===== 2021_2022.pdf PAGE 3 =====
+Q3. (a) Give an example each of an advantage and a disadvantage of
+i. symmetric cryptosystems and
+ii. public-key cryptosystems. [4 marks]
+(b) Describe the key generation, encryption, and decryption steps of the RSA
+cryptosystem. [5 marks]
+(c) Explain why none of the following pairs of integers is a valid RSA key:
+i. (n, e) = (169, 17).
+ii. (n, e) = (143, 35).
+iii. (n, e) = (385, 77). [6 marks]
+(d) Bob claims that if an efficient algorithm for deciding whether an integer
+is prime were ever to be developed, then the RSA cryptosystem would no
+longer be secure. Do you agree with Bob? Justify your answer. [5 marks]
+(e) Bob claims that since 1105 is a Carmichael number, the Fermat primality
+test cannot detect that 1105 is composite. Alice disagrees and argues that for
+any composite n, a random choice of a ∈ {1, . . . , n−1} has a (possibly small)
+chance of satisfying gcd(a, n) > 1, in which case an−1 (cid:54)≡ 1 (mod n). With
+whom (if anyone) of the two do you agree? Justify your answer. [5 marks]
+Q4. (a) Define what it means for a group to be cyclic. State (without proof) Gauss’s
+characterisation of those n (cid:62) 1 for which the group Z× is cyclic. Is Z×
+n 242
+cyclic? Justify your answer. [5 marks]
+(b) Decribe the method of fast exponentiation for computing ae mod n, where
+a, e, n ∈ Z with e, n (cid:62) 1. [5 marks]
+(c) Describe the key generation, encryption, and decryption steps of the ElGamal
+cryptosystem. [5 marks]
+(d) Alice and Bob use the cyclic group Z× and its generator g = 2 to perform a
+59
+Diffie-Hellman key exchange. Alice secretly chooses a = 3 and Bob secretly
+chooses b = 4. Determine their shared key (as an element of Z× ). [5 marks]
+59
+(e) Let E be the set of points of the elliptic curve over R defined by the equation
+y2 = x3 + 3x,
+with point at infinity O.
+i. Find all points P ∈ E that satisfy P + P = O.
+ii. Find a point Q ∈ E with Q + Q (cid:54)= O. [5 marks]
+3 of 3

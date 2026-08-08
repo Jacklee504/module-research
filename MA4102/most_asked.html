@@ -1,1063 +1,975 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Algebraic Foundations of Quantum Computing - Most Asked Exam
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Algebraic Foundations of Quantum Computing - Most Asked Exam
 Questions</title>
-<link rel="stylesheet" href="../module_page.css">
-<style>
-  .question-bank { max-width: 1120px; }
-  .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
-  .question-bank blockquote p { margin: 0; }
-  .question-bank pre { overflow-x: auto; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); font-size: 13px; line-height: 1.45; }
-  .question-bank h2 { scroll-margin-top: 18px; }
-  .question-bank h2 + p { color: #39454b; }
-  .question-bank ul + p, .question-bank ol + p { margin-top: 4px; }
-</style>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h2 + p { color: #39454b; }
+    .question-bank .paper-list { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank .answer-frame { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+    .question-bank .source-scope { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
+    .question-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 13px; }
+    .question-bank th, .question-bank td { padding: 9px 10px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .question-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .question-bank pre { overflow-x: auto; padding: 12px 14px; border: 1px solid var(--line); border-radius: 8px; background: #17212b; color: #eef6f7; }
+    @media (max-width: 760px) { .question-bank table { display: block; overflow-x: auto; } }
+  </style>
 </head>
 <body>
-<header class="module-header">
-<nav class="top-nav" aria-label="Navigation">
-<a href="details.html">MA4102 overview</a>
-<a href="most_asked.md">Markdown</a>
-<a href="#should-mark-howard-papers-count">Mark Howard?</a>
-<a href="#consolidated-worked-answers">Worked answers</a>
-<a href="#recommended-study-order">Study order</a>
-<a href="details.html#past-papers">Past papers</a>
-</nav>
-<p class="eyebrow">MA4102 Study Document</p>
-<h1>Algebraic Foundations of Quantum Computing - Most Asked Exam
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">MA4102 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="#ranked-current-question-families">Most repeated</a>
+      <a href="#coverage-map-for-current-format-papers">Coverage map</a>
+      <a href="#legacy-and-backup-material">Legacy</a>
+      <a href="#recommended-study-order">Study order</a>
+      <a href="details.html#past-papers">Past papers</a>
+      <a href="most_asked.md">Markdown</a>
+    </nav>
+    <p class="eyebrow">MA4102 Study Document</p>
+    <h1>Algebraic Foundations of Quantum Computing - Most Asked Exam
 Questions</h1>
-<p>Exam-paper question families consolidated across recent papers, with full reusable workings and answers.</p>
-</header>
-<main class="module-shell">
-<article class="module-content question-bank">
+    <p>Current-format question families, coverage map, exact paper variants, and reusable answer frames.</p>
+  </header>
+  <main class="module-shell">
+    <article class="module-content question-bank">
 <h2 id="how-to-use-this-document">How to Use This Document</h2>
-<p>Use this as the first pass before making flashcards.</p>
+<div class="source-scope">
+<p>
+<strong>Source scope:</strong> all five supplied MA4102 papers were
+checked:
+<a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>,
+<a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>,
+<a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>,
+<a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>,
+and
+<a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>.
+</p>
+<p>
+<strong>Primary evidence:</strong> the latest three papers, 2023/24,
+2024/25, and 2025/26, are treated as the current-format papers. The
+2021/22 and 2022/23 papers are used as backup and cross-lecturer
+evidence.
+</p>
+<p>
+<strong>Rendered-page check:</strong> the PDFs were rendered with
+Poppler and checked visually against extracted text so notation,
+subparts, and mark allocations were not taken only from OCR/text
+extraction.
+</p>
+</div>
 <ol type="1">
-<li>Pick one question family below.</li>
-<li>Attempt the relevant paper questions without notes.</li>
-<li>Mark the attempt against the repeated structure: definitions, setup,
-calculation steps, final probability/state/proof conclusion.</li>
-<li>After answering the same family correctly a few times, convert only
-the reusable pieces into flashcards.</li>
+<li>Revise by question family, not by broad topic alone.</li>
+<li>Use the “appears as” bullets to find the original paper
+questions.</li>
+<li>Attempt the original question first.</li>
+<li>Then read the answer frame and convert only missing reusable pieces
+into flashcards.</li>
 </ol>
-<p>Do not make flashcards too early. For MA4102, the marks usually come
-from being able to execute a calculation or proof template, not from
-recognising a topic name.</p>
-<h2 id="lecturer-weighting">Lecturer Weighting</h2>
-<p>The current module page lists Michael Mc Gettrick, so the first
-weighting should be:</p>
+<h2 id="lecturer-and-evidence-weighting">Lecturer and Evidence
+Weighting</h2>
+<p>The primary current-format papers split by lecturer:</p>
 <ul>
-<li>Highest confidence same-lecturer pattern: 2023/24 and 2024/25.</li>
-<li>Supporting same-lecturer pattern: 2021/22.</li>
-<li>Cross-lecturer stability check: 2022/23 and 2025/26, both Mark
-Howard.</li>
+<li>2023/24 - Michael Mc Gettrick starred.</li>
+<li>2024/25 - Michael Mc Gettrick starred.</li>
+<li>2025/26 - Mark Howard starred.</li>
 </ul>
-<p>The important finding is that the main exam families survive the
-lecturer change. Mark Howard papers use different wording and sometimes
-more theorem/projective-measurement framing, but the same core
-operations keep appearing.</p>
-<h2 id="should-mark-howard-papers-count">Should Mark Howard Papers
-Count?</h2>
-<p>Yes, but use them as the second pass.</p>
-<p>The Michael Mc Gettrick papers are the best first drill set because
-they match the current-page lecturer pattern. The Mark Howard papers
-should still count because they test the same families with different
-presentation:</p>
-<ul>
-<li>Mc Gettrick papers lean more toward direct calculations: qutrit
-states, density matrices, Bloch sphere angles, Kraus/POVM calculations,
-circuits, QFT and Grover probabilities.</li>
-<li>Mark Howard papers lean more toward structural versions: truth
-tables, projective-measurement requirements, no-cloning/no-deleting
-proofs, Bell-state identities, parity measurement and Grover in the
-<code>|a&gt;</code>, <code>|phi&gt;</code> basis.</li>
-</ul>
-<p>Practical rule: learn the Mc Gettrick calculation template first,
-then use the Mark Howard papers to check that you can still recognise
-the same family when the wording changes.</p>
-<h2 id="priority-1---grover-search-and-qft">Priority 1 - Grover Search
-And QFT</h2>
-<p>Frequency: 5/5 papers if Grover and QFT are counted as the recurring
-algorithm block.</p>
-<p>Appears as:</p>
-<ul>
-<li>2021/22 - Q5 - Michael Mc Gettrick - Grover search on list length
-32: theoretical iterates, best integer iterations, success probability,
-second-best probability.</li>
-<li>2022/23 - Q3(a), Q3(b) - Mark Howard - Grover 2D matrix for list
-length 4, then QFT of qudit states.</li>
-<li>2023/24 - Q5 - Michael Mc Gettrick - Grover search on list length 8:
-classical best/worst/average comparisons, Grover success after one and
-two operations.</li>
-<li>2024/25 - Q5, Q4(ii) - Michael Mc Gettrick - Grover list length 32,
-plus QFT of qudit states.</li>
-<li>2025/26 - Q3(a), Q3(b) - Mark Howard - Same Grover 2D matrix family
-as 2022/23, plus QFT of qudit states.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Given a Grover search setup, calculate the iterate count or success
-probability, or express the Grover iterate in the two-dimensional
-<code>|a&gt;</code>, <code>|phi&gt;</code> basis. Also be able to
-calculate the QFT of small qudit vectors.</p>
-</blockquote>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>Formula for the optimal Grover angle/iterate count.</li>
-<li>How to round to the best integer number of iterations.</li>
-<li>How to compare neighbouring iteration probabilities.</li>
-<li>How to represent the uniform state in the <code>|a&gt;</code>,
-<code>|phi&gt;</code> basis.</li>
-<li>QFT calculation for dimension 3 or 4 vectors with roots of
-unity.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“What is the Grover success probability after k iterations?”</li>
-<li>“How do you choose the integer number of Grover iterations?”</li>
-<li>“What is <code>|phi&gt;</code> in the Grover 2D basis?”</li>
-<li>“What is the QFT matrix/action on a d-dimensional qudit?”</li>
-</ul>
+<p>The current module page lists Michael Mc Gettrick, so the 2023/24 and
+2024/25 papers are the best first drill set. The 2025/26 Mark Howard
+paper must still be taken seriously because it is the latest paper and
+keeps the same core families while changing the style: more basis
+changes, projective-measurement checks, Bell-state algebra, and
+proof/construction tasks.</p>
+<p>Practical rule: learn the Mc Gettrick calculation templates first,
+then use the Howard paper to prevent overfitting to one setter’s
+wording.</p>
+<h2 id="ranked-current-question-families">Ranked Current Question
+Families</h2>
+<p>The ranking combines recurrence across the latest three
+current-format papers and approximate current-paper mark weight. Some
+marks overlap because a subpart can belong to more than one skill
+family, for example projective measurement belongs to both basis
+measurement and measurement theory.</p>
 <h2
-id="priority-2---qutrit-measurement-density-matrix-and-unitary-update">Priority
-2 - Qutrit Measurement, Density Matrix, And Unitary Update</h2>
-<p>Frequency: 5/5 papers.</p>
+id="priority-1---algorithms-grover-qft-deutsch-jozsa-and-search">Priority
+1 - Algorithms: Grover, QFT, Deutsch-Jozsa, And Search</h2>
+<p class="priority-note">
+<strong>Current recurrence:</strong> 3/3 current papers.
+<strong>Approximate current mark weight:</strong> about 95 marks across
+2023/24-2025/26 when Grover, QFT, Deutsch-Jozsa, and classical search
+are counted together.
+</p>
 <p>Appears as:</p>
-<ul>
-<li>2021/22 - Q1(i) - Michael Mc Gettrick - Qutrit state, measurement
-probability, density matrix, apply unitary, new measurement
-probability.</li>
-<li>2022/23 - Q2(a)-(d) - Mark Howard - Qutrit measurement and
-post-measurement state, density matrix, eigenvalues, entropy, comparison
-state, unitary update.</li>
-<li>2023/24 - Q1(i) - Michael Mc Gettrick - Same qutrit
-measurement/density/unitary structure with different state and
-Fourier-style unitary.</li>
-<li>2024/25 - Q1(i) - Michael Mc Gettrick - Same qutrit
-measurement/density/unitary structure.</li>
-<li>2025/26 - Q2(a)-(c) - Mark Howard - Qutrit measurement and
-post-measurement state, density matrix, unitary update.</li>
+<ul class="paper-list">
+<li>
+2023/24 - Q4(ii) - Michael Mc Gettrick - “Calculate the permutation
+matrix U_f used in the Deutsch-Jozsa algorithm” for a specified Boolean
+function. [10 marks]
+</li>
+<li>
+2023/24 - Q5(i) - Michael Mc Gettrick - simple classical search in list
+L = [s,t,b,u,a,y,o,p]: best, worst, and average comparisons. [9 marks]
+</li>
+<li>
+2023/24 - Q5(ii) - Michael Mc Gettrick - Grover probability of success
+after one and two operations for list length 8. [16 marks]
+</li>
+<li>
+2024/25 - Q4(ii) - Michael Mc Gettrick - “Calculate the Quantum Fourier
+Transform” of two qudit states. [10 marks]
+</li>
+<li>
+2024/25 - Q5(i)-(iii) - Michael Mc Gettrick - Grover search on list
+length 32: theoretical real iterate count, best integer count and
+probability, second-best count and probability. [6 + 11 + 8 marks]
+</li>
+<li>
+2025/26 - Q3(a) - Mark Howard - Grover iterate as a 2 x 2 matrix in the
+{|a&gt;, |phi&gt;} basis for list length 4, then compute |psi&gt; and
+G|psi&gt;. [13 marks]
+</li>
+<li>
+2025/26 - Q3(b) - Mark Howard - calculate QFT of two qudit states. [12
+marks]
+</li>
 </ul>
-<p>Consolidated most-asked question:</p>
+<p>Distinct variants to retain:</p>
+<ul>
+<li>Grover probability after a fixed number of operations, as in
+2023/24.</li>
+<li>Grover optimal iteration count and neighbouring probabilities, as in
+2024/25.</li>
+<li>Grover 2D-basis matrix construction, as in 2025/26 and 2022/23.</li>
+<li>QFT of explicit small vectors.</li>
+<li>Deutsch-Jozsa oracle/permutation matrix for
+<code>U_f |x,y&gt; = |x,y xor f(x)&gt;</code>.</li>
+<li>Classical search comparison counts as a one-current-paper variant
+attached to Grover/search.</li>
+</ul>
 <blockquote>
-<p>Given a qutrit state, calculate a computational-basis measurement
-probability, write the density matrix, apply a unitary, and calculate
-the new measurement probability.</p>
+<p>
+Consolidated question: Given a small quantum algorithm setup, compute
+the required state transformation, probability, matrix, or iterate count
+without losing basis order, normalisation, phase, or measurement
+convention.
+</p>
 </blockquote>
-<p>Same question family, even when wording changes:</p>
+<div class="answer-frame">
+<p>
+<strong>Complete answer must contain:</strong> the basis order, the
+defining formula, the substituted numbers, exact amplitudes before
+probabilities, and a final probability/count/matrix. For Grover, state
+<code>sin(theta)=1/sqrt(N)</code> and
+<code>P_k=sin^2((2k+1)theta)</code>. For QFT, state
+<code>F_d|x&gt;=d^{-1/2} sum_y omega^{xy}|y&gt;</code>, with
+<code>omega=e^{2 pi i/d}</code>. For Deutsch-Jozsa, list the basis-state
+mapping and then place one <code>1</code> per column in the
+corresponding output row.
+</p>
+</div>
+<p>Standard worked facts:</p>
 <ul>
-<li>“probability of measuring <code>|1&gt;</code> or
-<code>|2&gt;</code>”</li>
-<li>“probability of seeing outcome 2”</li>
-<li>“post-measurement state”</li>
-<li>“density matrix <code>rho = |psi&gt;&lt;psi|</code>”</li>
-<li>“subsequent probability after applying U”</li>
+<li>For 2024/25 <code>N=32</code>,
+<code>theta=arcsin(1/sqrt(32))</code>,
+<code>k* = pi/(4theta)-1/2 = 3.919...</code>; best integer is
+<code>4</code>, with success probability about <code>0.99918</code>;
+second-best neighbouring integer is <code>3</code>, about
+<code>0.89694</code>.</li>
+<li>For 2023/24 <code>N=8</code>, one Grover operation gives
+<code>25/32</code>; two operations give <code>121/128</code>, so two
+operations is better.</li>
+<li>For the Mark Howard <code>N=4</code> Grover basis version,
+<code>|psi&gt;=(1/2)|a&gt;+(sqrt(3)/2)|phi&gt;</code> and</li>
 </ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>Squared modulus of amplitudes.</li>
-<li>Correct normalisation checks.</li>
-<li>Outer product for a 3-component complex vector.</li>
-<li>Matrix-vector multiplication with complex entries.</li>
-<li>Final probability from the updated state.</li>
-<li>For Mark Howard-style variants: eigenvalues and von Neumann entropy
-of pure-state density matrices.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“How do you compute a density matrix from
-<code>|psi&gt;</code>?”</li>
-<li>“What is the post-measurement state after outcome j?”</li>
-<li>“What are the eigenvalues and entropy of a pure density
-matrix?”</li>
-<li>“What is the workflow for apply-U-then-measure?”</li>
-</ul>
+<pre class="text"><code>G = [ 1/2         sqrt(3)/2 ]
+    [ -sqrt(3)/2 1/2        ],
+G|psi&gt; = |a&gt;.</code></pre>
 <h2
-id="priority-3---entanglement-reduced-density-matrices-purity-and-entropy">Priority
-3 - Entanglement, Reduced Density Matrices, Purity, And Entropy</h2>
-<p>Frequency: 5/5 papers if calculation and proof variants are
-consolidated.</p>
+id="priority-2---state-measurement-density-matrices-bloch-sphere-and-basis-change">Priority
+2 - State Measurement, Density Matrices, Bloch Sphere, And Basis
+Change</h2>
+<p class="priority-note">
+<strong>Current recurrence:</strong> 3/3 current papers.
+<strong>Approximate current mark weight:</strong> about 80 marks across
+qutrit, qubit, density, and basis-measurement tasks.
+</p>
 <p>Appears as:</p>
-<ul>
-<li>2021/22 - Q2 - Michael Mc Gettrick - Four 2-qubit column vectors;
-calculate purity and entanglement using reduced density matrix
-entropy.</li>
-<li>2022/23 - Q4(a), Q5(a) - Mark Howard - Prove Bell state is
-entangled; show Bell state identity under rotated basis.</li>
-<li>2023/24 - Q2 - Michael Mc Gettrick - Same four-state purity and
-entanglement calculation family as 2021/22.</li>
-<li>2024/25 - Q2(i), Q2(ii) - Michael Mc Gettrick - Three 2-qubit states
-for purity/entanglement, plus proof that unitaries preserve purity.</li>
-<li>2025/26 - Q2(d), Q5(a) - Mark Howard - Prove whether two 2-qubit
-states are entangled; Bell state identity under rotated basis.</li>
+<ul class="paper-list">
+<li>
+2023/24 - Q1(i)(a)-(c) - Michael Mc Gettrick - qutrit state; probability
+of measuring |1&gt;; density matrix; apply Fourier-style unitary and
+calculate subsequent probability of |1&gt;. [14 marks]
+</li>
+<li>
+2023/24 - Q1(ii)(a)-(b) - Michael Mc Gettrick - qubit state; Bloch
+sphere angles theta and phi; probability of obtaining |+&gt; in the
+{|+&gt;, |-&gt;} basis. [11 marks]
+</li>
+<li>
+2024/25 - Q1(i)(a)-(c) - Michael Mc Gettrick - qutrit state; probability
+of measuring |2&gt;; density matrix; apply unitary and calculate
+subsequent probability of |2&gt;. [14 marks]
+</li>
+<li>
+2024/25 - Q1(ii)(a)-(b) - Michael Mc Gettrick - qubit state; Bloch
+sphere angles theta and phi; |+&gt; probability. [11 marks]
+</li>
+<li>
+2025/26 - Q1(a) - Mark Howard - write arbitrary qubit
+<code>|psi&gt;=alpha|0&gt;+beta|1&gt;</code> as
+<code>gamma|+&gt;+delta|-&gt;</code> and give probabilities of + and -.
+[7 marks]
+</li>
+<li>
+2025/26 - Q1(b) - Mark Howard - derive the same plus/minus probabilities
+using a projective measurement and check the definition. [6 marks]
+</li>
+<li>
+2025/26 - Q2(a)-(c) - Mark Howard - qutrit computational-basis
+measurement and post-measurement state; density matrix; apply unitary
+and calculate subsequent outcome-2 probability. [7 + 4 + 6 marks]
+</li>
 </ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Given a 2-qubit state, determine whether it is entangled by
-calculating the reduced density matrix, purity, and/or von Neumann
-entropy. Also be ready to prove standard Bell-state entanglement
-identities.</p>
-</blockquote>
-<p>Same question family, even when wording changes:</p>
+<p>Distinct variants to retain:</p>
 <ul>
-<li>“calculate purity”</li>
-<li>“calculate entanglement using Von Neumann entropy”</li>
-<li>“prove whether these 2-qubit states are entangled”</li>
-<li>“prove the Bell state is entangled”</li>
-<li>“show Bell state expression in a rotated basis”</li>
-</ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>Convert a 4-vector into a 2-qubit amplitude table.</li>
-<li>Trace out the first or second qubit.</li>
-<li>Compute reduced density matrix entries.</li>
-<li>Compute purity using <code>Tr(rho^2)</code>.</li>
-<li>Decide product vs entangled state.</li>
-<li>Identify entropy 0 for product/pure reduced state and nonzero
-entropy for entanglement.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“How do you form the reduced density matrix of the second
-qubit?”</li>
-<li>“What purity value indicates a pure reduced state?”</li>
-<li>“How does reduced-state entropy detect entanglement for a pure
-bipartite state?”</li>
-<li>“How do you prove <code>|beta_00&gt;</code> is entangled?”</li>
-</ul>
-<h2
-id="priority-4---gates-circuits-truth-tables-and-circuit-outputs">Priority
-4 - Gates, Circuits, Truth Tables, And Circuit Outputs</h2>
-<p>Frequency: 5/5 papers.</p>
-<p>Appears as:</p>
-<ul>
-<li>2021/22 - Q4(i) - Michael Mc Gettrick - Draw circuits from gate
-expressions: H, CNOT, SWAP, controlled rotation, X, Y.</li>
-<li>2022/23 - Q1(a)-(c) - Mark Howard - CNOT truth tables,
-Hadamard-conjugated CNOT identity, output state for a circuit.</li>
-<li>2023/24 - Q4(i), Q4(ii) - Michael Mc Gettrick - Draw circuits from
-gate expressions; Deutsch-Jozsa permutation matrix.</li>
-<li>2024/25 - Q4(iii) - Michael Mc Gettrick - Draw teleportation
-circuit.</li>
-<li>2025/26 - Q1(c)-(d), Q4(c) - Mark Howard - Controlled-Hadamard truth
-table, circuit output, simplify a projection/operator expression.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Translate between gate notation, truth tables, circuit diagrams, and
-output states for small qubit systems.</p>
-</blockquote>
-<p>Same question family, even when wording changes:</p>
-<ul>
-<li>“draw the circuit corresponding to operations”</li>
-<li>“write out the truth table”</li>
-<li>“what is the output state”</li>
-<li>“show Hadamards switch CNOT control and target”</li>
-<li>“calculate the permutation matrix used in Deutsch-Jozsa”</li>
-<li>“draw the teleportation circuit”</li>
-</ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>CNOT control/target conventions.</li>
-<li>Controlled-Hadamard truth table.</li>
-<li>SWAP and controlled rotation placement.</li>
-<li>Reading gate products in the correct order.</li>
-<li>Tensor product gate notation.</li>
-<li>Small output-state calculations.</li>
-<li>Deutsch-Jozsa <code>U_f</code> as a permutation on input/output
-basis states.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“What is the truth table for CNOT(1,2) vs CNOT(2,1)?”</li>
-<li>“What does surrounding CNOT by H on both qubits do?”</li>
-<li>“How do you read a gate product into a circuit?”</li>
-<li>“What are the steps in the teleportation circuit?”</li>
-</ul>
-<h2
-id="priority-5---kraus-operators-povms-cptp-maps-and-projective-measurements">Priority
-5 - Kraus Operators, POVMs, CPTP Maps, And Projective Measurements</h2>
-<p>Frequency: 5/5 papers if POVM, Kraus, CPTP and projective-measurement
-variants are consolidated.</p>
-<p>Appears as:</p>
-<ul>
-<li>2021/22 - Q3(i), Q3(ii) - Michael Mc Gettrick - Kraus operators for
-phase damping in a given basis; POVM outcome probabilities.</li>
-<li>2022/23 - Q5(c) - Mark Howard - Parity measurement: show projective
-measurement requirements and calculate even probability.</li>
-<li>2023/24 - Q3(i) - Michael Mc Gettrick - Phase damping CPTP map:
-write 4x4 matrix and calculate Kraus operators.</li>
-<li>2024/25 - Q3(i), Q3(ii) - Michael Mc Gettrick - Kraus operators for
-amplitude damping; POVM outcome probabilities.</li>
-<li>2025/26 - Q1(b), Q4(d), Q5(c) - Mark Howard - Projective measurement
-in <code>|+&gt;</code>, <code>|-&gt;</code>; depolarising-channel trace
-preservation; parity measurement.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Given a channel or measurement, verify the required
-measurement/channel conditions and calculate the resulting Kraus
-operators or outcome probabilities.</p>
-</blockquote>
-<p>Same question family, even when wording changes:</p>
-<ul>
-<li>“calculate associated Kraus operators”</li>
-<li>“write down a 4x4 representation”</li>
-<li>“positive operator-valued measure probabilities”</li>
-<li>“show projective measurement requirements”</li>
-<li>“confirm Kraus operators are trace preserving”</li>
-<li>“describe the channel effect on arbitrary <code>rho</code>”</li>
-</ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>Extracting Kraus operators as environment matrix elements.</li>
-<li>Checking <code>sum E_k^dagger E_k = I</code>.</li>
-<li>Calculating POVM probabilities using
-<code>&lt;psi|E_i|psi&gt;</code>.</li>
-<li>Showing projectors are Hermitian, idempotent, orthogonal and sum to
-identity.</li>
-<li>Recognising phase damping, amplitude damping and
-depolarising-channel forms.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“What condition makes Kraus operators trace preserving?”</li>
-<li>“How do you calculate a POVM outcome probability?”</li>
-<li>“What must be checked for a projective measurement?”</li>
-<li>“How are Kraus operators extracted from a system-environment
-unitary?”</li>
-</ul>
-<h2
-id="priority-6---no-cloning-no-deleting-and-unitary-impossibility-proofs">Priority
-6 - No-Cloning, No-Deleting, And Unitary-Impossibility Proofs</h2>
-<p>Frequency: 4/5 papers directly for no-cloning; 5/5 if broader
-unitary/proof constraints are included.</p>
-<p>Appears as:</p>
-<ul>
-<li>2022/23 - Q4(b), Q4(c) - Mark Howard - Prove no-cloning; prove
-unitaries cannot delete information.</li>
-<li>2023/24 - Q3(ii) - Michael Mc Gettrick - Prove no-cloning
-theorem.</li>
-<li>2024/25 - Q4(i), Q2(ii) - Michael Mc Gettrick - Prove no-cloning;
-prove unitaries preserve purity.</li>
-<li>2025/26 - Q4(a), Q4(b) - Mark Howard - Construct orthogonal
-state/unitary; prove no-cloning.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Prove that a proposed universal quantum operation cannot exist
-because it would contradict linearity, preservation of inner products,
-unitarity, or purity.</p>
-</blockquote>
-<p>Same question family, even when wording changes:</p>
-<ul>
-<li>“prove no-cloning”</li>
-<li>“impossible to copy a quantum state”</li>
-<li>“unitaries cannot delete information”</li>
-<li>“unitaries preserve state purity”</li>
-<li>“find the unitary mapping computational basis to
-<code>|psi&gt;</code>, <code>|psi_perp&gt;</code>”</li>
-</ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>No-cloning proof using two arbitrary states and inner products.</li>
-<li>No-cloning proof using linearity on <code>|0&gt;</code>,
-<code>|1&gt;</code>, and superpositions.</li>
-<li>No-deleting/no-information deletion proof.</li>
-<li><code>rho -&gt; U rho U^dagger</code> and purity preservation.</li>
-<li>Constructing <code>|psi_perp&gt;</code> and the unitary with columns
-<code>|psi&gt;</code>, <code>|psi_perp&gt;</code>.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“What is the shortest no-cloning proof?”</li>
-<li>“Where does linearity break universal cloning?”</li>
-<li>“Why do unitaries preserve inner products?”</li>
-<li>“Why does <code>Tr((U rho U^dagger)^2) = Tr(rho^2)</code>?”</li>
-</ul>
-<h2 id="priority-7-----bloch-sphere-and-basis-changes">Priority 7 -
-<code>|+&gt;</code>, <code>|-&gt;</code>, Bloch Sphere, And Basis
-Changes</h2>
-<p>Frequency: 4/5 papers directly; also supports measurement and gate
-questions.</p>
-<p>Appears as:</p>
-<ul>
-<li>2021/22 - Q1(ii) - Michael Mc Gettrick - Bloch sphere angles and
-probability of <code>|+&gt;</code> measurement.</li>
-<li>2023/24 - Q1(ii) - Michael Mc Gettrick - Same Bloch sphere plus
-<code>|+&gt;</code> probability family.</li>
-<li>2024/25 - Q1(ii) - Michael Mc Gettrick - Same Bloch sphere plus
-<code>|+&gt;</code> probability family.</li>
-<li>2025/26 - Q1(a), Q1(b) - Mark Howard - Express arbitrary qubit in
-<code>|+&gt;</code>, <code>|-&gt;</code> basis; derive probabilities
-using projective measurement.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Given a qubit state, convert between computational and
-<code>|+&gt;</code>, <code>|-&gt;</code> basis, calculate measurement
-probabilities, and identify Bloch sphere angles.</p>
-</blockquote>
-<p>Same question family, even when wording changes:</p>
-<ul>
-<li>“calculate angles theta and phi”</li>
-<li>“measure using <code>|+&gt;</code> and <code>|-&gt;</code>”</li>
-<li>“determine probability as a function of alpha, beta”</li>
-<li>“derive the same result using a projective measurement”</li>
-</ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li><code>|+&gt; = (|0&gt; + |1&gt;)/sqrt(2)</code> and
-<code>|-&gt; = (|0&gt; - |1&gt;)/sqrt(2)</code>.</li>
-<li>Solving for coefficients in the plus/minus basis.</li>
-<li>Probability as squared modulus of the basis coefficient.</li>
-<li>Matching a qubit state to Bloch sphere parameters.</li>
-<li>Handling complex phase correctly.</li>
-</ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“How do alpha and beta convert to plus/minus amplitudes?”</li>
-<li>“What are the Bloch sphere parameters for a general qubit?”</li>
-<li>“How do you compute measurement probability in a changed
-basis?”</li>
-</ul>
-<h2
-id="priority-8---bell-states-teleportation-and-parity-measurement">Priority
-8 - Bell States, Teleportation, And Parity Measurement</h2>
-<p>Frequency: 3/5 as a distinct block, but high value because it appears
-as a full Mark Howard Q5 twice and overlaps with entanglement/projective
-measurement.</p>
-<p>Appears as:</p>
-<ul>
-<li>2022/23 - Q5(a)-(c) - Mark Howard - Bell state in rotated basis,
-Alice measurement after inverse unitary, parity measurement validity and
-probability.</li>
-<li>2024/25 - Q4(iii) - Michael Mc Gettrick - Draw the teleportation
-circuit.</li>
-<li>2025/26 - Q5(a)-(c) - Mark Howard - Same
-Bell/rotated-basis/parity-measurement family as 2022/23.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
-<blockquote>
-<p>Work fluently with the Bell state <code>|beta_00&gt;</code>, rotated
-bases, teleportation-style measurement logic, and parity projectors.</p>
-</blockquote>
-<p>Same question family, even when wording changes:</p>
-<ul>
-<li>“show Bell state in rotated basis”</li>
-<li>“Alice applies inverse unitary and measures”</li>
-<li>“what state does Bob have”</li>
-<li>“parity measurement projectors”</li>
-<li>“draw teleportation circuit”</li>
-</ul>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>Expand rotated-basis expressions carefully.</li>
-<li>Use Alice’s measurement outcome to identify Bob’s collapsed
+<li>Computational-basis measurement probability and post-measurement
 state.</li>
-<li>Verify parity projectors are a projective measurement.</li>
-<li>Know teleportation circuit order: entangled pair, CNOT, H,
-measurement, classical corrections.</li>
+<li>Density matrix <code>rho=|psi&gt;&lt;psi|</code> for a qutrit.</li>
+<li>Applying a supplied unitary before measuring again.</li>
+<li>Bloch sphere parameters for a qubit.</li>
+<li>Plus/minus basis conversion and projective-measurement
+derivation.</li>
+<li>Legacy backup: pure-state density-matrix eigenvalues and entropy in
+2022/23 Q2(c).</li>
 </ul>
-<p>Good flashcards after practice:</p>
-<ul>
-<li>“What is <code>|beta_00&gt;</code>?”</li>
-<li>“How does <code>|beta_00&gt;</code> transform under a shared rotated
-basis?”</li>
-<li>“What are the teleportation circuit steps?”</li>
-<li>“What are even and odd parity projectors?”</li>
-</ul>
-<h2
-id="priority-9---deutsch-jozsa-and-lower-frequency-algorithm-material">Priority
-9 - Deutsch-Jozsa And Lower-Frequency Algorithm Material</h2>
-<p>Frequency: 1/5 directly in the available papers, but still worth
-keeping because it sits in the official learning outcomes and appears in
-the same circuit/algorithm area.</p>
-<p>Appears as:</p>
-<ul>
-<li>2023/24 - Q4(ii) - Michael Mc Gettrick - Calculate the Deutsch-Jozsa
-permutation matrix <code>U_f</code> for a given Boolean function.</li>
-</ul>
-<p>Consolidated most-asked question:</p>
 <blockquote>
-<p>Given a Boolean function, build the corresponding Deutsch-Jozsa
-oracle/permutation matrix.</p>
+<p>
+Consolidated question: Given a qubit or qutrit state, calculate
+measurement probabilities, density matrices, basis-change probabilities,
+and unitary-updated probabilities with correct complex conjugation and
+normalisation.
+</p>
 </blockquote>
-<p>What to practise before flashcards:</p>
-<ul>
-<li>How <code>U_f</code> maps <code>|x, y&gt;</code> to
-<code>|x, y xor f(x)&gt;</code>.</li>
-<li>How to turn the mapping into a permutation matrix.</li>
-<li>How this relates to circuit truth tables.</li>
+<div class="answer-frame">
+<p>
+<strong>Complete answer must contain:</strong> amplitude moduli squared
+for probabilities, explicit post-measurement state when requested, the
+full outer-product density matrix, the matrix-vector product for any
+unitary update, and the final squared-modulus probability. For
+plus/minus measurements, <code>gamma=(alpha+beta)/sqrt(2)</code>,
+<code>delta=(alpha-beta)/sqrt(2)</code>, so
+<code>P(+)=|alpha+beta|^2/2</code> and
+<code>P(-)=|alpha-beta|^2/2</code>. For Bloch sphere form, remove global
+phase and match <code>|psi&gt;=cos(theta/2)|0&gt;+e^{i phi}
+sin(theta/2)|1&gt;</code>.
+</p>
+</div>
+<p>Standard worked fact:</p>
+<p>For the 2024/25 qutrit
+<code>|psi&gt;=(1/3)(-2|0&gt;-i|1&gt;+2i|2&gt;)</code>, the initial
+probability of <code>|2&gt;</code> is <code>4/9</code>,</p>
+<pre class="text"><code>rho = (1/9)[ 4   -2i   4i ]
+            [ 2i   1   -2 ]
+            [ -4i -2    4 ],</code></pre>
+<p>and after the supplied unitary
+<code>U|psi&gt;=(1/3)(-2,2,1)^T</code>, so the final probability of
+<code>|2&gt;</code> is <code>1/9</code>.</p>
+<h2
+id="priority-3---entanglement-reduced-density-matrices-purity-bell-states-and-entropy">Priority
+3 - Entanglement, Reduced Density Matrices, Purity, Bell States, And
+Entropy</h2>
+<p class="priority-note">
+<strong>Current recurrence:</strong> 3/3 current papers.
+<strong>Approximate current mark weight:</strong> about 83 marks,
+including Bell-state variants.
+</p>
+<p>Appears as:</p>
+<ul class="paper-list">
+<li>
+2023/24 - Q2 - Michael Mc Gettrick - four 2-qubit column vectors;
+calculate purity and entanglement using von Neumann entropy of the
+reduced density matrix for the second qubit. [25 marks]
+</li>
+<li>
+2024/25 - Q2(i) - Michael Mc Gettrick - three 2-qubit states; calculate
+purity and entanglement using the reduced density matrix. [18 marks]
+</li>
+<li>
+2024/25 - Q2(ii) - Michael Mc Gettrick - prove unitary transformations
+preserve state purity. [7 marks]
+</li>
+<li>
+2025/26 - Q2(d) - Mark Howard - prove whether two supplied 2-qubit
+states are entangled. [8 marks]
+</li>
+<li>
+2025/26 - Q5(a) - Mark Howard - show Bell state
+<code>|beta_00&gt;</code> equals
+<code>(1/sqrt(2))(|psi,psi&gt;+|psi_perp,psi_perp&gt;)</code> in a
+rotated basis. [8 marks]
+</li>
+<li>
+2025/26 - Q5(b) - Mark Howard - after Alice applies
+<code>U_theta^-1</code> and measures, state Bob’s pure state for outcome
+zero or one. [9 marks]
+</li>
+<li>
+2025/26 - Q5(c) - Mark Howard - parity measurement projectors and
+probability of “even” for <code>|beta_00&gt;</code>. [8 marks]
+</li>
 </ul>
-<p>Good flashcards after practice:</p>
+<p>Distinct variants to retain:</p>
 <ul>
-<li>“What is the Deutsch-Jozsa oracle action?”</li>
-<li>“How do you build a permutation matrix from a basis-state map?”</li>
+<li>Reduced density matrix, purity, and entropy calculations for
+explicit 4-vectors.</li>
+<li>Entanglement decision/proof for supplied 2-qubit vectors.</li>
+<li>Unit purity preservation proof.</li>
+<li>Bell-state entanglement and rotated-basis identity.</li>
+<li>Alice/Bob collapse after measurement.</li>
+<li>Parity measurement validity and probability.</li>
 </ul>
-<h2 id="same-lecturer-core-set">Same-Lecturer Core Set</h2>
-<p>If prioritising only Michael Mc Gettrick papers first, drill these in
-this order:</p>
-<ol type="1">
-<li>Qutrit measurement/density/unitary: 2021 Q1(i), 2023 Q1(i), 2024
-Q1(i).</li>
-<li>Bloch sphere and <code>|+&gt;</code> measurement: 2021 Q1(ii), 2023
-Q1(ii), 2024 Q1(ii).</li>
-<li>Reduced density matrix/purity/entropy: 2021 Q2, 2023 Q2, 2024
-Q2.</li>
-<li>Kraus/POVM/channel: 2021 Q3, 2023 Q3(i), 2024 Q3.</li>
-<li>Circuits and QFT/teleportation: 2021 Q4, 2023 Q4, 2024 Q4.</li>
-<li>Grover: 2021 Q5, 2023 Q5, 2024 Q5.</li>
-</ol>
-<p>This is the best initial study loop because it follows the
-current-page lecturer pattern while still covering almost all
-high-frequency exam families.</p>
-<h2 id="cross-lecturer-stability-set">Cross-Lecturer Stability Set</h2>
-<p>After the same-lecturer loop, use the Mark Howard papers to catch
-equivalent questions that appear in a different style:</p>
-<ol type="1">
-<li>2022 Q2 and 2025 Q2 for qutrit/density/unitary variants.</li>
-<li>2022 Q3 and 2025 Q3 for Grover matrix plus QFT.</li>
-<li>2022 Q4 and 2025 Q4 for no-cloning and unitary proof variants.</li>
-<li>2022 Q5 and 2025 Q5 for Bell/rotated-basis/parity-measurement
-variants.</li>
-<li>2022 Q1 and 2025 Q1 for truth tables, basis measurement, and circuit
-outputs.</li>
-</ol>
-<p>The goal here is not to study a second course. It is to make sure a
-wording change does not make a familiar family look unfamiliar.</p>
-<h2 id="recommended-study-order">Recommended Study Order</h2>
-<ol type="1">
-<li>Grover and QFT.</li>
-<li>Qutrit measurement, density matrix and unitary update.</li>
-<li>Entanglement, reduced density matrices, purity and entropy.</li>
-<li>Gates, circuits, truth tables and circuit outputs.</li>
-<li>Kraus operators, POVMs, CPTP maps and projective measurements.</li>
-<li>No-cloning, no-deleting and unitary-impossibility proofs.</li>
-<li>Plus/minus basis, Bloch sphere and basis changes.</li>
-<li>Bell states, teleportation and parity measurement.</li>
-<li>Deutsch-Jozsa oracle/permutation matrix.</li>
-</ol>
-<h2 id="consolidated-worked-answers">Consolidated Worked Answers</h2>
-<p>These are not year-by-year paper solutions. They are the reusable
-worked answers for the consolidated families above. Use them after
-attempting a question family yourself.</p>
-<h3 id="worked-1---grover-search-and-qft">Worked 1 - Grover Search And
-QFT</h3>
-<p>Core Grover setup for one marked item in a list of size
-<code>N</code>:</p>
+<blockquote>
+<p>
+Consolidated question: Given a 2-qubit state, decide whether it is
+entangled by reduced states, purity, entropy, or Bell-state algebra, and
+prove any stated unitary or projective-measurement property.
+</p>
+</blockquote>
+<div class="answer-frame">
+<p>
+<strong>Complete answer must contain:</strong> the basis order, the
+reduced density matrix, the purity <code>Tr(rho^2)</code>,
+entropy/eigenvalue reasoning when required, and the entanglement
+conclusion. For
+<code>|psi&gt;=a|00&gt;+b|01&gt;+c|10&gt;+d|11&gt;</code>, reducing to
+the second qubit gives <code>[[|a|<sup>2+|c|</sup>2, a b* + c d*], [a* b
++ c* d, |b|<sup>2+|d|</sup>2]]</code>. A pure reduced state means no
+entanglement; a mixed reduced state means entanglement for an overall
+pure bipartite state.
+</p>
+</div>
+<p>Standard worked facts:</p>
 <ul>
-<li>Let <code>sin(theta) = 1/sqrt(N)</code>.</li>
-<li>After <code>k</code> Grover iterations, the success probability is
-<code>P_k = sin^2((2k + 1)theta)</code>.</li>
-<li>The ideal real-valued number of iterations is
-<code>k* = pi/(4theta) - 1/2</code>.</li>
-<li>In an exam, test the nearest integers to <code>k*</code> and choose
-the one with the larger <code>P_k</code>.</li>
+<li>For <code>|beta_00&gt;=(|00&gt;+|11&gt;)/sqrt(2)</code>, the reduced
+state is <code>I/2</code>, purity is <code>1/2</code>, and entropy is
+<code>1</code>, so it is maximally entangled.</li>
+<li>Unitary purity proof:</li>
 </ul>
-<p>Worked answer for the repeated <code>N = 32</code> family:</p>
-<ol type="1">
-<li><code>theta = arcsin(1/sqrt(32))</code>.</li>
-<li><code>k* = pi/(4theta) - 1/2 = 3.918...</code>, so the integer
-candidates are <code>k = 4</code> and <code>k = 3</code>.</li>
-<li>For <code>k = 4</code>,
-<code>P_4 = sin^2(9theta) = 0.99918...</code>.</li>
-<li>For <code>k = 3</code>,
-<code>P_3 = sin^2(7theta) = 0.89694...</code>.</li>
-<li>For <code>k = 5</code>,
-<code>P_5 = sin^2(11theta) = 0.85964...</code>.</li>
-</ol>
-<p>Answer: the theoretical number is about <code>3.918</code>; the best
-integer number is <code>4</code>, with success probability about
-<code>0.999</code>. The second-best nearby integer is <code>3</code>,
-with success probability about <code>0.897</code>.</p>
-<p>Worked answer for the <code>N = 8</code>, one-marked-item family:</p>
-<ol type="1">
-<li><code>theta = arcsin(1/sqrt(8))</code>.</li>
-<li>After one Grover operation:
-<code>P_1 = sin^2(3theta) = 25/32 = 0.78125</code>.</li>
-<li>After two Grover operations:
-<code>P_2 = sin^2(5theta) = 121/128 = 0.9453125</code>.</li>
-</ol>
-<p>Answer: for the 2023-style list of length 8, two Grover operations
-give the higher success probability.</p>
-<p>Worked answer for the Mark Howard <code>|a&gt;</code>,
-<code>|phi&gt;</code> version when <code>N = 4</code>:</p>
-<ul>
-<li><code>|a&gt;</code> is the marked state.</li>
-<li><code>|phi&gt; = (1/sqrt(3)) sum_{x != a} |x&gt;</code>.</li>
-<li>The uniform superposition is
-<code>|psi&gt; = (1/2)|a&gt; + (sqrt(3)/2)|phi&gt;</code>.</li>
-<li>Here <code>theta = arcsin(1/2) = pi/6</code>.</li>
-<li>In the basis <code>{|a&gt;, |phi&gt;}</code>, the Grover iterate
-is</li>
-</ul>
-<pre class="text"><code>G = [ 1/2        sqrt(3)/2 ]
-    [ -sqrt(3)/2 1/2       ].</code></pre>
-<p>Then</p>
-<pre class="text"><code>G|psi&gt;
-= [ 1/2        sqrt(3)/2 ][ 1/2       ]
-  [ -sqrt(3)/2 1/2       ][ sqrt(3)/2 ]
-= [ 1 ]
-  [ 0 ].</code></pre>
-<p>Answer: after one Grover iterate for <code>N = 4</code>, the state is
-exactly <code>|a&gt;</code>, so the success probability is
-<code>1</code>.</p>
-<p>QFT answer template:</p>
-<ul>
-<li>For dimension <code>d</code>, let
-<code>omega = exp(2 pi i / d)</code>.</li>
-<li>The QFT is
-<code>F_d |x&gt; = (1/sqrt(d)) sum_{y=0}^{d-1} omega^(xy) |y&gt;</code>.</li>
-<li>For a general vector <code>sum_x alpha_x |x&gt;</code>, apply the
-formula linearly.</li>
-</ul>
-<p>Example:</p>
-<pre class="text"><code>F_4 |2&gt;
-= (1/2)(|0&gt; + omega^2 |1&gt; + omega^4 |2&gt; + omega^6 |3&gt;)
-= (1/2)(|0&gt; - |1&gt; + |2&gt; - |3&gt;),</code></pre>
-<p>because <code>omega = i</code>. Each measurement probability is
-therefore <code>1/4</code>.</p>
-<h3
-id="worked-2---qutrit-measurement-density-matrix-and-unitary-update">Worked
-2 - Qutrit Measurement, Density Matrix, And Unitary Update</h3>
-<p>General qutrit state:</p>
-<pre class="text"><code>|psi&gt; = a|0&gt; + b|1&gt; + c|2&gt;</code></pre>
-<p>with <code>|a|^2 + |b|^2 + |c|^2 = 1</code>.</p>
-<p>Measurement answer:</p>
-<ul>
-<li>Probability of outcome <code>0</code> is <code>|a|^2</code>.</li>
-<li>Probability of outcome <code>1</code> is <code>|b|^2</code>.</li>
-<li>Probability of outcome <code>2</code> is <code>|c|^2</code>.</li>
-<li>If the measured outcome is <code>j</code>, the post-measurement
-state is <code>|j&gt;</code>.</li>
-</ul>
-<p>Density matrix answer:</p>
-<pre class="text"><code>rho = |psi&gt;&lt;psi|
-    = [ a ] [ conjugate(a) conjugate(b) conjugate(c) ]
-      [ b ]
-      [ c ]
-
-    = [ a conjugate(a)  a conjugate(b)  a conjugate(c) ]
-      [ b conjugate(a)  b conjugate(b)  b conjugate(c) ]
-      [ c conjugate(a)  c conjugate(b)  c conjugate(c) ].</code></pre>
-<p>Unitary-update answer:</p>
-<ol type="1">
-<li>Calculate <code>|psi'&gt; = U|psi&gt;</code>.</li>
-<li>Read off the new amplitude of the requested basis state.</li>
-<li>Square its modulus.</li>
-</ol>
-<p>Worked example using the 2024/25 qutrit:</p>
-<pre class="text"><code>|psi&gt; = (1/3)(-2|0&gt; - i|1&gt; + 2i|2&gt;)</code></pre>
-<p>Initial probability of <code>|2&gt;</code>:</p>
-<pre class="text"><code>P(2) = |2i/3|^2 = 4/9.</code></pre>
-<p>Density matrix:</p>
-<pre class="text"><code>v = (1/3)[ -2, -i, 2i ]^T
-v^dagger = (1/3)[ -2, i, -2i ]
-
-rho = vv^dagger
-    = (1/9)[ 4    -2i   4i  ]
-            [ 2i    1    -2  ]
-            [ -4i  -2     4  ].</code></pre>
-<p>Apply</p>
-<pre class="text"><code>U = [ 1  0   0  ]
-    [ 0  0  -i  ]
-    [ 0  i   0  ].</code></pre>
-<p>Then</p>
-<pre class="text"><code>U|psi&gt;
-= (1/3)[ -2, 2, 1 ]^T.</code></pre>
-<p>Final probability of <code>|2&gt;</code>:</p>
-<pre class="text"><code>P(2 after U) = |1/3|^2 = 1/9.</code></pre>
-<p>Mark Howard entropy variant:</p>
-<ul>
-<li>If <code>rho = |psi&gt;&lt;psi|</code> is a pure-state density
-matrix, then its eigenvalues are <code>1, 0, 0</code>.</li>
-<li>Its von Neumann entropy is
-<code>S(rho) = - sum lambda log_2(lambda) = 0</code>.</li>
-</ul>
-<h3
-id="worked-3---entanglement-reduced-density-matrix-purity-and-entropy">Worked
-3 - Entanglement, Reduced Density Matrix, Purity, And Entropy</h3>
-<p>Write a two-qubit state in the standard order:</p>
-<pre class="text"><code>|psi&gt; = a|00&gt; + b|01&gt; + c|10&gt; + d|11&gt;.</code></pre>
-<p>To test entanglement by reducing to the second qubit:</p>
-<pre class="text"><code>rho_B =
-[ |a|^2 + |c|^2        a conjugate(b) + c conjugate(d) ]
-[ conjugate(a)b + conjugate(c)d    |b|^2 + |d|^2       ].</code></pre>
-<p>Purity:</p>
-<pre class="text"><code>purity = Tr(rho_B^2).</code></pre>
-<p>For a <code>2 x 2</code> reduced state</p>
-<pre class="text"><code>rho_B = [ p  q ]
-        [ q* r ],</code></pre>
-<p>use</p>
-<pre class="text"><code>Tr(rho_B^2) = p^2 + r^2 + 2|q|^2.</code></pre>
-<p>Entropy:</p>
-<ol type="1">
-<li>Find the eigenvalues of <code>rho_B</code>.</li>
-<li>Use <code>S(rho_B) = - sum lambda log_2(lambda)</code>.</li>
-<li>If the reduced state is pure, entropy is <code>0</code>, so the
-original two-qubit pure state is not entangled.</li>
-<li>If the reduced state is mixed, entropy is positive, so the original
-state is entangled.</li>
-</ol>
-<p>Fast product-state test:</p>
-<pre class="text"><code>|psi&gt; is separable iff ad = bc.</code></pre>
-<p>Worked Bell-state answer:</p>
-<pre class="text"><code>|beta_00&gt; = (1/sqrt(2))(|00&gt; + |11&gt;).</code></pre>
-<p>Here <code>a = 1/sqrt(2)</code>, <code>b = 0</code>,
-<code>c = 0</code>, <code>d = 1/sqrt(2)</code>.</p>
-<pre class="text"><code>rho_B = [ |a|^2 + |c|^2   a conjugate(b) + c conjugate(d) ]
-        [ conjugate(a)b + conjugate(c)d   |b|^2 + |d|^2  ]
-
-      = [ 1/2  0   ]
-        [ 0    1/2 ].</code></pre>
-<p>Purity:</p>
-<pre class="text"><code>Tr(rho_B^2) = (1/2)^2 + (1/2)^2 = 1/2.</code></pre>
-<p>Entropy:</p>
-<pre class="text"><code>S(rho_B) = -1/2 log_2(1/2) - 1/2 log_2(1/2) = 1.</code></pre>
-<p>Answer: the Bell state is maximally entangled. Its reduced density
-matrix is mixed, with purity <code>1/2</code> and entropy
-<code>1</code>.</p>
-<p>Unitary-preserves-purity proof:</p>
 <pre class="text"><code>rho&#39; = U rho U^dagger
-
-Tr((rho&#39;)^2)
-= Tr(U rho U^dagger U rho U^dagger)
-= Tr(U rho^2 U^dagger)
-= Tr(rho^2 U^dagger U)
-= Tr(rho^2).</code></pre>
-<p>Answer: unitary transformations preserve purity.</p>
-<h3
-id="worked-4---gates-circuits-truth-tables-and-circuit-outputs">Worked 4
-- Gates, Circuits, Truth Tables, And Circuit Outputs</h3>
-<p>CNOT truth tables:</p>
-<pre class="text"><code>CNOT(1,2): |a,b&gt; -&gt; |a, b xor a&gt;
-
-|00&gt; -&gt; |00&gt;
-|01&gt; -&gt; |01&gt;
-|10&gt; -&gt; |11&gt;
-|11&gt; -&gt; |10&gt;</code></pre>
-<pre class="text"><code>CNOT(2,1): |a,b&gt; -&gt; |a xor b, b&gt;
-
-|00&gt; -&gt; |00&gt;
-|01&gt; -&gt; |11&gt;
-|10&gt; -&gt; |10&gt;
-|11&gt; -&gt; |01&gt;</code></pre>
-<p>Controlled-Hadamard truth table:</p>
-<pre class="text"><code>C_H |00&gt; = |00&gt;
-C_H |01&gt; = |01&gt;
-C_H |10&gt; = |1&gt;|+&gt; = (1/sqrt(2))(|10&gt; + |11&gt;)
-C_H |11&gt; = |1&gt;|-&gt; = (1/sqrt(2))(|10&gt; - |11&gt;)</code></pre>
-<p>Hadamards switch CNOT control and target:</p>
-<pre class="text"><code>(H tensor H) CNOT(1,2) (H tensor H) = CNOT(2,1).</code></pre>
-<p>Reason:</p>
-<ul>
-<li>Hadamard swaps the <code>X</code> and <code>Z</code> bases.</li>
-<li>CNOT copies computational-basis information from control to
-target.</li>
-<li>Conjugating both qubits by <code>H</code> swaps the control/target
-action.</li>
+Tr((rho&#39;)^2) = Tr(U rho U^dagger U rho U^dagger)
+             = Tr(U rho^2 U^dagger)
+             = Tr(rho^2).</code></pre>
+<h2
+id="priority-4---channels-kraus-operators-povms-and-projective-measurements">Priority
+4 - Channels, Kraus Operators, POVMs, And Projective Measurements</h2>
+<p class="priority-note">
+<strong>Current recurrence:</strong> 3/3 current papers.
+<strong>Approximate current mark weight:</strong> about 59 marks, with
+some overlap with basis/Bell questions.
+</p>
+<p>Appears as:</p>
+<ul class="paper-list">
+<li>
+2023/24 - Q3(i)(a)-(b) - Michael Mc Gettrick - phase damping CPTP map;
+write 4 x 4 matrix; calculate Kraus operators
+<code>M_0=&lt;0|U|0&gt;</code> and <code>M_1=&lt;1|U|0&gt;</code>. [14
+marks]
+</li>
+<li>
+2024/25 - Q3(i) - Michael Mc Gettrick - given orthonormal basis |g&gt;,
+|h&gt;, calculate associated Kraus operators for amplitude damping
+channel. [13 marks]
+</li>
+<li>
+2024/25 - Q3(ii) - Michael Mc Gettrick - POVM effects <code>E_1</code>,
+<code>E_2</code>, <code>E_3=I-E_1-E_2</code>; calculate all three
+outcome probabilities. [12 marks]
+</li>
+<li>
+2025/26 - Q1(b) - Mark Howard - plus/minus projective measurement and
+projective-measurement definition. [6 marks]
+</li>
+<li>
+2025/26 - Q4(d) - Mark Howard - Pauli Kraus operators; confirm
+trace-preserving channel and describe effect on arbitrary state
+<code>rho</code>. [6 marks]
+</li>
+<li>
+2025/26 - Q5(c) - Mark Howard - parity measurement projectors; show
+projective-measurement requirements and calculate even probability. [8
+marks]
+</li>
 </ul>
-<p>Circuit-output workflow:</p>
-<ol type="1">
-<li>Read products right-to-left.</li>
-<li>Apply one gate at a time.</li>
-<li>Keep tensor order fixed.</li>
-<li>Do not convert amplitudes into probabilities until the question asks
-for measurement.</li>
-</ol>
-<p>Deutsch-Jozsa oracle matrix workflow:</p>
-<p>For a Boolean function <code>f</code>, the oracle is</p>
-<pre class="text"><code>U_f |x,y&gt; = |x, y xor f(x)&gt;.</code></pre>
-<p>For the 2023/24 function with</p>
-<pre class="text"><code>f(0)=f(4)=f(6)=f(7)=0
-f(1)=f(2)=f(3)=f(5)=1,</code></pre>
-<p>the answer is the permutation matrix that leaves the <code>y</code>
-bit unchanged for <code>x = 0,4,6,7</code> and swaps
-<code>|x,0&gt;</code> with <code>|x,1&gt;</code> for
-<code>x = 1,2,3,5</code>.</p>
-<p>Explicit basis-state answer:</p>
-<pre class="text"><code>|0,0&gt; -&gt; |0,0&gt;    |0,1&gt; -&gt; |0,1&gt;
-|1,0&gt; -&gt; |1,1&gt;    |1,1&gt; -&gt; |1,0&gt;
-|2,0&gt; -&gt; |2,1&gt;    |2,1&gt; -&gt; |2,0&gt;
-|3,0&gt; -&gt; |3,1&gt;    |3,1&gt; -&gt; |3,0&gt;
-|4,0&gt; -&gt; |4,0&gt;    |4,1&gt; -&gt; |4,1&gt;
-|5,0&gt; -&gt; |5,1&gt;    |5,1&gt; -&gt; |5,0&gt;
-|6,0&gt; -&gt; |6,0&gt;    |6,1&gt; -&gt; |6,1&gt;
-|7,0&gt; -&gt; |7,0&gt;    |7,1&gt; -&gt; |7,1&gt;</code></pre>
-<p>Answer: the matrix has one <code>1</code> in each column at the row
-named by the mapped output state above, and zeros elsewhere.</p>
-<h3
-id="worked-5---kraus-operators-povms-cptp-maps-and-projective-measurements">Worked
-5 - Kraus Operators, POVMs, CPTP Maps, And Projective Measurements</h3>
-<p>Kraus extraction template:</p>
-<p>If the environment starts in <code>|0&gt;</code> and the joint
-system-environment unitary is <code>U</code>, then the Kraus operator
-for environment outcome <code>e</code> is</p>
-<pre class="text"><code>M_e = &lt;e| U |0&gt;,</code></pre>
-<p>where the bra and ket are applied only to the environment
-register.</p>
-<p>Phase-damping template from the repeated family:</p>
-<pre class="text"><code>U|00&gt; = sqrt(1-p)|00&gt; + i sqrt(p)|01&gt;
-U|10&gt; = |10&gt;.</code></pre>
-<p>With environment initially <code>|0&gt;</code>:</p>
-<pre class="text"><code>M_0|0&gt; = sqrt(1-p)|0&gt;,   M_0|1&gt; = |1&gt;
-M_1|0&gt; = i sqrt(p)|0&gt;,   M_1|1&gt; = 0.</code></pre>
-<p>So</p>
-<pre class="text"><code>M_0 = [ sqrt(1-p)  0 ]
-      [ 0          1 ]
-
-M_1 = [ i sqrt(p)  0 ]
-      [ 0          0 ].</code></pre>
-<p>Trace-preserving check:</p>
-<pre class="text"><code>M_0^dagger M_0 + M_1^dagger M_1
-= [ 1-p 0 ] + [ p 0 ]
-   [ 0   1 ]   [ 0 0 ]
-= I.</code></pre>
-<p>POVM probability template:</p>
-<p>For POVM effects <code>E_i</code>,</p>
-<pre class="text"><code>P(i) = &lt;psi|E_i|psi&gt;.</code></pre>
-<p>Worked POVM answer using the 2024/25-style numbers:</p>
-<pre class="text"><code>E_1 = (1/2)|1&gt;&lt;1|
-E_2 = (1/3)|+&gt;&lt;+|
-E_3 = I - E_1 - E_2
-
-|psi&gt; = ((2 - i sqrt(5))/5)|0&gt; + (4/5)|1&gt;.</code></pre>
-<p>Outcome 1:</p>
-<pre class="text"><code>P(1) = (1/2)|4/5|^2 = 8/25.</code></pre>
-<p>Outcome 2:</p>
-<pre class="text"><code>&lt;+|psi&gt; = (1/sqrt(2))((2 - i sqrt(5))/5 + 4/5)
-        = (1/sqrt(2))((6 - i sqrt(5))/5).
-
-|&lt;+|psi&gt;|^2 = (1/2)((36 + 5)/25) = 41/50.
-
-P(2) = (1/3)(41/50) = 41/150.</code></pre>
-<p>Outcome 3:</p>
-<pre class="text"><code>P(3) = 1 - 8/25 - 41/150
-     = 61/150.</code></pre>
-<p>Answer: the three probabilities are <code>8/25</code>,
-<code>41/150</code>, and <code>61/150</code>.</p>
-<p>Projective-measurement checklist:</p>
-<p>A set of projectors <code>{Pi_i}</code> is a projective measurement
-if:</p>
-<pre class="text"><code>Pi_i^dagger = Pi_i              Hermitian
-Pi_i^2 = Pi_i                   idempotent
-Pi_i Pi_j = 0 for i != j        orthogonal
-sum_i Pi_i = I                  complete</code></pre>
-<p>Depolarising-channel Mark Howard variant:</p>
-<p>Given</p>
-<pre class="text"><code>E_0 = (1/2)sqrt(4 - 3lambda) I
-E_1 = (1/2)sqrt(lambda) X
-E_2 = (1/2)sqrt(lambda) Y
-E_3 = (1/2)sqrt(lambda) Z,</code></pre>
-<p>then</p>
-<pre class="text"><code>sum_k E_k^dagger E_k
-= ((4 - 3lambda)/4)I + 3(lambda/4)I
-= I.</code></pre>
-<p>Answer: the channel is trace preserving. Its action is</p>
-<pre class="text"><code>rho -&gt; ((4 - 3lambda)/4)rho
-       + (lambda/4)(X rho X + Y rho Y + Z rho Z).</code></pre>
-<p>On the Bloch vector, it shrinks the vector by a factor of
-<code>1 - lambda</code>, so it moves the state toward the maximally
-mixed state <code>I/2</code>.</p>
-<h3
-id="worked-6---no-cloning-no-deleting-and-unitary-impossibility-proofs">Worked
-6 - No-Cloning, No-Deleting, And Unitary-Impossibility Proofs</h3>
-<p>No-cloning theorem, inner-product proof:</p>
-<p>Assume a universal cloner exists:</p>
-<pre class="text"><code>U|psi&gt;|0&gt; = |psi&gt;|psi&gt;
-U|phi&gt;|0&gt; = |phi&gt;|phi&gt;</code></pre>
-<p>Because <code>U</code> is unitary, it preserves inner products.</p>
-<p>Input inner product:</p>
-<pre class="text"><code>&lt;psi|phi&gt;&lt;0|0&gt; = &lt;psi|phi&gt;.</code></pre>
-<p>Output inner product:</p>
-<pre class="text"><code>(&lt;psi|&lt;psi|)(|phi&gt;|phi&gt;) = &lt;psi|phi&gt;^2.</code></pre>
-<p>Therefore</p>
-<pre class="text"><code>&lt;psi|phi&gt; = &lt;psi|phi&gt;^2.</code></pre>
-<p>This only holds for <code>&lt;psi|phi&gt; = 0</code> or
-<code>&lt;psi|phi&gt; = 1</code>, not for arbitrary qubit states.</p>
-<p>Answer: no universal unitary can clone every quantum state.</p>
-<p>No-deleting / cannot-map-everything-to-zero proof:</p>
-<p>Assume a unitary maps every state to <code>|0&gt;</code>:</p>
-<pre class="text"><code>U|psi&gt; = |0&gt;
-U|phi&gt; = |0&gt;.</code></pre>
-<p>Unitary preservation of inner products gives</p>
-<pre class="text"><code>&lt;psi|phi&gt; = &lt;0|0&gt; = 1.</code></pre>
-<p>This is false for arbitrary distinct states.</p>
-<p>Answer: no single unitary can delete arbitrary quantum information by
-mapping every input state to <code>|0&gt;</code>.</p>
-<p>Constructing the orthogonal state and unitary:</p>
-<p>For</p>
-<pre class="text"><code>|psi&gt; = alpha|0&gt; + beta|1&gt;,</code></pre>
-<p>a valid orthogonal state is</p>
-<pre class="text"><code>|psi_perp&gt; = -conjugate(beta)|0&gt; + conjugate(alpha)|1&gt;.</code></pre>
-<p>Check:</p>
-<pre class="text"><code>&lt;psi|psi_perp&gt;
-= conjugate(alpha)(-conjugate(beta)) + conjugate(beta)conjugate(alpha)
-= 0.</code></pre>
-<p>The unitary mapping <code>{|0&gt;, |1&gt;}</code> to
-<code>{|psi&gt;, |psi_perp&gt;}</code> has these states as columns:</p>
-<pre class="text"><code>U = [ alpha              -conjugate(beta) ]
-    [ beta                conjugate(alpha) ].</code></pre>
-<p>Answer: <code>U U^dagger = I</code> because the columns are
-orthonormal.</p>
-<h3 id="worked-7-----bloch-sphere-and-basis-changes">Worked 7 -
-<code>|+&gt;</code>, <code>|-&gt;</code>, Bloch Sphere, And Basis
-Changes</h3>
-<p>Basis definitions:</p>
-<pre class="text"><code>|+&gt; = (1/sqrt(2))(|0&gt; + |1&gt;)
-|-&gt; = (1/sqrt(2))(|0&gt; - |1&gt;).</code></pre>
-<p>For</p>
-<pre class="text"><code>|psi&gt; = alpha|0&gt; + beta|1&gt;,</code></pre>
-<p>write</p>
-<pre class="text"><code>|psi&gt; = gamma|+&gt; + delta|-&gt;.</code></pre>
-<p>Using inner products:</p>
-<pre class="text"><code>gamma = &lt;+|psi&gt; = (alpha + beta)/sqrt(2)
-delta = &lt;-|psi&gt; = (alpha - beta)/sqrt(2).</code></pre>
-<p>Answer:</p>
-<pre class="text"><code>P(+) = |alpha + beta|^2 / 2
-P(-) = |alpha - beta|^2 / 2.</code></pre>
-<p>Projective-measurement version:</p>
-<pre class="text"><code>P_+ = |+&gt;&lt;+|
-P_- = |-&gt;&lt;-|</code></pre>
-<p>Then</p>
-<pre class="text"><code>P(+) = &lt;psi|P_+|psi&gt; = |&lt;+|psi&gt;|^2
-P(-) = &lt;psi|P_-|psi&gt; = |&lt;-|psi&gt;|^2.</code></pre>
-<p>Bloch sphere answer:</p>
-<p>Every normalised qubit can be written, up to global phase, as</p>
-<pre class="text"><code>|psi&gt; = cos(theta/2)|0&gt; + exp(i phi) sin(theta/2)|1&gt;.</code></pre>
-<p>If <code>|psi&gt; = alpha|0&gt; + beta|1&gt;</code>, remove global
-phase so <code>alpha</code> is real and nonnegative. Then</p>
-<pre class="text"><code>theta = 2 arccos(|alpha|)
-phi = arg(beta) - arg(alpha).</code></pre>
-<p>Answer: use <code>theta</code> to encode the relative size of the
-amplitudes and <code>phi</code> to encode the relative complex
-phase.</p>
-<h3
-id="worked-8---bell-states-teleportation-and-parity-measurement">Worked
-8 - Bell States, Teleportation, And Parity Measurement</h3>
-<p>Bell state:</p>
-<pre class="text"><code>|beta_00&gt; = (1/sqrt(2))(|00&gt; + |11&gt;).</code></pre>
-<p>Rotated-basis identity:</p>
-<p>Let <code>{|psi&gt;, |psi_perp&gt;}</code> be an orthonormal basis
-produced from <code>{|0&gt;, |1&gt;}</code> by a real rotation
-<code>U_theta</code>. Then</p>
-<pre class="text"><code>|beta_00&gt; = (1/sqrt(2))(|psi,psi&gt; + |psi_perp,psi_perp&gt;).</code></pre>
-<p>Worked proof idea:</p>
-<p>Expand the right-hand side using</p>
-<pre class="text"><code>|psi&gt; = cos(theta)|0&gt; + sin(theta)|1&gt;
-|psi_perp&gt; = -sin(theta)|0&gt; + cos(theta)|1&gt;.</code></pre>
-<p>Then</p>
-<pre class="text"><code>|psi,psi&gt; + |psi_perp,psi_perp&gt;
-= (cos^2(theta) + sin^2(theta))|00&gt;
-  + (cos(theta)sin(theta) - sin(theta)cos(theta))|01&gt;
-  + (sin(theta)cos(theta) - cos(theta)sin(theta))|10&gt;
-  + (sin^2(theta) + cos^2(theta))|11&gt;
-= |00&gt; + |11&gt;.</code></pre>
-<p>Therefore the identity holds after multiplying by
-<code>1/sqrt(2)</code>.</p>
-<p>Alice/Bob measurement answer:</p>
-<p>Starting with</p>
-<pre class="text"><code>|beta_00&gt; = (1/sqrt(2))(|psi,psi&gt; + |psi_perp,psi_perp&gt;),</code></pre>
-<p>Alice applies <code>U_theta^-1</code> to her qubit:</p>
-<pre class="text"><code>(U_theta^-1 tensor I)|beta_00&gt;
-= (1/sqrt(2))(|0&gt;|psi&gt; + |1&gt;|psi_perp&gt;).</code></pre>
-<p>If Alice measures <code>0</code>, Bob has <code>|psi&gt;</code>.</p>
-<p>If Alice measures <code>1</code>, Bob has
-<code>|psi_perp&gt;</code>.</p>
-<p>Parity measurement:</p>
-<pre class="text"><code>Pi_even = |00&gt;&lt;00| + |11&gt;&lt;11|
-Pi_odd  = |01&gt;&lt;01| + |10&gt;&lt;10|.</code></pre>
-<p>Checks:</p>
+<p>Distinct variants to retain:</p>
 <ul>
-<li><code>Pi_even^2 = Pi_even</code> and
-<code>Pi_odd^2 = Pi_odd</code>.</li>
-<li>Both are Hermitian.</li>
-<li><code>Pi_even Pi_odd = 0</code>.</li>
-<li><code>Pi_even + Pi_odd = I</code>.</li>
+<li>Kraus extraction from a system-environment unitary.</li>
+<li>Channel matrix representation.</li>
+<li>Trace-preservation check.</li>
+<li>POVM probabilities.</li>
+<li>Projective measurement checklist.</li>
+<li>Depolarising channel effect on <code>rho</code>.</li>
 </ul>
-<p>For <code>|beta_00&gt;</code>, all amplitude is in the even
-subspace:</p>
-<pre class="text"><code>Pi_even |beta_00&gt; = |beta_00&gt;.</code></pre>
-<p>Answer: <code>P(even) = 1</code>, <code>P(odd) = 0</code>.</p>
+<blockquote>
+<p>
+Consolidated question: Given a channel or measurement, write the
+operator representation, verify the required conditions, and calculate
+the requested outcome probabilities or transformed state.
+</p>
+</blockquote>
+<div class="answer-frame">
+<p>
+<strong>Complete answer must contain:</strong> the operator definitions,
+where the system and environment sit in the tensor order, the actual
+matrix/operator entries, and the condition being checked. For Kraus
+operators, use <code>M_e=&lt;e|U|0&gt;</code> when the environment
+starts in <code>|0&gt;</code>. For POVMs, use
+<code>P(i)=&lt;psi|E_i|psi&gt;</code>. For projective measurements,
+check Hermitian, idempotent, orthogonal, and complete:
+<code>Pi_i^dagger=Pi_i</code>, <code>Pi_i^2=Pi_i</code>, <code>Pi_i
+Pi_j=0</code>, and <code>sum_i Pi_i=I</code>.
+</p>
+</div>
+<p>Standard worked facts:</p>
+<ul>
+<li>Phase damping with
+<code>U|00&gt;=sqrt(1-p)|00&gt;+i sqrt(p)|01&gt;</code> and
+<code>U|10&gt;=|10&gt;</code> gives</li>
+</ul>
+<pre class="text"><code>M_0 = [ sqrt(1-p) 0 ],   M_1 = [ i sqrt(p) 0 ],
+      [ 0         1 ]           [ 0          0 ].</code></pre>
+<ul>
+<li>The 2025/26 Pauli Kraus set is trace preserving because</li>
+</ul>
+<pre class="text"><code>((4-3lambda)/4)I + 3(lambda/4)I = I.</code></pre>
+<p>Its action is</p>
+<pre class="text"><code>rho -&gt; ((4-3lambda)/4)rho
+       + (lambda/4)(X rho X + Y rho Y + Z rho Z),</code></pre>
+<p>which shrinks the Bloch vector toward <code>I/2</code>.</p>
+<h2
+id="priority-5---gates-circuits-truth-tables-teleportation-and-operator-algebra">Priority
+5 - Gates, Circuits, Truth Tables, Teleportation, And Operator
+Algebra</h2>
+<p class="priority-note">
+<strong>Current recurrence:</strong> 3/3 current papers.
+<strong>Approximate current mark weight:</strong> about 41 marks outside
+algorithm-specific matrices.
+</p>
+<p>Appears as:</p>
+<ul class="paper-list">
+<li>
+2023/24 - Q4(i)(a)-(c) - Michael Mc Gettrick - draw circuits for gate
+expressions using H, X, Y, CNOT, SWAP, and controlled rotation. [15
+marks]
+</li>
+<li>
+2024/25 - Q4(iii) - Michael Mc Gettrick - draw the quantum teleportation
+circuit where Alice transmits an unknown qubit to Bob using a maximally
+entangled pair. [8 marks]
+</li>
+<li>
+2025/26 - Q1(c) - Mark Howard - truth table for controlled-Hadamard gate
+<code>C_H</code>. [6 marks]
+</li>
+<li>
+2025/26 - Q1(d) - Mark Howard - output state for a drawn circuit. [6
+marks]
+</li>
+<li>
+2025/26 - Q4(c) - Mark Howard - simplify
+<code>( &lt;0| tensor I )(alpha_00|00&gt; + alpha_01|01&gt; + alpha_10|10&gt; + alpha_11|11&gt;)</code>.
+[6 marks]
+</li>
+</ul>
+<p>Distinct variants to retain:</p>
+<ul>
+<li>Draw a circuit from symbolic gate notation.</li>
+<li>Truth table for a controlled gate.</li>
+<li>Calculate circuit output state.</li>
+<li>Teleportation circuit construction.</li>
+<li>Bra/tensor operator simplification.</li>
+<li>Legacy backup: CNOT(1,2)/CNOT(2,1) truth tables and the
+Hadamard-conjugated CNOT identity in 2022/23.</li>
+</ul>
+<blockquote>
+<p>
+Consolidated question: Translate between symbolic gates, circuit
+diagrams, truth tables, and output states while preserving qubit order
+and gate order.
+</p>
+</blockquote>
+<div class="answer-frame">
+<p>
+<strong>Complete answer must contain:</strong> the input basis order,
+which qubit is control/target, the right-to-left order of symbolic
+products, and the final state or diagram. For <code>C_H</code>, the
+control-0 inputs are unchanged; <code>|10&gt;</code> maps to
+<code>(|10&gt;+|11&gt;)/sqrt(2)</code>, and <code>|11&gt;</code> maps to
+<code>(|10&gt;-|11&gt;)/sqrt(2)</code>. For the projection-style
+simplification, the answer is <code>alpha_00|0&gt;+alpha_01|1&gt;</code>
+because only first-qubit-zero terms survive.
+</p>
+</div>
 <p>Teleportation circuit answer:</p>
 <ol type="1">
 <li>Alice has unknown state <code>|psi&gt;</code>.</li>
 <li>Alice and Bob share a Bell pair.</li>
-<li>Alice applies CNOT from <code>|psi&gt;</code> to her Bell-pair
+<li>Alice applies CNOT from the unknown qubit to her Bell-pair
 qubit.</li>
-<li>Alice applies <code>H</code> to the original <code>|psi&gt;</code>
-qubit.</li>
-<li>Alice measures her two qubits.</li>
-<li>Alice sends the two classical bits to Bob.</li>
-<li>Bob applies the correction:
-<ul>
-<li><code>00</code>: do nothing</li>
-<li><code>01</code>: apply <code>X</code></li>
-<li><code>10</code>: apply <code>Z</code></li>
-<li><code>11</code>: apply <code>XZ</code> up to the convention
-used</li>
-</ul></li>
+<li>Alice applies H to the unknown-qubit wire.</li>
+<li>Alice measures her two qubits and sends two classical bits to
+Bob.</li>
+<li>Bob applies the corresponding Pauli correction, giving
+<code>|psi&gt;</code>.</li>
 </ol>
-<p>Answer: after correction, Bob’s qubit is the original unknown state
-<code>|psi&gt;</code>.</p>
-<h3 id="worked-9---deutsch-jozsa-oracle-permutation-matrix">Worked 9 -
-Deutsch-Jozsa Oracle / Permutation Matrix</h3>
-<p>For a Boolean function <code>f</code>, the Deutsch-Jozsa oracle
-is</p>
-<pre class="text"><code>U_f |x,y&gt; = |x, y xor f(x)&gt;.</code></pre>
-<p>To build the matrix:</p>
+<h2
+id="priority-6---no-cloning-orthogonal-state-construction-and-unitary-impossibility-proofs">Priority
+6 - No-Cloning, Orthogonal-State Construction, And Unitary-Impossibility
+Proofs</h2>
+<p class="priority-note">
+<strong>Current recurrence:</strong> 3/3 current papers if unitary
+proof/construction variants are counted together. <strong>Approximate
+current mark weight:</strong> about 31 marks.
+</p>
+<p>Appears as:</p>
+<ul class="paper-list">
+<li>
+2023/24 - Q3(ii) - Michael Mc Gettrick - prove the no-cloning theorem:
+no unitary map sends <code>|psi&gt;|phi&gt;</code> to
+<code>|psi&gt;|psi&gt;</code>. [11 marks]
+</li>
+<li>
+2024/25 - Q4(i) - Michael Mc Gettrick - prove the no-cloning theorem,
+“it is impossible to copy a quantum state.” [7 marks]
+</li>
+<li>
+2024/25 - Q2(ii) - Michael Mc Gettrick - prove unitary transformations
+preserve state purity. [7 marks]
+</li>
+<li>
+2025/26 - Q4(a) - Mark Howard - derive <code>|psi_perp&gt;</code>
+orthogonal to <code>|psi&gt;=alpha|0&gt;+beta|1&gt;</code>, find unitary
+mapping computational basis to <code>{|psi&gt;,|psi_perp&gt;}</code>,
+and confirm <code>UU^dagger=I</code>. [7 marks]
+</li>
+<li>
+2025/26 - Q4(b) - Mark Howard - prove no-cloning theorem for a 2-qubit
+unitary mapping <code>|psi&gt;|0&gt;</code> to
+<code>|psi&gt;|psi&gt;</code>. [6 marks]
+</li>
+</ul>
+<p>Distinct variants to retain:</p>
+<ul>
+<li>No-cloning using inner-product preservation.</li>
+<li>No-cloning using linearity on a superposition.</li>
+<li>Orthogonal-state and unitary construction.</li>
+<li>Unitary purity preservation.</li>
+<li>Legacy backup: no-deleting/no-information-deletion proof from
+2022/23.</li>
+</ul>
+<blockquote>
+<p>
+Consolidated question: Prove a proposed universal quantum operation
+cannot exist, or construct a valid unitary, using linearity,
+inner-product preservation, purity, and orthonormal columns.
+</p>
+</blockquote>
+<div class="answer-frame">
+<p>
+<strong>Complete answer must contain:</strong> the assumed unitary
+action, the invariant being preserved, the contradiction or
+verification, and the quantifier “for every qubit state” where relevant.
+For no-cloning, assume <code>U|psi&gt;|0&gt;=|psi&gt;|psi&gt;</code> and
+<code>U|phi&gt;|0&gt;=|phi&gt;|phi&gt;</code>. Inner products give
+<code>&lt;psi|phi&gt;=&lt;psi|phi&gt;^2</code>, impossible for arbitrary
+non-identical, non-orthogonal states.
+</p>
+</div>
+<p>Orthogonal-state construction:</p>
+<pre class="text"><code>|psi&gt; = alpha|0&gt; + beta|1&gt;,
+|psi_perp&gt; = -conjugate(beta)|0&gt; + conjugate(alpha)|1&gt;,
+U = [ alpha  -conjugate(beta) ]
+    [ beta    conjugate(alpha) ].</code></pre>
+<p>The columns are orthonormal, so <code>U U^dagger = I</code>.</p>
+<h2 id="coverage-map-for-current-format-papers">Coverage Map For
+Current-Format Papers</h2>
+<p>This map checks every current-format subpart against a family above.
+No current-paper subpart is intentionally excluded.</p>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+<col style="width: 21%" />
+</colgroup>
+<thead>
+<tr>
+<th>Paper</th>
+<th style="text-align: right;">Subpart</th>
+<th style="text-align: right;">Marks</th>
+<th>Covered by family</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q1(i)(a) qutrit measurement
+probability</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q1(i)(b) density matrix</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q1(i)(c) unitary then probability</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q1(ii)(a) Bloch sphere angles</td>
+<td style="text-align: right;">part of 11</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q1(ii)(b) plus/minus measurement</td>
+<td style="text-align: right;">part of 11</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q2(a) purity for four 2-qubit states</td>
+<td style="text-align: right;">part of 25</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q2(b) entanglement via reduced
+entropy</td>
+<td style="text-align: right;">part of 25</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q3(i)(a) 4 x 4 channel matrix</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 4</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q3(i)(b) Kraus operators</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 4</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q3(ii) no-cloning proof</td>
+<td style="text-align: right;">11</td>
+<td>Priority 6</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q4(i)(a)-(c) draw circuits</td>
+<td style="text-align: right;">15</td>
+<td>Priority 5</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q4(ii) Deutsch-Jozsa permutation
+matrix</td>
+<td style="text-align: right;">10</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q5(i)(a)-(c) classical search
+comparisons</td>
+<td style="text-align: right;">9</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2023/24</td>
+<td style="text-align: right;">Q5(ii)(a)-(b) Grover probabilities</td>
+<td style="text-align: right;">16</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q1(i)(a) qutrit measurement
+probability</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q1(i)(b) density matrix</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q1(i)(c) unitary then probability</td>
+<td style="text-align: right;">part of 14</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q1(ii)(a) Bloch sphere angles</td>
+<td style="text-align: right;">part of 11</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q1(ii)(b) plus/minus measurement</td>
+<td style="text-align: right;">part of 11</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q2(i)(a) purity for three 2-qubit
+states</td>
+<td style="text-align: right;">part of 18</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q2(i)(b) entanglement via reduced
+entropy</td>
+<td style="text-align: right;">part of 18</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q2(ii) unitary preserves purity</td>
+<td style="text-align: right;">7</td>
+<td>Priority 3 / Priority 6</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q3(i) Kraus operators for amplitude
+damping</td>
+<td style="text-align: right;">13</td>
+<td>Priority 4</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q3(ii) POVM probabilities</td>
+<td style="text-align: right;">12</td>
+<td>Priority 4</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q4(i) no-cloning proof</td>
+<td style="text-align: right;">7</td>
+<td>Priority 6</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q4(ii) QFT of qudit states</td>
+<td style="text-align: right;">10</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q4(iii) teleportation circuit</td>
+<td style="text-align: right;">8</td>
+<td>Priority 5 / Priority 3</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q5(i) theoretical Grover iterates</td>
+<td style="text-align: right;">6</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q5(ii) best integer Grover
+count/probability</td>
+<td style="text-align: right;">11</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2024/25</td>
+<td style="text-align: right;">Q5(iii) second-best Grover
+count/probability</td>
+<td style="text-align: right;">8</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q1(a) plus/minus basis probabilities</td>
+<td style="text-align: right;">7</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q1(b) projective-measurement
+derivation</td>
+<td style="text-align: right;">6</td>
+<td>Priority 2 / Priority 4</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q1(c) controlled-H truth table</td>
+<td style="text-align: right;">6</td>
+<td>Priority 5</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q1(d) circuit output state</td>
+<td style="text-align: right;">6</td>
+<td>Priority 5</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q2(a) qutrit measurement and
+post-measurement state</td>
+<td style="text-align: right;">7</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q2(b) qutrit density matrix</td>
+<td style="text-align: right;">4</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q2(c) unitary then probability</td>
+<td style="text-align: right;">6</td>
+<td>Priority 2</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q2(d) entanglement of two 2-qubit
+states</td>
+<td style="text-align: right;">8</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q3(a) Grover 2D matrix,</td>
+<td style="text-align: right;">psi&gt;, and G</td>
+<td>psi&gt;</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q3(b) QFT of qudit states</td>
+<td style="text-align: right;">12</td>
+<td>Priority 1</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q4(a) orthogonal state and unitary
+construction</td>
+<td style="text-align: right;">7</td>
+<td>Priority 6</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q4(b) no-cloning proof</td>
+<td style="text-align: right;">6</td>
+<td>Priority 6</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q4(c) projection/tensor
+simplification</td>
+<td style="text-align: right;">6</td>
+<td>Priority 5</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q4(d) Kraus trace-preserving depolarising
+channel</td>
+<td style="text-align: right;">6</td>
+<td>Priority 4</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q5(a) Bell state in rotated basis</td>
+<td style="text-align: right;">8</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q5(b) Alice measurement and Bob
+state</td>
+<td style="text-align: right;">9</td>
+<td>Priority 3</td>
+</tr>
+<tr>
+<td>2025/26</td>
+<td style="text-align: right;">Q5(c) parity projective measurement</td>
+<td style="text-align: right;">8</td>
+<td>Priority 3 / Priority 4</td>
+</tr>
+</tbody>
+</table>
+<h2 id="legacy-and-backup-material">Legacy And Backup Material</h2>
+<p>These are not discarded, but they should not outrank the
+current-format papers.</p>
+<ul class="paper-list">
+<li>
+2021/22 - Mc Gettrick - backup for qutrit measurement/density/unitary,
+Bloch sphere, reduced-state purity/entropy, Kraus/POVM, circuit drawing,
+QFT, and Grover list length 32.
+</li>
+<li>
+2022/23 - Mark Howard - backup for CNOT truth tables,
+Hadamard-conjugated CNOT, qutrit density/eigenvalues/entropy, Grover 2D
+matrix, QFT, Bell entanglement, no-cloning, no-deleting, rotated Bell
+basis, Alice/Bob measurement, and parity projectors.
+</li>
+</ul>
+<p>Legacy-only or lower-priority variants:</p>
+<ul>
+<li>No-deleting/no-information-deletion proof: explicit in 2022/23
+only.</li>
+<li>CNOT(1,2)/CNOT(2,1) truth tables and Hadamard-conjugated CNOT
+identity: explicit in 2022/23 only, though controlled-gate truth tables
+remain current through controlled-H in 2025/26.</li>
+<li>Pure qutrit density-matrix eigenvalues and “state with different von
+Neumann entropy”: explicit in 2022/23 only; still useful as backup for
+density-matrix concepts.</li>
+</ul>
+<h2 id="recommended-study-order">Recommended Study Order</h2>
 <ol type="1">
-<li>Choose a basis order.</li>
-<li>Apply the rule to every basis state.</li>
-<li>Put a <code>1</code> in the output row and input column for each
-mapping.</li>
-<li>Fill all other entries with <code>0</code>.</li>
+<li>Algorithms: Grover, QFT, Deutsch-Jozsa, and search.</li>
+<li>State measurement, density matrices, Bloch sphere, and basis
+change.</li>
+<li>Entanglement, reduced density matrices, purity, Bell states, and
+entropy.</li>
+<li>Channels, Kraus operators, POVMs, and projective measurements.</li>
+<li>Gates, circuits, truth tables, teleportation, and operator
+algebra.</li>
+<li>No-cloning, orthogonal-state construction, and unitary proof
+constraints.</li>
+<li>Legacy-only backup: no-deleting, CNOT-H conjugation, and pure-state
+entropy/eigenvalue variants.</li>
 </ol>
-<p>Worked answer for the 2023/24 function:</p>
-<pre class="text"><code>f(0)=f(4)=f(6)=f(7)=0
-f(1)=f(2)=f(3)=f(5)=1.</code></pre>
-<p>If <code>f(x)=0</code>, the pair <code>|x,0&gt;</code>,
-<code>|x,1&gt;</code> is unchanged.</p>
-<p>If <code>f(x)=1</code>, the pair is swapped:</p>
-<pre class="text"><code>|x,0&gt; -&gt; |x,1&gt;
-|x,1&gt; -&gt; |x,0&gt;.</code></pre>
-<p>So the full permutation is:</p>
-<pre class="text"><code>|0,0&gt; -&gt; |0,0&gt;    |0,1&gt; -&gt; |0,1&gt;
-|1,0&gt; -&gt; |1,1&gt;    |1,1&gt; -&gt; |1,0&gt;
-|2,0&gt; -&gt; |2,1&gt;    |2,1&gt; -&gt; |2,0&gt;
-|3,0&gt; -&gt; |3,1&gt;    |3,1&gt; -&gt; |3,0&gt;
-|4,0&gt; -&gt; |4,0&gt;    |4,1&gt; -&gt; |4,1&gt;
-|5,0&gt; -&gt; |5,1&gt;    |5,1&gt; -&gt; |5,0&gt;
-|6,0&gt; -&gt; |6,0&gt;    |6,1&gt; -&gt; |6,1&gt;
-|7,0&gt; -&gt; |7,0&gt;    |7,1&gt; -&gt; |7,1&gt;</code></pre>
-<p>Answer: the matrix is a <code>16 x 16</code> permutation matrix
-implementing exactly those swaps.</p>
 <h2 id="flashcard-rule">Flashcard Rule</h2>
-<p>Only make a flashcard when the same fact or step has blocked you more
-than once.</p>
-<p>Good flashcards:</p>
-<ul>
-<li>a formula you keep forgetting</li>
-<li>a proof step you keep missing</li>
-<li>a condition checklist, such as projective measurement or trace
-preservation</li>
-<li>a recurring workflow, such as density matrix -&gt; reduced density
-matrix -&gt; purity</li>
-</ul>
-<p>Bad early flashcards:</p>
-<ul>
-<li>entire worked solutions</li>
-<li>broad topic cards like “What is Grover?”</li>
-<li>cards that hide the calculation you actually need to practise</li>
-</ul>
-<p>For this module, the main notes should stay as worked paper attempts.
-Flashcards should be the small reusable pieces extracted from those
-attempts.</p>
-</article>
-</main>
+<p>Only make a flashcard when the answer is a reusable exam-safe fact,
+proof chain, construction, or calculation template. Do not make separate
+cards merely because the same question changed numbers. Do make separate
+cards when the answer structure differs, for example Grover optimal
+iterations versus Grover 2D matrix construction.</p>
+    </article>
+  </main>
 </body>
 </html>

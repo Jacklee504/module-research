@@ -1,0 +1,98 @@
+===== 2017_2018.pdf PAGE 1 =====
+Summer Examinations 2017-18
+Exam Code(s) 3BME1, 4BME1, 1EM1, 1OA1, 1OA9,
+4BCT1, 4BMS2, 3BS9, 4BS2
+Exam Third Year & Fourth Year & HDip
+Module CRYPTOGRAPHY
+Module Codes CS402 & MA492 & MA545
+External Examiner(s) Prof T. Brady
+Internal Examiner(s) Prof G. Ellis∗
+Instructions Attempt all questions.
+There are ten questions, each carrying 10 marks.
+Duration 2 hours
+No. of Pages 3 pages (including this cover page)
+Discipline Mathematics
+Requirements:
+(cid:88)
+Release in Exam Venue Yes No
+(cid:88)
+Release to Library Yes No
+(cid:88)
+Non-programmable calculator Yes No
+(cid:88)
+Mathematical Tables Yes No
+
+===== 2017_2018.pdf PAGE 2 =====
+2
+1. The ciphertext
+CQRBRBJ F N J T LRY QN A
+was produced with a Caeser cipher over the alphabet A = 0, B = 1, ..., Z = 25. Frequency
+analysis has been used to determine that E gets enciphered as N . Determine the first
+word of the corresponding plaintext.
+2. The ciphertext
+ESDCW N M H
+was produced by applying a Hill cipher to 2-letter message units over the alphabet A =
+0, B = 1, ..., Z = 25, with enciphering finction
+(cid:18) (cid:19) (cid:18) (cid:19) (cid:18) (cid:19)
+x x 2 3
+f : (cid:55)→ A where A = .
+E y y 7 5
+Calculate A−1 mod 26 and hence determine the first two letters of plaintext.
+3. Describe:
+(a) Kerckhoff ’s principle.
+(b) the difference between symmetric cryptography and public key cryptography.
+(c) one basic property of the Enigma cipher which makes it significantly more secure
+than the Vigen`ere cipher against a ciphertext only attack.
+4. Determine, with explanation, the size of the enciphering key space for an affine cipher
+f : (Z )d → (Z )d, v (cid:55)→ AV + B over an alphabet of p letters with p a prime.
+E p p
+5. A 4-bit linear feedback shift register with connection polynomial C(X) = 1 + X + X3
+is used to produce a pseudo-random sequence of binary digits, starting s = 1, s = 0,
+0 1
+s = 1, s = 1. The sequence is eventually periodic. List the next few terms of the
+2 3
+sequence in order to determine its period.
+6. Answer either part (a) or part (b).
+(a) Explain the following terms: (i) two factor authentication; (ii) forward security;
+(iii) Carmichael number.
+(b) Let P, C, K denote respectively the plaintext space, ciphertext space and key
+space of a given cryptosystrem. Assuming that each of these spaces is finite, that
+the cryptosystem is perfectly secure and that every c ∈ C has non-zero probability
+of occuring, prove the inequalities
+|K| ≥ |C| ≥ |P|.
+
+===== 2017_2018.pdf PAGE 3 =====
+3
+7. Answer either part (a) or part (b).
+(a) The enciphering key for a binary stream cipher is produced using a 3-bit linear
+feedback shift register. It is known that the cipher converts the plaintext string
+0010001101010111 .
+into the ciphertext string
+1000010000011001 .
+Determine the first sixteen binary digits in the enciphering key. Then determine
+the connection polynomial of the linear feedback shift register.
+(b) Carefully describe the A5/1 stream cipher which is used to encrypt the on-air
+traffic in the GSM mobile phone networks in Europe and the US.
+8. Answer either part (a) or part (b).
+(a) State Euler’s Totient Theorem and use it to prove that
+(ae)d ≡ a mod N
+for N = pq with p and q distinct primes, e an integer with gcd( e, (p−1)(q −1) ) =
+1, a any integer such that gcd(a, N ) = 1 and d ≡ e−1 mod (p − 1)(q − 1).
+(b) Describe Fermat’s primality test (which is passed by every prime). Suppose that
+m is a random composite number which is not a Carmichael number. Prove that
+m passes the test k times with probability ≤ (1/2)k.
+9. Answer either part (a) or part (b).
+(a) Alice and Bob choose the abelian group Z∗ and generator g = 7 to perform Diffie-
+71
+Hellman key exchange. Alice secretly chooses a = 6 and Bob secretly chooses
+b = 13. What is the numerical value of their shared key?
+(b) Let E denote the set of points on the elliptic curve over Q defined by y2 =
+x3 + ax + b. Describe (without giving precise formulae) the operations of addition
+and subtraction which give E the structure of an abelian group.
+10. Answer either part (a) or part (b).
+(a) Describe Pollard’s rho method by using it to factorize n = 91 with f (x) = x2 − 1
+and x = 2. (Compare x with x for which j = 2h − 1 where 2h ≤ k < 2h+1).
+0 k j
+(b) Describe one perfectly secure (though possibly impractical) cryptosystem. By
+carefully stating and using a theorem of Shannon, or otherwise, explain why the
+cryptosystem is perfectly secure.

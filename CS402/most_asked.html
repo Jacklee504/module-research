@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS402 Cryptography - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1180px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h2 + p { color: #39454b; }
+    .question-bank .paper-list { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank .answer-frame { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+    .question-bank .source-scope { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; }
+    .question-bank table { width: 100%; margin: 0 0 24px; border-collapse: collapse; font-size: 14px; }
+    .question-bank th, .question-bank td { padding: 10px 11px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .question-bank th { background: var(--surface-soft); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .question-bank td:first-child { font-weight: 700; }
+    .question-bank .coverage td:first-child { white-space: nowrap; }
+    .question-bank .legacy { background: #fffaf2; }
+    .question-bank code { white-space: normal; }
+    @media (max-width: 720px) {
+      .question-bank table, .question-bank tbody, .question-bank tr, .question-bank th, .question-bank td { display: block; }
+      .question-bank thead { display: none; }
+      .question-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .question-bank td { border: 0; border-bottom: 1px solid var(--line); }
+      .question-bank td:last-child { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CS402 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="Flashcards.md">Flashcards.md</a>
+      <a href="#priority-table">Priority table</a>
+      <a href="#coverage-map">Coverage map</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CS402 Study Document</p>
+    <h1>Cryptography - Most Asked Exam Questions</h1>
+    <p>Exam-question families from the supplied CS402 papers, preserving recurring subpart structure, marks, proof requirements, constructions, and calculation variants.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2 id="how-to-use">How To Use This Document</h2>
+      <div class="source-scope">
+        <p><strong>Source scope:</strong> all supplied CS402 papers were checked: <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>, <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>, <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>, <a href="2018_2019.pdf" target="_blank" rel="noopener noreferrer">2018/19</a>, and <a href="2017_2018.pdf" target="_blank" rel="noopener noreferrer">2017/18</a>.</p>
+        <p><strong>Current format:</strong> 2018/19 onward uses answer all four questions, 25 marks each, with workings required. The latest three current-format papers, 2024/25, 2023/24, and 2022/23, are treated as the primary evidence. The 2017/18 ten-question paper is a legacy backup section.</p>
+        <p><strong>PDF verification:</strong> rendered pages were inspected as well as extracted text. This matters for symbols such as `Z_n^*`, the space symbol `_ = 26`, matrix layout, inequalities, and mark allocations.</p>
+      </div>
+
+      <h2 id="priority-table">Ranked Current Priorities</h2>
+      <p class="priority-note">Ranking uses recurrence, latest-three marks, and stability of subpart shape. Current-format means 2018/19, 2021/22, 2022/23, 2023/24, and 2024/25.</p>
+      <table>
+        <thead><tr><th>Rank</th><th>Family</th><th>Latest-three evidence</th><th>Current-format evidence</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Classical ciphers and key spaces</td><td>75 marks across Q1 in 2022/23, 2023/24, 2024/25</td><td>5/5 current-format papers, always Q1</td></tr>
+          <tr><td>2</td><td>Perfect security, symmetric cryptosystems, Shannon theorem</td><td>65 marks across Q2 in 2022/23, 2023/24, 2024/25</td><td>5/5 papers, always Q2 material</td></tr>
+          <tr><td>3</td><td>RSA and public-key cryptography</td><td>About 51 marks across Q3 and linked fast-exponentiation/security subparts</td><td>5/5 papers</td></tr>
+          <tr><td>4</td><td>Number theory, Fermat/Carmichael, fast exponentiation, cyclic groups</td><td>About 39 marks across Q3/Q4</td><td>5/5 papers</td></tr>
+          <tr><td>5</td><td>Diffie-Hellman and ElGamal</td><td>29 marks across Q4</td><td>5/5 papers</td></tr>
+          <tr><td>6</td><td>LFSRs and stream ciphers</td><td>25 marks across Q2/Q3/Q4</td><td>5/5 papers</td></tr>
+          <tr><td>7</td><td>Elliptic curves</td><td>16 marks across Q4</td><td>5/5 papers</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="classical-ciphers">Priority 1 - Classical Ciphers And Key Spaces</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers. In the latest three papers it is the whole of Q1: 75 marks total.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2024/25 Q1(a) - shift cipher over 27-letter alphabet; known `TREASURE -> WUHDVXUH`; decode `EULOOLDQWCZRUN` [5].</li>
+        <li>2024/25 Q1(b) - Hill cipher over `Z_27`, ciphertext `LPDG`, key `[[3,7],[2,5]]`; find plaintext [10].</li>
+        <li>2024/25 Q1(c) - state Kerckhoff's principle [5].</li>
+        <li>2024/25 Q1(d) - 1-dimensional affine cipher over `Z_900`; count keys [5].</li>
+        <li>2023/24 Q1(a) - shift cipher with plaintext `_` corresponding to ciphertext `Y`; decode `JCRYGRY_C` [5].</li>
+        <li>2023/24 Q1(b) - Hill cipher over `Z_27`, ciphertext `ZLV_`, key `[[3,1],[1,1]]`; find plaintext [10].</li>
+        <li>2023/24 Q1(c) - describe Vigenere and encrypt `BEATLES` with key `FAB` [10].</li>
+        <li>2022/23 Q1(a) - shift cipher with plaintext `_` corresponding to ciphertext `E`; determine first word of `RFCTEKTWEXFREQTQ` [5].</li>
+        <li>2022/23 Q1(b) - Hill cipher over `Z_27`, ciphertext `GM_L`, key `[[5,1],[1,1]]`; find plaintext [10].</li>
+        <li>2022/23 Q1(c) - define brute force attack and feasible scenario [5].</li>
+        <li>2022/23 Q1(d) - affine cipher over `Z_360`; count keys, give a number not a formula [5].</li>
+      </ul>
+      <p>Distinct variants to retain:</p>
+      <ul>
+        <li><strong>Shift decoding:</strong> known plaintext/ciphertext symbol; sometimes asks complete plaintext, sometimes first word only. Work in `Z_27` when `_ = 26` is supplied.</li>
+        <li><strong>Hill decryption:</strong> compute `K^{-1}` mod 27 and multiply ciphertext pairs. The plaintexts checked are `EXAM`, `HELP`, `MAYO`, and `FINE` for 2024/25, 2023/24, 2022/23, and 2021/22.</li>
+        <li><strong>Affine key counting:</strong> 1-dimensional over `Z_n` has `phi(n)n` keys. Latest/counting values: `Z_900 -> 216000`, `Z_360 -> 34560`, `Z_450 -> 54000`, `Z_55 -> 2200`.</li>
+        <li><strong>Affine key solving:</strong> 2018/19 asks to solve `(a,b)` from `E -> T` and `S -> V`; answer `(a,b)=(4,3)` over `Z_27`.</li>
+        <li><strong>Vigenere:</strong> 2023/24 asks description plus actual encryption; `BEATLES` with key `FAB` gives `GEBYLFX`.</li>
+        <li><strong>Short theory:</strong> Kerckhoff's principle and brute force attacks recur as 5-mark conceptual subparts.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer frame:</strong> Always state the alphabet and modulus first. For shift questions, compute the shift from the known mapping and subtract it from each ciphertext symbol. For Hill questions, show determinant, modular inverse of determinant, inverse matrix, pairwise multiplication, and final text. For affine key counts, state that `a` must be a unit and `b` is arbitrary, so the count is `phi(n)n`. For Kerckhoff, say security should survive public knowledge of the system except the secret key.</p>
+      </div>
+
+      <h2 id="perfect-security">Priority 2 - Perfect Security, Symmetric Cryptosystems, And Shannon</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers. The latest three papers devote most or all of Q2 to this family.</p>
+      <ul class="paper-list">
+        <li>2024/25 Q2(a) - state without proof Shannon's theorem on perfectly secure cryptosystems [5].</li>
+        <li>2024/25 Q2(b) - for finite non-empty `P,C,K` with perfect security, show `|K| >= |C| >= |P|` [10].</li>
+        <li>2023/24 Q2(a) - formally define a symmetric cryptosystem [5].</li>
+        <li>2023/24 Q2(b) - describe perfectly secure symmetric cryptosystem; do they exist; justify [5].</li>
+        <li>2023/24 Q2(c) - state and prove Shannon's theorem on perfect security [15].</li>
+        <li>2022/23 Q2(a)-(c) - same definition/perfect-security/Shannon theorem pattern [25].</li>
+        <li>2021/22 Q2(a)-(b) - symmetric cryptosystem and perfect security definitions [10].</li>
+        <li>2018/19 Q2(a) - state Shannon's theorem without proof [5].</li>
+      </ul>
+      <p>Distinct variants to retain:</p>
+      <ul>
+        <li><strong>Definition card:</strong> `P,C,K`, maps `e_k: P -> C`, `d_k: C -> P`, and `d_k(e_k(p))=p`.</li>
+        <li><strong>Perfect security definition:</strong> observing ciphertext does not change plaintext probabilities.</li>
+        <li><strong>Existence/example:</strong> one-time pad with uniformly random one-use key of message length.</li>
+        <li><strong>Shannon statement:</strong> inequality and/or equality-characterisation form depending on wording.</li>
+        <li><strong>Proof:</strong> must use perfect-security probabilities and counting/injectivity; do not write "by Shannon" as the proof.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Proof strategy:</strong> First prove `|C| >= |P|`: for each key, decryptability makes `e_k: P -> C` injective. Then prove `|K| >= |C|`: fix a plaintext `p` with positive probability. For every ciphertext `c` with positive probability, perfect security implies `p` remains possible after observing `c`, so some key sends `p` to `c`. A fixed key sends fixed `p` to only one ciphertext, so distinct ciphertexts require at least `|C|` keys. State all positivity and finiteness hypotheses explicitly.</p>
+      </div>
+
+      <h2 id="rsa">Priority 3 - RSA And Public-Key Cryptography</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers. RSA key generation appears every year; validity/security/encryption variants rotate.</p>
+      <ul class="paper-list">
+        <li>2024/25 Q3(a) - describe RSA key generation, encryption, and decryption [5].</li>
+        <li>2024/25 Q3(b) - decide whether `(299,17)`, `(323,9)`, `(385,55)` are valid RSA keys, with justification [6].</li>
+        <li>2024/25 Q3(c) - encrypt `m=23` with public key `(77,17)` [5].</li>
+        <li>2023/24 Q3(a) - compare symmetric and public-key cryptosystems with example, advantage, disadvantage [5].</li>
+        <li>2023/24 Q3(b) - describe RSA key generation, encryption, and decryption [5].</li>
+        <li>2023/24 Q3(d) - evaluate claim that efficient primality testing would break RSA [5].</li>
+        <li>2022/23 Q3(a) - advantages and disadvantages of symmetric and public-key cryptosystems [4].</li>
+        <li>2022/23 Q3(b) - describe RSA [5].</li>
+        <li>2022/23 Q3(c) - explain why `(187,15)`, `(289,13)`, `(385,77)` are not valid RSA keys [6].</li>
+        <li>2021/22 Q3(c)-(d) - invalid RSA keys and primality-testing claim [11].</li>
+        <li>2018/19 Q3(b),(d) - RSA key generation and encryption of `m=23` under `(77,17)` [15].</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer frame:</strong> For RSA description, choose distinct primes `p,q`, set `n=pq`, compute `phi(n)`, choose `e` coprime to `phi(n)`, and compute `d=e^{-1} mod phi(n)`. Encrypt by `c=m^e mod n`; decrypt by `m=c^d mod n`. For validity, factor `n`, check it is a product of two distinct primes, compute `phi(n)`, and check `gcd(e,phi(n))=1`. For the repeated encryption, `23^17 mod 77 = 67`. For the primality-testing claim, say no: factoring `n`, not merely testing primality, is the hard step RSA relies on.</p>
+      </div>
+
+      <h2 id="number-theory">Priority 4 - Number Theory, Primality, And Cyclic Groups</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers. This family is spread across Q3/Q4 and often supports RSA/protocol calculations.</p>
+      <ul class="paper-list">
+        <li>2024/25 Q3(d) - define pseudoprime and Carmichael number [4].</li>
+        <li>2024/25 Q4(a) - describe Fermat's primality test [5].</li>
+        <li>2024/25 Q4(b) - describe fast exponentiation [5].</li>
+        <li>2023/24 Q3(c) - describe fast exponentiation [5].</li>
+        <li>2023/24 Q3(e) - Carmichael number 1105 and Fermat test; agree with Bob or Alice [5].</li>
+        <li>2023/24 Q4(c) - define cyclic group, state Gauss's characterisation, decide whether `Z_315^*` is cyclic [5].</li>
+        <li>2022/23 Q4(a) - same cyclic/Gauss pattern for `Z_169^*` [5].</li>
+        <li>2022/23 Q4(b) - fast exponentiation [5].</li>
+        <li>2021/22 Q4(a) - same cyclic/Gauss pattern for `Z_242^*` [5].</li>
+        <li>2018/19 Q4(a)-(c) - Euler totient theorem, Fermat test, Carmichael numbers [15].</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer frame:</strong> Fast exponentiation needs binary expansion/repeated squaring and reduction modulo `n` after each multiplication. Fermat's test must mention the `gcd(a,n)>1` early composite case and that passing a base is not a proof of primality. A pseudoprime is composite but passes for a base. A Carmichael number is composite and passes for every coprime base; it can still be caught if the chosen base shares a factor with it. For cyclic groups, quote Gauss exactly: `Z_n^*` is cyclic iff `n=1,2,4,p^k,2p^k` for odd prime `p`.</p>
+      </div>
+
+      <h2 id="dh-elgamal">Priority 5 - Diffie-Hellman And ElGamal</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers if Diffie-Hellman and ElGamal are considered together.</p>
+      <ul class="paper-list">
+        <li>2024/25 Q4(c) - Diffie-Hellman in `Z_61^*`, generator `2`, secrets `a=5`, `b=7`; shared key [8].</li>
+        <li>2024/25 Q4(d) - describe ElGamal key generation, encryption, decryption [6].</li>
+        <li>2023/24 Q4(d) - Diffie-Hellman in `Z_29^*`, generator `2`, secrets `a=5`, `b=4`; shared key [5].</li>
+        <li>2022/23 Q4(c) - describe ElGamal [5].</li>
+        <li>2022/23 Q4(d) - Diffie-Hellman in `Z_59^*`, generator `2`, secrets `a=3`, `b=4`; shared key [5].</li>
+        <li>2021/22 Q4(c)-(d) - ElGamal plus the same `Z_59^*` Diffie-Hellman calculation [10].</li>
+        <li>2018/19 Q3(c) - Diffie-Hellman in `Z_25^*`, generator `2`, secrets `a=6`, `b=3` [5].</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer frame:</strong> In Diffie-Hellman, the shared key is `g^{ab}` in the stated group. Latest answers: `2^35 mod 61 = 29`, `2^20 mod 29 = 23`, and `2^12 mod 59 = 25`. For ElGamal, give the actual maps: public key `(G,g,h=g^b)`, ciphertext `(c_1,c_2)=(g^r, m h^r)`, decryption `m=c_2(c_1^b)^{-1}`.</p>
+      </div>
+
+      <h2 id="lfsr">Priority 6 - LFSRs And Stream Ciphers</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers, but marks move between Q2, Q3, and Q4.</p>
+      <ul class="paper-list">
+        <li>2024/25 Q2(d) - explain what is meant by a linear feedback shift register of length `L` [5].</li>
+        <li>2023/24 Q4(a) - length-2 LFSR known plaintext/ciphertext; find connection polynomial [5].</li>
+        <li>2023/24 Q4(b) - length-4 LFSR with `C(X)=1+X+X^2+X^4`; initial values `s_0=s_2=1`, `s_1=s_3=0`; least period [5].</li>
+        <li>2022/23 Q3(d)-(e) - same known-stream and period variants [10].</li>
+        <li>2021/22 Q2(c) - define LFSR, discuss whether connection polynomial determines it, give singular length-3 example [10].</li>
+        <li>2021/22 Q2(d) - same length-4 period calculation [5].</li>
+        <li>2018/19 Q2(c)-(d) - define LFSR and period for length-3 `C(X)=1+X+X^3` [15].</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer frame:</strong> Define length, state bits, recurrence, and connection polynomial. With `C(X)=c_0+c_1X+...+c_LX^L` and `c_0=c_L=1`, use `s_{n+L}=c_0s_n+c_1s_{n+1}+...+c_{L-1}s_{n+L-1}` over `Z_2`. For known-stream questions, recover keystream by `s_i=x_i+y_i mod 2`, then fit the recurrence. For period questions, generate full states until the same `L`-bit state reappears; the repeated `C(X)=1+X+X^2+X^4` example has recurrence `s_{n+4}=s_n+s_{n+1}+s_{n+2}` and least period 7.</p>
+      </div>
+
+      <h2 id="elliptic-curves">Priority 7 - Elliptic Curves</h2>
+      <p><strong>Frequency:</strong> 5/5 current-format papers. The latest papers favour concrete finite-field point listings and order-2 points.</p>
+      <ul class="paper-list">
+        <li>2024/25 Q4(e) - curve `y^2=x^3+2x+3` over `Z_7`; determine `E(Z_7)` including `O`; find all order-2 points [6].</li>
+        <li>2023/24 Q4(e) - real curve `y^2=x^3+3x`; find all `P` with `P+P=O`; find one `Q` with `Q+Q != O` [5].</li>
+        <li>2022/23 Q4(e) - curve `y^2=x^3+2x^2+2x` over `Z_5`; determine points and identify an order-2 element [5].</li>
+        <li>2021/22 Q4(e) - same real-curve order-2/example-point question [5].</li>
+        <li>2018/19 Q4(d) - describe elliptic-curve addition over `Q` geometrically or algebraically [10].</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer frame:</strong> For finite fields, test every `x`, compute the right-hand side, list all square roots `y`, and include `O`. Order-2 points have `y=0`, because `(x,y)=-(x,y)=(x,-y)`. 2024/25 gives `E(Z_7)={O,(2,1),(2,6),(3,1),(3,6),(6,0)}` and order-2 point `(6,0)`. 2022/23 gives `E(Z_5)={O,(0,0),(1,0),(2,0),(3,1),(3,4),(4,2),(4,3)}` with order-2 points `(0,0),(1,0),(2,0)`. For the real curve `y^2=x^3+3x`, the non-identity order-2 point is `(0,0)`, and `(1,2)` is a valid point with non-zero double.</p>
+      </div>
+
+      <h2 id="coverage-map">Current-Format Coverage Map</h2>
+      <p class="priority-note">Every subpart from the current-format papers is represented below. Latest-three rows are the primary evidence; 2021/22 and 2018/19 are included to catch recurring and backup variants.</p>
+      <table class="coverage">
+        <thead><tr><th>Paper</th><th>Subpart</th><th>Marks</th><th>Mapped family</th></tr></thead>
+        <tbody>
+          <tr><td>2024/25</td><td>Q1(a) shift cipher known word, decode message</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2024/25</td><td>Q1(b) Hill cipher over `Z_27`, decrypt `LPDG`</td><td>10</td><td>Classical ciphers</td></tr>
+          <tr><td>2024/25</td><td>Q1(c) Kerckhoff's principle</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2024/25</td><td>Q1(d) affine key count over `Z_900`</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2024/25</td><td>Q2(a) Shannon theorem statement</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2024/25</td><td>Q2(b) prove `|K| >= |C| >= |P|`</td><td>10</td><td>Perfect security</td></tr>
+          <tr><td>2024/25</td><td>Q2(c) block versus stream ciphers</td><td>5</td><td>Perfect security / LFSR</td></tr>
+          <tr><td>2024/25</td><td>Q2(d) define LFSR length `L`</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2024/25</td><td>Q3(a) RSA steps</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2024/25</td><td>Q3(b) valid RSA keys</td><td>6</td><td>RSA</td></tr>
+          <tr><td>2024/25</td><td>Q3(c) RSA encrypt `23` under `(77,17)`</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2024/25</td><td>Q3(d) pseudoprime and Carmichael definitions</td><td>4</td><td>Number theory</td></tr>
+          <tr><td>2024/25</td><td>Q4(a) Fermat primality test</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2024/25</td><td>Q4(b) fast exponentiation</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2024/25</td><td>Q4(c) Diffie-Hellman in `Z_61^*`</td><td>8</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2024/25</td><td>Q4(d) ElGamal steps</td><td>6</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2024/25</td><td>Q4(e) elliptic curve over `Z_7` and order-2 points</td><td>6</td><td>Elliptic curves</td></tr>
+
+          <tr><td>2023/24</td><td>Q1(a) shift cipher, plaintext `_` maps to ciphertext `Y`</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2023/24</td><td>Q1(b) Hill cipher `ZLV_` over `Z_27`</td><td>10</td><td>Classical ciphers</td></tr>
+          <tr><td>2023/24</td><td>Q1(c) Vigenere description and encryption</td><td>10</td><td>Classical ciphers</td></tr>
+          <tr><td>2023/24</td><td>Q2(a) symmetric cryptosystem definition</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2023/24</td><td>Q2(b) perfect security and existence</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2023/24</td><td>Q2(c) state and prove Shannon theorem</td><td>15</td><td>Perfect security</td></tr>
+          <tr><td>2023/24</td><td>Q3(a) symmetric versus public-key comparison</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2023/24</td><td>Q3(b) RSA steps</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2023/24</td><td>Q3(c) fast exponentiation</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2023/24</td><td>Q3(d) primality-testing claim about RSA</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2023/24</td><td>Q3(e) Carmichael 1105 and Fermat test disagreement</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2023/24</td><td>Q4(a) LFSR connection polynomial from known stream</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2023/24</td><td>Q4(b) LFSR least period</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2023/24</td><td>Q4(c) cyclic group, Gauss, `Z_315^*`</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2023/24</td><td>Q4(d) Diffie-Hellman in `Z_29^*`</td><td>5</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2023/24</td><td>Q4(e) real elliptic curve order-2 and non-order-2 example</td><td>5</td><td>Elliptic curves</td></tr>
+
+          <tr><td>2022/23</td><td>Q1(a) shift cipher, first word</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2022/23</td><td>Q1(b) Hill cipher `GM_L` over `Z_27`</td><td>10</td><td>Classical ciphers</td></tr>
+          <tr><td>2022/23</td><td>Q1(c) brute force attack</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2022/23</td><td>Q1(d) affine key count over `Z_360`</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2022/23</td><td>Q2(a) symmetric cryptosystem definition</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2022/23</td><td>Q2(b) perfect security and existence</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2022/23</td><td>Q2(c) state and prove Shannon theorem</td><td>15</td><td>Perfect security</td></tr>
+          <tr><td>2022/23</td><td>Q3(a) symmetric/public-key advantages and disadvantages</td><td>4</td><td>RSA</td></tr>
+          <tr><td>2022/23</td><td>Q3(b) RSA steps</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2022/23</td><td>Q3(c) invalid RSA key checks</td><td>6</td><td>RSA</td></tr>
+          <tr><td>2022/23</td><td>Q3(d) LFSR connection polynomial from known stream</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2022/23</td><td>Q3(e) LFSR least period</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2022/23</td><td>Q4(a) cyclic group, Gauss, `Z_169^*`</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2022/23</td><td>Q4(b) fast exponentiation</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2022/23</td><td>Q4(c) ElGamal steps</td><td>5</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2022/23</td><td>Q4(d) Diffie-Hellman in `Z_59^*`</td><td>5</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2022/23</td><td>Q4(e) elliptic curve over `Z_5`, order-2 element</td><td>5</td><td>Elliptic curves</td></tr>
+
+          <tr><td>2021/22</td><td>Q1(a) shift cipher, first word of plaintext</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2021/22</td><td>Q1(b) Hill cipher `NSRG` over `Z_27`</td><td>10</td><td>Classical ciphers</td></tr>
+          <tr><td>2021/22</td><td>Q1(c) brute force attack and feasible scenario</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2021/22</td><td>Q1(d) affine key count over `Z_450`</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2021/22</td><td>Q2(a) symmetric cryptosystem definition</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2021/22</td><td>Q2(b) perfect security and existence</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2021/22</td><td>Q2(c)(i) explain LFSR</td><td>part of 10</td><td>LFSR</td></tr>
+          <tr><td>2021/22</td><td>Q2(c)(ii) whether each LFSR is determined by connection polynomial</td><td>part of 10</td><td>LFSR</td></tr>
+          <tr><td>2021/22</td><td>Q2(c)(iii) singular LFSR of length 3</td><td>part of 10</td><td>LFSR</td></tr>
+          <tr><td>2021/22</td><td>Q2(d) length-4 LFSR least period</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2021/22</td><td>Q3(a) symmetric/public-key advantage and disadvantage</td><td>4</td><td>RSA</td></tr>
+          <tr><td>2021/22</td><td>Q3(b) RSA steps</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2021/22</td><td>Q3(c) invalid RSA key checks</td><td>6</td><td>RSA</td></tr>
+          <tr><td>2021/22</td><td>Q3(d) primality-testing claim about RSA</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2021/22</td><td>Q3(e) Carmichael 1105 and Fermat test disagreement</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2021/22</td><td>Q4(a) cyclic group, Gauss, `Z_242^*`</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2021/22</td><td>Q4(b) fast exponentiation</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2021/22</td><td>Q4(c) ElGamal steps</td><td>5</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2021/22</td><td>Q4(d) Diffie-Hellman in `Z_59^*`</td><td>5</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2021/22</td><td>Q4(e)(i) real elliptic curve order-2 points</td><td>part of 5</td><td>Elliptic curves</td></tr>
+          <tr><td>2021/22</td><td>Q4(e)(ii) real elliptic curve point with non-zero double</td><td>part of 5</td><td>Elliptic curves</td></tr>
+
+          <tr><td>2018/19</td><td>Q1(a) shift cipher, first word of plaintext</td><td>10</td><td>Classical ciphers</td></tr>
+          <tr><td>2018/19</td><td>Q1(b) affine key solve from `E -> T`, `S -> V`</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2018/19</td><td>Q1(c) Kerckhoff's principle</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2018/19</td><td>Q1(d) affine key count over `Z_55`</td><td>5</td><td>Classical ciphers</td></tr>
+          <tr><td>2018/19</td><td>Q2(a) Shannon theorem statement</td><td>5</td><td>Perfect security</td></tr>
+          <tr><td>2018/19</td><td>Q2(b) block versus stream ciphers</td><td>5</td><td>Perfect security / LFSR</td></tr>
+          <tr><td>2018/19</td><td>Q2(c) LFSR definition</td><td>5</td><td>LFSR</td></tr>
+          <tr><td>2018/19</td><td>Q2(d) length-3 LFSR least period</td><td>10</td><td>LFSR</td></tr>
+          <tr><td>2018/19</td><td>Q3(a) symmetric versus public-key comparison</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2018/19</td><td>Q3(b) RSA key generation</td><td>5</td><td>RSA</td></tr>
+          <tr><td>2018/19</td><td>Q3(c) Diffie-Hellman in `Z_25^*`</td><td>5</td><td>Diffie-Hellman / ElGamal</td></tr>
+          <tr><td>2018/19</td><td>Q3(d) RSA encrypt `23` under `(77,17)`</td><td>10</td><td>RSA</td></tr>
+          <tr><td>2018/19</td><td>Q4(a) Euler totient function and theorem</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2018/19</td><td>Q4(b) Fermat primality test</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2018/19</td><td>Q4(c) Carmichael numbers and role in primality testing</td><td>5</td><td>Number theory</td></tr>
+          <tr><td>2018/19</td><td>Q4(d) elliptic-curve addition over `Q`</td><td>10</td><td>Elliptic curves</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="legacy">Legacy-Only 2017/18 Backup</h2>
+      <p>The 2017/18 paper has a different ten-question, 10-marks-each structure. Use it for extra practice, but do not let these one-off items outrank the 2018/19-onward format.</p>
+      <table class="legacy">
+        <thead><tr><th>Legacy item</th><th>Why it is backup</th><th>Exam-safe answer requirement</th></tr></thead>
+        <tbody>
+          <tr><td>Enigma property versus Vigenere</td><td>Appears in 2017/18 Q3(c) only.</td><td>Mention rotor-driven changing substitution and longer/more complex period than repeated-key Vigenere.</td></tr>
+          <tr><td>Two-factor authentication and forward security</td><td>Appears in 2017/18 Q6(a) only.</td><td>Define two distinct authentication factors; define forward security as past session confidentiality after long-term key compromise.</td></tr>
+          <tr><td>A5/1 stream cipher</td><td>Appears in 2017/18 Q7(b) only.</td><td>Describe three LFSRs with irregular majority clocking in GSM traffic encryption.</td></tr>
+          <tr><td>RSA correctness proof using Euler's theorem</td><td>Appears as a full proof in 2017/18 Q8(a); current papers usually ask RSA steps or validity checks.</td><td>Use `ed=1+t phi(N)` and Euler's theorem to show `(a^e)^d == a mod N` when `gcd(a,N)=1`.</td></tr>
+          <tr><td>Fermat repeated-test probability bound</td><td>Appears in 2017/18 Q8(b) only; current papers ask definitions and Carmichael caveats.</td><td>For a non-Carmichael composite, the Fermat liars form a proper subgroup, hence at most half the coprime bases; independent `k` tests pass with probability at most `(1/2)^k`.</td></tr>
+          <tr><td>Pollard's rho factorisation</td><td>Appears in 2017/18 Q10(a) only.</td><td>Iterate a polynomial modulo `n` and compute non-trivial `gcd(|x_i-x_j|,n)` to find a factor.</td></tr>
+          <tr><td>General `d`-dimensional affine key space over prime alphabet</td><td>Appears in 2017/18 Q4 only; current papers ask 1-dimensional numeric counts.</td><td>Use invertible matrices for `A` and arbitrary translation vector `B`; current exam practice should prioritise `phi(n)n` numeric counts.</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </main>
+</body>
+</html>

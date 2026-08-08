@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT417 - Lean Exam Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flashcard-bank td:first-child { width: 38%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 46%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print {
+      .top-nav { display: none; }
+      .module-header, .module-shell { padding: 18px; }
+      .module-content { border: 0; box-shadow: none; padding: 0; }
+      .flashcard-bank table { page-break-inside: auto; }
+      .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; white-space: normal; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Years"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT417 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#frequency">Frequency</a>
+      <a href="#cicd">CI/CD</a>
+      <a href="#security-tools">Security tools</a>
+      <a href="#vulnerabilities">Vulnerabilities</a>
+      <a href="#patterns">Patterns</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT417 Physical Flashcards</p>
+    <h1>Lean 36-Card Exam Deck</h1>
+    <p>High-value prompts from Effirul Ramlan's CT417 papers plus the official module overview, compressed for actual revision.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Write the first column on the front of a card and the second column on the back. This is a lean recall deck, not a replacement for the detailed <a href="most_asked.html">most-asked question guide</a>. It uses Effirul Ramlan's 2023/24, 2024/25, and 2025/26 CT417 papers plus the <a href="https://www.universityofgalway.ie/course-information/module/CT417" target="_blank" rel="noopener noreferrer">official University of Galway CT417 overview</a>. The final column shows the paper year or source that each card maps to.</p>
+
+      <h2 id="frequency">Frequency Reality Check</h2>
+      <div class="frequency-note">
+        <p><strong>Drill first:</strong> CI/CD and GitHub workflows, SAST/DAST/tooling, vulnerability and buffer-overflow concepts, and refactoring/design patterns. These are the current repeated Effirul families.</p>
+        <p><strong>Know as recent signals:</strong> Docker tag failures, merge conflicts, MTTD/MTTR/MTBF, SonarQube optimisation, and OWASP ZAP failures. These are mostly newest-paper details but fit the repeated style.</p>
+        <p><strong>Keep as light backup:</strong> Agile and formal specification. They appeared in 2023/24 but not in the 2024/25-2025/26 pattern.</p>
+      </div>
+
+      <h2 id="cicd">1. CI/CD, GitHub Actions, Docker, And Git Workflows</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Years</th></tr></thead><tbody>
+        <tr><td>Explain the purpose of Continuous Integration.</td><td>Integrate code often, run automated checks, catch defects early, reduce merge issues, and give fast feedback.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Propose CI/CD improvements for manual testing, integration conflicts, insecure releases, and weak rollback.</td><td>Add PR checks, automated tests, SAST/DAST, staging, deployment gates, versioned Docker builds, rollback, and approvals.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Design a GitHub Actions pull-request stage.</td><td>Checkout, install dependencies, build/lint, run unit tests, collect coverage, run security scans, and block merge on failure.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Describe the post-merge deployment stage after code reaches <code>main</code>.</td><td>Build a versioned Docker image, push to registry, deploy to staging, run smoke tests, then promote/deploy onward.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Identify risks in a pipeline that tests only on <code>main</code>, deploys every commit to production, and has no rollback.</td><td>Late defect detection, broken production releases, no safe recovery path, higher downtime, and higher MTTR.</td><td>2025/26</td></tr>
+        <tr><td>Diagnose and fix Docker <code>manifest unknown</code> using Git/Docker commands.</td><td>Tag missing or wrong. Check expected image/tag, find commit/image used, rebuild or retag, push the expected tag, then redeploy.</td><td>2025/26</td></tr>
+        <tr><td>Explain how merge conflicts arise and how to prevent/resolve them.</td><td>Same lines/related code changed on different branches. Prevent with small branches, frequent syncs, early PRs. Resolve by fetch, rebase/merge, fix markers, test, add, continue, push.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="security-tools">2. SAST, DAST, SonarQube, OWASP ZAP, And Coverage</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Years</th></tr></thead><tbody>
+        <tr><td>Compare SAST and DAST by timing, access, vulnerability type, and tools.</td><td>SAST: early, source/compiled code, finds implementation flaws; tools: SonarQube, CodeQL, Semgrep. DAST: later, running app, black-box, finds runtime/config/web issues; tools: OWASP ZAP, Burp Suite.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Explain why SAST and DAST belong in a CI/CD pipeline.</td><td>They automate security feedback, catch issues earlier, reduce late manual checks, and block insecure builds before release.</td><td>2024/25</td></tr>
+        <tr><td>Explain the role and limitation of code coverage in unit testing.</td><td>Shows which lines/branches/functions were exercised by tests; highlights untested areas but does not prove correctness.</td><td>2024/25</td></tr>
+        <tr><td>Use coverage tools to identify low-coverage areas and improve coverage efficiently.</td><td>Use JaCoCo/Istanbul/Coverage.py reports, target critical low-coverage paths, add focused unit tests, avoid slowing CI with broad slow tests.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Propose two SonarQube optimisations without reducing scan quality.</td><td>Exclude generated/dependency/build artefacts and use PR/new-code analysis; keep full scans on <code>main</code> and never exclude production code.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Diagnose OWASP ZAP CI failures or missing reports and propose fixes.</td><td>Causes: app not running, wrong URL/port, auth/session missing, blocked network, timeout, no report export. Fix: start app first, configure URL/auth/context, tune thresholds/timeouts, upload reports.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="vulnerabilities">3. Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Years</th></tr></thead><tbody>
+        <tr><td>Define vulnerability, countermeasure, and zero-day vulnerability.</td><td>Vulnerability: exploitable weakness. Countermeasure: safeguard that reduces likelihood, impact, or exploitability. Zero-day: unknown/unpatched vulnerability that attackers may exploit before a fix exists.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Describe the zero-day vulnerability lifecycle.</td><td>Discovery, exploit development/weaponisation, active exploitation, disclosure/detection, patching/remediation.</td><td>2023/24, 2024/25</td></tr>
+        <tr><td>Define MTTD, MTTR, and the SkyBankAI MTBF assumption.</td><td>MTTD = time to detect. MTTR = time to respond/recover/repair. In the question, <code>MTBF = MTTD + MTTR</code> per incident.</td><td>2025/26</td></tr>
+        <tr><td>Calculate average MTBF from the SkyBankAI incidents.</td><td><code>4+2=6</code>, <code>0.5+1=1.5</code>, <code>6+4=10</code>; average <code>(6+1.5+10)/3 = 5.83 hours</code>.</td><td>2025/26</td></tr>
+        <tr><td>Recommend improvements to reduce MTTD and MTTR.</td><td>MTTD: automated alerts, logs, monitoring, alert correlation. MTTR: rollback, feature flags, blue-green/canary deployment, runbooks, automated redeploys.</td><td>2025/26</td></tr>
+        <tr><td>Define buffer overflow and explain exploitation.</td><td>Writing beyond a fixed-size buffer overwrites adjacent memory; attackers may overwrite variables/control data/return addresses to crash or redirect execution.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Discuss buffer overflow countermeasures.</td><td>Bounds checking, input validation, safer functions/APIs, memory-safe languages, stack canaries, ASLR, DEP/NX, compiler hardening.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="patterns">4. Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Years</th></tr></thead><tbody>
+        <tr><td>Explain why design patterns and refactoring improve maintainability/reusability.</td><td>Patterns give proven reusable solutions and shared vocabulary. Refactoring removes duplication, separates responsibilities, improves structure, and makes behaviour easier to extend.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Given role-based <code>if/else</code> controller code, identify the design problems.</td><td>Duplicated logic, tight coupling to concrete roles, poor separation of concerns, and controller changes needed whenever a new role is added.</td><td>2025/26</td></tr>
+        <tr><td>Refactor role-based authentication/account creation using polymorphism and a <code>User</code> abstraction.</td><td>Define <code>User</code> interface/abstract class with methods like <code>authenticate()</code>/<code>createAccount()</code>. Implement role-specific subclasses such as <code>Customer</code>, <code>Manager</code>, <code>Admin</code>. Controller depends on <code>User</code>.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Explain how a <code>UserFactory</code> supports the refactor.</td><td>It centralises creation of role-specific <code>User</code> objects so client/controller code depends on the abstraction, not concrete classes.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Apply the Open/Closed Principle to a role factory.</td><td>Use a registry/map of role names to creator functions/classes so new roles can be added without editing the existing factory method.</td><td>2024/25</td></tr>
+        <tr><td>Identify design patterns for payment methods and notifications.</td><td>Payments: Strategy, possibly Factory + Strategy. Notifications: Adapter for external APIs, Strategy for delivery type, or Observer for event-driven notifications.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="syllabus">5. Official Module Overview Coverage</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Years</th></tr></thead><tbody>
+        <tr><td>List the main advanced software engineering topics covered by the official CT417 overview.</td><td>Secure Software Engineering/DevSecOps, software architecture, software testing and quality assurance, and design patterns.</td><td>Official overview</td></tr>
+        <tr><td>Explain what is meant by a secure development process.</td><td>A lifecycle that builds security into requirements, design, implementation, testing, deployment, and maintenance rather than adding it at the end.</td><td>Official overview</td></tr>
+        <tr><td>Explain how tools can be used to implement reusable DevSecOps CI/CD pipelines.</td><td>A standard pipeline template for build, test, scan, package, and deploy steps that can be reused consistently across services.</td><td>Official overview</td></tr>
+        <tr><td>Describe ethical and security responsibilities when developing and deploying software.</td><td>Protect users, data, safety, privacy, fairness, and reliability; disclose risks honestly; and avoid deploying known harmful or insecure systems.</td><td>Official overview</td></tr>
+        <tr><td>Evaluate the role of Software Quality Assurance in improving the software development process.</td><td>Processes that improve quality through standards, reviews, tests, audits, metrics, and continuous improvement.</td><td>Official overview</td></tr>
+        <tr><td>Explain software reliability engineering and its purpose.</td><td>Engineering focused on predicting, measuring, evaluating, and improving how consistently software operates without failure.</td><td>Official overview</td></tr>
+        <tr><td>Recognise architecture styles such as microservices, serverless, cloud, and API-first, and explain how they affect software quality.</td><td>Microservices, serverless, cloud, and API-first; they affect scalability, maintainability, deployability, reliability, security boundaries, and operational complexity.</td><td>Official overview</td></tr>
+      </tbody></table>
+
+      <h2 id="backup">6. Backup: Agile And Formal Specification</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Years</th></tr></thead><tbody>
+        <tr><td>Describe the Agile Manifesto and apply relevant Agile principles to changing requirements in the Soccermatic scenario.</td><td>Know the values, welcome changing requirements, use short sprints/backlog refinement, and keep business stakeholders and developers collaborating.</td><td>2023/24</td></tr>
+        <tr><td>Suggest steps the Soccermatic team should take using stakeholder-developer collaboration to improve model reliability.</td><td>Define acceptance/performance criteria, review failures with stakeholders, adjust data/model features, and iterate through sprint demos with feedback.</td><td>2023/24</td></tr>
+        <tr><td>List advantages of formal specification and outline the cursor schema approach for normal and bottom-line down-key behaviour.</td><td>Formal specs reduce ambiguity and expose inconsistencies. Cursor schemas define <code>line</code>/<code>column</code> bounds and separate normal down-key movement from the bottom-line boundary case.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This is the lean deck. It keeps the repeated Effirul families and official syllabus basics, while merging one-year micro-details. Use <a href="most_asked.html">most_asked.html</a> when you need the full paper-question breakdown.</p>
+    </article>
+  </main>
+</body>
+</html>

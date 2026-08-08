@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT4100 Information Retrieval - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border-left: 4px solid var(--blue); background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h2 + p { color: #39454b; }
+    .question-bank .paper-list { padding: 14px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank .answer-frame { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT4100 overview</a>
+      <a href="#most-repeated">Most repeated</a>
+      <a href="#lower-frequency">Lower frequency</a>
+      <a href="#study-order">Study order</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT4100 Study Document</p>
+    <h1>Information Retrieval - Most Asked Exam Questions</h1>
+    <p>Consolidated question families from the four local papers, with concise reusable answer structures.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2 id="how-to-use">How to Use This Document</h2>
+      <p>This is a question-family guide, not a prediction of the exact exam layout. The 2025/26 paper introduced a compulsory 40-mark Question 1, while the three earlier papers required any three equal-mark questions. Learn reusable answer components rather than memorising a past-paper order.</p>
+      <ol>
+        <li>Read one consolidated question and cover its answer frame.</li>
+        <li>Find the listed original questions in the local papers and attempt them.</li>
+        <li>Use the answer frame to check that you defined the method, explained the mechanism, and gave a limitation or evaluation where appropriate.</li>
+        <li>Turn only the definitions, steps, comparisons, and formulas into flashcards.</li>
+      </ol>
+
+      <h2 id="most-repeated">Most Repeated Question Families</h2>
+      <p class="priority-note">The sections below consolidate close variants only. Distinct questions such as PageRank, HITS, and neural Learning to Rank remain separate later in the document.</p>
+
+      <h2 id="retrieval-model">Priority 1 - Vector Space Model, Normalisation, And Term Independence</h2>
+      <p><strong>Frequency:</strong> 3/4 papers directly, and fundamental to the weighting questions in the remaining paper.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2023/24 - Q1(b) - describe VSM; strengths and limitations.</li>
+        <li>2024/25 - Q1(a)-(b) - normalisation; term-independence limitation and a remedy.</li>
+        <li>2025/26 - Q1(a)-(b), Q1(d) - VSM similarity, term independence, and the effect of no normalisation.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Describe the Vector Space Model, explain how a query and document are compared, explain why normalisation is used, and discuss the term-independence limitation with a way to reduce it.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Represent each query and document as an aligned weighted term vector. Rank using cosine similarity, which compares direction rather than raw vector magnitude. Normalisation reduces the advantage of long documents. The model treats terms as independent, so it misses synonymy and meaning; query expansion, thesauri, embeddings, or neural representations can introduce semantic evidence.</p>
+      </div>
+      <p>What to know before flashcards:</p>
+      <ul>
+        <li><code>cos(q,d) = q.d / (|q||d|)</code>.</li>
+        <li>Why a concatenated duplicate document can score too highly without normalisation.</li>
+        <li>One concrete synonymy or polysemy example.</li>
+      </ul>
+
+      <h2 id="weighting">Priority 2 - Term Weighting, Axioms, And Learned Weights</h2>
+      <p><strong>Frequency:</strong> 4/4 papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q2(c), Q3(a)-(b) - learn term weights; axiomatic weighting; constituents of a good weighting scheme.</li>
+        <li>2023/24 - Q4(c) - learning approaches for an IR task.</li>
+        <li>2024/25 - Q1(c), Q3(c) - axiomatic weighting and learning good term weights.</li>
+        <li>2025/26 - Q1(d)-(e) - no-normalisation problem and BM25 components/tuning parameters.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain what makes a good term-weighting scheme. Use tf-idf or BM25, explain document-length effects, and give a limitation or a way weights could be learned.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Term frequency measures within-document evidence, while IDF rewards rare, discriminative terms. A useful scheme gives more evidence for a query term occurring in a document, but avoids unlimited reward for repetition and corrects length bias. BM25 combines IDF, saturated TF, and length normalisation; <code>k1</code> controls TF saturation and <code>b</code> controls the strength of length correction. Axioms express desired score changes, while learned weights can fit judged data but need reliable labels and may overfit or inherit click bias.</p>
+      </div>
+      <p>Keep distinct in revision:</p>
+      <ul>
+        <li><strong>Axiomatic design:</strong> desired properties of a ranking function.</li>
+        <li><strong>BM25:</strong> components and the meaning of <code>k1</code> and <code>b</code>.</li>
+        <li><strong>Learning weights:</strong> training data, learning mechanism, and limitations.</li>
+      </ul>
+
+      <h2 id="evaluation">Priority 3 - Retrieval Evaluation, User Experience, MAP, And Diversity</h2>
+      <p><strong>Frequency:</strong> 4/4 papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q2(b) - generate a precision-recall graph from a ranked answer set.</li>
+        <li>2023/24 - Q3(a) - a measure that captures an aspect of user experience beyond precision and recall.</li>
+        <li>2024/25 - Q3(b) - generate a precision-recall graph.</li>
+        <li>2025/26 - Q1(c), Q1(h) - top-k diversity; MAP benefits and limitations.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Choose or calculate an evaluation measure for ranked retrieval, then explain what it captures and what it misses.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Precision is the fraction of retrieved documents that are relevant; recall is the fraction of all relevant documents retrieved. A precision-recall curve evaluates the trade-off over rank cut-offs. AP averages precision at relevant ranks and MAP averages AP over queries, rewarding early relevant results. MAP uses binary relevance and does not capture diversity, novelty, satisfaction, or graded relevance. For diverse needs, measure similarity or subtopic coverage among the top <code>k</code>; for graded relevance, use nDCG.</p>
+      </div>
+      <p>Minimum calculation workflow: walk down the ranked list, track relevant documents retrieved, compute precision and recall at each relevant rank, then plot or average as required.</p>
+
+      <h2 id="feedback">Priority 4 - Relevance Feedback, Pseudo-Feedback, And Query Expansion</h2>
+      <p><strong>Frequency:</strong> 4/4 papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q3(c) - local analysis to select candidate expansion terms.</li>
+        <li>2023/24 - Q2(a)-(c) - explicit feedback, diverse candidate terms, and Rocchio versus pseudo-relevance feedback.</li>
+        <li>2024/25 - Q2(b)-(c) - Rocchio limitations and diverse suggestions without user feedback.</li>
+        <li>2025/26 - Q1(f)-(g), Q3(a) - weighted feedback, clustering assumption, and local analysis versus a fixed thesaurus/ontology.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain how a system can expand a query from feedback or retrieved documents. Compare evidence sources, explain the update/selection process, and address query drift.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Explicit relevance feedback uses user relevance labels. Rocchio updates the query by moving it toward the relevant-document centroid and away from the non-relevant centroid: <code>q' = alpha q + beta mean(Drel) - gamma mean(Dnonrel)</code>. Pseudo-relevance feedback assumes top-ranked documents are useful, so it needs no labels but may drift. Local analysis is contextual because it uses the returned set; a fixed thesaurus is controlled and stable but may be less suited to the current query. Select informative, non-redundant terms, preserve important original terms, and evaluate whether retrieval improves.</p>
+      </div>
+      <p>Do not merge these distinctions:</p>
+      <ul>
+        <li><strong>Explicit feedback:</strong> labels are available.</li>
+        <li><strong>Pseudo-feedback:</strong> top results supply assumed labels.</li>
+        <li><strong>Local analysis:</strong> candidate terms come from this query's result set.</li>
+        <li><strong>Thesaurus/ontology:</strong> candidates come from a fixed knowledge source.</li>
+      </ul>
+
+      <h2 id="query-difficulty">Priority 5 - Query Difficulty Prediction</h2>
+      <p><strong>Frequency:</strong> 4/4 papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q4(a) - distinguish pre-retrieval and post-retrieval difficulty measures.</li>
+        <li>2023/24 - Q4(b) - three pre-retrieval measures, with examples.</li>
+        <li>2024/25 - Q2(a) - query, collection-wide, and returned-list techniques.</li>
+        <li>2025/26 - Q2(a) - query-specific, collection-statistics, and result-set prediction methods.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Describe how to predict whether a query will be difficult using evidence from the query, the collection, and the retrieved ranked list.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Pre-retrieval signals are available before ranking: query length, ambiguity, term rarity, and collection statistics such as document frequency/IDF. Post-retrieval signals need the answer set: score spread, agreement among top documents, result-set diversity, or query clarity. These signals estimate risk rather than relevance. Use multiple signals, then respond with clarification, query suggestions, expansion, or diversified results.</p>
+      </div>
+      <p>Easy exam structure: label each feature by <em>when</em> it is available, state whether it suggests difficulty, and give one intervention.</p>
+
+      <h2 id="recommenders">Priority 6 - Collaborative Filtering And Recommender-System Evaluation</h2>
+      <p><strong>Frequency:</strong> 4/4 papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q1(a)-(c) - collaborative-filtering stages, evaluation limitations, and recommendation diversity.</li>
+        <li>2023/24 - Q3(c) - stages of collaborative filtering with an example.</li>
+        <li>2024/25 - Q4(a) - collaborative filtering; advantages and limitations.</li>
+        <li>2025/26 - Q2(b) - movie recommendation, cold start, and identifying difficult users.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Describe a collaborative-filtering recommender, including its data, similarity/prediction steps, a limitation such as cold start, and an appropriate evaluation.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Store a user-item interaction or rating matrix. Find similar users or similar items from overlapping preferences, predict a score for unseen items from weighted neighbours, and rank the highest predictions. Missing interactions are not dislikes. Cold start occurs when a user or item has too little history; use onboarding ratings, item metadata, content-based methods, or a hybrid fallback. Evaluate offline with held-out interactions and ranking measures, but recognise that offline data and clicks may not fully represent satisfaction, novelty, or diversity.</p>
+      </div>
+      <p>For the difficult-user variant, use sparse history, unstable preferences, low neighbour similarity, or consistently poor predicted confidence as warning signals.</p>
+
+      <h2 id="similarity">Priority 7 - Scientific-Article Similarity</h2>
+      <p><strong>Frequency:</strong> 2/4 papers directly, with clustering and vector-space ideas supporting it elsewhere.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q4(b) - define article similarity from title, abstract, authors, keywords, body, and bibliography.</li>
+        <li>2024/25 - Q4(b) - same scientific-article similarity question family.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Given scientific articles with multiple fields, design a similarity measure that supports useful user search tasks.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Represent each article using weighted text features from title, abstract, keywords, and optionally the main body; use cosine similarity on TF-IDF/BM25-style vectors. Weight title and keywords more heavily if they express topic well. Add author overlap or citation/bibliography links as separate evidence, then combine features with justified weights. Normalise fields, evaluate against known related articles or user tasks, and note that vocabulary mismatch and generic terms can reduce quality.</p>
+      </div>
+
+      <h2 id="clustering">Priority 8 - Clustering For Information Retrieval</h2>
+      <p><strong>Frequency:</strong> 3/4 papers directly.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q4(c) - cluster the scientific-article collection using the chosen similarity measure.</li>
+        <li>2023/24 - Q3(b) - evaluate a clustering algorithm.</li>
+        <li>2024/25 - Q4(c) - explain how clustering helps two IR tasks and describe the approach.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Explain how a clustering algorithm can support an IR task, including document representation, similarity, clustering steps, quality assessment, and a limitation.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Represent documents as normalised weighted vectors, choose a similarity or distance measure, and apply a method such as k-means. K-means alternates assigning each document to its nearest centroid and recomputing centroids as means until stable. Clusters can support collection browsing, result grouping, query expansion, or faster search. Assess coherence, separation, stability, or agreement with known labels. Results depend on representation, the chosen number of clusters, and initial seeds, and clusters may not match meaningful user topics.</p>
+      </div>
+
+      <h2 id="extended-boolean">Priority 9 - Extended Boolean Relevance And Precision-Recall Graphs</h2>
+      <p><strong>Frequency:</strong> an unusually exact repeat in 2/4 papers.</p>
+      <p>Appears as:</p>
+      <ul class="paper-list">
+        <li>2021/22 - Q2(a)-(b) - calculate extended-Boolean AND/OR relevance; generate a precision-recall graph.</li>
+        <li>2024/25 - Q3(a)-(b) - the same two-part family with different terms.</li>
+      </ul>
+      <p>Consolidated most-asked question:</p>
+      <blockquote><p>Calculate a document's graded relevance to an extended Boolean AND/OR query, then construct a precision-recall graph from a ranked answer set and relevance judgements.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> The extended Boolean model softens classical all-or-nothing matching by giving a graded score. Use the specified AND/OR relevance formula and term weights consistently. For the graph, scan the ranked list, track cumulative relevant documents, calculate precision and recall at each relevant result, then plot precision against recall. State that the curve shows the precision-recall trade-off over ranks.</p>
+      </div>
+      <p>This is the main calculation family to keep separate from definition-only flashcards.</p>
+
+      <h2 id="lower-frequency">Distinct Lower-Frequency Questions</h2>
+      <p>These are not repeated enough to merge into the priorities above, but they appear in the newer papers and are worth preparing as independent answer templates.</p>
+
+      <h2 id="pagerank">PageRank</h2>
+      <p><strong>Appears:</strong> 2023/24 - Q4(a). Related web-link material appears again as HITS in 2025/26.</p>
+      <blockquote><p>Describe PageRank from the web-link graph, explain its update rule, and discuss limitations.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> PageRank gives a page credit from incoming links. A linking page divides its credit across its outgoing links; damping adds a small teleportation probability and avoids rank traps. Iterate until scores stabilise. It uses global link authority, not only textual relevance. Link spam, popularity bias, new pages, and topic-insensitive global scores are limitations, so combine it with content and anti-spam signals.</p>
+      </div>
+
+      <h2 id="hits">HITS</h2>
+      <p><strong>Appears:</strong> 2025/26 - Q3(b).</p>
+      <blockquote><p>Define hubs and authorities, explain the HITS update cycle, and contrast HITS with PageRank.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> Authorities are pages pointed to by good hubs; hubs are pages linking to good authorities. HITS repeatedly updates authority scores from incoming hub scores, then hub scores from outgoing authority scores, usually on a query-related subgraph. PageRank produces one global damped score; HITS produces two mutually reinforcing, query-dependent scores.</p>
+      </div>
+
+      <h2 id="ltr">Learning To Rank And Neural LTR</h2>
+      <p><strong>Appears:</strong> broad learning questions in 2021/22 Q2(c), 2023/24 Q4(c), and 2024/25 Q3(c); explicit LTR/neural-LTR questions in 2025/26 Q4(a)-(b).</p>
+      <blockquote><p>Explain how Learning to Rank learns a ranking function, what a training example contains, how it is evaluated, and how neural LTR differs from traditional LTR.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Reusable answer:</strong> LTR learns <code>score(query, document)</code> from judged query-document examples. Examples contain query/document features and a relevance grade or preference. Pointwise methods predict grades, pairwise methods learn preferences, and listwise methods optimise order. Evaluate on held-out queries with ranking measures such as MAP or nDCG. Traditional LTR relies on engineered features and is easier to inspect; neural LTR learns richer representations but usually needs more data and compute and is less interpretable. Click labels need position-bias correction.</p>
+      </div>
+
+      <h2 id="study-order">Recommended Study Order</h2>
+      <ol>
+        <li>Vector Space Model, weighting, and evaluation.</li>
+        <li>Feedback/query expansion and query difficulty.</li>
+        <li>Collaborative filtering.</li>
+        <li>Similarity and clustering.</li>
+        <li>Extended Boolean calculation plus precision-recall graph practice.</li>
+        <li>PageRank, HITS, and Learning to Rank.</li>
+      </ol>
+      <p>For flashcards, begin with the bold concepts in the answer frames. Keep four small calculation cards separately: cosine similarity, precision/recall/AP, Rocchio, and extended Boolean relevance.</p>
+    </article>
+  </main>
+</body>
+</html>

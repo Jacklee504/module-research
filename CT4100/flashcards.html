@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT4100 - Most Asked Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flashcard-bank td:first-child { width: 38%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 48%; }
+    .flashcard-bank td:last-child { width: 14%; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print {
+      .top-nav { display: none; }
+      .module-header, .module-shell { padding: 18px; }
+      .module-content { border: 0; box-shadow: none; padding: 0; }
+      .flashcard-bank table { page-break-inside: auto; }
+      .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; white-space: normal; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Papers"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT4100 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#retrieval">Retrieval</a>
+      <a href="#feedback">Feedback</a>
+      <a href="#recommenders">Recommenders</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT4100 Physical Flashcards</p>
+    <h1>Core 62 Exam Flashcards</h1>
+    <p>Short front/back prompts covering every important past-paper question family.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Write the first column on the front of a card and the second column on the back. This 62-card set keeps every important question family from the papers, but combines details that belong together in an exam answer. One-off preprocessing and indexing questions are excluded.</p>
+
+      <h2 id="retrieval">1. Vector Space Model And Normalisation</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>How does the VSM represent and rank documents?</td><td>Queries and documents are weighted term vectors, usually TF-IDF; rank by cosine similarity.</td><td>2023/24-2025/26</td></tr>
+        <tr><td>What is the cosine-similarity formula?</td><td><code>cos(q,d) = q.d / (|q||d|)</code>.</td><td>2023/24-2025/26</td></tr>
+        <tr><td>What is the purpose of normalisation in the VSM?</td><td>It reduces document-length bias, so a long or duplicated document does not score highly just from extra term occurrences.</td><td>2024/25-2025/26</td></tr>
+        <tr><td>What is the term-independence limitation, and how can it be reduced?</td><td>VSM misses meaning/synonymy; use expansion, a thesaurus, embeddings, or neural representations.</td><td>2024/25-2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="weighting">2. Term Weighting, BM25, And Learned Weights</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What are TF and IDF?</td><td>TF is within-document evidence; IDF rewards rare terms: <code>log(N / df)</code>.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What makes a good weighting scheme?</td><td>Reward query and rare terms, use diminishing returns for repeated terms, and correct length bias.</td><td>2021/22, 2024/25, 2025/26</td></tr>
+        <tr><td>What is TF saturation, and why use it?</td><td>Extra occurrences still help, but with diminishing returns, so repetition does not dominate ranking.</td><td>2021/22, 2024/25, 2025/26</td></tr>
+        <tr><td>What is BM25?</td><td>A ranking function combining IDF, saturating TF, and length normalisation.</td><td>2025/26</td></tr>
+        <tr><td>What do BM25's <code>k1</code> and <code>b</code> control?</td><td><code>k1</code> controls TF saturation; <code>b</code> controls length normalisation.</td><td>2025/26</td></tr>
+        <tr><td>What is an axiomatic weighting approach?</td><td>Designing a weighting function to satisfy desired ranking properties.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>What are the main risks of learning term weights, and how are they controlled?</td><td>Overfitting learns quirks of limited labels; click bias favours seen high-ranked results. Validate on held-out queries and use debiased clicks or editorial labels.</td><td>2021/22, 2024/25</td></tr>
+      </tbody></table>
+
+      <h2 id="evaluation">3. Retrieval Evaluation, MAP, And Diversity</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is precision?</td><td>The fraction retrieved that is relevant: <code>TP / (TP + FP)</code>.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>What is recall?</td><td>The fraction of all relevant documents retrieved: <code>TP / (TP + FN)</code>.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>How do you make a precision-recall graph?</td><td>Plot precision against recall at each relevant rank; higher and further right is better, though precision often falls as recall rises.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>What are AP and MAP?</td><td>AP averages precision values at ranks containing relevant documents; MAP averages AP across queries.</td><td>2025/26</td></tr>
+        <tr><td>What is MAP's key limitation?</td><td>It usually assumes binary relevance and does not capture diversity, novelty, or user satisfaction.</td><td>2025/26</td></tr>
+        <tr><td>Why are precision and recall not enough to evaluate search?</td><td>They measure relevance coverage, but not satisfaction, result diversity, novelty, effort, or the quality of the user experience.</td><td>2023/24, 2025/26</td></tr>
+        <tr><td>What is top-k diversity?</td><td>How varied and non-redundant the first <code>k</code> results are.</td><td>2025/26</td></tr>
+        <tr><td>Why measure top-k diversity?</td><td>It reduces near-duplicates and increases the chance that an early result covers each possible user intent.</td><td>2021/22, 2023/24, 2025/26</td></tr>
+        <tr><td>How can diversity in the top <code>k</code> results be measured?</td><td>Measure distinct intents/subtopics covered, or average pairwise dissimilarity between the top <code>k</code> results.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="feedback">4. Relevance Feedback And Query Expansion</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is explicit relevance feedback?</td><td>User labels identify returned documents as relevant or non-relevant.</td><td>2023/24</td></tr>
+        <tr><td>What is Rocchio, including its update rule?</td><td>It moves a query toward relevant and away from non-relevant documents: <code>q' = alpha q + beta mean(Drel) - gamma mean(Dnonrel)</code>.</td><td>2023/24-2025/26</td></tr>
+        <tr><td>What is pseudo-relevance feedback (PRF), including its weakness?</td><td>Expand from assumed-useful top results; incorrect assumptions can cause drift.</td><td>2023/24</td></tr>
+        <tr><td>What is local analysis?</td><td>Selecting candidate expansion terms from the current query's returned documents.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>Local analysis versus a fixed thesaurus?</td><td>Local analysis is contextual; a thesaurus is controlled and less dependent on noisy results.</td><td>2025/26</td></tr>
+        <tr><td>What is query drift, and how can it be limited?</td><td>Expansion shifts intent; retain original terms, limit weights, or ask approval.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>How are local-analysis or PRF expansion terms selected?</td><td>Prefer terms frequent in relevant or pseudo-relevant top documents but rare in the collection; remove stopwords, irrelevant terms, and near-duplicates.</td><td>2021/22, 2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>How should suggested expansion terms be made diverse?</td><td>Choose useful terms covering different aspects, not near-duplicates.</td><td>2023/24, 2024/25</td></tr>
+        <tr><td>How can feedback use non-binary labels, and when can it fail?</td><td>Weight documents/labels by confidence or graded relevance; it can fail when relevant documents do not form one coherent cluster.</td><td>2025/26</td></tr>
+        <tr><td>What do <code>alpha</code>, <code>beta</code>, and <code>gamma</code> do in Rocchio?</td><td><code>alpha</code> retains the original query; <code>beta</code> weights relevant-document evidence; <code>gamma</code> weights non-relevant-document evidence that is subtracted.</td><td>2023/24-2025/26</td></tr>
+        <tr><td>What are Rocchio's main limitations?</td><td>It needs accurate feedback, which can be costly; noisy or misjudged documents cause query drift, and one relevant-document centroid can blur multiple intents.</td><td>2024/25, 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="query-difficulty">5. Query Difficulty Prediction</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is the difference between pre- and post-retrieval features?</td><td>Pre-retrieval features use only the query and collection statistics, before any search. Post-retrieval features use the initial ranked results and their scores.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What are the three sources of query-difficulty evidence?</td><td>The query itself, collection-wide statistics, and the initial returned ranked list.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What can ambiguity or weak score separation suggest?</td><td>A difficult query: ambiguous terms indicate several possible intents, while similar top scores indicate an uncertain ranking.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What can an IR system do for a difficult query?</td><td>Clarify intent, suggest reformulation, expand the query, or diversify early results.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What are common pre-retrieval query-difficulty predictors?</td><td>Query length; average IDF, where low values suggest broad/common terms; term ambiguity; and collection statistics such as term frequency and co-occurrence, where weak coherence can suggest difficulty.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="recommenders">6. Collaborative Filtering And Recommenders</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What are user-based and item-based collaborative filtering?</td><td>User-based recommends items liked by similar users; item-based recommends items similar to those the user has already liked or consumed.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What is the basic CF workflow?</td><td>Build a user-item rating/interaction matrix, find similar users or items, predict scores for unseen items, then rank them.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What is cold start?</td><td>A new user/item has too little interaction data for reliable CF predictions.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>How can cold start be handled?</td><td>Use onboarding ratings, metadata/content, a popularity fallback, or a hybrid recommender.</td><td>2025/26</td></tr>
+        <tr><td>How can difficult recommendation users be identified?</td><td>Look for sparse histories, weak similarity to other users, inconsistent preferences, or low-confidence predictions.</td><td>2025/26</td></tr>
+        <tr><td>How should recommenders be evaluated, and what is a key limitation?</td><td>Test against held-out interactions using ranking metrics; offline data may not reflect satisfaction, novelty, or diversity in real use.</td><td>2021/22-2025/26</td></tr>
+        <tr><td>What are CF's main advantages and limitations?</td><td>It personalises without needing item content and can surface unexpected items; sparsity, cold start, and popularity bias can reduce quality and diversity.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>How can a recommender diversify its top results?</td><td>Re-rank high-scoring candidates to penalise near-duplicates and cover different genres, topics, or user intents.</td><td>2021/22</td></tr>
+      </tbody></table>
+
+      <h2 id="similarity">7. Document Similarity And Clustering</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>How should scientific articles be represented for similarity?</td><td>Build a weighted feature vector: give title, abstract, and keywords high weight; optionally add full text, authors, venue, and citation/bibliography evidence.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>How can article similarity be scored?</td><td>Use cosine similarity between normalised weighted term vectors; optionally combine it with author or citation overlap using a weighted score.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>What are the repeated k-means steps?</td><td>Choose <code>k</code> initial centroids, assign each document to its nearest centroid, recompute each centroid as its cluster mean, then repeat until assignments stop changing.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>How can clustering help IR?</td><td>Group results or collections by topic, helping users browse subtopics, navigate results, and find related documents.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>How can clustering quality be assessed?</td><td>Good clusters have high within-cluster coherence and high between-cluster separation; also test stability or compare against known labels.</td><td>2023/24</td></tr>
+        <tr><td>What are clustering's main limitations?</td><td>Results depend on the representation, chosen number of clusters, and initial seeds; clusters may not reflect relevance or handle overlapping topics well.</td><td>2021/22, 2023/24, 2024/25</td></tr>
+      </tbody></table>
+
+      <h2 id="boolean">8. Extended Boolean Retrieval</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is extended Boolean retrieval, and why use it?</td><td>A soft Boolean model that gives AND/OR queries a graded match score, rather than a strict match/no-match outcome, so partial matches can be ranked.</td><td>2021/22, 2024/25</td></tr>
+        <tr><td>What are the steps in an extended-Boolean calculation?</td><td>Take each term's relevance score, use the stated extended-AND or extended-OR formula, substitute the values, calculate the final score, then rank higher-scoring documents first.</td><td>2021/22, 2024/25</td></tr>
+      </tbody></table>
+
+      <h2 id="web-search">9. Web Search: PageRank And HITS</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is PageRank, and how does a link contribute?</td><td>An iterative link-based authority score. A page distributes its current score across its outgoing links, so a link from a high-authority page contributes more authority.</td><td>2023/24</td></tr>
+        <tr><td>What do damping and link spam mean for PageRank?</td><td>Damping gives a user a small probability of teleporting instead of following a link, preventing sinks and traps. Link farms can artificially inflate authority, while popularity can outweigh topical relevance.</td><td>2023/24</td></tr>
+        <tr><td>What are HITS hubs and authorities?</td><td>Authorities are pages linked to by good hubs; hubs are pages that link to good authorities. The two scores reinforce each other.</td><td>2025/26</td></tr>
+        <tr><td>How does HITS compute scores?</td><td>Repeatedly set each authority score from the hub scores of pages linking to it, and each hub score from the authority scores of pages it links to; normalise after each iteration.</td><td>2025/26</td></tr>
+        <tr><td>How does HITS differ from PageRank?</td><td>HITS computes separate hub and authority scores on a query-related graph at search time; PageRank computes one global, query-independent authority score in advance.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="ltr">10. Learning To Rank</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is LTR, and what does a training example contain?</td><td>LTR learns a ranking function from relevance data. A training example contains a query, a candidate document, its feature values, and a relevance grade or preference label.</td><td>2025/26</td></tr>
+        <tr><td>What are pointwise, pairwise, and listwise LTR?</td><td>Pointwise predicts each document's relevance grade; pairwise learns which of two documents should rank higher; listwise directly optimises the ordering of a result list.</td><td>2025/26</td></tr>
+        <tr><td>How should LTR be evaluated, and what is a click-data risk?</td><td>Evaluate on held-out queries with ranking metrics such as MAP or nDCG. Clicks are position-biased because highly ranked results are seen more often.</td><td>2025/26</td></tr>
+        <tr><td>How does neural LTR differ from traditional LTR?</td><td>Neural LTR can learn semantic representations directly from text; traditional LTR relies more on engineered features. Neural models need more data and compute and are less interpretable.</td><td>2025/26</td></tr>
+        <tr><td>Why use LTR rather than manually tuned ranking weights?</td><td>It learns how features should influence ranking from relevance data, rather than relying on hand-set weights; its quality depends on representative training labels.</td><td>2025/26</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This is the complete, condensed set. It includes all recurring families and the high-mark 2025/26 additions. Preprocessing and indexing are excluded because they only occur as a one-off 2023/24 question.</p>
+    </article>
+  </main>
+</body>
+</html>
