@@ -98,38 +98,38 @@
 
       <h3>Neighbourhoods, Interior, Closure, And Accumulation</h3>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What is a neighbourhood, and how does it characterise interior?</td><td>N⊆X is a neighbourhood of x if some open U satisfies x∈U⊆N. The interior A° is the largest open subset of A; equivalently, x∈A° if and only if A is a neighbourhood of x.</td><td>2024/25, 2025/26</td></tr>
-        <tr><td>What is the closure of A?</td><td>The closure cl(A) is the intersection of all closed subsets of X containing A. Equivalently, x∈cl(A) if and only if every neighbourhood of x meets A.</td><td>2023/24, 2025/26</td></tr>
-        <tr><td>What is an accumulation point of A?</td><td>A point x such that every neighbourhood of x contains a point of A other than x; equivalently, every neighbourhood of x meets A\{x}. Unlike a closure point, x itself cannot be the only point of A met by the neighbourhood.</td><td>2023/24, 2025/26</td></tr>
-        <tr><td>Why does having no accumulation points imply that A is closed?</td><td>Let x∈X\A. Since x is not an accumulation point of A, some neighbourhood N of x satisfies N∩(A\{x})=∅. As x∉A, N∩A=∅. Choose an open U with x∈U⊆N; then U⊆X\A. Thus X\A is open, so A is closed.</td><td>2025/26</td></tr>
+        <tr><td>What is a neighbourhood, and how does it characterise interior?</td><td>A neighbourhood of a point is any set that contains an open set around that point. The interior of a set consists of the points that have an open neighbourhood lying completely inside the set.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>What is the closure of A?</td><td>The closure of A is A together with every point that cannot be separated from A by an open neighbourhood.</td><td>2023/24, 2025/26</td></tr>
+        <tr><td>What is an accumulation point of A?</td><td>A point where every neighbourhood contains points of A other than possibly the point itself.</td><td>2023/24, 2025/26</td></tr>
+        <tr><td>Why does having no accumulation points imply that A is closed?</td><td>Every point outside A has an open neighbourhood that does not meet A. Therefore the complement of A is open, so A is closed.</td><td>2025/26</td></tr>
       </tbody></table>
 
       <h2 id="priority-2">Priority 2 - Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples</h2>
       <h3>Compactness And Non-Compact Examples</h3>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What does compact mean?</td><td>A space X is compact if every open cover of X has a finite subcover: whenever X=⋃<sub>i∈I</sub>U<sub>i</sub> with every U<sub>i</sub> open, there are finitely many i<sub>1</sub>,…,i<sub>n</sub> with X=U<sub>i₁</sub>∪…∪U<sub>iₙ</sub>.</td><td>2023/24, 2024/25, 2025/26</td></tr>
-        <tr><td>Is standard R compact?</td><td>No. The open sets (−n,n), n∈N, cover R. Any finite subfamily has a largest index N and is contained in (−N,N), so it misses points such as N+1.</td><td>2023/24</td></tr>
-        <tr><td>How can you disprove compactness of the lower-limit line?</td><td>The lower-limit open cover {[n,n+1):n∈Z} covers R. A finite subfamily covers only a bounded subset of R, so it cannot cover all of R; therefore the lower-limit line is not compact.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>What does compact mean?</td><td>A space is compact if, whenever it is covered by open sets, finitely many of those open sets already cover the whole space.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Is standard R compact?</td><td>No. The intervals (−n,n) cover all real numbers, but any finite selection misses sufficiently large positive and negative numbers.</td><td>2023/24</td></tr>
+        <tr><td>How can you disprove compactness of the lower-limit line?</td><td>The intervals [n,n+1), for integers n, cover the whole line. Any finite selection covers only a bounded part of the line, so it cannot cover everything.</td><td>2024/25, 2025/26</td></tr>
       </tbody></table>
 
       <h3>Cofinite Spaces</h3>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What does dense mean, and which sets are dense in a cofinite space?</td><td>A⊆X is dense if cl(A)=X, equivalently if every nonempty open set meets A. In an infinite cofinite space, every infinite subset is dense: a nonempty open set has finite complement and therefore cannot be disjoint from an infinite A.</td><td>2024/25, 2025/26</td></tr>
-        <tr><td>Is an infinite cofinite space compact?</td><td>Yes. Given an open cover, choose a nonempty member U. Its complement X\U is finite; choose one cover member for each point of X\U. Together with U, these finitely many sets form a finite subcover.</td><td>2023/24</td></tr>
-        <tr><td>Why is an infinite cofinite space not Hausdorff?</td><td>Any two nonempty open sets have finite complements. Their intersection has complement contained in the union of two finite sets, so it is nonempty when X is infinite. Thus distinct points cannot have disjoint open neighbourhoods.</td><td>2023/24, 2024/25</td></tr>
+        <tr><td>What does dense mean, and which sets are dense in a cofinite space?</td><td>A set is dense if every nonempty open set meets it. In an infinite cofinite space, every infinite subset is dense, because a nonempty open set leaves out only finitely many points.</td><td>2024/25, 2025/26</td></tr>
+        <tr><td>Is an infinite cofinite space compact?</td><td>Yes. Choose one nonempty set from an open cover; it misses only finitely many points. Choose one cover set for each missed point, giving a finite subcover.</td><td>2023/24</td></tr>
+        <tr><td>Why is an infinite cofinite space not Hausdorff?</td><td>Any two nonempty open sets must overlap, because each leaves out only finitely many points. Therefore two different points cannot always be placed in disjoint open neighbourhoods.</td><td>2023/24, 2024/25</td></tr>
       </tbody></table>
 
       <h3>Hausdorff Separation</h3>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What does Hausdorff mean?</td><td>A space X is Hausdorff if, for every distinct x,y∈X, there are disjoint open sets U,V with x∈U and y∈V.</td><td>2023/24, 2024/25, 2025/26</td></tr>
-        <tr><td>Why is the lower-limit topology on R Hausdorff?</td><td>For x&lt;y, [x,y) and [y,y+1) are disjoint basic open neighbourhoods of x and y. Therefore any two distinct points can be separated by disjoint open sets.</td><td>2025/26</td></tr>
+        <tr><td>What does Hausdorff mean?</td><td>A space is Hausdorff if any two different points can be placed in disjoint open neighbourhoods.</td><td>2023/24, 2024/25, 2025/26</td></tr>
+        <tr><td>Why is the lower-limit topology on R Hausdorff?</td><td>If x&lt;y, the open intervals [x,y) and [y,y+1) contain x and y respectively and do not overlap. Thus any two different points can be separated by disjoint open neighbourhoods.</td><td>2025/26</td></tr>
       </tbody></table>
 
       <h3>Compactness Theorems</h3>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Why is every closed subset of a compact space compact?</td><td>If A is closed in compact X and {U<sub>i</sub>} covers A, then {U<sub>i</sub>}∪{X\A} is an open cover of X. A finite subcover exists; removing X\A leaves a finite subcover of A.</td><td>2024/25</td></tr>
-        <tr><td>Why is a compact subspace of a Hausdorff space closed?</td><td>Let A be compact in Hausdorff X and x∉A. For each a∈A choose disjoint open sets U<sub>a</sub>∋a and V<sub>a</sub>∋x. Finitely many U<sub>a₁</sub>,…,U<sub>aₙ</sub> cover A. Then V=V<sub>a₁</sub>∩…∩V<sub>aₙ</sub> is an open neighbourhood of x disjoint from A. Thus X\A is open and A is closed.</td><td>2025/26</td></tr>
-        <tr><td>Why is a continuous bijection from compact X to Hausdorff Y a homeomorphism?</td><td>For every closed F⊆X, F is compact, so f(F) is compact and hence closed in Hausdorff Y. Thus f is a closed bijection, which makes f<sup>−1</sup> continuous. Since f is already continuous, it is a homeomorphism.</td><td>2023/24</td></tr>
+        <tr><td>Why is every closed subset of a compact space compact?</td><td>Start with an open cover of the closed subset. Add its open complement to cover the whole space. Compactness gives a finite cover, and removing the complement leaves a finite cover of the subset. Therefore the subset is compact.</td><td>2024/25</td></tr>
+        <tr><td>Why is a compact subspace of a Hausdorff space closed?</td><td>Take a point outside the compact set. Separate it from each point of the compact set using disjoint open neighbourhoods. Compactness reduces these to finitely many; intersect the neighbourhoods around the outside point to get an open neighbourhood missing the compact set. Therefore the complement is open, so the compact set is closed.</td><td>2025/26</td></tr>
+        <tr><td>Why is a continuous bijection from compact X to Hausdorff Y a homeomorphism?</td><td>A closed subset of compact X is compact. Its image is compact, and compact subsets of Hausdorff Y are closed. So the map sends closed sets to closed sets, which makes its inverse continuous. Therefore it is a homeomorphism.</td><td>2023/24</td></tr>
       </tbody></table>
 
       <h2 id="priority-3">Priority 3 - Connectedness, Separations, Continuous Images, And IVT</h2>
