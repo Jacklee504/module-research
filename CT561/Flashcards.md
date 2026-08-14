@@ -58,32 +58,28 @@ Short prompts for rapid memory refresh. Use [most_asked.html](most_asked.html) f
 
 | Front | Back | Evidence |
 |---|---|---|
-| Core frequency-dependent SIR? | `lambda = beta I/N`; `Infections = lambda S`; `Recoveries = I/D`; `S=INTEG(-Infections,S0)`, `I=INTEG(Infections-Recoveries,I0)`, `R=INTEG(Recoveries,R0)`. | 2023/24 Q3(a); 2024/25 Q3(b); 2025/26 Q2(b) |
-| Contact notation and reproduction numbers? | `beta = c i`; `R0 = beta d = c i d`; `Re = R0(S/N)`. Infection grows when `Re > 1`. | 2023/24 Q3(a); 2024/25 Q3(a) |
-| Force of infection: formula and units? | `lambda = beta I/N`, in `1/time`: risk per susceptible per time. Total infection flow is `lambda x S`, in people/time. | 2024/25 Q3(a) |
-| Herd-immunity threshold? | `HIT = 1 - 1/R0`. For `R0 = 12`, HIT = `11/12 = 91.7%`. | 2024/25 Q3(a) |
-| Threshold and peak proof triggers? | With `S=N`, growth threshold is `R0=1` (`c i d=1`). At an I peak set `dI/dt=0`, giving `S/N=1/R0`. | 2023/24 Q3(a); 2018/19 Q3(c) |
+| Core frequency-dependent SIR? | `λ=βI/N`; `F_inf=λS`; `F_rec=I/D`. `S=INTEG(−F_inf,S(0))`; `I=INTEG(F_inf−F_rec,I(0))`; `R=INTEG(F_rec,R(0))`. | 2023/24 Q3(a); 2024/25 Q3(b); 2025/26 Q2(b) |
+| Transmission and outbreak threshold? | `β=ci`; `R₀=βd=cid`. In a fully susceptible population, an outbreak grows when `R₀>1`. | 2023/24 Q3(a); 2024/25 Q3(a) |
+| Force of infection and HIT? | `λ=βI/N`, units `1/time`; `F_inf=λS`, people/time. `p_c=1−1/R₀`. | 2024/25 Q3(a) |
 
 ## 8. SIR Policies and Extensions
 
 | Front | Back | Evidence |
 |---|---|---|
-| Standard SIR loops? | Contagion is reinforcing: `I -> Infections -> I`. Depletion and recovery are balancing: infections reduce S; recoveries reduce I. | 2018/19 Q3(b); 2024/25 Q3(b); 2025/26 Q2(b) |
-| Quarantine: 2024/25 vs 2025/26? | 2024/25: move a flagged fraction from I to Q. 2025/26: split infection flow, `To Q=QF x lambda x S`, `To I=(1-QF) x lambda x S`; Q does not transmit. | 2024/25 Q3(b); 2025/26 Q2(b) |
-| Vaccination, attack rate and policy plot? | Vaccination flow is `Vaccination Fraction x S` from S to Vaccinated. `Attack Rate=(I+Q+R)/N`. Bubble plot: x=quarantine, y=vaccination, size=attack rate; largest at low/low. | 2025/26 Q2(b,c) |
-| Cohort extension? | Replicate states by group, e.g. `Sy,Iy,Ry` and `Se,Ie,Re`, then use within/between-group contacts or a contact matrix. | 2024/25 Q3(c) |
-| SEI2H2R memory chain? | `S -> E -> Ia/Is`; Ia recovers, Is recovers or enters hospital; hospital is a second-order delay. Ia has 50% of Is infectiousness. | 2023/24 Q3(b) |
-| Control flag? | A `0/1` parameter that switches a policy pathway off/on, usually by multiplying the relevant flow or fraction. | 2024/25 Q3(b) |
+| Standard SIR loops? | `I → F_inf → I`: reinforcing. `F_inf → S↓ → F_inf↓` and `I → F_rec → I↓`: balancing. | 2018/19 Q3(b); 2024/25 Q3(b); 2025/26 Q2(b) |
+| Quarantine: 2024/25 vs 2025/26? | 2024/25: `I → Q`, controlled by `u∈{0,1}`. 2025/26: `F_Q=qλS`, `F_I=(1−q)λS`; Q does not transmit. | 2024/25 Q3(b); 2025/26 Q2(b) |
+| Vaccination, attack rate and policy plot? | `F_vax=vS`, `S → V`; `AR=(I+Q+R)/N`. Bubble plot: `x=q`, `y=v`, size `=AR`; largest at low q,v. | 2025/26 Q2(b,c) |
+| Cohort extension? | Replicate states: `(S_y,I_y,R_y)`, `(S_e,I_e,R_e)`; add within-/between-cohort contact terms or a contact matrix. | 2024/25 Q3(c) |
+| SEI2H2R memory chain? | `S → E → I_a/I_s`; `I_a → R`, `I_s → R/H`. H is a second-order delay; `I_a` infectiousness `=0.5I_s`. | 2023/24 Q3(b) |
 
 ## 9. Legacy and Supporting Constructions
 
 | Front | Back | Evidence |
 |---|---|---|
-| Resource-constrained vaccination? | `Capacity = Medics x Productivity`; `Dispensed = MIN(Unvaccinated, Available Vaccines, Capacity)`. | 2016/17 Q3(b); 2017/18 Q3(c); 2021/22 Q2(b) |
-| Effects function? | Normalise input, use a dimensionless lookup multiplier, then multiply by the reference rate: `Rate = Reference Rate x Effect(normalised input)`. | 2016/17 Q4(a,b); 2018/19 Q4(b); 2019/20 Q3(b,c) |
-| Little's Law? | `Average Stock = Average Throughput x Average Delay`; use compatible steady-state averages. | 2017/18 Q4(a,b); 2018/19 Q1(c) |
-| Convert `dS/dt = t`, `S(0)=0`? | Stock-flow: `S=INTEG(t,0)`. Analytical check: `S=t^2/2`; `S(20)=200`. | 2017/18 Q2(a) |
-| Logistic decline and doubling time? | `dP/dt=rP(1-P/C)-sP`. For constant net fractional growth `g`, doubling time is `ln(2)/g`. | 2021/22 Q2(a,c) |
+| Resource-constrained vaccination? | `C=M×p`; `F_vax=min(U,V,C)`, where U=unvaccinated and V=available vaccines. | 2016/17 Q3(b); 2017/18 Q3(c); 2021/22 Q2(b) |
+| Effects function? | `x*=x/x_ref`; `Rate=Rate_ref×Effect(x*)`. Effect is dimensionless. | 2016/17 Q4(a,b); 2018/19 Q4(b); 2019/20 Q3(b,c) |
+| Little's Law? | `L=λW`: average stock = average throughput × average delay, at equilibrium. | 2017/18 Q4(a,b); 2018/19 Q1(c) |
+| Legacy growth formulae? | `dS/dt=t`, `S(0)=0` ⇒ `S(t)=t²/2`. `dP/dt=rP(1−P/C)−sP`. Constant net fractional growth: `T₂=ln(2)/g`. | 2017/18 Q2(a); 2021/22 Q2(a,c) |
 
 ## Scope
 

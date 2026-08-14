@@ -98,30 +98,26 @@
 
       <h2 id="7-sir-core-equations-and-proofs">7. SIR Core Equations and Proofs</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Core frequency-dependent SIR?</td><td><code>lambda = beta I/N</code>; <code>Infections = lambda S</code>; <code>Recoveries = I/D</code>; <code>S=INTEG(-Infections,S0)</code>, <code>I=INTEG(Infections-Recoveries,I0)</code>, <code>R=INTEG(Recoveries,R0)</code>.</td><td>2023/24 Q3(a); 2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
-        <tr><td>Contact notation and reproduction numbers?</td><td><code>beta = c i</code>; <code>R0 = beta d = c i d</code>; <code>Re = R0(S/N)</code>. Infection grows when <code>Re &gt; 1</code>.</td><td>2023/24 Q3(a); 2024/25 Q3(a)</td></tr>
-        <tr><td>Force of infection: formula and units?</td><td><code>lambda = beta I/N</code>, in <code>1/time</code>: risk per susceptible per time. Total infection flow is <code>lambda x S</code>, in people/time.</td><td>2024/25 Q3(a)</td></tr>
-        <tr><td>Herd-immunity threshold?</td><td><code>HIT = 1 - 1/R0</code>. For <code>R0 = 12</code>, HIT = <code>11/12 = 91.7%</code>.</td><td>2024/25 Q3(a)</td></tr>
-        <tr><td>Threshold and peak proof triggers?</td><td>With <code>S=N</code>, growth threshold is <code>R0=1</code> (<code>c i d=1</code>). At an I peak set <code>dI/dt=0</code>, giving <code>S/N=1/R0</code>.</td><td>2023/24 Q3(a); 2018/19 Q3(c)</td></tr>
+        <tr><td>Core frequency-dependent SIR?</td><td><code>λ=βI/N</code>; <code>F<sub>inf</sub>=λS</code>; <code>F<sub>rec</sub>=I/D</code>. <code>S=INTEG(−F<sub>inf</sub>,S(0))</code>; <code>I=INTEG(F<sub>inf</sub>−F<sub>rec</sub>,I(0))</code>; <code>R=INTEG(F<sub>rec</sub>,R(0))</code>.</td><td>2023/24 Q3(a); 2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>Transmission and outbreak threshold?</td><td><code>β=ci</code>; <code>R<sub>0</sub>=βd=cid</code>. With <code>S=N</code>, an outbreak grows when <code>R<sub>0</sub>&gt;1</code>.</td><td>2023/24 Q3(a); 2024/25 Q3(a)</td></tr>
+        <tr><td>Force of infection and HIT?</td><td><code>λ=βI/N</code>, units <code>1/time</code>; <code>F<sub>inf</sub>=λS</code>, people/time. <code>p<sub>c</sub>=1−1/R<sub>0</sub></code>.</td><td>2024/25 Q3(a)</td></tr>
       </tbody></table>
 
       <h2 id="8-sir-policies-and-extensions">8. SIR Policies and Extensions</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Standard SIR loops?</td><td>Contagion is reinforcing: <code>I -&gt; Infections -&gt; I</code>. Depletion and recovery are balancing: infections reduce S; recoveries reduce I.</td><td>2018/19 Q3(b); 2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
-        <tr><td>Quarantine: 2024/25 vs 2025/26?</td><td>2024/25: move a flagged fraction from I to Q. 2025/26: split infection flow, <code>To Q=QF x lambda x S</code>, <code>To I=(1-QF) x lambda x S</code>; Q does not transmit.</td><td>2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
-        <tr><td>Vaccination, attack rate and policy plot?</td><td>Vaccination flow is <code>Vaccination Fraction x S</code> from S to Vaccinated. <code>Attack Rate=(I+Q+R)/N</code>. Bubble plot: x=quarantine, y=vaccination, size=attack rate; largest at low/low.</td><td>2025/26 Q2(b,c)</td></tr>
-        <tr><td>Cohort extension?</td><td>Replicate states by group, e.g. <code>Sy,Iy,Ry</code> and <code>Se,Ie,Re</code>, then use within/between-group contacts or a contact matrix.</td><td>2024/25 Q3(c)</td></tr>
-        <tr><td>SEI2H2R memory chain?</td><td><code>S -&gt; E -&gt; Ia/Is</code>; Ia recovers, Is recovers or enters hospital; hospital is a second-order delay. Ia has 50% of Is infectiousness.</td><td>2023/24 Q3(b)</td></tr>
-        <tr><td>Control flag?</td><td>A <code>0/1</code> parameter that switches a policy pathway off/on, usually by multiplying the relevant flow or fraction.</td><td>2024/25 Q3(b)</td></tr>
+        <tr><td>Standard SIR loops?</td><td><code>I → F<sub>inf</sub> → I</code>: reinforcing. <code>F<sub>inf</sub> → S↓ → F<sub>inf</sub>↓</code> and <code>I → F<sub>rec</sub> → I↓</code>: balancing.</td><td>2018/19 Q3(b); 2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>Quarantine: 2024/25 vs 2025/26?</td><td>2024/25: <code>I → Q</code>, controlled by <code>u∈{0,1}</code>. 2025/26: <code>F<sub>Q</sub>=qλS</code>, <code>F<sub>I</sub>=(1−q)λS</code>; <code>Q</code> does not transmit.</td><td>2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>Vaccination, attack rate and policy plot?</td><td><code>F<sub>vax</sub>=vS</code>, <code>S → V</code>; <code>AR=(I+Q+R)/N</code>. Bubble plot: <code>x=q</code>, <code>y=v</code>, size <code>=AR</code>; largest at low <code>q,v</code>.</td><td>2025/26 Q2(b,c)</td></tr>
+        <tr><td>Cohort extension?</td><td>Replicate states: <code>(S<sub>y</sub>,I<sub>y</sub>,R<sub>y</sub>)</code>, <code>(S<sub>e</sub>,I<sub>e</sub>,R<sub>e</sub>)</code>; add within-/between-cohort contact terms or a contact matrix.</td><td>2024/25 Q3(c)</td></tr>
+        <tr><td>SEI2H2R memory chain?</td><td><code>S → E → I<sub>a</sub>/I<sub>s</sub></code>; <code>I<sub>a</sub> → R</code>, <code>I<sub>s</sub> → R/H</code>. <code>H</code>: second-order delay; <code>I<sub>a</sub></code> infectiousness <code>=0.5I<sub>s</sub></code>.</td><td>2023/24 Q3(b)</td></tr>
       </tbody></table>
 
       <h2 id="9-legacy-and-supporting-constructions">9. Legacy and Supporting Constructions</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Resource-constrained vaccination?</td><td><code>Capacity = Medics x Productivity</code>; <code>Dispensed = MIN(Unvaccinated, Available Vaccines, Capacity)</code>.</td><td>2016/17 Q3(b); 2017/18 Q3(c); 2021/22 Q2(b)</td></tr>
-        <tr><td>Effects function?</td><td>Normalise input, use a dimensionless lookup multiplier, then multiply by the reference rate: <code>Rate = Reference Rate x Effect(normalised input)</code>.</td><td>2016/17 Q4(a,b); 2018/19 Q4(b); 2019/20 Q3(b,c)</td></tr>
-        <tr><td>Little's Law?</td><td><code>Average Stock = Average Throughput x Average Delay</code>; use compatible steady-state averages.</td><td>2017/18 Q4(a,b); 2018/19 Q1(c)</td></tr>
-        <tr><td>Convert <code>dS/dt = t</code>, <code>S(0)=0</code>?</td><td>Stock-flow: <code>S=INTEG(t,0)</code>. Analytical check: <code>S=t^2/2</code>; <code>S(20)=200</code>.</td><td>2017/18 Q2(a)</td></tr>
-        <tr><td>Logistic decline and doubling time?</td><td><code>dP/dt=rP(1-P/C)-sP</code>. For constant net fractional growth <code>g</code>, doubling time is <code>ln(2)/g</code>.</td><td>2021/22 Q2(a,c)</td></tr>
+        <tr><td>Resource-constrained vaccination?</td><td><code>C=M×p</code>; <code>F<sub>vax</sub>=min(U,V,C)</code>, where <code>U</code>=unvaccinated and <code>V</code>=available vaccines.</td><td>2016/17 Q3(b); 2017/18 Q3(c); 2021/22 Q2(b)</td></tr>
+        <tr><td>Effects function?</td><td><code>x*=x/x<sub>ref</sub></code>; <code>Rate=Rate<sub>ref</sub>×Effect(x*)</code>. <code>Effect</code> is dimensionless.</td><td>2016/17 Q4(a,b); 2018/19 Q4(b); 2019/20 Q3(b,c)</td></tr>
+        <tr><td>Little's Law?</td><td><code>L=λW</code>: average stock <code>=</code> average throughput <code>×</code> average delay, at equilibrium.</td><td>2017/18 Q4(a,b); 2018/19 Q1(c)</td></tr>
+        <tr><td>Legacy growth formulae?</td><td><code>dS/dt=t</code>, <code>S(0)=0</code> ⇒ <code>S(t)=t²/2</code>. <code>dP/dt=rP(1−P/C)−sP</code>. Constant <code>g</code>: <code>T<sub>2</sub>=ln(2)/g</code>.</td><td>2017/18 Q2(a); 2021/22 Q2(a,c)</td></tr>
       </tbody></table>
 
       <h2>Scope</h2>
