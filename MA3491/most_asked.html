@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MA3491 / MA539 - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank h3 { scroll-margin-top: 18px; }
+    .question-bank .scope, .question-bank .answer-frame, .question-bank .legacy-note { margin: 0 0 20px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; }
+    .question-bank .scope { background: #f8fafc; color: #39454b; }
+    .question-bank .answer-frame { background: #f7fbf8; }
+    .question-bank .legacy-note { background: #fffaf1; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .legacy-note strong { color: #865514; }
+    .question-bank .priority-note, .question-bank .source-list { color: var(--muted); font-size: 14px; }
+    .question-bank table { width: 100%; margin: 0 0 24px; border-collapse: collapse; font-size: 13px; }
+    .question-bank th, .question-bank td { padding: 10px 11px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .question-bank th { background: var(--surface-soft); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; }
+    .question-bank td:last-child { color: #39454b; }
+    .question-bank blockquote { margin: 0 0 14px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank code { white-space: nowrap; }
+    .coverage-map td:first-child { width: 12%; font-weight: 760; white-space: nowrap; }
+    .coverage-map td:nth-child(2) { width: 28%; }
+    .coverage-map td:nth-child(3) { width: 42%; }
+    .coverage-map td:last-child { width: 18%; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { padding: 0; border: 0; box-shadow: none; } .question-bank tr { break-inside: avoid; } }
+    @media (max-width: 720px) { .question-bank table { font-size: 12px; } .question-bank th, .question-bank td { padding: 8px; } .coverage-map td:first-child { white-space: normal; } }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">MA3491 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="#priority">Priority families</a>
+      <a href="#coverage">Coverage map</a>
+      <a href="#legacy">Legacy backup</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">MA3491 / MA539 Exam Study Document</p>
+    <h1>Most Asked Exam Questions</h1>
+    <p>Exact-paper question families, answer requirements, and repeatable proof or calculation patterns.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2 id="how-to-use">How To Use This Document</h2>
+      <div class="scope">
+        <p><strong>Source scope:</strong> every supplied local paper was inspected, including rendered pages and extracted text: <a href="2018_2019.pdf" target="_blank" rel="noopener noreferrer">2018/19</a>, <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>, <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>, <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>, and <a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>. The 2024/25 paper is labelled <code>MA3491/MA539</code>.</p>
+        <p><strong>Evidence weighting:</strong> 2023/24, 2024/25, and 2025/26 are the primary evidence because they are the newest three papers in the five-question format. The 2022/23 paper uses the same format and is fully covered in the map. The 2018/19 and 2021/22 four-question papers are retained only as legacy evidence.</p>
+      </div>
+      <ol>
+        <li>Attempt the near-exact prompts before reading the answer frame.</li>
+        <li>Keep the marks visible: a 2-mark definition and a 6-mark construction need different amounts of working.</li>
+        <li>Use the <a href="flashcards.html">10-card deck</a> for recall, then return here for full exam shape.</li>
+      </ol>
+
+      <h2 id="priority">Ranked Current-Format Question Families</h2>
+      <p class="priority-note">Frequency counts the four five-question papers, 2022/23 to 2025/26. Mark totals count directly mapped marks and deliberately keep distinct proof, construction, and calculation variants visible.</p>
+      <table>
+        <thead><tr><th>Rank</th><th>Family</th><th>Current recurrence / marks</th><th>Why it ranks here</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>Linear-code matrices, minimum distance, self-duality, and decoding</td><td>4/4 papers; about 136 marks</td><td>Every current paper has a major matrix/code section. Its exact final task varies, so practise the whole workflow.</td></tr>
+          <tr><td>2</td><td>Hamming-code definition, construction, correction, parameters, and perfection</td><td>4/4; 72 marks</td><td>The definition–matrix–decode sequence is in every paper; the final two papers repeat the full 20-mark version.</td></tr>
+          <tr><td>3</td><td>Finite-field factorisation, quotient arithmetic, inverses, and field proofs</td><td>4/4; 84 marks</td><td>Q2 is always a 20-mark finite-field question, with irreducibility and an inverse especially persistent.</td></tr>
+          <tr><td>4</td><td>Bounds and specially described block codes</td><td>4/4; 76 marks</td><td>Sphere packing and Singleton recur. The 2024/25 and 2025/26 papers explicitly require a Singleton proof.</td></tr>
+          <tr><td>5</td><td>Cyclic-code generator/check workflow</td><td>4/4; 60 marks</td><td>Every current paper asks for a generator matrix, check polynomial, and check matrix. Recent papers add a theorem or dual/weight extension.</td></tr>
+          <tr><td>6</td><td>Weight enumerators and MacWilliams’ identity</td><td>3/4; 26 marks</td><td>Absent only in 2024/25. It is secondary, but the 2025/26 cyclic question makes it too recurrent to ignore.</td></tr>
+          <tr><td>7</td><td>Current one-paper extensions</td><td>1/4 or 2/4 each</td><td>Primitive elements, vector-space restriction of scalars, characteristic-<i>p</i> binomial identity, MDS/perfect proofs, and an odd-weight cyclic theorem are represented, but should follow the core.</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="bounds">1. Bounds And Parameters Of A Described Block Code</h2>
+      <h3>Sphere-packing bound</h3>
+      <p><strong>Recurring wording and marks:</strong></p>
+      <ul>
+        <li>2022/23 Q1(a), 6 marks: “State the sphere packing bound, and determine the upper bound it gives” for a 4-ary code of length 8 and minimum distance 3.</li>
+        <li>2023/24 Q1(a), 6 marks: the same task for a ternary code of length 8 and minimum distance 3.</li>
+        <li>2024/25 Q1(a)(i)–(ii), 2 + 1 marks: state it, then apply it to binary length 10, minimum distance 5.</li>
+        <li>2025/26 Q1(a)(i)–(ii), 2 + 4 marks: state it, then apply it to binary length 12, minimum distance 5.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer must contain:</strong> for a <i>q</i>-ary code <i>C</i> of length <i>n</i> and minimum distance <i>d</i>, set <i>t</i> = ⌊(<i>d</i> − 1)/2⌋ and state</p>
+        <p><strong>|C| Σ<sub>i=0</sub><sup>t</sup> C(<i>n</i>, <i>i</i>)(<i>q</i> − 1)<sup>i</sup> ≤ <i>q</i><sup>n</sup>.</strong></p>
+        <p>Then substitute <i>q</i>, <i>n</i>, and <i>t</i>, divide by the sphere size, and take the integer upper bound. “Corrects all single errors” means <i>t</i> = 1, equivalently <i>d</i> ≥ 3.</p>
+      </div>
+
+      <h3>Singleton bound, including its proof</h3>
+      <ul>
+        <li>2022/23 Q1(b), 6 marks: state the bound and apply it to a ternary length-8 code of minimum distance 3.</li>
+        <li>2023/24 Q1(b), 6 marks: the same task for a 4-ary length-8 code of minimum distance 3.</li>
+        <li>2024/25 Q1(b)(i)–(iii), 2 + 4 + 1 marks: state, <em>prove</em>, then apply to ternary length 9 and distance 3.</li>
+        <li>2025/26 Q1(b)(i)–(iii), 2 + 4 + 2 marks: state, <em>prove</em>, then apply to binary length 12 and distance 5.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer must contain:</strong> |C| ≤ <i>q</i><sup><i>n</i>−<i>d</i>+1</sup>. For the proof, delete any <i>d</i> − 1 coordinate positions. If two codewords acquired the same remaining word, they could differ in at most <i>d</i> − 1 positions, contradicting minimum distance <i>d</i>. Deletion is injective into <i>q</i><sup><i>n</i>−<i>d</i>+1</sup> words, giving the bound.</p>
+      </div>
+
+      <h3>Structured code: count, distance, parameters, and classification</h3>
+      <ul>
+        <li>2022/23 Q1(c)(i)–(ii), 4 + 4 marks: binary length-8 words with equally many 0s and 1s, find |C| and <i>d</i><sub>min</sub>.</li>
+        <li>2023/24 Q1(c)(i)–(ii), 4 + 4 marks: palindromes P<sub>2k,q</sub> and P<sub>2k+1,q</sub>, find number of words and minimum distance separately for even and odd length.</li>
+        <li>2024/25 Q1(c)(i)–(iii), 2 + 2 + 2 marks: ternary 7-ply repetition code, find parameters, prove it is not perfect, and prove it is MDS.</li>
+        <li>2025/26 Q1(c), 6 marks: words over {X, Y} of length 8 where X-count in positions 1–4 equals Y-count in positions 5–8, determine the parameters.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Standard calculation patterns:</strong> equal 0/1 counts give |C| = C(8,4) and <i>d</i><sub>min</sub> = 2. For P<sub>2k,q</sub>, choose the first <i>k</i> symbols, so |P| = <i>q</i><sup><i>k</i></sup> and <i>d</i><sub>min</sub> = 2; for P<sub>2k+1,q</sub>, choose <i>k</i> mirrored pairs and the middle symbol, so |P| = <i>q</i><sup><i>k</i>+1</sup> and <i>d</i><sub>min</sub> = 1. For the 2025/26 condition, choose the X-count <i>i</i> and positions on both halves: Σ<sub>i=0</sub><sup>4</sup>C(4,<i>i</i>)² = C(8,4) = 70; a paired swap gives distance 2. A <i>q</i>-ary repetition code has [<i>n</i>, 1, <i>n</i>], and is MDS because |C| = <i>q</i><sup><i>n</i>−<i>d</i>+1</sup>.</p>
+      </div>
+
+      <h2 id="finite-fields">2. Finite Fields And Polynomial Arithmetic</h2>
+      <h3>Irreducibility and factorisation</h3>
+      <ul>
+        <li>2022/23 Q2(a)(i)–(ii), 3 + 3 marks: decide whether two cubics in F<sub>5</sub>[<i>x</i>] are irreducible and factor reducible ones.</li>
+        <li>2023/24 Q2(a), 6 marks: factor <i>x</i><sup>6</sup> − 1 in F<sub>3</sub>[<i>x</i>] into irreducibles.</li>
+        <li>2024/25 Q2(a), 4 marks: show <i>x</i><sup>2</sup> + <i>x</i> + 1 ∈ F<sub>5</sub>[<i>x</i>] is irreducible.</li>
+        <li>2025/26 Q2(a)–(b), 3 + 5 marks: find all irreducible degree-2 polynomials in F<sub>2</sub>[<i>x</i>], then show <i>x</i><sup>5</sup> + <i>x</i><sup>2</sup> + 1 is irreducible.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Standard proof strategy:</strong> a degree-2 or degree-3 polynomial over a field is irreducible exactly when it has no root in that field, so test every field element. For a degree-5 polynomial over F<sub>2</sub>, rule out a linear factor and the irreducible quadratic <i>x</i><sup>2</sup> + <i>x</i> + 1; otherwise any proper factorisation would have a factor of degree 1 or 2. For factorisation, first find roots, divide, and continue until every factor is irreducible.</p>
+      </div>
+
+      <h3>Quotient-field arithmetic and multiplicative inverses</h3>
+      <ul>
+        <li>2022/23 Q2(b)(i)–(iii), 3 + 5 + 6 marks: establish F<sub>27</sub> = F<sub>3</sub>[<i>x</i>]/(<i>f</i>), multiply two residue classes, and invert <i>x</i><sup>2</sup>.</li>
+        <li>2023/24 Q2(b)(i)–(iii), 3 + 5 + 6 marks: establish F<sub>16</sub>, find the order of <i>x</i><sup>2</sup> + <i>x</i>, then invert <i>x</i><sup>2</sup>.</li>
+        <li>2024/25 Q2(b), 6 marks: invert <i>x</i> + 3 in F<sub>25</sub> = F<sub>5</sub>[<i>x</i>]/(<i>p</i>), with representative degree ≤ 1.</li>
+        <li>2025/26 Q2(c), 6 marks: invert <i>x</i><sup>2</sup> + 1 in F<sub>32</sub> = F<sub>2</sub>[<i>x</i>]/(<i>p</i>), with representative degree ≤ 4.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete method:</strong> write elements as residue classes of polynomials of degree below deg <i>p</i>. Multiply normally and replace powers using <i>p</i>(<i>x</i>) = 0. For an inverse of <i>a</i>, use the extended Euclidean algorithm to find <i>u</i>, <i>v</i> with <i>u</i><i>a</i> + <i>v</i><i>p</i> = 1; then [<i>u</i>] is [<i>a</i>]<sup>−1</sup>. A coefficient-comparison solve is also valid if the final product is checked modulo <i>p</i>.</p>
+      </div>
+
+      <h3>Field-theory proof variants</h3>
+      <ul>
+        <li>2023/24 Q2(b)(ii), 5 marks: find the multiplicative order of a specified nonzero field element.</li>
+        <li>2024/25 Q2(c)(i)–(iii), 2 + 4 + 4 marks: define a primitive element; prove (<i>a</i><sup>−1</sup>)<sup><i>n</i></sup> = (<i>a</i><sup><i>n</i></sup>)<sup>−1</sup>; prove the inverse of a primitive element is primitive.</li>
+        <li>2024/25 Q1(d)(i)–(ii), 4 marks: prove {1, <i>a</i>} is an F<sub>2</sub>-basis of F<sub>4</sub>, then restrict scalars of an F<sub>4</sub>-basis.</li>
+        <li>2025/26 Q2(d), 6 marks: for a field of characteristic <i>p</i>, prove (<i>a</i> + <i>b</i>)<sup><i>p</i></sup> = <i>a</i><sup><i>p</i></sup> + <i>b</i><sup><i>p</i></sup>.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Proof ingredients:</strong> F<sup>×</sup> is a finite group of order |F| − 1; an element is primitive when its order is |F| − 1, and <i>a</i> and <i>a</i><sup>−1</sup> have the same order. To restrict scalars from F<sub>4</sub> to F<sub>2</sub>, expand each coefficient uniquely in the F<sub>2</sub>-basis {1, <i>a</i>} and prove spanning and independence. In characteristic <i>p</i>, expand by the binomial theorem; every C(<i>p</i>,<i>j</i>) with 0 &lt; <i>j</i> &lt; <i>p</i> is divisible by <i>p</i>, hence is zero in the field.</p>
+      </div>
+
+      <h2 id="linear">3. Linear Codes, Minimum Distance, And Decoding</h2>
+      <h3>Generator matrix → standard form → check matrix → distance / self-duality</h3>
+      <ul>
+        <li>2022/23 Q3(a)(i)–(iii), 4 + 4 + 4 marks: list ternary codewords, find minimum distance, then nearest-neighbour decode.</li>
+        <li>2022/23 Q3(b)(i)–(ii), 4 + 4 marks: construct a check matrix and a syndrome table, then decode 1111.</li>
+        <li>2023/24 Q3(a)(i)–(iii), 4 + 2 + 6 marks: list codewords, minimum distance, standard array, and decode two words; Q3(b), 2 + 6 marks, repeats check matrix and syndrome decoding.</li>
+        <li>2024/25 Q3(a)–(e)(ii), 4 + 2 + 2 + 4 + 4 + 4 marks: standard form, check matrix, distance, self-duality, syndrome table, and decode 1111 and 1122.</li>
+        <li>2025/26 Q3(a)–(e)(ii), the same 4 + 2 + 2 + 4 + 4 + 4 structure, with decoded words 1111 and 1212.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Construction and checks:</strong> row-reduce <i>G</i> over the stated field to <i>G</i> = [<i>I</i><sub>k</sub> | <i>A</i>]. Then a parity-check matrix is <i>H</i> = [−<i>A</i><sup>T</sup> | <i>I</i><sub>n−k</sub>], with <i>G</i><i>H</i><sup>T</sup> = 0. A row vector <i>v</i> is a codeword exactly when <i>vH</i><sup>T</sup> = 0. For a linear code, <i>d</i><sub>min</sub> is the least nonzero codeword weight; enumerate the small code or use the smallest number of linearly dependent columns of <i>H</i>. To prove C = C<sup>⊥</sup>, show self-orthogonality (for example <i>GG</i><sup>T</sup> = 0) and use dim C = dim C<sup>⊥</sup> = <i>n</i>/2.</p>
+      </div>
+
+      <h3>Syndrome, nearest-neighbour, and standard-array decoding</h3>
+      <ul>
+        <li>2022/23 Q3(a)(iii), 4 marks: “What is the result of nearest-neighbour decoding” of a received word?</li>
+        <li>2023/24 Q3(a)(iii), 6 marks: construct a standard array and decode two received words.</li>
+        <li>2022/23–2025/26 Q3(b) or Q3(e), 4–8 marks: construct a syndrome table and use it to decode named received words.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete decoding answer:</strong> compute the syndrome <i>s</i> = <i>rH</i><sup>T</sup>. The table maps each syndrome to a selected minimum-weight coset leader <i>e</i>; return <i>r</i> − <i>e</i>. In a nonbinary code, the syndrome identifies both a column of <i>H</i> and its nonzero scalar multiple, so record the error magnitude as well as its position. In a standard array, locate <i>r</i> in the row headed by its coset leader and decode to the codeword at the top of that column. Nearest-neighbour wording asks for the codeword(s) at minimum Hamming distance; explain a tie if one exists.</p>
+      </div>
+
+      <h2 id="hamming">4. Hamming Codes</h2>
+      <p><strong>This is a true single sequence, not three unrelated topics.</strong> Every supplied paper asks definition, parity-check matrix, and single-error decoding together. The 2024/25 and 2025/26 papers append parameters and a perfection proof.</p>
+      <ul>
+        <li>2022/23 Q4(b)(i)–(iii), 4 + 4 + 6 marks: define Ham(<i>r</i>,<i>q</i>), construct <i>H</i> for Ham(2,7), correct one error, and decode a word.</li>
+        <li>2023/24 Q4(b)(i)–(iii), 4 + 4 + 6 marks: the same sequence for Ham(2,4), decoding two words.</li>
+        <li>2024/25 Q4(a)–(e), 2 + 4 + 6 + 2 + 6 marks: definition, Ham(3,2) matrix, correction/decode, parameters, and perfection.</li>
+        <li>2025/26 Q4(a)–(e), 2 + 4 + 6 + 2 + 6 marks: the same full sequence for Ham(2,4).</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer must contain:</strong> Ham(<i>r</i>,<i>q</i>) = {<i>c</i> ∈ F<sub>q</sub><sup><i>n</i></sup> : <i>cH</i><sup>T</sup> = 0}, where <i>H</i> is an <i>r</i> × <i>n</i> parity-check matrix whose columns are one representative from each one-dimensional subspace of F<sub>q</sub><sup><i>r</i></sup>, and <i>n</i> = (<i>q</i><sup><i>r</i></sup> − 1)/(<i>q</i> − 1). Its parameters are [<i>n</i>, <i>n</i> − <i>r</i>, 3]. For a single error <i>ae</i><sub>j</sub>, the syndrome is <i>ah</i><sub>j</sub>, so identify the column and scalar, subtract the error, and give the corrected word. For perfection, radius-1 balls are disjoint because <i>d</i> = 3 and have size 1 + <i>n</i>(<i>q</i> − 1) = <i>q</i><sup><i>r</i></sup>; multiplying by |C| = <i>q</i><sup><i>n</i>−<i>r</i></sup> gives <i>q</i><sup><i>n</i></sup>, all ambient words.</p>
+      </div>
+
+      <h2 id="cyclic">5. Cyclic Codes, Weight Enumerators, And MacWilliams’ Identity</h2>
+      <h3>Cyclic generator/check workflow</h3>
+      <ul>
+        <li>2022/23 Q5(b)(i)–(ii), 4 + 8 marks: over F<sub>5</sub>, construct a generator matrix, then find the check polynomial and construct a check matrix.</li>
+        <li>2023/24 Q5(b)(i)–(ii), 4 + 8 marks: the same workflow over F<sub>3</sub>.</li>
+        <li>2024/25 Q5(a)(i)–(iii), 4 + 8 + 4 marks: the workflow over F<sub>4</sub>, then show the code is MDS.</li>
+        <li>2025/26 Q5(a)–(b), 4 + 4 marks: the binary workflow for length 6 and <i>g</i>(<i>x</i>) = <i>x</i><sup>2</sup> + <i>x</i> + 1.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete construction:</strong> view a length-<i>n</i> cyclic code as an ideal in F<sub>q</sub>[<i>x</i>]/(<i>x</i><sup><i>n</i></sup> − 1), generated by a monic divisor <i>g</i>(<i>x</i>) of <i>x</i><sup><i>n</i></sup> − 1. If deg <i>g</i> = <i>n</i> − <i>k</i>, rows from the coefficient vectors of <i>g</i>, <i>xg</i>, …, <i>x</i><sup><i>k</i>−1</sup><i>g</i> give <i>G</i>. Compute <i>h</i>(<i>x</i>) = (<i>x</i><sup><i>n</i></sup> − 1)/<i>g</i>(<i>x</i>). A standard check matrix is a generator matrix for C<sup>⊥</sup>: use the reciprocal <i>h</i><sup>*</sup>(<i>x</i>) = <i>h</i>(0)<sup>−1</sup><i>x</i><sup>deg <i>h</i></sup><i>h</i>(<i>x</i><sup>−1</sup>) as its generator polynomial; rows are its <i>n</i> − <i>k</i> shifts <i>h</i><sup>*</sup>, <i>xh</i><sup>*</sup>, …, <i>x</i><sup><i>n</i>−<i>k</i>−1</sup><i>h</i><sup>*</sup>. Verify <i>GH</i><sup>T</sup> = 0.</p>
+      </div>
+      <blockquote><p><strong>Distinct 2024/25 extension, Q5(b), 4 marks:</strong> for a binary cyclic code of odd length containing an odd-weight word <i>u</i>, prove it contains the all-ones word. Sum all cyclic shifts of <i>u</i>: each coordinate is the sum of wt(<i>u</i>) ones, hence is 1 in F<sub>2</sub>.</p></blockquote>
+
+      <h3>Weight enumerators and the 2025/26 dual-code extension</h3>
+      <ul>
+        <li>2022/23 Q5(a)(i)–(ii), 2 + 6 marks: define the weight enumerator of a linear [<i>n</i>,<i>k</i>]-code and compute it from a supplied binary generator matrix.</li>
+        <li>2023/24 Q5(a)(i)–(ii), 2 + 6 marks: the same definition and computation for a ternary code.</li>
+        <li>2025/26 Q5(c)–(f), 2 + 4 + 4 + 2 marks: define it; compute W<sub>C<sup>⊥</sup></sub>; state MacWilliams’ identity and obtain the two lowest-degree terms of W<sub>C</sub>; then determine <i>d</i><sub>min</sub>.</li>
+      </ul>
+      <div class="answer-frame">
+        <p><strong>Complete answer:</strong> the one-variable weight enumerator is W<sub>C</sub>(<i>z</i>) = Σ<sub><i>c</i>∈C</sub><i>z</i><sup>wt(<i>c</i>)</sup>; count all codewords, including the constant term 1. In binary form, MacWilliams’ identity is W<sub>C<sup>⊥</sup></sub>(<i>z</i>) = |C|<sup>−1</sup>(1 + <i>z</i>)<sup><i>n</i></sup>W<sub>C</sub>((1 − <i>z</i>)/(1 + <i>z</i>)). Rearrange or apply the identity in the requested direction, expand only as far as required, and read <i>d</i><sub>min</sub> as the smallest positive exponent with nonzero coefficient.</p>
+      </div>
+
+      <h2 id="coverage">Current-Format Coverage Map</h2>
+      <p class="priority-note">Every marked current-format subpart is mapped below, 100 subparts in total. “Extension” means covered but deliberately not ranked above the recurring core.</p>
+      <table class="coverage-map">
+        <thead><tr><th>Paper</th><th>Question</th><th>Every subpart represented</th><th>Family</th></tr></thead>
+        <tbody>
+          <tr><td>2022/23</td><td>Q1</td><td>(a) sphere packing; (b) Singleton; (c)(i) count equal 0/1 words; (c)(ii) distance</td><td>Bounds; structured code</td></tr>
+          <tr><td>2022/23</td><td>Q2</td><td>(a)(i)–(ii) factor/irreducible; (b)(i) prove irreducible and define F<sub>27</sub>; (ii) product; (iii) inverse</td><td>Finite fields</td></tr>
+          <tr><td>2022/23</td><td>Q3</td><td>(a)(i) codewords; (ii) distance; (iii) nearest neighbour; (b)(i) check matrix; (ii) syndrome table/decode</td><td>Linear codes; decoding</td></tr>
+          <tr><td>2022/23</td><td>Q4</td><td>(a) distance from supplied check matrix; (b)(i) definition; (ii) Hamming matrix; (iii) correct/decode</td><td>Linear codes; Hamming</td></tr>
+          <tr><td>2022/23</td><td>Q5</td><td>(a)(i) weight definition; (ii) enumerator; (b)(i) cyclic generator matrix; (ii) check polynomial/matrix</td><td>Enumerator; cyclic</td></tr>
+          <tr><td>2023/24</td><td>Q1</td><td>(a) sphere packing; (b) Singleton; (c)(i) even palindrome count/distance; (ii) odd palindrome count/distance</td><td>Bounds; structured code</td></tr>
+          <tr><td>2023/24</td><td>Q2</td><td>(a) factor <i>x</i><sup>6</sup> − 1; (b)(i) irreducible/define F<sub>16</sub>; (ii) order; (iii) inverse</td><td>Finite fields</td></tr>
+          <tr><td>2023/24</td><td>Q3</td><td>(a)(i) codewords; (ii) distance; (iii) standard array/decode; (b)(i) check matrix; (ii) syndrome/decode</td><td>Linear codes; decoding</td></tr>
+          <tr><td>2023/24</td><td>Q4</td><td>(a) distance from check matrix; (b)(i) definition; (ii) Hamming matrix; (iii) correct/decode</td><td>Linear codes; Hamming</td></tr>
+          <tr><td>2023/24</td><td>Q5</td><td>(a)(i) enumerator definition; (ii) enumerate; (b)(i) generator matrix; (ii) check polynomial/matrix</td><td>Enumerator; cyclic</td></tr>
+          <tr><td>2024/25</td><td>Q1</td><td>(a)(i)–(ii) sphere; (b)(i)–(iii) Singleton, proof, application; (c)(i)–(iii) repetition parameters, non-perfect, MDS; (d)(i)–(ii) F<sub>4</sub>/F<sub>2</sub> bases</td><td>Bounds; structured; field extension</td></tr>
+          <tr><td>2024/25</td><td>Q2</td><td>(a) irreducible; (b) F<sub>25</sub> inverse; (c)(i) primitive definition; (ii) inverse-powers proof; (iii) primitive inverse proof</td><td>Finite fields</td></tr>
+          <tr><td>2024/25</td><td>Q3</td><td>(a) standard form; (b) check matrix; (c) distance; (d) self-dual proof; (e)(i) syndrome table; (ii) decode</td><td>Linear codes; decoding</td></tr>
+          <tr><td>2024/25</td><td>Q4</td><td>(a) definition; (b) Hamming matrix; (c) correct/decode; (d) parameters; (e) perfect proof</td><td>Hamming</td></tr>
+          <tr><td>2024/25</td><td>Q5</td><td>(a)(i) generator matrix; (ii) check polynomial/matrix; (iii) MDS proof; (b) odd-weight cyclic theorem</td><td>Cyclic; extension</td></tr>
+          <tr><td>2025/26</td><td>Q1</td><td>(a)(i)–(ii) sphere; (b)(i)–(iii) Singleton, proof, application; (c) constrained-code parameters</td><td>Bounds; structured code</td></tr>
+          <tr><td>2025/26</td><td>Q2</td><td>(a) all irreducible quadratics; (b) degree-5 irreducibility; (c) F<sub>32</sub> inverse; (d) characteristic-<i>p</i> identity</td><td>Finite fields</td></tr>
+          <tr><td>2025/26</td><td>Q3</td><td>(a) standard form; (b) check matrix; (c) distance; (d) self-dual proof; (e)(i) syndrome table; (ii) decode</td><td>Linear codes; decoding</td></tr>
+          <tr><td>2025/26</td><td>Q4</td><td>(a) definition; (b) Hamming matrix; (c) correct/decode; (d) parameters; (e) perfect proof</td><td>Hamming</td></tr>
+          <tr><td>2025/26</td><td>Q5</td><td>(a) generator matrix; (b) check polynomial/matrix; (c) enumerator definition; (d) W<sub>C<sup>⊥</sup></sub>; (e) MacWilliams/low terms; (f) distance</td><td>Cyclic; enumerator</td></tr>
+        </tbody>
+      </table>
+
+      <h2 id="legacy">Legacy / Backup Only</h2>
+      <div class="legacy-note">
+        <p><strong>These appeared in the older four-question papers but not in the 2022/23–2025/26 recurring structure.</strong> Keep them as short backup material after the families above.</p>
+        <ul>
+          <li>2018/19 Q1(a), 7 marks: define Hamming distance on A<sup><i>n</i></sup> and prove it is a metric.</li>
+          <li>2018/19 and 2021/22 Q1(b), 6 marks total each: find a missing ISBN check symbol.</li>
+          <li>2018/19 Q2(a), 5 marks: polynomial gcd in Z<sub>3</sub>[<i>x</i>].</li>
+          <li>2018/19 Q2(c), 2 + 4 + 2 marks: define a unit in a Euclidean domain, prove U(<i>R</i>) is a multiplicative group, and identify U(F[<i>x</i>]).</li>
+          <li>2018/19 Q2(d), 7 marks: construct F<sub>8</sub>, give its elements, and explain addition and multiplication.</li>
+        </ul>
+      </div>
+
+      <h2>Exam Order</h2>
+      <ol>
+        <li>Do the full Hamming and linear-code workflows, including nonbinary syndrome magnitude.</li>
+        <li>Do one complete Q2 field question daily: irreducibility, quotient reduction, inverse, then proof extension.</li>
+        <li>Memorise and prove Singleton; then drill sphere-packing substitutions.</li>
+        <li>Do the cyclic generator/check workflow before attempting MacWilliams’ identity.</li>
+        <li>Use legacy material only once the current-format coverage map is secure.</li>
+      </ol>
+
+      <p class="source-list">Source documents: all six local MA3491 papers listed above. This page intentionally excludes no current-paper topic: one-paper current extensions are retained in the coverage map and in their relevant family.</p>
+    </article>
+  </main>
+</body>
+</html>

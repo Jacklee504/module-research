@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT421 Artificial Intelligence - Most Asked Exam Questions</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .question-bank { max-width: 1120px; }
+    .question-bank h2 { scroll-margin-top: 18px; }
+    .question-bank blockquote { margin: 0 0 18px; padding: 12px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); color: #39454b; }
+    .question-bank blockquote p { margin: 0; }
+    .question-bank .source-scope, .question-bank .answer-frame, .question-bank .coverage-map { padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; }
+    .question-bank .source-scope { background: #f8fafc; }
+    .question-bank .answer-frame { margin: 14px 0; background: #f7fbf8; }
+    .question-bank .answer-frame strong { color: #245c43; }
+    .question-bank .coverage-map { background: #fcfaf4; }
+    .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+    .question-bank .paper-list { padding: 14px 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+    .question-bank table { width: 100%; margin: 14px 0 22px; border-collapse: collapse; font-size: 14px; }
+    .question-bank th, .question-bank td { padding: 10px 11px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .question-bank th { background: var(--surface-soft); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+    .question-bank td:first-child { width: 18%; font-weight: 720; white-space: nowrap; }
+    .question-bank td:nth-child(2) { width: 51%; }
+    .question-bank td:last-child { width: 31%; color: #39454b; }
+    .question-bank code { white-space: nowrap; }
+    @media (max-width: 680px) {
+      .question-bank table, .question-bank tbody, .question-bank tr, .question-bank th, .question-bank td { display: block; }
+      .question-bank thead { display: none; }
+      .question-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .question-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .question-bank td:last-child { border-bottom: 0; }
+      .question-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .question-bank td:nth-child(1)::before { content: "Paper unit"; }
+      .question-bank td:nth-child(2)::before { content: "Prompt"; }
+      .question-bank td:nth-child(3)::before { content: "What it tests"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT421 overview</a>
+      <a href="flashcards.html">Flashcards</a>
+      <a href="#priorities">Priorities</a>
+      <a href="#coverage">Coverage map</a>
+      <a href="#legacy">Legacy backup</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT421 Study Document</p>
+    <h1>Artificial Intelligence - Most Asked Exam Questions</h1>
+    <p>Paper-led question families, answer requirements, and construction patterns for the four supplied CT421 papers.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content question-bank">
+      <h2>How To Use This Document</h2>
+      <div class="source-scope">
+        <p><strong>Primary evidence:</strong> the current-format papers are <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>, <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, and <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>. All three use four 25-mark questions, each split into assessed subparts.</p>
+        <p><strong>Legacy/backup evidence:</strong> <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a> has the same four-question structure and is used for recurring variants. Variants absent from the latest three are explicitly marked legacy-only.</p>
+        <p><strong>Method:</strong> 44 current-paper assessed units are mapped below. A question is kept separate whenever its requested construction, example, proof-style explanation, calculation, or mark structure differs.</p>
+      </div>
+      <ol>
+        <li>Work through families in priority order.</li>
+        <li>Attempt the paper wording before reading the answer checklist.</li>
+        <li>Use the flashcards for exact definitions, formulas, and constructions.</li>
+      </ol>
+
+      <h2 id="priorities">Current Priorities</h2>
+      <p class="priority-note">Ranked primarily by recurrence in 2022/23-2024/25, then by available marks. A one-paper new-format question remains a current priority when it occupies a full recent subpart.</p>
+
+      <h2 id="ga-design">Priority 1 - Genetic-Algorithm Design for Constrained Allocation</h2>
+      <p><strong>Recurrence and marks:</strong> 3/3 current papers, 43 marks. This is the strongest design family.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2022/23 Q2(b), 14</td><td>Allocate unique projects to students, each ranking ten projects. Apply a GA, including a suitable fitness function, chromosome representation, and operators.</td><td>Permutation/uniqueness constraint and ranked preferences.</td></tr>
+        <tr><td>2023/24 Q2(b), 14</td><td>Place items with weights and values in capacity-limited containers, maximising value. Give fitness, representation, and operators.</td><td>Multiple-knapsack capacity constraint.</td></tr>
+        <tr><td>2024/25 Q2(b)(i)-(iv), 15</td><td>Assign N tasks to M processors with processing-time, memory, and capability constraints. Design a GA: chromosome, fitness, selection, crossover, mutation.</td><td>Explicit selection requirement and several processor constraints.</td></tr>
+      </tbody></table>
+      <blockquote><p>Given a constrained allocation problem, design a GA whose encoding, fitness function, selection, crossover, mutation, and repair mechanism are valid for that specific constraint set.</p></blockquote>
+      <div class="answer-frame">
+        <p><strong>Complete answer must contain:</strong> (1) one gene per decision, such as task <em>i</em> → processor <em>j</em>; (2) a fitness formula that rewards the stated objective and penalises every violated constraint; (3) a parent-selection mechanism, normally tournament selection; (4) crossover that combines assignments; (5) mutation that makes a small valid assignment change; and (6) repair or rejection after crossover/mutation where invalid offspring are possible.</p>
+        <p><strong>Standard construction:</strong> for tasks, use chromosome <code>x = (x<sub>1</sub>, …, x<sub>N</sub>)</code>, where <code>x<sub>i</sub> ∈ {1, …, M}</code> is the processor assigned to task <em>i</em>. A valid fitness is <code>−makespan − λΣ penalties</code>, where penalties cover memory excess and incompatible assignments. For knapsack, let <code>x<sub>i</sub> ∈ {0, 1, …, K}</code>, where 0 means unselected and <em>k</em> means knapsack <em>k</em>; maximise <code>Σ v<sub>i</sub></code> minus a large penalty for each capacity excess.</p>
+      </div>
+
+      <h2 id="game-search">Priority 2 - Game Trees, Minimax, and Alpha-Beta Pruning</h2>
+      <p><strong>Recurrence and marks:</strong> minimax is in 3/3 current papers, 27 direct marks; alpha-beta is explicit in 2024/25 and recurring in the legacy paper.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2022/23 Q1(a), 10</td><td>For a suitable game, show minimax choosing moves; explain game-tree construction and value assignment; discuss efficiency and improvement.</td><td>General construction plus efficiency discussion.</td></tr>
+        <tr><td>2022/23 Q1(b), 8</td><td>Augment minimax where all potential game states cannot be enumerated.</td><td>Depth limit and heuristic / sampling response.</td></tr>
+        <tr><td>2023/24 Q1(a), 9</td><td>For misère Nim with piles 4 and 3, draw the game tree and show minimax.</td><td>Concrete game-tree trace; last move loses.</td></tr>
+        <tr><td>2024/25 Q1(a)(i), 5</td><td>For tic-tac-toe, draw the first three levels and evaluate positions with minimax, with X maximising.</td><td>Depth-limited tree and stated MAX player.</td></tr>
+        <tr><td>2024/25 Q1(a)(ii), 5</td><td>Apply alpha-beta to that tree and illustrate a branch that can be pruned.</td><td>Must show a specific α ≥ β cutoff, not only define pruning.</td></tr>
+      </tbody></table>
+      <div class="answer-frame">
+        <p><strong>Complete answer must contain:</strong> make legal moves children of a state; label alternating levels MAX and MIN; assign terminal utilities, or a heuristic at a cutoff depth; propagate maxima at MAX nodes and minima at MIN nodes; choose the root child with the final maximum value. For alpha-beta, carry α, MAX's best guaranteed value, and β, MIN's best guaranteed value; prune when α ≥ β because later children cannot change an ancestor's decision.</p>
+        <p><strong>Standard example:</strong> if a MAX ancestor already has α = 6 and a MIN child sees one successor valued 4, then β = 4. Since α ≥ β, do not inspect that MIN node's remaining successors. The MIN node can never return more than 4, so MAX will not choose it over the known 6.</p>
+      </div>
+
+      <h2 id="mas-game-theory">Priority 3 - Game Theory, Cooperation, and Auctions in MAS</h2>
+      <p><strong>Recurrence and marks:</strong> 3/3 current papers, 58 marks across Q3. This is the highest-mark current block, with several distinct families.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2022/23 Q3(a)(i)-(iii), 9</td><td>Compare English and Dutch auctions: protocol, rational bidder strategy, and limitations.</td><td>All three requested headings are compulsory.</td></tr>
+        <tr><td>2022/23 Q3(b), 8</td><td>Suggest an efficient approach for agents to negotiate agreement on attributes in addition to price.</td><td>Multi-attribute negotiation, not a one-item auction.</td></tr>
+        <tr><td>2022/23 Q3(c), 8</td><td>Explain, with examples, dominant strategy and Nash equilibrium.</td><td>Definitions require examples.</td></tr>
+        <tr><td>2023/24 Q3(a), 7</td><td>Explain speech acts in MAS and give negotiation-setting examples.</td><td>Communication-act examples required.</td></tr>
+        <tr><td>2023/24 Q3(b), 8</td><td>Explain, with examples, dominant strategy and Nash equilibrium.</td><td>Direct repeat of the 2022/23 definition family.</td></tr>
+        <tr><td>2023/24 Q3(c), 10</td><td>Explain the Prisoner's Dilemma and mechanisms promoting cooperation in populations playing it.</td><td>Population mechanisms, not only a payoff matrix.</td></tr>
+        <tr><td>2024/25 Q3(a), 6</td><td>Using the Prisoner's Dilemma, explain dominant strategy and Nash equilibrium.</td><td>Definitions tied to one named game.</td></tr>
+        <tr><td>2024/25 Q3(b), 9</td><td>Explain tit-for-tat, why it succeeds, and its performance under noisy moves.</td><td>Noise/failure mode is a separate requirement.</td></tr>
+        <tr><td>2024/25 Q3(c)(i)-(iii), 10</td><td>Compare two auction types by mechanics, strategic behaviour, and efficiency in reaching optimal allocations.</td><td>Efficiency replaces the older explicit limitations heading.</td></tr>
+      </tbody></table>
+      <div class="answer-frame">
+        <p><strong>Game-theory proof pattern:</strong> write the two actions and payoffs. An action is dominant for player <em>i</em> if, for every action profile of the other players, it gives at least as high a payoff as every alternative. A profile is a Nash equilibrium if no one player can improve their payoff by changing strategy while all other strategies remain fixed. In the Prisoner's Dilemma, defect is dominant for both; (defect, defect) is Nash, although (cooperate, cooperate) is better jointly.</p>
+        <p><strong>Auction construction:</strong> English: ascending price, bidders remain until price reaches private value; it reveals information but can be slow/collusive. Dutch: descending price, first acceptance wins; a bidder trades a lower price against losing to another bidder; it is fast but strategically uncertain. For multi-attribute negotiation, define offers over price, deadline, quality, and quantity, evaluate with weighted utilities, then seek Pareto-efficient offers where improving one agent necessarily harms another.</p>
+        <p><strong>Cooperation answer:</strong> tit-for-tat cooperates first and then repeats the opponent's previous move. It is nice, retaliatory, and forgiving after renewed cooperation. Noise can turn cooperation into apparent defection, causing a retaliation loop; forgiving or generous variants can break it. Other mechanisms are repeated interaction, reputation, partner selection, and incentives/enforcement.</p>
+      </div>
+
+      <h2 id="explainability">Priority 4 - Explainability and Black-Box Deep Learning</h2>
+      <p><strong>Recurrence and marks:</strong> 3/3 current papers, 25 marks. It is the most stable Question 4 family.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2022/23 Q4(a), 8</td><td>Explain the importance of explainability and, for an AI paradigm, approaches for systems that generate explanations.</td><td>Any paradigm can be chosen.</td></tr>
+        <tr><td>2023/24 Q4(a), 8</td><td>Explain explainability and, with respect to deep learning, approaches that provide explanations.</td><td>Specifically deep learning.</td></tr>
+        <tr><td>2024/25 Q4(c), 9</td><td>Explain black-box deep learning, why it is problematic in real applications, and two approaches to make it interpretable.</td><td>Explicit black-box definition, real-world risk, and two methods.</td></tr>
+      </tbody></table>
+      <div class="answer-frame">
+        <p><strong>Complete answer must contain:</strong> a black-box model's output may be accurate while the internal route to it is difficult to inspect; this harms trust, auditability, debugging, bias detection, and accountability in high-stakes decisions. Then describe two methods, not merely name them: feature attribution/saliency identifies input features or image regions that most affected an output; a local surrogate such as LIME fits an interpretable approximation near one prediction. Other valid choices include counterfactual explanations, attention visualisation, concept activation vectors, or interpretable-by-design models.</p>
+      </div>
+
+      <h2 id="search">Priority 5 - BFS, DFS, and Iterative Deepening</h2>
+      <p><strong>Recurrence and marks:</strong> 2/3 current papers, 19 marks. The same comparison headings recur exactly.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2023/24 Q1(b), 9</td><td>Using an example, distinguish BFS, DFS, and iterative deepening by node-visit order; compare time complexity, space complexity, and completeness.</td><td>Requires both traversal example and comparison.</td></tr>
+        <tr><td>2024/25 Q1(b), 10</td><td>Explain how BFS, DFS, and iterative deepening differ in visit order; compare time, space, and completeness.</td><td>Same family; one extra mark.</td></tr>
+      </tbody></table>
+      <div class="answer-frame">
+        <p><strong>Complete comparison:</strong> BFS uses a FIFO queue and visits depth 0, then 1, then 2; it is complete for finite branching, takes O(b<sup>d</sup>) time and O(b<sup>d</sup>) space. DFS follows one branch before backtracking; it uses O(bm) space and O(b<sup>m</sup>) time, but is not complete in an infinite-depth space. Iterative deepening repeats depth-limited DFS at limits 0, 1, 2, …; it is complete for finite branching, has O(b<sup>d</sup>) time and O(bd) space. State assumptions: <em>b</em> is branching factor, <em>d</em> shallowest-solution depth, and <em>m</em> maximum depth.</p>
+      </div>
+
+      <h2 id="ga-theory">Priority 6 - Schema Theorem and Exploration-Exploitation</h2>
+      <p><strong>Recurrence and marks:</strong> schema theorem in 2/3 current papers for 22 marks; the 2024/25 exploration-exploitation variation is 10 marks.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2022/23 Q2(a)(a)-(c), 11</td><td>With reference to GAs and the schema theorem, explain effects of mutation, crossover, and selection on a population.</td><td>Operator effects are individually assessed.</td></tr>
+        <tr><td>2023/24 Q2(a), 11</td><td>Explain schema theorem, its key principles, and roles of crossover, mutation, and selection.</td><td>Requires theorem explanation as well as operators.</td></tr>
+        <tr><td>2024/25 Q2(a)(i)-(ii), 10</td><td>Discuss exploration-exploitation with respect to GA operators and hill climbing.</td><td>Must compare population search with local search.</td></tr>
+      </tbody></table>
+      <div class="answer-frame">
+        <p><strong>Complete answer:</strong> a schema is a pattern such as 1*0*, with * a wildcard. The schema theorem predicts that short, low-order, above-average schemas receive increasing expected representation. Selection favours schemas appearing in fitter individuals. Crossover combines building blocks but can disrupt a schema when a crossover point falls within its defining length. Mutation introduces diversity and can create new material, but a high mutation rate disrupts existing schemas. Selection/crossover mainly exploit known promising regions; mutation and diverse parent choice explore. Hill climbing mainly exploits by moving to a better neighbour and can get trapped on a local optimum, plateau, or ridge; random restarts or occasional non-improving moves add exploration.</p>
+      </div>
+
+      <h2 id="bio">Priority 7 - Bio-Inspired AI, Artificial Life, and Neuro-Evolution</h2>
+      <p><strong>Recurrence and marks:</strong> artificial life and neuro-evolution appear in 2/3 current papers; ACO is in the newest 2/3 papers.</p>
+      <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
+        <tr><td>2022/23 Q4(b), 9</td><td>Define neuro-evolution and describe a suitable neural-network representation.</td><td>Representation is explicit; older paper also asks advantages/limitations.</td></tr>
+        <tr><td>2022/23 Q4(c), 8</td><td>With existing systems, explain main properties of an artificial-life system.</td><td>System example and properties required.</td></tr>
+        <tr><td>2023/24 Q4(b), 8</td><td>With existing systems, explain main properties of an artificial-life system.</td><td>Direct repeat.</td></tr>
+        <tr><td>2023/24 Q4(c), 9</td><td>Explain ACO and show, with a simple example, how it solves TSP.</td><td>Tour construction, not only definition.</td></tr>
+        <tr><td>2024/25 Q4(a), 8</td><td>Explain ACO, pheromones and evaporation; apply it to shortest path in a network.</td><td>Shortest path replaces TSP, with evaporation explicit.</td></tr>
+        <tr><td>2024/25 Q4(b), 8</td><td>Compare symbolic and connectionist AI, using one application to discuss advantages and limitations.</td><td>A current one-paper comparison with a required application.</td></tr>
+      </tbody></table>
+      <div class="answer-frame">
+        <p><strong>Standard examples:</strong> Artificial life: Boids agents obey separation, alignment, and cohesion locally, yet flocking emerges globally without a controller. Neuro-evolution: chromosome encodes all weights <code>w<sub>1</sub>, …, w<sub>n</sub></code>, or a graph of nodes/connections; GA fitness evaluates network performance. It avoids gradients but is expensive because many networks must be evaluated. ACO: ants choose edges using pheromone and heuristic distance; short tours deposit more pheromone; evaporation prevents old paths from dominating. For symbolic vs connectionist AI, compare explicit rules and inspectable reasoning with neural networks' data-driven pattern learning; apply both to the same domain, such as medical diagnosis.</p>
+      </div>
+
+      <h2 id="one-paper">Current One-Paper Families: Do Not Discard</h2>
+      <table><thead><tr><th>Family</th><th>Current wording</th><th>Complete answer requirement</th></tr></thead><tbody>
+        <tr><td>Novelty search</td><td>2022/23 Q1(c), 7: explain novelty search in a domain. 2023/24 Q1(c), 7: explain motivations and implementation in a chosen domain.</td><td>Define behaviour characterisation, novelty as behavioural distance from an archive/neighbours, selection for novelty, one domain example, and why it escapes deceptive objectives.</td></tr>
+        <tr><td>Speech acts</td><td>2023/24 Q3(a), 7: explain speech acts and negotiation examples.</td><td>State that messages have communicative intent. Give a negotiation sequence such as <code>inform</code>, <code>request</code>, <code>propose</code>, <code>counter-propose</code>, <code>accept</code>, and <code>reject</code>.</td></tr>
+        <tr><td>Multi-attribute negotiation</td><td>2022/23 Q3(b), 8: agree on multiple attributes beyond price.</td><td>Model offers as attribute bundles, use private weighted utilities, exchange proposals/counterproposals, and search a Pareto-efficient agreement.</td></tr>
+        <tr><td>MCTS</td><td>2024/25 Q1(c), 5: explain main aspects of Monte Carlo Tree Search.</td><td>Give all four stages: selection, expansion, simulation/rollout, and backpropagation; mention exploration versus exploitation, commonly UCT.</td></tr>
+      </tbody></table>
+
+      <h2 id="coverage">Current-Paper Coverage Map</h2>
+      <div class="coverage-map">
+        <p><strong>Coverage result:</strong> all 44 current-paper assessed units are represented. No current-format subpart has been intentionally excluded.</p>
+      </div>
+      <table><thead><tr><th>Paper unit(s)</th><th>Covered in family</th><th>Specific requirement retained</th></tr></thead><tbody>
+        <tr><td>2022/23 Q1(a)-(c)</td><td>Game trees/minimax; novelty search</td><td>game-tree/value construction; efficiency/improvement; unenumerable states; domain example</td></tr>
+        <tr><td>2022/23 Q2(a)(a)-(c), Q2(b)</td><td>Schema theorem; GA allocation</td><td>mutation/crossover/selection separately; ranked unique allocation</td></tr>
+        <tr><td>2022/23 Q3(a)(i)-(iii), Q3(b)-(c)</td><td>MAS/game theory</td><td>auction mechanics/strategy/limitations; attributes beyond price; dominant strategy and Nash examples</td></tr>
+        <tr><td>2022/23 Q4(a)-(c)</td><td>Explainability; bio-inspired AI</td><td>explanatory paradigm; network representation; artificial-life properties</td></tr>
+        <tr><td>2023/24 Q1(a)-(c)</td><td>Game trees; BFS/DFS/IDDFS; novelty search</td><td>misère-Nim trace; visit order plus three comparison headings; motivations and implementation</td></tr>
+        <tr><td>2023/24 Q2(a)-(b)</td><td>Schema theorem; GA allocation</td><td>key schema principles; capacity-constrained packing</td></tr>
+        <tr><td>2023/24 Q3(a)-(c)</td><td>MAS/game theory</td><td>speech-act examples; equilibrium examples; population cooperation mechanisms</td></tr>
+        <tr><td>2023/24 Q4(a)-(c)</td><td>Explainability; bio-inspired AI</td><td>deep-learning explanations; artificial-life system; ACO for TSP</td></tr>
+        <tr><td>2024/25 Q1(a)(i)-(ii), Q1(b)-(c)</td><td>Game trees; BFS/DFS/IDDFS; MCTS</td><td>three-level tic-tac-toe tree; explicit prune branch; three complexities; four MCTS stages</td></tr>
+        <tr><td>2024/25 Q2(a)(i)-(ii), Q2(b)(i)-(iv)</td><td>Schema/exploration; GA allocation</td><td>GA operators and hill climbing; chromosome, fitness, selection, crossover, mutation</td></tr>
+        <tr><td>2024/25 Q3(a)-(c)(i)-(iii)</td><td>MAS/game theory</td><td>PD definitions; tit-for-tat under noise; auction mechanics/strategy/efficiency</td></tr>
+        <tr><td>2024/25 Q4(a)-(c)</td><td>Bio-inspired AI; explainability</td><td>pheromone and evaporation; application comparison; black box and two methods</td></tr>
+      </tbody></table>
+
+      <h2 id="legacy">Legacy / Backup: 2021/22 Variants</h2>
+      <p>Most 2021/22 material remains covered because it recurs. The following are distinct legacy-only variations, worth keeping as backup rather than leading with.</p>
+      <table><thead><tr><th>Paper unit</th><th>Near-exact wording</th><th>Backup answer pattern</th></tr></thead><tbody>
+        <tr><td>Q1(c)(a), 10 total</td><td>Extend minimax to a three-player game.</td><td>Use a utility vector <code>(u<sub>1</sub>, u<sub>2</sub>, u<sub>3</sub>)</code>; on player <em>i</em>'s turn, choose the child maximising <code>u<sub>i</sub></code>. State that zero-sum two-player minimax assumptions no longer hold directly.</td></tr>
+        <tr><td>Q3(c), 8</td><td>Using Prisoner's Dilemma, discuss advantages and limitations of game theory.</td><td>Advantage: precise modelling of strategic dependence and equilibria. Limitation: often assumes fixed payoffs, rational agents, complete information, and no noise; real MAS may violate these assumptions.</td></tr>
+        <tr><td>Q4(a)(i)-(ii), 8</td><td>Give an emergence example and a naturally occurring system that informs a useful algorithm.</td><td>Use Boids/Game of Life for emergence and ACO for nature-inspired algorithm design.</td></tr>
+      </tbody></table>
+
+      <h2>Study Order</h2>
+      <ol>
+        <li>GA allocation design, minimax/alpha-beta, and the entire MAS/game-theory block.</li>
+        <li>Explainability, BFS/DFS/iterative deepening, and schema theorem.</li>
+        <li>Artificial life, neuro-evolution, ACO, symbolic versus connectionist AI.</li>
+        <li>Novelty search, speech acts, multi-attribute negotiation, and MCTS.</li>
+        <li>Legacy-only three-player minimax and game-theory limitations.</li>
+      </ol>
+    </article>
+  </main>
+</body>
+</html>

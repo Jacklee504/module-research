@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MA3491 / MA539 - Exam Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1120px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .scope, .flashcard-bank .frequency-note { margin: 0 0 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; color: #39454b; }
+    .flashcard-bank .scope { background: #f8fafc; }
+    .flashcard-bank .frequency-note { background: #f7fbf8; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; }
+    .flashcard-bank td:first-child { width: 28%; font-weight: 740; }
+    .flashcard-bank td:nth-child(2) { width: 57%; }
+    .flashcard-bank td:last-child { width: 15%; color: var(--muted); font-size: 12px; }
+    .flashcard-bank td p:last-child, .flashcard-bank td ul:last-child { margin-bottom: 0; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { padding: 0; border: 0; box-shadow: none; } .flashcard-bank tr { break-inside: avoid; } }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 14px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; }
+      .flashcard-bank td::before { display: block; margin-bottom: 4px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Evidence"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">MA3491 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="Flashcards.md">Markdown source</a>
+      <a href="#bounds">Bounds</a>
+      <a href="#linear">Linear and Hamming</a>
+      <a href="#cyclic">Cyclic and enumerators</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">MA3491 / MA539 Physical Flashcards</p>
+    <h1>10-Card Exam Deck</h1>
+    <p>Complete-answer recall prompts, capped at the 10-card limit and grounded in every local paper.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <div class="scope">
+        <p>Write the first column on the card front and the second on the back. These are deliberately dense cards: each covers one exam workflow whose parts recur together. Use <a href="most_asked.html">Most Asked</a> for exact wording, marks, all variants, and the 100-subpart coverage map; use <a href="Flashcards.md">Flashcards.md</a> as the editable source.</p>
+      </div>
+      <div class="frequency-note">
+        <p><strong>Order:</strong> learn Cards 1–8 first. Card 9 is recurring secondary material, but was central to the 2025/26 cyclic question. Card 10 is legacy-only backup.</p>
+      </div>
+
+      <h2 id="bounds">Priority 1. Bounds And Described Codes</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>State and apply the sphere-packing and Singleton bounds. Give the Singleton proof.</td><td><p>For a <i>q</i>-ary code <i>C</i> of length <i>n</i>, minimum distance <i>d</i>, and <i>t</i> = ⌊(<i>d</i> − 1)/2⌋:</p><p><strong>|C| Σ<sub>i=0</sub><sup>t</sup> C(<i>n</i>,<i>i</i>)(<i>q</i> − 1)<sup>i</sup> ≤ <i>q</i><sup>n</sup>.</strong></p><p>Substitute <i>q</i>, <i>n</i>, <i>d</i>, calculate the sphere size, divide into <i>q</i><sup><i>n</i></sup>, and take an integer upper bound. “Corrects all single errors” means <i>t</i> = 1 and <i>d</i> ≥ 3.</p><p>Singleton: <strong>|C| ≤ <i>q</i><sup><i>n</i>−<i>d</i>+1</sup></strong>. Delete <i>d</i> − 1 coordinates. Equal deleted images would come from two words differing in at most <i>d</i> − 1 places, impossible; the injective image has at most <i>q</i><sup><i>n</i>−<i>d</i>+1</sup> words.</p></td><td>Q1(a)–(b), 2022/23–2025/26; proof in 2024/25–2025/26</td></tr>
+        <tr><td>How do you find size, distance, and perfect/MDS status for a code described by conditions on words?</td><td><p>Count legal words, then exhibit two legal words as close as possible. Binary length-8 balanced words: |C| = C(8,4) = 70 and <i>d</i><sub>min</sub> = 2. P<sub>2k,q</sub>: <i>q</i><sup><i>k</i></sup> words and distance 2; P<sub>2k+1,q</sub>: <i>q</i><sup><i>k</i>+1</sup> words and distance 1. The 2025/26 X/Y constraint has Σ<sub>i=0</sub><sup>4</sup>C(4,<i>i</i>)² = C(8,4) = 70 and distance 2.</p><p>A <i>q</i>-ary repetition code has [<i>n</i>,1,<i>n</i>] and is MDS because |C| = <i>q</i> = <i>q</i><sup><i>n</i>−<i>d</i>+1</sup>. It is perfect only if its radius-⌊(<i>n</i> − 1)/2⌋ balls exactly cover <i>q</i><sup><i>n</i></sup> words. For the ternary 7-ply code, the radius-3 sphere has 1 + 7·2 + C(7,2)·2<sup>2</sup> + C(7,3)·2<sup>3</sup> = 379 words, so 3·379 ≠ 3<sup>7</sup>.</p></td><td>Q1(c), all current papers; MDS/perfect in 2024/25</td></tr>
+      </tbody></table>
+
+      <h2 id="fields">Priority 2. Finite Fields</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Give an exam-safe method for irreducibility, factorisation, and quotient-field construction.</td><td><p>A degree-2 or degree-3 polynomial over a field is irreducible exactly when it has no root in that field. Test every element of F<sub>q</sub>; for factorisation, divide out roots and continue until all factors are irreducible. For degree 5 over F<sub>2</sub>, rule out degree-1 factors and <i>x</i><sup>2</sup> + <i>x</i> + 1; every proper factorisation has a factor of degree 1 or 2.</p><p>If <i>p</i>(<i>x</i>) is irreducible of degree <i>m</i>, F<sub>q</sub>[<i>x</i>]/(<i>p</i>) is a field of <i>q</i><sup><i>m</i></sup> elements. Use residue-class representatives of degree &lt; <i>m</i>; add modulo <i>q</i>, multiply, then reduce with <i>p</i>(<i>x</i>) = 0.</p></td><td>Q2(a), Q2(b)(i), 2022/23–2025/26</td></tr>
+        <tr><td>How do you find an inverse in a quotient field, and prove the recent field-theory extensions?</td><td><p>Find <i>u</i>, <i>v</i> with <i>u</i>(<i>x</i>)<i>a</i>(<i>x</i>) + <i>v</i>(<i>x</i>)<i>p</i>(<i>x</i>) = 1. Then [<i>u</i>] = [<i>a</i>]<sup>−1</sup>. The order of <i>a</i> ∈ F<sup>×</sup> is least positive <i>m</i> with <i>a</i><sup><i>m</i></sup> = 1; a primitive element has order |F| − 1. Since (<i>a</i><sup>−1</sup>)<sup><i>n</i></sup> = (<i>a</i><sup><i>n</i></sup>)<sup>−1</sup>, inverse preserves order and primitiveness.</p><p>If char F = <i>p</i>, expand (<i>a</i> + <i>b</i>)<sup><i>p</i></sup>. The intermediate C(<i>p</i>,<i>j</i>) are divisible by <i>p</i>, hence zero in F, so it equals <i>a</i><sup><i>p</i></sup> + <i>b</i><sup><i>p</i></sup>. For restriction of scalars, {1,<i>a</i>} is an F<sub>2</sub>-basis of F<sub>4</sub>; if {<i>e</i><sub>1</sub>,…,<i>e</i><sub>n</sub>} is an F<sub>4</sub>-basis, expand coefficients as <i>u</i><sub>i</sub> + <i>v</i><sub>i</sub><i>a</i> to prove {<i>e</i><sub>1</sub>,…,<i>e</i><sub>n</sub>, <i>ae</i><sub>1</sub>,…,<i>ae</i><sub>n</sub>} is an F<sub>2</sub>-basis.</p></td><td>Q1(d), Q2(b)–(d), 2023/24–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="linear">Priority 3. Linear Codes, Decoding, And Hamming Codes</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Given G, how do you obtain H, test membership, find distance, and prove self-duality?</td><td><p>Row-reduce over the stated field to <i>G</i> = [<i>I</i><sub>k</sub> | <i>A</i>]. Use <i>H</i> = [−<i>A</i><sup>T</sup> | <i>I</i><sub>n−k</sub>], so <i>GH</i><sup>T</sup> = 0. A row vector <i>v</i> is in C iff <i>vH</i><sup>T</sup> = 0. For a linear code, <i>d</i><sub>min</sub> is the least nonzero word weight, or the least number of dependent columns of <i>H</i>.</p><p>For C = C<sup>⊥</sup>, show C ⊆ C<sup>⊥</sup>, for example with <i>GG</i><sup>T</sup> = 0, and show dimensions agree: dim C<sup>⊥</sup> = <i>n</i> − <i>k</i>, so equality follows if <i>k</i> = <i>n</i>/2.</p></td><td>Q3 and Q4(a), all current papers; self-dual in 2024/25–2025/26</td></tr>
+        <tr><td>Give a complete syndrome-decoding answer, and distinguish standard-array and nearest-neighbour wording.</td><td><p>For received row vector <i>r</i>, compute <i>s</i> = <i>rH</i><sup>T</sup>. Choose a minimum-weight coset leader <i>e</i> with <i>eH</i><sup>T</sup> = <i>s</i>, then return <i>r</i> − <i>e</i>. In nonbinary codes identify both error position and nonzero scalar magnitude.</p><p>In a standard array, locate <i>r</i> and decode to the top-row codeword in its column. Nearest neighbour means the codeword(s) at minimum Hamming distance; state a tie if it occurs.</p></td><td>Q3 decoding, all current papers</td></tr>
+        <tr><td>Define Ham(<i>r</i>,<i>q</i>), construct H, correct one error, state parameters, and prove perfection.</td><td><p>Let <i>n</i> = (<i>q</i><sup><i>r</i></sup> − 1)/(<i>q</i> − 1). Take one nonzero representative from each 1-dimensional subspace of F<sub>q</sub><sup><i>r</i></sup> as a column of <i>H</i>. Ham(<i>r</i>,<i>q</i>) = {<i>c</i> ∈ F<sub>q</sub><sup><i>n</i></sup> : <i>cH</i><sup>T</sup> = 0} and has [<i>n</i>, <i>n</i> − <i>r</i>, 3].</p><p>A single error <i>ae</i><sub>j</sub> has syndrome <i>ah</i><sub>j</sub>; identify its column/scalar, subtract it. Radius-1 balls have 1 + <i>n</i>(<i>q</i> − 1) = <i>q</i><sup><i>r</i></sup> words, and <i>q</i><sup><i>n</i>−<i>r</i></sup> codewords, so the disjoint balls cover <i>q</i><sup><i>n</i></sup> words.</p></td><td>Q4, all current papers; full 20 marks in 2024/25–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="cyclic">Priority 4. Cyclic Codes And Weight Enumerators</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Given a cyclic-code length and generator polynomial, how do you construct G and H?</td><td><p>Work in F<sub>q</sub>[<i>x</i>]/(<i>x</i><sup><i>n</i></sup> − 1). A monic <i>g</i>(<i>x</i>) divides <i>x</i><sup><i>n</i></sup> − 1. If deg <i>g</i> = <i>n</i> − <i>k</i>, coefficient vectors of <i>g</i>, <i>xg</i>, …, <i>x</i><sup><i>k</i>−1</sup><i>g</i> form <i>G</i>. Calculate <i>h</i>(<i>x</i>) = (<i>x</i><sup><i>n</i></sup> − 1)/<i>g</i>(<i>x</i>). A check matrix generates C<sup>⊥</sup>: use <i>h</i><sup>*</sup>(<i>x</i>) = <i>h</i>(0)<sup>−1</sup><i>x</i><sup>deg <i>h</i></sup><i>h</i>(<i>x</i><sup>−1</sup>) as its dual generator polynomial; its <i>n</i> − <i>k</i> shifts are the rows of <i>H</i>. Verify <i>GH</i><sup>T</sup> = 0.</p><p>For the odd-weight binary theorem, sum all cyclic shifts of <i>u</i>. Every coordinate sums wt(<i>u</i>) = 1 mod 2, hence the all-ones word is in C.</p></td><td>Q5, all current papers; odd-weight theorem 2024/25</td></tr>
+        <tr><td>Define the weight enumerator, state binary MacWilliams’ identity, and read distance from it.</td><td><p>W<sub>C</sub>(<i>z</i>) = Σ<sub><i>c</i>∈C</sub><i>z</i><sup>wt(<i>c</i>)</sup>. Enumerate all codewords, including the constant term 1. For binary C of length <i>n</i>:</p><p><strong>W<sub>C<sup>⊥</sup></sub>(<i>z</i>) = |C|<sup>−1</sup>(1 + <i>z</i>)<sup><i>n</i></sup> W<sub>C</sub>((1 − <i>z</i>)/(1 + <i>z</i>)).</strong></p><p>Apply in the requested direction, expand only as far as needed, then take <i>d</i><sub>min</sub> as the least positive exponent with nonzero coefficient. Keep W<sub>C</sub> and W<sub>C<sup>⊥</sup></sub> distinct.</p></td><td>Q5(a), 2022/23 and 2023/24; Q5(c)–(f), 2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="legacy">Priority 5. Legacy Backup</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>State the older-paper backup ideas that no longer recur in the current format.</td><td><p>Hamming distance on A<sup><i>n</i></sup> is the number of positions at which <i>x</i> and <i>y</i> differ. It is a metric: nonnegative, zero exactly when <i>x</i> = <i>y</i>, symmetric, and coordinatewise triangle inequality.</p><p>For ISBN-10 digits <i>d</i><sub>1</sub>…<i>d</i><sub>10</sub>, use 10<i>d</i><sub>1</sub> + 9<i>d</i><sub>2</sub> + … + <i>d</i><sub>10</sub> ≡ 0 (mod 11), using X for 10 if needed. For ISBN-13, use alternating weights 1, 3, …, 1 on the 13 digits and require the sum ≡ 0 (mod 10). A unit <i>u</i> in a Euclidean domain has <i>uv</i> = 1 for some <i>v</i>; U(<i>R</i>) is a multiplicative group. In F[<i>x</i>], units are exactly nonzero constants since deg(<i>fg</i>) = deg <i>f</i> + deg <i>g</i>.</p></td><td>2018/19, 2021/22 only</td></tr>
+      </tbody></table>
+    </article>
+  </main>
+</body>
+</html>
