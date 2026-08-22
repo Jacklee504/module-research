@@ -10,8 +10,9 @@
     <header class="module-header compact-module-header">
       <nav class="top-nav" aria-label="Navigation">
         <a href="../index.html">Overview</a>
+        <a href="most_asked.html">Most Asked</a>
+        <a href="flashcards.html">Flashcards</a>
         <a href="#past-papers">Past Papers</a>
-        <a href="details.md">Markdown</a>
       </nav>
       <p class="eyebrow">CT420</p>
       <h1><a href="https://www.universityofgalway.ie/course-information/module/CT420">CT420 - Real Time Systems</a></h1>
@@ -20,7 +21,7 @@
 <div><span>Semester</span><strong>Semester 2</strong></div>
 <div><span>Credits</span><strong>5</strong></div>
 <div><span>Assessment</span><strong>70% exam / 30% CA</strong></div>
-<div><span>Predictability</span><strong>Medium</strong></div>
+<div><span>Predictability</span><strong>Medium-High</strong></div>
       </div>
     </header>
     <main class="module-shell compact-module-shell">
@@ -30,30 +31,43 @@
           <h2 id="quick-decision-heading">Quick Decision</h2>
         </div>
         <div class="decision-content">
-          <p>CT420 is a reasonable target if systems, protocols and timing suit you. Its Medium rating reflects format and topic-emphasis drift, while the recent pattern remains useful as coverage evidence. The 30% CA is helpful, but the 70% exam means it should not be chosen purely for CA marks.</p>
+          <p>CT420 is a strong target if systems, protocols and timing suit you. The 2024/25 and 2025/26 papers use the same two-section, choice-based structure under the same starred lecturer pair. Its 30% CA is not high, but it is materially more favourable than an 80% exam module.</p>
         </div>
       </section>
       <section class="exam-repeat-panel" aria-labelledby="exam-repetition-heading">
         <p class="eyebrow">Exam Pattern</p>
         <h2 id="exam-repetition-heading">Exam Repetition</h2>
-        <p>Medium. Timing/scheduling and synchronisation recur, but the module has shifted over time. Older papers include a broader mix of redundancy, POSIX, RAID, Hamming codes, VoIP and RTP/RTCP, while recent papers split more clearly into hard real-time/synchronisation and soft real-time/web-protocol material.</p>
+        <p>Medium-High. The latest two papers share the same two-section format: answer two of three questions in each section. Section A repeatedly covers clock synchronisation, scheduling and POSIX-style real-time systems; Section B repeatedly covers QUIC, latency, congestion and soft real-time applications. Older papers are still useful for coverage, but the recent pair is the strongest prediction evidence.</p>
       </section>
       <section class="topic-stack" aria-label="Detailed repetitive topics"><details class="compact-details" open>
           <summary>Repetitive Topics To Drill</summary>
           <div class="details-body">
             <ul>
-<li>Format varies year to year, so predict topics more than exact question order.</li>
+<li>Prioritise the 2024/25 and 2025/26 format: two sections, choose two of three questions in each. Predict topic families, not an exact question slot.</li>
 <li>Time synchronisation is the safest area: NTP, PTP, offset/delay calculations, ntpq output, boundary/transparent clocks, BMCA and logical clocks.</li>
 <li>Scheduling is consistently examinable: cyclic executives, overrun detection, Rate Monotonic, EDF, schedulability, WCET and loop/longest-path reasoning.</li>
 <li>Concurrency and priority protocols recur: priority inheritance/ceiling, deadlock, semaphores, memory locking and POSIX-style real-time concerns.</li>
 <li>Fault tolerance/redundancy is more historical but still worth background revision: RAID, Hamming/SEC, hardware redundancy, voters and Java exception examples.</li>
-<li>Recent papers increasingly favour soft real-time/web protocol material: QUIC, HTTP/2/HTTP/3, QoS, latency, jitter buffers, Wireshark/qLog/qViz and Core Web Vitals.</li>
+<li>Recent Section B repeatedly favours soft real-time/web protocol material: QUIC, TCP head-of-line blocking, congestion control, latency, adaptive streaming, Wireshark/qLog/qViz and cloud-gaming cases.</li>
 </ul>
           </div>
         </details></section>
-      <section class="topic-stack" aria-label="CT420 topic guides">
+      <section id="past-papers" class="paper-panel compact-paper-panel" aria-labelledby="past-papers-heading">
+        <div>
+          <p class="eyebrow">Local Archive</p>
+          <h2 id="past-papers-heading">Past Papers</h2>
+        </div>
+        <div class="paper-links"><a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>
+<a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>
+<a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>
+<a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>
+<a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>
+<a href="2018_2019.pdf" target="_blank" rel="noopener noreferrer">2018/19</a>
+<a href="2017_2018.pdf" target="_blank" rel="noopener noreferrer">2017/18</a></div>
+      </section>
+      <section class="supporting-details" aria-labelledby="topic-guides-heading">
         <details class="compact-details" open>
-          <summary>Topic Guides</summary>
+          <summary id="topic-guides-heading">Topic Guides</summary>
           <div class="details-body">
             <p>Beginner-friendly guides organised by examinable topic. They teach reusable methods rather than predicting a fixed question order.</p>
             <ul>
@@ -64,22 +78,10 @@
               <li><a href="soft_realtime_multimedia_revision_sheet.html">Soft real-time and multimedia</a></li>
               <li><a href="quic_http_revision_sheet.html">QUIC, HTTP/2 and HTTP/3</a></li>
               <li><a href="protocol_analysis_revision_sheet.html">Protocol analysis tools</a></li>
-              <li><a href="fault_tolerance_redundancy_revision_sheet.html">Fault tolerance and redundancy</a> <em>(historical/lower-confidence)</em></li>
+              <li><a href="fault_tolerance_redundancy_revision_sheet.html">Fault tolerance and redundancy</a> <em>(historical / lower confidence)</em></li>
             </ul>
           </div>
         </details>
-      </section>
-      <section id="past-papers" class="paper-panel compact-paper-panel" aria-labelledby="past-papers-heading">
-        <div>
-          <p class="eyebrow">Local Archive</p>
-          <h2 id="past-papers-heading">Past Papers</h2>
-        </div>
-        <div class="paper-links"><a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>
-<a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>
-<a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>
-<a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>
-<a href="2018_2019.pdf" target="_blank" rel="noopener noreferrer">2018/19</a>
-<a href="2017_2018.pdf" target="_blank" rel="noopener noreferrer">2017/18</a></div>
       </section>
       <section class="supporting-details" aria-label="Supporting module details">
         <details class="compact-details">
@@ -111,11 +113,11 @@
 <li>Lecturer/staff change risk: low.</li>
 <li>Current module page lists Michael Schukat, Deirdre King, Geraldine Healy, and Jawad Manzoor.</li>
 <li>Starred internal examiners, treated as the module lecturer on each paper:</li>
-<li class="level-1">2023/24 and 2024/25: Jawad Manzoor and Michael Schukat.</li>
+<li class="level-1">2023/24, 2024/25 and 2025/26: Jawad Manzoor and Michael Schukat.</li>
 <li class="level-1">2018/19, 2021/22 and 2022/23: Michael Schukat.</li>
 <li class="level-1">2017/18: Mohannad Alahmadi and Michael Schukat.</li>
 <li>The bigger risk is not staff replacement, but syllabus emphasis: recent papers and the current page put more weight on QUIC/HTTP2/HTTP3 and soft real-time web/network performance.</li>
-<li>Main implication: recent papers from 2023/24 and 2024/25 should be weighted more heavily than older papers.</li>
+<li>Main implication: use 2024/25 and 2025/26 as the primary prediction evidence; 2023/24 confirms the core topic pool but has a different compulsory-question format.</li>
 </ul>
           </div>
         </details>
@@ -134,7 +136,7 @@
 <li class="level-1">POSIX.4: memory locking, signals, timers, nanosleep, sigqueue.</li>
 <li class="level-1">Soft real-time systems: latency, QoS, perceived vs intrinsic QoS, jitter buffers, VoIP/cloud gaming delay.</li>
 <li class="level-1">QUIC/HTTP2/HTTP3: connection establishment, multiplexing, head-of-line blocking, congestion control, analysis/debugging with Wireshark/qLog/qViz.</li>
-<li>Give more weight to 2023/24 and 2024/25 when deciding what to prioritise.</li>
+<li>Use 2024/25 and 2025/26 first when deciding what to prioritise, then use 2023/24 and older papers for broader topic coverage.</li>
 </ul>
           </div>
         </details>
@@ -155,7 +157,7 @@
 <details class="compact-details">
           <summary>Format / Year Notes</summary>
           <div class="details-body">
-            <p>The current module page is valid from 2026 onwards and explicitly mentions QUIC and HTTP/3. Older papers are still useful for core real-time systems, scheduling, NTP/PTP and fault tolerance, but recent papers from 2023/24 and 2024/25 are more representative of the current direction.</p>
+            <p>The current module page is valid from 2026 onwards and explicitly mentions QUIC and HTTP/3. The 2024/25 and 2025/26 papers confirm the current direction and share the same two-section choice format. Use older papers for core real-time systems, scheduling, NTP/PTP and fault-tolerance coverage, not as the primary format forecast.</p>
           </div>
         </details>
       </section>

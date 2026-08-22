@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CT4111 Revision Questions</title>
+    <link rel="stylesheet" href="../module_page.css">
+  </head>
+  <body>
+    <header class="module-header">
+      <nav class="top-nav" aria-label="Navigation">
+        <a href="../index.html">Module overview</a>
+        <a href="#questions">Question bank</a>
+        <a href="#coverage">Outcome coverage</a>
+      </nav>
+      <p class="eyebrow">CT4111 · Revision Question Bank</p>
+      <h1>Generative AI for Software Engineering</h1>
+      <p>Outcome-led practice for a new module: focus on making and justifying sound engineering decisions, not merely using a tool.</p>
+      <div class="fact-strip">
+        <div><span>Semester</span><strong>Semester 1</strong></div>
+        <div><span>Credits</span><strong>5</strong></div>
+        <div><span>Written assessment</span><strong>70%</strong></div>
+        <div><span>Continuous assessment</span><strong>30%</strong></div>
+        <div><span>Past-paper basis</span><strong>None yet</strong></div>
+      </div>
+    </header>
+    <main class="module-shell">
+      <article class="module-content">
+        <h2>How to use this bank</h2>
+        <ul>
+          <li>These are revision questions derived from the official CT4111 description and learning outcomes.</li>
+          <li>They are <strong>not</strong> past-paper questions and do not predict the assessment format or mark allocations.</li>
+          <li>For every scenario answer, state the lifecycle stage, explain the role and limit of GenAI, then justify the human controls that preserve software quality.</li>
+          <li>Use the questions as both written practice and prompts for small, version-controlled lab exercises.</li>
+        </ul>
+
+        <h2 id="questions">Revision questions</h2>
+
+        <h3>1. Capabilities, limitations and failure modes</h3>
+        <p><em>Official outcome: explain capabilities, limitations and failure modes of Generative AI across the software development lifecycle.</em></p>
+        <ol>
+          <li>For requirements elicitation, architecture design, implementation, testing and maintenance, give one useful task a generative AI tool can support. For each, name one reason the output must be checked by an engineer.</li>
+          <li>A team asks an LLM to explain a legacy payment module and propose a change. Analyse three distinct failure modes that could produce an unsafe or misleading recommendation, and explain how the team could detect each one.</li>
+          <li>“A fluent answer is evidence of a correct answer.” Critically evaluate this statement in the context of debugging a production incident. Distinguish plausibility, correctness, completeness and evidence.</li>
+          <li>Explain how hallucinated APIs, stale framework knowledge and omitted edge cases differ. For each failure mode, give a software-engineering example and a verification technique.</li>
+          <li>An AI assistant proposes a change that appears to solve the reported bug but silently weakens an existing access-control rule. Explain why this type of failure can be hard to detect and how a team can reduce its likelihood.</li>
+          <li>Compare using GenAI as a brainstorming partner with using it as an authority on a technical decision. What evidence should move a suggestion from “candidate idea” to “accepted engineering decision”?</li>
+
+        <h3>2. GenAI across the software development lifecycle</h3>
+        <p><em>Official outcome: apply tools effectively and critically to requirements, architecture and design, implementation, testing, deployment and maintenance.</em></p>
+        <ol>
+          <li>A university needs a room-booking service. Write a sequence of prompts and human checks that would use GenAI to turn a short stakeholder request into testable functional and non-functional requirements.</li>
+          <li>Compare two ways of using GenAI to assist an architecture decision: asking for a complete solution in one prompt, or iteratively comparing alternatives against explicit quality attributes. Which is more defensible, and why?</li>
+          <li>Design an AI-assisted workflow for adding a new API endpoint, from issue description to deployment. Identify the artefacts, validation gates and accountable human roles at each stage.</li>
+          <li>Show how GenAI could help create a test strategy for a password-reset feature. Separate what the tool may draft from what must be validated against the actual system, threat model and acceptance criteria.</li>
+          <li>A deployment has failed after a configuration change. Explain how to use GenAI responsibly during diagnosis without allowing it to make unsupported production changes or exposing sensitive operational data.</li>
+          <li>For a maintenance task involving a deprecated library, describe how you would use GenAI to explore migration options while retaining ownership of dependency selection, compatibility testing and rollout planning.</li>
+
+        <h3>3. Quality, readability, testability and maintainability</h3>
+        <p><em>Official outcome: design, implement and evolve systems with GenAI-assisted workflows while maintaining software quality.</em></p>
+        <ol>
+          <li>An AI tool generates a 250-line method that passes its initial tests. What questions would you ask before accepting it into the codebase? Cover readability, correctness, coupling, error handling and testability.</li>
+          <li>Given a working but duplicated AI-generated implementation of validation rules in three services, propose a refactoring plan. Explain how you would use automated tests to show that the refactor has preserved behaviour.</li>
+          <li>Evaluate the claim: “If GenAI makes implementation faster, maintainability is automatically improved.” Use a concrete example involving an unfamiliar dependency, generated code and future change requests.</li>
+          <li>Define a quality gate for AI-generated code before merge. Include static analysis, unit and integration testing, security checks, documentation and human review; explain the value of each.</li>
+          <li>An AI-generated feature has 95% branch coverage but users report failures for invalid input. Explain why coverage alone is insufficient and propose tests that would reveal the missing behaviour.</li>
+          <li>How would you decide whether to accept, rewrite or reject an AI-generated implementation that is correct but inconsistent with the project’s existing abstractions and naming conventions?</li>
+
+        <h3>4. Version control, experimentation and review</h3>
+        <p><em>Official outcome: use version control and collaborative development practices appropriately, including safe experimentation, rollback and review.</em></p>
+        <ol>
+          <li>Describe a safe Git workflow for trying an AI-suggested database migration that may be incorrect. Include branching, review, test environments, rollback and documentation.</li>
+          <li>A developer pastes an AI-generated patch directly onto the main branch because it fixes a failing build. Analyse the risks and specify a better pull-request workflow.</li>
+          <li>Draft a concise code-review checklist for AI-assisted changes. Your checklist must make reviewers assess provenance, scope, tests, security, readability and the change’s compatibility with existing design decisions.</li>
+          <li>A team wants to compare three AI-generated implementation approaches. Design an experiment that keeps each option isolated, reproducible and easy to discard if it fails.</li>
+          <li>Explain why a useful commit history matters especially when GenAI is used. What should a reviewer be able to learn from commits, pull-request discussion and linked issues?</li>
+          <li>A rollback restores the previous application version but leaves a changed database schema. Analyse why the rollback is incomplete and propose a safer release and recovery plan.</li>
+
+        <h3>5. Evaluating AI-assisted workflows</h3>
+        <p><em>Official outcome: evaluate workflows using suitable qualitative and quantitative criteria, while recognising uncertainty and bias.</em></p>
+        <ol>
+          <li>Choose four quantitative and three qualitative criteria for evaluating whether an AI code-completion tool improves a team’s testing workflow. Explain why “lines of code produced” is an inadequate success measure on its own.</li>
+          <li>A pilot reports that developers using GenAI complete tickets 25% faster. What further evidence is needed before concluding that the workflow is better? Consider defects, review effort, task difficulty, developer experience and maintainability.</li>
+          <li>Design a small, fair comparison between an AI-assisted and non-AI-assisted bug-fix workflow. State the research question, controls, measures, sources of uncertainty and limitations of the result.</li>
+          <li>Explain how selection bias could make an AI-assistance pilot look more successful than it really is. Give two design changes that would make the evaluation more credible.</li>
+          <li>A team evaluates AI-generated tests by counting how many tests compile. Identify stronger measures of test quality and explain what each reveals that compilation does not.</li>
+          <li>Interpret this result: the AI-assisted group resolves more tasks, but its changes receive more review comments and more post-release defects. What conclusions are justified, what remains uncertain, and what should be tested next?</li>
+
+        <h3>6. Ethical, legal, security and professional risks</h3>
+        <p><em>Official outcome: identify and manage risks arising from GenAI use in software engineering practice.</em></p>
+        <ol>
+          <li>A developer includes a confidential customer error log in a public GenAI prompt to obtain debugging help. Identify the ethical, legal, security and professional concerns, then propose a safer route to assistance.</li>
+          <li>An AI tool suggests code copied from an unknown source and recommends adding a package that has not been approved by the organisation. Explain the intellectual-property, supply-chain and security checks required before reuse.</li>
+          <li>Produce a risk register for a team adopting GenAI for customer-facing software. Include at least one risk each for privacy, bias, insecure code, over-reliance and accountability; for each, state a mitigation and residual risk.</li>
+          <li>A team uses GenAI to rank job applicants based on free-text CVs. Identify potential bias and explain what technical, process and governance controls are needed before such a system could influence a decision.</li>
+          <li>Distinguish responsibility, accountability and auditability in an AI-assisted engineering workflow. Why does recording prompts, inputs, outputs and human approvals matter?</li>
+          <li>An AI coding assistant proposes disabling certificate validation to resolve a development-environment error. Explain the security consequences and describe a professional response that enables legitimate testing without normalising an unsafe workaround.</li>
+
+        <h3>7. Teamwork, communication and trade-offs</h3>
+        <p><em>Official outcome: work effectively in teams and communicate GenAI decisions, trade-offs and risks clearly.</em></p>
+        <ol>
+          <li>Your team disagrees about whether to use an LLM to generate acceptance tests. Prepare a short decision record that states the context, alternatives, decision criteria, chosen approach, safeguards and review date.</li>
+          <li>A product manager wants to automate release-note generation with GenAI; a security engineer objects. Explain how the team can reach and communicate a reasoned decision rather than treating the issue as simply “for” or “against” AI.</li>
+          <li>During a project retrospective, the team finds that GenAI accelerated initial implementation but increased code-review time. Explain how you would present this trade-off to stakeholders and recommend the next workflow experiment.</li>
+          <li>Two developers obtain incompatible AI suggestions for the same feature. Describe how the team should compare them using requirements, architecture constraints, evidence and review rather than personal preference.</li>
+          <li>Write the outline of a team agreement for GenAI use. Cover permitted tools, data-handling boundaries, review expectations, documentation and escalation of uncertain or risky outputs.</li>
+          <li>A junior developer relies heavily on GenAI while a senior developer rejects it entirely. Explain how a team lead can create a learning-focused process that maintains standards and gives both developers constructive responsibilities.</li>
+        </ol>
+
+        <h2 id="coverage">Outcome coverage</h2>
+        <ul>
+          <li><strong>LO1:</strong> Questions 1–6 — capability, limitation and failure-mode analysis.</li>
+          <li><strong>LO2:</strong> Questions 7–12 — critical application across the development lifecycle.</li>
+          <li><strong>LO3:</strong> Questions 13–18 — quality-focused design, implementation and evolution.</li>
+          <li><strong>LO4:</strong> Questions 19–24 — disciplined version control, experimentation and review.</li>
+          <li><strong>LO5:</strong> Questions 25–30 — qualitative and quantitative evaluation, uncertainty and bias.</li>
+          <li><strong>LO6:</strong> Questions 31–36 — ethical, legal, security and professional risk management.</li>
+          <li><strong>LO7:</strong> Questions 37–42 — team decisions, communication and trade-offs.</li>
+        </ul>
+
+        <h2>Source and scope</h2>
+        <p>The questions follow the learning outcomes and module description published on the <a href="https://www.universityofgalway.ie/course-information/module/CT4111">official CT4111 module page</a>, stated as valid from 2026 onwards. The official page lists a 70% written assessment and 30% continuous assessment, but no past papers are available in this workspace; question format and marks are therefore intentionally not inferred.</p>
+      </article>
+    </main>
+  </body>
+</html>

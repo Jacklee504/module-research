@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT420 – Real-Time Systems Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+    .flashcard-bank td:first-child { width: 38%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 48%; }
+    .flashcard-bank td:last-child { width: 14%; color: var(--muted); font-size: 12px; white-space: nowrap; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print {
+      .top-nav { display: none; }
+      .module-header, .module-shell { padding: 18px; }
+      .module-content { border: 0; box-shadow: none; padding: 0; }
+      .flashcard-bank table { page-break-inside: auto; }
+      .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+    @media (max-width: 680px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; white-space: normal; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Papers"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT420 Overview</a>
+      <a href="most_asked.html">Most Asked</a>
+      <a href="#time">Flashcards</a>
+      <a href="#quic">QUIC &amp; Analysis</a>
+      <a href="details.html#past-papers">Past Papers</a>
+    </nav>
+    <p class="eyebrow">CT420 Physical Flashcards</p>
+    <h1>Core 60 Exam Flashcards</h1>
+    <p>Short front/back prompts covering the repeat-heavy CT420 question families and the recent Section B direction.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Write the first column on the front of a card and the second on the back. This 60-card set combines facts that belong together in an exam answer; it is not a substitute for practising the calculations, schedules, diagrams, or code in the local papers. Prioritise the cards tagged 2024/25–2025/26 first.</p>
+
+      <h2 id="time">1. Time Synchronisation And Clocks</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is the difference between time synchronisation and timing synchronisation?</td><td>Time synchronisation aligns clock values; timing synchronisation coordinates when actions occur. A system can need one, the other, or both.</td><td>2017/18</td></tr>
+        <tr><td>Define clock accuracy, stability, offset, and skew.</td><td>Accuracy is closeness to a reference; stability is consistency of the oscillator rate; offset is the instantaneous clock difference; skew is the rate at which offset changes.</td><td>2024/25</td></tr>
+        <tr><td>What is NTP round-trip delay?</td><td>With client send <i>t</i><sub>1</sub>, server receive <i>t</i><sub>2</sub>, server send <i>t</i><sub>3</sub>, client receive <i>t</i><sub>4</sub>: RTD = (<i>t</i><sub>4</sub> − <i>t</i><sub>1</sub>) − (<i>t</i><sub>3</sub> − <i>t</i><sub>2</sub>).</td><td>2017/18–2018/19</td></tr>
+        <tr><td>What is the usual NTP offset calculation?</td><td>For the server-minus-client convention: θ = ((<i>t</i><sub>2</sub> − <i>t</i><sub>1</sub>) + (<i>t</i><sub>3</sub> − <i>t</i><sub>4</sub>)) / 2. State the convention because the sign reverses under the opposite definition.</td><td>2017/18–2018/19</td></tr>
+        <tr><td>Why is NTP robust?</td><td>It can select and filter multiple sources, reject unreliable peers, use strata, and discipline the local clock. Its estimates still depend on network delay symmetry and source quality.</td><td>2021/22</td></tr>
+        <tr><td>What should an <code>ntpq</code> comparison discuss?</td><td>Reachability, selected peer, redundancy, stratum, delay, offset, and jitter. Do not choose using a single column alone.</td><td>2017/18, 2018/19, 2021/22</td></tr>
+        <tr><td>What is PTP’s basic purpose?</td><td>PTP distributes highly accurate time on a suitable network, usually from a selected grandmaster to slave clocks, aided by precise timestamping and delay measurement.</td><td>2021/22–2025/26</td></tr>
+        <tr><td>What is the role of Sync, Follow_Up, Delay_Req, and Delay_Resp in two-step PTP?</td><td>Sync announces timing; Follow_Up supplies the precise origin timestamp; the slave sends Delay_Req and receives Delay_Resp so path delay and clock offset can be estimated.</td><td>2024/25–2025/26</td></tr>
+        <tr><td>Boundary clock versus transparent clock?</td><td>A boundary clock synchronises upstream then serves downstream segments. A transparent clock records and corrects switch residence time; it is not the grandmaster.</td><td>2021/22–2025/26</td></tr>
+        <tr><td>What is P2P versus E2E delay measurement in PTP?</td><td>E2E estimates delay between slave and master across the path. P2P measures each adjacent link; transparent clocks can account for their own residence time. Use the scheme requested by the topology.</td><td>2021/22, 2024/25–2025/26</td></tr>
+        <tr><td>What do the BMCA and Berkeley algorithm do?</td><td>BMCA selects the best PTP master and can support failover. Berkeley polls local clocks, averages usable offsets, and issues corrections; it synchronises internally unless an external reference is included.</td><td>2021/22–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="scheduling">2. Scheduling, Cyclic Executives And WCET</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What do <i>C</i>, <i>T</i>, and <i>D</i> represent for a periodic task?</td><td><i>C</i> is execution time (use WCET for a proof), <i>T</i> is period or minimum inter-arrival time, and <i>D</i> is relative deadline.</td><td>2017/18–2025/26</td></tr>
+        <tr><td>What is utilisation and the hyperperiod?</td><td>U = Σ(<i>C</i><sub>i</sub>/<i>T</i><sub>i</sub>). The hyperperiod is the least common multiple of the task periods, after which a periodic release pattern repeats.</td><td>2017/18–2025/26</td></tr>
+        <tr><td>What is a cyclic executive?</td><td>A static, table-driven schedule of task calls in fixed frames. It is predictable but adapts poorly to changes and must account for asynchronous interrupts and overruns.</td><td>2018/19–2025/26</td></tr>
+        <tr><td>How should a cyclic executive detect an overrun?</td><td>Record a frame or cycle start time, execute the planned tasks, compare elapsed time with the frame budget, then increment a counter and run the specified recovery or reporting action when late.</td><td>2021/22–2025/26</td></tr>
+        <tr><td>How does Rate Monotonic assign priority?</td><td>RM gives the shortest-period task the highest fixed priority. It is normally analysed for periodic, independent, pre-emptible tasks under stated deadline and blocking assumptions.</td><td>2017/18–2025/26</td></tr>
+        <tr><td>How does EDF assign priority?</td><td>Earliest Deadline First gives highest dynamic priority to the ready job with the earliest absolute deadline.</td><td>2017/18, 2022/23–2023/24</td></tr>
+        <tr><td>What is the classic EDF feasibility condition?</td><td>On one ideal pre-emptive processor for independent periodic tasks with <i>D</i> = <i>T</i> and negligible overhead, EDF is feasible when U ≤ 1.</td><td>2017/18, 2022/23–2023/24</td></tr>
+        <tr><td>What is the RM utilisation bound?</td><td>For <i>n</i> periodic tasks with <i>D</i> = <i>T</i>, U ≤ <i>n</i>(2<sup>1/<i>n</i></sup> − 1) is sufficient. A failure of this bound is inconclusive, not proof of an unschedulable set.</td><td>2017/18, 2022/23–2025/26</td></tr>
+        <tr><td>What is the fixed-priority response-time recurrence?</td><td>For task <i>i</i>, iterate R<sub>i</sub> = C<sub>i</sub> + B<sub>i</sub> + Σ<sub>j∈hp(i)</sub> ⌈R<sub>i</sub> / T<sub>j</sub>⌉C<sub>j</sub>; it passes when the fixed point R<sub>i</sub> ≤ D<sub>i</sub>.</td><td>Scheduling method</td></tr>
+        <tr><td>How do you estimate WCET from code?</td><td>Bound every loop and recursion, identify feasible branches, sum the longest feasible path, and include relevant interrupt, cache, I/O, or blocking effects. Average timing is not WCET.</td><td>2018/19, 2021/22</td></tr>
+        <tr><td>What must a schedule answer show for marks?</td><td>Task data, priority or policy, arithmetic, a labelled timeline over the requested interval, and the assumption under which the conclusion holds.</td><td>2023/24–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="concurrency">3. POSIX, Mutexes And Priority Protocols</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is a mutex or binary semaphore used for?</td><td>It gives mutually exclusive access to a critical region. A task acquires it before the region and releases it promptly afterwards; the answer should define the blocking behaviour.</td><td>2025/26</td></tr>
+        <tr><td>What is priority inversion?</td><td>A high-priority task waits for a resource held by a low-priority task while medium-priority work can pre-empt the holder, extending the high-priority task’s delay.</td><td>2017/18, 2023/24–2024/25</td></tr>
+        <tr><td>How does Priority Inheritance help?</td><td>The low-priority lock holder temporarily inherits the blocked high-priority task’s priority, so medium-priority tasks cannot extend the inversion until the lock is released.</td><td>2023/24–2024/25</td></tr>
+        <tr><td>How does the Priority Ceiling Protocol prevent deadlock?</td><td>Each resource has a ceiling based on its potential users. A protocol prevents a task making an unsafe acquisition while another resource’s ceiling would create circular wait, thereby bounding blocking and avoiding deadlock.</td><td>2017/18, 2021/22–2022/23</td></tr>
+        <tr><td>Why use memory locking in a hard real-time process?</td><td>Locking resident pages prevents a page fault from causing an unbounded delay on the critical execution path. Explain it with the process-state model if asked.</td><td>2017/18–2018/19, 2024/25–2025/26</td></tr>
+        <tr><td>What is the risk of locking memory too generously?</td><td>It reduces memory available to the rest of the system, can increase pressure elsewhere, and may require privilege. Lock only the verified real-time working set.</td><td>2017/18–2018/19</td></tr>
+        <tr><td>What does POSIX <code>sigqueue</code> add to a signal?</td><td>It sends a signal to a process together with a value in <code>sigval</code>, enabling queued notification with application data under the relevant signal-handling rules.</td><td>2017/18, 2022/23</td></tr>
+        <tr><td>Name four RTOS or POSIX-style capabilities worth justifying.</td><td>Deterministic priority scheduling, high-resolution timers / clocks, signals or IPC, memory locking, synchronisation primitives, predictable I/O, and bounded interrupt handling. Tie each capability to a real-time need.</td><td>2025/26</td></tr>
+        <tr><td>What makes code non-re-entrant?</td><td>It relies on shared mutable state, such as a static variable or shared buffer, so an interrupt or concurrent call can corrupt the computation. Make state local, protect it, or redesign the interface.</td><td>2018/19</td></tr>
+        <tr><td>What are the core parts of a priority-protocol diagram?</td><td>Show the resource owner, blocked high-priority task, interfering medium-priority task, priorities over time, lock acquisition / release, and the exact point at which the protocol changes execution.</td><td>2017/18, 2021/22–2024/25</td></tr>
+      </tbody></table>
+
+      <h2 id="quic">4. QUIC, HTTP And Protocol Analysis</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>Why was HTTP/2 developed, and what are key features?</td><td>It addresses HTTP/1 inefficiencies such as many connections and poor request use. Key features include binary framing, stream multiplexing, header compression, and prioritisation; its streams still run over TCP.</td><td>2024/25</td></tr>
+        <tr><td>What is TCP transport-level head-of-line blocking?</td><td>TCP delivers one ordered byte stream. A lost earlier segment prevents delivery of later bytes, even if they belong to an unrelated HTTP/2 application stream.</td><td>2023/24–2025/26</td></tr>
+        <tr><td>How does QUIC reduce transport-level head-of-line blocking?</td><td>QUIC has independently ordered streams, so loss in one stream need not delay delivery on another. Congestion and loss can still affect the shared connection.</td><td>2023/24–2025/26</td></tr>
+        <tr><td>How does QUIC connection establishment differ from TCP plus TLS?</td><td>QUIC integrates TLS into the transport handshake over UDP and can reduce setup round trips. It does not remove RTT, packet loss, or server-processing delay.</td><td>2023/24–2024/25</td></tr>
+        <tr><td>What does congestion control do in QUIC?</td><td>It estimates congestion from signals such as loss and RTT, adjusts sending behaviour, and aims to avoid persistent overload while balancing throughput and latency.</td><td>2023/24–2025/26</td></tr>
+        <tr><td>Throughput fairness versus latency fairness?</td><td>Throughput fairness shares capacity comparably; latency fairness avoids one flow imposing excessive queueing delay on another. The balance is harder with mixed TCP and QUIC traffic.</td><td>2025/26</td></tr>
+        <tr><td>Why encrypt QUIC transport metadata, and what trade-off follows?</td><td>Encryption protects users and reduces unwanted ossification by middleboxes, but limits passive network inspection and makes operators depend more on endpoint telemetry or authorised decryption.</td><td>2025/26</td></tr>
+        <tr><td>What do Wireshark, qLog, and qViz each contribute?</td><td>Wireshark shows packet-level traffic but encrypted QUIC limits interpretation. qLog records endpoint transport events; qViz visualises qLog timelines to diagnose streams, loss, and congestion.</td><td>2023/24–2025/26</td></tr>
+        <tr><td>What is QUIC connection migration?</td><td>It lets a connection continue when the client’s network path changes, such as Wi-Fi → 5G, after path validation. It can reduce disruption but does not guarantee no freeze.</td><td>2025/26</td></tr>
+        <tr><td>What can a resource waterfall reveal?</td><td>It separates stages such as connection, request waiting / first byte, and transfer, helping distinguish server or queueing delay from a slow download. Correlate it with other evidence.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="media">5. Soft Real-Time, QoS And Multimedia</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What components make up end-to-end delay for interactive cloud gaming?</td><td>Input / capture, game or application processing, encoding, queueing, network transmission, loss recovery, decoding, buffering, and playout. The most critical components depend on the interaction loop.</td><td>2024/25–2025/26</td></tr>
+        <tr><td>Intrinsic QoS versus perceived QoS / QoE?</td><td>Intrinsic QoS is measurable delivery quality, such as delay, jitter, loss, and bitrate. Perceived QoS or QoE is the user’s experienced smoothness, responsiveness, and quality.</td><td>2017/18, 2024/25</td></tr>
+        <tr><td>What does a jitter buffer do?</td><td>It delays playout briefly to smooth packet-delay variation. A larger buffer reduces underflows but adds latency; adaptive buffers adjust this trade-off as conditions change.</td><td>2024/25</td></tr>
+        <tr><td>What is Forward Error Correction (FEC) for VoIP?</td><td>It adds redundant information so some loss can be recovered without retransmission. The cost is extra bandwidth, processing, and sometimes delay; the strategy may be media dependent or independent.</td><td>2017/18–2018/19</td></tr>
+        <tr><td>How does adaptive-bitrate streaming work?</td><td>The client estimates available conditions and selects segment representations to balance continuity, quality, rebuffering risk, and latency. It alone cannot satisfy all highly interactive real-time demands.</td><td>2025/26</td></tr>
+        <tr><td>What is response delay in cloud gaming?</td><td>The time from a user action to the visible or audible response, including processing, network, encoding / decoding, and playout delays. A good answer traces the full loop.</td><td>2024/25</td></tr>
+        <tr><td>Why can more bandwidth fail to fix a laggy game?</td><td>Input, processing, queueing, RTT, jitter, loss, encoding, and playout may dominate. Diagnose the full delay budget rather than equating bandwidth with low latency.</td><td>2024/25–2025/26</td></tr>
+        <tr><td>What are RTP and RTCP used for?</td><td>RTP carries real-time media data. RTCP carries control and feedback information; sender and receiver reports describe transmission and reception quality.</td><td>2017/18</td></tr>
+        <tr><td>What do LCP, FID, and CLS measure?</td><td>LCP measures perceived loading of the largest content; FID measures input responsiveness delay; CLS measures unexpected visual movement during loading.</td><td>2023/24</td></tr>
+      </tbody></table>
+
+      <h2 id="faults">6. Fault Tolerance, Hamming And Storage</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What is Hamming distance?</td><td>The number of bit positions in which two codewords differ. The minimum distance determines the combinations of errors a code can detect or correct.</td><td>2025/26</td></tr>
+        <tr><td>What does Hamming (7, 4) provide?</td><td>It encodes four data bits into seven bits using parity positions. With suitable parity it corrects a single-bit error; its ability to detect additional errors depends on the exact scheme and extension stated.</td><td>2021/22, 2023/24, 2025/26</td></tr>
+        <tr><td>RAID-0 versus RAID-1 versus RAID-5?</td><td>RAID-0 stripes for performance with no redundancy; RAID-1 mirrors data; RAID-5 stripes data with distributed parity and can recover from one disk failure, with parity-write overhead.</td><td>2021/22–2022/23</td></tr>
+        <tr><td>What is the fault → error → failure chain?</td><td>A fault is a cause, an error is an incorrect internal state, and a failure is an externally visible service deviation. Name the layer a mechanism handles.</td><td>Fault-tolerance method</td></tr>
+        <tr><td>Why does replica independence matter?</td><td>Voting or redundancy only masks failures that are not shared. Common software, power, environment, specification, or voter faults can defeat every replica.</td><td>2017/18–2018/19</td></tr>
+        <tr><td>What is backward recovery?</td><td>Restore a saved consistent state after error detection, then retry or take an alternative path. External side effects must be logged or idempotent because rollback cannot unsend them.</td><td>2022/23</td></tr>
+        <tr><td>What are FMV, GMV, FPV, and weighted averaging?</td><td>They are voter rules for redundant outputs: formalised majority, generalised median, formalised plurality, and a weighted average. State the rule and calculate from the supplied data.</td><td>2018/19, 2021/22</td></tr>
+      </tbody></table>
+
+      <h2 id="logical">7. Logical Clocks And Causality</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Papers</th></tr></thead><tbody>
+        <tr><td>What does a Lamport logical clock guarantee, and what does it miss?</td><td>If event <i>a</i> happened-before <i>b</i>, then L(<i>a</i>) &lt; L(<i>b</i>). The reverse is not enough to prove causality, so scalar timestamps cannot detect concurrent events.</td><td>2022/23–2024/25</td></tr>
+        <tr><td>Why do vector clocks capture causality better?</td><td>Each process carries one counter per process. Vector <i>V</i><sub>a</sub> &lt; <i>V</i><sub>b</sub> component-wise indicates happened-before; incomparable vectors indicate concurrency.</td><td>2022/23–2024/25</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This set covers the repeat-heavy families across the seven local papers and gives extra weight to the current 2024/25–2025/26 format. Use the question bank and topic guides for full worked practice; do not rely on one-card answers for diagrams, schedules, C / pseudo-code, or multi-part 15-mark questions.</p>
+    </article>
+  </main>
+</body>
+</html>
