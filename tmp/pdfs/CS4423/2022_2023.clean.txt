@@ -1,0 +1,93 @@
+Semester 2 Examinations 2023
+Exam Codes 3BME1, 4BCT1, 4BDS1, 4BME1,
+4BMS2, 4BS2, 4FM2
+Exam 4th Science
+Module Networks
+Module Code CS4423
+External Examiner(s) Prof. Colva Roney–Dougal
+Internal Examiner(s) Prof. G. Pfei↵er
+Dr A. Carnevale*
+Instructions Answer allfourquestions.
+Duration 2h o u r s
+No. of Pages 3p a g e s( i n c l u d i n gt h i sc o v e rp a g e )
+Discipline Mathematics
+Requirements:
+Release to Library Yes
+Release in Exam Venue Yes
+Statistical Tables/ Log Tables Yes
+Non-programmable calculators Yes
+
+Q1. [25 Marks]
+(a) [10 Marks]
+(i) What is agraph?
+(ii) What are theorderand thesizeof a graph?
+(iii) What is theadjacency matrixof a graph?
+(iv) How can one compute the degree of a vertex from the adjacency matrix?
+(v) How can one compute the size of a graph from its adjacency matrix?
+(b) [7M a r k s]D e s c r i b eBreadth First Searchas an algo-
+rithm for computing distances between vertices in
+a graph. What is its input, what is its output, and
+what sequence of steps is taken to produce the out-
+put from the input?
+(c) [4M a r k s] Show how the Breadth First Search algo-
+rithm for distances proceeds when the inputs are
+the graph on the right and its node a.
+(d) [4M a r k s]I nt h eg r a p ho nt h er i g h t ,u s et h eB r e a d t h
+First Search algorithm to also determine aspanning
+treewith roota.
+Q2. [25 Marks]
+(a) [5M a r k s]D e ﬁ n et h ec o n c e p to fnormalised degree centralityfor a graphG.L e t
+Gbe the graph on the vertex set{1,2,3,4,5}with edges 12, 13, 24,
+34, 35, and 45. Draw the graph Gand determine the normalised
+degree centrality of all its vertices.
+(b) [5M a r k s] Deﬁne the concept ofnormalised closeness centrality for a connected
+graphG. Compute the normalised closeness centrality of nodes 1 and 2 of G
+in (a).
+(c) [5M a r k s]D e ﬁ n et h ec o n c e p tnormalised betweenness centralityfor a connected
+graphG.C o m p u t e t h e n o r m a l i s e d b e t w e e n n e s s c e n t r a l i t y o f n o d e s 1 a n d 2
+ofGin (a).
+(d) [10 Marks]L e tHbe a path graph on 3 vertices. The eigenvalues of the adja-
+cency matrix ofAare
+p
+2, 0 and
+p
+2. Use this information to compute the
+normalised eigenvector centrality of each node inH.
+Page 2 of 3 (p.t.o.)
+
+Q3. [25 Marks]
+(a) [8M a r k s]D e s c r i b eh o wt og e n e r a t eag r a p hf r o mt h eE r d ˝ o s – R ´ e n y im o d e l s
+G(n, m)a n dG(n, p). In each model, what is the probability of a randomly
+chosen graphGto haveexactlymedges? Justify your answer.
+(b) [5M a r k s]S u p p o s eo n ec o n s t r u c t e dag r a p hGon 100 vertices by tossing a (fair,
+6-sided) die once for each possible edge, adding the edge only if the die shows
+6. Then pick a vertex at random in this graph. What is the probability that
+this vertex has degree 50? (You don’t need to return a numerical value. It is
+enough to give an explicit formula in terms of the given data.)
+(c) [5M a r k s] What is agiant componentin a graphG?S t a t e t h eErd˝ os–R´ enyi
+Theoremon the appearance of a giant component in a graph.
+(d) [7M a r k s]D e s c r i b eh o wt og e n e r a t ea n(n, d, p)-WS graph in theWatts–Strogatz
+small-world model. What properties does a random graph sampled from the
+WS model have, that one would not ﬁnd in a random graph sampled from
+theG(n, p)m o d e l ,o ri na n(n, d)-circle graph?
+Q4. [25 Marks]
+(a) [8M a r k s] What is thePr¨ ufer codeof a labelled treeTonnvertices, and how
+can it be computed fromT? How can the degree sequence of a labelled tree
+be determined from its Pr¨ ufer code? Compute the Pr¨ ufer code of the tree on
+the vertex setX={1,2,3,4,5,6}with edges 1–2, 2–3, 3–4, 4–5, 4–6.
+(b) [5M a r k s] What is adirected graph? What is the in-
+degree and what is the out-degree of vertexcin the
+directed graph on the right?
+(c) [7M a r k s]F o rad i r e c t e dg r a p hGon a vertex setX,
+deﬁne two equivalence relations onX:o n e t h a t h a s
+thestrongly connected componentsofGas its equiv-
+alence classes, and one that has theweakly connected
+componentsofGas its equivalence classes.
+(d) [5M a r k s]M a n yd i r e c t e dn e t w o r k s ,l i k et h eW o r l d
+Wide Web, have a giant strongly connected compo-
+nent which covers a substantial part of the network.
+Name the other parts of the so-calledBow-Tie dia-
+gramof the components in a directed network, and
+describe each in terms of a suitable relation on the
+set of strongly connected components.
+Page 3 of 3

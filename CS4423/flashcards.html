@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS4423 - Quick-Recall Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank { max-width: 1080px; }
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+    .flashcard-bank td:first-child { width: 34%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 50%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; }
+    .flashcard-bank code { white-space: nowrap; }
+    .flashcard-bank .math { display: inline-block; padding: 1px 4px; border-radius: 4px; background: var(--surface-soft); color: #2d3a40; font-family: "STIX Two Math", "Cambria Math", Cambria, serif; font-size: 0.98em; line-height: 1.28; white-space: nowrap; }
+    .flashcard-bank .math sub, .flashcard-bank .math sup { font-size: 0.76em; line-height: 0; }
+    .flashcard-bank .binomial { display: inline-grid; position: relative; grid-template-rows: auto auto; margin: 0 .24em; padding: 0 .18em; line-height: .86; text-align: center; vertical-align: middle; }
+    .flashcard-bank .binomial::before, .flashcard-bank .binomial::after { position: absolute; top: 50%; transform: translateY(-52%) scaleY(1.4); }
+    .flashcard-bank .binomial::before { content: "("; left: -.18em; }
+    .flashcard-bank .binomial::after { content: ")"; right: -.18em; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { border: 0; box-shadow: none; padding: 0; } .flashcard-bank tr { break-inside: avoid; } }
+    @media (max-width: 680px) { .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; } .flashcard-bank thead { display: none; } .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); } .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); } .flashcard-bank td:last-child { border-bottom: 0; } .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; } .flashcard-bank td:nth-child(1)::before { content: "Front"; } .flashcard-bank td:nth-child(2)::before { content: "Back"; } .flashcard-bank td:nth-child(3)::before { content: "Evidence"; } }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CS4423 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="expected.html">Expected questions</a>
+      <a href="#1-graph-foundations-and-bipartite-networks">Graph foundations</a>
+      <a href="#2-bfs-and-shortest-paths">BFS</a>
+      <a href="#3-centrality">Centrality</a>
+      <a href="#4-random-graphs">Random graphs</a>
+      <a href="#5-small-world-networks">Small world</a>
+      <a href="#6-trees-and-pruefer-codes">Trees</a>
+      <a href="#7-directed-market-and-web-networks">Coverage</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CS4423 Quick Recall</p>
+    <h1>41-Card Revision Deck</h1>
+    <p>Fast definitions, calculations, and distinctions for the repeated CS4423 question families.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Deck</h2>
+      <p class="instructions">Recall the Back before reading it. Each card is a one-glance cue, not a model answer or full method. Use <a href="most_asked.html">Most Asked Exam Questions</a> for complete workings and mark structure, and <a href="expected.html">Expected Questions</a> for learning-outcome priorities.</p>
+      <div class="frequency-note"><p><strong>Drill first:</strong> BFS, centrality, Erdos-Renyi, small-world networks, graph representation, and Pruefer codes.</p><p><strong>Use the final section last:</strong> it preserves official outcomes and strong historical material, but does not claim they are current-format favourites.</p></div>
+
+      <h2 id="1-graph-foundations-and-bipartite-networks">1. Graph Foundations and Bipartite Networks</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Order and size of a graph?</td><td>Order <span class="math">|V|</span>: number of vertices. Size <span class="math">|E|</span>: number of edges.</td><td>2021/22 Q1; 2022/23-2023/24 Q1; 2024/25 Q1; 2025/26 Q1</td></tr>
+        <tr><td>How many edges has a spanning tree of a connected graph of order <span class="math">n</span>?</td><td><span class="math">n − 1</span>. Every tree on <span class="math">n</span> vertices has exactly <span class="math">n − 1</span> edges.</td><td>2024/25 Q1; 2025/26 Q1</td></tr>
+        <tr><td>Quick graphicality screen for a degree sequence?</td><td>Necessary, not sufficient: every <span class="math">d<sub>i</sub></span> is in <span class="math">{0, …, n − 1}</span> and <span class="math">Σ d<sub>i</sub></span> is even. If both pass, use Havel-Hakimi to decide.</td><td>2018/19 Q1; 2025/26 Q1</td></tr>
+        <tr><td>Adjacency-matrix rule?</td><td>After fixing a vertex order, <span class="math">A<sub>ij</sub> = 1</span> iff <span class="math">{i, j}</span> is an edge; otherwise <span class="math">0</span>. For a simple undirected graph, <span class="math">A</span> is symmetric with zero diagonal.</td><td>2022/23-2023/24 Q1; 2024/25 Q1; 2025/26 Q1</td></tr>
+        <tr><td>Bipartite: definition and quick test?</td><td>Vertices can be 2-coloured so every edge joins different colours. Equivalently, the graph has no odd cycle.</td><td>2017/18 Q3; 2023/24 Q2; 2024/25 Q2; 2025/26 Q2</td></tr>
+        <tr><td>Bipartite adjacency-matrix block form?</td><td>List the two parts together: <span class="math">A = [0 C; C<sup>T</sup> 0]</span>. The zero diagonal blocks mean no within-part edges.</td><td>2025/26 Q2</td></tr>
+        <tr><td>One-mode projection of a bipartite graph?</td><td>Keep one part as vertices; join two of them when they share a neighbour in the other part. A weighted projection can use their number of shared neighbours.</td><td>2024/25 Q2; 2025/26 Q2</td></tr>
+      </tbody></table>
+
+      <h2 id="2-bfs-and-shortest-paths">2. BFS and Shortest Paths</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What does BFS give from a root <span class="math">s</span>?</td><td>Distance layers from <span class="math">s</span>; a BFS tree if one parent per vertex is kept; and all shortest-path predecessors if every valid parent is kept.</td><td>All 7 papers; especially 2024/25-2025/26 Q4(a)</td></tr>
+        <tr><td>Core BFS discovery rule?</td><td>Set <span class="math">d(s) = 0</span> and use a FIFO queue. On first discovery of <span class="math">v</span> from <span class="math">u</span>, set <span class="math">d(v) = d(u) + 1</span> and enqueue <span class="math">v</span>.</td><td>All 7 papers</td></tr>
+        <tr><td>BFS distance fact?</td><td>In an unweighted graph, <span class="math">d(v)</span> is the fewest edges on any path from <span class="math">s</span> to reachable <span class="math">v</span>.</td><td>2017/18-2025/26 BFS questions</td></tr>
+        <tr><td>All predecessors versus one BFS-tree parent?</td><td>A BFS tree chooses one parent. For all shortest paths, keep every neighbour <span class="math">u</span> with <span class="math">d(u) = d(v) − 1</span> as a predecessor of <span class="math">v</span>.</td><td>2018/19 Q1; 2023/24 Q1; 2024/25-2025/26 Q4</td></tr>
+        <tr><td>How to list all shortest paths after BFS?</td><td>Backtrack from the target through every stored predecessor until <span class="math">s</span>; reverse each chain.</td><td>2018/19 Q1; 2023/24 Q1; 2024/25-2025/26 Q4</td></tr>
+      </tbody></table>
+
+      <h2 id="3-centrality">3. Centrality</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Degree and normalised degree centrality?</td><td><span class="math">C<sub>D</sub>(v) = deg(v)</span>. For a simple graph of order <span class="math">n</span>, normalised degree centrality is <span class="math">deg(v) / (n − 1)</span>.</td><td>2018/19 Q2; 2021/22 Q2; 2022/23-2025/26</td></tr>
+        <tr><td>Closeness centrality?</td><td>For connected graph of order <span class="math">n</span>, <span class="math">C<sub>C</sub>(v) = (n − 1) / Σ<sub>u ≠ v</sub> d(v, u)</span>. Larger means shorter average distances.</td><td>2018/19 Q2; 2021/22 Q2; 2022/23-2025/26</td></tr>
+        <tr><td>Betweenness centrality?</td><td><span class="math">C<sub>B</sub>(v) = Σ σ<sub>st</sub>(v) / σ<sub>st</sub></span> over unordered pairs <span class="math">s, t</span> excluding <span class="math">v</span>.</td><td>2018/19 Q2; 2021/22 Q2; 2022/23-2025/26</td></tr>
+        <tr><td>Why count fractions in betweenness?</td><td>If two shortest paths connect a pair and only one uses <span class="math">v</span>, that pair contributes <span class="math">½</span>, not <span class="math">1</span>.</td><td>2022/23 Q2; 2023/24 Q2; 2025/26 Q5</td></tr>
+        <tr><td>Normalised betweenness in an undirected graph?</td><td>Divide raw betweenness by <span class="math">(n − 1)(n − 2) / 2</span>.</td><td>2018/19 Q2; 2022/23 Q2; 2023/24 Q2</td></tr>
+        <tr><td>Eigenvector centrality idea?</td><td>A node is central when it connects to central nodes. Its score is proportional to the sum of neighbour scores, so it is an eigenvector of the adjacency matrix.</td><td>2018/19 Q2; 2022/23 Q2; 2023/24 Q2</td></tr>
+        <tr><td>Degree versus closeness?</td><td>High degree is many direct neighbours. High closeness is short routes to the whole graph. A node can be high in one and low in the other.</td><td>2024/25 Q3; 2025/26 Q5</td></tr>
+      </tbody></table>
+
+      <h2 id="4-random-graphs">4. Random Graphs</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td><span class="math">G<sub>ER</sub>(n, m)</span> versus <span class="math">G<sub>ER</sub>(n, p)</span>?</td><td><span class="math">G<sub>ER</sub>(n, m)</span> chooses uniformly among graphs with exactly <span class="math">m</span> edges. <span class="math">G<sub>ER</sub>(n, p)</span> independently includes each possible edge with probability <span class="math">p</span>.</td><td>2018/19 Q3; 2021/22-2025/26</td></tr>
+        <tr><td>Empty and complete graph parameters?</td><td>Empty: <span class="math">m = 0</span> or <span class="math">p = 0</span>. Complete: <span class="math">m = n(n − 1) / 2</span> or <span class="math">p = 1</span>.</td><td>2024/25 Q6; 2025/26 Q6</td></tr>
+        <tr><td>Expected number of edges in <span class="math">G<sub>ER</sub>(n, p)</span>?</td><td><span class="math">E[|E|] = p × n(n − 1) / 2</span>.</td><td>2023/24 Q3; 2025/26 Q6</td></tr>
+        <tr><td>Degree distribution in <span class="math">G<sub>ER</sub>(n, p)</span>?</td><td>For a fixed vertex, <span class="math">deg(v) ∼ Binomial(n − 1, p)</span>. Thus <span class="math">P(deg(v) = k) = <span class="binomial" aria-label="n minus 1 choose k"><span>n − 1</span><span>k</span></span>p<sup>k</sup>(1 − p)<sup>n − 1 − k</sup></span>.</td><td>2018/19 Q3; 2021/22-2024/25 degree-probability variants</td></tr>
+        <tr><td>Probability of exactly <span class="math">m</span> edges in <span class="math">G<sub>ER</sub>(n, p)</span>?</td><td><span class="math"><span class="binomial" aria-label="N choose m"><span>N</span><span>m</span></span>p<sup>m</sup>(1 − p)<sup>N − m</sup></span>, where <span class="math">N = n(n − 1) / 2</span>.</td><td>2021/22 Q3; 2022/23 Q3; 2023/24 Q3; 2024/25 Q6</td></tr>
+        <tr><td>Giant component threshold idea?</td><td>Critical scale: average degree <span class="math">np ≍ 1</span>, so <span class="math">p</span> is of order <span class="math">1 / n</span>.</td><td>2021/22 Q3; 2022/23 Q3</td></tr>
+      </tbody></table>
+
+      <h2 id="5-small-world-networks">5. Small-World Networks</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Characteristic path length?</td><td>The average shortest-path distance between pairs of vertices in a connected graph.</td><td>2025/26 Q7</td></tr>
+        <tr><td>Node clustering coefficient?</td><td>For node <span class="math">v</span>, it is the fraction of possible edges between neighbours of <span class="math">v</span> that actually exist.</td><td>2018/19 Q4; 2024/25 Q7</td></tr>
+        <tr><td>Transitivity of a graph?</td><td><span class="math">3 × (number of triangles) / (number of connected triples)</span>. It is a global clustering measure.</td><td>2025/26 Q7</td></tr>
+        <tr><td>Transitivity/clustering in <span class="math">G<sub>ER</sub>(n, p)</span>?</td><td>It is <span class="math">p</span>: conditional on two edges forming a connected triple, the closing edge exists independently with probability <span class="math">p</span>.</td><td>2018/19 Q4; 2024/25 Q7; 2025/26 Q7</td></tr>
+        <tr><td>Watts-Strogatz signature?</td><td>Compared with a circle graph, limited rewiring gives much shorter paths while retaining high clustering. Compared with Erdos-Renyi, it retains higher clustering.</td><td>2018/19 Q4; 2021/22-2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="6-trees-and-pruefer-codes">6. Trees and Pruefer Codes</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Pruefer code length of a labelled tree on <span class="math">n</span> nodes?</td><td><span class="math">n − 2</span>.</td><td>2021/22 Q1; 2022/23 Q4; 2023/24 Q4; 2024/25 Q5; 2025/26 Q3</td></tr>
+        <tr><td>Degree from a Pruefer code?</td><td><span class="math">deg(v) = 1 +</span> the number of times <span class="math">v</span> appears in the code.</td><td>2021/22 Q1; 2022/23 Q4; 2024/25 Q5; 2025/26 Q3</td></tr>
+        <tr><td>Which labels occur in a Pruefer code?</td><td>Exactly the vertices with degree <span class="math">&gt; 1</span>. The number of distinct labels is the number of non-leaves.</td><td>2025/26 Q3</td></tr>
+        <tr><td>Tree-to-Pruefer encoding routine?</td><td>Repeatedly remove the smallest-labelled leaf and record its neighbour. Stop when two vertices remain.</td><td>2022/23 Q4; 2023/24 Q4; 2024/25 Q5</td></tr>
+        <tr><td>Pruefer-code-to-tree routine?</td><td>At each code entry, join it to the smallest label absent from the remaining code, remove that leaf and entry, then join the final two labels.</td><td>2021/22 Q1; 2024/25 Q5; 2025/26 Q3</td></tr>
+        <tr><td>Labelled isomorphic but unequal trees?</td><td>They have the same shape but different edge sets under the fixed labels. Give a bijection of labels that preserves adjacency.</td><td>2025/26 Q3</td></tr>
+      </tbody></table>
+
+      <h2 id="7-directed-market-and-web-networks">7. Directed, Market, and Web Networks</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Strong versus weak connectedness?</td><td>Strong: every ordered pair has directed paths both ways. Weak: the underlying undirected graph is connected.</td><td>2017/18 Q4; 2018/19 Q4; 2021/22-2023/24 Q4</td></tr>
+        <tr><td>Strongly connected components?</td><td>Equivalence classes of mutual reachability: <span class="math">u ∼ v</span> iff there is a directed path <span class="math">u → v</span> and one <span class="math">v → u</span>.</td><td>2017/18 Q4; 2018/19 Q4; 2021/22-2023/24 Q4</td></tr>
+        <tr><td>Bow-Tie diagram core?</td><td><span class="math">IN → SCC → OUT</span>, with tendrils, tubes, and disconnected components around the core.</td><td>2017/18 Q4; 2018/19 Q4; 2021/22-2023/24 Q4</td></tr>
+        <tr><td>PageRank input and equilibrium?</td><td>Input: a directed web graph. Output: node scores. Equilibrium: a score vector unchanged by the PageRank update.</td><td>2017/18 Q4</td></tr>
+        <tr><td>Market-network coverage cue?</td><td>Know Nash equilibrium, transport networks, matching, market-clearing prices, and bipartite auctions. Treat as low recent priority.</td><td>2017/18 Q2-Q3; official learning outcome</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This is a 41-card quick-recall deck. It prioritises the current repeated core, then keeps directed, market, and document-network material as official-scope coverage. Full question variants and mark allocations remain in <a href="most_asked.html">most_asked.html</a>.</p>
+    </article>
+  </main>
+</body>
+</html>

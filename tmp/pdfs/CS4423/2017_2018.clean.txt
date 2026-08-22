@@ -1,0 +1,133 @@
+Summer Examinations 2017/18
+Exam Code(s) 4BS2, 4FM2, 4BCT1, 4BMS2, 4BME1, 1BMG1
+Exam(s) 4th Science
+Module(s) Networks
+Module Code(s) CS4423
+External Examiner(s) Prof. T. Brady
+Internal Examiner(s) Prof. G. Ellis
+*Prof. G. Pfeiﬀer
+Instructions Answer all questions.
+Duration 2 hours
+No. of Pages 4 pages (including this cover page)
+Discipline Mathematics
+Requirements:
+Release to Library Yes ✓ No
+Release in Exam Venue Yes ✓ No
+MCQ Yes No ✓
+Statistical/Log Tables Yes No ✓
+
+2
+1.
+(a) [10 marks]
+(i) Describe Breadth First Search as an al-
+gorithm for undirected graphs. What is
+its input, what is its output, and what
+sequence of steps is taken to produce the
+output from the input?
+(ii) In the network on the side, apply
+Breadth First Search to determine a
+spanning tree with root D and the short-
+est distances from node D to each of the
+other nodes in the graph.
+A
+B C
+D
+E
+F
+G
+H
+I
+J
+K
+(b) [10 marks] A graph, whose edges are all labelled either ‘ +’ or ‘−’, satisﬁes the Struc-
+tural Balance Property , if any triangle in the graph ( 3 nodes joined by 3 edges)
+has an odd number of edges (i.e., either 1 or all 3 edges) labelled ‘ +’ .
+(i) What is a complete graph?
+(ii) What does Harary’s Balance Theorem say about a complete graph whose
+edges are all labelled either ‘ +’ or ‘ −’?
+(iii) Sketch a proof of Harary’s Balance Theorem.
+2.
+(a) [10 marks]
+(i) Provide a formal deﬁnition of a ﬁnite n-player game.
+(ii) What is a best response and what is a Nash equilibrium in a game?
+(iii) Consider the following 2-player game, where the rows correspond to player
+A’s strategies, and the columns to player B’s strategies. The ﬁrst entry in
+each box is player A’s payoﬀ and the second entry is player B’s payoﬀ.
+L R
+U 3, 3 1, 2
+D 2, 1 3, 0
+Find all (pure) Nash equilibria of this game. Then change one but not both
+of the payoﬀs in the (U, L) entry in the above game to some nonnegative
+integer value, so that the resulting game has no pure Nash equilibrium.
+Compute a mixed-strategy equilibrium for the resulting game.
+
+3
+(b) [10 marks] Two cities, A and B, are joined by two routes through distinct citiesC and
+D, and 80 cars need to travel from A to B. The ﬁrst route consists of a highway
+from A to a city C and a local road from C into B. The second route consists of a
+local road from A to a city D, and a highway from D to B. The travel time along
+a highway is one hour, regardless of the number of cars using it. The travel time
+along a local road is 10 plus the number of cars using it. Drivers simultaneously
+choose which route to use.
+(i) Draw the transport network described above and label each edge with the
+time needed to travel along that edge. Let x be the number of cars travelling
+along the ﬁrst route. Drivers simultaneously choose which route to use. Find
+the Nash equilibrium value for x.
+(ii) The government builds a new two-way road connecting cities C and D.
+Describe the new routes from A to B which are added by this connection.
+(iii) The new road is very short and takes no travel time at all. Find the new
+Nash equilibrium. What happens to the total travel time as a result of the
+availability of the new road?
+3.
+(a) [10 marks]
+(i) Deﬁne the term bipartite graph. How can a bipartite graph be characterized
+in terms of its cycles?
+(ii) What does the Matching Theorem say about certain bipartite graphs?
+(iii) Sketch a proof of the Matching Theorem.
+(b) [10 marks]
+(i) Describe the concept of market clearing prices between a set of sellers and
+a set of buyers.
+(ii) Suppose there are three sellers, A, B and C, and three buyers, X, Y and Z.
+Each seller is oﬀering a house for sale, and the valuations of the buyers for
+the houses are as listed in the following matrix.
+A B C
+X 3 6 4
+Y 2 8 1
+Z 1 2 3
+Describe brieﬂy the bipartite graph auction procedure. Apply this procedure
+to the above valuations in order to obtain a set of market clearing prices.
+PTO.
+
+4
+4.
+(a) [10 marks] Suppose that G = (X, E) is a directed network with node set X and edges
+E ⊆ X2.
+(i) Deﬁne what it means for G to be weakly connected, and what it means to
+be strongly connected.
+(ii) In general, a directed network is partitioned into strongly connected com-
+ponents. Describe the equivalence relation that yields strongly connected
+components as its equivalence classes in terms of E, regarded as a relation
+on X.
+(iii) Many directed networks, like the World Wide Web, have a giant strongly
+connected component which covers a substantial part of the network. Name
+the other parts of the so-called Bow-Tie diagram of the components in a
+directed network, and describe each in terms of a suitable relation on the
+set of strongly connected components.
+(b) [10 marks]
+(i) Describe the PageRank algorithm. What is its input, what is its output,
+and what sequence of steps is used to compute the output from the input?
+(ii) In this context, what is an equilibrium for PageRank?
+(iii) In the network below, does the assignment of numbers to the nodes form an
+equilibrium? Justify your answer.
+E
+1/4
+A
+1/4
+B
+1/8
+D
+1/8
+C
+1/8
+G
+1/8

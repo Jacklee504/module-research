@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CS4423 Networks - Most Asked Exam Questions</title>
+    <link rel="stylesheet" href="../module_page.css">
+    <style>
+      .question-bank { max-width: 1180px; }
+      .question-bank h2 { scroll-margin-top: 18px; }
+      .question-bank h2 + p { color: #39454b; }
+      .question-bank .source-scope,
+      .question-bank .answer-frame,
+      .question-bank .paper-list { margin-bottom: 18px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface-soft); }
+      .question-bank .answer-frame { background: #f7fbf8; }
+      .question-bank .answer-frame strong { color: #245c43; }
+      .question-bank .priority-note { color: var(--muted); font-size: 14px; }
+      .question-bank table { width: 100%; margin: 0 0 24px; border-collapse: collapse; font-size: 14px; }
+      .question-bank th,
+      .question-bank td { padding: 10px 11px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+      .question-bank th { background: var(--surface-soft); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; }
+      .question-bank td:first-child { font-weight: 700; }
+      .question-bank code { white-space: normal; }
+      @media (max-width: 720px) {
+        .question-bank table,
+        .question-bank tbody,
+        .question-bank tr,
+        .question-bank th,
+        .question-bank td { display: block; }
+        .question-bank thead { display: none; }
+        .question-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+        .question-bank td { border: 0; border-bottom: 1px solid var(--line); }
+        .question-bank td:last-child { border-bottom: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="module-header">
+      <nav class="top-nav" aria-label="Navigation">
+        <a href="details.html">CS4423 Overview</a>
+        <a href="expected.html">Expected Questions</a>
+        <a href="flashcards.html">Flashcards</a>
+        <a href="#priority-table">Priority Table</a>
+        <a href="#current-format">Current Format</a>
+        <a href="#coverage-map">Outcome Coverage</a>
+        <a href="details.html#past-papers">Past Papers</a>
+        <a href="details.html#topic-guides">Topic Guides</a>
+      </nav>
+      <p class="eyebrow">CS4423 Study Document</p>
+      <h1>Networks - Most Asked Exam Questions</h1>
+      <p>Question families drawn from the seven supplied papers. This page preserves the recurring marks, multi-part structure, and current-format variants without treating a past-paper pattern as a guarantee.</p>
+    </header>
+
+    <main class="module-shell">
+      <article class="module-content question-bank">
+        <h2 id="how-to-use">How To Use This Document</h2>
+        <div class="source-scope">
+          <p><strong>Source scope:</strong> all local CS4423 papers were checked: <a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>, <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>, <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>, <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>, <a href="2018_2019.pdf" target="_blank" rel="noopener noreferrer">2018/19</a>, and <a href="2017_2018.pdf" target="_blank" rel="noopener noreferrer">2017/18</a>.</p>
+          <p><strong>Current-format evidence:</strong> 2024/25 and 2025/26 are the primary papers. Both are two-hour papers with seven compulsory questions, total marks <code>14, 15, 15, 14, 14, 14, 14</code>. The 2022/23 and 2023/24 papers are useful bridge evidence: four compulsory 25-mark questions, with the same core families embedded in longer questions.</p>
+          <p><strong>Official-scope boundary:</strong> the official module page also includes market and document networks. These are covered below, but the archive does not support treating them as current-format favourites.</p>
+        </div>
+
+        <h2 id="priority-table">Ranked Current Priorities</h2>
+        <p class="priority-note">The ranking combines recurrence, recency, and mark weight. It describes question families, not a forecast of exact question positions.</p>
+        <table>
+          <thead><tr><th>Rank</th><th>Question family</th><th>Current-format evidence</th><th>Preparation judgement</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>BFS, predecessors, and all shortest paths</td><td>7/7 papers; 14 marks in both latest papers</td><td>Safest repeated skill</td></tr>
+            <tr><td>2</td><td>Graph foundations, matrices, bipartite graphs, and trees</td><td>44 marks in 2025/26; 43 marks across the analogous 2024/25 blocks</td><td>Latest-format core</td></tr>
+            <tr><td>3</td><td>Centrality</td><td>Explicit degree/closeness/betweenness from 2018/19 onward; 14 marks in 2025/26</td><td>High-return calculations</td></tr>
+            <tr><td>4</td><td>Erdos-Renyi random graphs</td><td>6/7 papers, 14 marks in both latest papers</td><td>High-return definitions and probability</td></tr>
+            <tr><td>5</td><td>Watts-Strogatz, clustering, transitivity, and path length</td><td>6/7 papers, 14 marks in both latest papers</td><td>High-return explanation plus derivation</td></tr>
+            <tr><td>6</td><td>Pruefer codes and labelled trees</td><td>5/7 papers; 14-15 marks in the latest two</td><td>Current specialist priority</td></tr>
+            <tr><td>7</td><td>Directed networks and Bow-Tie diagrams</td><td>5/7 papers, absent from the latest two</td><td>Coverage, not a current bet</td></tr>
+            <tr><td>8</td><td>Markets, games, transport networks, and PageRank</td><td>Concentrated in 2017/18</td><td>Official scope, low paper priority</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="bfs">Priority 1 - BFS, Predecessors, And All Shortest Paths</h2>
+        <p><strong>Frequency:</strong> 7/7 papers. This is the only clearly universal question family in the archive.</p>
+        <ul class="paper-list">
+          <li><strong>2025/26 Q4, 14 marks:</strong> describe BFS for distances [5], then start at Node 0, determine every shortest-path predecessor, and list all shortest paths to Node 7 [9].</li>
+          <li><strong>2024/25 Q4, 14 marks:</strong> the same 5 + 9 structure, including every predecessor and all shortest paths from Node 0 to Node 7.</li>
+          <li><strong>2023/24 Q1(b)-(d), 15 marks:</strong> distances from a root [4], all predecessors and all shortest paths [7], then a BFS spanning tree [4].</li>
+          <li><strong>2022/23 Q1(b)-(d), 15 marks:</strong> algorithm description [7], trace the distance algorithm [4], and construct a rooted spanning tree [4].</li>
+          <li><strong>2021/22 Q1(c)-(d), 7 marks:</strong> algorithm description [3], then a spanning tree and shortest distances [4].</li>
+          <li><strong>2018/19 Q1(c), 10 marks:</strong> algorithm description, spanning tree, distances, predecessors, and all shortest paths to a stated target.</li>
+          <li><strong>2017/18 Q1(a), 10 marks:</strong> algorithm description plus a spanning tree and root-to-all distance calculation.</li>
+        </ul>
+        <div class="answer-frame">
+          <p><strong>Answer frame:</strong> Separate the algorithm from the trace. For the algorithm, state input graph and root, initial distances, frontier or queue processing, discovery rule, and output. In the trace, record levels or distances first; then record <em>all</em> neighbours that can be predecessors at the previous level. A single BFS tree loses marks if the question asks for every shortest path.</p>
+        </div>
+
+        <h2 id="graph-foundations">Priority 2 - Graph Foundations, Matrices, Bipartite Graphs, And Trees</h2>
+        <p><strong>Frequency:</strong> graph-theoretic basics appear throughout the archive. The latest two papers place a large share of their marks on matrices, bipartite structure, trees, and related constructions.</p>
+        <ul class="paper-list">
+          <li><strong>2025/26 Q1, 14 marks:</strong> adjacency matrix to sketch [4], order/size and spanning-tree size [5], degree sequence [2], graphical degree sequence [3].</li>
+          <li><strong>2025/26 Q2, 15 marks:</strong> bipartite sketch and two-colouring [5], reorder nodes into a zero-block adjacency matrix [5], then construct a projection [5].</li>
+          <li><strong>2025/26 Q3, 15 marks:</strong> Pruefer-code degree reasoning [5], code-to-tree construction [5], and a labelled isomorphic tree [5].</li>
+          <li><strong>2024/25 Q1, 14 marks:</strong> simple connected graph and tree constraints [5], adjacency matrix [4], and permutation-matrix block form [5].</li>
+          <li><strong>2024/25 Q2, 15 marks:</strong> affiliation-network definition and bipartite reason [5], two-colouring [5], and a graph projection [5].</li>
+          <li><strong>2024/25 Q5, 14 marks:</strong> reconstruct a tree from a Laplacian [2], tree-to-Pruefer code [6], and code-to-degree-sequence/tree construction [6].</li>
+        </ul>
+        <div class="answer-frame">
+          <p><strong>Answer frame:</strong> For a matrix question, define the vertex order before writing entries. For bipartite questions, state the two parts and verify each edge crosses the partition. For Pruefer work, show the smallest-leaf removal or attachment sequence, rather than writing only the final code or tree. Treat Laplacian reconstruction as a 2024/25 variant, not a guaranteed repeat.</p>
+        </div>
+
+        <h2 id="centrality">Priority 3 - Centrality</h2>
+        <p><strong>Frequency:</strong> explicit conventional centrality appears in every paper from 2018/19 onward. The exact measure changes, but degree, closeness, and betweenness are the stable core.</p>
+        <ul class="paper-list">
+          <li><strong>2025/26 Q5, 14 marks:</strong> degree and normalised degree [4], distances and closeness comparison [5], then shortest-path pairs through one node and betweenness [5].</li>
+          <li><strong>2024/25 Q3, 15 marks:</strong> NetworkX-style graph input, normalised degree [3], distance matrix and diameter [3], closeness for every node [3], and a closeness-versus-degree counterexample [3].</li>
+          <li><strong>2023/24 Q2, 25 marks:</strong> degree [5], closeness [5], betweenness [5], bipartiteness [3], and eigenvector centrality [7].</li>
+          <li><strong>2022/23 Q2, 25 marks:</strong> normalised degree [5], closeness [5], betweenness [5], and eigenvector centrality [10].</li>
+          <li><strong>2021/22 Q2, 15 marks:</strong> definitions and examples for degree, closeness, and betweenness centrality, each [5].</li>
+          <li><strong>2018/19 Q2, 20 marks:</strong> degree [5], eigenvector centrality and Perron-Frobenius [5], closeness [5], and betweenness [5].</li>
+        </ul>
+        <div class="answer-frame">
+          <p><strong>Answer frame:</strong> Draw or relabel the graph before calculating. For closeness, make a distance row and state the normalisation convention used. For betweenness, list node pairs, then account for the number of shortest paths when a pair has more than one. End comparison questions with an intuitive graph-structure explanation.</p>
+        </div>
+
+        <h2 id="random-graphs">Priority 4 - Erdos-Renyi Random Graphs</h2>
+        <p><strong>Frequency:</strong> 6/7 papers, from 2018/19 onward. Both latest papers dedicate 14 marks to this family.</p>
+        <ul class="paper-list">
+          <li><strong>2025/26 Q6, 14 marks:</strong> define <code>G_ER(n,m)</code> and <code>G_ER(n,p)</code> and give empty-graph parameters [4]; probability of the complete graph in both models [5]; choose <code>p</code> so expected edge count is half the maximum [5].</li>
+          <li><strong>2024/25 Q6, 14 marks:</strong> define both models and give complete-graph parameters [4]; probability of exactly <code>m</code> edges [5]; then a die-based degree probability [5].</li>
+          <li><strong>2023/24 Q3, 25 marks:</strong> both generators and exactly-<code>m</code>-edge probability [5], expected size [5], die-based degree probability [5], then Watts-Strogatz construction and comparison [10].</li>
+          <li><strong>2022/23 Q3, 25 marks:</strong> both generators and exactly-<code>m</code>-edge probability [8], degree probability [5], giant component [5], and Watts-Strogatz [7].</li>
+          <li><strong>2021/22 Q3, 15 marks:</strong> <code>G(n,m)</code> [3], <code>G(n,p)</code> plus probability [4], coin-based degree probability [4], and giant component [4].</li>
+          <li><strong>2018/19 Q3, 20 marks:</strong> both models as distributions [10], then degree distribution, expected average degree, and die-based degree probability [10].</li>
+        </ul>
+        <div class="answer-frame">
+          <p><strong>Answer frame:</strong> State the model distinction before calculating. In <code>G_ER(n,m)</code>, every graph with exactly <code>m</code> edges is equally likely; in <code>G_ER(n,p)</code>, each possible edge is included independently with probability <code>p</code>. Use <code>E[|E|] = p * n(n-1)/2</code> for expected size, and a binomial probability for a chosen node's degree in the independent-edge model.</p>
+        </div>
+
+        <h2 id="small-world">Priority 5 - Watts-Strogatz, Clustering, Transitivity, And Path Length</h2>
+        <p><strong>Frequency:</strong> 6/7 papers, from 2018/19 onward. This family normally combines one definition or calculation with a comparison question.</p>
+        <ul class="paper-list">
+          <li><strong>2025/26 Q7, 14 marks:</strong> characteristic path length and small-world behaviour [4], graph transitivity and its value for <code>G_ER(n,p)</code> [5], then Watts-Strogatz properties relative to Erdos-Renyi and an <code>(n,d)</code>-circle graph [5].</li>
+          <li><strong>2024/25 Q7, 14 marks:</strong> node and graph clustering [4], clustering in <code>G_ER(n,p)</code> and its sparse-limit consequence [5], then the same Watts-Strogatz comparison [5].</li>
+          <li><strong>2023/24 Q3(d)-(e), 10 marks:</strong> construct an <code>(n,d,p)</code>-Watts-Strogatz graph [5] and compare clustering/path length across models [5].</li>
+          <li><strong>2022/23 Q3(d), 7 marks:</strong> construct Watts-Strogatz and explain its distinguishing properties.</li>
+          <li><strong>2021/22 Q4(a)-(b), 8 marks:</strong> sketch a circle graph and count edges [3], then construct Watts-Strogatz and compare its properties [5].</li>
+          <li><strong>2018/19 Q4(a), 10 marks:</strong> node/graph clustering, random-graph clustering, sparse-limit consequence, and Watts-Strogatz comparison.</li>
+        </ul>
+        <div class="answer-frame">
+          <p><strong>Answer frame:</strong> Keep the three models distinct. The circle graph has high local structure and longer paths; Erdos-Renyi has short paths but low clustering when average degree stays constant; Watts-Strogatz combines comparatively high clustering with short characteristic path length after some rewiring. State the required definition before using it in a derivation.</p>
+        </div>
+
+        <h2 id="trees-directed-and-historical">Priority 6 And Coverage - Pruefer, Directed, Market, And Web Networks</h2>
+        <p><strong>Pruefer codes:</strong> 5/7 papers, starting in 2021/22 and prominent in both latest papers. Practise code-to-tree, tree-to-code, degree-sequence inference, and labelled isomorphism. In 2025/26 this is a full 15-mark question.</p>
+        <p><strong>Directed networks:</strong> 2017/18, 2018/19, and 2021/22-2023/24 test weak and strong connectivity, strongly connected components, and the Bow-Tie diagram. It is absent from 2024/25 and 2025/26, so maintain coverage but revise it after the higher-return current core.</p>
+        <p><strong>Markets and web networks:</strong> 2017/18 has the strongest evidence: game theory, a transport-network Nash equilibrium, matching and market-clearing prices, Bow-Tie, and PageRank. This directly supports official outcomes on markets and document networks, but it does not make them likely modern question slots.</p>
+
+        <h2 id="current-format">Current-Format Question Map</h2>
+        <table>
+          <thead><tr><th>Question</th><th>2025/26 task family</th><th>Marks</th><th>Closest 2024/25 counterpart</th></tr></thead>
+          <tbody>
+            <tr><td>Q1</td><td>Adjacency matrix, graph basics, degree sequence</td><td>14</td><td>Graph constraints, matrix, block form</td></tr>
+            <tr><td>Q2</td><td>Bipartite graph, matrix block form, projection</td><td>15</td><td>Affiliation network, bipartite graph, projection</td></tr>
+            <tr><td>Q3</td><td>Pruefer code and labelled tree isomorphism</td><td>15</td><td>Centrality and distance matrix</td></tr>
+            <tr><td>Q4</td><td>BFS, predecessors, all shortest paths</td><td>14</td><td>Same 5 + 9 BFS structure</td></tr>
+            <tr><td>Q5</td><td>Degree, closeness, and betweenness centrality</td><td>14</td><td>Laplacian and Pruefer-code tree work</td></tr>
+            <tr><td>Q6</td><td>Erdos-Renyi definitions, probabilities, expected edges</td><td>14</td><td>Same models with a degree-probability variant</td></tr>
+            <tr><td>Q7</td><td>Path length, transitivity, Watts-Strogatz</td><td>14</td><td>Clustering, sparse-limit consequence, Watts-Strogatz</td></tr>
+          </tbody>
+        </table>
+
+        <h2 id="coverage-map">Official Outcome Coverage Map</h2>
+        <table>
+          <thead><tr><th>Official outcome</th><th>Paper evidence</th><th>Revision treatment</th></tr></thead>
+          <tbody>
+            <tr><td>Graph-theoretic network description</td><td>Every paper; especially 2024/25-2025/26 matrices, bipartite graphs, trees</td><td>Primary</td></tr>
+            <tr><td>Graph traversal</td><td>BFS in all 7 papers</td><td>Primary, safest family</td></tr>
+            <tr><td>Centrality measures</td><td>Explicit conventional centrality in 6/7 papers from 2018/19 onward</td><td>Primary</td></tr>
+            <tr><td>Random graph generators and properties</td><td>Erdos-Renyi in 6/7 papers; small-world in the same six</td><td>Primary</td></tr>
+            <tr><td>Markets as networks</td><td>Mainly 2017/18</td><td>Official coverage, lower paper priority</td></tr>
+            <tr><td>Document networks such as the web</td><td>PageRank and Bow-Tie in 2017/18; Bow-Tie continues through 2023/24</td><td>Official coverage, lower recent-paper priority</td></tr>
+          </tbody>
+        </table>
+
+        <h2>Final Paper-Focused Rule</h2>
+        <div class="answer-frame">
+          <p><strong>Prepare the recurring core first:</strong> BFS, centrality, Erdos-Renyi, Watts-Strogatz, graph foundations, bipartite projections, and Pruefer codes. Then cover directed, market, and document-network material from current teaching. The archive strongly supports the former as revision priorities; it does not authorise dropping the latter from the syllabus.</p>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>

@@ -1,5 +1,9 @@
 # Collaboration instructions
 
+## Mathematical notation
+
+In study-material pages, present mathematical notation with proper HTML symbols and formatting wherever practical: use superscripts and subscripts rather than caret or underscore notation, and use mathematical symbols (for example, ×, −, →, and Σ) rather than programming-style substitutes. Keep notation compact and readable for quick revision.
+
 ## Confirming substantial work
 
 Before starting a substantial implementation, first state a concise interpretation of the request and the intended deliverable. If a reasonable misinterpretation could create meaningful rework, consume substantial usage, or materially change the output, wait for the user's confirmation before taking implementation actions.

@@ -1,0 +1,127 @@
+Summer Examinations 2018/19
+Exam Code(s) 4BS2, 4BMS2, 4FM2, 4BCT1, 4BME1, 1SPA1, 4SPE1
+Exam(s) 4th Science
+Module(s) Networks
+Module Code(s) CS4423
+External Examiner(s) Prof. T. Brady
+Internal Examiner(s) Prof. G. Ellis
+*Prof. G. Pfeiﬀer
+Instructions Answer all questions.
+Duration 2 hours
+No. of Pages 3 pages (including this cover page)
+Discipline Mathematics
+Requirements:
+Release to Library Yes ✓ No
+Release in Exam Venue Yes ✓ No
+MCQ Yes No ✓
+Statistical/Log Tables Yes No ✓
+
+2
+1.
+(a) [5 marks] What is a graph? What is a directed graph? What is a tree?
+(b) [5 marks] At a party withn =5 people, some people know each other already while
+others don’t. Each of the 5 guests is asked how many friends they have at this
+party. Two report that they have one friend each. Two other guests have two
+friends each, and the ﬁfth guest has three friends at the party. Understanding
+friendship as a symmetric relation, is this network possible? Why, or why not?
+(c) [10 marks]
+(i) Describe Breadth First Search as an algorithm for undirected graphs. What
+is its input, what is its output, and what sequence of steps is taken to
+produce the output from the input?
+(ii) In the network on the side, apply
+Breadth First Search to determine a
+spanning tree with rootG and the short-
+est distances from nodeG to each of the
+other nodes in the graph.
+(iii) Use the Breadth First Search from part
+(ii) to also determine, for each nodex, its
+possible predecessors on a shortest path
+fromG tox. Use this information to list
+all shortest paths fromG toB.
+A
+B C
+D
+E
+F
+G
+H
+I
+J
+K
+2.
+(a) [5 marks] Deﬁne the concepts of degree centrality and of normalized degree centrality
+for a graph G.
+LetG be the graph on the vertex set {1,2,3,4,5,6,7 } with edges 1 −2,1 −3,
+2 −4,2 −5,3 −4,4 −6,5 −6 and6 −7. For each node in this graph G, deter-
+mine its normalized degree centrality. (A sketch of G might be useful.)
+(b) [5 marks] The fact that(
+2 2
+3 1
+) (
+1
+1
+)
+=
+(
+4
+4
+)
+=4
+(
+1
+1
+)
+makesλ = 4 an eigenvalue with eigenvector v = ( 1
+1 ) of the matrix A = ( 2 2
+3 1 ).
+The other eigenvalue of A is −1. With this example in mind, formulate the
+Perron–Frobenius Theorem on square, irreducible, nonnegative matrices. Deﬁne
+the concept of eigenvector centrality for a connected graph G.
+(c) [5 marks] Deﬁne the concepts of closeness centrality and normalized closeness cen-
+trality for a connected graph G. Give an example of a connected graph on 5
+vertices with a node of normalized closeness centrality 1.
+(d) [5 marks] Deﬁne the concepts of betweenness centrality and normalized betweenness
+centrality for a connected graph G.
+
+3
+3.
+(a) [10 marks]
+(i) Deﬁne the two Erd˝ os–R´ enyi models,G(n,m ) andG(n,p ) of random graphs.
+(ii) For a ﬁxed value of n, describe each of the two models as a probability
+distribution on the set Gn of all graphs on the n nodesX = {1,2,...,n }.
+(iii) For n =100 andp = 1
+99, what is the probability that a graph G sampled
+from the G(n,p ) model has exactly 50 edges?
+(b) [10 marks]
+(i) Deﬁne the degree distribution of a graph G.
+(ii) What is the degree distribution in a random graph G in theG(n,p ) model?
+What is the expected average degree in such a graph G?
+(iii) Construct a graph G on 100 nodes by throwing a (fair, 6-sided) dice once
+for each possible edge, adding the edge only if the dice shows a 6. Then pick
+a node at random in this graph. What is the probability that this node has
+degree10?
+4.
+(a) [10 marks]
+(i) What is the node clustering coeﬃcient of a vertex x in a graph G? What is
+the graph clustering coeﬃcient C ofG?
+(ii) Determine the graph clustering coeﬃcient C of a random graph in the
+G(n,p ) model. How does C behave in the limit n → ∞, when the av-
+erage node degree is kept constant? What practical consequence does this
+observation have?
+(iii) Describe the Watts–Strogatz small-world model (WS model). What prop-
+erties does a random graph sampled from the WS model have, that one
+wouldn’t ﬁnd in a random graph sampled from the G(n,p ) model, or in an
+(n,d )-circle graph?
+(b) [10 marks] Suppose that G = (X,E ) is a directed network with node set X and edge
+setE.
+(i) Deﬁne what it means for G to be weakly connected, and what it means to
+be strongly connected.
+(ii) In general, a directed network is partitioned into strongly connected com-
+ponents. Describe the equivalence relation that yields strongly connected
+components as its equivalence classes in terms of the edge set E, regarded
+as a relation on X.
+(iii) Many directed networks, like the World Wide Web, have a giant strongly
+connected component which covers a substantial part of the network. Name
+the other parts of the so-called Bow-Tie diagram of the components in a
+directed network, and describe each in terms of a suitable relation on the
+set of strongly connected components.

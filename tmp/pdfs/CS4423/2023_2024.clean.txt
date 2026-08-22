@@ -1,0 +1,93 @@
+Semester 2 Examinations 2024
+Exam Codes 3BA1, 4BDS1, 3BME1, 4BME1, 4BCT1,
+1BMG1, 4BMS2, 4BS2, 4FM2, 1GDS1
+Exam 4th Science
+Module Networks
+Module Code CS4423
+External Examiner(s) Prof. Colva Roney–Dougal
+Internal Examiner(s) Dr N. Madden
+Dr A. Carnevale*
+Instructions Answer all four questions.
+Duration 2h o u r s
+No. of Pages 3p a g e s( i n c l u d i n gt h i sc o v e rp a g e )
+Discipline Mathematics
+Requirements:
+Release to Library Yes
+Release in Exam Venue Yes
+Statistical Tables/ Log Tables Yes
+Non-programmable calculators Yes
+
+Q1. [ 25 Marks ]
+(a) [ 10 Marks ]
+(i) What is a graph?
+(ii) What are the order and the size of a graph?
+(iii) What is the adjacency matrix of a graph?
+(iv) Let A be the adjacency matrix of a graph G.E x p l a i n h o w o n e c a n
+compute the size of G as a function of the entries of A.
+(v) Let A be the adjacency matrix of a graph G.E x p l a i n h o w o n e c a n
+compute the degree of the nodes of G as a function of the entries of A2.
+(b) [ 4M a r k s]I nt h eg r a p ho nt h er i g h t ,u s et h eB r e a d t h
+First Search algorithm to determine all the shortest
+distances between a and all the other nodes.
+(c) [ 7M a r k s]I nt h eg r a p ho nt h er i g h t ,u s et h eB r e a d t h
+First Search algorithm for predecessors to determine
+all the predecessors in a shortest path from a to all
+the other nodes. Use this information to construct
+all the shortest paths between nodes a and f .
+(d) [ 4M a r k s] Determine a spanning tree of the graph on
+the right by using the Breadth First Search algo-
+rithm for spanning trees with inputs the graph itself
+and its node a.
+Q2. [ 25 Marks ]
+(a) [ 5M a r k s]L e t G be the graph on the set of nodes {1, 2, 3, 4, 5, 6} with edges
+1  2, 1  3, 2  4, 3  4, 3  6, 4  5, 4  6. Draw the graph G and determine
+the normalised degree centrality of all its nodes.
+(b) [ 5M a r k s]D e ﬁ n et h ec o n c e p to fnormalised closeness centrality for a node in a
+connected graph G.C o m p u t e t h e n o r m a l i s e d c l o s e n e s s c e n t r a l i t y o f n o d e 1 o f
+G in (a).
+(c) [ 5M a r k s] Compute the normalised betweenness centrality of node 5 of G in
+(a). Justify your answer.
+(d) [ 3M a r k s]I st h eg r a p hG in (a) bipartite? Justify your answer.
+(e) [ 7M a r k s]L e t H be a complete graph on 3 nodes. The eigenvalues of the
+adjacency matrix of A are 2 (with multiplicity 1), and 1( w i t hm u l t i p l i c i t y
+2). Use this information to compute the normalised eigenvector centrality of
+each node in H.
+Page 2 of 3 (p.t.o.)
+
+Q3. [ 25 Marks ]
+(a) [ 5M a r k s]D e s c r i b eh o wt og e n e r a t eag r a p hf r o mt h eE r d ˝ o s – R ´ e n y im o d e l s
+G(n, m)a n d G(n, p). In each model, what is the probability that a randomly
+chosen graph G has exactly m edges? Justify your answer.
+(b) [ 5M a r k s]F o rw h i c hv a l u eo fp does sampling graphs from the G(n, p)m o d e l
+yield an expected size m?
+(c) [ 5M a r k s]S u p p o s eo n ec o n s t r u c t e dag r a p hG on 120 nodes by tossing a (fair,
+6-sided) die once for each possible edge, adding the edge only if the die shows
+3 or 6. Then pick a node at random in this graph. What is the probability
+that this node has degree 50? (You do not need to return a numerical value.
+It is enough to give an explicit formula in terms of the given data.)
+(d) [ 5M a r k s]D e s c r i b eh o wt og e n e r a t ea n(n, d, p)-WS graph in the Watts–Strogatz
+small-world model from an ( n, d)-circle graph.
+(e) [ 5M a r k s] How do the clustering and characteristic path length of a random
+graph sampled from the WS model relate to those in a random graph sampled
+from the G(n, p)m o d e l ,o ri na n(n, d)-circle graph?
+Q4. [ 25 Marks ]
+(a) [ 8M a r k s]C o m p u t et h eP r ¨ u f e rc o d eo ft h et r e eo nt h es e to fn o d e sX =
+{1, 2, 3, 4, 5, 6} with edges 1–2, 1–3, 1–4, 4–5, 5–6. Explain how the degree
+sequence of this tree can be determined from its Pr¨ ufer code.
+(b) [ 5M a r k s] What is a directed graph? What is the in-
+degree and what is the out-degree of node a in the
+directed graph on the right?
+(c) [ 7M a r k s]F o rad i r e c t e dg r a p hG on a set of nodes
+X,d e ﬁ n ea ne q u i v a l e n c er e l a t i o no nX that has the
+strongly connected components of G as its equiva-
+lence classes. Explain why the graph on the right
+has 5 strongly connected components, each consist-
+ing of a single node.
+(d) [ 5M a r k s]M a n yd i r e c t e dn e t w o r k s ,l i k et h eW o r l d
+Wide Web, have a giant strongly connected compo-
+nent which covers a substantial part of the network.
+Name the other parts of the so-called Bow-Tie dia-
+gram of the components in a directed network, and
+describe each in terms of a suitable relation on the
+set of strongly connected components.
+Page 3 of 3

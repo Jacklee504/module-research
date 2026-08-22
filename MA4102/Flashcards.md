@@ -1,55 +1,55 @@
-# MA4102 - Exam Flashcards
+# MA4102 - Core Exam Flashcards
 
-Use these cards after attempting the matching paper questions in `most_asked.html`. Each card has one distinct recall purpose; the back is a complete, exam-safe answer rather than a hint.
+Use these after attempting questions from [most_asked.html](most_asked.html). Each card is a short refresher for a distinct, recurring, or high-mark current-paper question shape. Detailed walkthroughs and legacy-only variants remain in the Most Asked page.
 
 ## 1. Grover Search
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>State the Grover success-probability formula for one marked item in a list of size N.</td><td>Let sin(θ)=1/√(N). Starting in the uniform superposition, after k Grover iterations the marked-state probability is P_k=sin²((2k+1)θ). This assumes exactly one marked item.</td><td>2023 Q5; 2024 Q5; 2025 Q3</td></tr>
-<tr><td>How do you choose the best integer number of Grover iterations?</td><td>Compute θ=arcsin(1/√N) and k*=π/(4θ)-1/2. Choose k so (2k+1)θ is closest to π/2. Evaluate P<sub>k</sub>=sin²((2k+1)θ) at the nearest nonnegative integers to k* and choose the larger value.</td><td>2024 Q5</td></tr>
-<tr><td>For Grover search with N=32 and one marked item, what are the theoretical, best-integer, and second-best-integer results?</td><td>θ=arcsin(1/√32), so k*=π/(4θ)-1/2=3.919… . The best integer is k=4, with P<sub>4</sub>≈0.99918; the second-best is k=3, with P<sub>3</sub>≈0.89694.</td><td>2024 Q5; 2021 Q5</td></tr>
-<tr><td>For Grover search with N=8 and one marked item, what are the success probabilities after one and two Grover iterations?</td><td>θ=arcsin(1/√(8)). Hence P_1=sin²(3θ)=25/32=0.78125 and P_2=sin²(5θ)=121/128=0.9453125. Two iterations give the higher probability.</td><td>2023 Q5</td></tr>
-<tr><td>For N=2ⁿ, define |φ⟩ and the uniform state |ψ⟩ in the Grover 2D basis for one marked basis state |a⟩.</td><td>|φ⟩=(1/√(2ⁿ-1)) Σ<sub>x≠a</sub>|x⟩. The uniform state is |ψ⟩=(1/√(2ⁿ))|a⟩+√((2ⁿ-1)/2ⁿ)|φ⟩. For N=4, |ψ⟩=(1/2)|a⟩+(√3/2)|φ⟩.</td><td>2025 Q3(a); 2022 Q3(a)</td></tr>
-<tr><td>For N=4, in the ordered basis (|a⟩,|φ⟩), what Grover matrix sends the uniform state to the marked state?</td><td>Here θ=π/6. In the ordered basis (|a⟩,|φ⟩), G=[[1/2,√(3)/2],[-√(3)/2,1/2]] and |ψ⟩=[1/2,√(3)/2]ᵀ. Hence G|ψ⟩=[1,0]ᵀ=|a⟩.</td><td>2025 Q3(a); 2022 Q3(a)</td></tr>
+<tr><td>What is Grover's success-probability formula for one marked item?</td><td>Set <code>sin θ = 1/√N</code>. After <code>k</code> iterations, <code>P<sub>k</sub> = sin²((2k + 1)θ)</code>.</td><td>2023 Q5; 2024 Q5</td></tr>
+<tr><td>How do you choose the best integer Grover iteration count?</td><td>Compute <code>k* = π/(4θ) − 1/2</code>. Test the nearest non-negative integers in <code>P<sub>k</sub></code>; take the larger as best and the other nearby one for a second-best question.</td><td>2024 Q5</td></tr>
+<tr><td>What is the compact Grover 2D setup for the <code>N = 4</code> question?</td><td>For marked <code>|a⟩</code>, set <code>|φ⟩ = (1/√(N − 1)) Σ<sub>x ≠ a</sub>|x⟩</code>. For <code>N = 4</code>, <code>|ψ⟩ = (1/2)|a⟩ + (√3/2)|φ⟩</code>.</td><td>2025 Q3(a); 2022 Q3(a)</td></tr>
+<tr><td>What is the <code>N = 4</code> Grover matrix in the ordered basis <code>(|a⟩, |φ⟩)</code>?</td><td><code>G = [[1/2, √3/2], [−√3/2, 1/2]]</code>. Therefore <code>G|ψ⟩ = |a⟩</code>.</td><td>2025 Q3(a); 2022 Q3(a)</td></tr>
 </tbody>
 </table>
 
-## 2. QFT, Deutsch-Jozsa, And Classical Search
+## 2. QFT And Search Variants
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>How do you state and calculate the d-dimensional QFT, including its Fourier-phase-state result?</td><td>Let ω=e<sup>2πi/d</sup>. F<sub>d</sub>|x⟩=(1/√d) Σ<sub>y</sub>ω<sup>xy</sup>|y⟩. Expand the given state, apply this to each term, simplify powers of ω, and collect coefficients. In particular, F<sub>d</sub>[(1/√d)Σ<sub>x</sub>ω<sup>rx</sup>|x⟩]=|−r mod d⟩.</td><td>2024 Q4(ii); 2025 Q3(b); 2025 Q3(b)(ii); 2022 Q3(b)</td></tr>
-<tr><td>What is the Deutsch-Jozsa oracle action and how do you build its permutation matrix?</td><td>For f:{0,1}ⁿ → {0,1}, U<sub>f</sub>|x,y⟩=|x,y ⊕ f(x)⟩. In the stated basis order, apply this to each input; put a 1 in the row of its output and column of its input. All other entries are 0. Every row and column has one 1.</td><td>2023 Q4(ii)</td></tr>
-<tr><td>For an unordered classical search list of length 8 with target at position 6, what are best, worst, average, and actual left-to-right comparison counts?</td><td>Assume left-to-right search, stopping at the first match. Best: 1. Worst: N. Average, target present uniformly: (N+1)/2. First occurrence at position j: j. For N=8 and j=6: 1, 8, 4.5, 6.</td><td>2023 Q5(i)</td></tr>
+<tr><td>How do you calculate a small <code>d</code>-dimensional QFT?</td><td>State <code>ω = e<sup>2πi/d</sup></code> and <code>F<sub>d</sub>|x⟩ = (1/√d) Σ<sub>y</sub> ω<sup>xy</sup>|y⟩</code>. Expand the input, transform each basis ket, simplify powers of <code>ω</code>, and collect amplitudes.</td><td>2024 Q4(ii); 2025 Q3(b); 2022 Q3(b)</td></tr>
+<tr><td>What QFT shortcut applies to a Fourier-phase state?</td><td>With the stated convention, <code>F<sub>d</sub>[(1/√d) Σ<sub>x</sub> ω<sup>rx</sup>|x⟩] = |−r mod d⟩</code>.</td><td>2025 Q3(b); 2022 Q3(b)</td></tr>
+<tr><td>How do you build a Deutsch-Jozsa oracle permutation matrix?</td><td>Use <code>U<sub>f</sub>|x, y⟩ = |x, y ⊕ f(x)⟩</code>. Apply it to every input in the paper's basis order and place one <code>1</code> in the row of each output and the column of its input.</td><td>2023 Q4(ii)</td></tr>
+<tr><td>What comparison counts apply to simple left-to-right classical search?</td><td>For a present target in a list of length <code>N</code>: best <code>1</code>, worst <code>N</code>, average <code>(N + 1)/2</code>, and target at position <code>j</code> takes <code>j</code> comparisons.</td><td>2023 Q5(i)</td></tr>
 </tbody>
 </table>
 
-## 3. State Measurement, Density Matrices, Bloch Sphere, And Basis Change
+## 3. State Measurement And Representation
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>Given a qutrit |ψ⟩=a|0⟩+b|1⟩+c|2⟩, how do you calculate a computational-basis outcome probability?</td><td>The probability of outcome j is the squared modulus of the coefficient of |j⟩: P(0)=|a|², P(1)=|b|², P(2)=|c|². Check normalisation: |a|²+|b|²+|c|²=1.</td><td>2023 Q1(i); 2024 Q1(i); 2025 Q2(a)</td></tr>
-<tr><td>For a projective measurement {Π<sub>i</sub>}, what are the outcome probability and post-measurement state?</td><td>For state |ψ⟩, P(i)=⟨ψ|Π<sub>i</sub>|ψ⟩. If P(i)>0, the post-measurement state is Π<sub>i</sub>|ψ⟩/√P(i). For projector |j⟩⟨j|, outcome j leaves |j⟩.</td><td>2025 Q2(a); 2025 Q1(b); 2022 Q2(a)</td></tr>
-<tr><td>How do you write the density matrix of |ψ⟩=a|0⟩+b|1⟩+c|2⟩?</td><td>ρ=|ψ⟩⟨ψ|, so ρ<sub>ij</sub> is coefficient i times the conjugate of coefficient j: ρ=[[aa*,ab*,ac*],[ba*,bb*,bc*],[ca*,cb*,cc*]].</td><td>2023 Q1(i); 2024 Q1(i); 2025 Q2(b)</td></tr>
-<tr><td>How do you answer a qutrit "apply U then measure" question?</td><td>First calculate |ψ′⟩=U|ψ⟩. Read the requested final basis-state amplitude from |ψ′⟩, then take its squared modulus. Do not square amplitudes before applying U, because interference can change the final probability.</td><td>2023 Q1(i); 2024 Q1(i); 2025 Q2(c)</td></tr>
-<tr><td>Express α|0⟩+β|1⟩ in the plus/minus basis and give both measurement probabilities.</td><td>Since |+⟩=(|0⟩+|1⟩)/√(2) and |-⟩=(|0⟩-|1⟩)/√(2), |ψ⟩=γ|+⟩+δ|-⟩ with γ=(α+β)/√(2) and δ=(α-β)/√(2). Therefore P(+)=|α+β|²/2 and P(-)=|α-β|²/2.</td><td>2023 Q1(ii); 2024 Q1(ii); 2025 Q1(a)</td></tr>
-<tr><td>How do you match a normalized qubit to Bloch-sphere angles?</td><td>Remove global phase so the |0⟩ coefficient α is real and nonnegative, then match |ψ⟩=cos(θ/2)|0⟩+e<sup>iφ</sup>sin(θ/2)|1⟩. Hence θ=2 arccos(|α|) and, when β is nonzero, φ=arg(β)-arg(α) modulo 2π.</td><td>2023 Q1(ii); 2024 Q1(ii)</td></tr>
+<tr><td>How do you answer a computational-basis measurement question?</td><td>Square the modulus of the requested amplitude. If outcome <code>j</code> is obtained, the post-measurement state is <code>|j⟩</code>.</td><td>2023 Q1(i); 2024 Q1(i); 2025 Q2(a)</td></tr>
+<tr><td>What are the probability and post-measurement-state rules for projectors?</td><td>For projector <code>Π<sub>i</sub></code>, <code>P(i) = ⟨ψ|Π<sub>i</sub>|ψ⟩</code>. If <code>P(i) &gt; 0</code>, the new state is <code>Π<sub>i</sub>|ψ⟩/√P(i)</code>.</td><td>2025 Q1(b); 2025 Q2(a)</td></tr>
+<tr><td>How do you write the density matrix of a pure qutrit state?</td><td>Use <code>ρ = |ψ⟩⟨ψ|</code>. If the amplitudes are <code>a, b, c</code>, entry <code>ρ<sub>ij</sub></code> is amplitude <code>i</code> times the conjugate of amplitude <code>j</code>.</td><td>2023 Q1(i); 2024 Q1(i); 2025 Q2(b)</td></tr>
+<tr><td>How do you answer "apply <code>U</code>, then measure"?</td><td>First calculate <code>|ψ′⟩ = U|ψ⟩</code>. Then square the modulus of the requested amplitude in <code>|ψ′⟩</code>; do not take probabilities before applying <code>U</code>.</td><td>2023 Q1(i); 2024 Q1(i); 2025 Q2(c)</td></tr>
+<tr><td>How do you measure <code>|ψ⟩ = α|0⟩ + β|1⟩</code> in the plus/minus basis?</td><td><code>|ψ⟩ = ((α + β)/√2)|+⟩ + ((α − β)/√2)|−⟩</code>. Hence <code>P(+) = |α + β|²/2</code> and <code>P(−) = |α − β|²/2</code>.</td><td>2023 Q1(ii); 2024 Q1(ii); 2025 Q1(a)</td></tr>
+<tr><td>How do you obtain Bloch-sphere angles from a normalised qubit?</td><td>Remove global phase and match <code>|ψ⟩ = cos(θ/2)|0⟩ + e<sup>iφ</sup>sin(θ/2)|1⟩</code>. Then <code>θ = 2 arccos(|α|)</code> and <code>φ = arg(β) − arg(α)</code> modulo <code>2π</code>.</td><td>2023 Q1(ii); 2024 Q1(ii)</td></tr>
 </tbody>
 </table>
 
-## 4. Reduced States, Purity, Entropy, And Entanglement
+## 4. Entanglement And Purity
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>For |ψ⟩=a|00⟩+b|01⟩+c|10⟩+d|11⟩, what is the reduced density matrix of the second qubit?</td><td>Trace out the first qubit: ρ<sub>B</sub>=[[|a|²+|c|²,ab*+cd*],[a*b+c*d,|b|²+|d|²]]. The formula uses basis order |00⟩,|01⟩,|10⟩,|11⟩ and leaves B in order |0⟩,|1⟩.</td><td>2023 Q2; 2024 Q2(i)</td></tr>
-<tr><td>How do you compute purity for a 2 × 2 density matrix [[p,q],[q*,r]]?</td><td>Purity is Tr(ρ²)=p²+r²+2|q|². For the reduced state of an overall pure bipartite state, purity 1 means the global state is product; purity < 1 means it is entangled.</td><td>2023 Q2; 2024 Q2(i)</td></tr>
-<tr><td>State the von Neumann entropy and how it decides entanglement for a pure bipartite state.</td><td>If ρ has eigenvalues λ<sub>j</sub>, S(ρ)=−Σ<sub>j</sub>λ<sub>j</sub>log<sub>2</sub>(λ<sub>j</sub>), with 0 log<sub>2</sub>(0)=0. For a pure bipartite state, S=0 iff the global state is product, while S>0 iff it is entangled.</td><td>2023 Q2; 2024 Q2(i); 2025 Q2(d)</td></tr>
-<tr><td>What fast determinant test checks whether a pure 2-qubit vector is product?</td><td>For |ψ⟩=a|00⟩+b|01⟩+c|10⟩+d|11⟩, form the coefficient matrix [[a,b],[c,d]]. The state is separable iff its determinant ad-bc is 0; if ad-bc is not 0, its coefficient matrix has rank 2 and the state is entangled.</td><td>2025 Q2(d)</td></tr>
+<tr><td>How do you find the reduced state of the second qubit?</td><td>For <code>|ψ⟩ = a|00⟩ + b|01⟩ + c|10⟩ + d|11⟩</code>, <code>ρ<sub>B</sub> = [[|a|² + |c|², ab* + cd*], [a*b + c*d, |b|² + |d|²]]</code>.</td><td>2023 Q2; 2024 Q2(i)</td></tr>
+<tr><td>How do you calculate the purity of a <code>2 × 2</code> density matrix?</td><td>For <code>ρ = [[p, q], [q*, r]]</code>, <code>Tr(ρ²) = p² + r² + 2|q|²</code>. For a reduced state of an overall pure bipartite state, purity <code>1</code> means product and purity below <code>1</code> means entangled.</td><td>2023 Q2; 2024 Q2(i)</td></tr>
+<tr><td>What is the fast product-state test for a pure <code>2</code>-qubit vector?</td><td>For coefficients <code>a, b, c, d</code>, form <code>[[a, b], [c, d]]</code>. The state is product exactly when <code>ad − bc = 0</code>; otherwise it is entangled.</td><td>2025 Q2(d)</td></tr>
+<tr><td>How does entropy decide entanglement for a pure bipartite state?</td><td>With reduced-state eigenvalues <code>λ<sub>j</sub></code>, <code>S(ρ) = −Σ<sub>j</sub> λ<sub>j</sub> log<sub>2</sub>(λ<sub>j</sub>)</code>. For a globally pure bipartite state, <code>S = 0</code> iff product and <code>S &gt; 0</code> iff entangled.</td><td>2023 Q2; 2024 Q2(i)</td></tr>
+<tr><td>Why does a unitary preserve purity?</td><td>With <code>ρ′ = UρU†</code>, <code>Tr((ρ′)²) = Tr(Uρ²U†) = Tr(ρ²)</code>, using cyclicity of trace and <code>U†U = I</code>.</td><td>2024 Q2(ii)</td></tr>
 </tbody>
 </table>
 
@@ -58,65 +58,46 @@ Use these cards after attempting the matching paper questions in `most_asked.htm
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>Show that |β_00⟩=(|00⟩+|11⟩)/√(2) is entangled.</td><td>Tracing out either qubit gives ρ=I/2. Thus Tr(ρ²)=1/2 and S(ρ)=1, so the reduced state is mixed. Since |β_00⟩ is globally pure, it is maximally entangled.</td><td>2025 Q5; 2022 Q4(a)</td></tr>
-<tr><td>State and prove the rotated Bell-basis identity used in the Howard papers.</td><td>Let |ψ⟩=U_θ|0⟩ and |ψ⊥⟩=U_θ|1⟩, where U_θ=[[cos(θ),sin(θ)],[-sin(θ),cos(θ)]]. Then |β_00⟩=(|ψ,ψ⟩+|ψ⊥,ψ⊥⟩)/√(2). Expand both products: the |01⟩ and |10⟩ coefficients cancel, and the |00⟩ and |11⟩ coefficients are each 1/√(2).</td><td>2025 Q5(a); 2022 Q5(a)</td></tr>
-<tr><td>In the rotated Bell-state measurement setup, what pure state does Bob have after Alice applies U_θ⁻¹ and measures?</td><td>Applying U_θ⁻¹ to Alice's qubit gives (|0⟩|ψ⟩+|1⟩|ψ⊥⟩)/√(2). Thus outcome 0 leaves Bob in |ψ⟩, and outcome 1 leaves Bob in |ψ⊥⟩.</td><td>2025 Q5(b); 2022 Q5(b)</td></tr>
-<tr><td>For the parity measurement on |β_00⟩, what is P(even)?</td><td>Π_even=|00⟩⟨00|+|11⟩⟨11| and Π_odd=|01⟩⟨01|+|10⟩⟨10|. Since Π_even|β_00⟩=|β_00⟩, P(even)=⟨β_00|Π_even|β_00⟩=1; hence P(odd)=0.</td><td>2025 Q5(c); 2022 Q5(c)</td></tr>
-<tr><td>Verify that the even and odd parity operators form a projective measurement.</td><td>Each is a sum of orthogonal rank-one computational-basis projectors, so Π<sub>even</sub><sup>†</sup>=Π<sub>even</sub> and Π<sub>even</sub>²=Π<sub>even</sub>, and similarly for Π<sub>odd</sub>. Their supports are disjoint, so Π<sub>even</sub>Π<sub>odd</sub>=0. Together their four rank-one projectors sum to I.</td><td>2025 Q5(c); 2022 Q5(c)</td></tr>
-<tr><td>What must be checked to show a family {Π<sub>i</sub>} is a projective measurement?</td><td>Show each Π<sub>i</sub> is Hermitian (Π<sub>i</sub><sup>†</sup>=Π<sub>i</sub>) and idempotent (Π<sub>i</sub>²=Π<sub>i</sub>), distinct projectors are orthogonal (Π<sub>i</sub>Π<sub>j</sub>=0 for i≠j), and they are complete (Σ<sub>i</sub>Π<sub>i</sub>=I). Then P(i)=⟨ψ|Π<sub>i</sub>|ψ⟩.</td><td>2025 Q1(b); 2025 Q5(c); 2022 Q5(c)</td></tr>
-<tr><td>Derive the plus/minus probabilities with projectors and verify the measurement conditions.</td><td>Take Π<sub>+</sub>=|+⟩⟨+| and Π<sub>−</sub>=|−⟩⟨−|. Because |+⟩,|−⟩ are orthonormal, these projectors are Hermitian, idempotent, mutually orthogonal, and sum to I. Therefore P(+)=⟨ψ|Π<sub>+</sub>|ψ⟩=|α+β|²/2 and P(−)=|α−β|²/2 for |ψ⟩=α|0⟩+β|1⟩.</td><td>2025 Q1(b)</td></tr>
+<tr><td>How do you show <code>|β<sub>00</sub>⟩ = (|00⟩ + |11⟩)/√2</code> is entangled?</td><td>Tracing out either qubit gives <code>I/2</code>, which has purity <code>1/2</code> and entropy <code>1</code>. Since the global Bell state is pure, it is maximally entangled.</td><td>2025 Q5; 2022 Q4(a)</td></tr>
+<tr><td>What is the rotated Bell-state identity?</td><td>For <code>|ψ⟩ = U<sub>θ</sub>|0⟩</code> and <code>|ψ<sub>⊥</sub>⟩ = U<sub>θ</sub>|1⟩</code>, <code>|β<sub>00</sub>⟩ = (|ψ, ψ⟩ + |ψ<sub>⊥</sub>, ψ<sub>⊥</sub>⟩)/√2</code>. Expand both products; the cross terms cancel.</td><td>2025 Q5(a); 2022 Q5(a)</td></tr>
+<tr><td>After Alice applies <code>U<sub>θ</sub><sup>−1</sup></code> and measures, what state does Bob have?</td><td>The state becomes <code>(|0⟩|ψ⟩ + |1⟩|ψ<sub>⊥</sub>⟩)/√2</code>. Alice's outcome <code>0</code> leaves Bob in <code>|ψ⟩</code>; outcome <code>1</code> leaves him in <code>|ψ<sub>⊥</sub>⟩</code>.</td><td>2025 Q5(b); 2022 Q5(b)</td></tr>
+<tr><td>How do you verify the Bell parity measurement and calculate <code>P(even)</code>?</td><td>Use <code>Π<sub>even</sub> = |00⟩⟨00| + |11⟩⟨11|</code> and <code>Π<sub>odd</sub> = |01⟩⟨01| + |10⟩⟨10|</code>. Check Hermitian, idempotent, orthogonal, and complete. As <code>Π<sub>even</sub>|β<sub>00</sub>⟩ = |β<sub>00</sub>⟩</code>, <code>P(even) = 1</code>.</td><td>2025 Q5(c); 2022 Q5(c)</td></tr>
 </tbody>
 </table>
 
-## 6. Kraus Operators, Channels, And POVMs
+## 6. Channels And Kraus Operators
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>How do you extract Kraus operators from a system-environment unitary when the environment starts in |0⟩?</td><td>For any orthonormal environment basis {|e⟩}, M_e=⟨e|U|0⟩, where the bra and ket act only on the environment register. Apply M_e to each system basis state; the resulting vectors are the columns of M_e. This also covers a non-computational basis such as {|g⟩,|h⟩}.</td><td>2023 Q3(i); 2024 Q3(i)</td></tr>
-<tr><td>Write the 4 × 4 matrix for the 2023 phase-damping unitary in the basis |00⟩,|01⟩,|10⟩,|11⟩.</td><td>From the four images, U=[[√(1-p),i√p,0,0],[i√p,√(1-p),0,0],[0,0,1,0],[0,0,0,1]]. Each column is the coordinate vector of U applied to the matching ordered basis ket.</td><td>2023 Q3(i)(a)</td></tr>
-<tr><td>For phase damping with U|00⟩=√(1-p)|00⟩+i√p|01⟩ and U|10⟩=|10⟩, what are M<sub>0</sub> and M<sub>1</sub>?</td><td>M<sub>0</sub>=diag(√(1-p),1) and M<sub>1</sub>=[[i√p,0],[0,0]]. They obey M<sub>0</sub><sup>†</sup>M<sub>0</sub>+M<sub>1</sub><sup>†</sup>M<sub>1</sub>=I, so the channel is trace preserving.</td><td>2023 Q3(i)(b)</td></tr>
-<tr><td>What condition makes a Kraus representation trace preserving?</td><td>A channel maps ρ to Σ<sub>k</sub>E<sub>k</sub>ρE<sub>k</sub><sup>†</sup> and is trace preserving exactly when Σ<sub>k</sub>E<sub>k</sub><sup>†</sup>E<sub>k</sub>=I. In an exam, calculate every E<sub>k</sub><sup>†</sup>E<sub>k</sub> and show their sum is I.</td><td>2023 Q3(i); 2025 Q4(d)</td></tr>
-<tr><td>How do you calculate a POVM outcome probability?</td><td>For state |ψ⟩ and POVM effect E<sub>i</sub>, P(i)=⟨ψ|E<sub>i</sub>|ψ⟩. If E<sub>3</sub>=I−E<sub>1</sub>−E<sub>2</sub>, calculate it directly or use P(3)=1−P(1)−P(2).</td><td>2024 Q3(ii); 2021 Q3(ii)</td></tr>
-<tr><td>Show the 2025 Pauli Kraus channel is trace preserving.</td><td>For E<sub>0</sub>=(1/2)√(4−3λ)I and E<sub>1</sub>,E<sub>2</sub>,E<sub>3</sub>=(1/2)√λ X,Y,Z, Σ<sub>k</sub>E<sub>k</sub><sup>†</sup>E<sub>k</sub>=((4−3λ)/4)I+3(λ/4)I=I.</td><td>2025 Q4(d)</td></tr>
-<tr><td>Describe the effect of the 2025 Pauli/depolarising channel on an arbitrary state ρ.</td><td>ρ maps to ((4-3λ)/4)ρ+(λ/4)(X ρ X+Y ρ Y+Z ρ Z). If ρ=(I+r · σ)/2, the output is (I+(1-λ)r · σ)/2: the Bloch vector is shrunk by 1-λ toward I/2.</td><td>2025 Q4(d)</td></tr>
+<tr><td>How do you extract Kraus operators from a system-environment unitary?</td><td>If the environment begins in <code>|0⟩</code>, use <code>M<sub>e</sub> = ⟨e|U|0⟩</code> for each environment-basis ket <code>|e⟩</code>. Apply it to system basis kets; those outputs are the columns of <code>M<sub>e</sub></code>.</td><td>2023 Q3(i); 2024 Q3(i)</td></tr>
+<tr><td>How do you write a unitary from its images of the ordered basis?</td><td>Each column is the coordinate vector of the image of the matching input basis ket. Preserve the paper's stated basis order.</td><td>2023 Q3(i)(a)</td></tr>
+<tr><td>How do you verify that a Kraus representation is trace preserving?</td><td>For <code>ρ → Σ<sub>k</sub> E<sub>k</sub>ρE<sub>k</sub>†</code>, calculate every <code>E<sub>k</sub>†E<sub>k</sub></code> and show <code>Σ<sub>k</sub> E<sub>k</sub>†E<sub>k</sub> = I</code>.</td><td>2023 Q3(i); 2025 Q4(d)</td></tr>
+<tr><td>What does the current Pauli channel do to a Bloch vector?</td><td>For the supplied Pauli Kraus set, <code>r → (1 − λ)r</code>. The channel shrinks the Bloch vector toward the maximally mixed state <code>I/2</code>.</td><td>2025 Q4(d)</td></tr>
+<tr><td>How do you calculate a POVM outcome probability?</td><td>For effect <code>E<sub>i</sub></code>, use <code>P(i) = ⟨ψ|E<sub>i</sub>|ψ⟩</code>. If <code>E<sub>3</sub> = I − E<sub>1</sub> − E<sub>2</sub></code>, calculate it directly or use <code>P(3) = 1 − P(1) − P(2)</code>.</td><td>2024 Q3(ii); 2021 Q3(ii)</td></tr>
 </tbody>
 </table>
 
-## 7. Gates, Circuits, Teleportation, And Operator Algebra
+## 7. Circuits And Teleportation
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>How do you draw a circuit from a symbolic gate product?</td><td>Apply the rightmost operation first, so it is drawn nearest the input. Keep the tensor-factor wire order fixed. Draw A ⊗ B as simultaneous gates on the matching wires; use a control dot and target gate for controlled operations, a SWAP symbol on both named wires, and label a controlled rotation by its angle.</td><td>2023 Q4(i); 2021 Q4(i)</td></tr>
-<tr><td>Write the controlled-Hadamard truth table.</td><td>C_H|00⟩=|00⟩, C_H|01⟩=|01⟩, C_H|10⟩=(|10⟩+|11⟩)/√(2), and C_H|11⟩=(|10⟩-|11⟩)/√(2). The first qubit is the control: control 0 does nothing and control 1 applies H to the target.</td><td>2025 Q1(c)</td></tr>
-<tr><td>What does the three-CNOT circuit CNOT(1,2), then CNOT(2,1), then CNOT(1,2) do to |01⟩?</td><td>It is a SWAP circuit. Starting from |01⟩, the first CNOT leaves it |01⟩; the second maps it to |11⟩; the third maps it to |10⟩. Thus the output is |10⟩, and the circuit swaps arbitrary two-qubit computational-basis inputs.</td><td>2025 Q1(d); 2022 Q1(c)</td></tr>
-<tr><td>Simplify (⟨0| ⊗ I)(α_00|00⟩+α_01|01⟩+α_10|10⟩+α_11|11⟩).</td><td>The bra ⟨0| annihilates the first-qubit-one terms and removes the first qubit from the first-qubit-zero terms. The result is α_00|0⟩+α_01|1⟩.</td><td>2025 Q4(c)</td></tr>
-<tr><td>What must a complete quantum-teleportation circuit and correction rule show?</td><td>Start with unknown |ψ⟩ on Alice's first wire and a Bell pair shared by Alice and Bob. Apply CNOT from the unknown wire to Alice's Bell wire, then H to the unknown wire. Measure Alice's two wires, send bits m<sub>0</sub>,m<sub>1</sub> to Bob, and apply Z<sup>m₀</sup>X<sup>m₁</sup> to Bob's qubit. The four corrections are I, X, Z, and ZX for outcomes 00, 01, 10, 11 respectively, up to global phase.</td><td>2024 Q4(iii)</td></tr>
+<tr><td>How do you translate a symbolic gate product into a circuit?</td><td>Apply the rightmost operation first, so draw it nearest the input. Keep tensor-factor wire order fixed, and place the named controls, targets, SWAPs, and rotations correctly.</td><td>2023 Q4(i)</td></tr>
+<tr><td>What is the controlled-Hadamard truth table?</td><td><code>|00⟩ → |00⟩</code>, <code>|01⟩ → |01⟩</code>, <code>|10⟩ → (|10⟩ + |11⟩)/√2</code>, and <code>|11⟩ → (|10⟩ − |11⟩)/√2</code>.</td><td>2025 Q1(c)</td></tr>
+<tr><td>What does the three-CNOT circuit <code>CNOT(1, 2), CNOT(2, 1), CNOT(1, 2)</code> do?</td><td>It is SWAP. In particular, <code>|01⟩ → |10⟩</code>.</td><td>2025 Q1(d); 2022 Q1(c)</td></tr>
+<tr><td>What must a teleportation answer show?</td><td>Start with unknown <code>|ψ⟩</code> and a shared Bell pair. Alice applies CNOT, then <code>H</code>, measures two qubits, and sends <code>m<sub>0</sub>, m<sub>1</sub></code>. Bob applies <code>Z<sup>m₀</sup>X<sup>m₁</sup></code>: <code>I, X, Z, ZX</code> for <code>00, 01, 10, 11</code>.</td><td>2024 Q4(iii)</td></tr>
+<tr><td>How do you simplify <code>(⟨0| ⊗ I)|Ψ⟩</code>?</td><td>Keep only first-qubit-<code>0</code> terms and remove that first ket. Thus <code>(⟨0| ⊗ I) Σ<sub>ab</sub> α<sub>ab</sub>|ab⟩ = α<sub>00</sub>|0⟩ + α<sub>01</sub>|1⟩</code>.</td><td>2025 Q4(c)</td></tr>
 </tbody>
 </table>
 
-## 8. No-Cloning And Unitary Constructions And Proofs
+## 8. Proofs And Constructions
 
 <table>
 <thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
 <tbody>
-<tr><td>Prove that unitaries preserve state purity.</td><td>Let ρ′=UρU<sup>†</sup>. Then Tr(ρ′²)=Tr(UρU<sup>†</sup>UρU<sup>†</sup>)=Tr(Uρ²U<sup>†</sup>)=Tr(ρ²U<sup>†</sup>U)=Tr(ρ²), using U<sup>†</sup>U=I and cyclicity of trace.</td><td>2024 Q2(ii)</td></tr>
-<tr><td>Prove the no-cloning theorem using inner products.</td><td>Assume one unitary U and one fixed blank state |b⟩ satisfy U|ψ⟩|b⟩=|ψ⟩|ψ⟩ and U|φ⟩|b⟩=|φ⟩|φ⟩ for every qubit state. Unitarity preserves inner products, so ⟨ψ|φ⟩=⟨ψ|φ⟩². This is false for non-identical, non-orthogonal states, so no universal cloner exists.</td><td>2023 Q3(ii); 2024 Q4(i); 2025 Q4(b)</td></tr>
-<tr><td>Prove no-cloning by linearity.</td><td>Assume U|0⟩|b⟩=|00⟩ and U|1⟩|b⟩=|11⟩. Linearity gives U|+⟩|b⟩=(|00⟩+|11⟩)/√(2). But cloning |+⟩ would require |+⟩|+⟩=(|00⟩+|01⟩+|10⟩+|11⟩)/2. These states differ, so one unitary cannot clone every state.</td><td>No-cloning proof variant; 2023-2025 family</td></tr>
-<tr><td>What quantifier is essential in the no-cloning theorem?</td><td>The impossibility concerns a single unitary that clones every arbitrary unknown quantum state using a fixed blank register. Known orthogonal basis states can be copied, for example by CNOT, so omitting "single", "every", or "arbitrary" changes the claim.</td><td>2023 Q3(ii); 2025 Q4(b)</td></tr>
-<tr><td>Give a normalized state |ψ⊥⟩ orthogonal to |ψ⟩=α|0⟩+β|1⟩.</td><td>For |α|²+|β|²=1, take |ψ⊥⟩=−β*|0⟩+α*|1⟩. Then ⟨ψ|ψ⊥⟩=α*(−β*)+β*α*=0, and its norm is 1.</td><td>2025 Q4(a)</td></tr>
-<tr><td>Construct and verify the unitary mapping |0⟩,|1⟩ to |ψ⟩,|ψ⊥⟩.</td><td>Use the target kets as columns: U=[[α,−β*],[β,α*]]. It maps |0⟩ to |ψ⟩ and |1⟩ to |ψ⊥⟩. The columns are normalized and orthogonal, so U<sup>†</sup>U=I; since U is square, also UU<sup>†</sup>=I.</td><td>2025 Q4(a)</td></tr>
-</tbody>
-</table>
-
-## 9. Legacy Backup Variants
-
-<table>
-<thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead>
-<tbody>
-<tr><td>Write the CNOT(1,2) and CNOT(2,1) truth tables.</td><td>CNOT(1,2) maps |a,b⟩ to |a,b ⊕ a⟩: |00⟩ to |00⟩, |01⟩ to |01⟩, |10⟩ to |11⟩, |11⟩ to |10⟩. CNOT(2,1) maps |a,b⟩ to |a ⊕ b,b⟩: |00⟩ to |00⟩, |01⟩ to |11⟩, |10⟩ to |10⟩, |11⟩ to |01⟩.</td><td>2022 Q1(a)</td></tr>
-<tr><td>What is the Hadamard-conjugated CNOT identity?</td><td>(H ⊗ H) CNOT(1,2) (H ⊗ H)=CNOT(2,1). The Hadamards exchange X and Z descriptions on both wires, which reverses the control-target roles.</td><td>2022 Q1(b)</td></tr>
-<tr><td>Prove that no single-qubit unitary can delete all quantum information by mapping every |ψ⟩ to |0⟩.</td><td>Assume U|ψ⟩=|0⟩ and U|φ⟩=|0⟩ for every pair of qubit states. Inner-product preservation gives ⟨ψ|φ⟩=⟨Uψ|Uφ⟩=⟨0|0⟩=1. This fails for distinct states such as |0⟩ and |1⟩, so no such unitary exists.</td><td>2022 Q4(c)</td></tr>
+<tr><td>What is the standard no-cloning proof using inner products?</td><td>Assume one unitary and fixed blank state clone every qubit. Inner-product preservation gives <code>⟨ψ|φ⟩ = ⟨ψ|φ⟩²</code>, impossible for distinct non-orthogonal states. Hence no universal cloner exists.</td><td>2023 Q3(ii); 2024 Q4(i); 2025 Q4(b)</td></tr>
+<tr><td>What quantifier is essential in the no-cloning theorem?</td><td>The claim rules out one fixed unitary that clones every arbitrary unknown state using a fixed blank register. Known orthogonal basis states can be copied, so those quantifiers matter.</td><td>2023 Q3(ii); 2025 Q4(b)</td></tr>
+<tr><td>How do you construct <code>|ψ<sub>⊥</sub>⟩</code> and its unitary?</td><td>For <code>|ψ⟩ = α|0⟩ + β|1⟩</code>, take <code>|ψ<sub>⊥</sub>⟩ = −β*|0⟩ + α*|1⟩</code>. Use columns <code>U = [[α, −β*], [β, α*]]</code>; they are orthonormal, so <code>UU† = I</code>.</td><td>2025 Q4(a)</td></tr>
 </tbody>
 </table>

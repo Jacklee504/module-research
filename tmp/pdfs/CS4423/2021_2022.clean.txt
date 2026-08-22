@@ -1,0 +1,85 @@
+Summer Examinations 2021-2022
+Exam Codes 1BMG1, 1GDS1, 3BA1, 4BCT1, 4BDS1,
+4BME1, 4BMS2, 4BS2, 4FM2
+Exam 4th Science
+Module Networks
+Module Code CS4423
+External Examiner(s) Prof Colva Roney–Dougal
+Internal Examiner(s) Dr N. Madden
+Dr A. Carnevale*
+Instructions Answer all four questions.
+Duration 2h o u r s
+No. of Pages 3 pages (including this cover page)
+Discipline Mathematics
+Requirements:
+Release to Library Yes
+Release in Exam Venue Yes
+Statistical Tables/ Log Tables Yes
+
+Q1. [ 15 Marks ]
+(a) [ 3M a r k s] What is a graph? What is a tree? Give an example of a
+graph of order 5a n d size 6. Does a tree of order 5a n d size 6e x i s t ?
+Justify your answer.
+(b) [ 5M a r k s] What is the Pr¨ ufer codeof a labelled tree and how can
+it be obtained? How can the degree sequence of a labelled tree
+be obtained from its Pr¨ ufer code? Which labelled tree on vertices
+{0, 1,..., 6} has Pr¨ ufer code [1, 1, 1, 1, 1]? Justify your answer.
+(c) [ 3M a r k s]D e s c r i b eBreadth First Search as an
+algorithm for computing distances between
+vertices in a graph. What is its input, what is
+its output, and what sequence of steps is taken
+to produce the output from the input?
+(d) [ 4M a r k s]I nt h en e t w o r ko nt h er i g h t ,a p p l y
+Breadth First Search to determine
+(i) a spanning tree with root a,a n d
+(ii) the shortest distances from vertex a to
+each of the other vertices in the graph.
+Q2. [ 15 Marks ]
+(a) [ 5M a r k s] Deﬁne the concepts of degree centrality and of normalised
+degree centrality for a graph G.L e t G be the graph on the vertex
+set {0, 1, 2, 3, 4, 5, 6} with edges 0  3, 1  2, 1  3, 2  3, 3  4, 3  5,
+3  6a n d4  5. Draw the graph G and determine the normalised
+degree centrality of all its vertices.
+(b) [ 5M a r k s]D e ﬁ n et h ec o n c e p t so fcloseness centrality and normalised
+closeness centrality for a connected graph G.G i v e a n e x a m p l e o f a
+connected graph on 7 vertices with a vertex of normalised closeness
+centrality 1.
+(c) [ 5M a r k s] Deﬁne the concepts of betweenness centrality and normalised
+betweenness centrality for a connected graph G.G i v e a n e x a m p l e
+of a connected graph on 7 vertices with a vertex of normalised be-
+tweenness centrality 0.
+Page 2 of 3 (p.t.o.)
+
+Q3. [ 15 Marks ]
+(a) [ 3M a r k s]D e s c r i b eh o wt og e n e r a t eag r a p hf r o mt h eE r d ˝ o s – R ´ e n y i
+model G(n, m).
+(b) [ 4M a r k s]D e s c r i b eh o wt og e n e r a t eag r a p hf r o mt h eE r d ˝ o s – R ´ e n y i
+model G(n, p). Following this model, what is the probability of a
+randomly chosen graph G to have exactly m edges? Justify your
+answer.
+(c) [ 4M a r k s]C o n s t r u c tag r a p hG on 80 vertices by tossing a fair coin
+once for each possible edge, adding the edge only if the coin shows
+heads. Then pick a vertex at random in this graph. What is the
+probability that this vertex has degree 40?
+(d) [ 4M a r k s] What is a giant component in a graph G? State the
+Erd˝ os–R´ enyi Theoremon the appearance of a giant component in
+ag r a p h .
+Q4. [ 15 Marks ]
+(a) [ 3M a r k s]S k e t c ha ne x a m p l eo fa n(n, d)-circle graph for n =8a n d
+d = 2. How many edges does this graph have?
+(b) [ 5M a r k s]D e s c r i b eh o wt og e n e r a t ea n(n, d, p)-WS graph in the
+Watts–Strogatz small-world model . What properties does a random
+graph sampled from the WS model have, that one would not ﬁnd in a
+random graph sampled from the G(n, p)m o d e l ,o ri na n(n, d)-circle
+graph?
+(c) [ 4M a r k s]F o rad i r e c t e dg r a p hG on a vertex set X,d e ﬁ n et w oe q u i v -
+alence relations on X:o n e t h a t h a s t h estrongly connected compo-
+nents of G as its equivalence classes, and one that has the weakly
+connected components of G as its equivalence classes.
+(d) [ 3M a r k s] Many directed networks, like the World Wide Web, have
+ag i a n ts t r o n g l yc o n n e c t e dc o m p o n e n tw h i c hc o v e r sas u b s t a n t i a l
+part of the network. Name the other parts of the so-called Bow-
+Tie diagram of the components in a directed network, and describe
+each in terms of a suitable relation on the set of strongly connected
+components.
+Page 3 of 3
