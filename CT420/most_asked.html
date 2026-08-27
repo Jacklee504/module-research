@@ -28,13 +28,13 @@
     </nav>
     <p class="eyebrow">CT420 Study Document</p>
     <h1>Real-Time Systems – Most Asked Exam Questions</h1>
-    <p>Recurring question families from the seven local papers, with marks, paper structure, and reusable answer frames.</p>
+    <p>Recurring question families from the five local papers since 2021/22, with marks, paper structure, and reusable answer frames.</p>
   </header>
 
   <main class="module-shell">
     <article class="module-content question-bank">
       <h2 id="how-to-use">How To Use This Document</h2>
-      <p>This is a question-family guide, not a prediction of an exact question slot. The 2024/25 and 2025/26 papers both use two sections: answer two of three 15-mark questions in Section A and two of three 15-mark questions in Section B. The 2023/24 paper instead makes Question 1 and Question 4 compulsory; 2022/23 and 2021/22 require Question 1 plus two others; the 2017/18 and 2018/19 structures differ again.</p>
+      <p>This is a question-family guide, not a prediction of an exact question slot. It uses the five papers from 2021/22 to 2025/26. The 2024/25 and 2025/26 papers both use two sections: answer two of three 15-mark questions in Section A and two of three 15-mark questions in Section B. The 2023/24 paper instead makes Question 1 and Question 4 compulsory; 2022/23 and 2021/22 require Question 1 plus two others.</p>
       <ol>
         <li>Start with the latest two papers because their structure and staff pairing match.</li>
         <li>Attempt the original listed question before reading the answer frame.</li>
@@ -43,10 +43,10 @@
       </ol>
 
       <h2 id="most-repeated">Most Repeated Question Families</h2>
-      <p class="priority-note">Frequency is based on direct examination across the seven available papers. A recent three-paper run can matter more than a higher-frequency historical topic when deciding the final revision order.</p>
+      <p class="priority-note">Frequency is based on direct examination across the five available papers from 2021/22 onwards. A recent three-paper run can matter more than a higher-frequency topic when deciding the final revision order.</p>
 
       <h2 id="time-sync">Priority 1 – Time Synchronisation, Clocks, NTP And PTP</h2>
-      <p><strong>Frequency:</strong> 7/7 papers directly. It is also the strongest current Section A family.</p>
+      <p><strong>Frequency:</strong> 5/5 papers directly. It is also the strongest current Section A family.</p>
       <p>Appears as:</p>
       <ul class="paper-list">
         <li>2025/26 – Q1(a) lunar localisation stack [5]; Q1(b) PTP hardware timestamps, transparent clocks and P2P delay [6]; Q1(c) Berkeley algorithm [4].</li>
@@ -54,7 +54,6 @@
         <li>2023/24 – Q3(b) PTP master, transparent clock and slave, including correction data and an offset or delay calculation [5].</li>
         <li>2022/23 – Q3(a) Berkeley and UTC suitability [5]; Q4(b) PTP hardware timing, transparent clocks and P2P calculation [7].</li>
         <li>2021/22 – Q1 PTP architecture, E2E/P2P, boundary and transparent clocks, BMCA redundancy, and NTP backup [20].</li>
-        <li>2018/19 and 2017/18 – NTP workings, round-trip delay, offset, filters, NTP-versus-PTP comparison, and <code>ntpq</code> interpretation.</li>
       </ul>
       <p>Consolidated most-asked question:</p>
       <blockquote><p>For a distributed system requiring accurate clocks, choose and explain an NTP, PTP, or Berkeley design. Show the relevant messages and timestamps or calculation, then state the assumption or limitation that bounds the claimed accuracy.</p></blockquote>
@@ -63,15 +62,14 @@
       </div>
 
       <h2 id="scheduling">Priority 2 – Cyclic Executives, RM, EDF And Schedulability</h2>
-      <p><strong>Frequency:</strong> 7/7 papers directly.</p>
+      <p><strong>Frequency:</strong> 5/5 papers directly.</p>
       <p>Appears as:</p>
       <ul class="paper-list">
         <li>2025/26 – Q2(c) RM analysis and schedule over [0, 400] [5]; Q3(a) cyclic-executive pseudo-code that detects and counts overruns [5].</li>
         <li>2024/25 – Q2(c) RM analysis and schedule [5]; Q3(a) cyclic executive with overrun detection [5].</li>
         <li>2023/24 – compulsory Q1: construct CE, RM and EDF schedules, compare them, then implement the CE and detect asynchronous-interrupt overruns [20].</li>
         <li>2022/23 – Q1(c) construct an EDF-feasible but not RM-feasible four-task set, validate with utilisation, timeline and RM analysis [7]; Q3(c) CE and interrupt mitigation [6].</li>
-        <li>2021/22 and 2018/19 – CE code and timeline, available interrupt time, plus WCET / longest-path reasoning.</li>
-        <li>2017/18 – Q6 RM versus EDF and a proved EDF-feasible but not RM-feasible design [25].</li>
+        <li>2021/22 – CE code and timeline, available interrupt time, plus WCET / longest-path reasoning.</li>
       </ul>
       <p>Consolidated most-asked question:</p>
       <blockquote><p>Given periodic tasks, construct or analyse the stated CE, RM, or EDF schedule. Show the timeline and all arithmetic, then explain what a pass or failure proves under the stated assumptions.</p></blockquote>
@@ -80,14 +78,13 @@
       </div>
 
       <h2 id="posix-concurrency">Priority 3 – POSIX Real-Time Support, Concurrency And Priority Protocols</h2>
-      <p><strong>Frequency:</strong> 7/7 papers directly; the exact API focus varies, but the systems reasoning is persistent.</p>
+      <p><strong>Frequency:</strong> 5/5 papers directly; the exact API focus varies, but the systems reasoning is persistent.</p>
       <p>Appears as:</p>
       <ul class="paper-list">
         <li>2025/26 – Q2(a) select four POSIX-style RTOS capabilities [6]; Q3(b) control a critical region with a mutex / binary semaphore [5]; Q3(c) memory locking and the seven-state model [5].</li>
         <li>2024/25 – Q3(b) benefits of Priority Inheritance with a diagram [5]; Q3(c) memory locking and consequences of not using it [5].</li>
         <li>2023/24 – Q3(a) CE overrun detection and Q3(b) Priority Inheritance [5 each].</li>
         <li>2022/23 and 2021/22 – Priority Ceiling preventing deadlock with shared resources; POSIX.4 signals and <code>sigqueue</code>.</li>
-        <li>2018/19 and 2017/18 – semaphore deadlock, memory locking, POSIX timers / sleep / signals, and priority protocols.</li>
       </ul>
       <p>Consolidated most-asked question:</p>
       <blockquote><p>Explain a real-time resource-management failure using a timeline or process model, then show the POSIX mechanism or priority protocol that bounds, prevents, or exposes it.</p></blockquote>
@@ -96,7 +93,7 @@
       </div>
 
       <h2 id="quic">Priority 4 – QUIC, HTTP/2, HTTP/3, Congestion And Protocol Analysis</h2>
-      <p><strong>Frequency:</strong> 3/7 directly, but it occupies the recent Section B direction in all three latest papers and aligns with the current module scope.</p>
+      <p><strong>Frequency:</strong> 3/5 directly, but it occupies the recent Section B direction in all three latest papers and aligns with the current module scope.</p>
       <p>Appears as:</p>
       <ul class="paper-list">
         <li>2025/26 – Q4 TCP head-of-line blocking and QUIC [7], ABR streaming [8]; Q5 qLog/qViz [4], congestion-control fairness [5], QUIC encryption [6]; Q6 cloud gaming, connection migration, congestion control and loss recovery [15].</li>
@@ -109,29 +106,27 @@
         <p><strong>Reusable answer frame:</strong> Name the stack correctly: HTTP/2 multiplexes over one ordered TCP byte stream; HTTP/3 uses QUIC over UDP. Explain that TCP loss can create transport-level head-of-line blocking for unrelated HTTP/2 streams, whereas QUIC independently orders streams. Draw the connection-establishment round trips if asked. Then cover the relevant mechanism: encrypted transport metadata, congestion control, loss recovery, connection migration, qLog endpoint events, qViz visualisation, or Wireshark’s limits with encrypted traffic. Finish with the limitation: QUIC does not eliminate packet loss, RTT, server work, shared congestion, or monitoring requirements.</p>
       </div>
 
-      <h2 id="soft-realtime">Priority 5 – Soft Real-Time, QoS, VoIP, Streaming And Cloud Gaming</h2>
-      <p><strong>Frequency:</strong> 4/7 directly, with a strong current recurrence in 2024/25 and 2025/26.</p>
+      <h2 id="soft-realtime">Priority 5 – Soft Real-Time, QoS, Streaming And Cloud Gaming</h2>
+      <p><strong>Frequency:</strong> 3/5 directly, with a strong current recurrence in 2024/25 and 2025/26.</p>
       <p>Appears as:</p>
       <ul class="paper-list">
         <li>2025/26 – Q4(b) adaptive-bitrate streaming, estimation, quality–latency trade-offs, and why ABR is insufficient for interactive use [8]; Q6 cloud-gaming end-to-end delay [5].</li>
         <li>2024/25 – Q4(b) latency in soft real-time systems [8]; Q6 QoS versus perceived / intrinsic QoS, jitter buffers, and cloud-gaming response delay [15].</li>
         <li>2023/24 – compulsory Q4 asks about latency in soft real-time systems [7].</li>
-        <li>2018/19 and 2017/18 – VoIP FEC, mouth-to-ear delay, DASH, codec range, RTP/RTCP, QoS and QoE.</li>
       </ul>
       <p>Consolidated most-asked question:</p>
       <blockquote><p>For an interactive media or cloud-gaming case, decompose end-to-end delay, distinguish measurable delivery quality from user experience, then propose controls and their trade-offs.</p></blockquote>
       <div class="answer-frame">
-        <p><strong>Reusable answer frame:</strong> Decompose delay into input / capture, encoding or processing, queueing, network transmission, loss recovery, decoding, buffering, and playout. Distinguish latency, jitter, loss, throughput, intrinsic QoS, and perceived QoS / QoE. Select a control matched to the symptom: adaptive bitrate, jitter buffer, FEC or concealment, priority queueing, congestion control, or a shorter encode / playout path. Explain the trade-off: a larger buffer smooths jitter but increases interaction delay; higher quality consumes more bandwidth; retransmission may arrive too late for real-time media.</p>
+        <p><strong>Reusable answer frame:</strong> Decompose delay into input / capture, encoding or processing, queueing, network transmission, loss recovery, decoding, buffering, and playout. Distinguish latency, jitter, loss, throughput, intrinsic QoS, and perceived QoS / QoE. Select a control matched to the symptom: adaptive bitrate, jitter buffer, priority queueing, congestion control, or a shorter encode / playout path. Explain the trade-off: a larger buffer smooths jitter but increases interaction delay; higher quality consumes more bandwidth; retransmission may arrive too late for real-time media.</p>
       </div>
 
       <h2 id="fault-tolerance">Priority 6 – Error Detection, Redundancy And Recovery</h2>
-      <p><strong>Frequency:</strong> 5/7 directly. It is less prominent in 2024/25, but Hamming distance returned in the newest paper.</p>
+      <p><strong>Frequency:</strong> 4/5 directly. It is less prominent in 2024/25, but Hamming distance returned in the newest paper.</p>
       <p>Appears as:</p>
       <ul class="paper-list">
         <li>2025/26 – Q2(b) Hamming Distance for Hamming (7, 4) and 8-bit ASCII with parity [4].</li>
         <li>2023/24 and 2021/22 – Hamming (7, 4) error detection and correction.</li>
         <li>2022/23 – RAID-0/1/5 [4] and backward recovery in dynamic software redundancy [3].</li>
-        <li>2018/19 and 2017/18 – RAID, SEC, N-modular redundancy, voter types, and software redundancy.</li>
       </ul>
       <p>Consolidated most-asked question:</p>
       <blockquote><p>Choose or explain an error-control or redundancy mechanism, identify which fault or error it covers, and state the independence or coverage assumption it needs.</p></blockquote>
@@ -145,7 +140,6 @@
         <li><strong>Logical clocks and causality:</strong> Lamport clocks versus vector clocks appears in 2022/23 Q4(a), 2023/24 Q2(b), and 2024/25 Q2(a). Draw the messages, apply each update rule, then show that scalar Lamport timestamps preserve happened-before but cannot identify concurrency.</li>
         <li><strong>Lunar or radio navigation:</strong> lunar GNSS / multilateration appears in 2022/23 Q1(a) and 2025/26 Q1(a). Explain geometry, timing, reference signals, and whether an external differential correction source is available.</li>
         <li><strong>Core Web Vitals and resource waterfalls:</strong> appears in 2023/24 Q5(b) and Q6. Know the purpose of LCP, FID and CLS, and use the stated impact and distance fractions for a CLS calculation.</li>
-        <li><strong>WCET and non-re-entrant code:</strong> older papers use loop bounds, longest paths, volatile variables, and interrupt risks. These remain useful foundations for scheduling answers even when not a standalone recent question.</li>
       </ul>
 
       <h2 id="study-order">Recommended Study Order</h2>
@@ -154,7 +148,6 @@
         <li>Do the matching 2024/25 topics: clocks / PTP, RM / CE, priority inheritance / memory locking, QUIC, analysis tools, QoS and jitter buffers.</li>
         <li>Use 2023/24 to practise the compulsory-question variant and strengthen CE / RM / EDF comparison, PTP transparent clocks, and QUIC fundamentals.</li>
         <li>Use 2022/23 and 2021/22 for Priority Ceiling, PTP architecture, NTP robustness, logical clocks, POSIX signals, RAID, and recovery.</li>
-        <li>Use 2018/19 and 2017/18 for broad practice in FEC, VoIP, voters, memory locking, NTP interpretation, and the classic RM-versus-EDF counterexample.</li>
       </ol>
     </article>
   </main>

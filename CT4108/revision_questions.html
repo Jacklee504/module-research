@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CT4108 Revision Questions</title>
+    <link rel="stylesheet" href="../module_page.css">
+  </head>
+  <body>
+    <header class="module-header">
+      <nav class="top-nav" aria-label="Navigation">
+        <a href="details.html">CT4108 overview</a>
+        <a href="#questions">Question bank</a>
+        <a href="#coverage">Outcome-area coverage</a>
+      </nav>
+      <p class="eyebrow">CT4108 · Revision Question Bank</p>
+      <h1>Distributed Systems</h1>
+      <p>Outcome-led practice for a new module: explain the system model, then justify the design, performance, and failure-handling trade-offs.</p>
+      <div class="fact-strip">
+        <div><span>Semester</span><strong>Semester 2</strong></div>
+        <div><span>Credits</span><strong>5</strong></div>
+        <div><span>Written assessment</span><strong>70%</strong></div>
+        <div><span>Continuous assessment</span><strong>30%</strong></div>
+        <div><span>Past-paper basis</span><strong>None yet</strong></div>
+      </div>
+    </header>
+    <main class="module-shell">
+      <article class="module-content">
+        <h2>How to use this bank</h2>
+        <ul>
+          <li>These questions follow the CT4108 scope captured from the official module page: distributed systems fundamentals, message passing, replicated systems, distributed algorithms, communication protocols, GPU accelerators, high-performance parallel computing, parallel programming, and large-data storage and analysis.</li>
+          <li>They are <strong>not</strong> past-paper questions and do not predict the assessment format or mark allocations.</li>
+          <li>For a design answer, identify the requirement and assumptions first; then explain the mechanism, the failure or performance consequence, and the trade-off.</li>
+          <li>Use the distributed-systems questions as written practice and the GPU/HPC questions as prompts for a small, measured implementation or experiment where possible.</li>
+        </ul>
+
+        <h2 id="questions">Revision questions</h2>
+
+        <h3>1. Distributed-systems foundations</h3>
+        <p><em>Official scope area: distributed systems fundamentals.</em></p>
+        <ol>
+          <li>Define a distributed system. Give two benefits of distributing a service across nodes and two difficulties that do not arise in the same way in a single-process program.</li>
+          <li>A client sends a request to an order service and receives no reply before its timeout. Explain why the client cannot determine whether the server has crashed, the request is delayed, or the reply was lost. How should the client behave?</li>
+          <li>Distinguish safety from liveness using an online-payment example. Give one design choice that favours safety during a network partition and explain its availability cost.</li>
+          <li>Design an idempotent retry protocol for a client that may resend a request after a timeout. Specify the request identifier, server-side state, and the result returned for a duplicate request.</li>
+
+        <h3>2. Message passing</h3>
+        <p><em>Official scope area: message passing.</em></p>
+        <ol start="5">
+          <li>Compare synchronous request–reply, a work queue, and publish–subscribe communication. For a parcel-delivery system, choose an interaction style for customer tracking updates and justify the choice.</li>
+          <li>Explain the difference between at-most-once, at-least-once, and effectively-once processing. Why is an unqualified claim of “exactly once” often misleading in a distributed system?</li>
+          <li>A consumer receives an event twice and another event later than expected. Design a handler that remains correct in the presence of duplicates and reordering. State any ordering guarantee it needs.</li>
+          <li>A producer is much faster than its consumers. Explain back-pressure, buffering, and dropping policies. Which policy would you select for telemetry and which for bank-transfer instructions?</li>
+
+        <h3>3. Replicated systems</h3>
+        <p><em>Official scope area: replicated systems.</em></p>
+        <ol start="9">
+          <li>Compare primary–backup replication with active replication. Discuss their handling of client requests, failure recovery, and the assumptions needed for replicas to agree.</li>
+          <li>A social-media profile can tolerate a briefly stale display name, but an account balance cannot tolerate conflicting debits. Choose suitable consistency expectations for each case and justify the difference.</li>
+          <li>A replicated store uses <i>N</i> = 5 replicas, read quorum <i>R</i> = 3, and write quorum <i>W</i> = 3. Explain why reads and writes intersect. What availability trade-off follows if two replicas are unreachable?</li>
+          <li>Two replicas accept different updates while partitioned. Compare last-write-wins, application-level conflict resolution, and rejecting one side’s writes. When is each approach unsafe or inappropriate?</li>
+
+        <h3>4. Distributed algorithms</h3>
+        <p><em>Official scope area: distributed algorithms.</em></p>
+        <ol start="13">
+          <li>Why is a single perfectly shared wall clock unavailable in a distributed system? Explain how a logical clock can express causal ordering without claiming exact real-time order.</li>
+          <li>Design the outline of a leader-election protocol for a group of nodes. State how a node detects a suspected leader failure, how competing candidates are resolved, and why a timeout alone is insufficient proof of failure.</li>
+          <li>State the purpose of consensus. In a replicated booking service, identify the value that must be agreed, the safety property that must never be violated, and the progress condition that is desirable.</li>
+          <li>A distributed computation divides a large job into subtasks. Explain how the coordinator can distinguish a slow worker from a failed worker, reassign work safely, and avoid accepting two conflicting results.</li>
+
+        <h3>5. Communication protocols</h3>
+        <p><em>Official scope area: communication protocols.</em></p>
+        <ol start="17">
+          <li>Specify a simple request/response protocol for creating an order. Include message type, correlation identifier, version, success/error response, and an idempotency rule.</li>
+          <li>Compare REST/HTTP, gRPC, and message-queue communication for a service that must process a video upload, report progress, and survive temporary downstream outages. Justify a combined design if appropriate.</li>
+          <li>A protocol change adds a required field to an event consumed by several deployed services. Explain the compatibility risks and propose a staged versioning and rollout strategy.</li>
+          <li>Trace a request that times out after the server completes its work but before the response arrives. Explain how protocol acknowledgements, retries, and durable operation records prevent an unsafe duplicate side effect.</li>
+
+        <h3>6. GPU accelerators</h3>
+        <p><em>Official scope area: GPU accelerators.</em></p>
+        <ol start="21">
+          <li>Compare a CPU and a GPU in terms of control complexity, parallel throughput, and memory-access behaviour. Which part of an image-processing pipeline is a plausible GPU candidate, and why?</li>
+          <li>A kernel processes one image pixel per thread, but neighbouring threads access unrelated memory locations and follow different branches. Explain how memory coalescing and branch divergence can affect performance.</li>
+          <li>Outline a GPU solution for element-wise vector addition. Describe how input data, grid/block indexing, kernel execution, result copying, and boundary checks fit together.</li>
+          <li>A GPU implementation is slower than a straightforward CPU version for a small data set. Give three plausible causes and describe measurements that would distinguish data-transfer cost from kernel inefficiency.</li>
+
+        <h3>7. High-performance parallel computing</h3>
+        <p><em>Official scope area: high-performance parallel computing.</em></p>
+        <ol start="25">
+          <li>Distinguish strong scaling from weak scaling. For each, state what remains fixed as the number of processors increases and what the experiment is intended to reveal.</li>
+          <li>For a program with one-processor time <i>T</i><sub>1</sub> and <i>p</i>-processor time <i>T</i><sub>p</sub>, define speedup <i>S</i>(<i>p</i>) = <i>T</i><sub>1</sub> / <i>T</i><sub>p</sub> and efficiency <i>E</i>(<i>p</i>) = <i>S</i>(<i>p</i>) / <i>p</i>. Explain why an efficiency below 1 is normal and what a falling value can indicate.</li>
+          <li>A simulation spends most of its time in a parallel loop but becomes slower beyond 16 workers. Analyse possible causes involving serial work, synchronisation, memory contention, load imbalance, and communication overhead.</li>
+          <li>Propose a fair benchmark for comparing two parallel implementations. Include input sizes, warm-up runs, repeated measurements, hardware details, correctness checks, and how results should be reported.</li>
+
+        <h3>8. Parallel programming</h3>
+        <p><em>Official scope area: parallel programming.</em></p>
+        <ol start="29">
+          <li>Two workers update a shared counter using a read–modify–write operation. Show a losing interleaving and repair it using either a mutex or an atomic operation. What performance cost might the repair introduce?</li>
+          <li>Given a computation with independent map operations followed by a global reduction, identify the parallel regions, dependencies, synchronisation point, and a suitable decomposition of the work.</li>
+          <li>Compare static and dynamic scheduling for tasks whose running times vary widely. Which is more likely to balance load, and what scheduling overhead does it introduce?</li>
+          <li>A parallel implementation produces different results across runs. Give a systematic debugging plan that considers data races, non-deterministic ordering, floating-point reduction order, and inadequate test coverage.</li>
+
+        <h3>9. Storage and analysis of large data sets</h3>
+        <p><em>Official scope area: storage and analysis of large data sets.</em></p>
+        <ol start="33">
+          <li>Explain partitioning, replication, and data locality. For a multi-terabyte clickstream data set, describe how each can improve throughput or resilience and one cost it introduces.</li>
+          <li>Design a batch pipeline that ingests, validates, transforms, and aggregates sensor data. Explain how it handles malformed records, reruns after failure, and the risk of duplicating output.</li>
+          <li>A query must join a very large event table with a small reference table. Explain why the placement and partitioning of the small table can matter, and what data skew could do to the job’s completion time.</li>
+          <li>A team retains raw user events for later analysis. Identify the storage, privacy, access-control, retention, and reproducibility decisions required before treating the data set as a reliable analytical source.</li>
+        </ol>
+
+        <h2 id="coverage">Outcome-area coverage</h2>
+        <ul>
+          <li><strong>Area 1:</strong> Questions 1–4 — distributed-systems foundations, uncertainty, safety/liveness, and idempotency.</li>
+          <li><strong>Area 2:</strong> Questions 5–8 — message-passing styles, delivery semantics, ordering, and back-pressure.</li>
+          <li><strong>Area 3:</strong> Questions 9–12 — replication, consistency, quorums, and conflict handling.</li>
+          <li><strong>Area 4:</strong> Questions 13–16 — logical time, leader election, consensus, and safe work reassignment.</li>
+          <li><strong>Area 5:</strong> Questions 17–20 — protocol design, communication choices, compatibility, and retries.</li>
+          <li><strong>Area 6:</strong> Questions 21–24 — GPU suitability, execution and memory behaviour, and performance diagnosis.</li>
+          <li><strong>Area 7:</strong> Questions 25–28 — scaling, speedup, efficiency, bottlenecks, and benchmarking.</li>
+          <li><strong>Area 8:</strong> Questions 29–32 — parallel correctness, decomposition, scheduling, and debugging.</li>
+          <li><strong>Area 9:</strong> Questions 33–36 — large-data placement, resilient pipelines, skew, and responsible analysis.</li>
+        </ul>
+
+        <h2>Source and scope</h2>
+        <p>The questions use the official CT4108 scope captured in this project on 11 June 2026, when the page stated that the module was valid from 2026 onwards. The official module URL currently returns a 404, so this page preserves the captured scope rather than claiming current word-for-word learning-outcome text. There are no local CT4108 past papers, and neither question style nor marks have been inferred.</p>
+      </article>
+    </main>
+  </body>
+</html>
