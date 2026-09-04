@@ -16,21 +16,22 @@
     </nav>
     <p class="eyebrow">CT421 Question 4</p>
     <h1>Explainability and Bio-Inspired AI</h1>
-    <p>Five recurring families: explainability, artificial life and emergence, neuro-evolution, ant colony optimisation, and symbolic versus connectionist AI.</p>
+    <p>Six recurring families: explainability, artificial life and emergence, neuro-evolution, ant colony optimisation, symbolic versus connectionist AI, and LLM reliability.</p>
   </header>
 
   <main class="module-shell">
     <article class="module-content">
       <h2>What repeatedly appears in the papers</h2>
-      <p>Question 4 changes its mix, but its demands are precise. The papers ask for a mechanism <strong>and</strong> an application, not a list of definitions. Explainability appears in every local paper from 2021/22 to 2024/25; artificial life appears from 2021/22 to 2023/24; neuro-evolution appears in 2021/22 and 2022/23; ACO appears in 2023/24 and 2024/25; symbolic versus connectionist AI appears in 2024/25.</p>
+      <p>Question 4 changes its mix, but its demands are precise. The papers ask for a mechanism <strong>and</strong> an application, not a list of definitions. Explainability appears in every local paper from 2021/22 to 2025/26; artificial life appears in 2025/26 as part of ACO; ACO appears in every latest-three paper; and 2025/26 adds LLM hallucination and mitigation.</p>
       <table>
         <thead><tr><th>Question family</th><th>Paper evidence</th><th>What the examiner asks you to do</th></tr></thead>
         <tbody>
-          <tr><td>Explainability</td><td>2021/22 Q4(c), 2022/23 Q4(a), 2023/24 Q4(a), 2024/25 Q4(c)</td><td>Explain importance or the black-box problem, then give explanation approaches for a named AI paradigm.</td></tr>
-          <tr><td>Artificial life</td><td>2021/22 Q4(a), 2022/23 Q4(c), 2023/24 Q4(b)</td><td>Use an existing system to show local rules, decentralisation and emergent global behaviour.</td></tr>
+          <tr><td>Explainability</td><td>2021/22 Q4(c), 2022/23 Q4(a), 2023/24 Q4(a), 2024/25 Q4(c), 2025/26 Q4(b)</td><td>Explain importance or the black-box problem, then give explanation approaches for a named AI paradigm.</td></tr>
+          <tr><td>Artificial life</td><td>2021/22 Q4(a), 2022/23 Q4(c), 2023/24 Q4(b), 2025/26 Q4(a)</td><td>Use an existing system to show local rules, decentralisation and emergent global behaviour, including those present in ACO.</td></tr>
           <tr><td>Neuro-evolution</td><td>2021/22 Q4(b), 2022/23 Q4(b)</td><td>Define it, choose a network representation, then discuss advantages and limitations.</td></tr>
-          <tr><td>ACO</td><td>2023/24 Q4(c), 2024/25 Q4(a)</td><td>Explain pheromone reinforcement and evaporation, then trace their use on a route problem.</td></tr>
+          <tr><td>ACO</td><td>2023/24 Q4(c), 2024/25 Q4(a), 2025/26 Q4(a)</td><td>Explain pheromone reinforcement and evaporation, then trace their use on a route problem and identify artificial-life properties.</td></tr>
           <tr><td>Symbolic vs connectionist</td><td>2024/25 Q4(b)</td><td>Compare both approaches in one application, including an advantage and limitation of each.</td></tr>
+          <tr><td>LLM hallucination</td><td>2025/26 Q4(c)</td><td>Explain why plausible but incorrect output occurs, when it is likely, and two detection or mitigation approaches.</td></tr>
         </tbody>
       </table>
 
@@ -43,6 +44,7 @@
           <tr><td>Neuro-evolution</td><td>Encode weights and/or topology, evaluate each candidate on fitness, select/variation/replacement, repeat across generations.</td><td>Writing gradient descent as though it were the evolutionary search.</td></tr>
           <tr><td>ACO</td><td>Probabilistic construction using pheromone and heuristic quality, solution evaluation, reinforced good components, evaporation for exploration.</td><td>Reinforcing a route but forgetting that evaporation prevents early lock-in.</td></tr>
           <tr><td>Symbolic / connectionist</td><td>Rules and explicit inference versus learned distributed weights; compare against the same task criteria.</td><td>Claiming one is universally better without data, transparency or maintenance trade-offs.</td></tr>
+          <tr><td>LLM hallucination</td><td>Next-token prediction can produce fluent unsupported claims when context, data or grounding is insufficient. Use retrieval with sources, verification, constrained outputs or abstention.</td><td>Claiming that a confident, fluent answer is evidence of truth.</td></tr>
         </tbody>
       </table>
 
@@ -106,6 +108,11 @@
       <p>Connectionist AI uses a neural network with learned, distributed weights. A convolutional model can learn visual patterns from the labelled X-rays and may detect weak image cues that a rule author cannot easily specify. That is a practical advantage for high-dimensional, noisy visual data. Its limitations are dependence on representative labelled data and reduced transparency: a high-risk score may be affected by a scanner artefact or demographic imbalance, while the learned weights do not provide a clinician-readable rule. The hospital can combine the approaches: a neural model can analyse the X-ray while symbolic safety rules check vital-sign thresholds and route all recommendations to human review. This hybrid design preserves explicit safeguards without pretending that the neural result has become fully explainable.</p>
       <p><strong>Topic-specific trap:</strong> do not equate symbolic AI with “old” or connectionist AI with “always more accurate.” The appropriate choice depends on data, required reasoning, auditability and the cost of error.</p>
 
+      <h2>Practice question 6 - LLM hallucination [9 marks]</h2>
+      <p><strong>Inspired by:</strong> 2025/26 Q4(c).</p>
+      <p><strong>Question:</strong> Explain how LLM hallucination arises, when it is most likely, and two ways to detect or mitigate it.</p>
+      <p><strong>Worked answer:</strong> An LLM generates likely next tokens from learned statistical patterns; it does not automatically retrieve or verify a fact. It can therefore continue a plausible pattern with invented names, citations, dates or causal claims when the prompt is ambiguous, asks about rare or recent facts, supplies misleading context, requires long multi-step reasoning, or lies outside the model's knowledge. One mitigation is retrieval-augmented generation: retrieve authoritative documents for the question, require the answer to use them, and show citations so claims can be checked. A second is claim-level verification: use a search, database, rule checker or human review to compare important statements with evidence; when evidence is unavailable or conflicts, the system should abstain or state uncertainty. Retrieval reduces unsupported generation but does not make bad sources correct, so source quality and verification still matter.</p>
+
       <h2>Final check before you finish an answer</h2>
       <ul>
         <li>Have I answered every command word, rather than reciting the topic?</li>
@@ -114,10 +121,11 @@
         <li>For neuro-evolution, have I stated a chromosome representation and a fitness evaluation?</li>
         <li>For ACO, have I included probabilistic construction, reinforcement and evaporation in the named network?</li>
         <li>For symbolic versus connectionist AI, have I compared both approaches in one application with a limitation of each?</li>
+        <li>For LLM hallucination, have I distinguished fluent prediction from factual verification and described two concrete safeguards?</li>
       </ul>
 
       <h2>Past-paper basis</h2>
-      <p>This page is grounded in the local CT421 papers: 2021/22 Q4(a-c), 2022/23 Q4(a-c), 2023/24 Q4(a-c), and 2024/25 Q4(a-c). The practice questions are new, concrete scenarios, not claimed to be verbatim past-paper questions. Their mark allocations and command structure deliberately preserve the relevant local question families.</p>
+      <p>This page is grounded in the local CT421 papers: 2021/22 Q4(a-c), 2022/23 Q4(a-c), 2023/24 Q4(a-c), 2024/25 Q4(a-c), and 2025/26 Q4(a-c). The practice questions are new, concrete scenarios, not claimed to be verbatim past-paper questions. Their mark allocations and command structure deliberately preserve the relevant local question families.</p>
     </article>
   </main>
 </body>

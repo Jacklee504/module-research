@@ -50,6 +50,7 @@
         <p>A <strong>Nash equilibrium</strong> is a set of strategies in which no agent can improve its payoff by changing strategy alone, assuming every other agent keeps their strategy unchanged.</p>
         <p>
 <strong>MAS connection:</strong> It predicts stable behaviour among self-interested agents, though the stable outcome is not necessarily best for the group.</p>
+        <p>A game can have one Nash equilibrium or several. With several, rational agents may face a coordination problem: each stable outcome is defensible, but they need communication, a convention, or a focal point to select the same one.</p>
 
         <h3>Prisoner's Dilemma</h3>
         <p>The <strong>Prisoner's Dilemma</strong> is a two-agent game where each agent is individually better off defecting, regardless of the other agent's choice, but both would be better off if both cooperated. Mutual defection is the Nash equilibrium, even though mutual cooperation is socially preferable.</p>
@@ -67,6 +68,10 @@
           <li>For game theory, draw or describe the choices and payoffs. Then test each action: if it is best regardless of the opponent, it is dominant; if no player benefits by changing alone, it is a Nash equilibrium.</li>
           <li>For protocols such as auctions or negotiation, give the sequence: announcement, bids or proposals, decision, and result. Then add one benefit and one limitation.</li>
         </ul>
+
+        <h3>Question 3: Single and multiple Nash equilibria (2025/26, 8 marks)</h3>
+        <p><strong>Question:</strong> Define Nash equilibrium, construct one two-player payoff matrix with one equilibrium and another with several, then explain the coordination implication.</p>
+        <p><strong>Model answer:</strong> In a single-equilibrium game, use Prisoner's Dilemma payoffs where defect is each player's best response to either action, so (defect, defect) is the only Nash equilibrium. For multiple equilibria, use a coordination game with actions A/B and payoffs (2,2) at (A,A), (1,1) at (B,B), and (0,0) off-diagonal. Both (A,A) and (B,B) are Nash because neither player gains by changing alone. Multiple equilibria do not tell agents which stable outcome to choose; communication, shared conventions or a focal point can coordinate them, while failure to coordinate can produce the off-diagonal loss.</p>
 
         <h2>Exam Practice: Game Theory</h2>
 
@@ -180,7 +185,7 @@
 
         <h2>Exam Practice: Communication</h2>
 
-        <h3>Question 5: Speech acts in a negotiation setting (2023/24, 7 marks)</h3>
+        <h3>Question 5: Structured messages in negotiation or an auction (2023/24 and 2025/26, 6-7 marks)</h3>
         <p>
 <strong>Question:</strong> Explain what is meant by speech acts within multi-agent systems. In a negotiation setting, provide examples of speech acts agents could use.</p>
         <p>
@@ -199,7 +204,7 @@
           <li>
 <code>reject</code>: &quot;I reject the offer because the deadline is not feasible.&quot;</li>
         </ul>
-        <p>They let agents negotiate and coordinate without ambiguity.</p>
+        <p>In an auction, the sequence can be <code>inform</code> task → <code>request</code> bids → <code>propose</code> bid → <code>accept</code> award or <code>reject</code>. It requires a shared message vocabulary and honest, timely communication; strategic or failed messages and communication overhead can prevent an efficient allocation.</p>
 
         <h3>Question 6: Advantages and limitations of game theory (2021/22, 8 marks)</h3>
         <p>

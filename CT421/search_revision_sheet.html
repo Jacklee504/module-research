@@ -15,7 +15,7 @@
       </nav>
       <p class="eyebrow">CT421 Revision</p>
       <h1>Search and Adversarial Search</h1>
-      <p>The recurring Question 1 material: traversal, game trees, minimax, alpha-beta pruning, MCTS, and novelty search.</p>
+      <p>The recurring Question 1 material: traversal, game trees, minimax, alpha-beta pruning, MCTS, novelty search, and the NK fitness-landscape model.</p>
     </header>
     <main class="module-shell">
 <article class="module-content">
@@ -95,7 +95,7 @@
 
         <h2>Exam Practice: Search</h2>
 
-        <h3>Question 1: BFS, DFS, and iterative deepening (2023/24 and 2024/25, 9-10 marks)</h3>
+        <h3>Question 1: BFS, DFS, and iterative deepening (2023/24-2025/26, 6-10 marks)</h3>
         <p>
 <strong>Question:</strong> Compare BFS, DFS, and iterative deepening in visit order, time complexity, space complexity, and completeness.</p>
         <p>
@@ -107,7 +107,7 @@
           <li>IDDFS repeats depth-limited DFS. It is complete and optimal for equal costs like BFS, while using O(bd) memory like DFS.</li>
         </ul>
 
-        <h3>Question 2: Minimax and alpha-beta pruning (2021/22 and 2024/25, 8-10 marks)</h3>
+        <h3>Question 2: Minimax and alpha-beta pruning (2023/24-2025/26, 9-11 marks)</h3>
         <p>
 <strong>Question:</strong> Explain minimax and alpha-beta pruning with respect to a two-player game.</p>
         <p>
@@ -119,6 +119,10 @@
           <li>Alpha-beta keeps MAX's best alpha and MIN's best beta. When alpha >= beta, the remaining branch cannot affect the choice and is pruned.</li>
           <li>Pruning gives the same minimax move while searching fewer positions.</li>
         </ul>
+
+        <h3>Question 6: NK fitness landscapes (2025/26, 8 marks)</h3>
+        <p><strong>Question:</strong> Explain the roles of <em>N</em> and <em>K</em> in the NK model, how it computes a binary string's fitness, and how varying <em>K</em> changes ruggedness.</p>
+        <p><strong>Short model answer:</strong> <em>N</em> is the number of binary genes. Each gene's contribution depends on itself and <em>K</em> other genes, so a candidate string has <em>N</em> local contributions. Look up or calculate every contribution for the string's relevant <em>K</em> + 1-bit pattern, then take their mean as total fitness. At <em>K</em> = 0, genes are independent and the landscape is smooth; larger <em>K</em> creates more epistasis, correlated changes break down, and the landscape becomes more rugged with more local optima.</p>
 
         <h3>Question 3: Monte Carlo Tree Search (2024/25, 5 marks)</h3>
         <p>
@@ -157,7 +161,7 @@
         <p><strong>Worked answer:</strong> Left MIN returns min(3,5)=3, so MAX's alpha becomes 3. Right MIN's first child returns 2, so its beta is 2. Because beta &le; alpha, the unvisited leaf cannot make right MIN return a value above 2, and cannot displace MAX's already available value 3. Prune it. The root chooses the left move with minimax value 3. The prune changes work, not the minimax decision. With a depth limit, terminal values would instead be heuristic evaluations and should be justified as estimates.</p>
         <p><strong>Topic-specific trap:</strong> never prune a branch merely because its current value looks poor without comparing the relevant alpha and beta bounds.</p>
         <h2>High-value traps and final review</h2>
-        <p><strong>Paper basis for the integrated practice:</strong> local 2021/22 Question 1(b), 2022/23 Question 1(a), and 2024/25 Question 1(a) verified minimax and alpha-beta families; this tree is newly written.</p>
+        <p><strong>Paper basis for the integrated practice:</strong> local 2023/24 Question 1(a), 2024/25 Question 1(a), and 2025/26 Question 1(b) verify the current minimax and alpha-beta family; this tree is newly written.</p>
         <h3>Worked example: choosing BFS</h3>
         <p>
 <strong>Problem:</strong> A maze has equal-cost moves and the goal is first found at depth 3. Which basic search should find a shortest route?</p>

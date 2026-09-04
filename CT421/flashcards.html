@@ -29,129 +29,101 @@
     <nav class="top-nav" aria-label="Navigation">
       <a href="details.html">CT421 overview</a>
       <a href="most_asked.html">Most asked questions</a>
-      <a href="#minimax">Minimax</a>
+      <a href="#game-tree-search">Game-tree search</a>
       <a href="#search">Search</a>
-      <a href="#ga-design">GA design</a>
-      <a href="#ga-theory">GA theory</a>
-      <a href="#communication">MAS protocols</a>
-      <a href="#auctions">Auctions</a>
-      <a href="#equilibria">Equilibria</a>
+      <a href="#genetic-algorithms">Genetic algorithms</a>
+      <a href="#mas-protocols">MAS protocols</a>
+      <a href="#game-theory">Game theory</a>
       <a href="#explainability">Explainability</a>
       <a href="#bio-ai">Bio-inspired AI</a>
-      <a href="#aco">ACO</a>
+      <a href="#paradigms">AI paradigms</a>
       <a href="details.html#past-papers">Past papers</a>
     </nav>
     <p class="eyebrow">CT421 Exam Flashcards</p>
-    <h1>40-Card Fast Revision Deck</h1>
-    <p>Concise, exam-safe recall for the repeated current-paper families, plus clearly marked legacy backup.</p>
+    <h1>34-Card Fast Revision Deck</h1>
+    <p>Concise, exam-safe recall for the repeated current-paper families. Legacy-only variants remain in the most-asked analysis.</p>
   </header>
   <main class="module-shell">
     <article class="module-content flashcard-bank">
       <h2>How To Use This Page</h2>
       <p class="instructions">Use the first column as the prompt and the second as a fast, exam-safe answer. The evidence column maps each card to the supplied papers. Full question wording, marks, and constructions are in <a href="most_asked.html">most_asked.html</a>.</p>
-      <div class="frequency-note"><p><strong>Drill first:</strong> GA allocation design, minimax/alpha-beta, auctions/game theory, and explainability. Then memorise traversal complexities, schema/operator effects, and ACO.</p><p><strong>Legacy backup:</strong> three-player minimax and game theory's modelling limitations are retained because they appeared in 2021/22 only.</p></div>
+      <div class="frequency-note"><p><strong>Drill first:</strong> GA design and diversity, minimax/alpha-beta, Nash/Prisoner's Dilemma, explainability, and ACO. Then memorise iterative-deepening complexity, NK landscapes, graph-colouring fitness, and LLM hallucination safeguards.</p><p><strong>Scope:</strong> legacy-only variants are retained in <a href="most_asked.html">most_asked.html</a>, rather than inflating this fast-revision deck.</p></div>
       <nav class="topic-index" aria-label="Flashcard topics">
-        <a href="#minimax">1. Minimax</a><a href="#pruning">2. Alpha-beta</a><a href="#search">3. Search and MCTS</a><a href="#novelty">4. Novelty search</a><a href="#ga-design">5. GA design</a><a href="#ga-theory">6. GA theory</a><a href="#ga-dynamics">7. GA balance</a><a href="#communication">8. Communication</a><a href="#auctions">9. Auctions</a><a href="#equilibria">10. Equilibria</a><a href="#cooperation">11. Cooperation</a><a href="#explainability">12. Explainability</a><a href="#bio-ai">13. Artificial life</a><a href="#aco">14. ACO</a><a href="#paradigms">15. AI paradigms</a>
+        <a href="#game-tree-search">1. Game-tree search</a><a href="#search">2. State-space search</a><a href="#novelty">3. Novelty search</a><a href="#genetic-algorithms">4. Genetic algorithms</a><a href="#mas-protocols">5. MAS protocols</a><a href="#game-theory">6. Game theory</a><a href="#explainability">7. Explainability</a><a href="#bio-ai">8. Bio-inspired AI</a><a href="#paradigms">9. AI paradigms</a>
       </nav>
 
-      <h2 id="minimax">1. Game Trees and Minimax</h2>
+      <h2 id="game-tree-search">1. Game-Tree Search</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What is a two-player game tree?</td><td>Nodes are legal states and edges are legal moves. Label turns MAX and MIN; MAX seeks the greatest backed-up utility and MIN the least.</td><td>2022/23 Q1(a); 2023/24 Q1(a); 2024/25 Q1(a)(i)</td></tr>
-        <tr><td>Give the minimax rule, including a depth limit.</td><td>Give terminal states utility from MAX's viewpoint; back up max at MAX and min at MIN. If full search is too large, stop at depth <em>L</em> and use heuristic <em>h(s)</em> at the frontier.</td><td>2022/23 Q1(a)-(b); 2024/25 Q1(a)(i)</td></tr>
-        <tr><td>How do you answer a Nim or tic-tac-toe minimax question?</td><td>Draw the requested legal-move tree, label turns, give leaves utilities or <em>h(s)</em>, back up MAX/MIN values, and state the best root move. For misère Nim, taking the last item loses.</td><td>2023/24 Q1(a); 2024/25 Q1(a)(i)</td></tr>
+        <tr><td>State minimax, including a depth limit.</td><td>States are nodes; moves are edges. Score leaves for MAX; back up max at MAX and min at MIN. At depth <em>L</em>, use <em>h(s)</em>.</td><td>2022/23 Q1(a)-(b); 2023/24 Q1(a); 2024/25 Q1(a)(i); 2025/26 Q1(b)</td></tr>
+        <tr><td>How do you work a minimax tree?</td><td>Draw legal moves; label MAX/MIN; score leaves; back up values; state the root move. Check whether taking the last item wins or loses.</td><td>2023/24 Q1(a); 2024/25 Q1(a)(i); 2025/26 Q1(b)</td></tr>
+        <tr><td>What are α and β? When do you prune?</td><td>α is MAX's lower bound; β is MIN's upper bound. Prune when α ≥ β.</td><td>2024/25 Q1(a)(ii); 2025/26 Q1(b)(iii); legacy 2021/22 Q1(b)</td></tr>
       </tbody></table>
 
-      <h2 id="pruning">2. Alpha-Beta Pruning and Scalable Minimax</h2>
+      <h2 id="search">2. State-Space Search and MCTS</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What are α and β, and when do you prune?</td><td>α is MAX's best guaranteed value; β is MIN's. Prune when α ≥ β. Example: if α = 6 and a MIN child gives β = 4, prune its remaining children.</td><td>2024/25 Q1(a)(ii); legacy 2021/22 Q1(b)</td></tr>
+        <tr><td>BFS: order, complexity, completeness?</td><td>FIFO by depth; complete with finite branching. At goal depth <em>d</em>: time and space O(b<sup>d</sup>).</td><td>2023/24 Q1(b); 2024/25 Q1(b)</td></tr>
+        <tr><td>DFS: order, complexity, completeness?</td><td>Follow one branch then backtrack. To depth <em>m</em>: time O(b<sup>m</sup>), space O(bm); incomplete in infinite-depth spaces.</td><td>2023/24 Q1(b); 2024/25 Q1(b)</td></tr>
+        <tr><td>Iterative deepening: method, complexity, completeness?</td><td>Depth-limited DFS for 0, 1, 2, … . Complete with finite branching; time O(b<sup>d</sup>), space O(bd).</td><td>2023/24 Q1(b); 2024/25 Q1(b); 2025/26 Q1(a)</td></tr>
+        <tr><td>MCTS stages and UCT?</td><td>Select, expand, rollout, backpropagate. UCT = mean reward + <em>c</em>√(ln <em>N</em> / <em>n</em>): exploit reward, explore low visits.</td><td>2024/25 Q1(c)</td></tr>
+        <tr><td>NK model: what are <em>N</em> and <em>K</em>?</td><td><em>N</em> genes; each depends on itself and <em>K</em> others. Average local fitness. <em>K</em> = 0 is smooth; larger <em>K</em> means ruggedness and local optima.</td><td>2025/26 Q1(c)</td></tr>
       </tbody></table>
 
-      <h2 id="search">3. State-Space Search and Monte Carlo Tree Search</h2>
+      <h2 id="novelty">3. Novelty Search</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Define BFS with complexity and completeness.</td><td>FIFO, level by level. At shallowest goal depth <em>d</em>: time and space O(b<sup>d</sup>); complete with finite branching.</td><td>2023/24 Q1(b); 2024/25 Q1(b)</td></tr>
-        <tr><td>Define DFS with complexity and completeness.</td><td>Follow one branch then backtrack. To maximum depth <em>m</em>: time O(b<sup>m</sup>), space O(bm); not complete in infinite-depth spaces.</td><td>2023/24 Q1(b); 2024/25 Q1(b)</td></tr>
-        <tr><td>Define iterative deepening with complexity and completeness.</td><td>Repeat depth-limited DFS for limits 0, 1, 2, … . It is complete with finite branching, takes O(b<sup>d</sup>) time, and O(bd) space.</td><td>2023/24 Q1(b); 2024/25 Q1(b); legacy 2021/22 Q1(a)</td></tr>
-        <tr><td>What are MCTS's stages and UCT's purpose?</td><td>Selection, expansion, rollout, backpropagation. UCT chooses children by mean reward + <em>c</em>√(ln <em>N</em> / <em>n</em>), balancing high reward against low visits.</td><td>2024/25 Q1(c)</td></tr>
+        <tr><td>Novelty search for a maze robot?</td><td>Reward behaviour difference, not goal score: compare final positions/trajectories with an archive or neighbours, then retain novel behaviour.</td><td>2022/23 Q1(c); 2023/24 Q1(c)</td></tr>
       </tbody></table>
 
-      <h2 id="novelty">4. Novelty Search and Multi-Player Games</h2>
+      <h2 id="genetic-algorithms">4. Genetic Algorithms</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What is novelty search for a maze robot?</td><td>Reward behavioural difference, not just goal score. Use final position or trajectory, score distance from an archive/nearest neighbours, and retain sufficiently novel behaviour.</td><td>2022/23 Q1(c); 2023/24 Q1(c)</td></tr>
-        <tr><td>How is minimax extended to three players?</td><td>Store terminal vector (u<sub>1</sub>, u<sub>2</sub>, u<sub>3</sub>); at player <em>i</em>'s node choose the child maximising u<sub>i</sub>. This is max-n, not ordinary zero-sum minimax.</td><td>Legacy: 2021/22 Q1(c)(a)</td></tr>
+        <tr><td>Core parts of a constrained GA design?</td><td>State encoding, objective, hard constraints, fitness, and repair. Tournament selects; crossover recombines then repairs; mutation makes one valid small change.</td><td>2022/23 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>How can a GA represent an assignment problem?</td><td>Use one gene per item, task, or vertex. Each gene records a choice, such as a knapsack, processor, or colour.</td><td>2021/22 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>How should a GA score an assignment solution?</td><td>Reward the goal, such as high value or low cost, and penalise broken constraints, such as excess weight or clashes.</td><td>2021/22 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>What is a schema in a GA?</td><td>A partial pattern of genes, such as 1*0*, describing similar candidate solutions.</td><td>2022/23 Q2(a); 2023/24 Q2(a)</td></tr>
+        <tr><td>What does the schema theorem say?</td><td>Useful, short patterns tend to become more common unless crossover or mutation breaks them.</td><td>2022/23 Q2(a); 2023/24 Q2(a)</td></tr>
+        <tr><td>How do GA operators affect useful patterns?</td><td>Selection favours them; crossover and mutation can preserve them or break them.</td><td>2022/23 Q2(a); 2023/24 Q2(a)</td></tr>
+        <tr><td>Why does GA diversity matter?</td><td>It prevents the population becoming too similar and getting stuck early.</td><td>2024/25 Q2(a)(i); 2025/26 Q2(a)</td></tr>
+        <tr><td>How can a GA keep diversity?</td><td>Use mutation, varied parent selection, niching/crowding, or introduce new candidates.</td><td>2024/25 Q2(a)(i); 2025/26 Q2(a)</td></tr>
+        <tr><td>Why can hill climbing fail?</td><td>It can get stuck at a local optimum, plateau, or ridge.</td><td>2024/25 Q2(a)(ii)</td></tr>
+        <tr><td>How can hill climbing escape a poor area?</td><td>Restart elsewhere, choose moves randomly, or occasionally accept a worse move.</td><td>2024/25 Q2(a)(ii)</td></tr>
       </tbody></table>
 
-      <h2 id="ga-design">5. GA Design and Constraint Handling</h2>
+      <h2 id="mas-protocols">5. MAS Protocols, Auctions, and Negotiation</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What must a GA design state before operators?</td><td>One candidate solution, the objective, hard constraints, and a small valid change. These determine encoding, fitness, repair/penalty, and mutation.</td><td>2022/23 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b)</td></tr>
-        <tr><td>Give encoding and fitness for multiple knapsack.</td><td>x<sub>i</sub> ∈ {0, 1, …, K}: 0 means omit item <em>i</em>; <em>k</em> means knapsack <em>k</em>. Maximise total value − λΣ<sub>k</sub> max(0, load<sub>k</sub> − C<sub>k</sub>).</td><td>2023/24 Q2(b); legacy 2021/22 Q2(b)</td></tr>
-        <tr><td>Give encoding and fitness for task-to-processor allocation.</td><td>x<sub>i</sub> ∈ {1, …, M} gives task <em>i</em>'s processor. Minimise makespan/cost, penalising memory excess or missing capability.</td><td>2024/25 Q2(b)(i)-(ii)</td></tr>
-        <tr><td>Give encoding and fitness for unique student-project allocation.</td><td>Gene <em>i</em> is student <em>i</em>'s project. Use a permutation or repair duplicates; maximise preference score and penalise invalid or unassigned projects.</td><td>2022/23 Q2(b)</td></tr>
-        <tr><td>How do selection, crossover, and mutation work in constrained allocation?</td><td>Tournament selection chooses the best of a random small sample. Crossover combines assignments then repairs violations. Mutation makes one valid change: reassign a task, swap projects, or move/add/remove an item.</td><td>2022/23 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b)(iii)-(iv)</td></tr>
+        <tr><td>How do agents communicate clearly?</td><td>They use messages with a clear purpose, such as informing, requesting, proposing, accepting, or rejecting.</td><td>2023/24 Q3(a); 2025/26 Q3(a)</td></tr>
+        <tr><td>How does an auction allocate work in MAS?</td><td>Announce the task, collect bids, choose a winner, then confirm or reject bids.</td><td>2022/23 Q3(a); 2024/25 Q3(c); 2025/26 Q3(a)</td></tr>
+        <tr><td>What can make agent communication unreliable?</td><td>Messages may be late, lost, misunderstood, or based on different assumptions.</td><td>2023/24 Q3(a); 2025/26 Q3(a)</td></tr>
+        <tr><td>English versus Dutch auction?</td><td>English: price rises; last bidder wins. Dutch: price falls; first accepter wins.</td><td>2022/23 Q3(a); 2024/25 Q3(c)</td></tr>
+        <tr><td>What is multi-attribute negotiation?</td><td>Agents negotiate several factors, such as price, quality, and deadline, rather than price alone.</td><td>2022/23 Q3(b)</td></tr>
       </tbody></table>
 
-      <h2 id="ga-theory">6. GA Schema Theory and Operators</h2>
+      <h2 id="game-theory">6. Game Theory: Equilibria and Cooperation</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What is a schema?</td><td>A template for chromosomes, e.g. 1*0*, where * is a wildcard. Order = fixed positions; defining length = distance between first and last fixed position.</td><td>2022/23 Q2(a); 2023/24 Q2(a)</td></tr>
-        <tr><td>State the schema theorem.</td><td>In expectation, short, low-order, above-average-fitness schemas grow under proportional selection, unless crossover or mutation disrupts them. It is not a survival guarantee.</td><td>2023/24 Q2(a)</td></tr>
-        <tr><td>How do GA operators affect schemas?</td><td>Selection increases fitter schemas. Crossover can combine or break schemas, especially long ones. Mutation adds variation but breaks a schema when it changes a fixed position.</td><td>2022/23 Q2(a)(a)-(c); 2023/24 Q2(a)</td></tr>
+        <tr><td>What is the difference between a dominant strategy and a Nash equilibrium?</td><td>A dominant strategy is best whatever others do. A Nash equilibrium is a situation where nobody benefits by changing alone.</td><td>2022/23 Q3(c); 2023/24 Q3(b); 2024/25 Q3(a); 2025/26 Q3(b)</td></tr>
+        <tr><td>Can a game have more than one Nash equilibrium?</td><td>Yes. A coordination game can have two stable choices, so agents may need communication or a shared convention.</td><td>2025/26 Q3(b)</td></tr>
+        <tr><td>What does the Prisoner's Dilemma show?</td><td>Each player has a reason to defect, but both would be better off if both cooperated.</td><td>2024/25 Q3(a); 2025/26 Q3(c)</td></tr>
+        <tr><td>What can encourage cooperation in a Prisoner's Dilemma?</td><td>Repeated interaction, reputation, partner choice, rewards or penalties, and cooperative groups can make defection less attractive.</td><td>2023/24 Q3(c); 2025/26 Q3(c)</td></tr>
+        <tr><td>What is tit-for-tat, and why does noise matter?</td><td>Start by cooperating, then copy the other player's last move. Mistakes can cause retaliation cycles; forgiveness helps stop them.</td><td>2024/25 Q3(b)</td></tr>
       </tbody></table>
 
-      <h2 id="ga-dynamics">7. GA Search Balance and Hill Climbing</h2>
+      <h2 id="explainability">7. Explainability and LLM Reliability</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Distinguish exploration and exploitation in a GA.</td><td>Exploitation improves promising regions; exploration samples new ones. Excess exploitation causes premature convergence; excess exploration becomes near-random search.</td><td>2024/25 Q2(a)(i)</td></tr>
-        <tr><td>What is hill climbing, and how is exploration added?</td><td>Repeatedly move to a better neighbour; it can stop at a local optimum, plateau, or ridge. Add random restarts, stochastic moves, or occasional worse moves.</td><td>2024/25 Q2(a)(ii)</td></tr>
+        <tr><td>Why explain a black-box model?</td><td>Its internal reasoning is hard to inspect. Explanations support trust, debugging, bias checks, audits, and accountability.</td><td>2022/23 Q4(a); 2023/24 Q4(a); 2024/25 Q4(c); 2025/26 Q4(b)</td></tr>
+        <tr><td>What does a saliency map show?</td><td>The input regions or features most associated with one prediction. It does not prove causation or explain the whole model.</td><td>2023/24 Q4(a); 2024/25 Q4(c); 2025/26 Q4(b)</td></tr>
+        <tr><td>How does LIME explain one prediction?</td><td>It changes inputs near that case, observes output changes, and fits a simple local explanation.</td><td>2022/23 Q4(a); 2023/24 Q4(a); 2024/25 Q4(c)</td></tr>
+        <tr><td>Why can an LLM hallucinate?</td><td>It generates likely text rather than automatically checking facts, especially when information is unclear or missing.</td><td>2025/26 Q4(c)</td></tr>
+        <tr><td>How can hallucinations be reduced?</td><td>Ground answers in reliable sources, verify important claims, or state uncertainty instead of guessing.</td><td>2025/26 Q4(c)</td></tr>
       </tbody></table>
 
-      <h2 id="communication">8. Agent Communication and Negotiation</h2>
+      <h2 id="bio-ai">8. Bio-Inspired AI and ACO</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What is a speech act? Give a negotiation sequence.</td><td>A message with agreed intent, e.g. <code>inform</code>, <code>request</code>, <code>propose</code>, <code>accept</code>, <code>reject</code>. Example: inform job → request bids → propose/counter-propose → accept or reject.</td><td>2023/24 Q3(a)</td></tr>
+        <tr><td>How can artificial life create emergent behaviour?</td><td>Simple agents follow local rules without a controller; repeated interaction can create global patterns, such as flocking.</td><td>2022/23 Q4(c); 2023/24 Q4(b); 2025/26 Q4(a); legacy 2021/22 Q4(a)</td></tr>
+        <tr><td>How does neuro-evolution work?</td><td>It evolves neural-network weights or architecture using fitness. It works without gradients, but many evaluations are costly.</td><td>2022/23 Q4(b); legacy 2021/22 Q4(b)</td></tr>
+        <tr><td>How does ACO find a good route?</td><td>Ants choose edges using pheromone and distance; short routes reinforce pheromone, while evaporation keeps alternatives available.</td><td>2023/24 Q4(c); 2024/25 Q4(a); 2025/26 Q4(a)</td></tr>
       </tbody></table>
 
-      <h2 id="auctions">9. Auction Mechanisms and Resource Allocation</h2>
+      <h2 id="paradigms">9. Symbolic and Connectionist AI</h2>
       <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Compare English and Dutch auctions and their bidding strategy.</td><td>English: price rises; last bidder wins; stay until valuation. Dutch: price falls; first acceptance wins; wait below value but not so long that another bidder accepts.</td><td>2022/23 Q3(a)(i)-(ii); 2024/25 Q3(c)(i)-(ii)</td></tr>
-        <tr><td>Compare English and Dutch auction trade-offs.</td><td>English reveals more information and can be efficient, but is slower and may permit collusion. Dutch is quick but reveals less and demands timing.</td><td>2022/23 Q3(a)(iii); 2024/25 Q3(c)(iii)</td></tr>
-        <tr><td>How does multi-attribute negotiation go beyond price?</td><td>Offers are bundles, e.g. (price, deadline, quality). Agents use private utility, exchange counteroffers, and seek a Pareto-efficient agreement.</td><td>2022/23 Q3(b)</td></tr>
-        <tr><td>Why are auctions useful for MAS resource allocation?</td><td>Agents bid from private cost, capacity, route, or value information; the rule allocates a task without central knowledge of all values.</td><td>2022/23 Q3(a)-(b); 2024/25 Q3(c)</td></tr>
-      </tbody></table>
-
-      <h2 id="equilibria">10. Dominance, Nash Equilibrium, and Prisoner's Dilemma</h2>
-      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Distinguish dominant strategy and Nash equilibrium.</td><td>s<sub>i</sub> is dominant if it is at least as good as every alternative for every s<sub>−i</sub>. s* is Nash if no player can improve by changing s<sub>i</sub>* alone while s<sub>−i</sub>* stays fixed.</td><td>2022/23 Q3(c); 2023/24 Q3(b); 2024/25 Q3(a)</td></tr>
-        <tr><td>What does Prisoner's Dilemma show about dominance and Nash?</td><td>Defection is dominant, so (defect, defect) is Nash. Yet (cooperate, cooperate) is better jointly: Nash need not be socially optimal.</td><td>2023/24 Q3(b)-(c); 2024/25 Q3(a)</td></tr>
-      </tbody></table>
-
-      <h2 id="cooperation">11. Repeated Cooperation and Game-Theory Limits</h2>
-      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What mechanisms promote cooperation in repeated PD?</td><td>Repeated interaction, reputation, partner selection, incentives/enforcement, and cooperative network clusters make defection less rewarding.</td><td>2023/24 Q3(c)</td></tr>
-        <tr><td>What is tit-for-tat, and how does it handle noise?</td><td>Cooperate first, then copy the opponent's last move. It is cooperative, retaliatory, and forgiving, but noise can cause retaliation cycles; generous forgiveness repairs them.</td><td>2024/25 Q3(b)</td></tr>
-        <tr><td>Give two strengths and limitations of game theory in MAS.</td><td>It models strategic dependence and stable outcomes. It can miss incomplete information, bounded rationality, changing preferences, noise, and fixed-payoff assumptions.</td><td>Legacy: 2021/22 Q3(c)</td></tr>
-      </tbody></table>
-
-      <h2 id="explainability">12. Explainability</h2>
-      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What is a black-box model, and why explain it?</td><td>Its predictions are visible but its internal reasoning is hard to inspect. Explanation supports trust, debugging, bias checks, auditability, and high-stakes accountability.</td><td>2022/23 Q4(a); 2023/24 Q4(a); 2024/25 Q4(c)</td></tr>
-        <tr><td>What does feature attribution or a saliency map explain?</td><td>Which features, pixels, regions, or tokens most influenced one prediction. It is usually local, not the model's full causal reasoning.</td><td>2023/24 Q4(a); 2024/25 Q4(c)</td></tr>
-        <tr><td>What is a local surrogate such as LIME?</td><td>Perturb inputs near one case, observe outputs, and fit a simple local model. It approximates that prediction's neighbourhood, not the full model.</td><td>2022/23 Q4(a); 2023/24 Q4(a); 2024/25 Q4(c)</td></tr>
-        <tr><td>What is a counterfactual explanation?</td><td>The smallest feasible, relevant change that flips a decision, while unrelated attributes stay fixed.</td><td>2022/23 Q4(a); 2024/25 Q4(c)</td></tr>
-      </tbody></table>
-
-      <h2 id="bio-ai">13. Artificial Life and Neuro-Evolution</h2>
-      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>What characterises artificial life? Give a Boids example.</td><td>Many components follow local rules, adapt/evolve, and produce emergent global behaviour. Boids use separation, alignment, and cohesion; flocking emerges without a controller.</td><td>2022/23 Q4(c); 2023/24 Q4(b); legacy 2021/22 Q4(a)</td></tr>
-        <tr><td>What is neuro-evolution?</td><td>An evolutionary algorithm optimises neural-network weights, architecture, or both, using task fitness, selection, crossover, and mutation.</td><td>2022/23 Q4(b); legacy 2021/22 Q4(b)</td></tr>
-        <tr><td>Give neuro-evolution representations, advantage, and limitation.</td><td>Encode a weight vector or a graph of nodes/connections. It avoids differentiable gradients and can optimise topology, but evaluating many networks is expensive.</td><td>2022/23 Q4(b); legacy 2021/22 Q4(b)</td></tr>
-      </tbody></table>
-
-      <h2 id="aco">14. Ant Colony Optimisation</h2>
-      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Describe one ACO iteration and pheromone's role.</td><td>Ants build paths with probability based on τ<sub>ij</sub><sup>α</sup>η<sub>ij</sub><sup>β</sup>; score paths, reinforce good/short ones, and evaporate old trails. This learns good components while keeping exploration.</td><td>2023/24 Q4(c); 2024/25 Q4(a)</td></tr>
-        <tr><td>How does ACO solve TSP or a shortest path?</td><td>Build feasible tours/paths, score total length, reinforce shorter ones, evaporate trails, and keep the best found. Short high-pheromone edges become more likely.</td><td>2023/24 Q4(c); 2024/25 Q4(a)</td></tr>
-      </tbody></table>
-
-      <h2 id="paradigms">15. Symbolic and Connectionist AI</h2>
-      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
-        <tr><td>Compare symbolic and connectionist AI, using medicine.</td><td>Symbolic AI uses explicit, auditable rules but can be brittle. Neural networks learn complex scan patterns from data but are harder to interpret; explanation is needed for safe clinical use.</td><td>2024/25 Q4(b)</td></tr>
+        <tr><td>How do symbolic and connectionist AI differ?</td><td>Symbolic AI uses explicit rules and is easier to inspect. Connectionist AI learns patterns from data but is harder to explain.</td><td>2024/25 Q4(b)</td></tr>
       </tbody></table>
     </article>
   </main>

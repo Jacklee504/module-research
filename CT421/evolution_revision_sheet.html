@@ -15,7 +15,7 @@
       </nav>
       <p class="eyebrow">CT421 Revision</p>
       <h1>Genetic Algorithms</h1>
-      <p>The recurring Question 2 material: representation, fitness, selection, crossover, mutation, schema theorem, and exploration versus exploitation.</p>
+      <p>The four-paper Question 2 block: representation, fitness, selection, crossover, mutation, diversity, graph colouring, schema theorem, and exploration versus exploitation.</p>
     </header>
     <main class="module-shell">
 <article class="module-content">
@@ -35,7 +35,7 @@
 
         <h3>Representation</h3>
         <p>A <strong>chromosome representation</strong> encodes one candidate solution. It must represent valid solutions clearly and allow sensible crossover and mutation.</p>
-        <p>For task allocation, chromosome position i can store the processor assigned to task i. For student-project allocation, position i can store the project assigned to student i.</p>
+        <p>For task allocation, chromosome position <em>i</em> can store the processor assigned to task <em>i</em>. For graph colouring, it can store the colour assigned to vertex <em>i</em>.</p>
 
         <h3>Fitness function</h3>
         <p>A <strong>fitness function</strong> scores solution quality. It should reward the objective and penalise invalid solutions. For allocation, it could reward low cost or high preference satisfaction and subtract a large penalty for capacity violations or duplicate assignments.</p>
@@ -54,6 +54,9 @@
         <p>
 <strong>Exploration</strong> searches new areas of the solution space; mutation and diverse parent selection support it. <strong>Exploitation</strong> improves known promising areas; selection and crossover support it. Too much exploitation causes premature convergence, while too much exploration makes progress slow.</p>
 
+        <h3>Population diversity</h3>
+        <p><strong>Diversity</strong> is variation between candidate chromosomes or their behaviours. It preserves alternatives and reduces premature convergence. Strong selection pressure and repeated crossover of similar parents reduce it; mutation can restore it. Explicit mechanisms include fitness sharing or niching, crowding/replacement that preserves dissimilar offspring, random immigrants, and duplicate removal.</p>
+
         <h3>Hill climbing</h3>
         <p>
 <strong>Hill climbing</strong> starts with one solution and repeatedly moves to a better neighbouring solution. It strongly exploits local improvements, is simple and fast, but can get stuck at a local optimum, plateau, or ridge. Random restarts or occasional worse moves increase exploration.</p>
@@ -65,6 +68,14 @@
           <li>Crossover can preserve useful schemas but may disrupt long schemas.</li>
           <li>Mutation creates variation but can disrupt a schema if its rate is too high.</li>
         </ul>
+
+        <h3>Question 6: Diversity in a genetic algorithm (2025/26, 11 marks)</h3>
+        <p><strong>Question:</strong> Explain diversity, why it matters, how selection pressure, crossover and mutation affect it, and two preservation mechanisms.</p>
+        <p><strong>Short model answer:</strong> Diversity is genetic or behavioural variation within the population. It lets the search sample competing regions and avoids premature convergence to a poor local optimum. Strong selection makes a few related candidates dominate; crossover among similar parents then adds little new material; mutation introduces new alleles, but an excessive rate destroys useful structure. Fitness sharing reduces the effective fitness of crowded solutions, while crowding replaces an individual with a similar offspring or preserves separate niches. Random immigrants and duplicate elimination are also valid mechanisms.</p>
+
+        <h3>Question 7: Graph-colouring GA design (2025/26, 14 marks)</h3>
+        <p><strong>Question:</strong> Assign colours to graph vertices so adjacent vertices differ while minimising colours. Design the encoding, fitness, crossover and mutation, and explain the objective/constraint trade-off.</p>
+        <p><strong>Short model answer:</strong> Let gene <em>i</em> be vertex <em>i</em>'s colour. Use a fitness such as <code>−A × conflicts − coloursUsed</code>, where <em>A</em> is large enough that removing one adjacent equal-colour conflict always beats merely using fewer colours. Crossover copies segments or colours from two parents; mutation recolours one vertex, preferably to a colour not used by its neighbours. Repair can recolour conflicted vertices after variation. This makes feasibility the primary target and colour minimisation the secondary target among feasible or near-feasible candidates.</p>
 
         <h2>Question interpretation and independent practice</h2>
         <ol>
@@ -175,7 +186,7 @@
 <li>Use the wording of the problem to justify each design choice.</li>
 </ul>
         <p>
-<strong>Past-paper confidence:</strong> Core Question 1&ndash;4 evolution themes are high confidence at topic level, but their exact paper position is not guaranteed.</p>
+<strong>Past-paper confidence:</strong> Evolutionary computation is now the most stable paper block: every available current-format paper uses Question 2 for it. The exact scenario changes, so revise transferable designs rather than memorising an allocation example.</p>
       </article>
     </main>
   </body>

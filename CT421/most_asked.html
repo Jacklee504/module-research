@@ -49,16 +49,16 @@
     </nav>
     <p class="eyebrow">CT421 Study Document</p>
     <h1>Artificial Intelligence - Most Asked Exam Questions</h1>
-    <p>Paper-led question families, answer requirements, and construction patterns for the four supplied CT421 papers.</p>
+    <p>Paper-led question families, answer requirements, and construction patterns for the five supplied CT421 papers.</p>
   </header>
 
   <main class="module-shell">
     <article class="module-content question-bank">
       <h2>How To Use This Document</h2>
       <div class="source-scope">
-        <p><strong>Primary evidence:</strong> the current-format papers are <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a>, <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, and <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>. All three use four 25-mark questions, each split into assessed subparts.</p>
-        <p><strong>Legacy/backup evidence:</strong> <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a> has the same four-question structure and is used for recurring variants. Variants absent from the latest three are explicitly marked legacy-only.</p>
-        <p><strong>Method:</strong> 44 current-paper assessed units are mapped below. A question is kept separate whenever its requested construction, example, proof-style explanation, calculation, or mark structure differs.</p>
+        <p><strong>Primary evidence:</strong> the latest current-format papers are <a href="2023_2024.pdf" target="_blank" rel="noopener noreferrer">2023/24</a>, <a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25</a>, and <a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26</a>. All three use four 25-mark questions, each split into assessed subparts.</p>
+        <p><strong>Supporting current-format evidence:</strong> <a href="2022_2023.pdf" target="_blank" rel="noopener noreferrer">2022/23</a> has the same structure and retains useful variations. <strong>Legacy/backup:</strong> <a href="2021_2022.pdf" target="_blank" rel="noopener noreferrer">2021/22</a>; variants absent from the latest three are explicitly marked legacy-only.</p>
+        <p><strong>Method:</strong> 42 latest-three assessed units are mapped below, while all five supplied papers inform the question families. A question is kept separate whenever its requested construction, example, proof-style explanation, calculation, or mark structure differs.</p>
       </div>
       <ol>
         <li>Work through families in priority order.</li>
@@ -67,7 +67,7 @@
       </ol>
 
       <h2 id="priorities">Current Priorities</h2>
-      <p class="priority-note">Ranked primarily by recurrence in 2022/23-2024/25, then by available marks. A one-paper new-format question remains a current priority when it occupies a full recent subpart.</p>
+      <p class="priority-note">Ranked primarily by recurrence in 2023/24-2025/26, then by available marks. A one-paper new-format question remains a current priority when it occupies a full recent subpart.</p>
 
       <h2 id="ga-design">Priority 1 - Genetic-Algorithm Design for Constrained Allocation</h2>
       <p><strong>Recurrence and marks:</strong> 3/3 current papers, 43 marks. This is the strongest design family.</p>
@@ -75,21 +75,23 @@
         <tr><td>2022/23 Q2(b), 14</td><td>Allocate unique projects to students, each ranking ten projects. Apply a GA, including a suitable fitness function, chromosome representation, and operators.</td><td>Permutation/uniqueness constraint and ranked preferences.</td></tr>
         <tr><td>2023/24 Q2(b), 14</td><td>Place items with weights and values in capacity-limited containers, maximising value. Give fitness, representation, and operators.</td><td>Multiple-knapsack capacity constraint.</td></tr>
         <tr><td>2024/25 Q2(b)(i)-(iv), 15</td><td>Assign N tasks to M processors with processing-time, memory, and capability constraints. Design a GA: chromosome, fitness, selection, crossover, mutation.</td><td>Explicit selection requirement and several processor constraints.</td></tr>
+        <tr><td>2025/26 Q2(b), 14</td><td>Colour graph nodes so adjacent nodes differ while minimising colours. Give representation, conflict-penalising fitness, crossover, mutation, and the constraint/objective trade-off.</td><td>Graph-colouring feasibility has priority over reducing colours.</td></tr>
       </tbody></table>
       <blockquote><p>Given a constrained allocation problem, design a GA whose encoding, fitness function, selection, crossover, mutation, and repair mechanism are valid for that specific constraint set.</p></blockquote>
       <div class="answer-frame">
         <p><strong>Complete answer must contain:</strong> (1) one gene per decision, such as task <em>i</em> → processor <em>j</em>; (2) a fitness formula that rewards the stated objective and penalises every violated constraint; (3) a parent-selection mechanism, normally tournament selection; (4) crossover that combines assignments; (5) mutation that makes a small valid assignment change; and (6) repair or rejection after crossover/mutation where invalid offspring are possible.</p>
-        <p><strong>Standard construction:</strong> for tasks, use chromosome <code>x = (x<sub>1</sub>, …, x<sub>N</sub>)</code>, where <code>x<sub>i</sub> ∈ {1, …, M}</code> is the processor assigned to task <em>i</em>. A valid fitness is <code>−makespan − λΣ penalties</code>, where penalties cover memory excess and incompatible assignments. For knapsack, let <code>x<sub>i</sub> ∈ {0, 1, …, K}</code>, where 0 means unselected and <em>k</em> means knapsack <em>k</em>; maximise <code>Σ v<sub>i</sub></code> minus a large penalty for each capacity excess.</p>
+        <p><strong>Standard construction:</strong> for tasks, use chromosome <code>x = (x<sub>1</sub>, …, x<sub>N</sub>)</code>, where <code>x<sub>i</sub> ∈ {1, …, M}</code> is the processor assigned to task <em>i</em>. A valid fitness is <code>−makespan − λΣ penalties</code>, where penalties cover memory excess and incompatible assignments. For graph colouring, <code>x<sub>i</sub></code> is vertex <em>i</em>'s colour and fitness can be <code>−A × conflicts − coloursUsed</code>, with <em>A</em> large enough that removing a conflict always beats using one fewer colour. For knapsack, let <code>x<sub>i</sub> ∈ {0, 1, …, K}</code>, where 0 means unselected and <em>k</em> means knapsack <em>k</em>; maximise <code>Σ v<sub>i</sub></code> minus a large penalty for each capacity excess.</p>
       </div>
 
       <h2 id="game-search">Priority 2 - Game Trees, Minimax, and Alpha-Beta Pruning</h2>
-      <p><strong>Recurrence and marks:</strong> minimax is in 3/3 current papers, 27 direct marks; alpha-beta is explicit in 2024/25 and recurring in the legacy paper.</p>
+      <p><strong>Recurrence and marks:</strong> minimax is in 3/3 latest papers, 30 direct marks; alpha-beta is explicit in 2024/25 and 2025/26.</p>
       <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
         <tr><td>2022/23 Q1(a), 10</td><td>For a suitable game, show minimax choosing moves; explain game-tree construction and value assignment; discuss efficiency and improvement.</td><td>General construction plus efficiency discussion.</td></tr>
         <tr><td>2022/23 Q1(b), 8</td><td>Augment minimax where all potential game states cannot be enumerated.</td><td>Depth limit and heuristic / sampling response.</td></tr>
         <tr><td>2023/24 Q1(a), 9</td><td>For misère Nim with piles 4 and 3, draw the game tree and show minimax.</td><td>Concrete game-tree trace; last move loses.</td></tr>
         <tr><td>2024/25 Q1(a)(i), 5</td><td>For tic-tac-toe, draw the first three levels and evaluate positions with minimax, with X maximising.</td><td>Depth-limited tree and stated MAX player.</td></tr>
         <tr><td>2024/25 Q1(a)(ii), 5</td><td>Apply alpha-beta to that tree and illustrate a branch that can be pruned.</td><td>Must show a specific α ≥ β cutoff, not only define pruning.</td></tr>
+        <tr><td>2025/26 Q1(b)(i)-(iii), 11</td><td>For a four-stone take-away game, draw the complete tree, label MAX wins/losses, propagate minimax values, and identify alpha-beta prunes with justification.</td><td>Complete normal-play trace: taking the last stone wins.</td></tr>
       </tbody></table>
       <div class="answer-frame">
         <p><strong>Complete answer must contain:</strong> make legal moves children of a state; label alternating levels MAX and MIN; assign terminal utilities, or a heuristic at a cutoff depth; propagate maxima at MAX nodes and minima at MIN nodes; choose the root child with the final maximum value. For alpha-beta, carry α, MAX's best guaranteed value, and β, MIN's best guaranteed value; prune when α ≥ β because later children cannot change an ancestor's decision.</p>
@@ -97,7 +99,7 @@
       </div>
 
       <h2 id="mas-game-theory">Priority 3 - Game Theory, Cooperation, and Auctions in MAS</h2>
-      <p><strong>Recurrence and marks:</strong> 3/3 current papers, 58 marks across Q3. This is the highest-mark current block, with several distinct families.</p>
+      <p><strong>Recurrence and marks:</strong> 3/3 latest papers, 75 marks across complete Q3 blocks. This is the highest-mark current block, with several distinct families.</p>
       <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
         <tr><td>2022/23 Q3(a)(i)-(iii), 9</td><td>Compare English and Dutch auctions: protocol, rational bidder strategy, and limitations.</td><td>All three requested headings are compulsory.</td></tr>
         <tr><td>2022/23 Q3(b), 8</td><td>Suggest an efficient approach for agents to negotiate agreement on attributes in addition to price.</td><td>Multi-attribute negotiation, not a one-item auction.</td></tr>
@@ -108,47 +110,53 @@
         <tr><td>2024/25 Q3(a), 6</td><td>Using the Prisoner's Dilemma, explain dominant strategy and Nash equilibrium.</td><td>Definitions tied to one named game.</td></tr>
         <tr><td>2024/25 Q3(b), 9</td><td>Explain tit-for-tat, why it succeeds, and its performance under noisy moves.</td><td>Noise/failure mode is a separate requirement.</td></tr>
         <tr><td>2024/25 Q3(c)(i)-(iii), 10</td><td>Compare two auction types by mechanics, strategic behaviour, and efficiency in reaching optimal allocations.</td><td>Efficiency replaces the older explicit limitations heading.</td></tr>
+        <tr><td>2025/26 Q3(a), 6</td><td>In an auction setting, describe structured messages between agents, give message examples, and outline limitations.</td><td>Protocol messages and limitations, rather than auction-type comparison.</td></tr>
+        <tr><td>2025/26 Q3(b), 8</td><td>Define Nash equilibrium; construct a two-player game with one equilibrium and another with multiple equilibria; discuss coordination implications.</td><td>Payoff-matrix construction and coordination problem are compulsory.</td></tr>
+        <tr><td>2025/26 Q3(c), 11</td><td>Explain Prisoner's Dilemma, why cooperation challenges rational agents, and two mechanisms that promote cooperation.</td><td>Requires the dilemma and exactly grounded cooperation mechanisms.</td></tr>
       </tbody></table>
       <div class="answer-frame">
-        <p><strong>Game-theory proof pattern:</strong> write the two actions and payoffs. An action is dominant for player <em>i</em> if, for every action profile of the other players, it gives at least as high a payoff as every alternative. A profile is a Nash equilibrium if no one player can improve their payoff by changing strategy while all other strategies remain fixed. In the Prisoner's Dilemma, defect is dominant for both; (defect, defect) is Nash, although (cooperate, cooperate) is better jointly.</p>
+        <p><strong>Game-theory proof pattern:</strong> write the two actions and payoffs. An action is dominant for player <em>i</em> if, for every action profile of the other players, it gives at least as high a payoff as every alternative. A profile is a Nash equilibrium if no one player can improve their payoff by changing strategy while all other strategies remain fixed. To construct multiple equilibria, use a coordination matrix with good diagonal outcomes and worse off-diagonal outcomes; explain that rational agents still need a convention or communication to select the same diagonal. In the Prisoner's Dilemma, defect is dominant for both; (defect, defect) is Nash, although (cooperate, cooperate) is better jointly.</p>
         <p><strong>Auction construction:</strong> English: ascending price, bidders remain until price reaches private value; it reveals information but can be slow/collusive. Dutch: descending price, first acceptance wins; a bidder trades a lower price against losing to another bidder; it is fast but strategically uncertain. For multi-attribute negotiation, define offers over price, deadline, quality, and quantity, evaluate with weighted utilities, then seek Pareto-efficient offers where improving one agent necessarily harms another.</p>
         <p><strong>Cooperation answer:</strong> tit-for-tat cooperates first and then repeats the opponent's previous move. It is nice, retaliatory, and forgiving after renewed cooperation. Noise can turn cooperation into apparent defection, causing a retaliation loop; forgiving or generous variants can break it. Other mechanisms are repeated interaction, reputation, partner selection, and incentives/enforcement.</p>
       </div>
 
       <h2 id="explainability">Priority 4 - Explainability and Black-Box Deep Learning</h2>
-      <p><strong>Recurrence and marks:</strong> 3/3 current papers, 25 marks. It is the most stable Question 4 family.</p>
+      <p><strong>Recurrence and marks:</strong> 3/3 latest papers, 24 marks; across all five supplied papers, it is the most stable Question 4 family.</p>
       <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
         <tr><td>2022/23 Q4(a), 8</td><td>Explain the importance of explainability and, for an AI paradigm, approaches for systems that generate explanations.</td><td>Any paradigm can be chosen.</td></tr>
         <tr><td>2023/24 Q4(a), 8</td><td>Explain explainability and, with respect to deep learning, approaches that provide explanations.</td><td>Specifically deep learning.</td></tr>
         <tr><td>2024/25 Q4(c), 9</td><td>Explain black-box deep learning, why it is problematic in real applications, and two approaches to make it interpretable.</td><td>Explicit black-box definition, real-world risk, and two methods.</td></tr>
+        <tr><td>2025/26 Q4(b), 7</td><td>Explain why explainability matters in AI and, for deep-learning image classification, outline explanatory approaches.</td><td>Image-classification context with concise method outlines.</td></tr>
       </tbody></table>
       <div class="answer-frame">
         <p><strong>Complete answer must contain:</strong> a black-box model's output may be accurate while the internal route to it is difficult to inspect; this harms trust, auditability, debugging, bias detection, and accountability in high-stakes decisions. Then describe two methods, not merely name them: feature attribution/saliency identifies input features or image regions that most affected an output; a local surrogate such as LIME fits an interpretable approximation near one prediction. Other valid choices include counterfactual explanations, attention visualisation, concept activation vectors, or interpretable-by-design models.</p>
       </div>
 
       <h2 id="search">Priority 5 - BFS, DFS, and Iterative Deepening</h2>
-      <p><strong>Recurrence and marks:</strong> 2/3 current papers, 19 marks. The same comparison headings recur exactly.</p>
+      <p><strong>Recurrence and marks:</strong> iterative deepening is in 3/3 latest papers, 25 marks; BFS/DFS comparison is in two of them. The same comparison headings recur exactly when all three are named.</p>
       <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
         <tr><td>2023/24 Q1(b), 9</td><td>Using an example, distinguish BFS, DFS, and iterative deepening by node-visit order; compare time complexity, space complexity, and completeness.</td><td>Requires both traversal example and comparison.</td></tr>
         <tr><td>2024/25 Q1(b), 10</td><td>Explain how BFS, DFS, and iterative deepening differ in visit order; compare time, space, and completeness.</td><td>Same family; one extra mark.</td></tr>
+        <tr><td>2025/26 Q1(a), 6</td><td>Explain iterative deepening and discuss time complexity, space complexity, and completeness.</td><td>Iterative deepening alone; all three performance headings remain required.</td></tr>
       </tbody></table>
       <div class="answer-frame">
         <p><strong>Complete comparison:</strong> BFS uses a FIFO queue and visits depth 0, then 1, then 2; it is complete for finite branching, takes O(b<sup>d</sup>) time and O(b<sup>d</sup>) space. DFS follows one branch before backtracking; it uses O(bm) space and O(b<sup>m</sup>) time, but is not complete in an infinite-depth space. Iterative deepening repeats depth-limited DFS at limits 0, 1, 2, …; it is complete for finite branching, has O(b<sup>d</sup>) time and O(bd) space. State assumptions: <em>b</em> is branching factor, <em>d</em> shallowest-solution depth, and <em>m</em> maximum depth.</p>
       </div>
 
-      <h2 id="ga-theory">Priority 6 - Schema Theorem and Exploration-Exploitation</h2>
-      <p><strong>Recurrence and marks:</strong> schema theorem in 2/3 current papers for 22 marks; the 2024/25 exploration-exploitation variation is 10 marks.</p>
+      <h2 id="ga-theory">Priority 6 - GA Population Dynamics: Schemas, Diversity, and Search Balance</h2>
+      <p><strong>Recurrence and marks:</strong> a distinct GA population-dynamics question occupies 11, 10, and 11 marks in the latest three papers: schemas/operators, exploration-exploitation, then diversity.</p>
       <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
         <tr><td>2022/23 Q2(a)(a)-(c), 11</td><td>With reference to GAs and the schema theorem, explain effects of mutation, crossover, and selection on a population.</td><td>Operator effects are individually assessed.</td></tr>
         <tr><td>2023/24 Q2(a), 11</td><td>Explain schema theorem, its key principles, and roles of crossover, mutation, and selection.</td><td>Requires theorem explanation as well as operators.</td></tr>
         <tr><td>2024/25 Q2(a)(i)-(ii), 10</td><td>Discuss exploration-exploitation with respect to GA operators and hill climbing.</td><td>Must compare population search with local search.</td></tr>
+        <tr><td>2025/26 Q2(a), 11</td><td>Explain GA diversity, why it matters, operator effects, and two explicit diversity-preservation mechanisms.</td><td>Diversity mechanisms such as fitness sharing, niching, crowding, random immigrants, or duplicate removal are required.</td></tr>
       </tbody></table>
       <div class="answer-frame">
-        <p><strong>Complete answer:</strong> a schema is a pattern such as 1*0*, with * a wildcard. The schema theorem predicts that short, low-order, above-average schemas receive increasing expected representation. Selection favours schemas appearing in fitter individuals. Crossover combines building blocks but can disrupt a schema when a crossover point falls within its defining length. Mutation introduces diversity and can create new material, but a high mutation rate disrupts existing schemas. Selection/crossover mainly exploit known promising regions; mutation and diverse parent choice explore. Hill climbing mainly exploits by moving to a better neighbour and can get trapped on a local optimum, plateau, or ridge; random restarts or occasional non-improving moves add exploration.</p>
+        <p><strong>Complete answer:</strong> a schema is a pattern such as 1*0*, with * a wildcard. The schema theorem predicts that short, low-order, above-average schemas receive increasing expected representation. Selection favours schemas appearing in fitter individuals. Crossover combines building blocks but can disrupt a schema when a crossover point falls within its defining length. Mutation introduces diversity and can create new material, but a high mutation rate disrupts existing schemas. Diversity is variation among candidates; it avoids premature convergence. Strong selection and crossover of similar parents reduce it, while mutation can restore it. Explicit preservation includes fitness sharing/niching, crowding, random immigrants, or duplicate removal. Selection/crossover mainly exploit known promising regions; mutation and diverse parent choice explore. Hill climbing mainly exploits by moving to a better neighbour and can get trapped on a local optimum, plateau, or ridge; random restarts or occasional non-improving moves add exploration.</p>
       </div>
 
       <h2 id="bio">Priority 7 - Bio-Inspired AI, Artificial Life, and Neuro-Evolution</h2>
-      <p><strong>Recurrence and marks:</strong> artificial life and neuro-evolution appear in 2/3 current papers; ACO is in the newest 2/3 papers.</p>
+      <p><strong>Recurrence and marks:</strong> ACO is in all latest-three papers for 26 marks; artificial-life properties recur directly or as part of ACO. Neuro-evolution and symbolic versus connectionist AI are useful supporting variants.</p>
       <table><thead><tr><th>Paper unit</th><th>Exact or near-exact wording</th><th>Meaningful variation</th></tr></thead><tbody>
         <tr><td>2022/23 Q4(b), 9</td><td>Define neuro-evolution and describe a suitable neural-network representation.</td><td>Representation is explicit; older paper also asks advantages/limitations.</td></tr>
         <tr><td>2022/23 Q4(c), 8</td><td>With existing systems, explain main properties of an artificial-life system.</td><td>System example and properties required.</td></tr>
@@ -156,22 +164,25 @@
         <tr><td>2023/24 Q4(c), 9</td><td>Explain ACO and show, with a simple example, how it solves TSP.</td><td>Tour construction, not only definition.</td></tr>
         <tr><td>2024/25 Q4(a), 8</td><td>Explain ACO, pheromones and evaporation; apply it to shortest path in a network.</td><td>Shortest path replaces TSP, with evaporation explicit.</td></tr>
         <tr><td>2024/25 Q4(b), 8</td><td>Compare symbolic and connectionist AI, using one application to discuss advantages and limitations.</td><td>A current one-paper comparison with a required application.</td></tr>
+        <tr><td>2025/26 Q4(a), 9</td><td>Show how ACO tackles TSP and state which artificial-life properties are present in the approach.</td><td>Route construction must be paired with decentralisation, local interaction, adaptation/feedback, and emergence.</td></tr>
       </tbody></table>
       <div class="answer-frame">
-        <p><strong>Standard examples:</strong> Artificial life: Boids agents obey separation, alignment, and cohesion locally, yet flocking emerges globally without a controller. Neuro-evolution: chromosome encodes all weights <code>w<sub>1</sub>, …, w<sub>n</sub></code>, or a graph of nodes/connections; GA fitness evaluates network performance. It avoids gradients but is expensive because many networks must be evaluated. ACO: ants choose edges using pheromone and heuristic distance; short tours deposit more pheromone; evaporation prevents old paths from dominating. For symbolic vs connectionist AI, compare explicit rules and inspectable reasoning with neural networks' data-driven pattern learning; apply both to the same domain, such as medical diagnosis.</p>
+        <p><strong>Standard examples:</strong> Artificial life: Boids agents obey separation, alignment, and cohesion locally, yet flocking emerges globally without a controller. Neuro-evolution: chromosome encodes all weights <code>w<sub>1</sub>, …, w<sub>n</sub></code>, or a graph of nodes/connections; GA fitness evaluates network performance. It avoids gradients but is expensive because many networks must be evaluated. ACO: ants choose edges using pheromone and heuristic distance; short tours deposit more pheromone; evaporation prevents old paths from dominating. Its artificial-life properties are decentralised agents, local probabilistic decisions, feedback through pheromone, adaptation over iterations, and emergent route preference. For symbolic vs connectionist AI, compare explicit rules and inspectable reasoning with neural networks' data-driven pattern learning; apply both to the same domain, such as medical diagnosis.</p>
       </div>
 
       <h2 id="one-paper">Current One-Paper Families: Do Not Discard</h2>
       <table><thead><tr><th>Family</th><th>Current wording</th><th>Complete answer requirement</th></tr></thead><tbody>
         <tr><td>Novelty search</td><td>2022/23 Q1(c), 7: explain novelty search in a domain. 2023/24 Q1(c), 7: explain motivations and implementation in a chosen domain.</td><td>Define behaviour characterisation, novelty as behavioural distance from an archive/neighbours, selection for novelty, one domain example, and why it escapes deceptive objectives.</td></tr>
-        <tr><td>Speech acts</td><td>2023/24 Q3(a), 7: explain speech acts and negotiation examples.</td><td>State that messages have communicative intent. Give a negotiation sequence such as <code>inform</code>, <code>request</code>, <code>propose</code>, <code>counter-propose</code>, <code>accept</code>, and <code>reject</code>.</td></tr>
+        <tr><td>Speech acts</td><td>2023/24 Q3(a), 7 and 2025/26 Q3(a), 6: explain structured messages in negotiation or an auction, including limitations.</td><td>State that messages have communicative intent. Give a sequence such as <code>inform</code>, <code>request</code>, <code>propose</code>, <code>counter-propose</code>, <code>accept</code>, and <code>reject</code>, then a limitation such as strategic messages, ontology mismatch, failure, or overhead.</td></tr>
         <tr><td>Multi-attribute negotiation</td><td>2022/23 Q3(b), 8: agree on multiple attributes beyond price.</td><td>Model offers as attribute bundles, use private weighted utilities, exchange proposals/counterproposals, and search a Pareto-efficient agreement.</td></tr>
         <tr><td>MCTS</td><td>2024/25 Q1(c), 5: explain main aspects of Monte Carlo Tree Search.</td><td>Give all four stages: selection, expansion, simulation/rollout, and backpropagation; mention exploration versus exploitation, commonly UCT.</td></tr>
+        <tr><td>NK model</td><td>2025/26 Q1(c), 8: explain N and K, compute a binary string fitness, and discuss K's effect on ruggedness.</td><td>Define N genes and K interacting neighbours; average N local contribution values; explain that K = 0 is smooth while higher K adds epistasis, ruggedness, and local optima.</td></tr>
+        <tr><td>LLM hallucination</td><td>2025/26 Q4(c), 9: explain how hallucination arises, likely conditions, and two detection or mitigation approaches.</td><td>Separate fluent next-token prediction from truth; state likely triggers such as missing/ambiguous/rare context; give two concrete safeguards such as retrieval with source citation, verification, constrained generation, abstention, or human review.</td></tr>
       </tbody></table>
 
       <h2 id="coverage">Current-Paper Coverage Map</h2>
       <div class="coverage-map">
-        <p><strong>Coverage result:</strong> all 44 current-paper assessed units are represented. No current-format subpart has been intentionally excluded.</p>
+        <p><strong>Coverage result:</strong> all 42 latest-three assessed units are represented. No 2023/24-2025/26 subpart has been intentionally excluded; 2022/23 remains mapped as supporting current-format evidence.</p>
       </div>
       <table><thead><tr><th>Paper unit(s)</th><th>Covered in family</th><th>Specific requirement retained</th></tr></thead><tbody>
         <tr><td>2022/23 Q1(a)-(c)</td><td>Game trees/minimax; novelty search</td><td>game-tree/value construction; efficiency/improvement; unenumerable states; domain example</td></tr>
@@ -186,6 +197,10 @@
         <tr><td>2024/25 Q2(a)(i)-(ii), Q2(b)(i)-(iv)</td><td>Schema/exploration; GA allocation</td><td>GA operators and hill climbing; chromosome, fitness, selection, crossover, mutation</td></tr>
         <tr><td>2024/25 Q3(a)-(c)(i)-(iii)</td><td>MAS/game theory</td><td>PD definitions; tit-for-tat under noise; auction mechanics/strategy/efficiency</td></tr>
         <tr><td>2024/25 Q4(a)-(c)</td><td>Bio-inspired AI; explainability</td><td>pheromone and evaporation; application comparison; black box and two methods</td></tr>
+        <tr><td>2025/26 Q1(a), Q1(b)(i)-(iii), Q1(c)</td><td>Search; game trees; NK model</td><td>IDDFS performance; complete normal-play game tree, minimax propagation and justified pruning; N/K fitness and ruggedness</td></tr>
+        <tr><td>2025/26 Q2(a)-(b)</td><td>GA population dynamics; GA allocation</td><td>diversity definition, operator effects and two preservation mechanisms; graph-colouring encoding, fitness, operators and trade-off</td></tr>
+        <tr><td>2025/26 Q3(a)-(c)</td><td>MAS/game theory</td><td>auction message protocol and limitations; single/multiple Nash construction and coordination; PD cooperation mechanisms</td></tr>
+        <tr><td>2025/26 Q4(a)-(c)</td><td>Bio-inspired AI; explainability; LLM reliability</td><td>ACO for TSP plus artificial-life properties; image-classification explanations; hallucination causes, conditions and safeguards</td></tr>
       </tbody></table>
 
       <h2 id="legacy">Legacy / Backup: 2021/22 Variants</h2>
@@ -198,10 +213,10 @@
 
       <h2>Study Order</h2>
       <ol>
-        <li>GA allocation design, minimax/alpha-beta, and the entire MAS/game-theory block.</li>
-        <li>Explainability, BFS/DFS/iterative deepening, and schema theorem.</li>
-        <li>Artificial life, neuro-evolution, ACO, symbolic versus connectionist AI.</li>
-        <li>Novelty search, speech acts, multi-attribute negotiation, and MCTS.</li>
+        <li>GA allocation design, diversity/search dynamics, minimax/alpha-beta, and the entire MAS/game-theory block.</li>
+        <li>Explainability, iterative deepening and the BFS/DFS comparison, plus ACO with artificial-life properties.</li>
+        <li>Nash-equilibrium construction, NK landscapes, graph colouring, and LLM hallucination safeguards.</li>
+        <li>Novelty search, speech acts, multi-attribute negotiation, MCTS, neuro-evolution, and symbolic versus connectionist AI.</li>
         <li>Legacy-only three-player minimax and game-theory limitations.</li>
       </ol>
     </article>
