@@ -192,16 +192,20 @@ def discover_course(course: dict, code: str, token: str) -> dict:
     for file_id, references in file_modules.items():
         if file_id in known_ids:
             continue
-        title = references[0]["item_title"]
-        if Path(title.lower()).suffix not in SLIDE_EXTENSIONS:
+        try:
+            metadata, _ = api_request(f"/api/v1/files/{file_id}", token)
+        except CanvasAccessError:
             continue
+        if not isinstance(metadata, dict) or not slide_file(metadata):
+            continue
+        title = str(metadata.get("display_name") or metadata.get("filename"))
         slides.append({
             "id": file_id,
             "title": title,
-            "content_type": None,
-            "size": None,
-            "updated_at": None,
-            "locked": False,
+            "content_type": metadata.get("content-type"),
+            "size": metadata.get("size"),
+            "updated_at": metadata.get("updated_at"),
+            "locked": bool(metadata.get("locked") or metadata.get("hidden_for_user")),
             "canvas_url": f"{CANVAS}/courses/{course_id}/files/{file_id}",
             "modules": references,
         })

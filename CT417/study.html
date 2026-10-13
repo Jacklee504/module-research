@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT417 Study Space | Module Research</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <link rel="stylesheet" href="../study_space.css">
+</head>
+<body>
+  <header class="module-header study-space-header">
+    <nav class="top-nav" aria-label="Navigation"><a href="../index.html">Overview</a><a href="details.html">Module details</a><a href="../lecture_study.html#ct417">Lecture study</a><a href="#flashcards">Flashcards</a><a href="#practice">Exam practice</a></nav>
+    <p class="eyebrow">CT417 · Study Space</p>
+    <h1>Software Engineering III</h1>
+    <p>Use the current Canvas lectures for Git, build and deployment concepts, then practise the recent scenario questions. The 2024/25 and 2025/26 papers ask for practical decisions in four 20-mark question families.</p>
+  </header>
+  <main class="module-shell study-space-shell">
+    <ol class="study-route"><li><strong>1 · Read and locate</strong><p>Open a current lecture and identify the workflow, tool or decision the question needs.</p></li><li><strong>2 · Recall</strong><p>Use the flashcards below for short definitions and actions. Mark weak cards for another pass.</p></li><li><strong>3 · Apply</strong><p>Write a complete answer to a marked paper part before reading the answer frame.</p></li></ol>
+    <section class="study-panel" aria-labelledby="lecture-heading">
+      <h2 id="lecture-heading">Lecture to exam route</h2><p>Start with the recent CI/CD and Git family. Requirements is a current lecture topic, but the local recent papers give stronger evidence for CI/CD, security tooling, vulnerabilities and design patterns.</p>
+      <ul class="study-topic-list">
+        <li><strong>Git and team workflow</strong><p>2025/26 Q1(d) [5]: causes, prevention and resolution of merge conflicts.</p><div class="links"><a href="../lecture_study.html#swe-git">Answer plan</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3806318" target="_blank" rel="noopener noreferrer">Canvas lecture</a></div></li>
+        <li><strong>Build and CI/CD</strong><p>2025/26 Q1(b)–(c), 5 marks each: pull-request tests, image build, staging and safe release gates.</p><div class="links"><a href="../lecture_study.html#swe-pipeline">Answer plan</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3824397" target="_blank" rel="noopener noreferrer">Canvas build tools</a></div></li>
+        <li><strong>Docker deployment</strong><p>2025/26 Q1(a) [5]: diagnose a missing image tag, correct it and redeploy.</p><div class="links"><a href="../lecture_study.html#swe-docker">Answer plan</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3874040" target="_blank" rel="noopener noreferrer">Canvas deployment</a></div></li>
+        <li><strong>Requirements and change</strong><p>Current lecture support for testable requirements and controlled change. Treat as supporting coverage.</p><div class="links"><a href="../lecture_study.html#swe-requirements">Answer plan</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3807003" target="_blank" rel="noopener noreferrer">Canvas lecture</a></div></li>
+      </ul>
+    </section>
+    <section class="study-panel" aria-labelledby="slides-heading"><h2 id="slides-heading">Current Canvas slide library</h2><p>The full set currently visible through CT417 Modules is here. The lecture-to-exam route above highlights the decks with the clearest recent-paper connection. Canvas login is required.</p><div class="study-resources"><a href="https://universityofgalway.instructure.com/courses/56296/files/3774529" target="_blank" rel="noopener noreferrer">Module overview</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3751265" target="_blank" rel="noopener noreferrer">Software revision</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3751284" target="_blank" rel="noopener noreferrer">Agile and DevOps</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3806318" target="_blank" rel="noopener noreferrer">Git and version control</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3807003" target="_blank" rel="noopener noreferrer">Requirements and change</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3824397" target="_blank" rel="noopener noreferrer">Build tools</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3751277" target="_blank" rel="noopener noreferrer">Spring Boot and Actions</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3874040" target="_blank" rel="noopener noreferrer">Deployment tools</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3872639" target="_blank" rel="noopener noreferrer">Docker overview</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3872642" target="_blank" rel="noopener noreferrer">Docker practical</a><a href="https://universityofgalway.instructure.com/courses/56296/files/3886257" target="_blank" rel="noopener noreferrer">Docker setup</a></div></section>
+    <section class="study-panel" id="flashcards" aria-labelledby="flashcards-heading">
+      <h2 id="flashcards-heading">Flashcard drill</h2><p>The existing CT417 exam deck is available here as revealable cards. Its evidence labels distinguish recent paper questions from official module coverage.</p>
+      <div class="flashcard-player" data-study-player data-module="CT417" data-decks="flashcards.html">
+        <p data-loading>Loading flashcards…</p>
+        <div data-controls hidden>
+          <div class="flashcard-toolbar"><label>Topic<select data-category><option value="all">All topics</option></select></label><label>Review status<select data-status-filter><option value="all">All cards</option><option value="new">Not marked</option><option value="practice">Needs practice</option><option value="ready">Ready</option></select></label><button type="button" data-shuffle>Shuffle</button></div>
+          <p class="flashcard-progress" data-progress aria-live="polite"></p><p class="flashcard-position" data-position></p><div class="flashcard-face" data-front></div><div class="flashcard-face flashcard-answer" data-back hidden></div><p class="flashcard-evidence" data-evidence></p>
+          <div class="flashcard-actions"><button type="button" data-previous>Previous</button><button type="button" data-reveal>Reveal answer</button><button type="button" data-next>Next</button><button type="button" data-rating="practice">Needs practice</button><button type="button" data-rating="ready">Ready</button><button type="button" data-rating="new">Clear mark</button><span class="flashcard-state" data-state></span></div>
+        </div>
+      </div>
+      <p class="study-footnote">Review marks stay in this browser. <a href="flashcards.html">Open the complete printable deck</a>.</p>
+    </section>
+    <section class="study-panel" id="practice" aria-labelledby="practice-heading"><h2 id="practice-heading">Exam practice and topic guides</h2><p>Attempt a marked subquestion from a recent paper, then check the matching question family. Use the guides to repair a specific gap in your answer.</p><div class="study-resources"><a href="2025_2026.pdf" target="_blank" rel="noopener noreferrer">2025/26 paper</a><a href="2024_2025.pdf" target="_blank" rel="noopener noreferrer">2024/25 paper</a><a href="most_asked.html">Most asked families</a><a href="cicd_git_workflows_revision_sheet.html">CI/CD and Git guide</a><a href="automated_testing_security_tooling_revision_sheet.html">Testing and security tooling</a><a href="vulnerabilities_countermeasures_metrics_revision_sheet.html">Vulnerabilities and metrics</a><a href="refactoring_design_patterns_revision_sheet.html">Refactoring and patterns</a><a href="details.html#topic-guides">All topic guides</a></div></section>
+  </main>
+  <script src="../study_space.js" defer></script>
+</body>
+</html>
