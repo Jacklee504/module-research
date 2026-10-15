@@ -35,6 +35,7 @@
 .study-resources { margin-top: 16px; }
 .flashcard-player { margin-top: 17px; padding: clamp(14px, 2vw, 22px); border: 1px solid #c7d9d0; border-radius: 9px; background: #f5faf7; }
 .flashcard-player [hidden] { display: none; }
+.study-deck-warning { padding: 10px 12px; border: 1px solid #e6c692; border-radius: 6px; background: #fff9ec; color: #594020; font-size: 13px; }
 .flashcard-toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 10px; margin-bottom: 12px; }
 .flashcard-toolbar label { display: grid; gap: 4px; min-width: 180px; color: var(--muted); font-size: 12px; font-weight: 750; }
 .flashcard-toolbar select { min-height: 38px; padding: 6px 9px; border: 1px solid var(--line); border-radius: 6px; background: white; font: inherit; font-size: 13px; }
