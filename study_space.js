@@ -9,6 +9,7 @@
   const front = player.querySelector('[data-front]');
   const back = player.querySelector('[data-back]');
   const evidence = player.querySelector('[data-evidence]');
+  const toolbar = player.querySelector('.flashcard-toolbar');
   const position = player.querySelector('[data-position]');
   const progress = player.querySelector('[data-progress]');
   const state = player.querySelector('[data-state]');
@@ -23,6 +24,10 @@
   let order = [];
   let current = 0;
   let revealed = false;
+  let sourceFilter;
+  const draftKey = `module-research-written-${moduleCode}-v1`;
+  let drafts = {};
+  try { drafts = JSON.parse(localStorage.getItem(draftKey) || '{}') || {}; } catch (_) { drafts = {}; }
 
   function copyContent(target, source) {
     target.replaceChildren(...[...source.childNodes].map(node => document.importNode(node, true)));
@@ -38,6 +43,7 @@
         return cells.length < 2 ? [] : [{
           id: `${sourcePath}:${tableIndex}:${rowIndex}`,
           group,
+          kind: 'exam',
           front: cells[0],
           back: cells[1],
           evidence: cells[2]?.textContent.trim() || '',
@@ -49,13 +55,50 @@
   function inlineCards() {
     const template = document.querySelector('#inline-flashcards');
     if (!template) return [];
+    const topics = [...document.querySelectorAll('.study-topic-list > li')];
     return [...template.content.querySelectorAll('[data-flashcard]')].map((item, index) => ({
       id: `inline:${index}`,
       group: item.dataset.group || 'Core concepts',
+      kind: 'lecture',
       front: item.querySelector('[data-card-front]'),
       back: item.querySelector('[data-card-back]'),
       evidence: item.dataset.evidence || '',
+      source: item.dataset.sourceUrl || topics.find(topic => topic.querySelector('strong')?.textContent.trim() === item.dataset.group)?.querySelector('a[href^="https://universityofgalway.instructure.com/"]')?.href || '',
     }));
+  }
+
+  function addWrittenPractice() {
+    for (const topic of document.querySelectorAll('.study-topic-list > li')) {
+      const group = topic.querySelector('strong')?.textContent.trim();
+      const answerPlan = topic.querySelector('.study-answer');
+      if (!group || !answerPlan) continue;
+      const practice = document.createElement('details');
+      practice.className = 'study-write';
+      const summary = document.createElement('summary');
+      summary.textContent = 'Write an answer';
+      const label = document.createElement('label');
+      label.textContent = 'Your draft';
+      const input = document.createElement('textarea');
+      input.rows = 5;
+      input.value = typeof drafts[group] === 'string' ? drafts[group] : '';
+      input.setAttribute('aria-label', `Your answer for ${group}`);
+      const clear = document.createElement('button');
+      clear.type = 'button';
+      clear.textContent = 'Clear draft';
+      const note = document.createElement('span');
+      note.textContent = 'Saved in this browser';
+      function save() {
+        if (input.value) drafts[group] = input.value;
+        else delete drafts[group];
+        try { localStorage.setItem(draftKey, JSON.stringify(drafts)); }
+        catch (_) { note.textContent = 'Local saving unavailable'; }
+      }
+      input.addEventListener('input', save);
+      clear.addEventListener('click', () => { input.value = ''; save(); input.focus(); });
+      label.append(input);
+      practice.append(summary, label, clear, note);
+      answerPlan.before(practice);
+    }
   }
 
   function rating(card) {
@@ -67,7 +110,8 @@
     const selectedStatus = statusFilter.value;
     order = cards.map((_, index) => index).filter(index =>
       (selectedGroup === 'all' || cards[index].group === selectedGroup) &&
-      (selectedStatus === 'all' || rating(cards[index]) === selectedStatus)
+      (selectedStatus === 'all' || rating(cards[index]) === selectedStatus) &&
+      (!sourceFilter || sourceFilter.value === 'all' || cards[index].kind === sourceFilter.value)
     );
     current = Math.min(current, Math.max(0, order.length - 1));
     showCard();
@@ -81,7 +125,7 @@
     position.textContent = card ? `Card ${current + 1} of ${order.length} · ${card.group}` : 'No cards match these filters';
     front.replaceChildren();
     back.replaceChildren();
-    evidence.textContent = '';
+    evidence.replaceChildren();
     revealed = false;
     back.hidden = true;
     reveal.hidden = !card;
@@ -102,7 +146,16 @@
     if (!card) return;
     if (!revealed) {
       copyContent(back, card.back);
-      evidence.textContent = card.evidence ? `Evidence: ${card.evidence}` : '';
+      if (card.kind === 'lecture' && card.source) {
+        const link = document.createElement('a');
+        link.href = card.source;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.textContent = 'Open source lecture in Canvas';
+        evidence.append(link);
+      } else if (card.evidence) {
+        evidence.textContent = `Evidence: ${card.evidence}`;
+      }
       back.hidden = false;
       revealed = true;
       reveal.textContent = 'Hide answer';
@@ -139,20 +192,58 @@
   statusFilter.addEventListener('change', () => { current = 0; updateOrder(); });
 
   async function load() {
+    addWrittenPractice();
     const sources = (player.dataset.decks || '').split(',').map(source => source.trim()).filter(Boolean);
-    const responses = await Promise.all(sources.map(source => fetch(source)));
-    for (let i = 0; i < responses.length; i++) {
-      if (!responses[i].ok) throw new Error(`Could not load ${sources[i]}`);
-      const html = await responses[i].text();
-      cards.push(...sourceCards(new DOMParser().parseFromString(html, 'text/html'), sources[i]));
+    for (const result of await Promise.allSettled(sources.map(async source => {
+      const response = await fetch(source);
+      if (!response.ok) throw new Error(`Could not load ${source}`);
+      return sourceCards(new DOMParser().parseFromString(await response.text(), 'text/html'), source);
+    }))) {
+      if (result.status === 'fulfilled') cards.push(...result.value);
     }
     cards.push(...inlineCards());
     if (!cards.length) throw new Error('No flashcards were found.');
+    if (cards.some(card => card.kind === 'lecture') && cards.some(card => card.kind === 'exam')) {
+      const label = document.createElement('label');
+      label.textContent = 'Card source';
+      sourceFilter = document.createElement('select');
+      sourceFilter.setAttribute('aria-label', 'Card source');
+      for (const [value, name] of [['all', 'All cards'], ['lecture', 'Lecture slides'], ['exam', 'Exam deck']]) {
+        const option = document.createElement('option');
+        option.value = value;
+        option.textContent = name;
+        sourceFilter.append(option);
+      }
+      label.append(sourceFilter);
+      toolbar.prepend(label);
+      sourceFilter.value = 'lecture';
+      sourceFilter.addEventListener('change', () => { current = 0; updateOrder(); });
+    }
     for (const group of [...new Set(cards.map(card => card.group))]) {
       const option = document.createElement('option');
       option.value = group;
       option.textContent = group;
       category.append(option);
+    }
+    for (const topic of document.querySelectorAll('.study-topic-list > li')) {
+      const group = topic.querySelector('strong')?.textContent.trim();
+      if (!cards.some(card => card.kind === 'lecture' && card.group === group)) continue;
+      const links = topic.querySelector('.links');
+      if (!links) continue;
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'study-topic-drill';
+      button.textContent = 'Study slide cards';
+      button.addEventListener('click', () => {
+        category.value = group;
+        statusFilter.value = 'all';
+        if (sourceFilter) sourceFilter.value = 'lecture';
+        current = 0;
+        updateOrder();
+        document.querySelector('#flashcards')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        reveal.focus({ preventScroll: true });
+      });
+      links.append(button);
     }
     player.querySelector('[data-loading]').hidden = true;
     player.querySelector('[data-controls]').hidden = false;

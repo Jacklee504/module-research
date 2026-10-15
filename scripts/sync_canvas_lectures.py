@@ -224,7 +224,7 @@ def discover_course(course: dict, code: str, token: str) -> dict:
     }
 
 
-def download_files(ids: list[str], token: str) -> None:
+def download_files(ids: list[str], token: str, refresh_existing: bool = False) -> None:
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
     known = {file["id"]: file for course in catalog["courses"] for file in course["slides"]}
     destination = CATALOG.parent / "files"
@@ -235,7 +235,7 @@ def download_files(ids: list[str], token: str) -> None:
             raise RuntimeError(f"File ID {file_id} is not in the private catalog.")
         suffix = Path(file["title"].lower()).suffix
         target = destination / f"{file_id}{suffix}"
-        if target.exists():
+        if target.exists() and not refresh_existing:
             print(f"Already downloaded: {file_id}")
             extract_pdf(target)
             continue
@@ -258,14 +258,14 @@ def download_files(ids: list[str], token: str) -> None:
             status = error.code if isinstance(error, HTTPError) else "connection error"
             raise RuntimeError(f"Canvas file {file_id} could not be downloaded ({status}).") from None
         print(f"Downloaded privately: {file_id} ({target.stat().st_size} bytes)")
-        extract_pdf(target)
+        extract_pdf(target, refresh_existing)
 
 
-def extract_pdf(path: Path) -> None:
+def extract_pdf(path: Path, refresh_existing: bool = False) -> None:
     if path.suffix != ".pdf":
         return
     text_path = CATALOG.parent / "text" / f"{path.stem}.txt"
-    if text_path.exists():
+    if text_path.exists() and not refresh_existing:
         return
     text_path.parent.mkdir(parents=True, exist_ok=True)
     result = subprocess.run(
@@ -330,11 +330,12 @@ def fetch_lecture_pages(code: str, token: str) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--download", nargs="+", metavar="FILE_ID", help="Download catalogued decks to private/canvas/files")
+    parser.add_argument("--refresh-existing", action="store_true", help="Re-download selected files and re-extract their text")
     parser.add_argument("--fetch-pages", metavar="MODULE_CODE", help="Save lecture-note Canvas pages privately")
     args = parser.parse_args()
     token = access_token()
     if args.download:
-        download_files(args.download, token)
+        download_files(args.download, token, args.refresh_existing)
         return
     if args.fetch_pages:
         fetch_lecture_pages(args.fetch_pages.upper(), token)
