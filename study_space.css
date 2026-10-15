@@ -1,5 +1,4 @@
 .study-space-header > p:last-child { max-width: 74ch; margin-bottom: 0; }
-.study-space-shell { max-width: 1260px; }
 .study-route { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 28px; padding: 0; list-style: none; }
 .study-route li, .study-panel { padding: 18px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); box-shadow: var(--shadow); }
 .study-route strong { display: block; margin-bottom: 5px; color: var(--blue); }
