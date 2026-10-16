@@ -34,14 +34,22 @@
       'flashcards.html:0:4': ['Build and CI/CD'],
       'flashcards.html:0:5': ['Docker deployment'],
       'flashcards.html:0:6': ['Git and team workflow'],
-      'flashcards.html:5:0': ['Requirements and change'],
-      'flashcards.html:5:1': ['Requirements and change'],
+      'flashcards.html:1': ['Testing and security tools'],
+      'flashcards.html:2': ['Vulnerabilities and reliability'],
+      'flashcards.html:3': ['Refactoring and design patterns'],
+      'flashcards.html:5': ['Requirements and change'],
     },
     CT4100: {
       'flashcards.html:0': ['Retrieval models'],
       'flashcards.html:1': ['Weighting and BM25'],
       'flashcards.html:2': ['Evaluation'],
-      'flashcards.html:7': ['Indexing support'],
+      'flashcards.html:3': ['Relevance feedback'],
+      'flashcards.html:4': ['Query difficulty'],
+      'flashcards.html:5': ['Recommenders'],
+      'flashcards.html:6': ['Similarity and clustering'],
+      'flashcards.html:7': ['Extended Boolean retrieval'],
+      'flashcards.html:8': ['Web search and ranking'],
+      'flashcards.html:9': ['Web search and ranking'],
     },
     CT4101: {
       'flashcards.html:0': ['Learning tasks'],
@@ -49,9 +57,11 @@
       'flashcards.html:2': ['kNN and trees', 'Data preparation'],
       'flashcards.html:3': ['Data preparation'],
       'flashcards.html:4': ['Regression error', 'kNN and trees'],
+      'flashcards.html:5': ['Neural networks'],
       'calculation_flashcards.html:0': ['Model evaluation'],
       'calculation_flashcards.html:1': ['kNN and trees', 'Data preparation'],
       'calculation_flashcards.html:2': ['Regression error', 'kNN and trees'],
+      'calculation_flashcards.html:3': ['Neural networks'],
     },
     CT561: {
       'flashcards.html:0': ['Graphical integration'],
@@ -60,6 +70,8 @@
       'flashcards.html:3': ['Feedback and backlog'],
       'flashcards.html:4': ['Fractional rates'],
       'flashcards.html:5': ['Stock management'],
+      'flashcards.html:6': ['SIR models and policy'],
+      'flashcards.html:7': ['SIR models and policy'],
     },
   };
   const topics = [...document.querySelectorAll('.study-topic-list > li')];
@@ -97,7 +109,7 @@
     return [...template.content.querySelectorAll('[data-flashcard]')].map((item, index) => ({
       id: `inline:${index}`,
       group: item.dataset.group || 'Core concepts',
-      kind: 'lecture',
+      kind: item.dataset.kind === 'exam' ? 'exam' : 'lecture',
       topics: [item.dataset.group || 'Core concepts'],
       front: item.querySelector('[data-card-front]'),
       back: item.querySelector('[data-card-back]'),
@@ -149,7 +161,7 @@
     const selectedStatus = statusFilter.value;
     order = cards.map((_, index) => index).filter(index =>
       (selectedTopic === 'all' || (selectedTopic === 'other' ? !cards[index].topics.length : cards[index].topics.includes(selectedTopic))) &&
-      (selectedStatus === 'all' || rating(cards[index]) === selectedStatus) &&
+      (selectedStatus === 'all' || (selectedStatus === 'focus' ? rating(cards[index]) !== 'ready' : rating(cards[index]) === selectedStatus)) &&
       (!sourceFilter || sourceFilter.value === 'all' || cards[index].kind === sourceFilter.value)
     );
     current = Math.min(current, Math.max(0, order.length - 1));
@@ -165,7 +177,7 @@
     const ready = scope.filter(item => rating(item) === 'ready').length;
     const practice = scope.filter(item => rating(item) === 'practice').length;
     progress.textContent = `${scope.length} cards · ${ready} ready · ${practice} needs practice · ${scope.length - ready - practice} not marked`;
-    position.textContent = card ? `Card ${current + 1} of ${order.length} · ${card.kind === 'lecture' ? 'Lecture' : 'Exam'} · ${card.group}` : 'No cards match these filters';
+    position.textContent = card ? `Card ${current + 1} of ${order.length} · ${card.kind === 'lecture' ? 'Lecture' : 'Exam'} · ${card.group}` : statusFilter.value === 'focus' && scope.length ? 'All cards in this selection are marked ready' : 'No cards match these filters';
     front.replaceChildren();
     back.replaceChildren();
     evidence.replaceChildren();
@@ -248,6 +260,11 @@
       else failedDecks++;
     }
     if (!cards.length) throw new Error('No flashcards were found.');
+    const bankSummary = document.createElement('p');
+    bankSummary.className = 'study-bank-summary';
+    const lectureCount = cards.filter(card => card.kind === 'lecture').length;
+    bankSummary.textContent = `Module bank: ${cards.length} cards · ${lectureCount} lecture · ${cards.length - lectureCount} exam and reference`;
+    player.querySelector('[data-controls]').prepend(bankSummary);
     if (failedDecks) {
       const warning = document.createElement('p');
       warning.className = 'study-deck-warning';
@@ -269,6 +286,33 @@
       toolbar.prepend(label);
       sourceFilter.addEventListener('change', () => { current = 0; updateOrder(); });
     }
+    const focusOption = document.createElement('option');
+    focusOption.value = 'focus';
+    focusOption.textContent = 'Weak + new';
+    statusFilter.insertBefore(focusOption, statusFilter.querySelector('[value="new"]'));
+    const focusButton = document.createElement('button');
+    focusButton.type = 'button';
+    focusButton.textContent = 'Review weak + new';
+    focusButton.addEventListener('click', () => {
+      category.value = 'all';
+      statusFilter.value = 'focus';
+      if (sourceFilter) sourceFilter.value = 'all';
+      current = 0;
+      updateOrder();
+      reveal.focus();
+    });
+    const allButton = document.createElement('button');
+    allButton.type = 'button';
+    allButton.textContent = 'Show full bank';
+    allButton.addEventListener('click', () => {
+      category.value = 'all';
+      statusFilter.value = 'all';
+      if (sourceFilter) sourceFilter.value = 'all';
+      current = 0;
+      updateOrder();
+      reveal.focus();
+    });
+    toolbar.append(focusButton, allButton);
     for (const topic of topics) {
       const group = topic.querySelector('strong')?.textContent.trim();
       if (!group || !cards.some(card => card.topics.includes(group))) continue;
