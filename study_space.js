@@ -25,6 +25,7 @@
   let current = 0;
   let revealed = false;
   let sourceFilter;
+  let selectedTopic = null;
   const examTopicMap = {
     CT417: {
       'flashcards.html:0:0': ['Build and CI/CD'],
@@ -150,6 +151,209 @@
       practice.append(summary, label, clear, note);
       answerPlan.before(practice);
     }
+  }
+
+  function setupTopicWorkspace() {
+    const shell = document.querySelector('.study-space-shell');
+    const lecturePanel = document.querySelector('.study-panel[aria-labelledby="lecture-heading"]');
+    const topicList = lecturePanel?.querySelector('.study-topic-list');
+    const cardPanel = player.closest('.study-panel');
+    const slidesPanel = document.querySelector('.study-panel[aria-labelledby="slides-heading"]');
+    const practicePanel = document.querySelector('.study-panel#practice');
+    if (!shell || !topicList || !cardPanel || !slidesPanel || !practicePanel || !topics.length) return;
+
+    const viewKey = `module-research-study-view-${moduleCode}-v1`;
+    let saved = {};
+    try { saved = JSON.parse(localStorage.getItem(viewKey) || '{}') || {}; } catch (_) { saved = {}; }
+    if (typeof saved !== 'object' || Array.isArray(saved)) saved = {};
+    if (!saved.sections || typeof saved.sections !== 'object' || Array.isArray(saved.sections)) saved.sections = {};
+    const saveView = () => {
+      try { localStorage.setItem(viewKey, JSON.stringify(saved)); } catch (_) { /* Storage may be blocked. */ }
+    };
+
+    const switcher = document.createElement('nav');
+    switcher.className = 'study-topic-switcher';
+    switcher.setAttribute('aria-label', 'Study topics');
+    const topicViews = topics.map(topic => {
+      const name = topic.querySelector('strong')?.textContent.trim() || 'Topic';
+      const intro = [...topic.children].find(child => child.tagName === 'P');
+      const answer = topic.querySelector('.study-answer');
+      const writing = topic.querySelector('.study-write');
+      const links = [...topic.querySelectorAll('.links a')];
+      const canvasLinks = links.filter(link => link.href.startsWith('https://universityofgalway.instructure.com/'));
+      const practiceLinks = links.filter(link => !canvasLinks.includes(link) && (link.href.includes('.pdf') || link.href.includes('most_asked') || link.href.includes('revision_questions')));
+      const noteLinks = links.filter(link => !canvasLinks.includes(link) && !practiceLinks.includes(link));
+      const count = cards.filter(card => card.topics.includes(name)).length;
+
+      const header = document.createElement('div');
+      header.className = 'study-topic-header';
+      const heading = document.createElement('h3');
+      heading.textContent = name;
+      const countLabel = document.createElement('span');
+      countLabel.className = 'study-topic-count';
+      countLabel.textContent = `${count} cards`;
+      heading.append(countLabel);
+      const controls = document.createElement('fieldset');
+      controls.className = 'study-topic-choices';
+      const legend = document.createElement('legend');
+      legend.textContent = 'Show in this topic';
+      controls.append(legend);
+      const content = document.createElement('div');
+      content.className = 'study-topic-content';
+      const inputs = {};
+      const sections = {};
+
+      function makeSection(key, label) {
+        const section = document.createElement('section');
+        section.className = `study-topic-section study-topic-${key}`;
+        const title = document.createElement('h4');
+        title.textContent = label;
+        section.append(title);
+        content.append(section);
+        sections[key] = section;
+        const choice = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'checkbox';
+        input.checked = saved.sections[name]?.[key] ?? key !== 'slides';
+        choice.append(input, document.createTextNode(label));
+        controls.append(choice);
+        inputs[key] = input;
+        input.addEventListener('change', () => {
+          if (key === 'cards' && input.checked) {
+            category.value = name;
+            statusFilter.value = 'all';
+            if (sourceFilter) sourceFilter.value = 'all';
+            current = 0;
+            updateOrder();
+          }
+          render();
+          saveView();
+        });
+        return section;
+      }
+
+      function addLinks(section, items) {
+        if (!items.length) return;
+        const list = document.createElement('div');
+        list.className = 'study-resources';
+        list.append(...items);
+        section.append(list);
+      }
+
+      const notes = makeSection('notes', 'Topic notes');
+      if (intro) notes.append(intro);
+      addLinks(notes, noteLinks);
+      const slides = canvasLinks.length ? makeSection('slides', 'Canvas slides') : null;
+      if (slides) addLinks(slides, canvasLinks);
+      const cardsSection = makeSection('cards', 'Flashcards');
+      const practice = answer || writing || practiceLinks.length ? makeSection('practice', moduleCode === 'CT4111' ? 'Written practice' : 'Exam practice') : null;
+      const practicePrompt = practice && intro ? intro.cloneNode(true) : null;
+      if (practice) {
+        if (practicePrompt) {
+          practicePrompt.classList.add('study-practice-prompt');
+          practice.append(practicePrompt);
+        }
+        if (writing) practice.append(writing);
+        if (answer) practice.append(answer);
+        addLinks(practice, practiceLinks);
+      }
+
+      const shortcuts = document.createElement('div');
+      shortcuts.className = 'study-topic-shortcuts';
+      for (const [label, visible] of [
+        ['Show all', Object.keys(inputs)],
+        ['Cards only', ['cards']],
+        [moduleCode === 'CT4111' ? 'Written practice only' : 'Exam practice only', ['practice']],
+      ]) {
+        if (visible.some(key => !inputs[key])) continue;
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.textContent = label;
+        button.addEventListener('click', () => {
+          for (const [key, input] of Object.entries(inputs)) input.checked = visible.includes(key);
+          if (visible.includes('cards')) {
+            category.value = name;
+            statusFilter.value = 'all';
+            if (sourceFilter) sourceFilter.value = 'all';
+            current = 0;
+            updateOrder();
+          }
+          render();
+          saveView();
+        });
+        shortcuts.append(button);
+      }
+      header.append(heading, controls, shortcuts);
+      topic.replaceChildren(header, content);
+
+      const switchButton = document.createElement('button');
+      switchButton.type = 'button';
+      switchButton.textContent = name;
+      switcher.append(switchButton);
+
+      function render() {
+        for (const [key, section] of Object.entries(sections)) section.hidden = !inputs[key].checked;
+        if (practicePrompt) practicePrompt.hidden = inputs.notes.checked;
+        saved.sections[name] = Object.fromEntries(Object.entries(inputs).map(([key, input]) => [key, input.checked]));
+      }
+      render();
+      return { name, topic, switchButton, inputs, sections, cardsSection, render };
+    });
+
+    topicList.before(switcher);
+    const library = document.createElement('details');
+    library.className = 'study-full-library';
+    const libraryTitle = document.createElement('summary');
+    libraryTitle.textContent = 'All slides, papers and topic guides';
+    library.append(libraryTitle, slidesPanel, practicePanel);
+    shell.append(library);
+    shell.classList.add('study-topic-mode');
+    category.closest('label').hidden = true;
+
+    let activeView;
+    function activate(view, scroll = false) {
+      activeView = view;
+      selectedTopic = view.name;
+      saved.topic = view.name;
+      for (const item of topicViews) {
+        const active = item === view;
+        item.topic.hidden = !active;
+        item.switchButton.setAttribute('aria-current', active ? 'true' : 'false');
+      }
+      view.cardsSection.append(cardPanel);
+      category.value = view.name;
+      statusFilter.value = 'all';
+      if (sourceFilter) sourceFilter.value = 'all';
+      current = 0;
+      updateOrder();
+      saveView();
+      if (scroll) lecturePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    for (const view of topicViews) view.switchButton.addEventListener('click', () => activate(view, true));
+    activate(topicViews.find(view => view.name === saved.topic) || topicViews[0]);
+
+    function openSection(key) {
+      const input = activeView.inputs[key];
+      if (!input) return;
+      if (key === 'cards') {
+        category.value = activeView.name;
+        statusFilter.value = 'all';
+        if (sourceFilter) sourceFilter.value = 'all';
+        current = 0;
+        updateOrder();
+      }
+      input.checked = true;
+      activeView.render();
+      saveView();
+      requestAnimationFrame(() => activeView.sections[key].scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    }
+    for (const [anchor, key] of [['#flashcards', 'cards'], ['#practice', 'practice']]) {
+      for (const link of document.querySelectorAll(`.top-nav a[href="${anchor}"]`)) {
+        link.addEventListener('click', event => { event.preventDefault(); openSection(key); });
+      }
+    }
+    if (location.hash === '#flashcards') openSection('cards');
+    if (location.hash === '#practice') openSection('practice');
   }
 
   function rating(card) {
@@ -294,7 +498,7 @@
     focusButton.type = 'button';
     focusButton.textContent = 'Review weak + new';
     focusButton.addEventListener('click', () => {
-      category.value = 'all';
+      category.value = selectedTopic || 'all';
       statusFilter.value = 'focus';
       if (sourceFilter) sourceFilter.value = 'all';
       current = 0;
@@ -327,29 +531,10 @@
       option.textContent = 'Other exam topics';
       category.append(option);
     }
-    for (const topic of topics) {
-      const group = topic.querySelector('strong')?.textContent.trim();
-      const count = cards.filter(card => card.topics.includes(group)).length;
-      if (!count) continue;
-      const links = topic.querySelector('.links');
-      if (!links) continue;
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'study-topic-drill';
-      button.textContent = `Study ${count} cards`;
-      button.addEventListener('click', () => {
-        category.value = group;
-        statusFilter.value = 'all';
-        if (sourceFilter) sourceFilter.value = 'all';
-        current = 0;
-        updateOrder();
-        document.querySelector('#flashcards')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        reveal.focus({ preventScroll: true });
-      });
-      links.append(button);
-    }
     player.querySelector('[data-loading]').hidden = true;
     player.querySelector('[data-controls]').hidden = false;
+    setupTopicWorkspace();
+    if (selectedTopic) allButton.textContent = 'Browse all module cards';
     updateOrder();
   }
   load().catch(() => {
