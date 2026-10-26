@@ -1,543 +1,691 @@
+/* Exam study space: renders a module's study page from the shared data
+   layer, then runs the drill. Progress is stored per module in this
+   browser so a later session can resume or show what still needs work. */
 (() => {
-  const player = document.querySelector('[data-study-player]');
-  if (!player) return;
+  const shell = document.querySelector('[data-study-space]');
+  if (!shell) return;
 
-  const moduleCode = player.dataset.module;
-  const storageKey = `module-research-flashcards-${moduleCode}-v1`;
-  const category = player.querySelector('[data-category]');
-  const statusFilter = player.querySelector('[data-status-filter]');
-  const front = player.querySelector('[data-front]');
-  const back = player.querySelector('[data-back]');
-  const evidence = player.querySelector('[data-evidence]');
-  const toolbar = player.querySelector('.flashcard-toolbar');
-  const position = player.querySelector('[data-position]');
-  const progress = player.querySelector('[data-progress]');
-  const state = player.querySelector('[data-state]');
-  const reveal = player.querySelector('[data-reveal]');
-  const previous = player.querySelector('[data-previous]');
-  const next = player.querySelector('[data-next]');
-  const shuffle = player.querySelector('[data-shuffle]');
-  const ratingButtons = [...player.querySelectorAll('[data-rating]')];
-  let ratings = {};
-  try { ratings = JSON.parse(localStorage.getItem(storageKey) || '{}') || {}; } catch (_) { ratings = {}; }
-  let cards = [];
-  let order = [];
-  let current = 0;
-  let revealed = false;
-  let sourceFilter;
-  let selectedTopic = null;
-  const examTopicMap = {
-    CT417: {
-      'flashcards.html:0:0': ['Build and CI/CD'],
-      'flashcards.html:0:1': ['Build and CI/CD'],
-      'flashcards.html:0:2': ['Build and CI/CD'],
-      'flashcards.html:0:3': ['Build and CI/CD', 'Docker deployment'],
-      'flashcards.html:0:4': ['Build and CI/CD'],
-      'flashcards.html:0:5': ['Docker deployment'],
-      'flashcards.html:0:6': ['Git and team workflow'],
-      'flashcards.html:1': ['Testing and security tools'],
-      'flashcards.html:2': ['Vulnerabilities and reliability'],
-      'flashcards.html:3': ['Refactoring and design patterns'],
-      'flashcards.html:5': ['Requirements and change'],
+  const moduleCode = shell.dataset.module;
+  const dataUrl = `../study_data/${moduleCode}.json`;
+  const storageKey = `module-research-study-v2-${moduleCode}`;
+
+  const QUESTION_LINE = /^Q\d/;
+  const QUESTION_SPLIT = /^(Q\d+):\s*(.*)$/;
+  const TEXT_FIELD = /input, textarea, select/;
+
+  const store = {
+    read() {
+      try {
+        const value = JSON.parse(localStorage.getItem(storageKey) || '{}');
+        return value && typeof value === 'object' ? value : {};
+      } catch (_) {
+        return {};
+      }
     },
-    CT4100: {
-      'flashcards.html:0': ['Retrieval models'],
-      'flashcards.html:1': ['Weighting and BM25'],
-      'flashcards.html:2': ['Evaluation'],
-      'flashcards.html:3': ['Relevance feedback'],
-      'flashcards.html:4': ['Query difficulty'],
-      'flashcards.html:5': ['Recommenders'],
-      'flashcards.html:6': ['Similarity and clustering'],
-      'flashcards.html:7': ['Extended Boolean retrieval'],
-      'flashcards.html:8': ['Web search and ranking'],
-      'flashcards.html:9': ['Web search and ranking'],
-    },
-    CT4101: {
-      'flashcards.html:0': ['Learning tasks'],
-      'flashcards.html:1': ['Model evaluation'],
-      'flashcards.html:2': ['kNN and trees', 'Data preparation'],
-      'flashcards.html:3': ['Data preparation'],
-      'flashcards.html:4': ['Regression error', 'kNN and trees'],
-      'flashcards.html:5': ['Neural networks'],
-      'calculation_flashcards.html:0': ['Model evaluation'],
-      'calculation_flashcards.html:1': ['kNN and trees', 'Data preparation'],
-      'calculation_flashcards.html:2': ['Regression error', 'kNN and trees'],
-      'calculation_flashcards.html:3': ['Neural networks'],
-    },
-    CT561: {
-      'flashcards.html:0': ['Graphical integration'],
-      'flashcards.html:1': ['Euler integration'],
-      'flashcards.html:2': ['Feedback and backlog'],
-      'flashcards.html:3': ['Feedback and backlog'],
-      'flashcards.html:4': ['Fractional rates'],
-      'flashcards.html:5': ['Stock management'],
-      'flashcards.html:6': ['SIR models and policy'],
-      'flashcards.html:7': ['SIR models and policy'],
+    write(value) {
+      try {
+        localStorage.setItem(storageKey, JSON.stringify(value));
+      } catch (_) {
+        /* Storage may be blocked; the page still works without it. */
+      }
     },
   };
-  const topics = [...document.querySelectorAll('.study-topic-list > li')];
-  const draftKey = `module-research-written-${moduleCode}-v1`;
-  let drafts = {};
-  try { drafts = JSON.parse(localStorage.getItem(draftKey) || '{}') || {}; } catch (_) { drafts = {}; }
 
-  function copyContent(target, source) {
-    target.replaceChildren(...[...source.childNodes].map(node => document.importNode(node, true)));
+  const state = store.read();
+  if (!state.cards) state.cards = {};
+  if (!state.practice) state.practice = {};
+  if (!state.families) state.families = {};
+  if (!state.topic) state.topic = 'all';
+  if (new URLSearchParams(window.location.search).get('cards') === 'weak') {
+    state.status = 'weak';
   }
 
-  function sourceCards(documentSource, sourcePath) {
-    return [...documentSource.querySelectorAll('.flashcard-bank table')].flatMap((table, tableIndex) => {
-      let heading = table.previousElementSibling;
-      while (heading && heading.tagName !== 'H2') heading = heading.previousElementSibling;
-      const group = heading?.textContent.trim() || `Deck ${tableIndex + 1}`;
-      return [...table.querySelectorAll('tbody tr')].flatMap((row, rowIndex) => {
-        const cells = row.querySelectorAll('td');
-        return cells.length < 2 ? [] : [{
-          id: `${sourcePath}:${tableIndex}:${rowIndex}`,
-          group,
-          kind: 'exam',
-          topics: examTopicMap[moduleCode]?.[`${sourcePath}:${tableIndex}:${rowIndex}`] || examTopicMap[moduleCode]?.[`${sourcePath}:${tableIndex}`] || [],
-          front: cells[0],
-          back: cells[1],
-          evidence: cells[2]?.textContent.trim() || '',
-        }];
-      });
-    });
+  const make = (tag, className, text) => {
+    const node = document.createElement(tag);
+    if (className) node.className = className;
+    if (text != null) node.textContent = text;
+    return node;
+  };
+
+  const plural = (count, word) => `${count} ${count === 1 ? word : word === 'family' ? 'families' : word + 's'}`;
+
+  function countCards(data) {
+    return (data.decks || []).reduce((total, deck) => total + deck.cards.length, 0);
   }
 
-  function inlineCards() {
-    const template = document.querySelector('#inline-flashcards');
-    if (!template) return [];
-    return [...template.content.querySelectorAll('[data-flashcard]')].map((item, index) => ({
-      id: `inline:${index}`,
-      group: item.dataset.group || 'Core concepts',
-      kind: item.dataset.kind === 'exam' ? 'exam' : 'lecture',
-      topics: [item.dataset.group || 'Core concepts'],
-      front: item.querySelector('[data-card-front]'),
-      back: item.querySelector('[data-card-back]'),
-      evidence: item.dataset.evidence || '',
-      source: item.dataset.sourceUrl || topics.find(topic => topic.querySelector('strong')?.textContent.trim() === item.dataset.group)?.querySelector('a[href^="https://universityofgalway.instructure.com/"]')?.href || '',
-    }));
-  }
-
-  function addWrittenPractice() {
-    for (const topic of document.querySelectorAll('.study-topic-list > li')) {
-      const group = topic.querySelector('strong')?.textContent.trim();
-      const answerPlan = topic.querySelector('.study-answer');
-      if (!group || !answerPlan) continue;
-      const practice = document.createElement('details');
-      practice.className = 'study-write';
-      const summary = document.createElement('summary');
-      summary.textContent = 'Write an answer';
-      const label = document.createElement('label');
-      label.textContent = 'Your draft';
-      const input = document.createElement('textarea');
-      input.rows = 5;
-      input.value = typeof drafts[group] === 'string' ? drafts[group] : '';
-      input.setAttribute('aria-label', `Your answer for ${group}`);
-      const clear = document.createElement('button');
-      clear.type = 'button';
-      clear.textContent = 'Clear draft';
-      const note = document.createElement('span');
-      note.textContent = 'Saved in this browser';
-      function save() {
-        if (input.value) drafts[group] = input.value;
-        else delete drafts[group];
-        try { localStorage.setItem(draftKey, JSON.stringify(drafts)); }
-        catch (_) { note.textContent = 'Local saving unavailable'; }
-      }
-      input.addEventListener('input', save);
-      clear.addEventListener('click', () => { input.value = ''; save(); input.focus(); });
-      label.append(input);
-      practice.append(summary, label, clear, note);
-      answerPlan.before(practice);
+  function buildExamBriefing(data) {
+    const details = data.details || {};
+    const panel = make('section', 'study-panel study-briefing');
+    panel.setAttribute('aria-labelledby', 'briefing-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, moduleCode === 'CT4111' ? 'Assessment briefing' : 'Exam briefing');
+    title.id = 'briefing-heading';
+    head.append(title);
+    if (details.assessment) {
+      head.append(make('span', 'study-badge', details.assessment));
     }
+    panel.append(head);
+
+    const grid = make('div', 'study-briefing-grid');
+    const facts = [
+      ['Predictability', details.predictability || 'Not established'],
+      ['Papers in archive', details.papers && details.papers.length
+        ? String(details.papers.length)
+        : 'None locally'],
+      [moduleCode === 'CT4111' ? 'Outcome areas' : 'Question families', String(data.families.length)],
+      ['Cards to drill', String(countCards(data))],
+    ];
+    for (const [label, value] of facts) {
+      const cell = make('div', 'study-fact');
+      cell.append(make('span', null, label), make('strong', null, value));
+      grid.append(cell);
+    }
+    panel.append(grid);
+
+    if (details.exam_pattern) {
+      panel.append(make('p', 'study-briefing-pattern', details.exam_pattern));
+    }
+
+    const structure = (details.exam_block || []).filter(line => QUESTION_LINE.test(line));
+    if (structure.length) {
+      const list = make('ul', 'study-structure');
+      for (const line of structure) {
+        const match = line.match(QUESTION_SPLIT);
+        const item = make('li');
+        item.append(make('strong', null, match ? match[1] : 'Question'));
+        item.append(document.createTextNode(' ' + (match ? match[2] : line)));
+        list.append(item);
+      }
+      panel.append(list);
+    }
+
+    const drill = details.drill || [];
+    if (drill.length) {
+      const block = make('details', 'study-drill-list');
+      block.append(make('summary', null, 'What the papers keep asking'));
+      const list = make('ul');
+      for (const item of drill) {
+        list.append(make('li', null, item));
+      }
+      block.append(list);
+      panel.append(block);
+    }
+    return panel;
   }
 
-  function setupTopicWorkspace() {
-    const shell = document.querySelector('.study-space-shell');
-    const lecturePanel = document.querySelector('.study-panel[aria-labelledby="lecture-heading"]');
-    const topicList = lecturePanel?.querySelector('.study-topic-list');
-    const cardPanel = player.closest('.study-panel');
-    const slidesPanel = document.querySelector('.study-panel[aria-labelledby="slides-heading"]');
-    const practicePanel = document.querySelector('.study-panel#practice');
-    if (!shell || !topicList || !cardPanel || !slidesPanel || !practicePanel || !topics.length) return;
+  function buildPracticeList(data) {
+    const panel = make('section', 'study-panel');
+    panel.setAttribute('aria-labelledby', 'practice-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, moduleCode === 'CT4111' ? 'Outcome-led practice' : 'Exam practice');
+    title.id = 'practice-heading';
+    head.append(title);
 
-    const viewKey = `module-research-study-view-${moduleCode}-v1`;
-    let saved = {};
-    try { saved = JSON.parse(localStorage.getItem(viewKey) || '{}') || {}; } catch (_) { saved = {}; }
-    if (typeof saved !== 'object' || Array.isArray(saved)) saved = {};
-    if (!saved.sections || typeof saved.sections !== 'object' || Array.isArray(saved.sections)) saved.sections = {};
-    const saveView = () => {
-      try { localStorage.setItem(viewKey, JSON.stringify(saved)); } catch (_) { /* Storage may be blocked. */ }
-    };
-
-    const switcher = document.createElement('nav');
-    switcher.className = 'study-topic-switcher';
-    switcher.setAttribute('aria-label', 'Study topics');
-    const topicViews = topics.map(topic => {
-      const name = topic.querySelector('strong')?.textContent.trim() || 'Topic';
-      const intro = [...topic.children].find(child => child.tagName === 'P');
-      const answer = topic.querySelector('.study-answer');
-      const writing = topic.querySelector('.study-write');
-      const links = [...topic.querySelectorAll('.links a')];
-      const canvasLinks = links.filter(link => link.href.startsWith('https://universityofgalway.instructure.com/'));
-      const practiceLinks = links.filter(link => !canvasLinks.includes(link) && (link.href.includes('.pdf') || link.href.includes('most_asked') || link.href.includes('revision_questions')));
-      const noteLinks = links.filter(link => !canvasLinks.includes(link) && !practiceLinks.includes(link));
-      const count = cards.filter(card => card.topics.includes(name)).length;
-
-      const header = document.createElement('div');
-      header.className = 'study-topic-header';
-      const heading = document.createElement('h3');
-      heading.textContent = name;
-      const countLabel = document.createElement('span');
-      countLabel.className = 'study-topic-count';
-      countLabel.textContent = `${count} cards`;
-      heading.append(countLabel);
-      const controls = document.createElement('fieldset');
-      controls.className = 'study-topic-choices';
-      const legend = document.createElement('legend');
-      legend.textContent = 'Show in this topic';
-      controls.append(legend);
-      const content = document.createElement('div');
-      content.className = 'study-topic-content';
-      const inputs = {};
-      const sections = {};
-
-      function makeSection(key, label) {
-        const section = document.createElement('section');
-        section.className = `study-topic-section study-topic-${key}`;
-        const title = document.createElement('h4');
-        title.textContent = label;
-        section.append(title);
-        content.append(section);
-        sections[key] = section;
-        const choice = document.createElement('label');
-        const input = document.createElement('input');
-        input.type = 'checkbox';
-        input.checked = saved.sections[name]?.[key] ?? key !== 'slides';
-        choice.append(input, document.createTextNode(label));
-        controls.append(choice);
-        inputs[key] = input;
-        input.addEventListener('change', () => {
-          if (key === 'cards' && input.checked) {
-            category.value = name;
-            statusFilter.value = 'all';
-            if (sourceFilter) sourceFilter.value = 'all';
-            current = 0;
-            updateOrder();
-          }
-          render();
-          saveView();
-        });
-        return section;
+    const prompts = [];
+    for (const sheet of data.sheets || []) {
+      for (const practice of sheet.practice || []) {
+        prompts.push({ ...practice, sheet: sheet.file, sheetTitle: sheet.title });
       }
-
-      function addLinks(section, items) {
-        if (!items.length) return;
-        const list = document.createElement('div');
-        list.className = 'study-resources';
-        list.append(...items);
-        section.append(list);
+      for (const structure of sheet.structure || []) {
+        prompts.push({ ...structure, sheet: sheet.file, sheetTitle: sheet.title });
       }
+    }
+    const total = prompts.reduce((sum, item) => sum + (item.marks || 0), 0);
+    head.append(make('span', 'study-badge',
+      `${plural(prompts.length, 'prompt')}${total ? ` · ${total} marks` : ''}`));
+    panel.append(head);
+    panel.append(make('p', 'study-panel-note', moduleCode === 'CT4111'
+      ? 'These questions follow official outcomes, not past papers. No exam wording or marks are claimed. Write an answer before opening the checklist.'
+      : 'Each prompt keeps the mark allocation from the local material. Write the answer first, then open the plan and self-mark against it.'));
 
-      const notes = makeSection('notes', 'Topic notes');
-      if (intro) notes.append(intro);
-      addLinks(notes, noteLinks);
-      const slides = canvasLinks.length ? makeSection('slides', 'Canvas slides') : null;
-      if (slides) addLinks(slides, canvasLinks);
-      const cardsSection = makeSection('cards', 'Flashcards');
-      const practice = answer || writing || practiceLinks.length ? makeSection('practice', moduleCode === 'CT4111' ? 'Written practice' : 'Exam practice') : null;
-      const practicePrompt = practice && intro ? intro.cloneNode(true) : null;
-      if (practice) {
-        if (practicePrompt) {
-          practicePrompt.classList.add('study-practice-prompt');
-          practice.append(practicePrompt);
-        }
-        if (writing) practice.append(writing);
-        if (answer) practice.append(answer);
-        addLinks(practice, practiceLinks);
+    if (!prompts.length) {
+      panel.append(make('p', 'study-empty', 'No practice prompts are recorded for this module yet.'));
+      return panel;
+    }
+
+    const list = make('ol', 'study-practice-list');
+    prompts.forEach((item, index) => {
+      list.append(buildPracticeItem(item, index));
+    });
+    panel.append(list);
+    return panel;
+  }
+
+  function buildPracticeItem(item, index) {
+    const id = `${item.sheet}#${index}`;
+    const wrapper = make('li', 'study-practice');
+    const head = make('div', 'study-practice-head');
+    head.append(make('span', 'study-practice-index', String(index + 1)));
+    head.append(make('p', 'study-practice-title', item.title || item.prompt));
+    if (item.marks) {
+      head.append(make('span', 'study-marks', `${item.marks} marks`));
+    }
+    wrapper.append(head);
+
+    if (item.prompt) {
+      const prompt = make('p', 'study-practice-prompt');
+      prompt.append(make('span', 'study-label', 'Question'));
+      prompt.append(document.createTextNode(' ' + item.prompt));
+      wrapper.append(prompt);
+    }
+
+    const answer = make('details', 'study-practice-answer');
+    answer.append(make('summary', null, moduleCode === 'CT4111'
+      ? 'Open the answer checklist' : 'Open the answer plan and self-mark'));
+    const body = make('div', 'study-practice-body');
+    if (item.route) {
+      const route = make('p');
+      route.append(make('span', 'study-label', moduleCode === 'CT4111' ? 'Checklist' : 'Fastest route'));
+      route.append(document.createTextNode(' ' + item.route));
+      body.append(route);
+    }
+    if (item.answer) {
+      const answerText = make('p');
+      answerText.append(make('span', 'study-label', 'Model answer'));
+      answerText.append(document.createTextNode(' ' + item.answer));
+      body.append(answerText);
+    }
+    if (!body.childNodes.length) {
+      body.append(make('p', 'study-empty', 'Open the linked topic guide for the full worked method.'));
+    }
+    answer.append(body);
+    wrapper.append(answer);
+
+    const links = make('p', 'study-practice-links');
+    const link = make('a', null, item.sheetTitle || item.sheet);
+    link.href = item.sheet;
+    links.append(link);
+    wrapper.append(links);
+
+    const actions = make('div', 'study-practice-actions');
+    const mark = make('button', 'study-mark-button',
+      state.practice[id] === 'done' ? 'Attempted' : 'Mark as attempted');
+    mark.type = 'button';
+    mark.setAttribute('aria-pressed', String(state.practice[id] === 'done'));
+    mark.addEventListener('click', () => {
+      if (state.practice[id] === 'done') {
+        delete state.practice[id];
+      } else {
+        state.practice[id] = 'done';
       }
+      store.write(state);
+      const done = state.practice[id] === 'done';
+      mark.textContent = done ? 'Attempted' : 'Mark as attempted';
+      mark.setAttribute('aria-pressed', String(done));
+      updateProgress();
+    });
+    actions.append(mark);
+    wrapper.append(actions);
+    return wrapper;
+  }
 
-      const shortcuts = document.createElement('div');
-      shortcuts.className = 'study-topic-shortcuts';
-      for (const [label, visible] of [
-        ['Show all', Object.keys(inputs)],
-        ['Cards only', ['cards']],
-        [moduleCode === 'CT4111' ? 'Written practice only' : 'Exam practice only', ['practice']],
-      ]) {
-        if (visible.some(key => !inputs[key])) continue;
-        const button = document.createElement('button');
-        button.type = 'button';
-        button.textContent = label;
-        button.addEventListener('click', () => {
-          for (const [key, input] of Object.entries(inputs)) input.checked = visible.includes(key);
-          if (visible.includes('cards')) {
-            category.value = name;
-            statusFilter.value = 'all';
-            if (sourceFilter) sourceFilter.value = 'all';
-            current = 0;
-            updateOrder();
-          }
-          render();
-          saveView();
-        });
-        shortcuts.append(button);
+  function buildFamilyList(data) {
+    const panel = make('section', 'study-panel');
+    panel.id = 'lecture-heading';
+    panel.setAttribute('aria-labelledby', 'families-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, moduleCode === 'CT4111' ? 'Official outcome areas' : 'Recurring question families');
+    title.id = 'families-heading';
+    head.append(title);
+    head.append(make('span', 'study-badge', plural(data.families.length, 'family')));
+    panel.append(head);
+    panel.append(make('p', 'study-panel-note', moduleCode === 'CT4111'
+      ? 'Ordered by the seven official learning outcomes. Open an area for its answer checklist, then attempt the related scenarios.'
+      : 'Ordered by how often the local papers ask the family. Open a family to see the exact question parts and the reusable answer.'));
+
+    const list = make('ol', 'study-family-list');
+    for (const family of data.families) {
+      list.append(buildFamilyItem(family));
+    }
+    panel.append(list);
+    return panel;
+  }
+
+  function buildFamilyItem(family) {
+    const wrapper = make('li', 'study-family');
+    const head = make('div', 'study-family-head');
+    if (family.rank) {
+      head.append(make('span', 'study-family-rank', `Priority ${family.rank}`));
+    }
+    head.append(make('h3', 'study-family-title', family.title));
+    if (family.frequency) {
+      head.append(make('span', 'study-badge', `${family.frequency} papers`));
+    }
+    if (family.marks) {
+      head.append(make('span', 'study-badge', `${family.marks} marks`));
+    }
+    wrapper.append(head);
+
+    if (family.appearances && family.appearances.length) {
+      const details = make('details', 'study-family-evidence');
+      details.append(make('summary', null, `Where it appears (${family.appearances.length} parts)`));
+      const list = make('ul');
+      for (const item of family.appearances) {
+        list.append(make('li', null, item));
       }
-      header.append(heading, controls, shortcuts);
-      topic.replaceChildren(header, content);
+      details.append(list);
+      wrapper.append(details);
+    }
 
-      const switchButton = document.createElement('button');
-      switchButton.type = 'button';
-      switchButton.textContent = name;
-      switcher.append(switchButton);
+    if (family.question) {
+      const question = make('p', 'study-family-question');
+      question.append(make('span', 'study-label', moduleCode === 'CT4111' ? 'Official outcome' : 'Consolidated question'));
+      question.append(document.createTextNode(' ' + family.question));
+      wrapper.append(question);
+    }
 
-      function render() {
-        for (const [key, section] of Object.entries(sections)) section.hidden = !inputs[key].checked;
-        if (practicePrompt) practicePrompt.hidden = inputs.notes.checked;
-        saved.sections[name] = Object.fromEntries(Object.entries(inputs).map(([key, input]) => [key, input.checked]));
+    if (family.answer) {
+      const answer = make('details', 'study-family-answer');
+      answer.append(make('summary', null, moduleCode === 'CT4111' ? 'Answer checklist' : 'Reusable answer frame'));
+      answer.append(make('p', null, family.answer));
+      wrapper.append(answer);
+    }
+
+    const actions = make('div', 'study-family-actions');
+    const key = family.id;
+    const mark = make('button', 'study-mark-button',
+      state.families[key] === 'done' ? 'Confident' : 'Mark confident');
+    mark.type = 'button';
+    mark.setAttribute('aria-pressed', String(state.families[key] === 'done'));
+    mark.addEventListener('click', () => {
+      if (state.families[key] === 'done') {
+        delete state.families[key];
+      } else {
+        state.families[key] = 'done';
       }
+      store.write(state);
+      const done = state.families[key] === 'done';
+      mark.textContent = done ? 'Confident' : 'Mark confident';
+      mark.setAttribute('aria-pressed', String(done));
+      updateProgress();
+    });
+    actions.append(mark);
+    wrapper.append(actions);
+    return wrapper;
+  }
+
+  function buildCardDrill(data) {
+    const panel = make('section', 'study-panel study-drill-panel');
+    panel.id = 'flashcards';
+    panel.setAttribute('aria-labelledby', 'drill-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, 'Card drill');
+    title.id = 'drill-heading';
+    head.append(title);
+    head.append(make('span', 'study-badge', `${countCards(data)} cards`));
+    panel.append(head);
+    panel.append(make('p', 'study-panel-note',
+      'Answer before revealing. Arrow keys move, Space reveals, 1 marks a card weak and 2 marks it confident. Weak cards stay in the queue.'));
+
+    const toolbar = make('div', 'study-drill-toolbar');
+    const groupSelect = make('select');
+    groupSelect.setAttribute('aria-label', 'Card topic');
+    const allOption = make('option', null, 'All topics');
+    allOption.value = 'all';
+    groupSelect.append(allOption);
+    const groups = new Set();
+    for (const deck of data.decks || []) {
+      for (const card of deck.cards) groups.add(card.group);
+    }
+    for (const group of [...groups].sort()) {
+      const option = make('option', null, group);
+      option.value = group;
+      groupSelect.append(option);
+    }
+    groupSelect.value = state.topic;
+    groupSelect.addEventListener('change', () => {
+      state.topic = groupSelect.value;
+      store.write(state);
+      rebuildOrder();
       render();
-      return { name, topic, switchButton, inputs, sections, cardsSection, render };
     });
+    toolbar.append(groupSelect);
 
-    topicList.before(switcher);
-    const library = document.createElement('details');
-    library.className = 'study-full-library';
-    const libraryTitle = document.createElement('summary');
-    libraryTitle.textContent = 'All slides, papers and topic guides';
-    library.append(libraryTitle, slidesPanel, practicePanel);
-    shell.append(library);
-    shell.classList.add('study-topic-mode');
-    category.closest('label').hidden = true;
-
-    let activeView;
-    function activate(view, scroll = false) {
-      activeView = view;
-      selectedTopic = view.name;
-      saved.topic = view.name;
-      for (const item of topicViews) {
-        const active = item === view;
-        item.topic.hidden = !active;
-        item.switchButton.setAttribute('aria-current', active ? 'true' : 'false');
-      }
-      view.cardsSection.append(cardPanel);
-      category.value = view.name;
-      statusFilter.value = 'all';
-      if (sourceFilter) sourceFilter.value = 'all';
-      current = 0;
-      updateOrder();
-      saveView();
-      if (scroll) lecturePanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const statusSelect = make('select');
+    statusSelect.setAttribute('aria-label', 'Review status');
+    for (const [value, label] of [['all', 'All cards'], ['weak', 'Weak + new'], ['ready', 'Confident only']]) {
+      const option = make('option', null, label);
+      option.value = value;
+      statusSelect.append(option);
     }
-    for (const view of topicViews) view.switchButton.addEventListener('click', () => activate(view, true));
-    activate(topicViews.find(view => view.name === saved.topic) || topicViews[0]);
+    statusSelect.value = state.status || 'all';
+    statusSelect.addEventListener('change', () => {
+      state.status = statusSelect.value;
+      store.write(state);
+      rebuildOrder();
+      render();
+    });
+    toolbar.append(statusSelect);
 
-    function openSection(key) {
-      const input = activeView.inputs[key];
-      if (!input) return;
-      if (key === 'cards') {
-        category.value = activeView.name;
-        statusFilter.value = 'all';
-        if (sourceFilter) sourceFilter.value = 'all';
-        current = 0;
-        updateOrder();
+    const shuffle = make('button', 'study-tool-button', 'Shuffle');
+    shuffle.type = 'button';
+    shuffle.addEventListener('click', () => {
+      for (let i = order.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [order[i], order[j]] = [order[j], order[i]];
       }
-      input.checked = true;
-      activeView.render();
-      saveView();
-      requestAnimationFrame(() => activeView.sections[key].scrollIntoView({ behavior: 'smooth', block: 'start' }));
-    }
-    for (const [anchor, key] of [['#flashcards', 'cards'], ['#practice', 'practice']]) {
-      for (const link of document.querySelectorAll(`.top-nav a[href="${anchor}"]`)) {
-        link.addEventListener('click', event => { event.preventDefault(); openSection(key); });
+      position = 0;
+      render();
+    });
+    toolbar.append(shuffle);
+    panel.append(toolbar);
+
+    const progress = make('p', 'study-drill-progress');
+    progress.setAttribute('aria-live', 'polite');
+    panel.append(progress);
+
+    const face = make('div', 'study-card-face');
+    const question = make('div', 'study-card-front');
+    face.append(question);
+    const answer = make('div', 'study-card-back');
+    answer.hidden = true;
+    face.append(answer);
+    panel.append(face);
+
+    const evidence = make('p', 'study-card-evidence');
+    panel.append(evidence);
+
+    const actions = make('div', 'study-card-actions');
+    const previous = make('button', 'study-tool-button', 'Previous');
+    previous.type = 'button';
+    const reveal = make('button', 'study-tool-button study-tool-primary', 'Reveal answer');
+    reveal.type = 'button';
+    const next = make('button', 'study-tool-button', 'Next');
+    next.type = 'button';
+    const weak = make('button', 'study-tool-button study-tool-weak', 'Needs practice');
+    weak.type = 'button';
+    const ready = make('button', 'study-tool-button study-tool-ready', 'Got it');
+    ready.type = 'button';
+    actions.append(previous, reveal, next, weak, ready);
+    panel.append(actions);
+
+    panel.append(make('p', 'study-keyboard-hint',
+      'Shortcuts: Space reveals, left and right arrows move, 1 marks weak, 2 marks confident.'));
+
+    const cards = [];
+    for (const deck of data.decks || []) {
+      for (const card of deck.cards) {
+        cards.push({ ...card, id: `${deck.file}#${cards.length}` });
       }
     }
-    if (location.hash === '#flashcards') openSection('cards');
-    if (location.hash === '#practice') openSection('practice');
-  }
+    let order = [];
+    let position = 0;
+    let revealed = false;
 
-  function rating(card) {
-    return ['practice', 'ready'].includes(ratings[card.id]) ? ratings[card.id] : 'new';
-  }
+    const rating = id => (state.cards[id] === 'weak' ? 'weak'
+      : state.cards[id] === 'ready' ? 'ready' : 'new');
 
-  function updateOrder() {
-    const selectedTopic = category.value;
-    const selectedStatus = statusFilter.value;
-    order = cards.map((_, index) => index).filter(index =>
-      (selectedTopic === 'all' || (selectedTopic === 'other' ? !cards[index].topics.length : cards[index].topics.includes(selectedTopic))) &&
-      (selectedStatus === 'all' || (selectedStatus === 'focus' ? rating(cards[index]) !== 'ready' : rating(cards[index]) === selectedStatus)) &&
-      (!sourceFilter || sourceFilter.value === 'all' || cards[index].kind === sourceFilter.value)
-    );
-    current = Math.min(current, Math.max(0, order.length - 1));
-    showCard();
-  }
-
-  function showCard() {
-    const card = cards[order[current]];
-    const scope = cards.filter(item =>
-      (category.value === 'all' || (category.value === 'other' ? !item.topics.length : item.topics.includes(category.value))) &&
-      (!sourceFilter || sourceFilter.value === 'all' || item.kind === sourceFilter.value)
-    );
-    const ready = scope.filter(item => rating(item) === 'ready').length;
-    const practice = scope.filter(item => rating(item) === 'practice').length;
-    progress.textContent = `${scope.length} cards · ${ready} ready · ${practice} needs practice · ${scope.length - ready - practice} not marked`;
-    position.textContent = card ? `Card ${current + 1} of ${order.length} · ${card.kind === 'lecture' ? 'Lecture' : 'Exam'} · ${card.group}` : statusFilter.value === 'focus' && scope.length ? 'All cards in this selection are marked ready' : 'No cards match these filters';
-    front.replaceChildren();
-    back.replaceChildren();
-    evidence.replaceChildren();
-    revealed = false;
-    back.hidden = true;
-    reveal.hidden = !card;
-    reveal.textContent = 'Reveal answer';
-    previous.disabled = !card || current === 0;
-    next.disabled = !card || current === order.length - 1;
-    for (const button of ratingButtons) button.disabled = !card;
-    if (!card) {
-      state.textContent = '';
-      return;
+    function rebuildOrder() {
+      const group = groupSelect.value;
+      const status = statusSelect.value;
+      order = cards.map((_, index) => index).filter(index => {
+        const card = cards[index];
+        if (group !== 'all' && card.group !== group) return false;
+        if (status === 'weak') return rating(card.id) !== 'ready';
+        if (status === 'ready') return rating(card.id) === 'ready';
+        return true;
+      });
+      position = Math.min(position, Math.max(0, order.length - 1));
     }
-    copyContent(front, card.front);
-    state.textContent = rating(card) === 'practice' ? 'Needs practice' : rating(card) === 'ready' ? 'Ready' : 'Not marked';
-  }
 
-  reveal.addEventListener('click', () => {
-    const card = cards[order[current]];
-    if (!card) return;
-    if (!revealed) {
-      copyContent(back, card.back);
-      if (card.kind === 'lecture' && card.source) {
-        const link = document.createElement('a');
-        link.href = card.source;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.textContent = 'Open source lecture in Canvas';
-        evidence.append(link);
-      } else if (card.evidence) {
-        evidence.textContent = `Evidence: ${card.evidence}`;
-      }
-      back.hidden = false;
-      revealed = true;
-      reveal.textContent = 'Hide answer';
-    } else {
-      back.hidden = true;
+    function render() {
+      const card = cards[order[position]];
+      const scope = cards.filter(item =>
+        groupSelect.value === 'all' || item.group === groupSelect.value);
+      const ready = scope.filter(item => rating(item.id) === 'ready').length;
+      const weak = scope.filter(item => rating(item.id) === 'weak').length;
+      progress.textContent = scope.length
+        ? `${scope.length} cards in scope · ${ready} confident · ${weak} need practice · ${scope.length - ready - weak} unmarked`
+        : 'No cards match this filter.';
+
+      question.replaceChildren();
+      answer.replaceChildren();
+      answer.hidden = true;
+      evidence.textContent = '';
       revealed = false;
       reveal.textContent = 'Reveal answer';
+
+      if (!card) {
+        question.append(document.createTextNode('Nothing to drill here yet.'));
+        previous.disabled = true;
+        next.disabled = true;
+        reveal.disabled = true;
+        weak.disabled = true;
+        ready.disabled = true;
+        return;
+      }
+      previous.disabled = position === 0;
+      next.disabled = position === order.length - 1;
+      reveal.disabled = false;
+      weak.disabled = false;
+      ready.disabled = false;
+
+      question.append(make('span', 'study-card-group', card.group));
+      question.append(make('p', 'study-card-question', card.front));
+      answer.append(make('p', null, card.back));
+      if (card.evidence) {
+        evidence.append(document.createTextNode(`Appears in: ${card.evidence}`));
+      }
+      if (card.source_url) {
+        if (card.evidence) evidence.append(document.createTextNode(' · '));
+        const link = make('a', null, card.source || 'Open lecture in Canvas');
+        link.href = card.source_url;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        evidence.append(link);
+      }
     }
-  });
-  previous.addEventListener('click', () => { current--; showCard(); });
-  next.addEventListener('click', () => { current++; showCard(); });
-  shuffle.addEventListener('click', () => {
-    for (let i = order.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [order[i], order[j]] = [order[j], order[i]];
+
+    function move(step) {
+      position = Math.max(0, Math.min(order.length - 1, position + step));
+      render();
     }
-    current = 0;
-    showCard();
-  });
-  for (const button of ratingButtons) button.addEventListener('click', () => {
-    const card = cards[order[current]];
-    if (!card) return;
-    ratings[card.id] = button.dataset.rating;
-    try { localStorage.setItem(storageKey, JSON.stringify(ratings)); } catch (_) { /* Storage may be blocked. */ }
-    const nextCard = order[current + 1];
-    updateOrder();
-    if (nextCard !== undefined) {
-      const nextPosition = order.indexOf(nextCard);
-      if (nextPosition >= 0) current = nextPosition;
-      showCard();
+
+    previous.addEventListener('click', () => move(-1));
+    next.addEventListener('click', () => move(1));
+    reveal.addEventListener('click', () => {
+      revealed = !revealed;
+      answer.hidden = !revealed;
+      reveal.textContent = revealed ? 'Hide answer' : 'Reveal answer';
+    });
+    weak.addEventListener('click', () => rate('weak'));
+    ready.addEventListener('click', () => rate('ready'));
+
+    function rate(value) {
+      const card = cards[order[position]];
+      if (!card) return;
+      if (state.cards[card.id] === value) {
+        delete state.cards[card.id];
+      } else {
+        state.cards[card.id] = value;
+      }
+      store.write(state);
+      rebuildOrder();
+      render();
     }
-  });
-  category.addEventListener('change', () => { current = 0; updateOrder(); });
-  statusFilter.addEventListener('change', () => { current = 0; updateOrder(); });
+
+    document.addEventListener('keydown', event => {
+      if (event.target.matches(TEXT_FIELD)) return;
+      if (event.metaKey || event.ctrlKey || event.altKey) return;
+      if (event.key === ' ') {
+        event.preventDefault();
+        reveal.click();
+      } else if (event.key === 'ArrowRight') {
+        event.preventDefault();
+        move(1);
+      } else if (event.key === 'ArrowLeft') {
+        event.preventDefault();
+        move(-1);
+      } else if (event.key === '1') {
+        event.preventDefault();
+        rate('weak');
+      } else if (event.key === '2') {
+        event.preventDefault();
+        rate('ready');
+      }
+    });
+
+    rebuildOrder();
+    render();
+    return panel;
+  }
+
+  function buildMistakePanel(data) {
+    const mistakes = [];
+    for (const sheet of data.sheets || []) {
+      for (const mistake of sheet.mistakes || []) {
+        mistakes.push({ text: mistake, sheet: sheet.file, title: sheet.title });
+      }
+    }
+    if (!mistakes.length) return null;
+    const panel = make('section', 'study-panel');
+    panel.setAttribute('aria-labelledby', 'mistakes-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, 'Known traps');
+    title.id = 'mistakes-heading';
+    head.append(title);
+    head.append(make('span', 'study-badge', plural(mistakes.length, 'trap')));
+    panel.append(head);
+    panel.append(make('p', 'study-panel-note',
+      'Errors the topic guides flag as repeated. Read these before you attempt the matching family.'));
+    const list = make('ul', 'study-mistake-list');
+    for (const mistake of mistakes) {
+      const item = make('li');
+      item.append(make('p', null, mistake.text));
+      const link = make('a', null, mistake.title);
+      link.href = mistake.sheet;
+      item.append(link);
+      list.append(item);
+    }
+    panel.append(list);
+    return panel;
+  }
+
+  function buildGuidePanel(data) {
+    const guides = data.sheets || [];
+    if (!guides.length) return null;
+    const panel = make('section', 'study-panel');
+    panel.setAttribute('aria-labelledby', 'guides-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, 'Topic guides');
+    title.id = 'guides-heading';
+    head.append(title);
+    head.append(make('span', 'study-badge', plural(guides.length, 'guide')));
+    panel.append(head);
+    panel.append(make('p', 'study-panel-note',
+      'Each guide holds the worked method, the graduated practice and the traps for one topic.'));
+    const list = make('ul', 'study-guide-list');
+    for (const guide of guides) {
+      const item = make('li');
+      const link = make('a', null, guide.title);
+      link.href = guide.file;
+      item.append(link);
+      if (guide.purpose) {
+        item.append(make('p', 'study-guide-purpose', guide.purpose));
+      }
+      if (guide.practice && guide.practice.length) {
+        const marks = guide.practice.reduce((sum, entry) => sum + (entry.marks || 0), 0);
+        item.append(make('span', 'study-badge',
+          `${plural(guide.practice.length, 'practice prompt')}${marks ? ` · ${marks} marks` : ''}`));
+      }
+      list.append(item);
+    }
+    panel.append(list);
+    return panel;
+  }
+
+  function buildProgressPanel() {
+    const panel = make('section', 'study-panel study-progress-panel');
+    panel.setAttribute('aria-labelledby', 'progress-heading');
+    const head = make('div', 'study-panel-head');
+    const title = make('h2', null, 'Your progress');
+    title.id = 'progress-heading';
+    head.append(title);
+    panel.append(head);
+    const body = make('div', 'study-progress-body');
+    panel.append(body);
+
+    const reset = make('button', 'study-tool-button', 'Reset this module');
+    reset.type = 'button';
+    reset.addEventListener('click', () => {
+      for (const key of Object.keys(state)) delete state[key];
+      state.cards = {};
+      state.practice = {};
+      state.families = {};
+      state.topic = 'all';
+      store.write(state);
+      window.location.reload();
+    });
+    panel.append(reset);
+
+    panel.update = () => {
+      const rated = Object.keys(state.cards);
+      const weak = rated.filter(id => state.cards[id] === 'weak').length;
+      const ready = rated.filter(id => state.cards[id] === 'ready').length;
+      const families = Object.keys(state.families).length;
+      const practice = Object.keys(state.practice).length;
+      body.replaceChildren();
+      const grid = make('div', 'study-briefing-grid');
+      for (const [label, value] of [
+        ['Cards confident', String(ready)],
+        ['Cards needing practice', String(weak)],
+        [moduleCode === 'CT4111' ? 'Outcome areas confident' : 'Families confident', String(families)],
+        ['Prompts attempted', String(practice)],
+      ]) {
+        const cell = make('div', 'study-fact');
+        cell.append(make('span', null, label), make('strong', null, value));
+        grid.append(cell);
+      }
+      body.append(grid);
+      if (!rated.length && !families && !practice) {
+        body.append(make('p', 'study-empty',
+          'Nothing marked yet. Ratings and attempts are saved in this browser only.'));
+      }
+    };
+    return panel;
+  }
+
+  function updateProgress() {
+    const panel = document.querySelector('.study-progress-panel');
+    if (panel && panel.update) panel.update();
+  }
 
   async function load() {
-    addWrittenPractice();
-    cards.push(...inlineCards());
-    const sources = (player.dataset.decks || '').split(',').map(source => source.trim()).filter(Boolean);
-    let failedDecks = 0;
-    for (const result of await Promise.allSettled(sources.map(async source => {
-      const response = await fetch(source);
-      if (!response.ok) throw new Error(`Could not load ${source}`);
-      return sourceCards(new DOMParser().parseFromString(await response.text(), 'text/html'), source);
-    }))) {
-      if (result.status === 'fulfilled') cards.push(...result.value);
-      else failedDecks++;
+    let data;
+    try {
+      const response = await fetch(dataUrl);
+      if (!response.ok) throw new Error('missing data');
+      data = await response.json();
+    } catch (_) {
+      shell.innerHTML = '<p class="study-empty">This study space could not load its data. '
+        + 'The <a href="details.html">module details</a> and printable guides are still available.</p>';
+      return;
     }
-    if (!cards.length) throw new Error('No flashcards were found.');
-    const bankSummary = document.createElement('p');
-    bankSummary.className = 'study-bank-summary';
-    const lectureCount = cards.filter(card => card.kind === 'lecture').length;
-    bankSummary.textContent = `Module bank: ${cards.length} cards · ${lectureCount} lecture · ${cards.length - lectureCount} exam and reference`;
-    player.querySelector('[data-controls]').prepend(bankSummary);
-    if (failedDecks) {
-      const warning = document.createElement('p');
-      warning.className = 'study-deck-warning';
-      warning.textContent = `${failedDecks} exam deck${failedDecks === 1 ? '' : 's'} could not load. Lecture cards are still available; use the printable links below for the full list.`;
-      player.querySelector('[data-controls]').before(warning);
+
+    const code = data.code || moduleCode;
+    try { localStorage.setItem('module-research-home-last-v1', code); } catch (_) { /* Navigation still works. */ }
+    const heading = shell.parentElement.querySelector('h1');
+    if (heading) heading.textContent = data.name || code;
+    const eyebrow = shell.parentElement.querySelector('.eyebrow');
+    if (eyebrow) eyebrow.textContent = `${code} · Exam Study Space`;
+
+    const progress = buildProgressPanel();
+    shell.append(buildExamBriefing(data));
+    shell.append(buildFamilyList(data));
+    shell.append(buildPracticeList(data));
+    shell.append(buildCardDrill(data));
+    const mistakes = buildMistakePanel(data);
+    if (mistakes) shell.append(mistakes);
+    const guides = buildGuidePanel(data);
+    if (guides) shell.append(guides);
+    shell.append(progress);
+    progress.update();
+    if (window.location.hash) {
+      requestAnimationFrame(() => {
+        document.getElementById(window.location.hash.slice(1))?.scrollIntoView();
+      });
     }
-    if (cards.some(card => card.kind === 'lecture') && cards.some(card => card.kind === 'exam')) {
-      const label = document.createElement('label');
-      label.textContent = 'Card source';
-      sourceFilter = document.createElement('select');
-      sourceFilter.setAttribute('aria-label', 'Card source');
-      for (const [value, name] of [['all', 'All cards'], ['lecture', 'Lecture slides'], ['exam', 'Exam decks']]) {
-        const option = document.createElement('option');
-        option.value = value;
-        option.textContent = name;
-        sourceFilter.append(option);
-      }
-      label.append(sourceFilter);
-      toolbar.prepend(label);
-      sourceFilter.addEventListener('change', () => { current = 0; updateOrder(); });
-    }
-    const focusOption = document.createElement('option');
-    focusOption.value = 'focus';
-    focusOption.textContent = 'Weak + new';
-    statusFilter.insertBefore(focusOption, statusFilter.querySelector('[value="new"]'));
-    const focusButton = document.createElement('button');
-    focusButton.type = 'button';
-    focusButton.textContent = 'Review weak + new';
-    focusButton.addEventListener('click', () => {
-      category.value = selectedTopic || 'all';
-      statusFilter.value = 'focus';
-      if (sourceFilter) sourceFilter.value = 'all';
-      current = 0;
-      updateOrder();
-      reveal.focus();
-    });
-    const allButton = document.createElement('button');
-    allButton.type = 'button';
-    allButton.textContent = 'Show full bank';
-    allButton.addEventListener('click', () => {
-      category.value = 'all';
-      statusFilter.value = 'all';
-      if (sourceFilter) sourceFilter.value = 'all';
-      current = 0;
-      updateOrder();
-      reveal.focus();
-    });
-    toolbar.append(focusButton, allButton);
-    for (const topic of topics) {
-      const group = topic.querySelector('strong')?.textContent.trim();
-      if (!group || !cards.some(card => card.topics.includes(group))) continue;
-      const option = document.createElement('option');
-      option.value = group;
-      option.textContent = group;
-      category.append(option);
-    }
-    if (cards.some(card => !card.topics.length)) {
-      const option = document.createElement('option');
-      option.value = 'other';
-      option.textContent = 'Other exam topics';
-      category.append(option);
-    }
-    player.querySelector('[data-loading]').hidden = true;
-    player.querySelector('[data-controls]').hidden = false;
-    setupTopicWorkspace();
-    if (selectedTopic) allButton.textContent = 'Browse all module cards';
-    updateOrder();
   }
-  load().catch(() => {
-    player.querySelector('[data-loading]').textContent = 'Interactive cards could not load here. Open the original deck below.';
-  });
+
+  load();
 })();

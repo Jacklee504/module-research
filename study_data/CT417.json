@@ -1,0 +1,569 @@
+{
+ "code": "CT417",
+ "name": "Software Engineering III",
+ "details": {
+  "status": "Required",
+  "semester": "Semester 1",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "Medium",
+  "exam_pattern": "Medium overall. The 2023/24-2025/26 DevSecOps/security/testing/design-pattern pattern is useful recent evidence, but the older archive shows material drift.",
+  "title": "CT417 - Software Engineering III",
+  "papers": [
+   "2019_2020.pdf",
+   "2021_2022.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "automated_testing_security_tooling_revision_sheet.html",
+   "cicd_git_workflows_revision_sheet.html",
+   "legacy_background_topics_revision_sheet.html",
+   "refactoring_design_patterns_revision_sheet.html",
+   "secure_software_engineering_devsecops_revision_sheet.html",
+   "software_architecture_revision_sheet.html",
+   "vulnerabilities_countermeasures_metrics_revision_sheet.html"
+  ],
+  "exam_block": [],
+  "paper_format": "answer any 3 from 4, 20 marks each",
+  "exam_shape": "choice",
+  "code": "CT417",
+  "name": "Software Engineering III"
+ },
+ "families": [
+  {
+   "id": "ci-cd-github-actions-docker-deployment-and-git-workflows",
+   "rank": 1,
+   "title": "CI/CD, GitHub Actions, Docker Deployment, And Git Workflows",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q4(a)-(b) - list CI advantages and discuss CI/CD adoption pitfalls.",
+    "2024/25 - Q1(a) - propose four CI/CD pipeline improvements for FoodieGo.",
+    "2024/25 - Q1(b) - write Git commands for status, add, commit, push, and merge feature branch into main.",
+    "2024/25 - Q1(c) - explain a GitHub Actions YAML build job for a Java/Maven app, tests, coverage, Docker build, and registry push.",
+    "2025/26 - Q1(a) - diagnose and fix a failed Docker pull: manifest unknown for ghcr.io/skybankai/app:latest .",
+    "2025/26 - Q1(b) - design a simplified GitHub Actions pipeline for a Node.js microservice.",
+    "2025/26 - Q1(c) - identify risks in a bad pipeline where tests only run on main, every commit deploys to production, and no rollback exists.",
+    "2025/26 - Q1(d) - explain how merge conflicts arise and how to prevent and resolve them."
+   ],
+   "marks": 0,
+   "question": "Given a company with manual testing, integration conflicts, insecure releases, failed deployments, and weak rollback, propose a practical GitHub Actions CI/CD workflow and show how to diagnose, fix, and safely deploy changes using Git and Docker.",
+   "answer": "Reusable answer: Start with pull-request checks: checkout, install dependencies, run tests, run coverage, and run security scans before merge. On merge to main , build a versioned Docker image, push it to the registry, deploy to staging, run smoke tests, and only then promote or deploy onward. Use feature branches and PR reviews to control integration. Avoid direct production deployment from every commit without gates or rollback. For Docker manifest errors, check that the expected image name and tag exist, identify whether the image was pushed under a commit SHA or different tag, then retag or rebuild and push the expected tag before redeploying."
+  },
+  {
+   "id": "sast-dast-sonarqube-owasp-zap-and-coverage",
+   "rank": 2,
+   "title": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+   "frequency": "2/3",
+   "appearances": [
+    "2023/24 - Q4(c) - design JUnit test cases for a simple Java Calculator.add() method.",
+    "2024/25 - Q2(a)-(c) - compare SAST and DAST, explain why they belong in CI/CD, and state the role of code coverage.",
+    "2024/25 - Q2(d) - propose two SonarQube optimisations, with justification and trade-offs.",
+    "2024/25 - Q2(e) - diagnose OWASP ZAP pipeline failures and missing reports.",
+    "2024/25 - Q2(f) - use coverage tools to find low-coverage Java business logic and increase coverage without slowing CI.",
+    "2025/26 - Q2(a) - compare SAST and DAST by lifecycle timing, vulnerability type, source-code access, and tool examples.",
+    "2025/26 - Q2(b) - identify two likely OWASP ZAP technical failure causes and practical resolutions.",
+    "2025/26 - Q2(c) - optimise SonarQube without reducing scan quality.",
+    "2025/26 - Q2(d) - use JaCoCo, Istanbul, or Coverage.py to identify low-coverage payment code and improve coverage efficiently."
+   ],
+   "marks": 0,
+   "question": "Explain how SAST, DAST, unit testing, code coverage, SonarQube, and OWASP ZAP fit into a CI/CD pipeline, then troubleshoot performance or reporting problems without reducing useful scan quality.",
+   "answer": "Reusable answer: SAST analyses source code or compiled code before the application runs, so it is useful early in CI for code-level flaws and insecure patterns. DAST tests a running application from the outside, so it is useful against staging or production-like environments for runtime and configuration issues. SonarQube can be optimised with careful exclusions for generated files, dependencies, build outputs, and irrelevant artefacts, plus pull-request analysis focused on new code while full scans still run on main . OWASP ZAP failures often come from scanning before the app is running, wrong target URLs, authentication/session problems, blocked network access, or reports not being exported as CI artefacts. Coverage tools highlight untested files, methods, and branches; increase coverage by targeting critical paths and adding focused unit tests rather than slowing every pipeline with broad end-to-end tests."
+  },
+  {
+   "id": "vulnerability-countermeasures-zero-day-lifecycle-metrics-and-buffer-overflow",
+   "rank": 3,
+   "title": "Vulnerability, Countermeasures, Zero-Day Lifecycle, Metrics, And Buffer Overflow",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q3(a)-(e) - define vulnerability, countermeasures, zero-day vulnerability, zero-day lifecycle, and buffer overflow exploitation.",
+    "2024/25 - Q3(a)-(f) - repeat vulnerability, countermeasures, zero-day, five-stage lifecycle, buffer overflow exploitation, and two buffer-overflow countermeasures.",
+    "2025/26 - Q3(a)-(c) - repeat vulnerability, countermeasures, and zero-day vulnerability.",
+    "2025/26 - Q3(d) - calculate average MTBF from MTTD and MTTR, identify best incident, and recommend MTTD/MTTR improvements.",
+    "2025/26 - Q3(e) - define and explain buffer overflow exploitation and discuss two countermeasures."
+   ],
+   "marks": 0,
+   "question": "Define key security terms, explain the zero-day lifecycle, calculate operational incident metrics, and explain how buffer overflow attacks work plus how to reduce them.",
+   "answer": "Reusable answer: A vulnerability is a weakness that can be exploited to violate security. A countermeasure is a safeguard that reduces the risk, likelihood, or impact of exploitation. A zero-day vulnerability is unknown to, or unpatched by, the vendor at the time attackers can exploit it. Its lifecycle can be explained as discovery, weaponisation/exploit development, active exploitation, disclosure/detection, and patching/remediation. A buffer overflow occurs when a program writes more data into a fixed-size buffer than it can hold, overwriting adjacent memory such as local variables or a return address. Countermeasures include bounds checking, safer library functions, stack canaries, ASLR, DEP/NX, compiler hardening, input validation, and using memory-safe languages."
+  },
+  {
+   "id": "refactoring-design-patterns-polymorphism-factory-pattern-and-open-closed-principle",
+   "rank": 4,
+   "title": "Refactoring, Design Patterns, Polymorphism, Factory Pattern, And Open/Closed Principle",
+   "frequency": "2/3",
+   "appearances": [
+    "2024/25 - Q4(a) - explain the importance of design patterns.",
+    "2024/25 - Q4(b) - explain why refactoring improves code reusability.",
+    "2024/25 - Q4(c) - refactor separate customer/manager authentication methods using an abstract User class and polymorphism.",
+    "2024/25 - Q4(d) - refactor account creation using a UserFactory .",
+    "2024/25 - Q4(e) - refactor the factory so adding roles such as Admin does not modify createUser , following the Open/Closed Principle.",
+    "2025/26 - Q4(a) - explain why refactoring improves code reusability.",
+    "2025/26 - Q4(b) - identify two concrete design problems and match each to an appropriate design pattern.",
+    "2025/26 - Q4(c) - refactor role-based conditionals using an abstract User interface/class, role-specific subclasses, and a UserFactory ."
+   ],
+   "marks": 0,
+   "question": "Given duplicated role-based controller code with conditionals for authentication or account creation, refactor it using object-oriented principles, a User abstraction, subclasses, and a factory that supports extension.",
+   "answer": "Reusable answer: Refactoring improves reusability by removing duplication, separating responsibilities, and making behaviour easier to extend without changing unrelated code. Replace role conditionals with polymorphism: define a User interface or abstract class with methods such as authenticate() or createAccount() , then implement role-specific subclasses such as Customer and Manager . A UserFactory centralises object creation so controllers depend on the abstraction rather than concrete role classes. To follow Open/Closed Principle more strongly, replace a hardcoded switch with a registry/map of role names to creator functions, so new roles can be registered without modifying the factory method itself."
+  },
+  {
+   "id": "agile-manifesto-scrum-changing-requirements-and-stakeholder-collaboration",
+   "rank": null,
+   "title": "Agile Manifesto, Scrum, Changing Requirements, And Stakeholder Collaboration",
+   "frequency": "",
+   "appearances": [
+    "Q1(a) - describe the Agile Manifesto and list two core principles.",
+    "Q1(b) - choose a relevant Agile principle and propose two solutions for changing requirements and evolving data sources.",
+    "Q1(c) - using business-stakeholder and developer collaboration, suggest five steps to improve model accuracy and reliability."
+   ],
+   "marks": 0,
+   "question": "Explain Agile principles in a project scenario, then apply one principle to concrete delivery problems such as changing requirements, evolving data, and stakeholder concerns.",
+   "answer": "Reusable answer: Agile values individuals and interactions, working software, customer collaboration, and responding to change. For changing requirements, use short sprints, backlog refinement, sprint reviews, prioritisation, and regular stakeholder feedback. For reliability concerns, bring data scientists, developers, and business stakeholders together to define acceptance criteria, validate model performance, review real user feedback, adjust data sources, and iterate on the model with measurable quality targets."
+  },
+  {
+   "id": "distinct-lower-frequency-effirul-questions",
+   "rank": null,
+   "title": "Distinct Lower-Frequency Effirul Questions",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "formal-specification-and-z-style-cursor-schemas",
+   "rank": null,
+   "title": "Formal Specification And Z-Style Cursor Schemas",
+   "frequency": "",
+   "appearances": [
+    "Q2(a) - list three advantages of formal specifications.",
+    "Q2(b) - describe an initial state schema for a cursor on a terminal display.",
+    "Q2(c) - define DownKeyNormal for pressing down when the cursor is not on the bottom line.",
+    "Q2(d) - define DownKeyAtBottom for pressing down when the cursor is on the bottom line.",
+    "Q2(e) - define the full behaviour."
+   ],
+   "marks": 0,
+   "question": "List formal-specification benefits, then write small state and operation schemas for cursor movement with normal and boundary cases.",
+   "answer": "Reusable answer: Formal specifications reduce ambiguity, support precise validation of requirements, and can reveal inconsistencies before implementation. For the cursor schema, define state variables such as line and column with invariants like 1 <= line <= numLines and 1 <= column <= numColumns . The initial state sets the cursor to a valid starting position. DownKeyNormal increments line when it is below numLines and leaves column unchanged. DownKeyAtBottom handles the boundary case by keeping the cursor on the bottom line or otherwise defining the specified no-op behaviour. The full operation combines normal and boundary schemas."
+  },
+  {
+   "id": "most-repeated-question-families",
+   "rank": null,
+   "title": "Most Repeated Question Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Explain the purpose of Continuous Integration.",
+     "back": "Integrate code often, run automated checks, catch defects early, reduce merge issues, and give fast feedback.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Propose CI/CD improvements for manual testing, integration conflicts, insecure releases, and weak rollback.",
+     "back": "Add PR checks, automated tests, SAST/DAST, staging, deployment gates, versioned Docker builds, rollback, and approvals.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Design a GitHub Actions pull-request stage.",
+     "back": "Checkout, install dependencies, build/lint, run unit tests, collect coverage, run security scans, and block merge on failure.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Describe the post-merge deployment stage after code reaches main .",
+     "back": "Build a versioned Docker image, push to registry, deploy to staging, run smoke tests, then promote/deploy onward.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Identify risks in a pipeline that tests only on main , deploys every commit to production, and has no rollback.",
+     "back": "Late defect detection, broken production releases, no safe recovery path, higher downtime, and higher MTTR.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Diagnose and fix Docker manifest unknown using Git/Docker commands.",
+     "back": "Tag missing or wrong. Check expected image/tag, find commit/image used, rebuild or retag, push the expected tag, then redeploy.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Explain how merge conflicts arise and how to prevent/resolve them.",
+     "back": "Same lines/related code changed on different branches. Prevent with small branches, frequent syncs, early PRs. Resolve by fetch, rebase/merge, fix markers, test, add, continue, push.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+     "front": "Compare SAST and DAST by timing, access, vulnerability type, and tools.",
+     "back": "SAST: early, source/compiled code, finds implementation flaws; tools: SonarQube, CodeQL, Semgrep. DAST: later, running app, black-box, finds runtime/config/web issues; tools: OWASP ZAP, Burp Suite.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+     "front": "Explain why SAST and DAST belong in a CI/CD pipeline.",
+     "back": "They automate security feedback, catch issues earlier, reduce late manual checks, and block insecure builds before release.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+     "front": "Explain the role and limitation of code coverage in unit testing.",
+     "back": "Shows which lines/branches/functions were exercised by tests; highlights untested areas but does not prove correctness.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+     "front": "Use coverage tools to identify low-coverage areas and improve coverage efficiently.",
+     "back": "Use JaCoCo/Istanbul/Coverage.py reports, target critical low-coverage paths, add focused unit tests, avoid slowing CI with broad slow tests.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+     "front": "Propose two SonarQube optimisations without reducing scan quality.",
+     "back": "Exclude generated/dependency/build artefacts and use PR/new-code analysis; keep full scans on main and never exclude production code.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "SAST, DAST, SonarQube, OWASP ZAP, And Coverage",
+     "front": "Diagnose OWASP ZAP CI failures or missing reports and propose fixes.",
+     "back": "Causes: app not running, wrong URL/port, auth/session missing, blocked network, timeout, no report export. Fix: start app first, configure URL/auth/context, tune thresholds/timeouts, upload reports.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Define vulnerability, countermeasure, and zero-day vulnerability.",
+     "back": "Vulnerability: exploitable weakness. Countermeasure: safeguard that reduces likelihood, impact, or exploitability. Zero-day: unknown/unpatched vulnerability that attackers may exploit before a fix exists.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Describe the zero-day vulnerability lifecycle.",
+     "back": "Discovery, exploit development/weaponisation, active exploitation, disclosure/detection, patching/remediation.",
+     "evidence": "2023/24, 2024/25"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Define MTTD, MTTR, and the SkyBankAI MTBF assumption.",
+     "back": "MTTD = time to detect. MTTR = time to respond/recover/repair. In the question, MTBF = MTTD + MTTR per incident.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Calculate average MTBF from the SkyBankAI incidents.",
+     "back": "4+2=6 , 0.5+1=1.5 , 6+4=10 ; average (6+1.5+10)/3 = 5.83 hours .",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Recommend improvements to reduce MTTD and MTTR.",
+     "back": "MTTD: automated alerts, logs, monitoring, alert correlation. MTTR: rollback, feature flags, blue-green/canary deployment, runbooks, automated redeploys.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Define buffer overflow and explain exploitation.",
+     "back": "Writing beyond a fixed-size buffer overwrites adjacent memory; attackers may overwrite variables/control data/return addresses to crash or redirect execution.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "Discuss buffer overflow countermeasures.",
+     "back": "Bounds checking, input validation, safer functions/APIs, memory-safe languages, stack canaries, ASLR, DEP/NX, compiler hardening.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle",
+     "front": "Explain why design patterns and refactoring improve maintainability/reusability.",
+     "back": "Patterns give proven reusable solutions and shared vocabulary. Refactoring removes duplication, separates responsibilities, improves structure, and makes behaviour easier to extend.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle",
+     "front": "Given role-based if/else controller code, identify the design problems.",
+     "back": "Duplicated logic, tight coupling to concrete roles, poor separation of concerns, and controller changes needed whenever a new role is added.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle",
+     "front": "Refactor role-based authentication/account creation using polymorphism and a User abstraction.",
+     "back": "Define User interface/abstract class with methods like authenticate() / createAccount() . Implement role-specific subclasses such as Customer , Manager , Admin . Controller depends on User .",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle",
+     "front": "Explain how a UserFactory supports the refactor.",
+     "back": "It centralises creation of role-specific User objects so client/controller code depends on the abstraction, not concrete classes.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle",
+     "front": "Apply the Open/Closed Principle to a role factory.",
+     "back": "Use a registry/map of role names to creator functions/classes so new roles can be added without editing the existing factory method.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "Refactoring, Design Patterns, Factory Pattern, And Open/Closed Principle",
+     "front": "Identify design patterns for payment methods and notifications.",
+     "back": "Payments: Strategy, possibly Factory + Strategy. Notifications: Adapter for external APIs, Strategy for delivery type, or Observer for event-driven notifications.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "List the main advanced software engineering topics covered by the official CT417 overview.",
+     "back": "Secure Software Engineering/DevSecOps, software architecture, software testing and quality assurance, and design patterns.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Explain what is meant by a secure development process.",
+     "back": "A lifecycle that builds security into requirements, design, implementation, testing, deployment, and maintenance rather than adding it at the end.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Explain how tools can be used to implement reusable DevSecOps CI/CD pipelines.",
+     "back": "A standard pipeline template for build, test, scan, package, and deploy steps that can be reused consistently across services.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Describe ethical and security responsibilities when developing and deploying software.",
+     "back": "Protect users, data, safety, privacy, fairness, and reliability; disclose risks honestly; and avoid deploying known harmful or insecure systems.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Evaluate the role of Software Quality Assurance in improving the software development process.",
+     "back": "Processes that improve quality through standards, reviews, tests, audits, metrics, and continuous improvement.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Explain software reliability engineering and its purpose.",
+     "back": "Engineering focused on predicting, measuring, evaluating, and improving how consistently software operates without failure.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Recognise architecture styles such as microservices, serverless, cloud, and API-first, and explain how they affect software quality.",
+     "back": "Microservices, serverless, cloud, and API-first; they affect scalability, maintainability, deployability, reliability, security boundaries, and operational complexity.",
+     "evidence": "Official overview"
+    },
+    {
+     "group": "Backup: Agile And Formal Specification",
+     "front": "Describe the Agile Manifesto and apply relevant Agile principles to changing requirements in the Soccermatic scenario.",
+     "back": "Know the values, welcome changing requirements, use short sprints/backlog refinement, and keep business stakeholders and developers collaborating.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Backup: Agile And Formal Specification",
+     "front": "Suggest steps the Soccermatic team should take using stakeholder-developer collaboration to improve model reliability.",
+     "back": "Define acceptance/performance criteria, review failures with stakeholders, adjust data/model features, and iterate through sprint demos with feedback.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Backup: Agile And Formal Specification",
+     "front": "List advantages of formal specification and outline the cursor schema approach for normal and bottom-line down-key behaviour.",
+     "back": "Formal specs reduce ambiguity and expose inconsistencies. Cursor schemas define line / column bounds and separate normal down-key movement from the bottom-line boundary case.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Official Module Overview Coverage",
+     "front": "Distinguish a functional requirement from a non-functional requirement in a release scenario.",
+     "back": "Functional specifies what behaviour the system provides. Non-functional constrains its quality, such as availability, performance, privacy, reliability or security; both need testable criteria.",
+     "source": "Week 1 revision in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56296/files/3751265"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "What check was missing in the Heartbleed heartbeat response?",
+     "back": "The claimed payload length was trusted without checking the actual received payload length. The response could copy adjacent memory; validate the length before allocating or copying.",
+     "source": "Heartbleed case study in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56296/files/3751298"
+    },
+    {
+     "group": "Vulnerabilities, Zero-Days, Metrics, And Buffer Overflow",
+     "front": "What is the core trust-boundary failure in SQL injection?",
+     "back": "Untrusted input is interpreted as SQL syntax rather than data. Parameterised queries keep values separate from the command, with validation and least-privilege access as supporting controls.",
+     "source": "SQL injection case study in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56296/files/3751302"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "Why can a Docker container be running while its web app is unreachable?",
+     "back": "The mapped host port may point to a container port where nothing listens. Inspect the application's listening port and Docker's published mapping, then rerun with the correct host:container ports.",
+     "source": "Docker practical in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56296/files/3872642"
+    },
+    {
+     "group": "CI/CD, GitHub Actions, Docker, And Git Workflows",
+     "front": "What does a Docker client-only installation fail to provide on macOS or Windows?",
+     "back": "It provides the command but no running Docker Engine. A Linux VM-backed engine such as Docker Desktop or Colima must run before builds and containers work.",
+     "source": "Week 5 Docker setup in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56296/files/3886257"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "automated_testing_security_tooling_revision_sheet.html",
+   "title": "Automated Testing and Security Tooling",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question - security automation and coverage (20 marks)",
+     "marks": 0,
+     "prompt": "Inspired by: 2024/25 Question 2 and 2025/26 Question 2.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "cicd_git_workflows_revision_sheet.html",
+   "title": "CI/CD and Git Workflows",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question - delivery and Git workflow (20 marks)",
+     "marks": 0,
+     "prompt": "ParcelPilot releases a Node.js service weekly. Tests are mainly manual, feature branches conflict when merged late, staging differs from production, and a deployment fails with manifest for registry.example/pilot/api:latest not found .",
+     "route": "Scenario. ParcelPilot releases a Node.js service weekly. Tests are mainly manual, feature branches conflict when merged late, staging differs from production, and a deployment fails with manifest for registry.example/pilot/api:latest not found .",
+     "answer": "Scenario. ParcelPilot releases a Node.js service weekly. Tests are mainly manual, feature branches conflict when merged late, staging differs from production, and a deployment fails with manifest for registry.example/pilot/api:latest not found ."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "legacy_background_topics_revision_sheet.html",
+   "title": "Legacy and Background Topics",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question - stock state in Z (20 marks)",
+     "marks": 0,
+     "prompt": "A campus shop carries items. For each carried item it records the number currently in stock. An item cannot have negative stock, and stock is recorded for exactly the carried items. [ITEM] CampusStock carried : ℙ ITEM level : ITEM ⇸ ℕ where dom level = carried",
+     "route": "Scenario. A campus shop carries items. For each carried item it records the number currently in stock. An item cannot have negative stock, and stock is recorded for exactly the carried items.",
+     "answer": "Scenario. A campus shop carries items. For each carried item it records the number currently in stock. An item cannot have negative stock, and stock is recorded for exactly the carried items."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "refactoring_design_patterns_revision_sheet.html",
+   "title": "Refactoring and Design Patterns",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question - role-based account system (20 marks)",
+     "marks": 0,
+     "prompt": "CampusPay has Customer and Manager accounts. Its controller contains repeated authentication/account-creation code and branches on a role string. Partner and Auditor roles are planned.",
+     "route": "Scenario. CampusPay has Customer and Manager accounts. Its controller contains repeated authentication/account-creation code and branches on a role string. Partner and Auditor roles are planned.",
+     "answer": "Scenario. CampusPay has Customer and Manager accounts. Its controller contains repeated authentication/account-creation code and branches on a role string. Partner and Auditor roles are planned."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "secure_software_engineering_devsecops_revision_sheet.html",
+   "title": "Secure Software Engineering and DevSecOps",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question 1 - secure delivery scenario (20 marks)",
+     "marks": 0,
+     "prompt": "HealthRoute runs a web and mobile appointment service. Releases are slow because tests are mainly manual; feature branches are merged late and often conflict; staging differs from production; and a vulnerable third-party library was discovered after release. The service handles health and payment data.",
+     "route": "Scenario. HealthRoute runs a web and mobile appointment service. Releases are slow because tests are mainly manual; feature branches are merged late and often conflict; staging differs from production; and a vulnerable third-party library was discovered after release. The service handles health and payment data.",
+     "answer": "Scenario. HealthRoute runs a web and mobile appointment service. Releases are slow because tests are mainly manual; feature branches are merged late and often conflict; staging differs from production; and a vulnerable third-party library was discovered after release. The service handles health and payment data."
+    },
+    {
+     "title": "Practice question 2 - repeated security automation pattern (20 marks)",
+     "marks": 0,
+     "prompt": "Inspired by: 2024/25 Question 2 and 2025/26 Question 2. SAST/DAST, OWASP ZAP, SonarQube performance and coverage all appear in both papers.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [],
+   "structure": [
+    {
+     "title": "Secure CI/CD design",
+     "marks": 0,
+     "prompt": "Secure CI/CD design: automate integration, tests, security checks, staging, controlled release and rollback.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "SAST versus DAST",
+     "marks": 0,
+     "prompt": "SAST versus DAST: compare when they run, what they see, what they detect, source-code access, and a tool example.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Tool failure and speed",
+     "marks": 0,
+     "prompt": "Tool failure and speed: diagnose OWASP ZAP reporting failures; improve SonarQube feedback without silently lowering assurance.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Coverage and third-party risk",
+     "marks": 0,
+     "prompt": "Coverage and third-party risk: use coverage evidence to target tests; identify, assess and remediate vulnerable dependencies.",
+     "route": "",
+     "answer": ""
+    }
+   ]
+  },
+  {
+   "file": "software_architecture_revision_sheet.html",
+   "title": "Software Architecture",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question - architecture comparisons (20 marks)",
+     "marks": 0,
+     "prompt": "A university is replacing a single student-record system. It needs reliable enrolment, a mobile app, and a separate analytics team that wants to release reporting changes independently.",
+     "route": "Scenario. A university is replacing a single student-record system. It needs reliable enrolment, a mobile app, and a separate analytics team that wants to release reporting changes independently.",
+     "answer": "Scenario. A university is replacing a single student-record system. It needs reliable enrolment, a mobile app, and a separate analytics team that wants to release reporting changes independently."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "vulnerabilities_countermeasures_metrics_revision_sheet.html",
+   "title": "Vulnerabilities, Countermeasures and Operational Metrics",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question - vulnerability management and operations (20 marks)",
+     "marks": 0,
+     "prompt": "Inspired by: 2023/24 Question 3, 2024/25 Question 3 and 2025/26 Question 3.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": []
+  }
+ ]
+}

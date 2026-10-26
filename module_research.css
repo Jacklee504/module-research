@@ -18,6 +18,228 @@
   --shadow: 0 18px 42px rgba(31, 37, 40, 0.08);
 }
 
+/* Study home: a compact route back into the five current modules. */
+.study-home-header {
+  align-items: center;
+  background: linear-gradient(120deg, #fcfbf8, #edf3ee);
+}
+
+.study-home-header .lede {
+  max-width: 670px;
+}
+
+.study-home-main {
+  padding-top: 24px;
+}
+
+.study-home-focus {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 34px;
+  padding: clamp(20px, 3vw, 32px);
+  border-radius: 12px;
+  background: #21352f;
+  color: #fff;
+}
+
+.study-home-focus .eyebrow,
+.study-home-focus p {
+  color: #dce9e3;
+}
+
+.study-home-focus h2 {
+  margin-bottom: 10px;
+  font-size: clamp(23px, 2.5vw, 32px);
+}
+
+.study-home-focus p {
+  margin-bottom: 0;
+}
+
+.study-home-focus .study-home-summary {
+  margin-top: 12px;
+  font-size: 13px;
+}
+
+.study-home-continue-link,
+.study-main-link {
+  display: inline-flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.study-home-continue-link {
+  min-width: 185px;
+  background: #fff;
+  color: #214d39;
+}
+
+.study-home-continue-link[hidden] {
+  display: none;
+}
+
+.study-home-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.study-module-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--green);
+  border-radius: 10px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.study-module-card:nth-child(2),
+.study-module-card:nth-child(5) {
+  border-top-color: var(--blue);
+}
+
+.study-module-card:nth-child(3) {
+  border-top-color: var(--amber);
+}
+
+.study-card-top,
+.study-card-links,
+.study-card-progress {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.study-card-top {
+  justify-content: space-between;
+}
+
+.study-code {
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 850;
+  letter-spacing: 0.06em;
+}
+
+.study-assessment {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.study-module-card h3 {
+  min-height: 42px;
+  margin: 0;
+  font-size: 20px;
+}
+
+.study-first {
+  min-height: 56px;
+  margin: 0;
+}
+
+.study-first span,
+.study-first strong {
+  display: block;
+}
+
+.study-first span {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.study-first strong {
+  margin-top: 5px;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+.study-next {
+  min-height: 38px;
+  margin: 0;
+  color: #49575b;
+  font-size: 13px;
+}
+
+.study-main-link {
+  width: 100%;
+  margin-top: auto;
+  background: var(--green);
+  color: #fff;
+}
+
+.study-main-link:hover,
+.study-home-continue-link:hover {
+  text-decoration: none;
+  filter: brightness(0.96);
+}
+
+.study-card-progress {
+  gap: 6px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.study-card-progress span {
+  padding: 5px 8px;
+  border-radius: 6px;
+  background: var(--surface-soft);
+  color: #49575b;
+  font-size: 11px;
+}
+
+.study-card-links {
+  gap: 14px;
+  margin-top: 2px;
+  font-size: 13px;
+}
+
+.study-home-project {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+  align-items: center;
+  margin-top: 34px;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.study-home-project span:first-child {
+  color: var(--muted);
+}
+
+.study-home a:focus-visible {
+  outline: 3px solid var(--blue);
+  outline-offset: 3px;
+}
+
+@media (max-width: 1120px) {
+  .study-home-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 680px) {
+  .study-home-focus { grid-template-columns: 1fr; }
+  .study-home-grid { grid-template-columns: 1fr; }
+  .study-module-card h3,
+  .study-first,
+  .study-next { min-height: 0; }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -1405,6 +1627,37 @@ main {
 .module-card .meta {
   flex: 1;
   margin-bottom: 14px;
+}
+
+/* Exam-shape grouping on the home page */
+.shape-block {
+  margin-bottom: 34px;
+}
+
+.shape-head {
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.shape-head h3 {
+  margin: 0 0 5px;
+  font-size: 20px;
+}
+
+.shape-head p {
+  max-width: 76ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.module-facts {
+  margin: -6px 0 14px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
 }
 
 .module-card > a {

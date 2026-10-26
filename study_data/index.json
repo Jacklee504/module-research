@@ -1,0 +1,157 @@
+{
+ "modules": [
+  {
+   "code": "CS402",
+   "name": "Cryptography",
+   "families": 9,
+   "cards": 49,
+   "papers": 7,
+   "predictability": "High",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "CS4423",
+   "name": "Networks",
+   "families": 9,
+   "cards": 41,
+   "papers": 7,
+   "predictability": "Medium-High",
+   "assessment": "80% exam / 20% CA"
+  },
+  {
+   "code": "CT4100",
+   "name": "Information Retrieval",
+   "families": 14,
+   "cards": 67,
+   "papers": 4,
+   "predictability": "High",
+   "assessment": "80% exam / 20% CA"
+  },
+  {
+   "code": "CT4101",
+   "name": "Machine Learning",
+   "families": 13,
+   "cards": 102,
+   "papers": 3,
+   "predictability": "Medium-High",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "CT4104",
+   "name": "Computer and Network Security",
+   "families": 8,
+   "cards": 38,
+   "papers": 0,
+   "predictability": "Unknown",
+   "assessment": "60% exam / 40% CA"
+  },
+  {
+   "code": "CT4108",
+   "name": "Distributed Systems",
+   "families": 8,
+   "cards": 40,
+   "papers": 0,
+   "predictability": "Unknown",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "CT4111",
+   "name": "Generative AI for Software Engineering",
+   "families": 7,
+   "cards": 25,
+   "papers": 0,
+   "predictability": "Not established",
+   "assessment": "70% written / 30% CA"
+  },
+  {
+   "code": "CT413",
+   "name": "Final Year Project",
+   "families": 0,
+   "cards": 0,
+   "papers": 0,
+   "predictability": "Not applicable",
+   "assessment": "0% exam / 100% CA"
+  },
+  {
+   "code": "CT417",
+   "name": "Software Engineering III",
+   "families": 8,
+   "cards": 41,
+   "papers": 5,
+   "predictability": "Medium",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "CT420",
+   "name": "Real Time Systems",
+   "families": 8,
+   "cards": 56,
+   "papers": 7,
+   "predictability": "Medium-High",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "CT421",
+   "name": "Artificial Intelligence",
+   "families": 10,
+   "cards": 38,
+   "papers": 5,
+   "predictability": "High",
+   "assessment": "60% exam / 40% CA"
+  },
+  {
+   "code": "CT561",
+   "name": "Systems Modelling and Simulation",
+   "families": 8,
+   "cards": 40,
+   "papers": 9,
+   "predictability": "High",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "MA342",
+   "name": "Topology",
+   "families": 9,
+   "cards": 56,
+   "papers": 6,
+   "predictability": "Medium-High",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "MA3491",
+   "name": "Fields and Applications",
+   "families": 7,
+   "cards": 36,
+   "papers": 6,
+   "predictability": "High",
+   "assessment": "60% exam / 40% CA"
+  },
+  {
+   "code": "MA4102",
+   "name": "Algebraic Foundations of Quantum Computing",
+   "families": 8,
+   "cards": 36,
+   "papers": 5,
+   "predictability": "High",
+   "assessment": "70% exam / 30% CA"
+  },
+  {
+   "code": "MA4344",
+   "name": "Advanced Group Theory",
+   "families": 4,
+   "cards": 9,
+   "papers": 4,
+   "predictability": "Medium-High",
+   "assessment": "60% exam / 40% CA"
+  },
+  {
+   "code": "MA490",
+   "name": "Measure Theory",
+   "families": 4,
+   "cards": 8,
+   "papers": 5,
+   "predictability": "Medium-High",
+   "assessment": "70% exam / 30% CA"
+  }
+ ]
+}

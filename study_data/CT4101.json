@@ -1,0 +1,1260 @@
+{
+ "code": "CT4101",
+ "name": "Machine Learning",
+ "details": {
+  "status": "Required",
+  "semester": "Semester 1",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "Medium-High",
+  "exam_pattern": "Medium-High at core-topic level. The exact datasets and wording change, and only two papers share the newer format, but the same conceptual blocks recur strongly.",
+  "title": "CT4101 - Machine Learning",
+  "papers": [
+   "2019_2020.pdf",
+   "2021:2022.pdf",
+   "2023_2024.pdf"
+  ],
+  "guides": [
+   "bayesian_probabilistic_learning_revision_sheet.html",
+   "data_preparation_revision_sheet.html",
+   "decision_trees_revision_sheet.html",
+   "evaluation_revision_sheet.html",
+   "generalisation_revision_sheet.html",
+   "knn_kmeans_revision_sheet.html",
+   "ml_foundations_revision_sheet.html",
+   "model_selection_revision_sheet.html",
+   "neural_network_basics_revision_sheet.html"
+  ],
+  "exam_block": [],
+  "paper_format": "answer any 3, 25 marks each",
+  "exam_shape": "choice",
+  "code": "CT4101",
+  "name": "Machine Learning"
+ },
+ "families": [
+  {
+   "id": "ml-task-types-labels-and-suitable-algorithms",
+   "rank": 1,
+   "title": "ML Task Types, Labels, And Suitable Algorithms",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q2(a) - distinguish classification and regression; give an application and algorithm for each.",
+    "2021/22 - Q1(a) - distinguish classification, regression, and clustering; give an application and algorithm for each.",
+    "2023/24 - Q1(a) - identify dependent and independent variables, identify the supervised task, and explain how the dataset would change for clustering.",
+    "2023/24 - Q1(b) - define classification, regression, and clustering; state supervised/unsupervised, an application, and a different algorithm for each.",
+    "2023/24 - Q1(c) - decide whether kNN can solve both a chlorinated/non-chlorinated prediction and a percentage prediction."
+   ],
+   "marks": 0,
+   "question": "Given a dataset or real-world problem, identify whether it is classification, regression, or clustering; state whether labels are available; identify the input and output variables; then justify a suitable algorithm and application.",
+   "answer": "Reusable answer: Classification is supervised learning that predicts a discrete class from labelled examples, such as spam versus non-spam; a decision tree can learn feature-based splits to predict the class. Regression is supervised learning that predicts a continuous numeric value, such as house price; linear regression learns the relationship between inputs and a numeric output. Clustering is unsupervised learning that groups similar unlabelled examples, such as customer segments; k-means repeatedly assigns examples to cluster centres and updates the centres. In a supervised dataset, independent variables are the input features and the dependent variable is the target to predict; clustering removes that target column."
+  },
+  {
+   "id": "evaluation-confusion-matrices-roc-cross-validation-and-hyperparameters",
+   "rank": 2,
+   "title": "Evaluation, Confusion Matrices, ROC, Cross-Validation, And Hyperparameters",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q4(a)-(b) - construct and interpret learning curves; discuss their use for multi-class classification, regression, and non-probabilistic classifiers.",
+    "2019/20 - Q4(c)-(d) - construct and interpret ROC curves; discuss their use for multi-class classification, regression, and non-probabilistic classifiers.",
+    "2021/22 - Q2(a) - make a confusion matrix and calculate misclassification rate, TNR, precision, and recall.",
+    "2021/22 - Q2(b) - define cross-validation and apply it to regression.",
+    "2021/22 - Q2(c) - compare binary classifiers using ROC curves, including labelled axes and ideal performance.",
+    "2021/22 - Q2(d) - define a hyperparameter and use grid search to select values.",
+    "2023/24 - Q2(a) - define a non-kNN hyperparameter and explain grid search.",
+    "2023/24 - Q2(b) - explain 5 times 5-fold stratified cross-validation for 500 examples, including fold sizes, classifiers built, and final performance estimate.",
+    "2023/24 - Q2(c) - compare binary classifiers using ROC curves, including labelled axes and ideal performance.",
+    "2023/24 - Q2(d) - make a confusion matrix and calculate FNR, TNR, precision, and interpret low FNR/FPR."
+   ],
+   "marks": 0,
+   "question": "Given classifier results or a modelling scenario, build the correct evaluation procedure: confusion matrix and requested measures, cross-validation setup, ROC sketch and interpretation, then explain how hyperparameters should be selected without using test data for tuning.",
+   "answer": "Reusable answer: First choose the positive class and construct a 2 by 2 confusion matrix. Then use the requested formula: precision = TP / (TP + FP), recall or TPR = TP / (TP + FN), TNR = TN / (TN + FP), FNR = FN / (FN + TP), and FPR = FP / (FP + TN). ROC plots TPR on the y-axis against FPR on the x-axis across thresholds; the ideal point is top-left. Cross-validation repeatedly trains on folds and tests on the held-out fold, then averages the scores; stratification keeps class proportions similar in every fold. A hyperparameter is chosen before fitting, such as tree depth or an SVM C value; grid search evaluates combinations using validation or cross-validation and selects the best configuration."
+  },
+  {
+   "id": "nearest-neighbours-clustering-distance-measures-scaling-and-choosing-k",
+   "rank": 3,
+   "title": "Nearest Neighbours, Clustering, Distance Measures, Scaling, And Choosing k",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q2(b) - select k for kNN regression and discuss the impact of distance weighting.",
+    "2019/20 - Q3(b) - explain a scale-invariant similarity measure using a diagram and equation.",
+    "2021/22 - Q3(a) - compare k-means and kNN, including a brief description of each algorithm.",
+    "2021/22 - Q3(b) - use an elbow plot to choose k for k-means.",
+    "2021/22 - Q3(c) - give and calculate a distance metric for discrete attributes and one for continuous attributes.",
+    "2021/22 - Q3(d) - show why kNN often needs normalisation and apply z-normalisation.",
+    "2023/24 - Q1(c) - explain kNN for both classification and regression; describe three nearness measures with equations; give two rescaling approaches.",
+    "2023/24 - Q3(d)-(e) - compare k-means with hierarchical clustering and illustrate the elbow method."
+   ],
+   "marks": 0,
+   "question": "Explain how a distance-based method uses similarity, decide whether kNN or a clustering method suits the task, choose or justify k, and explain why preprocessing is necessary before distance calculations.",
+   "answer": "Reusable answer: kNN is a supervised, lazy method: for classification it predicts the majority class among the k nearest labelled examples; for regression it averages or distance-weights their numeric targets. k-means is unsupervised: it assigns unlabelled examples to the nearest centroid and updates centroids until stable. Use a distance suitable for the features, such as Euclidean distance for continuous values and Hamming distance for discrete values. Scale features before distance-based learning so large-unit features do not dominate; z-normalisation uses z = (x - mean) / standard deviation , while min-max scaling maps values into a fixed range. The elbow method selects the point where increasing k gives only small further reductions in within-cluster variation."
+  },
+  {
+   "id": "generalisation-bias-variance-overfitting-underfitting-dimensionality-and-learning-curves",
+   "rank": 4,
+   "title": "Generalisation, Bias/Variance, Overfitting/Underfitting, Dimensionality, And Learning Curves",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q2(c) - explain hypothesis language using diagrams, including underfitting and overfitting.",
+    "2019/20 - Q3(a) - define the curse of dimensionality and explain a mitigating heuristic with an ML example.",
+    "2019/20 - Q4(a)-(b) - construct, compare, and discuss the applicability of learning curves.",
+    "2021/22 - Q1(b) - define the curse of dimensionality and give a method to reduce its effect.",
+    "2021/22 - Q1(c) - define and sketch overfitting and underfitting in both classification and regression.",
+    "2023/24 - Q3(a) - explain bias and variance, relate them to overfitting/underfitting, and diagnose the current model.",
+    "2023/24 - Q3(b) - compare under-sampling and over-sampling for imbalanced data; define dimensionality and the curse of dimensionality; suggest solutions."
+   ],
+   "marks": 0,
+   "question": "Diagnose whether a model or dataset is underfitting, overfitting, high-bias, high-variance, high-dimensional, or imbalanced; use an appropriate diagram or learning curve; then propose a justified remedy.",
+   "answer": "Reusable answer: Underfitting is high bias: the model is too simple and performs poorly on both training and test data. Overfitting is high variance: the model fits training noise well but generalises poorly, so training performance is much better than test performance. A learning curve plots training and validation performance against training-set size and helps diagnose both cases. The curse of dimensionality means the feature space becomes sparse as the number of dimensions grows, making distance and data coverage less meaningful; reduce features, use feature selection or dimensionality reduction, collect more relevant data, or use methods less sensitive to distance. For imbalance, under-sampling removes majority examples while over-sampling duplicates or synthesises minority examples; both require care to avoid losing information or overfitting."
+  },
+  {
+   "id": "decision-trees-entropy-information-gain-and-tree-overfitting",
+   "rank": 5,
+   "title": "Decision Trees, Entropy, Information Gain, And Tree Overfitting",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q3(c) - define pure inductive learning and give detailed decision-tree learning pseudocode and a sample tree.",
+    "2019/20 - Q3(d) - explain why decision-tree learning can be unstable and give a modification that reduces instability.",
+    "2021/22 - Q4(c) - define entropy and information gain.",
+    "2021/22 - Q4(d) - give detailed pseudocode for learning a classification decision tree.",
+    "2021/22 - Q4(e) - describe a method to combat decision-tree overfitting.",
+    "2023/24 - Q4(a) - explain entropy and information gain with equations.",
+    "2023/24 - Q4(b) - calculate entropy and information gain for a vowel/consonant split, showing all steps."
+   ],
+   "marks": 0,
+   "question": "Explain or calculate how a classification decision tree chooses a split using entropy and information gain, then describe the induction process and how to control instability or overfitting.",
+   "answer": "Reusable answer: Entropy measures class impurity: H(S) = -sum p(c) log2 p(c) . Information gain is the impurity reduction after a split: IG(S, A) = H(S) - sum (|Sv| / |S|) H(Sv) . At each node, a decision-tree learner tests candidate attributes, chooses the split with highest information gain, partitions the examples, and recurses until a stopping condition or pure node is reached. Trees can be unstable because small training-data changes can produce a different early split; pre-pruning, post-pruning, minimum samples per leaf, maximum depth, or ensembles can reduce overfitting and instability."
+  },
+  {
+   "id": "regression-models-and-error-metrics",
+   "rank": 6,
+   "title": "Regression Models And Error Metrics",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q6(a) - advise whether linear, logistic, or polynomial regression suits a tree-growth task; explain task type and data requirements.",
+    "2019/20 - Q6(b) - describe batch gradient descent for multiple linear regression, including initialisation, updates, convergence, and empirical error cost.",
+    "2021/22 - Q1(d) - give a domain-independent error measure and one in the dependent variable's units; calculate both and compare usefulness.",
+    "2023/24 - Q3(c) - compare regression and classification evaluation; calculate and give full names for MSE, RMSE, and MAE."
+   ],
+   "marks": 0,
+   "question": "For a numeric prediction task, choose a suitable regression approach, distinguish it from classification, and calculate or compare regression error measures with their appropriate interpretation.",
+   "answer": "Reusable answer: Regression predicts a continuous number, while classification predicts a discrete class. MSE is mean squared error, the average of squared residuals; it penalises larger errors strongly but is in squared units. RMSE is the square root of MSE, so it is in the same units as the target. MAE is mean absolute error, the average absolute residual; it is also in target units and is less sensitive to outliers than MSE/RMSE. Linear regression fits a linear relationship; polynomial regression can model curvature but can overfit; logistic regression is used for classification probabilities, not ordinary continuous-value prediction. Batch gradient descent repeatedly updates all weights in the direction that reduces the empirical error until convergence."
+  },
+  {
+   "id": "neural-network-basics-activation-functions-and-encoding",
+   "rank": 7,
+   "title": "Neural-Network Basics, Activation Functions, And Encoding",
+   "frequency": "",
+   "appearances": [
+    "2019/20 - Q6(c) - describe an algorithm to build a linear classifier with multiple inputs, including the perceptron learning rule.",
+    "2021/22 - Q4(a) - compare threshold, logistic, and ReLU activation functions.",
+    "2021/22 - Q4(b) - define one-hot encoding with an example.",
+    "2023/24 - Q4(c) - explain a McCulloch-Pitts neuron with labelled diagram and equations.",
+    "2023/24 - Q4(d) - compare logistic and ReLU activation functions.",
+    "2023/24 - Q4(e) - compare binary and one-hot encoding, with examples and when each is needed."
+   ],
+   "marks": 0,
+   "question": "Explain how a basic artificial neuron or perceptron produces an output, compare activation functions, and show how categorical data or labels should be encoded for a model.",
+   "answer": "Reusable answer: A neuron computes a weighted sum plus bias, z = sum wi xi + b , then applies an activation function to produce an output. A threshold function produces a hard 0/1 output, logistic maps values smoothly into 0 to 1, and ReLU returns 0 for negative inputs and the input for positive values. One-hot encoding represents a category using one binary position per possible category, for example red = [1,0,0], green = [0,1,0], blue = [0,0,1]; it is suitable for nominal categories because it does not imply an ordering. Binary encoding can use fewer bits but may create artificial relationships between categories. The perceptron learning rule adjusts weights after an error so predictions move toward the correct class."
+  },
+  {
+   "id": "bayesian-networks-and-naive-bayes",
+   "rank": null,
+   "title": "Bayesian Networks And Naive Bayes",
+   "frequency": "",
+   "appearances": [
+    "Explain independence and conditional independence, including Bayesian-network notation.",
+    "Explain joint probability distributions, elementary propositions, atomic events, and compact Bayesian-network representation.",
+    "Calculate Naive Bayes text-classification probabilities, show all steps, and state assumptions."
+   ],
+   "marks": 0,
+   "question": "Explain probabilistic independence and Bayesian-network representation, then apply Naive Bayes to a small text-classification dataset with explicit assumptions.",
+   "answer": ""
+  },
+  {
+   "id": "distinct-lower-frequency-questions",
+   "rank": null,
+   "title": "Distinct Lower-Frequency Questions",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "lazy-versus-eager-learning",
+   "rank": null,
+   "title": "Lazy Versus Eager Learning",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Explain lazy and eager ML in a changing spam-detection scenario, including strengths, weaknesses, suitability, and an example algorithm from each category.",
+   "answer": "Reusable answer: Lazy learners store training examples and defer generalisation until prediction time; kNN is an example. They adapt easily to new data but can be slower when predicting and require storage. Eager learners build a general model during training; decision trees are an example. They predict quickly but may need retraining as the data distribution changes. For frequently changing spam, a lazy approach can incorporate new labelled examples easily, though the choice should also consider prediction volume and retraining cost."
+  },
+  {
+   "id": "learning-outcome-coverage",
+   "rank": null,
+   "title": "Learning-Outcome Coverage",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "most-repeated-question-families",
+   "rank": null,
+   "title": "Most Repeated Question Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "reinforcement-learning-and-q-learning",
+   "rank": null,
+   "title": "Reinforcement Learning And Q-Learning",
+   "frequency": "",
+   "appearances": [
+    "Evaluate Q-learning choices for learning rate, discount factor, and exploration rate in a long-duration chess task.",
+    "Define the Markov property using chess as an example."
+   ],
+   "marks": 0,
+   "question": "Given a sequential decision task, explain how Q-learning parameters affect learning and why the Markov property allows the current state to summarise the information needed for the next decision.",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Core ML Concepts",
+     "front": "What is supervised learning?",
+     "back": "Learning from labelled examples where each input has a known target/output.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "What is unsupervised learning?",
+     "back": "Finding structure or patterns in unlabelled data, without a known target/output.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "What are independent variables?",
+     "back": "The input features used by the model to make a prediction.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "What is the dependent variable?",
+     "back": "The target/output the model is trying to predict in supervised learning.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "What is classification?",
+     "back": "Supervised learning that predicts a discrete class label, such as spam or not spam.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "What is regression?",
+     "back": "Supervised learning that predicts a continuous numeric value, such as house price.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "What is clustering?",
+     "back": "Unsupervised learning that groups similar unlabelled examples, such as customer segments.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Core ML Concepts",
+     "front": "How would a supervised dataset change for clustering?",
+     "back": "Remove the target/output column; the algorithm groups rows using only their input features.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What is a hyperparameter?",
+     "back": "A setting chosen before training that controls the learning process or model structure, such as maximum tree depth.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What is grid search?",
+     "back": "Trying a defined set of hyperparameter combinations and choosing the one with the best validation or cross-validation score.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What is cross-validation?",
+     "back": "Repeatedly training on part of the data and evaluating on a held-out part, then averaging the performance results.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What is stratification in cross-validation?",
+     "back": "Keeping approximately the same class proportions in each fold as in the full dataset.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What do TP, FP, TN, and FN mean?",
+     "back": "TP: positive correctly predicted positive. FP: negative wrongly predicted positive. TN: negative correctly predicted negative. FN: positive wrongly predicted negative.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What is a ROC curve?",
+     "back": "A graph of TPR on the y-axis against FPR on the x-axis across different classification thresholds.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "Where is ideal performance on a ROC curve?",
+     "back": "At the top-left: TPR = 1 and FPR = 0.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is k-nearest neighbours (kNN)?",
+     "back": "A supervised algorithm that predicts using the k closest labelled training examples.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "How does kNN perform classification and regression?",
+     "back": "For classification, it assigns the most common class among the k nearest labelled examples. For regression, it predicts the average numerical output of the k nearest examples.",
+     "evidence": "2019/20, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is k-means?",
+     "back": "An unsupervised clustering algorithm that repeatedly assigns examples to the nearest centroid, recalculates each centroid, and stops when the clusters no longer change significantly.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is a centroid?",
+     "back": "The mean position of all examples currently assigned to a cluster.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is the key difference between kNN and k-means?",
+     "back": "kNN is supervised and predicts from labelled neighbours; k-means is unsupervised and groups unlabelled examples around centroids. In kNN, k is the number of neighbours; in k-means, k is the number of clusters.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is hierarchical clustering?",
+     "back": "A clustering approach that builds a hierarchy of nested clusters, often by repeatedly merging the closest clusters. The result can be shown as a dendrogram.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "Compare k-means and hierarchical clustering.",
+     "back": "k-means requires k to be chosen in advance and produces a fixed set of clusters. Hierarchical clustering builds a dendrogram, so the number of clusters can be chosen later by cutting the tree.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is a distance metric?",
+     "back": "A numerical way to measure how different two examples are. A smaller distance means the examples are more similar.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "When are Euclidean and Hamming distance suitable?",
+     "back": "Euclidean distance is suitable for continuous numeric features. Hamming distance is suitable for discrete or categorical representations.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "Why is feature scaling needed for distance-based algorithms?",
+     "back": "Without scaling, a feature with a larger numerical range can dominate distance calculations, even if it is not more important.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "Compare z-normalisation and min-max scaling.",
+     "back": "Z-normalisation gives a feature mean 0 and standard deviation 1. Min-max scaling maps values into a fixed range, usually 0 to 1.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "kNN, k-Means, Distance, And Scaling",
+     "front": "What is the elbow method?",
+     "back": "Plot the within-cluster variation against different k values and choose the bend where increasing k gives only a small further improvement.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What is underfitting?",
+     "back": "A model that is too simple to capture the real pattern, so it performs poorly on both training and test data.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What is overfitting?",
+     "back": "A model that fits training noise or quirks too closely, so training performance is much better than test performance.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "How can you identify underfitting and overfitting?",
+     "back": "Underfitting gives poor performance on both training and test data. Overfitting gives much better training performance than test performance.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What is high bias?",
+     "back": "A systematic error caused by an overly simple model; it is associated with underfitting.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What is high variance?",
+     "back": "A model that is overly sensitive to its training data and may fit noise, so it performs well on training data but poorly on new data.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What does dimensionality mean?",
+     "back": "The number of features or attributes used to describe each example in a dataset.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What is the curse of dimensionality?",
+     "back": "As the number of features grows, data become sparse and distance/data coverage become less reliable, often needing far more data.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "How can the curse of dimensionality be reduced?",
+     "back": "Use feature selection or dimensionality reduction, remove irrelevant features, collect more relevant data, or use less distance-sensitive methods.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "What is an imbalanced dataset?",
+     "back": "One class has far more examples than another, making a model appear accurate while missing the minority class.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Generalisation, Dimensionality, And Data Problems",
+     "front": "Compare under-sampling and over-sampling.",
+     "back": "Under-sampling removes majority-class examples and may lose useful information. Over-sampling adds or creates minority-class examples and can cause overfitting if done carelessly.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "What is entropy in a decision tree?",
+     "back": "A measure of class impurity or uncertainty. A pure node has zero entropy.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "What is information gain?",
+     "back": "The reduction in entropy after a split. A higher value means the split creates purer groups.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "How does a decision tree choose a split?",
+     "back": "It tests candidate attributes and chooses the split with the highest information gain, then repeats on each subset.",
+     "evidence": "2019/20, 2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "When does decision-tree splitting stop?",
+     "back": "When a node is pure, no useful split remains, or a stopping rule such as maximum depth or minimum samples is reached.",
+     "evidence": "2019/20, 2021/22"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "How can decision-tree overfitting be reduced?",
+     "back": "Limit depth, require minimum samples per leaf, pre-prune, post-prune, or use an ensemble.",
+     "evidence": "2019/20, 2021/22"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "Compare MSE, RMSE, and MAE.",
+     "back": "MSE averages squared errors, so it heavily penalises large errors and uses squared units. RMSE is the square root of MSE, so it uses the target's units but still heavily penalises large errors. MAE averages absolute errors, uses target units, and is less sensitive to outliers.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Metrics",
+     "front": "How are regression and classification evaluated differently?",
+     "back": "Regression uses numerical error measures such as MSE, RMSE, and MAE. Classification uses confusion-matrix measures such as precision, recall, specificity, and ROC curves.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "What does an artificial neuron do?",
+     "back": "It combines input values using weights and a bias, then applies an activation function to produce an output.",
+     "evidence": "2019/20, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "What is an activation function?",
+     "back": "A function applied to a neuron's weighted input that determines its output and lets neural networks model non-linear patterns.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "What is a threshold activation function?",
+     "back": "It outputs 1 when the weighted input reaches or exceeds a threshold; otherwise it outputs 0.",
+     "evidence": "2021/22"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "What is the logistic activation function?",
+     "back": "A smooth S-shaped function that maps any input to a value between 0 and 1.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "What is ReLU?",
+     "back": "Rectified Linear Unit: it outputs 0 for negative inputs and the input itself for positive inputs.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "Compare logistic and ReLU activation functions.",
+     "back": "Logistic smoothly maps inputs to values between 0 and 1. ReLU outputs 0 for negative inputs and the input itself for positive inputs.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "What is one-hot encoding?",
+     "back": "Representing each category with its own binary position, for example red = [1,0,0], green = [0,1,0], blue = [0,0,1].",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Basics And Encoding",
+     "front": "Compare one-hot and binary encoding.",
+     "back": "One-hot encoding uses one binary position per category and is suitable for nominal categories because it implies no order. Binary encoding uses fewer columns but can imply artificial relationships between categories. Encoding is needed because ML models require numeric inputs or outputs.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Official-Outcome Coverage",
+     "front": "What are ML frameworks such as scikit-learn, TensorFlow, and Keras used for?",
+     "back": "They provide tools to preprocess data, build/train models, tune settings, and evaluate results without implementing every algorithm from scratch.",
+     "evidence": "Official outcome"
+    },
+    {
+     "group": "Official-Outcome Coverage",
+     "front": "What is deep learning?",
+     "back": "A branch of ML using neural networks with multiple layers to learn complex representations from data.",
+     "evidence": "Official outcome"
+    },
+    {
+     "group": "Official-Outcome Coverage",
+     "front": "What is computer vision in ML?",
+     "back": "Using ML models to interpret images or video, such as classifying objects or detecting faces.",
+     "evidence": "Official outcome"
+    },
+    {
+     "group": "Official-Outcome Coverage",
+     "front": "Why do ethical issues matter in ML?",
+     "back": "Models can cause unfairness, privacy harms, discrimination, or unsafe decisions if data, design, and deployment are not evaluated responsibly.",
+     "evidence": "Official outcome"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "What is distance weighting in kNN?",
+     "back": "Giving closer neighbours more influence than farther neighbours, usually by using a larger weight for a smaller distance.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "Why can decision trees be unstable?",
+     "back": "A small change in training data can change an early split, which can create a very different whole tree.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "What does the perceptron learning rule do?",
+     "back": "After an error, it changes weights and bias so the model's next output moves toward the correct class.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "Compare lazy and eager learning.",
+     "back": "Lazy learners store examples and generalise at prediction time; kNN is an example. Eager learners build a model during training; a decision tree is an example.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "What is conditional independence and the Naive Bayes assumption?",
+     "back": "Two events are conditionally independent given C when knowing one gives no extra information about the other once C is known. Naive Bayes assumes features are conditionally independent given the class label.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "What is the Markov property?",
+     "back": "The current state contains all information needed for the next state or decision; the earlier history adds nothing once the current state is known.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Backup",
+     "front": "What do Q-learning's learning rate, discount factor, and exploration rate control?",
+     "back": "Learning rate: how strongly new experience updates Q-values. Discount factor: how much future rewards matter. Exploration rate: how often the agent tries actions instead of its best-known action.",
+     "evidence": "2019/20 only"
+    }
+   ]
+  },
+  {
+   "file": "calculation_flashcards.html",
+   "cards": [
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "How do you turn yes/no results into a confusion matrix?",
+     "back": "Choose the positive class. Actual positive/predicted positive = TP; actual negative/predicted positive = FP; actual negative/predicted negative = TN; actual positive/predicted negative = FN.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "What is the misclassification-rate formula?",
+     "back": "(FP + FN) / (TP + FP + TN + FN) .",
+     "evidence": "2021/22"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "What is the precision formula?",
+     "back": "TP / (TP + FP) . Denominator: every predicted positive.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "What is the recall/TPR formula?",
+     "back": "TP / (TP + FN) . Denominator: every actual positive.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "What is the specificity/TNR formula?",
+     "back": "TN / (TN + FP) . Denominator: every actual negative.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "What are the FNR and FPR formulas?",
+     "back": "FNR = FN / (FN + TP) ; FPR = FP / (FP + TN) .",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "For k-fold CV with N cases, how many train/test cases and models are used?",
+     "back": "Each fold tests N / k cases and trains on N(k - 1) / k cases. Train k models and average the k held-out scores.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Evaluation And Cross-Validation",
+     "front": "For 5 times 5-fold CV on 500 cases, what are the key counts?",
+     "back": "Each fold has 500 / 5 = 100 cases. Each run trains on 400 and tests on 100. Total models = 5 x 5 = 25 ; average the 25 test scores.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Distance, Similarity, And Scaling",
+     "front": "How is Euclidean distance calculated?",
+     "back": "d(x,y) = sqrt(sum (xi - yi)^2) . Square each feature difference, add them, then take the square root.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Distance, Similarity, And Scaling",
+     "front": "How is Hamming distance calculated?",
+     "back": "Count positions where equal-length discrete representations differ. [red, small, yes] versus [blue, small, no] has distance 2.",
+     "evidence": "2021/22"
+    },
+    {
+     "group": "Distance, Similarity, And Scaling",
+     "front": "How is z-normalisation calculated?",
+     "back": "z = (x - mean) / standard deviation . Apply it separately to every numeric feature using training-data statistics.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Distance, Similarity, And Scaling",
+     "front": "How is min-max scaling to [0,1] calculated?",
+     "back": "x' = (x - min) / (max - min) .",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Error",
+     "front": "How is entropy calculated?",
+     "back": "H(S) = -sum p(c) log2 p(c) . A pure set has entropy 0.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Error",
+     "front": "How is information gain calculated?",
+     "back": "IG(S,A) = H(S) - sum (|Sv| / |S|) H(Sv) . Parent entropy minus weighted child entropies.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Error",
+     "front": "What is a residual?",
+     "back": "The prediction error for one example: actual - predicted .",
+     "evidence": "Regression foundation"
+    },
+    {
+     "group": "Decision Trees And Regression Error",
+     "front": "How is MSE calculated?",
+     "back": "MSE = (1/n) sum (actual - predicted)^2 .",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Error",
+     "front": "How is RMSE calculated?",
+     "back": "RMSE = sqrt(MSE) . It is in the same units as the dependent variable.",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Decision Trees And Regression Error",
+     "front": "How is MAE calculated?",
+     "back": "MAE = (1/n) sum |actual - predicted| .",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Neural-Network Calculations",
+     "front": "How does an artificial neuron calculate its output?",
+     "back": "Calculate z = sum wi xi + b , then output = f(z) .",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Neural-Network Calculations",
+     "front": "How does a threshold neuron calculate its output?",
+     "back": "Calculate z . Output 1 if z is at least the threshold; otherwise output 0.",
+     "evidence": "2021/22"
+    },
+    {
+     "group": "Neural-Network Calculations",
+     "front": "What is the logistic activation equation?",
+     "back": "sigma(z) = 1 / (1 + e^(-z)) .",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Neural-Network Calculations",
+     "front": "What is the ReLU activation equation?",
+     "back": "ReLU(z) = max(0, z) .",
+     "evidence": "2021/22, 2023/24"
+    },
+    {
+     "group": "Older-Paper Formula Backup",
+     "front": "How can weighted kNN regression be calculated?",
+     "back": "prediction = sum(wi yi) / sum(wi) , using larger weights for closer neighbours, for example wi = 1 / di .",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Formula Backup",
+     "front": "How is cosine similarity calculated?",
+     "back": "cos(theta) = (x dot y) / (||x|| ||y||) . It compares vector direction and is scale-invariant.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Formula Backup",
+     "front": "What is the batch-gradient-descent update for linear regression?",
+     "back": "theta_j := theta_j - alpha (1/n) sum (prediction - actual) xj . Compute all updates from the full dataset before applying them.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Formula Backup",
+     "front": "What is the perceptron weight update?",
+     "back": "wi := wi + eta (target - prediction) xi ; update the bias similarly without xi .",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Formula Backup",
+     "front": "What is the Naive Bayes classification rule?",
+     "back": "For each class C, compare P(C) product P(xi | C) . Choose the largest value.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Older-Paper Formula Backup",
+     "front": "What is the Q-learning update equation?",
+     "back": "Q(s,a) := Q(s,a) + alpha [r + gamma max Q(s',a') - Q(s,a)] . Alpha is learning rate; gamma is discount factor.",
+     "evidence": "2019/20 only"
+    },
+    {
+     "group": "Data Preparation And Leakage",
+     "front": "Why must imputation, scaling and encoding be fitted inside each training fold?",
+     "back": "Fitting them before cross-validation exposes held-out statistics to training. Put preprocessing and the estimator in one pipeline so each fold learns transformations from its training portion only.",
+     "source": "Week 3 lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3830777"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "Which data split is suitable when examples share a group or arrive over time?",
+     "back": "Keep the same group out of both train and test, or train on earlier observations and test on later ones. Random folds can exaggerate generalisation in either setting.",
+     "source": "Week 4 lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3839263"
+    },
+    {
+     "group": "Evaluation And Model Selection",
+     "front": "What does a protected test set add after cross-validation selects a model?",
+     "back": "It estimates performance after all feature and hyperparameter choices are fixed. Repeatedly tuning to the test set turns it into another validation set.",
+     "source": "Week 4 lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3839263"
+    },
+    {
+     "group": "Linear And Logistic Models",
+     "front": "How do Ridge and Lasso regularisation differ?",
+     "back": "Ridge penalises squared coefficient size and usually shrinks coefficients. Lasso penalises absolute size and can set some coefficients exactly to zero. Select strength on validation data.",
+     "source": "Week 5 lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3862709"
+    },
+    {
+     "group": "Linear And Logistic Models",
+     "front": "What does logistic regression model, and why is its output between 0 and 1?",
+     "back": "It models class log-odds as a linear score and passes the score through the sigmoid function to obtain a probability. A coefficient changes log-odds per unit of its feature, all else equal.",
+     "source": "Week 5 lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3862709"
+    },
+    {
+     "group": "Decision Trees And Neighbours",
+     "front": "How do depth, minimum leaf size and pruning change a decision tree?",
+     "back": "They limit how finely the tree partitions training data, usually reducing variance and overfitting at the cost of some flexibility. Choose settings by cross-validation.",
+     "source": "Week 6 lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3894881"
+    },
+    {
+     "group": "Ensemble Methods",
+     "front": "Why does averaging several accurate models help only when their errors differ?",
+     "back": "Independent errors can cancel. Strongly correlated models tend to make the same mistakes, so adding more of them gives little gain.",
+     "source": "Week 7 ensemble lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3920765"
+    },
+    {
+     "group": "Ensemble Methods",
+     "front": "How do bagging and boosting train their learners differently?",
+     "back": "Bagging fits learners independently on bootstrap samples and aggregates them, mainly reducing variance. Boosting adds learners sequentially to correct current errors or residuals.",
+     "source": "Week 7 ensemble lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3920765"
+    },
+    {
+     "group": "Ensemble Methods",
+     "front": "What extra randomness makes a random forest's trees less correlated?",
+     "back": "Each split considers only a random subset of features, alongside bootstrap sampling of training cases. This decorrelates trees so aggregation reduces variance more effectively.",
+     "source": "Week 7 note-taking deck in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3920768"
+    },
+    {
+     "group": "Ensemble Methods",
+     "front": "What is an out-of-bag estimate, and what does it not replace?",
+     "back": "For each case, predict using only trees whose bootstrap samples omitted it, then aggregate those predictions. This internal estimate does not replace a protected task-appropriate test set.",
+     "source": "Week 7 note-taking deck in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3920768"
+    },
+    {
+     "group": "Ensemble Methods",
+     "front": "Why can impurity-based feature importance mislead?",
+     "back": "It can favour features with many split opportunities; correlated predictors can split or mask each other's importance. Confirm claims with held-out permutation importance and predictive evidence.",
+     "source": "Week 7 ensemble lecture in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56282/files/3920765"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "bayesian_probabilistic_learning_revision_sheet.html",
+   "title": "Bayesian and Probabilistic Learning",
+   "purpose": "Bayesian learning expresses uncertainty with probabilities. It is useful when evidence is incomplete and when a classification decision should compare how likely evidence is under each class. Treat this as supporting revision: local evidence is older and it is not a strong prediction.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) Bayes",
+     "marks": 0,
+     "prompt": "Explain a posterior calculation.",
+     "route": "write Bayes before numbers and normalise alternatives.",
+     "answer": "multiply prior by class-conditional evidence for each class, divide by total evidence, choose/report the greater posterior."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Use Naive Bayes for changing spam.",
+     "route": "text features, smoothing, temporal validation and update.",
+     "answer": "estimate class/word likelihoods with smoothing, retrain on recent labelled data and monitor drift/false positives; correlated words violate independence."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "P(D)=.10, P(+|D)=.90, P(+|¬D)=.05. Find P(D|+).",
+     "route": "Model answer: P(+)=.90(.10)+.05(.90)=.135. Therefore P(D|+)=.90(.10)/.135=.667. A positive result raises probability to about 66.7%, not 90%, because the disease was initially uncommon and false positives exist.",
+     "answer": "Model answer: P(+)=.90(.10)+.05(.90)=.135. Therefore P(D|+)=.90(.10)/.135=.667. A positive result raises probability to about 66.7%, not 90%, because the disease was initially uncommon and false positives exist."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Explain Naive Bayes, state its assumption, and show how to classify a record with two categorical features. Check: compute a prior-times-likelihood-product score per class, choose larger, and explicitly call the conditional-independence assumption a simplifying assumption that may be imperfect.",
+     "route": "compute a prior-times-likelihood-product score per class, choose larger, and explicitly call the conditional-independence assumption a simplifying assumption that may be imperfect.",
+     "answer": "compute a prior-times-likelihood-product score per class, choose larger, and explicitly call the conditional-independence assumption a simplifying assumption that may be imperfect."
+    },
+    {
+     "title": "Integrated syllabus-based practice - diagnostic posterior [8 marks]",
+     "marks": 8,
+     "prompt": "P(D)=.10, P(+|D)=.90 and P(+|not D)=.05. Calculate P(D|+) and explain why a positive does not mean 90% disease probability.",
+     "route": "distinguish likelihood from posterior and include base rate. calculate P(+)=.90(.10)+.05(.90)=.135, then divide .09 by it. P(+|D) and P(D|+) have different conditions.",
+     "answer": "Fastest route: calculate P(+)=.90(.10)+.05(.90)=.135, then divide .09 by it."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "data_preparation_revision_sheet.html",
+   "title": "Data Preparation",
+   "purpose": "Preprocessing removes avoidable distortions: missing values, incompatible scales, and categories that algorithms cannot directly use. It is especially important for distance-based methods.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) scaling",
+     "marks": 0,
+     "prompt": "Prepare age (0-100) and income (0-100000) for kNN.",
+     "route": "prevent income dominating Euclidean distance.",
+     "answer": "fit min-max or z-score parameters on training data, transform validation/test with them, then use distance."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Prepare clinical data with missing values and rare outcome.",
+     "route": "profile missing mechanism, impute within pipeline, encode/scale and stratify split.",
+     "answer": "preserve a missingness indicator where informative; fit imputer/scaler on folds; evaluate recall/precision."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "Features are age (20–80) and income (€20,000–€200,000). Why scale before kNN?",
+     "route": "Model answer: Euclidean distance is dominated by the larger numerical range, income, even if age is useful. Standardising both features makes a one-standard-deviation change comparable. Fit μ and σ on training cases only, then use them for all later cases.",
+     "answer": "Model answer: Euclidean distance is dominated by the larger numerical range, income, even if age is useful. Standardising both features makes a one-standard-deviation change comparable. Fit μ and σ on training cases only, then use them for all later cases."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Outline a safe preprocessing pipeline for a labelled dataset with missing numeric values, a city category, and train/test evaluation. Check: split before fitting; impute and one-hot encode; scale where appropriate; fit all choices on training only; mention leakage.",
+     "route": "split before fitting; impute and one-hot encode; scale where appropriate; fit all choices on training only; mention leakage.",
+     "answer": "split before fitting; impute and one-hot encode; scale where appropriate; fit all choices on training only; mention leakage."
+    },
+    {
+     "title": "Integrated syllabus-based practice - leakage-safe preparation [8 marks]",
+     "marks": 8,
+     "prompt": "A hospital model predicts readmission from age, income, ward and a “days until follow-up” field recorded after discharge. Age is missing for 8% of records and income ranges from 0 to 200,000. Specify a safe preparation pipeline.",
+     "route": "identify the temporal leak, then explain missing-value and scale treatment within a train/test split. remove post-outcome information; split first; fit imputation and scaling on training only. fitting a scaler on all rows before splitting is leakage even without an explicit label column.",
+     "answer": "Fastest route: remove post-outcome information; split first; fit imputation and scaling on training only."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "decision_trees_revision_sheet.html",
+   "title": "Decision Trees: Entropy and Information Gain",
+   "purpose": "A decision tree asks a sequence of feature questions to reach a class or number. Its readable structure makes it useful for explaining predictions; split calculations are a recurring exam skill.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) gain",
+     "marks": 0,
+     "prompt": "Compare two candidate splits.",
+     "route": "retain branch-size weights.",
+     "answer": "compute each child’s class probabilities/entropy, weight by its proportion, subtract from parent; choose higher IG."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Explain why a many-valued attribute can look attractive and propose control.",
+     "route": "relate gain to fragmentation, then validation/pruning.",
+     "answer": "near-singleton branches can make training entropy low but generalise poorly; limit depth/min samples, use gain ratio where appropriate and tune by cross-validation."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "A node has 4 yes and 0 no examples. Find entropy.",
+     "route": "Model answer: p(yes)=1 and p(no)=0. H=−1·log₂1−0·log₂0=0 (the zero term contributes 0). The node is pure, so make it a yes leaf rather than split it.",
+     "answer": "Model answer: p(yes)=1 and p(no)=0. H=−1·log₂1−0·log₂0=0 (the zero term contributes 0). The node is pure, so make it a yes leaf rather than split it."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Given two candidate attributes, calculate information gain and choose the root. Check: include parent entropy, each branch entropy, branch weights, both gains, and a final “choose ___ because it has larger IG” statement.",
+     "route": "include parent entropy, each branch entropy, branch weights, both gains, and a final “choose ___ because it has larger IG” statement.",
+     "answer": "include parent entropy, each branch entropy, branch weights, both gains, and a final “choose ___ because it has larger IG” statement."
+    },
+    {
+     "title": "Integrated syllabus-based practice - choose a split [8 marks]",
+     "marks": 8,
+     "prompt": "Ten loan cases contain six repaid and four defaulted outcomes. Splitting by collateral gives groups: yes (5 repaid, 1 default), no (1 repaid, 3 default). Explain why information gain can favour this split and state a safeguard against overfitting.",
+     "route": "reason from class impurity before and after the split, not merely choose the larger child. compare parent entropy with the weighted child entropies. choose the split with the greatest entropy reduction, not the child with lowest entropy alone.",
+     "answer": "Fastest route: compare parent entropy with the weighted child entropies."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "evaluation_revision_sheet.html",
+   "title": "Evaluation Metrics and ROC",
+   "purpose": "Evaluation turns predictions into evidence. The right metric follows the error that matters: missing disease differs from incorrectly flagging a healthy person.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) confusion matrix",
+     "marks": 0,
+     "prompt": "Calculate precision and recall from TP=40, FP=10, FN=20.",
+     "route": "use prediction-positive versus actual-positive denominators.",
+     "answer": "P=40/50=.8; R=40/60=.667."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Set a screening threshold for rare disease.",
+     "route": "compare threshold points/ROC or PR under false-negative cost.",
+     "answer": "choose high recall subject to manageable false positives, report precision and capacity impact, then validate on held-out prevalence-matched data."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "TP=8, FP=2, TN=85, FN=5. Find precision and recall.",
+     "route": "Model answer: Precision=8/(8+2)=0.80: 80% of positive alerts were right. Recall=8/(8+5)=0.615: the model found about 61.5% of actual positives.",
+     "answer": "Model answer: Precision=8/(8+2)=0.80: 80% of positive alerts were right. Recall=8/(8+5)=0.615: the model found about 61.5% of actual positives."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Explain an ROC curve and how changing a classification threshold creates a trade-off. Check: axes are FPR and TPR; lowering threshold usually increases both; the top-left region is desirable; AUC summarises ranking over thresholds.",
+     "route": "axes are FPR and TPR; lowering threshold usually increases both; the top-left region is desirable; AUC summarises ranking over thresholds.",
+     "answer": "axes are FPR and TPR; lowering threshold usually increases both; the top-left region is desirable; AUC summarises ranking over thresholds."
+    },
+    {
+     "title": "Integrated syllabus-based practice - threshold choice [8 marks]",
+     "marks": 8,
+     "prompt": "At a threshold of .50, a cancer screen gives TP=36, FP=24, FN=4, TN=136. Calculate precision, recall and specificity, then explain why an ROC curve does not itself choose the deployment threshold.",
+     "route": "calculate three measures with their correct denominators, then connect threshold choice to costs. use predicted positives for precision, actual positives for recall, actual negatives for specificity. accuracy can look high here because negatives dominate, while missing four cancers remains important.",
+     "answer": "Fastest route: use predicted positives for precision, actual positives for recall, actual negatives for specificity."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "generalisation_revision_sheet.html",
+   "title": "Generalisation, Bias and Variance",
+   "purpose": "Generalisation is performance on unseen data from the intended population. Underfitting is too simple to learn the pattern; overfitting memorises quirks rather than the signal.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) diagnosis",
+     "marks": 0,
+     "prompt": "98% training, 65% validation accuracy.",
+     "route": "compare gap.",
+     "answer": "high variance; try regularisation, simpler model, more representative data/early stopping and confirm on validation."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Mitigate curse of dimensionality for kNN.",
+     "route": "remove/noise-reduce features and validate k/metric.",
+     "answer": "scale features, use domain selection/PCA where defensible, tune k by CV and report held-out performance; extra irrelevant dimensions corrupt neighbour similarity."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "A model has 98% training accuracy and 65% validation accuracy. Diagnose it.",
+     "route": "Model answer: The 33-point gap suggests overfitting/high variance: it fits training-specific details but generalises poorly. Try regularisation, a simpler model, early stopping, more representative data, and validate the effect using a held-out procedure.",
+     "answer": "Model answer: The 33-point gap suggests overfitting/high variance: it fits training-specific details but generalises poorly. Try regularisation, a simpler model, early stopping, more representative data, and validate the effect using a held-out procedure."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Sketch and explain learning curves for underfitting and overfitting, then recommend one remedy for each. Check: describe curve gaps, not just labels; remedies must differ. More data commonly helps variance but may not fix high bias.",
+     "route": "describe curve gaps, not just labels; remedies must differ. More data commonly helps variance but may not fix high bias.",
+     "answer": "describe curve gaps, not just labels; remedies must differ. More data commonly helps variance but may not fix high bias."
+    },
+    {
+     "title": "Integrated syllabus-based practice - diagnose learning curves [8 marks]",
+     "marks": 8,
+     "prompt": "Model A has training accuracy 99% and validation accuracy 71%; model B has 73% training and 72% validation. Diagnose each and recommend a targeted next action.",
+     "route": "compare training and validation behaviour, then match a remedy to bias or variance. inspect the generalisation gap before proposing more complexity. adding model capacity to A normally worsens its already large gap.",
+     "answer": "Fastest route: inspect the generalisation gap before proposing more complexity."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "knn_kmeans_revision_sheet.html",
+   "title": "kNN and k-means",
+   "purpose": "kNN is a lazy supervised method: nearby labelled examples vote (or average). k-means is unsupervised: it repeatedly assigns points to centroids and moves centroids to the means of their assigned points.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) kNN",
+     "marks": 0,
+     "prompt": "Choose k for regression.",
+     "route": "use CV MAE/RMSE across candidates, optionally inverse-distance weights.",
+     "answer": "select the k with best validation error; weighting reduces influence of distant neighbours but can increase variance."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Cluster customers with k-means.",
+     "route": "scale features, assess k/seeds and interpret.",
+     "answer": "initialise centroids, assign nearest, recompute means to convergence; use elbow/silhouette and business profiles, repeat seeds."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "For query 3, labelled points are 1:A, 2:A, 6:B. Use kNN with k=2 on this line.",
+     "route": "Model answer: Distances from 3 are 2, 1, 3. The two closest labels are A and A, so predict A. This is classification because labels are classes.",
+     "answer": "Model answer: Distances from 3 are 2, 1, 3. The two closest labels are A and A, so predict A. This is classification because labels are classes."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Compare kNN and k-means: task, labels, training work, prediction/assignment work, k, and scaling. Check: kNN needs labels and defers work until query; k-means has no labels and iterates during fitting. In both, k and distances matter, so scale when units differ.",
+     "route": "kNN needs labels and defers work until query; k-means has no labels and iterates during fitting. In both, k and distances matter, so scale when units differ.",
+     "answer": "kNN needs labels and defers work until query; k-means has no labels and iterates during fitting. In both, k and distances matter, so scale when units differ."
+    },
+    {
+     "title": "Integrated syllabus-based practice - kNN versus k-means [8 marks]",
+     "marks": 8,
+     "prompt": "Labelled points near (0,0) are red and near (10,10) blue. An unlabelled point x=(2,1) has three nearest labelled neighbours, red, red, blue. Explain its kNN label, then explain why k-means cannot directly supply that label.",
+     "route": "separate supervised prediction from unsupervised grouping. vote among the k labelled neighbours, then contrast labels with centroids. k in kNN is neighbours, while k in k-means is clusters.",
+     "answer": "Fastest route: vote among the k labelled neighbours, then contrast labels with centroids."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "ml_foundations_revision_sheet.html",
+   "title": "Machine Learning Foundations",
+   "purpose": "Machine learning (ML) learns a pattern from examples so it can make useful predictions on new examples. This vocabulary supports almost every other CT4101 answer.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) task choice",
+     "marks": 0,
+     "prompt": "Classify spam versus predict house price.",
+     "route": "identify y.",
+     "answer": "spam is binary classification (e.g. logistic/tree) with precision/recall; price is regression (e.g. kNN/regressor) with MAE/RMSE."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Select a learning approach for fraud with rare positives.",
+     "route": "specify labels, split, imbalance method and decision metric.",
+     "answer": "use supervised classification, stratified validation, class weighting/resampling, PR/recall and threshold chosen from costs; audit false positives."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "A hospital has past patient records labelled “readmitted” or “not readmitted”. What task is this?",
+     "route": "Model answer: This is supervised binary classification: each record has an input and a two-valued label. Logistic regression, a decision tree, or kNN could predict the class. Accuracy alone may be insufficient if readmissions are rare; report recall and precision too.",
+     "answer": "Model answer: This is supervised binary classification: each record has an input and a two-valued label. Logistic regression, a decision tree, or kNN could predict the class. Accuracy alone may be insufficient if readmissions are rare; report recall and precision too."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Explain classification, regression and clustering with one application each, and contrast supervised and unsupervised learning. Check: define all four terms, tie classification/regression to labelled outputs, and give a clustering example with no labels; do not say clustering predicts a known class.",
+     "route": "define all four terms, tie classification/regression to labelled outputs, and give a clustering example with no labels; do not say clustering predicts a known class.",
+     "answer": "define all four terms, tie classification/regression to labelled outputs, and give a clustering example with no labels; do not say clustering predicts a known class."
+    },
+    {
+     "title": "Integrated syllabus-based practice - frame the task [8 marks]",
+     "marks": 8,
+     "prompt": "A council has historic applications with features (household size, area, rent) and outcomes: grant approved yes/no and eventual annual energy saving in kWh. Propose two learning tasks, suitable targets and evaluation measures.",
+     "route": "decide whether each target is categorical or continuous, then make evaluation match the decision. map approval to classification and kWh to regression, naming an error measure and a validation split. a prediction target is not a feature available only after the council has made its decision.",
+     "answer": "Fastest route: map approval to classification and kWh to regression, naming an error measure and a validation split."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "model_selection_revision_sheet.html",
+   "title": "Model Selection and Hyperparameters",
+   "purpose": "Model selection compares candidate algorithms and settings fairly. A hyperparameter is chosen before fitting, such as k in kNN or maximum tree depth; a parameter is learned from data.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) CV",
+     "marks": 0,
+     "prompt": "Choose k for kNN.",
+     "route": "stratified 5-fold CV on training set.",
+     "answer": "evaluate each candidate across held-out folds, average the stated metric, choose once, retrain on all training data and test once."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Compare tree depths for rare-event detection.",
+     "route": "nested/held-out validation using recall/PR rather than accuracy.",
+     "answer": "tune depth/min-leaf with stratified folds, report variation, lock configuration then assess the independent test set."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "Three-fold CV scores for k=3 are .70, .80, .75; for k=5 they are .80, .78, .82. Which k wins?",
+     "route": "Model answer: Mean for k=3 is .75. Mean for k=5 is .80, so select k=5, then refit kNN with k=5 on the whole training set. The test set must not have influenced this choice.",
+     "answer": "Model answer: Mean for k=3 is .75. Mean for k=5 is .80, so select k=5, then refit kNN with k=5 on the whole training set. The test set must not have influenced this choice."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Design a grid-search and five-fold CV process for choosing k∈{1,3,5} and a distance metric. Check: there are six combinations; each gets five fits/validation scores; average a stated metric; select best; only then use the untouched test set.",
+     "route": "there are six combinations; each gets five fits/validation scores; average a stated metric; select best; only then use the untouched test set.",
+     "answer": "there are six combinations; each gets five fits/validation scores; average a stated metric; select best; only then use the untouched test set."
+    },
+    {
+     "title": "Integrated syllabus-based practice - select a regulariser [8 marks]",
+     "marks": 8,
+     "prompt": "Three logistic-regression regularisation values have five-fold validation AUC means: C=.01: .74, C=1: .82, C=100: .81. Describe a selection procedure and a defensible conclusion.",
+     "route": "tune without allowing the final test set to influence the choice. fix folds, compare mean and variability, refit the chosen setting on all training data, test once. repeated peeking at test AUC turns it into another validation set.",
+     "answer": "Fastest route: fix folds, compare mean and variability, refit the chosen setting on all training data, test once."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "neural_network_basics_revision_sheet.html",
+   "title": "Neural-Network Basics",
+   "purpose": "Neural networks compose simple units into flexible functions. CT4101 basics usually concern neuron diagrams, weighted sums, activation functions, simple encoding, and the difference between a model’s output and its learned weights.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) neuron",
+     "marks": 0,
+     "prompt": "x=(2,1), w=(.5,-1), b=.5; compute pre-activation.",
+     "route": "sum then apply named activation.",
+     "answer": "z=2(.5)+1(-1)+.5=.5; ReLU gives .5, sigmoid gives 1/(1+e^-.5)."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Design output/encoding for three-class diagnosis.",
+     "route": "one-hot target plus three-output softmax and cross-entropy.",
+     "answer": "represent classes (1,0,0) etc.; softmax probabilities sum to one; train/validate separately and inspect per-class recall."
+    },
+    {
+     "title": "Worked practice 3 — foundational calculation",
+     "marks": 0,
+     "prompt": "A step neuron has x₁=1, x₂=0, w₁=.7, w₂=−.2, b=−.5. Find output.",
+     "route": "Model answer: a=.7(1)+(−.2)(0)−.5=.2. Since .2≥0, the step activation outputs 1. The bias shifts the boundary; it is not a third input feature.",
+     "answer": "Model answer: a=.7(1)+(−.2)(0)−.5=.2. Since .2≥0, the step activation outputs 1. The bias shifts the boundary; it is not a third input feature."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Draw/explain an artificial neuron and describe at a high level how a network learns from a labelled example. Check: diagram has x, w, Σ+b, activation, output; explain a loss and updates based on error. Avoid claiming a neuron stores training examples.",
+     "route": "diagram has x, w, Σ+b, activation, output; explain a loss and updates based on error. Avoid claiming a neuron stores training examples.",
+     "answer": "diagram has x, w, Σ+b, activation, output; explain a loss and updates based on error. Avoid claiming a neuron stores training examples."
+    },
+    {
+     "title": "Integrated syllabus-based practice - trace a neuron [8 marks]",
+     "marks": 8,
+     "prompt": "A sigmoid output neuron has inputs x=(2,1), weights w=(.4,-.6) and bias .2. Calculate its pre-activation and output, then state how one labelled error changes the network during learning.",
+     "route": "distinguish weighted sum from activation and explain back-propagated gradient use. z=.4(2)-.6(1)+.2=.4, then sigmoid(.4)≈.599. sigmoid is applied after adding the bias, not separately to every input.",
+     "answer": "Fastest route: z=.4(2)-.6(1)+.2=.4, then sigmoid(.4)≈.599."
+    }
+   ],
+   "mistakes": []
+  }
+ ]
+}

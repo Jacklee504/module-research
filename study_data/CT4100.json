@@ -1,0 +1,973 @@
+{
+ "code": "CT4100",
+ "name": "Information Retrieval",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 1",
+  "credits": "5",
+  "assessment": "80% exam / 20% CA",
+  "predictability": "High",
+  "exam_pattern": "High. The same core topics recur heavily across the papers. The main warning is that the 2025/26 paper changed the exam structure: Question 1 became compulsory and worth 40 marks, with two further 20-mark questions chosen from the rest.",
+  "title": "CT4100 - Information Retrieval",
+  "papers": [
+   "2021_2022.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "document_similarity_clustering_revision_sheet.html",
+   "evaluation_revision_sheet.html",
+   "learning_to_rank_revision_sheet.html",
+   "query_difficulty_revision_sheet.html",
+   "recommender_systems_revision_sheet.html",
+   "relevance_feedback_revision_sheet.html",
+   "retrieval_models_revision_sheet.html",
+   "term_weighting_revision_sheet.html",
+   "web_search_revision_sheet.html"
+  ],
+  "exam_block": [],
+  "drill": [
+   "Core retrieval model questions recur: vector space model, term independence, normalisation, tf-idf, BM25 and weighting-scheme design.",
+   "Query expansion and feedback are high-value: Rocchio, pseudo-relevance feedback, local analysis and diverse suggested query terms.",
+   "Evaluation is regular: precision/recall, MAP, user-focused measures and diversity of top-k results.",
+   "Query difficulty appears repeatedly, especially pre-retrieval, collection-wide and returned-list/post-retrieval evidence.",
+   "Recommender systems are a major repeat area: collaborative filtering, evaluation limits, cold-start and difficult-user problems.",
+   "Secondary but active areas: clustering/document similarity, PageRank/HITS, learned term weights, Learning to Rank and neural LTR."
+  ],
+  "paper_format": "Question 1 became compulsory and worth 40 marks, with two further 20-mark questions chosen from the rest",
+  "exam_shape": "compulsory",
+  "code": "CT4100",
+  "name": "Information Retrieval"
+ },
+ "families": [
+  {
+   "id": "vector-space-model-normalisation-and-term-independence",
+   "rank": 1,
+   "title": "Vector Space Model, Normalisation, And Term Independence",
+   "frequency": "3/4",
+   "appearances": [
+    "2023/24 - Q1(b) - describe VSM; strengths and limitations.",
+    "2024/25 - Q1(a)-(b) - normalisation; term-independence limitation and a remedy.",
+    "2025/26 - Q1(a)-(b), Q1(d) - VSM similarity, term independence, and the effect of no normalisation."
+   ],
+   "marks": 0,
+   "question": "Describe the Vector Space Model, explain how a query and document are compared, explain why normalisation is used, and discuss the term-independence limitation with a way to reduce it.",
+   "answer": "Reusable answer: Represent each query and document as an aligned weighted term vector. Rank using cosine similarity, which compares direction rather than raw vector magnitude. Normalisation reduces the advantage of long documents. The model treats terms as independent, so it misses synonymy and meaning; query expansion, thesauri, embeddings, or neural representations can introduce semantic evidence."
+  },
+  {
+   "id": "term-weighting-axioms-and-learned-weights",
+   "rank": 2,
+   "title": "Term Weighting, Axioms, And Learned Weights",
+   "frequency": "4/4",
+   "appearances": [
+    "2021/22 - Q2(c), Q3(a)-(b) - learn term weights; axiomatic weighting; constituents of a good weighting scheme.",
+    "2023/24 - Q4(c) - learning approaches for an IR task.",
+    "2024/25 - Q1(c), Q3(c) - axiomatic weighting and learning good term weights.",
+    "2025/26 - Q1(d)-(e) - no-normalisation problem and BM25 components/tuning parameters."
+   ],
+   "marks": 0,
+   "question": "Explain what makes a good term-weighting scheme. Use tf-idf or BM25, explain document-length effects, and give a limitation or a way weights could be learned.",
+   "answer": "Reusable answer: Term frequency measures within-document evidence, while IDF rewards rare, discriminative terms. A useful scheme gives more evidence for a query term occurring in a document, but avoids unlimited reward for repetition and corrects length bias. BM25 combines IDF, saturated TF, and length normalisation; k1 controls TF saturation and b controls the strength of length correction. Axioms express desired score changes, while learned weights can fit judged data but need reliable labels and may overfit or inherit click bias."
+  },
+  {
+   "id": "retrieval-evaluation-user-experience-map-and-diversity",
+   "rank": 3,
+   "title": "Retrieval Evaluation, User Experience, MAP, And Diversity",
+   "frequency": "4/4",
+   "appearances": [
+    "2021/22 - Q2(b) - generate a precision-recall graph from a ranked answer set.",
+    "2023/24 - Q3(a) - a measure that captures an aspect of user experience beyond precision and recall.",
+    "2024/25 - Q3(b) - generate a precision-recall graph.",
+    "2025/26 - Q1(c), Q1(h) - top-k diversity; MAP benefits and limitations."
+   ],
+   "marks": 0,
+   "question": "Choose or calculate an evaluation measure for ranked retrieval, then explain what it captures and what it misses.",
+   "answer": "Reusable answer: Precision is the fraction of retrieved documents that are relevant; recall is the fraction of all relevant documents retrieved. A precision-recall curve evaluates the trade-off over rank cut-offs. AP averages precision at relevant ranks and MAP averages AP over queries, rewarding early relevant results. MAP uses binary relevance and does not capture diversity, novelty, satisfaction, or graded relevance. For diverse needs, measure similarity or subtopic coverage among the top k ; for graded relevance, use nDCG."
+  },
+  {
+   "id": "relevance-feedback-pseudo-feedback-and-query-expansion",
+   "rank": 4,
+   "title": "Relevance Feedback, Pseudo-Feedback, And Query Expansion",
+   "frequency": "4/4",
+   "appearances": [
+    "2021/22 - Q3(c) - local analysis to select candidate expansion terms.",
+    "2023/24 - Q2(a)-(c) - explicit feedback, diverse candidate terms, and Rocchio versus pseudo-relevance feedback.",
+    "2024/25 - Q2(b)-(c) - Rocchio limitations and diverse suggestions without user feedback.",
+    "2025/26 - Q1(f)-(g), Q3(a) - weighted feedback, clustering assumption, and local analysis versus a fixed thesaurus/ontology."
+   ],
+   "marks": 0,
+   "question": "Explain how a system can expand a query from feedback or retrieved documents. Compare evidence sources, explain the update/selection process, and address query drift.",
+   "answer": "Reusable answer: Explicit relevance feedback uses user relevance labels. Rocchio updates the query by moving it toward the relevant-document centroid and away from the non-relevant centroid: q' = alpha q + beta mean(Drel) - gamma mean(Dnonrel) . Pseudo-relevance feedback assumes top-ranked documents are useful, so it needs no labels but may drift. Local analysis is contextual because it uses the returned set; a fixed thesaurus is controlled and stable but may be less suited to the current query. Select informative, non-redundant terms, preserve important original terms, and evaluate whether retrieval improves."
+  },
+  {
+   "id": "query-difficulty-prediction",
+   "rank": 5,
+   "title": "Query Difficulty Prediction",
+   "frequency": "4/4",
+   "appearances": [
+    "2021/22 - Q4(a) - distinguish pre-retrieval and post-retrieval difficulty measures.",
+    "2023/24 - Q4(b) - three pre-retrieval measures, with examples.",
+    "2024/25 - Q2(a) - query, collection-wide, and returned-list techniques.",
+    "2025/26 - Q2(a) - query-specific, collection-statistics, and result-set prediction methods."
+   ],
+   "marks": 0,
+   "question": "Describe how to predict whether a query will be difficult using evidence from the query, the collection, and the retrieved ranked list.",
+   "answer": "Reusable answer: Pre-retrieval signals are available before ranking: query length, ambiguity, term rarity, and collection statistics such as document frequency/IDF. Post-retrieval signals need the answer set: score spread, agreement among top documents, result-set diversity, or query clarity. These signals estimate risk rather than relevance. Use multiple signals, then respond with clarification, query suggestions, expansion, or diversified results."
+  },
+  {
+   "id": "collaborative-filtering-and-recommender-system-evaluation",
+   "rank": 6,
+   "title": "Collaborative Filtering And Recommender-System Evaluation",
+   "frequency": "4/4",
+   "appearances": [
+    "2021/22 - Q1(a)-(c) - collaborative-filtering stages, evaluation limitations, and recommendation diversity.",
+    "2023/24 - Q3(c) - stages of collaborative filtering with an example.",
+    "2024/25 - Q4(a) - collaborative filtering; advantages and limitations.",
+    "2025/26 - Q2(b) - movie recommendation, cold start, and identifying difficult users."
+   ],
+   "marks": 0,
+   "question": "Describe a collaborative-filtering recommender, including its data, similarity/prediction steps, a limitation such as cold start, and an appropriate evaluation.",
+   "answer": "Reusable answer: Store a user-item interaction or rating matrix. Find similar users or similar items from overlapping preferences, predict a score for unseen items from weighted neighbours, and rank the highest predictions. Missing interactions are not dislikes. Cold start occurs when a user or item has too little history; use onboarding ratings, item metadata, content-based methods, or a hybrid fallback. Evaluate offline with held-out interactions and ranking measures, but recognise that offline data and clicks may not fully represent satisfaction, novelty, or diversity."
+  },
+  {
+   "id": "scientific-article-similarity",
+   "rank": 7,
+   "title": "Scientific-Article Similarity",
+   "frequency": "2/4",
+   "appearances": [
+    "2021/22 - Q4(b) - define article similarity from title, abstract, authors, keywords, body, and bibliography.",
+    "2024/25 - Q4(b) - same scientific-article similarity question family."
+   ],
+   "marks": 0,
+   "question": "Given scientific articles with multiple fields, design a similarity measure that supports useful user search tasks.",
+   "answer": "Reusable answer: Represent each article using weighted text features from title, abstract, keywords, and optionally the main body; use cosine similarity on TF-IDF/BM25-style vectors. Weight title and keywords more heavily if they express topic well. Add author overlap or citation/bibliography links as separate evidence, then combine features with justified weights. Normalise fields, evaluate against known related articles or user tasks, and note that vocabulary mismatch and generic terms can reduce quality."
+  },
+  {
+   "id": "clustering-for-information-retrieval",
+   "rank": 8,
+   "title": "Clustering For Information Retrieval",
+   "frequency": "3/4",
+   "appearances": [
+    "2021/22 - Q4(c) - cluster the scientific-article collection using the chosen similarity measure.",
+    "2023/24 - Q3(b) - evaluate a clustering algorithm.",
+    "2024/25 - Q4(c) - explain how clustering helps two IR tasks and describe the approach."
+   ],
+   "marks": 0,
+   "question": "Explain how a clustering algorithm can support an IR task, including document representation, similarity, clustering steps, quality assessment, and a limitation.",
+   "answer": "Reusable answer: Represent documents as normalised weighted vectors, choose a similarity or distance measure, and apply a method such as k-means. K-means alternates assigning each document to its nearest centroid and recomputing centroids as means until stable. Clusters can support collection browsing, result grouping, query expansion, or faster search. Assess coherence, separation, stability, or agreement with known labels. Results depend on representation, the chosen number of clusters, and initial seeds, and clusters may not match meaningful user topics."
+  },
+  {
+   "id": "extended-boolean-relevance-and-precision-recall-graphs",
+   "rank": 9,
+   "title": "Extended Boolean Relevance And Precision-Recall Graphs",
+   "frequency": "2/4",
+   "appearances": [
+    "2021/22 - Q2(a)-(b) - calculate extended-Boolean AND/OR relevance; generate a precision-recall graph.",
+    "2024/25 - Q3(a)-(b) - the same two-part family with different terms."
+   ],
+   "marks": 0,
+   "question": "Calculate a document's graded relevance to an extended Boolean AND/OR query, then construct a precision-recall graph from a ranked answer set and relevance judgements.",
+   "answer": "Reusable answer: The extended Boolean model softens classical all-or-nothing matching by giving a graded score. Use the specified AND/OR relevance formula and term weights consistently. For the graph, scan the ranked list, track cumulative relevant documents, calculate precision and recall at each relevant result, then plot precision against recall. State that the curve shows the precision-recall trade-off over ranks."
+  },
+  {
+   "id": "distinct-lower-frequency-questions",
+   "rank": null,
+   "title": "Distinct Lower-Frequency Questions",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "hits",
+   "rank": null,
+   "title": "HITS",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Define hubs and authorities, explain the HITS update cycle, and contrast HITS with PageRank.",
+   "answer": "Reusable answer: Authorities are pages pointed to by good hubs; hubs are pages linking to good authorities. HITS repeatedly updates authority scores from incoming hub scores, then hub scores from outgoing authority scores, usually on a query-related subgraph. PageRank produces one global damped score; HITS produces two mutually reinforcing, query-dependent scores."
+  },
+  {
+   "id": "learning-to-rank-and-neural-ltr",
+   "rank": null,
+   "title": "Learning To Rank And Neural LTR",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Explain how Learning to Rank learns a ranking function, what a training example contains, how it is evaluated, and how neural LTR differs from traditional LTR.",
+   "answer": "Reusable answer: LTR learns score(query, document) from judged query-document examples. Examples contain query/document features and a relevance grade or preference. Pointwise methods predict grades, pairwise methods learn preferences, and listwise methods optimise order. Evaluate on held-out queries with ranking measures such as MAP or nDCG. Traditional LTR relies on engineered features and is easier to inspect; neural LTR learns richer representations but usually needs more data and compute and is less interpretable. Click labels need position-bias correction."
+  },
+  {
+   "id": "most-repeated-question-families",
+   "rank": null,
+   "title": "Most Repeated Question Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "pagerank",
+   "rank": null,
+   "title": "PageRank",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Describe PageRank from the web-link graph, explain its update rule, and discuss limitations.",
+   "answer": "Reusable answer: PageRank gives a page credit from incoming links. A linking page divides its credit across its outgoing links; damping adds a small teleportation probability and avoids rank traps. Iterate until scores stabilise. It uses global link authority, not only textual relevance. Link spam, popularity bias, new pages, and topic-insensitive global scores are limitations, so combine it with content and anti-spam signals."
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Vector Space Model And Normalisation",
+     "front": "How does the VSM represent and rank documents?",
+     "back": "Queries and documents are weighted term vectors, usually TF-IDF; rank by cosine similarity.",
+     "evidence": "2023/24-2025/26"
+    },
+    {
+     "group": "Vector Space Model And Normalisation",
+     "front": "What is the cosine-similarity formula?",
+     "back": "cos(q,d) = q.d / (|q||d|) .",
+     "evidence": "2023/24-2025/26"
+    },
+    {
+     "group": "Vector Space Model And Normalisation",
+     "front": "What is the purpose of normalisation in the VSM?",
+     "back": "It reduces document-length bias, so a long or duplicated document does not score highly just from extra term occurrences.",
+     "evidence": "2024/25-2025/26"
+    },
+    {
+     "group": "Vector Space Model And Normalisation",
+     "front": "What is the term-independence limitation, and how can it be reduced?",
+     "back": "VSM misses meaning/synonymy; use expansion, a thesaurus, embeddings, or neural representations.",
+     "evidence": "2024/25-2025/26"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What are TF and IDF?",
+     "back": "TF is within-document evidence; IDF rewards rare terms: log(N / df) .",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What makes a good weighting scheme?",
+     "back": "Reward query and rare terms, use diminishing returns for repeated terms, and correct length bias.",
+     "evidence": "2021/22, 2024/25, 2025/26"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What is TF saturation, and why use it?",
+     "back": "Extra occurrences still help, but with diminishing returns, so repetition does not dominate ranking.",
+     "evidence": "2021/22, 2024/25, 2025/26"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What is BM25?",
+     "back": "A ranking function combining IDF, saturating TF, and length normalisation.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What do BM25's k1 and b control?",
+     "back": "k1 controls TF saturation; b controls length normalisation.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What is an axiomatic weighting approach?",
+     "back": "Designing a weighting function to satisfy desired ranking properties.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Term Weighting, BM25, And Learned Weights",
+     "front": "What are the main risks of learning term weights, and how are they controlled?",
+     "back": "Overfitting learns quirks of limited labels; click bias favours seen high-ranked results. Validate on held-out queries and use debiased clicks or editorial labels.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "What is precision?",
+     "back": "The fraction retrieved that is relevant: TP / (TP + FP) .",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "What is recall?",
+     "back": "The fraction of all relevant documents retrieved: TP / (TP + FN) .",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "How do you make a precision-recall graph?",
+     "back": "Plot precision against recall at each relevant rank; higher and further right is better, though precision often falls as recall rises.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "What are AP and MAP?",
+     "back": "AP averages precision values at ranks containing relevant documents; MAP averages AP across queries.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "What is MAP's key limitation?",
+     "back": "It usually assumes binary relevance and does not capture diversity, novelty, or user satisfaction.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "Why are precision and recall not enough to evaluate search?",
+     "back": "They measure relevance coverage, but not satisfaction, result diversity, novelty, effort, or the quality of the user experience.",
+     "evidence": "2023/24, 2025/26"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "What is top-k diversity?",
+     "back": "How varied and non-redundant the first k results are.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "Why measure top-k diversity?",
+     "back": "It reduces near-duplicates and increases the chance that an early result covers each possible user intent.",
+     "evidence": "2021/22, 2023/24, 2025/26"
+    },
+    {
+     "group": "Retrieval Evaluation, MAP, And Diversity",
+     "front": "How can diversity in the top k results be measured?",
+     "back": "Measure distinct intents/subtopics covered, or average pairwise dissimilarity between the top k results.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What is explicit relevance feedback?",
+     "back": "User labels identify returned documents as relevant or non-relevant.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What is Rocchio, including its update rule?",
+     "back": "It moves a query toward relevant and away from non-relevant documents: q' = alpha q + beta mean(Drel) - gamma mean(Dnonrel) .",
+     "evidence": "2023/24-2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What is pseudo-relevance feedback (PRF), including its weakness?",
+     "back": "Expand from assumed-useful top results; incorrect assumptions can cause drift.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What is local analysis?",
+     "back": "Selecting candidate expansion terms from the current query's returned documents.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "Local analysis versus a fixed thesaurus?",
+     "back": "Local analysis is contextual; a thesaurus is controlled and less dependent on noisy results.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What is query drift, and how can it be limited?",
+     "back": "Expansion shifts intent; retain original terms, limit weights, or ask approval.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "How are local-analysis or PRF expansion terms selected?",
+     "back": "Prefer terms frequent in relevant or pseudo-relevant top documents but rare in the collection; remove stopwords, irrelevant terms, and near-duplicates.",
+     "evidence": "2021/22, 2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "How should suggested expansion terms be made diverse?",
+     "back": "Choose useful terms covering different aspects, not near-duplicates.",
+     "evidence": "2023/24, 2024/25"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "How can feedback use non-binary labels, and when can it fail?",
+     "back": "Weight documents/labels by confidence or graded relevance; it can fail when relevant documents do not form one coherent cluster.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What do alpha , beta , and gamma do in Rocchio?",
+     "back": "alpha retains the original query; beta weights relevant-document evidence; gamma weights non-relevant-document evidence that is subtracted.",
+     "evidence": "2023/24-2025/26"
+    },
+    {
+     "group": "Relevance Feedback And Query Expansion",
+     "front": "What are Rocchio's main limitations?",
+     "back": "It needs accurate feedback, which can be costly; noisy or misjudged documents cause query drift, and one relevant-document centroid can blur multiple intents.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Query Difficulty Prediction",
+     "front": "What is the difference between pre- and post-retrieval features?",
+     "back": "Pre-retrieval features use only the query and collection statistics, before any search. Post-retrieval features use the initial ranked results and their scores.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Query Difficulty Prediction",
+     "front": "What are the three sources of query-difficulty evidence?",
+     "back": "The query itself, collection-wide statistics, and the initial returned ranked list.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Query Difficulty Prediction",
+     "front": "What can ambiguity or weak score separation suggest?",
+     "back": "A difficult query: ambiguous terms indicate several possible intents, while similar top scores indicate an uncertain ranking.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Query Difficulty Prediction",
+     "front": "What can an IR system do for a difficult query?",
+     "back": "Clarify intent, suggest reformulation, expand the query, or diversify early results.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Query Difficulty Prediction",
+     "front": "What are common pre-retrieval query-difficulty predictors?",
+     "back": "Query length; average IDF, where low values suggest broad/common terms; term ambiguity; and collection statistics such as term frequency and co-occurrence, where weak coherence can suggest difficulty.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "What are user-based and item-based collaborative filtering?",
+     "back": "User-based recommends items liked by similar users; item-based recommends items similar to those the user has already liked or consumed.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "What is the basic CF workflow?",
+     "back": "Build a user-item rating/interaction matrix, find similar users or items, predict scores for unseen items, then rank them.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "What is cold start?",
+     "back": "A new user/item has too little interaction data for reliable CF predictions.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "How can cold start be handled?",
+     "back": "Use onboarding ratings, metadata/content, a popularity fallback, or a hybrid recommender.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "How can difficult recommendation users be identified?",
+     "back": "Look for sparse histories, weak similarity to other users, inconsistent preferences, or low-confidence predictions.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "How should recommenders be evaluated, and what is a key limitation?",
+     "back": "Test against held-out interactions using ranking metrics; offline data may not reflect satisfaction, novelty, or diversity in real use.",
+     "evidence": "2021/22-2025/26"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "What are CF's main advantages and limitations?",
+     "back": "It personalises without needing item content and can surface unexpected items; sparsity, cold start, and popularity bias can reduce quality and diversity.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "How can a recommender diversify its top results?",
+     "back": "Re-rank high-scoring candidates to penalise near-duplicates and cover different genres, topics, or user intents.",
+     "evidence": "2021/22"
+    },
+    {
+     "group": "Document Similarity And Clustering",
+     "front": "How should scientific articles be represented for similarity?",
+     "back": "Build a weighted feature vector: give title, abstract, and keywords high weight; optionally add full text, authors, venue, and citation/bibliography evidence.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Document Similarity And Clustering",
+     "front": "How can article similarity be scored?",
+     "back": "Use cosine similarity between normalised weighted term vectors; optionally combine it with author or citation overlap using a weighted score.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Document Similarity And Clustering",
+     "front": "What are the repeated k-means steps?",
+     "back": "Choose k initial centroids, assign each document to its nearest centroid, recompute each centroid as its cluster mean, then repeat until assignments stop changing.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Document Similarity And Clustering",
+     "front": "How can clustering help IR?",
+     "back": "Group results or collections by topic, helping users browse subtopics, navigate results, and find related documents.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Document Similarity And Clustering",
+     "front": "How can clustering quality be assessed?",
+     "back": "Good clusters have high within-cluster coherence and high between-cluster separation; also test stability or compare against known labels.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Document Similarity And Clustering",
+     "front": "What are clustering's main limitations?",
+     "back": "Results depend on the representation, chosen number of clusters, and initial seeds; clusters may not reflect relevance or handle overlapping topics well.",
+     "evidence": "2021/22, 2023/24, 2024/25"
+    },
+    {
+     "group": "Extended Boolean Retrieval",
+     "front": "What is extended Boolean retrieval, and why use it?",
+     "back": "A soft Boolean model that gives AND/OR queries a graded match score, rather than a strict match/no-match outcome, so partial matches can be ranked.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Extended Boolean Retrieval",
+     "front": "What are the steps in an extended-Boolean calculation?",
+     "back": "Take each term's relevance score, use the stated extended-AND or extended-OR formula, substitute the values, calculate the final score, then rank higher-scoring documents first.",
+     "evidence": "2021/22, 2024/25"
+    },
+    {
+     "group": "Web Search: PageRank And HITS",
+     "front": "What is PageRank, and how does a link contribute?",
+     "back": "An iterative link-based authority score. A page distributes its current score across its outgoing links, so a link from a high-authority page contributes more authority.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Web Search: PageRank And HITS",
+     "front": "What do damping and link spam mean for PageRank?",
+     "back": "Damping gives a user a small probability of teleporting instead of following a link, preventing sinks and traps. Link farms can artificially inflate authority, while popularity can outweigh topical relevance.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Web Search: PageRank And HITS",
+     "front": "What are HITS hubs and authorities?",
+     "back": "Authorities are pages linked to by good hubs; hubs are pages that link to good authorities. The two scores reinforce each other.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Web Search: PageRank And HITS",
+     "front": "How does HITS compute scores?",
+     "back": "Repeatedly set each authority score from the hub scores of pages linking to it, and each hub score from the authority scores of pages it links to; normalise after each iteration.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Web Search: PageRank And HITS",
+     "front": "How does HITS differ from PageRank?",
+     "back": "HITS computes separate hub and authority scores on a query-related graph at search time; PageRank computes one global, query-independent authority score in advance.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Learning To Rank",
+     "front": "What is LTR, and what does a training example contain?",
+     "back": "LTR learns a ranking function from relevance data. A training example contains a query, a candidate document, its feature values, and a relevance grade or preference label.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Learning To Rank",
+     "front": "What are pointwise, pairwise, and listwise LTR?",
+     "back": "Pointwise predicts each document's relevance grade; pairwise learns which of two documents should rank higher; listwise directly optimises the ordering of a result list.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Learning To Rank",
+     "front": "How should LTR be evaluated, and what is a click-data risk?",
+     "back": "Evaluate on held-out queries with ranking metrics such as MAP or nDCG. Clicks are position-biased because highly ranked results are seen more often.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Learning To Rank",
+     "front": "How does neural LTR differ from traditional LTR?",
+     "back": "Neural LTR can learn semantic representations directly from text; traditional LTR relies more on engineered features. Neural models need more data and compute and are less interpretable.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Learning To Rank",
+     "front": "Why use LTR rather than manually tuned ranking weights?",
+     "back": "It learns how features should influence ranking from relevance data, rather than relying on hand-set weights; its quality depends on representative training labels.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Retrieval Models And Preprocessing",
+     "front": "When can stop-word removal or stemming harm retrieval?",
+     "back": "Stop-word removal can erase meaning in phrases or names; stemming can merge distinct terms. Check the query and collection before applying either rule.",
+     "source": "Exercise Sheet 1 in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56281/files/3768988"
+    },
+    {
+     "group": "Retrieval Models And Preprocessing",
+     "front": "How do information retrieval and information filtering differ?",
+     "back": "Retrieval usually answers a one-off need against a relatively static collection. Filtering monitors a stream against a longer-standing need.",
+     "source": "IR Lecture 2 in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56281/files/3768989"
+    },
+    {
+     "group": "Retrieval Models And Preprocessing",
+     "front": "After stop-word removal, normalisation and stemming, what turns a document into a term-frequency vector?",
+     "back": "Group identical resulting terms and count each occurrence; the vector records a weight or count for every term in the vocabulary.",
+     "source": "Preprocessing example in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56281/files/3819043"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "Why can cosine similarity on raw, sparse ratings select the wrong neighbour?",
+     "back": "Treating missing ratings as zero and ignoring each user's rating baseline can make opposite tastes look similar. Compare co-rated items after centring ratings, such as with Pearson correlation.",
+     "source": "Collaborative Filtering in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56281/files/3930815"
+    },
+    {
+     "group": "Collaborative Filtering And Recommenders",
+     "front": "How should a recommender's offline evaluation avoid seeing the future?",
+     "back": "Train on earlier interactions and test on later ones. A random split can leak future preferences; also check top-k ranking quality and coverage, not just rating error.",
+     "source": "Collaborative Filtering in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56281/files/3930815"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "document_similarity_clustering_revision_sheet.html",
+   "title": "Document similarity and clustering",
+   "purpose": "Similarity supports near-duplicate detection, clustering, result organisation and recommenders. It is a secondary but active CT4100 topic.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) article similarity",
+     "marks": 0,
+     "prompt": "Cluster articles with title, abstract, keywords, body, authors and bibliography.",
+     "route": "weighted textual vectors plus optional normalised metadata.",
+     "answer": "emphasise title/abstract/keywords in tf-idf, optionally add citation features, and use cosine; inspect representative terms to check coherence."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Use k-means to diversify results and assess it.",
+     "route": "assignment-update loop, then representatives and tests.",
+     "answer": "choose k, initialise, assign nearest, recompute means to stability; choose across coherent clusters and assess cohesion/separation plus labels over multiple seeds/k."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Explain how clustering could diversify search results. Outline: form topical clusters; select representatives; benefit for ambiguous queries; choose k/quality measure; failure mode.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - cluster research abstracts [8 marks]",
+     "marks": 8,
+     "prompt": "TF-IDF abstracts are A=(4,0), B=(3,1), C=(0,4), D=(1,3); dimensions are retrieval and biology terms. Starting centroids are A and C. Run one k-means assignment/update step and state one limitation.",
+     "route": "“run one step” requires assignments and new centroids, not a definition. compare squared distances, then mean the assigned points. a k-means centroid is a mean, not necessarily an original document.",
+     "answer": "Fastest route: compare squared distances, then mean the assigned points."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "evaluation_revision_sheet.html",
+   "title": "Retrieval evaluation",
+   "purpose": "Evaluation connects an IR design to evidence. CT4100 repeatedly uses precision, recall, average precision, MAP, user effort and diversity.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) precision-recall",
+     "marks": 0,
+     "prompt": "Relevant results occur at ranks 1,3,4; four relevant exist. Draw points.",
+     "route": "update TP down the list.",
+     "answer": "(R,P)=(1/4,1),(1/2,2/3),(3/4,3/4), at relevant ranks."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Evaluate diversified top-10 search.",
+     "route": "combine rank relevance with intent coverage.",
+     "answer": "report NDCG@10/P@10 and a subtopic coverage measure against a baseline, using graded pooled judgements and per-intent inspection."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Design an evaluation for travel search. Outline: query set and judgements; P@k/MAP; task completion or time; diversity across destinations; limitations of offline labels.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - evaluate a ranked list [9 marks]",
+     "marks": 9,
+     "prompt": "Four documents are relevant. At ranks 1 to 8 a system returns R, N, R, N, N, R, N, N. Calculate P@3, recall@6 and AP, then explain why one precision value is insufficient.",
+     "route": "rank order and the total relevant set require different denominators and a rank-sensitive metric. count relevant prefixes, then use precision only at ranks 1, 3 and 6 for AP. AP divides by the total relevant documents, not the retrieved relevant count.",
+     "answer": "Fastest route: count relevant prefixes, then use precision only at ranks 1, 3 and 6 for AP."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "learning_to_rank_revision_sheet.html",
+   "title": "Learning to rank",
+   "purpose": "Learning mechanisms in IR are an official CT4100 outcome. Learning to Rank (LTR) combines many signals, such as text match, freshness and link features, to order documents.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) LTR",
+     "marks": 0,
+     "prompt": "dA grade 3, dB grade 1 for q: make a pairwise example.",
+     "route": "form preference, not a class.",
+     "answer": "impose score(q,dA)>score(q,dB) using BM25/title/freshness features; tune on held-out queries by NDCG/MAP."
+    },
+    {
+     "title": "Worked practice 2 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) neural comparison",
+     "marks": 0,
+     "prompt": "Compare neural/traditional LTR for jobs.",
+     "route": "organise representation, compute, interpretability and safeguards.",
+     "answer": "traditional LTR uses engineered fast/explainable features; neural learns semantic text but raises data, GPU/latency and audit needs. Debias labels and check held-out NDCG/fairness."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Propose LTR for job search. Outline: labels and debiasing; features; pairwise/listwise choice; held-out NDCG; explanation, fairness and latency concerns.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - train a ranker [9 marks]",
+     "marks": 9,
+     "prompt": "For “late library opening”, D1 is highly relevant, D2 partly relevant, D3 irrelevant. Features are BM25, title match, opening-hours freshness and historical clicks. Propose a training signal and an evaluation that does not treat clicks as ground truth.",
+     "route": "give labels, features, an objective and defensible validation. form D1>D2, D1>D3 and D2>D3 preference pairs, then test on held-out queries. random document-level splits leak the same query into training and test.",
+     "answer": "Fastest route: form D1>D2, D1>D3 and D2>D3 preference pairs, then test on held-out queries."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "query_difficulty_revision_sheet.html",
+   "title": "Query difficulty prediction",
+   "purpose": "Difficulty prediction lets an IR system warn, reformulate or spend more computation on likely failures. CT4100 distinguishes pre-retrieval, collection-wide and post-retrieval evidence.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) sources",
+     "marks": 0,
+     "prompt": "Give query, collection and returned-list predictors for “mercury”.",
+     "route": "classify before explaining.",
+     "answer": "short ambiguous query; common/high-df term; heterogeneous top results or flat scores. Offer planet/element facets."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Design and validate a digital-library predictor.",
+     "route": "construct features, calibrate on held-out effectiveness, define safe actions.",
+     "answer": "combine query length/idf, collection coherence, top-k score gap and topical agreement; learn against held-out AP/NDCG and trigger clarification only above a risk threshold. Evaluate false interventions."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Design a difficulty predictor for a digital library. Outline: list features by stage; say what each signals; describe validation against effectiveness; propose an intervention and a false-positive risk.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - predict a difficult query [8 marks]",
+     "marks": 8,
+     "prompt": "A medical service receives “mercury”. Top-ten scores have little separation, results cover planet, element and newspaper, and users often reformulate to “mercury poisoning symptoms”. Design a difficulty response.",
+     "route": "identify evidence, choose an intervention, and justify uncertainty handling. connect score ambiguity and reformulation to ambiguous intent, then choose clarification or diversification. a low score can be a clear niche query; difficulty needs more than one signal.",
+     "answer": "Fastest route: connect score ambiguity and reformulation to ambiguous intent, then choose clarification or diversification."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "recommender_systems_revision_sheet.html",
+   "title": "Recommender systems",
+   "purpose": "Recommenders are a stated CT4100 outcome. They turn partial preference data into useful suggestions, but bring cold-start, sparsity and evaluation challenges.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) CF",
+     "marks": 0,
+     "prompt": "Similarities .8/.2, ratings 5/1: predict.",
+     "route": "use normalised weighted average.",
+     "answer": "(.8x5+.2x1)/1=4.2, a strong candidate after consumed-item filtering."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Recommend films for a new user and identify difficult users.",
+     "route": "explicit onboarding/content fallback, then monitor sparsity.",
+     "answer": "collect genre/item seeds, use metadata and diverse popularity initially, transition to CF; flag low-neighbour similarity or uncertain predictions. Evaluate precision plus novelty/diversity/satisfaction."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Design recommendations for an online course platform. Outline: signals; algorithm; cold-start path; accuracy plus completion/diversity measures; privacy and feedback-loop risk.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - neighbour recommendation [8 marks]",
+     "marks": 8,
+     "prompt": "Maya rates A=5, B=1 and has not seen C. Leon rates A=4, B=1, C=5; Noor rates A=1, B=5, C=1. Predict C and state one cold-start limitation.",
+     "route": "use shared ratings to identify a useful neighbour, rather than averaging all C ratings. compare A/B patterns, then use a positively similar, mean-centred or weighted estimate. similarity needs ratings on the same items.",
+     "answer": "Fastest route: compare A/B patterns, then use a positively similar, mean-centred or weighted estimate."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "relevance_feedback_revision_sheet.html",
+   "title": "Relevance feedback and query expansion",
+   "purpose": "Feedback is a major CT4100 tool for vocabulary mismatch: users and relevant documents may use different words for the same need.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) Rocchio",
+     "marks": 0,
+     "prompt": "q=(1,0), relevant=(1,1), non-relevant=(0,1), all weights 1.",
+     "route": "add and subtract componentwise.",
+     "answer": "q'=(2,0); term one strengthens and term two cancels."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Suggest diverse expansion terms without labels.",
+     "route": "PRF candidate scoring plus diversification.",
+     "answer": "retrieve top documents, select informative candidates, cluster/enforce marginal relevance, preserve original terms and present a small varied set. Evaluate effectiveness and diversity against baseline."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Recommend an expansion approach for a medical search interface. Outline: explicit feedback or trusted vocabulary; candidate terms; drift safeguards; evaluation; user-safety caveat.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - Rocchio feedback [8 marks]",
+     "marks": 8,
+     "prompt": "For “coastal flood adaptation”, two reports about managed retreat are relevant and a tourism report is non-relevant. Explain the Rocchio update and a drift safeguard.",
+     "route": "show how positive and negative evidence move the vector, then protect the original intent. start at q, move toward the relevant centroid, away from the non-relevant centroid, retain anchor terms. subtracting a centroid does not mean deleting every shared term.",
+     "answer": "Fastest route: start at q, move toward the relevant centroid, away from the non-relevant centroid, retain anchor terms."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "retrieval_models_revision_sheet.html",
+   "title": "Retrieval models",
+   "purpose": "A retrieval model is the rulebook connecting a query to documents. CT4100 uses models to explain ranking choices, especially Boolean, vector-space and probabilistic thinking.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) VSM",
+     "marks": 0,
+     "prompt": "Rank q=(1,1), dA=(3,3), dB=(1,0) by cosine and explain raw-dot-product bias.",
+     "route": "compute both norms.",
+     "answer": "cos(q,dA)=1; cos(q,dB)=1/sqrt(2), so A first. Dot product exaggerates A because it is longer."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Contrast Boolean, VSM and extended Boolean for legal web search.",
+     "route": "compare representation, rule, benefit and failure.",
+     "answer": "Boolean gives transparent mandatory filtering but can return none; VSM ranks partial weighted matches but misses dependence; extended Boolean provides graded AND/OR. Use ranked retrieval with Boolean constraints."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Compare Boolean retrieval and the vector-space model for a web-search task. Outline: representation; exact versus graded matching; ranking; strengths; limitations; conclude why ranked retrieval is normally preferable.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - ranked retrieval [8 marks]",
+     "marks": 8,
+     "prompt": "Query vector q=(1,1,0) for terms (climate, policy, sport). Candidate vectors are A=(3,3,0), B=(1,0,0), C=(1,1,4). Rank them by cosine, then advise whether a legal researcher should use Boolean climate AND policy , VSM, or both.",
+     "route": "calculate, normalise, rank and make a retrieval-policy conclusion. calculate q's norm once, then each dot product and denominator. a raw dot product is not cosine similarity.",
+     "answer": "Fastest route: calculate q's norm once, then each dot product and denominator."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "term_weighting_revision_sheet.html",
+   "title": "Term weighting",
+   "purpose": "Weighting makes a rare, informative term more influential than a common one. It supports CT4100 discussions of tf-idf, BM25, normalisation and scheme design.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) weighting",
+     "marks": 0,
+     "prompt": "N=1000, df(t)=10; compare one versus ten occurrences.",
+     "route": "interpret rarity then tf response.",
+     "answer": "idf=log(100), so t is discriminative. Linear tf-idf gives ten times the tf contribution; BM25 increases but saturates."
+    },
+    {
+     "title": "Worked practice 2 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) length bias",
+     "marks": 0,
+     "prompt": "Explain why concatenating a document inflates basic tf-idf similarity and fix it.",
+     "route": "trace tf/magnitude, then normalise.",
+     "answer": "query-term counts grow despite unchanged topic, so unnormalised score grows. Cosine divides by length; BM25 length-normalises and saturates tf."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Propose a weighting scheme for product search and justify its design. Outline: tf, rarity, length, field boosts such as title, saturation, then a possible failure case.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - weighting a rare term [8 marks]",
+     "marks": 8,
+     "prompt": "In N=1,000 documents, aurora occurs in df=10 and report in df=800. A short document contains aurora twice and report once; a long document contains aurora twice and report twenty times. Explain TF, IDF and length normalisation for query aurora report .",
+     "route": "explain why repeated common vocabulary in a long document should not swamp discriminative evidence. compare IDFs, then state TF saturation and length correction. IDF uses document frequency, not occurrences in one document.",
+     "answer": "Fastest route: compare IDFs, then state TF saturation and length correction."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "web_search_revision_sheet.html",
+   "title": "Web search: PageRank and HITS",
+   "purpose": "Web search is an official CT4100 outcome. Link analysis complements text relevance when pages cite or point to one another.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) PageRank",
+     "marks": 0,
+     "prompt": "A,B link only to C; start 1/3; d=.85.",
+     "route": "sum incoming shares then damp.",
+     "answer": "PR(C)=.15/3+.85(1/3+1/3)=.617."
+    },
+    {
+     "title": "Worked practice 2 — paper-style synthesis (recurring-topic pattern; not a quoted paper prompt) HITS",
+     "marks": 0,
+     "prompt": "Explain HITS and contrast PageRank.",
+     "route": "define two recurrences and scope first.",
+     "answer": "authorities receive hub links; hubs point to authorities; repeated updates stabilise. PageRank is global/damped/one-score, HITS query-focused/two-score; both need anti-spam and text signals."
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Compare PageRank and HITS for ranking university pages. Outline: graph evidence; one versus two scores; global versus query-focused use; iteration; link manipulation and topical relevance.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - one PageRank update [8 marks]",
+     "marks": 8,
+     "prompt": "A and B link to C. A has PR .30 and two outgoing links; B has PR .20 and one. With d=.85 and N=3, calculate C's next PR and explain what HITS hubs add.",
+     "route": "distribute authority over outgoing links, then distinguish hubs from authorities. add .30/2+.20, multiply by .85, add (1−.85)/3. teleportation is not added once for every inbound link.",
+     "answer": "Fastest route: add .30/2+.20, multiply by .85, add (1−.85)/3."
+    }
+   ],
+   "mistakes": []
+  }
+ ]
+}
