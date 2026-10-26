@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Secondary Applications</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Secondary Applications</h1>
+<p>Separate the now-current connectedness/IVT bridge from genuinely older application material.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Prepare the Intermediate Value Theorem as a current connectedness application, while retaining Euler/triangulation, Brouwer, FTA and Nash-style questions at lower priority.<strong>Exam use:</strong> The 2025/26 Q4(b) directly asks for the continuous-image theorem and its IVT consequence for 6 marks; the older application families are absent from the latest three papers.</p>
+<h2>Question plan</h2>
+<ol>
+<li>Identify whether the question asks for a current connectedness application or an older named theorem.</li>
+<li>State the theorem and check its hypotheses in the concrete setting.</li>
+<li>For IVT, identify the connected interval, the continuous map and why its image contains every intermediate real value.</li>
+<li><strong>Question interpretation:</strong> “Explain how the preceding part implies IVT” means apply the connected-image result, not re-prove IVT by supremum arguments.</li>
+</ol>
+<h2>Definitions</h2>
+<p><strong>Current bridge:</strong> a continuous image of a connected space is connected, and connected subsets of R are intervals. This yields IVT because h([a,b]) is a connected subset of R containing h(a) and h(b). <strong>Older material:</strong> for a suitable finite triangulation, χ=V−E+F; Brouwer says every continuous self-map of a closed ball has a fixed point; the topological FTA proof uses global properties of maps on C.<strong>Rapid recall:</strong> IVT is now core evidence; Euler, Brouwer, FTA and Nash remain archive-led secondary material.</p>
+<h2>Proof method</h2>
+<p>For IVT, use that [a,b] is connected, continuity makes h([a,b]) connected, and connected subsets of R are intervals. For older theorem applications, explicitly map the data to each hypothesis before drawing the conclusion.<strong>Exam workflow:</strong> Name the source space, preservation theorem and target-space classification, then state the requested consequence.</p>
+<h2>Worked simple example</h2>
+<p>If h:[0,1]→R is continuous with h(0)=-2 and h(1)=3, then h([0,1]) is connected and hence an interval containing -2 and 3. Therefore 0∈h([0,1]), so h(c)=0 for some c∈[0,1].</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let h:[a,b]→R be continuous and let y lie between h(a) and h(b). The interval [a,b] is connected. Hence h([a,b]) is connected, so it is an interval in R. Because it contains both endpoint values, it contains y. Thus h(c)=y for some c∈[a,b].</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Compute χ for a triangle filled by one face. <strong>Check:</strong> 3−3+1=1; this is older-priority material.</p>
+<p>
+<strong>2. Exam style:</strong> Let f:[0,1]→[0,1] be continuous. Explain why f has a fixed point. <strong>Check:</strong> apply IVT to g(x)=f(x)−x; this remains a useful follow-on rather than the exact 2025/26 question.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>The role of surjectivity in the preservation proof must be explicit. If Y=U∪V is a separation and f:X→Y is onto, then f<sup>-1</sup>(U) and f<sup>-1</sup>(V) are both nonempty and cover X. Continuity makes them open, so they would separate connected X.</p>
+<h2>Practice question - connected images and IVT [6 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q4(b). <strong>Task.</strong> (a) Let f:X→Y be a continuous surjection. Show that connectedness of X implies connectedness of Y. (b) Briefly explain how this result implies the Intermediate Value Theorem. [6 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> pull a hypothetical separation of Y back to X, then apply the theorem to a continuous real function on an interval.</p><p><strong>Worked answer:</strong> Suppose Y=U∪V were a separation. Continuity makes f<sup>-1</sup>(U) and f<sup>-1</sup>(V) open; surjectivity makes them nonempty and ensures their union is X. They are disjoint, contradicting connectedness of X. Hence Y is connected. For IVT, let h:[a,b]→R be continuous. The interval [a,b] is connected, so h([a,b]) is connected and therefore an interval in R. Since it contains h(a) and h(b), it contains every number between them, which is precisely IVT.</p><p><strong>Topic-specific trap:</strong> continuity alone does not make both preimages nonempty; surjectivity is used there.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Counting a shared edge twice in a triangulation.</li>
+<li>Applying Brouwer when the map does not send the closed ball to itself.</li>
+<li>Spending core-revision time on older applications without current lecture evidence.</li>
+<li>Calling h([a,b]) an interval without first establishing connectedness.</li>
+<li><strong>Recovery rule:</strong> Euler's formula uses faces of a particular planar embedding and needs the connected-version constant 2; adjust for disconnected graphs.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can compute V−E+F for a small complex.</li>
+<li>I can derive IVT from connected continuous images.</li>
+<li>I can state the fixed-point hypothesis and conclusion.</li>
+<li>I have completed the eight core guides before this sheet.</li>
+<li><strong>Final 60-second audit:</strong> Hypotheses, incidence count, algebraic rearrangement and structural conclusion are all justified.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>Split confidence:</strong> the connected-image/IVT bridge is now high-confidence current material because it appears directly in 2025/26 Q4(b). Euler, triangulation, Brouwer, FTA and Nash remain low-confidence: they occur in 2018–2022/23 but are absent from all three papers in the 2023/24–2025/26 format. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

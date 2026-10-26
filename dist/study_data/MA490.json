@@ -1,0 +1,427 @@
+{
+ "code": "MA490",
+ "name": "Measure Theory",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 1",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "Medium-High",
+  "exam_pattern": "Predictability is Medium-High.",
+  "title": "MA490 - Measure Theory",
+  "papers": [
+   "2018_2019.pdf",
+   "2019_2020.pdf",
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf"
+  ],
+  "guides": [
+   "cantor_ternary_examples_revision_sheet.html",
+   "convergence_integration_theorems_revision_sheet.html",
+   "convergence_revision_sheet.html",
+   "lebesgue_integration_revision_sheet.html",
+   "measurable_functions_revision_sheet.html",
+   "measures_probability_revision_sheet.html",
+   "probability_applications_revision_sheet.html",
+   "sigma_algebras_sets_revision_sheet.html"
+  ],
+  "exam_block": [
+   "Q1: answer five short questions, usually 40%, from a menu of ten. These repeat the same broad skills: generated sigma-algebras, liminf/limsup of sets, Lebesgue measure computations, Bernoulli/share-price space events, Cantor set membership, measurability checks, pointwise/uniform/almost-uniform convergence, and term-by-term integration.",
+   "Q2: definitions and measure-space theorem proof, often sigma-algebra/measure definitions, subadditivity, continuity from below/above, Borel-Cantelli, or related event/probability arguments.",
+   "Q3: measurable functions, closure under operations, pointwise limits, square/product measurability, or counterexamples.",
+   "Q4: integration definitions, zero integral iff zero almost everywhere, monotone convergence / convergence theorem applications, and simple/characteristic function arguments."
+  ],
+  "drill": [
+   "The paper is very stable: Q1 is usually a broad short-question menu, followed by longer questions on definitions/proofs, measurable functions and integration/convergence.",
+   "Q1 high-return topics: generated sigma-algebras, liminf/limsup, Bernoulli events, Cantor-set/ternary examples, Borel measurability, pointwise vs uniform convergence and term-by-term integration.",
+   "Q2 usually targets measure foundations: sigma-algebras, measures/probability, Borel sets, subadditivity, continuity from above/below and Borel-Cantelli.",
+   "Q3 usually targets measurable functions: closure properties, products/squares/compositions, limits and counterexamples involving non-measurable functions.",
+   "Q4 usually targets integration: simple/non-negative integral definitions, zero integral iff zero a.e., characteristic functions, additivity and convergence theorems.",
+   "Best revision strategy: drill definitions and standard proof templates first, then practise the recurring short-question calculations."
+  ],
+  "paper_format": "broad short-question menu, followed by longer questions on definitions/proofs, measurable functions and integration/convergence",
+  "exam_shape": "choice",
+  "code": "MA490",
+  "name": "Measure Theory"
+ },
+ "families": [
+  {
+   "id": "q1-answer-five-short-questions-usually-40",
+   "rank": 1,
+   "title": "answer five short questions, usually 40%, from a menu of ten",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "answer five short questions, usually 40%, from a menu of ten. These repeat the same broad skills: generated sigma-algebras, liminf/limsup of sets, Lebesgue measure computations, Bernoulli/share-price space events, Cantor set membership, measurability checks, pointwise/uniform/almost-uniform convergence, and term-by-term integration.",
+   "answer": ""
+  },
+  {
+   "id": "q2-definitions-and-measure-space-theorem-pr",
+   "rank": 2,
+   "title": "definitions and measure-space theorem proof, often sigma-algebra/measure definit",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "definitions and measure-space theorem proof, often sigma-algebra/measure definitions, subadditivity, continuity from below/above, Borel-Cantelli, or related event/probability arguments.",
+   "answer": ""
+  },
+  {
+   "id": "q3-measurable-functions-closure-under-oper",
+   "rank": 3,
+   "title": "measurable functions, closure under operations, pointwise limits, square/product",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "measurable functions, closure under operations, pointwise limits, square/product measurability, or counterexamples.",
+   "answer": ""
+  },
+  {
+   "id": "q4-integration-definitions-zero-integral-i",
+   "rank": 4,
+   "title": "integration definitions, zero integral iff zero almost everywhere, monotone conv",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "integration definitions, zero integral iff zero almost everywhere, monotone convergence / convergence theorem applications, and simple/characteristic function arguments.",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "topic guides",
+   "cards": [
+    {
+     "group": "Cantor-set and Ternary Examples",
+     "front": "The middle-thirds Cantor set is obtained by repeatedly deleting open middle thirds. A number lies in it exactl",
+     "back": "The Cantor set consists of points with a ternary expansion using only 0 and 2, allowing the alternate endpoint expansion; stage n has 2^n intervals of length 3^{-n} and total length (2/3)^n.",
+     "evidence": ""
+    },
+    {
+     "group": "Convergence and Integration Theorems",
+     "front": "Monotone Convergence Theorem",
+     "back": "MCT needs 0<=f_n increasing; Fatou gives integral liminf <= liminf integrals for nonnegative functions; DCT needs a.e. convergence and an integrable dominating g.",
+     "evidence": ""
+    },
+    {
+     "group": "Convergence of Functions",
+     "front": "Pointwise convergence fixes x before n tends to infinity. Uniform convergence requires sup x |f n (x)−f(x)|→0.",
+     "back": "Uniform convergence means sup_x |f_n-f|->0 and implies pointwise convergence; a uniform limit of continuous functions is continuous, while pointwise limits need not be.",
+     "evidence": ""
+    },
+    {
+     "group": "Lebesgue Integration",
+     "front": "For s=Σa i 1 A_i with disjoint measurable A i , ∫s dμ=Σa i μ(A i ). For measurable f≥0, ∫f dμ is the supremum",
+     "back": "For s=sum a_i 1_{A_i} on disjoint measurable sets, integral s=sum a_i mu(A_i); for f>=0 take the supremum over simple s<=f; an integrable signed f uses f^+-f^- with finite absolute integral.",
+     "evidence": ""
+    },
+    {
+     "group": "Measurable Functions",
+     "front": "f",
+     "back": "f is measurable iff {f>a} is measurable for every real a (equivalently other ray conventions); sums, products and pointwise limits of measurable real functions are measurable under the usual extended-value qualifications.",
+     "evidence": ""
+    },
+    {
+     "group": "Measures and Probability Spaces",
+     "front": "A measure μ",
+     "back": "A measure mu maps a sigma-algebra to [0,infinity], has mu(empty)=0 and countable additivity; probability adds mu(Omega)=1; continuity from below always holds, while continuity from above needs finite measure of the first set.",
+     "evidence": ""
+    },
+    {
+     "group": "Probability Applications",
+     "front": "limsup A_n is the event that infinitely many A n occur. First Borel-Cantelli: if ΣP(A n )<∞, then P(limsup A n",
+     "back": "limsup A_n means infinitely often, intersection_m union_{n>=m}A_n; liminf means eventually always, union_m intersection_{n>=m}A_n; independent events satisfy P(A intersect B)=P(A)P(B).",
+     "evidence": ""
+    },
+    {
+     "group": "Sigma-algebras and Set Operations",
+     "front": "A sigma-algebra F on Ω contains Ω, is closed under complements, and under countable unions. liminf A_n = union",
+     "back": "A sigma-algebra contains empty/Omega and is closed under complements and countable unions, hence countable intersections and differences; sigma(G) is the intersection of all sigma-algebras containing G.",
+     "evidence": ""
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "cantor_ternary_examples_revision_sheet.html",
+   "title": "Cantor-set and Ternary Examples",
+   "purpose": "Decide Cantor-set membership from ternary expansions and connect the construction to measure intuition. Exam use: Digit convention, endpoint ambiguity, stage count/length, limiting measure and cardinality argument are separate.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — a ternary membership proof and measure-zero conclusion [9 marks]",
+     "marks": 9,
+     "prompt": "Show that 1/4 belongs to the Cantor set using a ternary expansion, then explain why the full Cantor set has Lebesgue measure zero.",
+     "route": "This combines a concrete digit calculation with the stage-length argument. Fastest route. Write 1/4=Σ2/3 2k , then bound stage-n length by (2/3) n . Topic-specific trap. An uncountable set can still have measure zero. Write 1/4=Σ2/3 2k , then bound stage-n length by (2/3) n . Topic-specific trap. An uncountable set can still have measure zero. An uncountable set can still have measure zero.",
+     "answer": "Show 1/4 is in the Cantor set. Since 1/4=sum_{k>=1} 2/3^{2k}, its ternary expansion is 0.020202..._3, using only 0 and 2. The Cantor set has measure at most the stage-n total (2/3)^n, whose limit is 0, so it has measure zero despite containing this and uncountably many other points."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Does 1/2 lie in the Cantor set? Check: 1/2=0.111… 3 , so no valid 0/2-only expansion exists.",
+     "route": "2. Exam: Explain why endpoint ambiguity does not invalidate the digit test. Check: membership needs one permissible ternary expansion.",
+     "answer": "2. Exam: Explain why endpoint ambiguity does not invalidate the digit test. Check: membership needs one permissible ternary expansion."
+    },
+    {
+     "title": "Practice 2 — inject binary sequences into the Cantor set [9 marks]",
+     "marks": 9,
+     "prompt": "Construct an injection from {0,1} N to the Cantor set and conclude that it is uncountable.",
+     "route": "The map and its injectivity, including ternary-expansion ambiguity, must be addressed. Fastest route. Send (b k ) to Σ2b k /3 k and compare the first differing digit. Topic-specific trap. Do not silently use ambiguous terminal-2/terminal-0 expansions without fixing a convention. Send (b k ) to Σ2b k /3 k and compare the first differing digit. Topic-specific trap. Do not silently use ambiguous terminal-2/terminal-0 expansions without fixing a convention. Do not silently use ambiguous terminal-2/terminal-0 expansions without fixing a convention.",
+     "answer": "construct an injection from binary sequences to C. Check map (b_k) to sum 2b_k/3^k; distinct sequences first differ at some digit and yield distinct points, apart from endpoint ambiguity avoided by the chosen 0/2 expansion convention. Thus C is uncountable."
+    }
+   ],
+   "mistakes": [
+    "Forgetting non-unique expansions such as 0.1 3 =0.0222… 3 .",
+    "Claiming the Cantor set is countable because it has measure zero.",
+    "Using decimal rather than ternary digits.",
+    "Recovery rule: A ternary endpoint may have two expansions; rejection based on the expansion containing digit 1 can be wrong if an all-0/2 alternative exists."
+   ]
+  },
+  {
+   "file": "convergence_integration_theorems_revision_sheet.html",
+   "title": "Convergence and Integration Theorems",
+   "purpose": "Use Monotone Convergence and related term-by-term integration arguments without skipping hypotheses. Exam use: Limit, exceptional set, theorem name, every hypothesis, conclusion direction and direct integral check appear.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — diagnose a failed dominated-convergence argument [9 marks]",
+     "marks": 9,
+     "prompt": "For f n (x)=n1 (0,1/n) (x), decide whether DCT applies and reconcile the a.e. limit with the integrals.",
+     "route": "State the missing hypothesis, not merely that the theorem “fails”. Fastest route. Compute ∫f n =1 and show a common integrable dominator would have impossible growth near zero. Topic-specific trap. Pointwise or a.e. convergence alone never licenses interchange of limit and integral. Compute ∫f n =1 and show a common integrable dominator would have impossible growth near zero. Topic-specific trap. Pointwise or a.e. convergence alone never licenses interchange of limit and integral. Pointwise or a.e. convergence alone never licenses interchange of limit and integral.",
+     "answer": "On (0,1), let f_n(x)=n 1_(0,1/n)(x). Then f_n->0 a.e. but integrals equal 1. DCT cannot use a common integrable dominator: any g dominating all f_n satisfies g(x)>=n when x<1/n, forcing severe growth near 0; indeed the unchanged integrals contradict the DCT conclusion. Fatou only yields 0<=1, which is valid."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Can MCT apply to f n (x)=1/n? Check: not as an increasing sequence; it decreases.",
+     "route": "2. Exam: For non-negative measurable g k , justify ∫Σg k =Σ∫g k . Check: apply MCT to partial sums.",
+     "answer": "2. Exam: For non-negative measurable g k , justify ∫Σg k =Σ∫g k . Check: apply MCT to partial sums."
+    },
+    {
+     "title": "Practice 2 — a valid DCT application on [0,1] [8 marks]",
+     "marks": 8,
+     "prompt": "Use DCT to prove ∫ 0 1 x n dx→0, stating the exceptional point and a dominator.",
+     "route": "All DCT hypotheses must be matched to the displayed sequence. Fastest route. Note x n →0 off {1} and |x n |≤1∈L¹. Topic-specific trap. The point x=1 is harmless only because it is a null exceptional set. Note x n →0 off {1} and |x n |≤1∈L¹. Topic-specific trap. The point x=1 is harmless only because it is a null exceptional set. The point x=1 is harmless only because it is a null exceptional set.",
+     "answer": "let f_n(x)=x^n on [0,1]. Check f_n->0 a.e. (the point x=1 is exceptional), |f_n|<=1 with 1 integrable, so DCT gives integral f_n ->0; directly integral=1/(n+1)."
+    }
+   ],
+   "mistakes": [
+    "Applying MCT to a decreasing or signed sequence.",
+    "Writing “by convergence theorem” without naming assumptions.",
+    "Interchanging sum and integral before establishing non-negativity/dominance.",
+    "Recovery rule: A bound depending on n is not a DCT dominator; one integrable g must control every f_n almost everywhere."
+   ]
+  },
+  {
+   "file": "convergence_revision_sheet.html",
+   "title": "Convergence of Functions",
+   "purpose": "Classify function convergence and produce compact proofs or counterexamples. Exam use: Domain, candidate limit, quantifier/supremum calculation, epsilon choice and endpoint behaviour are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — pointwise but not uniform convergence of x n [9 marks]",
+     "marks": 9,
+     "prompt": "Find the pointwise limit of x n on [0,1] and prove the convergence is not uniform.",
+     "route": "The endpoint and a uniform obstruction must both appear. Fastest route. Give the discontinuous limit and use either continuity of uniform limits or the supremum error. Topic-specific trap. Testing only fixed interior x misses the bad points that approach 1 with n. Give the discontinuous limit and use either continuity of uniform limits or the supremum error. Topic-specific trap. Testing only fixed interior x misses the bad points that approach 1 with n. Testing only fixed interior x misses the bad points that approach 1 with n.",
+     "answer": "For f_n(x)=x^n on [0,1], the pointwise limit is f(x)=0 for x<1 and f(1)=1. Convergence is not uniform because each f_n is continuous but f is discontinuous; directly, for x<1 the error is x^n and sup_{x<1}x^n=1, though not attained, so sup_{[0,1]}|f_n-f|=1 for every n."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Does x n converge pointwise on [0,1]? Check: yes, to the stated discontinuous limit.",
+     "route": "2. Exam: Give a one-line obstruction to uniform convergence to a continuous function when the pointwise limit is discontinuous. Check: a uniform limit of continuous functions is continuous.",
+     "answer": "2. Exam: Give a one-line obstruction to uniform convergence to a continuous function when the pointwise limit is discontinuous. Check: a uniform limit of continuous functions is continuous."
+    },
+    {
+     "title": "Practice 2 — restore uniform convergence on a shortened interval [8 marks]",
+     "marks": 8,
+     "prompt": "For 0<a<1, prove x n →0 uniformly on [0,a] and give an ε–N choice.",
+     "route": "A supremum calculation must be converted into the requested quantifier proof. Fastest route. Use sup [0,a] x n =a n and solve a N <ε. Topic-specific trap. Dividing logarithmic inequalities by log a reverses the sign because log a<0. Use sup [0,a] x n =a n and solve a N <ε. Topic-specific trap. Dividing logarithmic inequalities by log a reverses the sign because log a<0. Dividing logarithmic inequalities by log a reverses the sign because log a<0.",
+     "answer": "on [0,a] with 0<a<1, prove x^n->0 uniformly. Check sup_{x in [0,a]}x^n=a^n->0; for epsilon choose N>log epsilon/log a, noting log a<0 when handling the inequality."
+    }
+   ],
+   "mistakes": [
+    "Interchanging the order of quantifiers.",
+    "Testing only a few fixed points for uniform convergence.",
+    "Confusing almost everywhere with almost uniform.",
+    "Recovery rule: Testing only fixed points can never disprove uniform convergence; the bad point may depend on n."
+   ]
+  },
+  {
+   "file": "lebesgue_integration_revision_sheet.html",
+   "title": "Lebesgue Integration",
+   "purpose": "Define the Lebesgue integral, calculate characteristic/simple functions, and prove zero-integral consequences. Exam use: Measurability/sign, disjoint sets, coefficients and measures, exact total, and any a.e. exceptional set are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — integrate an overlapping simple-function description [9 marks]",
+     "marks": 9,
+     "prompt": "On [0,1], integrate the supplied function that is 2 on [0,1/2) and 3 on [1/3,1], with values added on the overlap.",
+     "route": "The intervals overlap, so the level sets must be disjointised or linearity explicitly justified. Fastest route. Split at 1/3 and 1/2, then sum coefficient times interval length. Topic-specific trap. Treating the overlap as either 2 or 3 instead of 5 changes the integral. Split at 1/3 and 1/2, then sum coefficient times interval length. Topic-specific trap. Treating the overlap as either 2 or 3 instead of 5 changes the integral. Treating the overlap as either 2 or 3 instead of 5 changes the integral.",
+     "answer": "On ([0,1],Lebesgue), let f=2 on [0,1/2), 3 on [1/3,1], and 0 otherwise, with values added on overlap. Disjointise: f=2 on [0,1/3), 5 on [1/3,1/2), and 3 on [1/2,1]. Hence integral f=2(1/3)+5(1/6)+3(1/2)=2/3+5/6+3/2=3. The naive sum 2(1/2)+3(2/3)=3 agrees by linearity, but disjoint levels expose the actual simple-function values."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Compute ∫1 A dμ. Check: μ(A).",
+     "route": "2. Exam: Why is non-negativity needed in “integral zero implies zero a.e.”? Check: signed positive and negative contributions can cancel.",
+     "answer": "2. Exam: Why is non-negativity needed in “integral zero implies zero a.e.”? Check: signed positive and negative contributions can cancel."
+    },
+    {
+     "title": "Practice 2 — zero integral implies zero almost everywhere [9 marks]",
+     "marks": 9,
+     "prompt": "Prove that a nonnegative measurable f with ∫f dμ=0 vanishes μ-a.e.",
+     "route": "Nonnegativity and countable union closure are essential proof inputs. Fastest route. Use E m ={f≥1/m}, monotonicity, then {f>0}=∪E m . Topic-specific trap. For signed functions, cancellation means integral zero does not imply f=0 a.e. Use E m ={f≥1/m}, monotonicity, then {f>0}=∪E m . Topic-specific trap. For signed functions, cancellation means integral zero does not imply f=0 a.e. For signed functions, cancellation means integral zero does not imply f=0 a.e.",
+     "answer": "prove that if f>=0 measurable and integral f=0, then f=0 a.e. Check E_m={f>=1/m}; 0=integral f >= mu(E_m)/m gives mu(E_m)=0, and {f>0}=union_m E_m has measure zero."
+    }
+   ],
+   "mistakes": [
+    "Adding level sets that are not disjoint.",
+    "Calling f=0 everywhere rather than a.e.",
+    "Using the simple-function formula directly for an arbitrary f.",
+    "Recovery rule: For a signed function, integral f=0 does not imply f=0 a.e.; cancellation is possible, so the nonnegative hypothesis is essential."
+   ]
+  },
+  {
+   "file": "measurable_functions_revision_sheet.html",
+   "title": "Measurable Functions",
+   "purpose": "Test measurability and prove closure under algebraic operations, compositions and pointwise limits. Exam use: Chosen ray convention, all threshold cases/preimage identity, countable closure and extended-value caveat are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — threshold-set proof for an indicator affine transform [8 marks]",
+     "marks": 8,
+     "prompt": "For measurable A, prove f=2·1 A −1 is measurable by analysing {f>a} for every real a.",
+     "route": "All threshold regimes, including endpoints, must be stated. Fastest route. Split at a=−1 and a=1 to obtain X, A or ∅. Topic-specific trap. Saying “it is a step function” is not a proof unless A’s measurability is used. Split at a=−1 and a=1 to obtain X, A or ∅. Topic-specific trap. Saying “it is a step function” is not a proof unless A’s measurability is used. Saying “it is a step function” is not a proof unless A’s measurability is used.",
+     "answer": "Let A be measurable and f=2 1_A-1. For a<-1, {f>a}=X; for -1<=a<1, it is A; for a>=1, it is empty. Every case is measurable, so f is measurable. This proof also shows why measurability of A is exactly what the step function needs."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Why is f² measurable when f is? Check: square is continuous, so compose it with f.",
+     "route": "2. Exam: Prove max(f,g) is measurable. Check: max(f,g)=(f+g+|f−g|)/2.",
+     "answer": "2. Exam: Prove max(f,g) is measurable. Check: max(f,g)=(f+g+|f−g|)/2."
+    },
+    {
+     "title": "Practice 2 — countable supremum of measurable functions [8 marks]",
+     "marks": 8,
+     "prompt": "If f n are measurable, prove g=sup n f n is measurable.",
+     "route": "Convert a real threshold preimage into a countable σ-algebra operation. Fastest route. Write {g>a}=∪ n {f n >a}. Topic-specific trap. An uncountable supremum cannot be handled by this countable-union proof without further argument. Write {g>a}=∪ n {f n >a}. Topic-specific trap. An uncountable supremum cannot be handled by this countable-union proof without further argument. An uncountable supremum cannot be handled by this countable-union proof without further argument.",
+     "answer": "if f_n are measurable, prove g=sup_n f_n is measurable. Check {g>a}=union_n {f_n>a}, a countable union of measurable sets. State why countability matters."
+    }
+   ],
+   "mistakes": [
+    "Proving only that preimages of intervals are measurable without saying why that suffices.",
+    "Assuming every pointwise limit is continuous.",
+    "Using a non-measurable set in an indicator function.",
+    "Recovery rule: Preimages commute with unions and complements, but images generally do not; measurability proofs should work backwards through the function."
+   ]
+  },
+  {
+   "file": "measures_probability_revision_sheet.html",
+   "title": "Measures and Probability Spaces",
+   "purpose": "State the measure and probability-space definitions, then prove standard consequences such as monotonicity, subadditivity and continuity. Exam use: Sigma-algebra domain, disjoint decomposition, monotone direction, finiteness and limiting set operation are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — continuity from below from countable additivity [9 marks]",
+     "marks": 9,
+     "prompt": "For A n ↑A, prove μ(A)=lim μ(A n ) directly from countable additivity.",
+     "route": "The increasing sequence must be converted to disjoint increments. Fastest route. Set B 1 =A 1 , B n =A n \\A n−1 and sum. Topic-specific trap. Additivity cannot be applied directly to the nested A n . Set B 1 =A 1 , B n =A n \\A n−1 and sum. Topic-specific trap. Additivity cannot be applied directly to the nested A n . Additivity cannot be applied directly to the nested A n .",
+     "answer": "If A_n increases to A, write B_1=A_1 and B_n=A_n minus A_{n-1}. The B_n are disjoint, A is their union, and A_N is union_{n<=N}B_n. Thus mu(A_N)=sum_{n<=N}mu(B_n) increases to sum_n mu(B_n)=mu(A). This proves continuity from below directly from countable additivity."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Show μ(A)≤μ(B) when A⊆B. Check: write B=A disjoint-union (B\\A).",
+     "route": "2. Exam: Derive countable subadditivity for arbitrary A n . Check: replace A n by disjoint new parts contained in A n .",
+     "answer": "2. Exam: Derive countable subadditivity for arbitrary A n . Check: replace A n by disjoint new parts contained in A n ."
+    },
+    {
+     "title": "Practice 2 — continuity from above with finite initial measure [9 marks]",
+     "marks": 9,
+     "prompt": "If A n ↓ and μ(A 1 )<∞, prove μ(∩A n )=lim μ(A n ).",
+     "route": "The finite-measure hypothesis must be used when subtracting. Fastest route. Apply continuity from below to A 1 \\A n , then rearrange finite quantities. Topic-specific trap. ∞−∞ is undefined; omitting finiteness invalidates this proof. Apply continuity from below to A 1 \\A n , then rearrange finite quantities. Topic-specific trap. ∞−∞ is undefined; omitting finiteness invalidates this proof. ∞−∞ is undefined; omitting finiteness invalidates this proof.",
+     "answer": "for decreasing A_n with mu(A_1)<infinity, prove mu(intersection A_n)=lim mu(A_n). Check apply continuity from below to B_n=A_1 minus A_n, then use finite subtraction mu(B_n)=mu(A_1)-mu(A_n)."
+    }
+   ],
+   "mistakes": [
+    "Using additivity for overlapping sets.",
+    "Forgetting that μ may be infinite.",
+    "Using continuity from above without a finite initial measure when required.",
+    "Recovery rule: Do not write infinity-infinity in a continuity-from-above proof; the finite first-measure hypothesis prevents it."
+   ]
+  },
+  {
+   "file": "probability_applications_revision_sheet.html",
+   "title": "Probability Applications",
+   "purpose": "Handle event sequences, Bernoulli-style spaces and Borel-Cantelli arguments with the correct hypotheses. Exam use: Event translation, limsup/liminf form, series calculation, independence requirement and almost-sure conclusion are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — infinitely many Bernoulli successes and failures [9 marks]",
+     "marks": 9,
+     "prompt": "In independent Bernoulli trials with 0<p<1, prove that successes and failures each occur infinitely often almost surely.",
+     "route": "Apply the second Borel–Cantelli lemma separately to two independent event sequences. Fastest route. Note both probability series diverge and each trial family is independent. Topic-specific trap. “Infinitely often” is a limsup event, not an assertion about every sufficiently late trial. Note both probability series diverge and each trial family is independent. Topic-specific trap. “Infinitely often” is a limsup event, not an assertion about every sufficiently late trial. “Infinitely often” is a limsup event, not an assertion about every sufficiently late trial.",
+     "answer": "For independent Bernoulli trials with success probability p in (0,1), let A_n be success at trial n. Since sum P(A_n)=infinity and the events are independent, the second Borel-Cantelli lemma gives P(A_n infinitely often)=1. For failures the same argument uses 1-p, so almost surely both successes and failures occur infinitely often."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: What does P(limsup A n )=0 say in words? Check: infinitely many occurrences has probability zero.",
+     "route": "2. Exam: Can you infer P(limsup A n )=1 from ΣP(A n )=∞ alone? Check: no, independence or a suitable substitute is needed.",
+     "answer": "2. Exam: Can you infer P(limsup A n )=1 from ΣP(A n )=∞ alone? Check: no, independence or a suitable substitute is needed."
+    },
+    {
+     "title": "Practice 2 — finite occurrence without independence [8 marks]",
+     "marks": 8,
+     "prompt": "If P(A n )=2 −n , prove A n occurs only finitely often almost surely without assuming independence.",
+     "route": "Identify the direction of Borel–Cantelli that needs summability only. Fastest route. Sum the geometric series and invoke the first lemma for limsup A n . Topic-specific trap. Probability zero for infinitely many occurrences is not the same as logical impossibility. Sum the geometric series and invoke the first lemma for limsup A n . Topic-specific trap. Probability zero for infinitely many occurrences is not the same as logical impossibility. Probability zero for infinitely many occurrences is not the same as logical impossibility.",
+     "answer": "if P(A_n)=2^{-n}, show only finitely many A_n occur a.s., without independence. Check sum P(A_n)=1<infinity; the first Borel-Cantelli lemma gives P(limsup A_n)=0."
+    }
+   ],
+   "mistakes": [
+    "Confusing “probability zero” with impossibility.",
+    "Using the second Borel-Cantelli lemma without independence.",
+    "Reading limsup as eventual occurrence.",
+    "Recovery rule: Disjoint non-null events cannot be independent: their intersection has probability 0 while the product is positive."
+   ]
+  },
+  {
+   "file": "sigma_algebras_sets_revision_sheet.html",
+   "title": "Sigma-algebras and Set Operations",
+   "purpose": "Recognise sigma-algebras, generated sigma-algebras, and the liminf/limsup of a sequence of sets. Exam use: Underlying space, complements, countable operations, atoms and smallest-family argument are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — compute a generated σ-algebra through atoms [9 marks]",
+     "marks": 9,
+     "prompt": "For Ω={1,2,3,4} and generators {1,2},{2,3}, find σ(G) and justify minimality.",
+     "route": "The answer must identify atoms and explain why every union of them is forced. Fastest route. Intersect generators/complements to get singleton atoms, then count their unions. Topic-specific trap. Merely listing the power set gives no proof that it is the smallest σ-algebra containing G. Intersect generators/complements to get singleton atoms, then count their unions. Topic-specific trap. Merely listing the power set gives no proof that it is the smallest σ-algebra containing G. Merely listing the power set gives no proof that it is the smallest σ-algebra containing G.",
+     "answer": "Let Omega={1,2,3,4} and G={{1,2},{2,3}}. Intersections with complements yield atoms {2}, {1}, {3}, {4}. Therefore sigma(G) is every union of these four singleton atoms, namely the full power set with 16 sets. Showing the atoms are singletons proves both inclusion of all subsets and minimality."
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Basic: Is {∅, Ω, A, A c } a sigma-algebra? Check: yes, it is closed under complements and all unions stay in the family.",
+     "route": "2. Exam: Prove liminf A_n is contained in limsup A_n. Check: “eventually in” implies “in infinitely many”.",
+     "answer": "2. Exam: Prove liminf A_n is contained in limsup A_n. Check: “eventually in” implies “in infinitely many”."
+    },
+    {
+     "title": "Practice 2 — σ-algebra generated by one proper set [8 marks]",
+     "marks": 8,
+     "prompt": "If ∅≠A≠Ω, find σ({A}) and verify that it is a σ-algebra.",
+     "route": "Establish containment and closure, not just the familiar four-set list. Fastest route. Use complements to force A c , then check every countable union in the four-set family. Topic-specific trap. Closure under finite unions alone would not prove σ-algebra closure on an infinite space. Use complements to force A c , then check every countable union in the four-set family. Topic-specific trap. Closure under finite unions alone would not prove σ-algebra closure on an infinite space. Closure under finite unions alone would not prove σ-algebra closure on an infinite space.",
+     "answer": "if G={A} with empty !=A!=Omega, find sigma(G). Check it is {empty,A,A^c,Omega}; verify complement and arbitrary/countable unions stay in the four-set family."
+    }
+   ],
+   "mistakes": [
+    "Checking only finite unions.",
+    "Reversing liminf and limsup.",
+    "Calling an arbitrary collection generated without closing under complements.",
+    "Recovery rule: Closure under finite unions alone defines an algebra, not necessarily a sigma-algebra on an infinite space."
+   ]
+  }
+ ]
+}

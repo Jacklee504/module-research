@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CS402 - Quick-Revision Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 78ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank .backup-note { margin: 0 0 24px; padding: 12px 16px; border-left: 4px solid #8b6e2f; background: #fffbeb; color: #55421b; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: 0; }
+    .flashcard-bank td:first-child { width: 34%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 50%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; }
+    .flashcard-bank code { white-space: normal; }
+    @media print {
+      .top-nav { display: none; }
+      .module-header, .module-shell { padding: 18px; }
+      .module-content { border: 0; box-shadow: none; padding: 0; }
+      .flashcard-bank table { page-break-inside: auto; }
+      .flashcard-bank tr { page-break-inside: avoid; page-break-after: auto; }
+    }
+    @media (max-width: 720px) {
+      .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; }
+      .flashcard-bank thead { display: none; }
+      .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); }
+      .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); }
+      .flashcard-bank td:last-child { border-bottom: 0; }
+      .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: 0; text-transform: uppercase; }
+      .flashcard-bank td:nth-child(1)::before { content: "Front"; }
+      .flashcard-bank td:nth-child(2)::before { content: "Back"; }
+      .flashcard-bank td:nth-child(3)::before { content: "Evidence"; }
+    }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CS402 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#classical">Classical</a>
+      <a href="#perfect">Perfect security</a>
+      <a href="#lfsr">LFSR</a>
+      <a href="#rsa">RSA</a>
+      <a href="#number-theory">Number theory</a>
+      <a href="#dh">DH/ElGamal</a>
+      <a href="#elliptic">Elliptic curves</a>
+      <a href="#backup">Backup</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CS402 Physical Flashcards</p>
+    <h1>Quick-Revision Cryptography Deck</h1>
+    <p>Short, exam-safe recall prompts distilled from the current-format past papers and the most-asked analysis.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Page</h2>
+      <p class="instructions">Use the first column as the prompt and the second as the answer. Each active card tests one reusable method, definition, proof frame, or distinction. Use <a href="most_asked.html">Most Asked</a> for exact wording, marks, and worked paper-specific calculations.</p>
+      <div class="frequency-note">
+        <p><strong>Active deck: 36 cards.</strong> Drill Q1 classical ciphers, Q2 perfect security/Shannon and LFSRs, Q3 RSA, then Q4 number theory, protocols, and elliptic curves. The 2025/26 paper gives LFSRs and elliptic curves slightly more weight.</p>
+        <p><strong>Backup: 13 cards.</strong> These retain older current-format or 2017/18 variations without diluting the latest-three pattern.</p>
+      </div>
+
+      <h2 id="classical">1. Classical Ciphers And Key Spaces</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How do you decode a 27-character shift cipher from one known mapping?</td><td>Use <code>A=0, …, Z=25, _=26</code>. With <code>c≡p+k (mod 27)</code>, find <code>k≡c−p (mod 27)</code> from the mapping, then decrypt every symbol by <code>p≡c−k (mod 27)</code>. Show <code>k</code> before decoding.</td><td>Q1(a), 2023/24–2025/26</td></tr>
+        <tr><td>What is the method for 2 × 2 Hill-cipher decryption over <code>Z<sub>n</sub></code>?</td><td>For <code>K=[[a,b],[c,d]]</code>, compute <code>det(K)=ad−bc</code>. If <code>gcd(det(K),n)=1</code>, calculate <code>K<sup>−1</sup>=det(K)<sup>−1</sup>[[d,−b],[−c,a]]</code> modulo <code>n</code>. Multiply each ciphertext column pair by <code>K<sup>−1</sup></code> and convert the residues back.</td><td>Q1(b), recurring</td></tr>
+        <tr><td>When is a Hill matrix a valid key?</td><td>Exactly when <code>det(K)</code> is a unit modulo <code>n</code>; equivalently, <code>gcd(det(K),n)=1</code>. Otherwise <code>K</code> has no inverse modulo <code>n</code> and cannot decrypt uniquely.</td><td>2025/26 Q1(c)</td></tr>
+        <tr><td>State Kerckhoff's principle.</td><td>A cryptosystem should remain secure even if everything about the system is public except the secret key. Security must not depend on keeping the algorithm secret.</td><td>2018/19, 2024/25</td></tr>
+        <tr><td>How many keys does a 1-dimensional affine cipher over <code>Z<sub>n</sub></code> have?</td><td>Encryption is <code>x↦ax+b</code> modulo <code>n</code>. The multiplier <code>a</code> must be a unit, giving <code>φ(n)</code> choices; <code>b</code> is arbitrary, giving <code>n</code> choices. Therefore the key space has <code>φ(n)n</code> elements.</td><td>Q1(d), 2018/19–2025/26</td></tr>
+        <tr><td>How does Vigenère work over the CS402 27-character alphabet?</td><td>Repeat the key to the message length, represent both strings in <code>Z<sub>27</sub></code>, and encrypt positionwise by <code>c<sub>i</sub>≡p<sub>i</sub>+k<sub>i</sub> (mod 27)</code>. Decrypt by subtraction.</td><td>2023/24 Q1(c)</td></tr>
+      </tbody></table>
+
+      <h2 id="perfect">2. Symmetric Cryptosystems, Perfect Security, And Shannon</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Formally define a symmetric cryptosystem.</td><td>A symmetric cryptosystem consists of non-empty finite sets <code>P</code> of plaintexts, <code>C</code> of ciphertexts, and <code>K</code> of keys, with maps <code>e<sub>k</sub>:P→C</code> and <code>d<sub>k</sub>:C→P</code> for every <code>k∈K</code>, such that <code>d<sub>k</sub>(e<sub>k</sub>(p))=p</code> for every <code>p∈P</code> and <code>k∈K</code>.</td><td>Q2 definition</td></tr>
+        <tr><td>Define perfect security for a symmetric cryptosystem.</td><td>For every <code>p∈P</code> and every <code>c∈C</code> with <code>Pr(C=c)&gt;0</code>, observing <code>c</code> does not change the probability of <code>p</code>: <code>Pr(P=p ∣ C=c)=Pr(P=p)</code>. Equivalently, the ciphertext gives no information about the plaintext.</td><td>Q2 perfect security</td></tr>
+        <tr><td>Do perfectly secure cryptosystems exist? Give the standard example.</td><td>Yes. The one-time pad is perfectly secure when the key is chosen uniformly at random, is as long as the message, is used once, and encryption combines plaintext and key in the same finite alphabet or group.</td><td>2022/23-2025/26</td></tr>
+        <tr><td>State Shannon's theorem on perfect security.</td><td>For a finite perfectly secure symmetric cryptosystem in which every plaintext and ciphertext has positive probability, <code>|K|≥|C|≥|P|</code>.</td><td>Q2 Shannon</td></tr>
+        <tr><td>Prove <code>|K|≥|C|≥|P|</code> for perfect security.</td><td>For each <code>k</code>, <code>e<sub>k</sub>:P→C</code> is injective, so <code>|C|≥|P|</code>. Fix a positive-probability <code>p</code>. For every positive-probability <code>c</code>, perfect security gives <code>Pr(P=p∣C=c)=Pr(P=p)&gt;0</code>, so some key sends <code>p</code> to <code>c</code>. One key sends fixed <code>p</code> to one ciphertext, so <code>|K|≥|C|</code>.</td><td>2017/18, 2024/25</td></tr>
+        <tr><td>Compare block ciphers and stream ciphers.</td><td>A block cipher encrypts fixed-size blocks using a key, often with a mode of operation; examples include AES or DES. A stream cipher generates a keystream and combines it symbol-by-symbol with plaintext, usually by XOR over binary alphabets; examples include LFSR-based stream ciphers or A5/1.</td><td>2018/19, 2024/25</td></tr>
+      </tbody></table>
+
+      <h2 id="lfsr">3. Linear Feedback Shift Registers</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Define an LFSR of length <code>L</code>.</td><td>An LFSR over a field, usually <code>Z<sub>2</sub></code>, has an <code>L</code>-symbol state and generates a sequence from <code>(s<sub>0</sub>,…,s<sub>L−1</sub>)</code> by a linear recurrence. In the CS402 convention, <code>s<sub>n+L</sub>=c<sub>0</sub>s<sub>n</sub>+…+c<sub>L−1</sub>s<sub>n+L−1</sub></code> over <code>Z<sub>2</sub></code>.</td><td>2024/25–2025/26 Q2</td></tr>
+        <tr><td>What is an LFSR connection polynomial?</td><td>It encodes the recurrence: <code>C(X)=c<sub>0</sub>+c<sub>1</sub>X+…+c<sub>L</sub>X<sup>L</sup></code>, normally with <code>c<sub>0</sub>=c<sub>L</sub>=1</code>. A non-zero lower coefficient identifies a previous sequence term used in the feedback. For example, <code>1+X<sup>2</sup>+X<sup>3</sup></code> gives <code>s<sub>n+3</sub>=s<sub>n</sub>+s<sub>n+2</sub></code> over <code>Z<sub>2</sub></code>.</td><td>2025/26 Q2(b)(ii)</td></tr>
+        <tr><td>How do you recover an LFSR keystream from known plaintext and ciphertext in a binary stream cipher?</td><td>Use <code>s<sub>i</sub>=x<sub>i</sub>+y<sub>i</sub> mod 2</code>, because encryption and decryption use XOR/addition in <code>Z<sub>2</sub></code>. Then fit the length-<code>L</code> recurrence to the recovered keystream bits to identify the connection polynomial. State the recurrence convention being used.</td><td>2022/23, 2023/24</td></tr>
+        <tr><td>How do you find an LFSR's least period?</td><td>Generate full <code>L</code>-bit states until the initial state repeats; the number of steps is the least period, not the first repeated output bit. For 2025/26, <code>101→010→100→001→011→111→110→101</code>, so the period is <code>7</code>.</td><td>Q2(c)/Q4(b), 2021/22–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="rsa">4. RSA And Public-Key Cryptography</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Compare symmetric and public-key cryptosystems.</td><td>Symmetric cryptography uses one shared secret, e.g. AES: it is fast but needs secure key distribution. Public-key cryptography uses a public/private pair, e.g. RSA or ElGamal: it simplifies distribution but is slower and relies on factoring or discrete logarithms. Diffie–Hellman provides key exchange, not encryption.</td><td>2022/23–2023/24 Q3(a)</td></tr>
+        <tr><td>Describe the complete RSA lifecycle.</td><td>Choose distinct primes <code>p,q</code>; set <code>n=pq</code> and <code>φ(n)=(p−1)(q−1)</code>. Choose <code>e</code> with <code>1&lt;e&lt;φ(n)</code> and <code>gcd(e,φ(n))=1</code>; find <code>d</code> with <code>ed ≡ 1 mod φ(n)</code>. Publish <code>(n,e)</code>; keep <code>d</code> secret. Encrypt <code>m∈Z<sub>n</sub></code> as <code>c=m<sup>e</sup> mod n</code>, and decrypt as <code>m=c<sup>d</sup> mod n</code>.</td><td>Q3(a), 2023/24–2025/26</td></tr>
+        <tr><td>How do you test an RSA public key <code>(n,e)</code>?</td><td>Factor <code>n</code>. Standard RSA requires <code>n=pq</code> for distinct primes. Compute <code>φ(n)=(p−1)(q−1)</code> and check <code>gcd(e,φ(n))=1</code>.</td><td>Q3(b), 2024/25–2025/26</td></tr>
+        <tr><td>How do you calculate an RSA ciphertext?</td><td>For public key <code>(n,e)</code> and message <code>m∈Z<sub>n</sub></code>, calculate <code>c≡m<sup>e</sup> (mod n)</code> by repeated squaring. Show the modular-power working as well as the final <code>c</code>.</td><td>Q3(c), 2024/25–2025/26</td></tr>
+        <tr><td>Why does factorisation break RSA but primality testing alone not?</td><td>Factoring public <code>n=pq</code> reveals <code>p,q</code>, hence <code>φ(n)</code> and <code>d≡e<sup>−1</sup> (mod φ(n))</code>, enabling decryption. Primality testing only decides whether a candidate is prime; it does not find the factors of <code>n</code>.</td><td>Q3(d), 2023/24–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="number-theory">5. Number Theory, Primality, And Cyclic Groups</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Describe fast exponentiation for <code>a<sup>e</sup> mod n</code>.</td><td>Write <code>e</code> in binary or repeatedly square. Maintain a running product modulo <code>n</code>; square the base each step and multiply it into the product when the current binary digit of <code>e</code> is 1. Reduce modulo <code>n</code> after every multiplication.</td><td>Fast exponentiation</td></tr>
+        <tr><td>Describe Fermat's primality test.</td><td>For input <code>n&gt;1</code>, choose <code>1≤a≤n−1</code>. If <code>gcd(a,n)&gt;1</code>, declare <code>n</code> composite. Otherwise calculate <code>a<sup>n−1</sup> mod n</code>: if it is not <code>1</code>, declare composite; if it is <code>1</code>, state only that <code>n</code> passes this base and is probably prime.</td><td>2018/19, 2024/25, 2025/26</td></tr>
+        <tr><td>Define pseudoprime in the Fermat-test context.</td><td>A composite <code>n</code> is a pseudoprime to base <code>a</code> if <code>gcd(a,n)=1</code> and <code>a<sup>n−1</sup>≡1 mod n</code>, so it passes Fermat’s test for that base despite being composite.</td><td>2024/25 Q3(d)</td></tr>
+        <tr><td>Define a Carmichael number.</td><td>A composite <code>n</code> is a Carmichael number if <code>a<sup>n−1</sup>≡1 mod n</code> for every <code>a</code> coprime to <code>n</code>. Equivalently, it fools Fermat’s test for all coprime bases.</td><td>2018/19, 2024/25</td></tr>
+        <tr><td>Why can Fermat's test still detect a Carmichael number as composite sometimes?</td><td>If the chosen base <code>a</code> is not coprime to Carmichael number <code>n</code>, then <code>gcd(a,n)&gt;1</code> reveals a non-trivial factor and the test can declare composite. Carmichael numbers fool Fermat only for coprime bases.</td><td>2021/22, 2023/24</td></tr>
+        <tr><td>Define a cyclic group.</td><td>A group <code>G</code> is cyclic if there exists <code>g∈G</code> such that every element of <code>G</code> is a power of <code>g</code>; then <code>g</code> is a generator and <code>G=⟨g⟩</code>.</td><td>Q4 cyclic groups</td></tr>
+        <tr><td>State Gauss's characterisation for <code>Z<sub>n</sub><sup>*</sup></code> being cyclic.</td><td><code>Z<sub>n</sub><sup>*</sup></code> is cyclic exactly when <code>n</code> is <code>1</code>, <code>2</code>, <code>4</code>, <code>p<sup>k</sup></code>, or <code>2p<sup>k</sup></code>, where <code>p</code> is an odd prime and <code>k≥1</code>.</td><td>Q4 cyclic groups</td></tr>
+        <tr><td>Apply Gauss's characterisation to the recurring examples.</td><td><code>Z<sub>n</sub><sup>*</sup></code> is cyclic for <code>n=121=11<sup>2</sup></code> and <code>n=169=13<sup>2</sup></code> by the <code>p<sup>k</sup></code> case, and for <code>n=242=2·11<sup>2</sup></code> by the <code>2p<sup>k</sup></code> case. It is not cyclic for <code>n=315=3<sup>2</sup>·5·7</code>, which is none of Gauss’s forms.</td><td>2021/22–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="dh">6. Diffie-Hellman And ElGamal</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Describe Diffie–Hellman key exchange.</td><td>Publicly choose cyclic <code>G=⟨g⟩</code>. Alice chooses secret <code>a</code> and sends <code>g<sup>a</sup></code>; Bob chooses secret <code>b</code> and sends <code>g<sup>b</sup></code>. Each computes the same key <code>g<sup>ab</sup></code>.</td><td>Q4(b/d), 2023/24–2025/26</td></tr>
+        <tr><td>Describe the complete ElGamal construction.</td><td>In cyclic <code>G=⟨g⟩</code>, Bob chooses private <code>b</code> and publishes <code>(G,g,h=g<sup>b</sup>)</code>. To encrypt <code>m∈G</code>, Alice chooses fresh random <code>r</code> and sends <code>(c<sub>1</sub>,c<sub>2</sub>)=(g<sup>r</sup>,mh<sup>r</sup>)</code>. Bob computes <code>c<sub>1</sub><sup>b</sup>=h<sup>r</sup></code> and recovers <code>m=c<sub>2</sub>(c<sub>1</sub><sup>b</sup>)<sup>−1</sup></code> in <code>G</code>.</td><td>Q4(c/d), 2022/23–2025/26</td></tr>
+      </tbody></table>
+
+      <h2 id="elliptic">7. Elliptic Curves</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>What points are on an elliptic curve over a finite field in these papers?</td><td>For a curve <code>y<sup>2</sup>=f(x)</code> over <code>Z<sub>p</sub></code>, test every <code>x∈Z<sub>p</sub></code>, calculate <code>f(x) mod p</code>, and include each <code>y</code> whose square equals that value modulo <code>p</code>, plus the point at infinity <code>O</code>.</td><td>2022/23, 2024/25</td></tr>
+        <tr><td>What is the point at infinity <code>O</code>?</td><td><code>O</code> is the identity element of the elliptic-curve group: <code>P+O=P</code> for every point <code>P</code>. The inverse of <code>P=(x,y)</code> over a field is <code>−P=(x,−y)</code>.</td><td>Elliptic curves</td></tr>
+        <tr><td>How do you identify non-identity order-2 points on <code>y<sup>2</sup>=f(x)</code>?</td><td>A non-identity point <code>P</code> has order 2 iff <code>P+P=O</code>, equivalently <code>P=−P</code>. Since <code>−(x,y)=(x,−y)</code>, this requires <code>y=0</code>. Solve <code>f(x)=0</code> and list <code>(x,0)</code>. <code>O+O=O</code> too, but <code>O</code> has order 1, not 2.</td><td>2022/23, 2024/25</td></tr>
+        <tr><td>For the real curves in the latest papers, find all points satisfying <code>P+P=O</code>, and give a point with non-zero double.</td><td><code>O+O=O</code>, but <code>O</code> has order 1; a non-identity point has order 2 precisely when <code>y=0</code>. For <code>y<sup>2</sup>=x<sup>3</sup>+3x</code>, the full answer is <code>O,(0,0)</code>; <code>Q=(1,2)</code> lies on the curve and has <code>Q+Q≠O</code>. For <code>y<sup>2</sup>=x<sup>3</sup>−x</code>, the full answer is <code>O,(-1,0),(0,0),(1,0)</code>.</td><td>2023/24 Q4(e), 2025/26 Q4(d)</td></tr>
+        <tr><td>Describe elliptic-curve addition, including exceptional cases.</td><td>For <code>P,Q</code> with <code>Q≠−P</code>, take the third curve intersection of their line and reflect it in the x-axis. For <code>P=Q</code>, use the tangent. Also, <code>O</code> is the identity, <code>−(x,y)=(x,−y)</code>, and <code>P+(−P)=O</code>; a vertical tangent gives <code>2P=O</code>.</td><td>2018/19, 2025/26 Q4(d)(i)</td></tr>
+      </tbody></table>
+
+      <h2 id="backup">8. Backup Variations</h2>
+      <div class="backup-note"><strong>Not part of the active 36-card rotation.</strong> These retain older current-format or legacy 2017/18 variations for a second pass.</div>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>How do you solve an affine cipher key from two known plaintext/ciphertext pairs?</td><td>Write <code>c<sub>1</sub>=ap<sub>1</sub>+b mod n</code> and <code>c<sub>2</sub>=ap<sub>2</sub>+b mod n</code>. Subtract to obtain <code>c<sub>1</sub>−c<sub>2</sub>=a(p<sub>1</sub>−p<sub>2</sub>) mod n</code>; if the difference is invertible, solve for <code>a</code>, substitute for <code>b</code>, then check <code>gcd(a,n)=1</code>.</td><td>2018/19 Q1(b)</td></tr>
+        <tr><td>State Euler's theorem.</td><td>If <code>gcd(a,n)=1</code>, then <code>a<sup>φ(n)</sup>≡1 mod n</code>. It supports RSA correctness and modular-exponent reduction.</td><td>2017/18, 2018/19</td></tr>
+        <tr><td>What is a brute-force attack, and when is it feasible?</td><td>It tries every key until meaningful plaintext is found. It is feasible only when the key space is small, keys are quick to test, and correct plaintext can be recognised.</td><td>2021/22, 2022/23</td></tr>
+        <tr><td>Give a singular LFSR of length 3.</td><td>Over <code>Z<sub>2</sub></code>, <code>s<sub>n+3</sub>=s<sub>n+2</sub></code> is singular: it does not depend on <code>s<sub>n</sub></code>, so distinct states can have the same next state and the transition is not invertible.</td><td>2021/22 Q2(c)</td></tr>
+        <tr><td>What are the points on <code>y<sup>2</sup>=x<sup>3</sup>+2x<sup>2</sup>+2x</code> over <code>Z<sub>5</sub></code>?</td><td><code>E(Z<sub>5</sub>)={O,(0,0),(1,0),(2,0),(3,1),(3,4),(4,2),(4,3)}</code>. The non-identity order-2 points are <code>(0,0),(1,0),(2,0)</code>.</td><td>2022/23 Q4(e)</td></tr>
+        <tr><td>What Enigma property made it stronger than Vigenere against ciphertext-only attacks?</td><td>Enigma used a changing polyalphabetic substitution controlled by rotors, so the substitution changed after each character and produced a much longer and more complex period than a simple repeated Vigenere key.</td><td>2017/18 Q3(c)</td></tr>
+        <tr><td>What is the key-space size for a <code>d</code>-dimensional affine cipher over an alphabet of <code>p</code> letters, with <code>p</code> prime?</td><td>A key has the form <code>v↦Av+B</code> over <code>F<sub>p</sub><sup>d</sup></code>, where <code>A</code> is invertible and <code>B</code> arbitrary. Thus there are <code>|GL<sub>d</sub>(F<sub>p</sub>)|p<sup>d</sup>=(p<sup>d</sup>−1)(p<sup>d</sup>−p)…(p<sup>d</sup>−p<sup>d−1</sup>)p<sup>d</sup></code> keys.</td><td>2017/18 Q4</td></tr>
+        <tr><td>Define two-factor authentication.</td><td>Authentication requiring two different categories of evidence, such as something the user knows, something the user has, or something the user is.</td><td>2017/18 Q6(a)</td></tr>
+        <tr><td>Define forward security.</td><td>Compromise of a long-term key should not reveal past session keys or past encrypted communications.</td><td>2017/18 Q6(a)</td></tr>
+        <tr><td>What is A5/1?</td><td>A5/1 is a GSM stream cipher based on three LFSRs with irregular majority-clocked stepping, historically used for over-the-air mobile phone traffic encryption.</td><td>2017/18 Q7(b)</td></tr>
+        <tr><td>Prove the RSA correctness congruence from 2017/18 Q8(a).</td><td>Let <code>N=pq</code>, <code>gcd(a,N)=1</code>, and <code>d≡e<sup>−1</sup> (mod (p−1)(q−1))</code>. Then <code>ed=1+tφ(N)</code>, so <code>(a<sup>e</sup>)<sup>d</sup>=a<sup>ed</sup>=a(a<sup>φ(N)</sup>)<sup>t</sup>≡a (mod N)</code> by Euler's theorem.</td><td>2017/18 Q8(a)</td></tr>
+        <tr><td>Why does a non-Carmichael composite pass <code>k</code> independent Fermat tests with probability at most <code>(1/2)<sup>k</sup></code>?</td><td>For non-Carmichael composite <code>m</code>, bases falsely satisfying <code>a<sup>m−1</sup>≡1 (mod m)</code> form a proper subgroup of <code>Z<sub>m</sub><sup>*</sup></code>, so there are at most half as many. Non-coprime bases reveal a factor. Thus <code>k</code> independent passes have probability at most <code>(1/2)<sup>k</sup></code>.</td><td>2017/18 Q8(b)</td></tr>
+        <tr><td>What is Pollard's rho method for factorisation trying to find?</td><td>It iterates a polynomial modulo <code>n</code> to produce a pseudo-random sequence and compares pairs of iterates; a non-trivial <code>gcd(|x_i-x_j|, n)</code> gives a factor of <code>n</code>.</td><td>2017/18 Q10(a)</td></tr>
+      </tbody></table>
+    </article>
+  </main>
+</body>
+</html>

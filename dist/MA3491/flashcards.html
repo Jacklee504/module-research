@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MA3491 / MA539 — Exam Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .scope, .frequency-note { margin: 0 0 22px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; color: #39454b; }
+    .scope { background: #f8fafc; } .frequency-note { background: #f7fbf8; }
+    table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    th, td { padding: 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { background: var(--surface-soft); font-size: 12px; letter-spacing: .05em; text-transform: uppercase; }
+    td:first-child { width: 27%; font-weight: 740; } td:nth-child(2) { width: 58%; } td:last-child { width: 15%; color: var(--muted); font-size: 12px; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { padding: 0; border: 0; box-shadow: none; } tr { break-inside: avoid; } }
+    @media (max-width: 680px) { table, tbody, tr, th, td { display: block; } thead { display: none; } tr { margin-bottom: 14px; border: 1px solid var(--line); } td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); } td:last-child { border-bottom: 0; } td::before { display:block; margin-bottom:4px; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; } td:nth-child(1)::before { content:"Front"; } td:nth-child(2)::before { content:"Back"; } td:nth-child(3)::before { content:"Evidence"; } }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">MA3491 overview</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#bounds">Bounds</a><a href="#fields">Finite fields</a>
+      <a href="#linear">Linear and Hamming</a><a href="#cyclic">Cyclic and enumerators</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">MA3491 / MA539 Physical Flashcards</p>
+    <h1>36-Card Exam Deck</h1>
+    <p>Atomic, complete-answer recall prompts grounded in every supplied local paper.</p>
+  </header>
+  <main class="module-shell"><article class="module-content flashcard-bank">
+    <h2>How To Use This Page</h2>
+    <div class="scope"><p>Each row is one card: write the first column on the front and the second on the back. Statements, proofs, methods, and examples are now separate recall tasks. Use <a href="most_asked.html">Most Asked</a> for exact wording, marks, and the 100-subpart coverage map.</p></div>
+    <div class="frequency-note"><p><strong>Order:</strong> learn Cards 1–33 first. Cards 34–36 are legacy-only backup. For proof/method cards, write the answer from memory once.</p></div>
+
+    <h2 id="bounds">Priority 1. Bounds And Described Codes</h2>
+    <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+      <tr><td>1. State the sphere-packing bound.</td><td>For C ⊆ F<sub>q</sub><sup>n</sup> with minimum distance d and t = ⌊(d − 1)/2⌋: <strong>|C| Σ<sub>i=0</sub><sup>t</sup> C(n,i)(q − 1)<sup>i</sup> ≤ q<sup>n</sup>.</strong> The sum is the radius-t Hamming-ball size; such balls about codewords are disjoint.</td><td>Q1(a), all current papers</td></tr>
+      <tr><td>2. Apply sphere packing; define one-error correction.</td><td>Calculate t, evaluate S = Σ C(n,i)(q−1)<sup>i</sup>, then |C| ≤ ⌊q<sup>n</sup>/S⌋. “Corrects every single error” means t ≥ 1, equivalently d ≥ 3. Show the substitution and integer bound.</td><td>Q1(a), all current papers</td></tr>
+      <tr><td>3. State the Singleton bound.</td><td><strong>|C| ≤ q<sup>n−d+1</sup>.</strong> For a linear [n,k,d] code this is k ≤ n − d + 1.</td><td>Q1(b), all current papers</td></tr>
+      <tr><td>4. Prove the Singleton bound.</td><td>Delete d−1 coordinates. Equal shortened images of distinct codewords would make them differ in at most d−1 places, impossible. Deletion is injective into F<sub>q</sub><sup>n−d+1</sup>, so |C| ≤ q<sup>n−d+1</sup>.</td><td>2024/25–2025/26 Q1(b)</td></tr>
+      <tr><td>5. Find parameters of a code defined by word conditions.</td><td>Count permitted words for |C|. Prove a lower bound for distance and exhibit a pair attaining it. Only write [n,k,d] after establishing linearity and |C|=q<sup>k</sup>; otherwise state length, size, distance.</td><td>Q1(c), all current papers</td></tr>
+      <tr><td>6. Give palindrome and balanced-word parameters.</td><td>|P<sub>2k,q</sub>|=q<sup>k</sup>, d<sub>min</sub>=2; |P<sub>2k+1,q</sub>|=q<sup>k+1</sup>, d<sub>min</sub>=1. Binary length-8 weight-4 words: size C(8,4)=70, distance 2; changes must balance 0→1 and 1→0.</td><td>2022/23, 2023/24 Q1(c)</td></tr>
+      <tr><td>7. Repetition code: parameters, MDS, perfectness.</td><td>The q-ary length-n repetition code is [n,1,n], MDS because 1=n−n+1. It is perfect only if |C| times its radius-⌊(n−1)/2⌋ sphere size is q<sup>n</sup>. Ternary length 7: radius-3 sphere is 379 and 3·379 ≠ 3<sup>7</sup>, so not perfect.</td><td>2024/25 Q1(c)</td></tr>
+    </tbody></table>
+
+    <h2 id="fields">Priority 2. Finite Fields And Polynomial Arithmetic</h2>
+    <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+      <tr><td>8. Test degree-2/3 irreducibility over F<sub>q</sub>.</td><td>A degree-2 or degree-3 polynomial over a field is irreducible iff it has no root in that field. Evaluate every a ∈ F<sub>q</sub>; a root yields x−a. Divide and continue if factorisation is requested.</td><td>Q2(a), 2022/23, 2024/25</td></tr>
+      <tr><td>9. Prove a degree-5 polynomial over F<sub>2</sub> irreducible.</td><td>Rule out roots 0 and 1, then rule out the only irreducible quadratic x<sup>2</sup>+x+1 by division. Any nontrivial degree-5 factorisation has a factor of degree 1 or 2, so this proves irreducibility.</td><td>2025/26 Q2(b)</td></tr>
+      <tr><td>10. Factor a polynomial over a finite field.</td><td>Test all field elements for roots and divide out each linear factor. Factor the remainder by degree; a quadratic/cubic with no root is irreducible. Retain multiplicities and justify every final factor.</td><td>Q2(a), 2022/23–2023/24</td></tr>
+      <tr><td>11. Construct F<sub>q</sub>[x]/(p(x)).</td><td>If p is irreducible of degree m, the quotient is a field of q<sup>m</sup> elements. Representatives have degree &lt; m. Add in F<sub>q</sub>; multiply and reduce using p(x)=0.</td><td>Q2(b), all current papers</td></tr>
+      <tr><td>12. Multiply residue classes in a quotient field.</td><td>Multiply representatives, then replace high powers using p(x)=0 until degree &lt; deg p. Reduce coefficients in F<sub>q</sub> throughout and state the final reduced representative.</td><td>2022/23 Q2(b)(ii)</td></tr>
+      <tr><td>13. Find an inverse modulo p(x).</td><td>Use extended Euclid to find u,v with u(x)a(x)+v(x)p(x)=1. Modulo p, [u][a]=[1], so [u]=[a]<sup>−1</sup>. Reduce u to degree &lt; deg p and check the product if practical.</td><td>Q2(b)/(c), all current papers</td></tr>
+      <tr><td>14. Define order and primitive element.</td><td>ord(a) is least positive m with a<sup>m</sup>=1. Since |F<sup>×</sup>|=|F|−1, a is primitive iff ord(a)=|F|−1. Test divisors of |F|−1 to find an order.</td><td>2023/24, 2024/25 Q2</td></tr>
+      <tr><td>15. Prove a primitive inverse is primitive.</td><td>(a<sup>−1</sup>)<sup>n</sup>=(a<sup>n</sup>)<sup>−1</sup>, so (a<sup>−1</sup>)<sup>n</sup>=1 iff a<sup>n</sup>=1. Thus a and a<sup>−1</sup> have the same order. If a has order |F|−1, so does its inverse.</td><td>2024/25 Q2(c)</td></tr>
+      <tr><td>16. Restrict scalars F<sub>4</sub>→F<sub>2</sub>.</td><td>If F<sub>4</sub>=F<sub>2</sub>(a), {1,a} is an F<sub>2</sub>-basis. An F<sub>4</sub>-basis {e<sub>1</sub>,…,e<sub>n</sub>} becomes F<sub>2</sub>-basis {e<sub>1</sub>,…,e<sub>n</sub>,ae<sub>1</sub>,…,ae<sub>n</sub>}. Expand coefficients as u+va for spanning and independence.</td><td>2024/25 Q1(d)</td></tr>
+      <tr><td>17. Prove (a+b)<sup>p</sup>=a<sup>p</sup>+b<sup>p</sup> in characteristic p.</td><td>Expand by the binomial theorem. For 0&lt;j&lt;p, the prime p divides C(p,j), so intermediate terms vanish in characteristic p. The endpoints remain.</td><td>2025/26 Q2(d)</td></tr>
+    </tbody></table>
+
+    <h2 id="linear">Priority 3. Linear Codes, Decoding, And Hamming Codes</h2>
+    <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+      <tr><td>18. Put G in standard form.</td><td>Use row operations over the stated field until G=[I<sub>k</sub>|A]. Row operations change the basis of the row space, not the code. Reduce arithmetic in F<sub>q</sub>.</td><td>2024/25–2025/26 Q3(a)</td></tr>
+      <tr><td>19. Construct H and test membership.</td><td>From G=[I<sub>k</sub>|A], take H=[−A<sup>T</sup>|I<sub>n−k</sub>]. Then GH<sup>T</sup>=0, and row vector v is in C iff vH<sup>T</sup>=0. H is (n−k)×n.</td><td>Q3(b), all current papers</td></tr>
+      <tr><td>20. Find d<sub>min</sub> from codeword weights.</td><td>List all nonzero linear combinations of generator rows, calculate their weights, and take the least. For a linear code, d<sub>min</sub> is the minimum nonzero codeword weight. Exhibit a word attaining it.</td><td>2022/23–2023/24 Q3(a)</td></tr>
+      <tr><td>21. Find d<sub>min</sub> from H columns.</td><td>d<sub>min</sub> is the smallest number of linearly dependent columns of H. No zero column gives d≥2; no proportional pair gives d≥3. Exhibit a dependent set for equality. Include all nonzero scalar multiples over F<sub>q</sub>.</td><td>Q3(c)/Q4(a), all current papers</td></tr>
+      <tr><td>22. Prove self-duality.</td><td>Show C⊆C<sup>⊥</sup>, e.g. GG<sup>T</sup>=0. Then dim C<sup>⊥</sup>=n−dim C. If dim C=n/2, the included subspaces have equal dimension, so C=C<sup>⊥</sup>.</td><td>2024/25–2025/26 Q3(d)</td></tr>
+      <tr><td>23. Give syndrome decoding.</td><td>For received r, calculate s=rH<sup>T</sup>. Choose minimum-weight coset leader e with eH<sup>T</sup>=s; decode to r−e. In nonbinary codes, syndrome ah<sub>j</sub> identifies error ae<sub>j</sub>, including position and magnitude.</td><td>Q3(b)/(e), all current papers</td></tr>
+      <tr><td>24. Standard array versus nearest neighbour.</td><td>In a standard array, locate r and decode to its top-row column word. Nearest-neighbour decoding gives codeword(s) at minimum Hamming distance. They agree when the chosen leader has minimum weight; state a tie if present.</td><td>2022/23–2023/24 Q3(a)(iii)</td></tr>
+      <tr><td>25. Define Ham(r,q) and give parameters.</td><td>Let n=(q<sup>r</sup>−1)/(q−1), and H have one representative from each 1-dimensional subspace of F<sub>q</sub><sup>r</sup> as columns. Ham(r,q)={c∈F<sub>q</sub><sup>n</sup>:cH<sup>T</sup>=0}; its parameters are [n,n−r,3].</td><td>Q4, all current papers</td></tr>
+      <tr><td>26. Construct a Hamming parity-check matrix.</td><td>Choose one nonzero vector from every 1-dimensional subspace of F<sub>q</sub><sup>r</sup>; never include scalar multiples twice. There are (q<sup>r</sup>−1)/(q−1) columns. No two are proportional, supporting d<sub>min</sub>=3.</td><td>Q4(b), all current papers</td></tr>
+      <tr><td>27. Correct one Hamming-code error.</td><td>If r=c+ae<sub>j</sub>, then rH<sup>T</sup>=ah<sub>j</sub>. Find the unique proportional column and scalar a, then correct to r−ae<sub>j</sub>. State corrected word, location, and magnitude if asked.</td><td>Q4(c), all current papers</td></tr>
+      <tr><td>28. Prove Ham(r,q) is perfect.</td><td>d=3 makes radius-1 balls disjoint. Each has 1+n(q−1)=q<sup>r</sup> words; the code has q<sup>n−r</sup> words. The total q<sup>n−r</sup>q<sup>r</sup>=q<sup>n</sup> is the whole ambient space, so every word lies in exactly one ball.</td><td>2024/25–2025/26 Q4(e)</td></tr>
+    </tbody></table>
+
+    <h2 id="cyclic">Priority 4. Cyclic Codes And Enumerators</h2>
+    <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+      <tr><td>29. Construct G from a cyclic generator polynomial.</td><td>In F<sub>q</sub>[x]/(x<sup>n</sup>−1), let monic g divide x<sup>n</sup>−1. If deg g=n−k, coefficient vectors of g,xg,…,x<sup>k−1</sup>g form the k×n generator matrix.</td><td>Q5, all current papers</td></tr>
+      <tr><td>30. Construct cyclic h(x) and H.</td><td>h(x)=(x<sup>n</sup>−1)/g(x). The dual generator is h<sup>*</sup>(x)=h(0)<sup>−1</sup>x<sup>deg h</sup>h(x<sup>−1</sup>). Rows from h<sup>*</sup>,xh<sup>*</sup>,…,x<sup>n−k−1</sup>h<sup>*</sup> form H; verify GH<sup>T</sup>=0.</td><td>Q5, all current papers</td></tr>
+      <tr><td>31. Prove the odd-weight binary cyclic theorem.</td><td>Sum all n cyclic shifts of an odd-weight codeword u. The sum remains in C. Every coordinate contains every entry of u once, so equals wt(u)=1 mod 2. Thus the all-ones word is in C.</td><td>2024/25 Q5(b)</td></tr>
+      <tr><td>32. Define and compute a weight enumerator.</td><td><strong>W<sub>C</sub>(z)=Σ<sub>c∈C</sub>z<sup>wt(c)</sup>.</strong> List all codewords, calculate weights, and collect equal exponents. Constant term is 1 and W<sub>C</sub>(1)=|C| checks the count.</td><td>2022/23, 2023/24, 2025/26 Q5</td></tr>
+      <tr><td>33. State MacWilliams’ identity and find distance.</td><td>For binary C length n: <strong>W<sub>C<sup>⊥</sup></sub>(z)=|C|<sup>−1</sup>(1+z)<sup>n</sup>W<sub>C</sub>((1−z)/(1+z)).</strong> Apply it in the required direction. Minimum distance is the least positive exponent with nonzero coefficient.</td><td>2025/26 Q5(d)–(f)</td></tr>
+    </tbody></table>
+
+    <h2 id="legacy">Priority 5. Legacy Backup</h2>
+    <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+      <tr><td>34. Define Hamming distance and prove it is a metric.</td><td>d(x,y) counts unequal coordinates. It is nonnegative, zero exactly when x=y, and symmetric. Coordinatewise 1<sub>x≠z</sub>≤1<sub>x≠y</sub>+1<sub>y≠z</sub>; sum to obtain the triangle inequality.</td><td>2018/19 Q1(a)</td></tr>
+      <tr><td>35. State ISBN-10 and ISBN-13 checks.</td><td>ISBN-10: 10d<sub>1</sub>+9d<sub>2</sub>+…+d<sub>10</sub>≡0 (mod 11), with X=10. ISBN-13: alternating weights 1,3,…,1 yield sum ≡0 (mod 10). Substitute an unknown and solve.</td><td>2018/19, 2021/22 Q1(b)</td></tr>
+      <tr><td>36. What are units in F[x]?</td><td>Exactly F<sup>×</sup>, the nonzero constants. If fg=1, deg f+deg g=0, so both have degree 0; every nonzero constant has scalar inverse. In a Euclidean domain, a unit u has uv=1 for some v.</td><td>2018/19 Q2(c)</td></tr>
+    </tbody></table>
+  </article></main>
+</body>
+</html>

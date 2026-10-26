@@ -1,0 +1,550 @@
+{
+ "code": "CT4111",
+ "name": "Generative AI for Software Engineering",
+ "details": {
+  "code": "CT4111",
+  "name": "Generative AI for Software Engineering",
+  "assessment": "70% written / 30% CA",
+  "exam_pattern": "No local past papers are available. These questions follow the official learning outcomes; question wording, paper structure and marks are unknown.",
+  "predictability": "Not established",
+  "papers": []
+ },
+ "families": [
+  {
+   "id": "capabilities-limitations-and-failure-modes",
+   "rank": 1,
+   "title": "Capabilities, limitations and failure modes",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: explain capabilities, limitations and failure modes of Generative AI across the software development lifecycle.",
+   "answer": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer."
+  },
+  {
+   "id": "genai-across-the-software-development-lifecycle",
+   "rank": 2,
+   "title": "GenAI across the software development lifecycle",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: apply tools effectively and critically to requirements, architecture and design, implementation, testing, deployment and maintenance.",
+   "answer": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision."
+  },
+  {
+   "id": "quality-readability-testability-and-maintainability",
+   "rank": 3,
+   "title": "Quality, readability, testability and maintainability",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: design, implement and evolve systems with GenAI-assisted workflows while maintaining software quality.",
+   "answer": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases."
+  },
+  {
+   "id": "version-control-experimentation-and-review",
+   "rank": 4,
+   "title": "Version control, experimentation and review",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: use version control and collaborative development practices appropriately, including safe experimentation, rollback and review.",
+   "answer": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes."
+  },
+  {
+   "id": "evaluating-ai-assisted-workflows",
+   "rank": 5,
+   "title": "Evaluating AI-assisted workflows",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: evaluate workflows using suitable qualitative and quantitative criteria, while recognising uncertainty and bias.",
+   "answer": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show."
+  },
+  {
+   "id": "ethical-legal-security-and-professional-risks",
+   "rank": 6,
+   "title": "Ethical, legal, security and professional risks",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: identify and manage risks arising from GenAI use in software engineering practice.",
+   "answer": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk."
+  },
+  {
+   "id": "teamwork-communication-and-trade-offs",
+   "rank": 7,
+   "title": "Teamwork, communication and trade-offs",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Official outcome: work effectively in teams and communicate GenAI decisions, trade-offs and risks clearly.",
+   "answer": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point."
+  }
+ ],
+ "decks": [
+  {
+   "file": "revision_questions.html",
+   "cards": [
+    {
+     "group": "Capabilities, limitations and failure modes",
+     "front": "Why is fluent AI output not evidence of correctness?",
+     "back": "Fluency says nothing about fit to the actual system. Check claims against requirements, code, tests and trusted sources.",
+     "evidence": "Official outcome 1 and revision question bank"
+    },
+    {
+     "group": "Capabilities, limitations and failure modes",
+     "front": "How do hallucinated APIs differ from omitted edge cases?",
+     "back": "A hallucinated API invents a capability; an omitted edge case misses valid or failing behaviour. Verify the API in documentation and test boundaries.",
+     "evidence": "Official outcome 1 and revision question bank"
+    },
+    {
+     "group": "Capabilities, limitations and failure modes",
+     "front": "What should move an AI suggestion into an accepted engineering decision?",
+     "back": "Evidence from the real system, explicit criteria, tests and accountable human review.",
+     "evidence": "Official outcome 1 and revision question bank"
+    },
+    {
+     "group": "GenAI across the software development lifecycle",
+     "front": "What makes an AI drafted requirement testable?",
+     "back": "A clear stakeholder need, specific behaviour, constraints and an observable acceptance condition.",
+     "evidence": "Official outcome 2 and revision question bank"
+    },
+    {
+     "group": "GenAI across the software development lifecycle",
+     "front": "How should AI suggested architectures be compared?",
+     "back": "Compare against requirements, constraints and measurable quality attributes; verify claims and record trade-offs.",
+     "evidence": "Official outcome 2 and revision question bank"
+    },
+    {
+     "group": "GenAI across the software development lifecycle",
+     "front": "What must happen before an AI assisted change reaches deployment?",
+     "back": "Review the diff, verify requirements and tests, check security and compatibility, then use an accountable release gate.",
+     "evidence": "Official outcome 2 and revision question bank"
+    },
+    {
+     "group": "Quality, readability, testability and maintainability",
+     "front": "Why does high test coverage not prove generated code is correct?",
+     "back": "Coverage shows execution, not correct expected results or missing requirements. Check assertions, invalid inputs and boundary cases.",
+     "evidence": "Official outcome 3 and revision question bank"
+    },
+    {
+     "group": "Quality, readability, testability and maintainability",
+     "front": "What belongs in a quality gate for generated code?",
+     "back": "Focused unit and integration tests, static and security checks, readability review and a human explanation of the change.",
+     "evidence": "Official outcome 3 and revision question bank"
+    },
+    {
+     "group": "Quality, readability, testability and maintainability",
+     "front": "When should correct AI generated code still be rewritten?",
+     "back": "When its coupling, error handling or unfamiliar abstractions make it hard to maintain or inconsistent with the codebase.",
+     "evidence": "Official outcome 3 and revision question bank"
+    },
+    {
+     "group": "Version control, experimentation and review",
+     "front": "Why isolate AI generated implementation experiments?",
+     "back": "Isolation lets reviewers compare alternatives, reproduce results and discard a poor option without contaminating the main change.",
+     "evidence": "Official outcome 4 and revision question bank"
+    },
+    {
+     "group": "Version control, experimentation and review",
+     "front": "What does a complete rollback plan cover?",
+     "back": "Application version, database or data changes, configuration and verification that the previous behaviour is restored.",
+     "evidence": "Official outcome 4 and revision question bank"
+    },
+    {
+     "group": "Version control, experimentation and review",
+     "front": "What makes an AI assisted change reviewable?",
+     "back": "A bounded task, clear diff, linked requirement, evidence from tests and security checks, and a human rationale.",
+     "evidence": "Official outcome 4 and revision question bank"
+    },
+    {
+     "group": "Evaluating AI-assisted workflows",
+     "front": "Why is ticket speed alone a weak measure of AI assistance?",
+     "back": "It misses defects, review time, task difficulty and later maintenance cost.",
+     "evidence": "Official outcome 5 and revision question bank"
+    },
+    {
+     "group": "Evaluating AI-assisted workflows",
+     "front": "How can selection bias flatter an AI pilot?",
+     "back": "If easier tasks or more experienced developers enter the AI group, their better results may not be caused by the tool.",
+     "evidence": "Official outcome 5 and revision question bank"
+    },
+    {
+     "group": "Evaluating AI-assisted workflows",
+     "front": "Why is test compilation a weak test quality measure?",
+     "back": "Compiled tests may assert the wrong result or miss failures; inspect the oracle, coverage of decisions and fault detection.",
+     "evidence": "Official outcome 5 and revision question bank"
+    },
+    {
+     "group": "Ethical, legal, security and professional risks",
+     "front": "What is wrong with pasting a confidential log into a public AI prompt?",
+     "back": "It can expose customer data or secrets. Minimise and redact context and use an approved tool and access path.",
+     "evidence": "Official outcome 6 and revision question bank"
+    },
+    {
+     "group": "Ethical, legal, security and professional risks",
+     "front": "What must be checked before using an AI suggested package?",
+     "back": "Provenance, licence, approval, known vulnerabilities, maintenance and fit with the project.",
+     "evidence": "Official outcome 6 and revision question bank"
+    },
+    {
+     "group": "Ethical, legal, security and professional risks",
+     "front": "Who remains accountable for AI assisted engineering work?",
+     "back": "Named people who review, approve and can explain the decision, its evidence and its risks.",
+     "evidence": "Official outcome 6 and revision question bank"
+    },
+    {
+     "group": "Teamwork, communication and trade-offs",
+     "front": "What belongs in an architecture decision record?",
+     "back": "Context, alternatives, criteria, chosen option, evidence, trade-offs, consequences and review date.",
+     "evidence": "Official outcome 7 and revision question bank"
+    },
+    {
+     "group": "Teamwork, communication and trade-offs",
+     "front": "How should a team resolve conflicting AI suggestions?",
+     "back": "Compare both against requirements, architecture constraints and evidence, then record the human decision.",
+     "evidence": "Official outcome 7 and revision question bank"
+    },
+    {
+     "group": "Teamwork, communication and trade-offs",
+     "front": "What should a team agreement for GenAI cover?",
+     "back": "Permitted tools, data boundaries, review and testing expectations, documentation and escalation of uncertain output.",
+     "evidence": "Official outcome 7 and revision question bank"
+    },
+    {
+     "group": "GenAI across the software development lifecycle",
+     "front": "How should a team assess an AI-generated requirement from a prompt template?",
+     "back": "Check correctness against the real stakeholder need, completeness of constraints and acceptance conditions, and usefulness for planning. Record the prompt and output, then write an independent critique.",
+     "source": "Requirements engineering lab in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56292/files/3849656"
+    },
+    {
+     "group": "Teamwork, communication and trade-offs",
+     "front": "What artefacts make an AI-assisted architecture choice reviewable?",
+     "back": "Show alternatives, a C4 container view for each, a score matrix against the stated quality criteria, an ADR for the choice, and your own critique of the decision.",
+     "source": "Architecture trade-offs lab in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56292/files/3870602"
+    },
+    {
+     "group": "Version control, experimentation and review",
+     "front": "What evidence should accompany an agent-made one-fix pull request?",
+     "back": "Identify the changed file and PR, inspect the diff and tests, and retain the tool transcript so a reviewer can trace the proposed fix and the human decision.",
+     "source": "Lab 6 in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56292/files/3898609"
+    },
+    {
+     "group": "Quality, readability, testability and maintainability",
+     "front": "How do you improve AI-generated unit tests that merely compile?",
+     "back": "Review whether assertions check the right behaviour, find shallow tests and missing edge cases, then revise the prompt and rerun the tests. Judge test quality by fault detection, not generation volume.",
+     "source": "Week 7 lab in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56292/files/3923057"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "revision_questions.html",
+   "title": "Official outcome question bank",
+   "purpose": "Scenario questions based on the seven official outcomes",
+   "refresher": [],
+   "mistakes": [],
+   "practice": [
+    {
+     "title": "Capabilities, limitations and failure modes · Question 1",
+     "prompt": "For requirements elicitation, architecture design, implementation, testing and maintenance, give one useful task a generative AI tool can support. For each, name one reason the output must be checked by an engineer.",
+     "route": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Capabilities, limitations and failure modes · Question 2",
+     "prompt": "A team asks an LLM to explain a legacy payment module and propose a change. Analyse three distinct failure modes that could produce an unsafe or misleading recommendation, and explain how the team could detect each one.",
+     "route": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Capabilities, limitations and failure modes · Question 3",
+     "prompt": "“A fluent answer is evidence of a correct answer.” Critically evaluate this statement in the context of debugging a production incident. Distinguish plausibility, correctness, completeness and evidence.",
+     "route": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Capabilities, limitations and failure modes · Question 4",
+     "prompt": "Explain how hallucinated APIs, stale framework knowledge and omitted edge cases differ. For each failure mode, give a software-engineering example and a verification technique.",
+     "route": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Capabilities, limitations and failure modes · Question 5",
+     "prompt": "An AI assistant proposes a change that appears to solve the reported bug but silently weakens an existing access-control rule. Explain why this type of failure can be hard to detect and how a team can reduce its likelihood.",
+     "route": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Capabilities, limitations and failure modes · Question 6",
+     "prompt": "Compare using GenAI as a brainstorming partner with using it as an authority on a technical decision. What evidence should move a suggestion from “candidate idea” to “accepted engineering decision”?",
+     "route": "Name the lifecycle task and the proposed AI contribution. Check its claims against requirements, code, tests and trusted sources; identify a failure mode and the accountable engineer.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "GenAI across the software development lifecycle · Question 1",
+     "prompt": "A university needs a room-booking service. Write a sequence of prompts and human checks that would use GenAI to turn a short stakeholder request into testable functional and non-functional requirements.",
+     "route": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "GenAI across the software development lifecycle · Question 2",
+     "prompt": "Compare two ways of using GenAI to assist an architecture decision: asking for a complete solution in one prompt, or iteratively comparing alternatives against explicit quality attributes. Which is more defensible, and why?",
+     "route": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "GenAI across the software development lifecycle · Question 3",
+     "prompt": "Design an AI-assisted workflow for adding a new API endpoint, from issue description to deployment. Identify the artefacts, validation gates and accountable human roles at each stage.",
+     "route": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "GenAI across the software development lifecycle · Question 4",
+     "prompt": "Show how GenAI could help create a test strategy for a password-reset feature. Separate what the tool may draft from what must be validated against the actual system, threat model and acceptance criteria.",
+     "route": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "GenAI across the software development lifecycle · Question 5",
+     "prompt": "A deployment has failed after a configuration change. Explain how to use GenAI responsibly during diagnosis without allowing it to make unsupported production changes or exposing sensitive operational data.",
+     "route": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "GenAI across the software development lifecycle · Question 6",
+     "prompt": "For a maintenance task involving a deprecated library, describe how you would use GenAI to explore migration options while retaining ownership of dependency selection, compatibility testing and rollout planning.",
+     "route": "State the lifecycle stage, inputs and constraints. Use AI to draft options, then validate each artefact with stakeholders, tests, quality attributes and a named human decision.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Quality, readability, testability and maintainability · Question 1",
+     "prompt": "An AI tool generates a 250-line method that passes its initial tests. What questions would you ask before accepting it into the codebase? Cover readability, correctness, coupling, error handling and testability.",
+     "route": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Quality, readability, testability and maintainability · Question 2",
+     "prompt": "Given a working but duplicated AI-generated implementation of validation rules in three services, propose a refactoring plan. Explain how you would use automated tests to show that the refactor has preserved behaviour.",
+     "route": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Quality, readability, testability and maintainability · Question 3",
+     "prompt": "Evaluate the claim: “If GenAI makes implementation faster, maintainability is automatically improved.” Use a concrete example involving an unfamiliar dependency, generated code and future change requests.",
+     "route": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Quality, readability, testability and maintainability · Question 4",
+     "prompt": "Define a quality gate for AI-generated code before merge. Include static analysis, unit and integration testing, security checks, documentation and human review; explain the value of each.",
+     "route": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Quality, readability, testability and maintainability · Question 5",
+     "prompt": "An AI-generated feature has 95% branch coverage but users report failures for invalid input. Explain why coverage alone is insufficient and propose tests that would reveal the missing behaviour.",
+     "route": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Quality, readability, testability and maintainability · Question 6",
+     "prompt": "How would you decide whether to accept, rewrite or reject an AI-generated implementation that is correct but inconsistent with the project’s existing abstractions and naming conventions?",
+     "route": "Define observable behaviour and quality criteria. Review generated code for correctness, readability, coupling, errors and security; run focused tests including invalid and boundary cases.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Version control, experimentation and review · Question 1",
+     "prompt": "Describe a safe Git workflow for trying an AI-suggested database migration that may be incorrect. Include branching, review, test environments, rollback and documentation.",
+     "route": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Version control, experimentation and review · Question 2",
+     "prompt": "A developer pastes an AI-generated patch directly onto the main branch because it fixes a failing build. Analyse the risks and specify a better pull-request workflow.",
+     "route": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Version control, experimentation and review · Question 3",
+     "prompt": "Draft a concise code-review checklist for AI-assisted changes. Your checklist must make reviewers assess provenance, scope, tests, security, readability and the change’s compatibility with existing design decisions.",
+     "route": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Version control, experimentation and review · Question 4",
+     "prompt": "A team wants to compare three AI-generated implementation approaches. Design an experiment that keeps each option isolated, reproducible and easy to discard if it fails.",
+     "route": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Version control, experimentation and review · Question 5",
+     "prompt": "Explain why a useful commit history matters especially when GenAI is used. What should a reviewer be able to learn from commits, pull-request discussion and linked issues?",
+     "route": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Version control, experimentation and review · Question 6",
+     "prompt": "A rollback restores the previous application version but leaves a changed database schema. Analyse why the rollback is incomplete and propose a safer release and recovery plan.",
+     "route": "Keep experiments isolated and changes reviewable. Link the requirement, inspect the diff, test in a safe environment, document the decision and plan a complete rollback, including schema changes.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Evaluating AI-assisted workflows · Question 1",
+     "prompt": "Choose four quantitative and three qualitative criteria for evaluating whether an AI code-completion tool improves a team’s testing workflow. Explain why “lines of code produced” is an inadequate success measure on its own.",
+     "route": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Evaluating AI-assisted workflows · Question 2",
+     "prompt": "A pilot reports that developers using GenAI complete tickets 25% faster. What further evidence is needed before concluding that the workflow is better? Consider defects, review effort, task difficulty, developer experience and maintainability.",
+     "route": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Evaluating AI-assisted workflows · Question 3",
+     "prompt": "Design a small, fair comparison between an AI-assisted and non-AI-assisted bug-fix workflow. State the research question, controls, measures, sources of uncertainty and limitations of the result.",
+     "route": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Evaluating AI-assisted workflows · Question 4",
+     "prompt": "Explain how selection bias could make an AI-assistance pilot look more successful than it really is. Give two design changes that would make the evaluation more credible.",
+     "route": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Evaluating AI-assisted workflows · Question 5",
+     "prompt": "A team evaluates AI-generated tests by counting how many tests compile. Identify stronger measures of test quality and explain what each reveals that compilation does not.",
+     "route": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Evaluating AI-assisted workflows · Question 6",
+     "prompt": "Interpret this result: the AI-assisted group resolves more tasks, but its changes receive more review comments and more post-release defects. What conclusions are justified, what remains uncertain, and what should be tested next?",
+     "route": "Define a fair comparison and a baseline. Measure task time, defects, review effort and maintainability as well as developer experience; explain bias, uncertainty and what the result cannot show.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Ethical, legal, security and professional risks · Question 1",
+     "prompt": "A developer includes a confidential customer error log in a public GenAI prompt to obtain debugging help. Identify the ethical, legal, security and professional concerns, then propose a safer route to assistance.",
+     "route": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Ethical, legal, security and professional risks · Question 2",
+     "prompt": "An AI tool suggests code copied from an unknown source and recommends adding a package that has not been approved by the organisation. Explain the intellectual-property, supply-chain and security checks required before reuse.",
+     "route": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Ethical, legal, security and professional risks · Question 3",
+     "prompt": "Produce a risk register for a team adopting GenAI for customer-facing software. Include at least one risk each for privacy, bias, insecure code, over-reliance and accountability; for each, state a mitigation and residual risk.",
+     "route": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Ethical, legal, security and professional risks · Question 4",
+     "prompt": "A team uses GenAI to rank job applicants based on free-text CVs. Identify potential bias and explain what technical, process and governance controls are needed before such a system could influence a decision.",
+     "route": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Ethical, legal, security and professional risks · Question 5",
+     "prompt": "Distinguish responsibility, accountability and auditability in an AI-assisted engineering workflow. Why does recording prompts, inputs, outputs and human approvals matter?",
+     "route": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Ethical, legal, security and professional risks · Question 6",
+     "prompt": "An AI coding assistant proposes disabling certificate validation to resolve a development-environment error. Explain the security consequences and describe a professional response that enables legitimate testing without normalising an unsafe workaround.",
+     "route": "Identify affected people and data, then the privacy, legal, security and professional risks. Specify permitted tools, minimised inputs, human review, audit evidence and residual risk.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Teamwork, communication and trade-offs · Question 1",
+     "prompt": "Your team disagrees about whether to use an LLM to generate acceptance tests. Prepare a short decision record that states the context, alternatives, decision criteria, chosen approach, safeguards and review date.",
+     "route": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Teamwork, communication and trade-offs · Question 2",
+     "prompt": "A product manager wants to automate release-note generation with GenAI; a security engineer objects. Explain how the team can reach and communicate a reasoned decision rather than treating the issue as simply “for” or “against” AI.",
+     "route": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Teamwork, communication and trade-offs · Question 3",
+     "prompt": "During a project retrospective, the team finds that GenAI accelerated initial implementation but increased code-review time. Explain how you would present this trade-off to stakeholders and recommend the next workflow experiment.",
+     "route": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Teamwork, communication and trade-offs · Question 4",
+     "prompt": "Two developers obtain incompatible AI suggestions for the same feature. Describe how the team should compare them using requirements, architecture constraints, evidence and review rather than personal preference.",
+     "route": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Teamwork, communication and trade-offs · Question 5",
+     "prompt": "Write the outline of a team agreement for GenAI use. Cover permitted tools, data-handling boundaries, review expectations, documentation and escalation of uncertain or risky outputs.",
+     "route": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point.",
+     "answer": "",
+     "marks": 0
+    },
+    {
+     "title": "Teamwork, communication and trade-offs · Question 6",
+     "prompt": "A junior developer relies heavily on GenAI while a senior developer rejects it entirely. Explain how a team lead can create a learning-focused process that maintains standards and gives both developers constructive responsibilities.",
+     "route": "Record context, alternatives, decision criteria, evidence, trade-offs and safeguards. Explain the decision to the team, assign accountability and set a review point.",
+     "answer": "",
+     "marks": 0
+    }
+   ]
+  }
+ ]
+}

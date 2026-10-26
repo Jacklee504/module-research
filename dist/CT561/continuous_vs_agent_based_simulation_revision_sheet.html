@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Continuous and Agent-Based Simulation</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="vensim_validation_policy_analysis_revision_sheet.html">Previous topic: Vensim and validation</a><a href="supporting_simulation_concepts_revision_sheet.html">Next topic: Supporting concepts</a></nav><p class="eyebrow">CT561 Supporting Topic Guide</p><h1>Continuous/System-Dynamics versus Agent-Based Simulation</h1><p>A learning-outcome topic, but not a repeated direct question in the eight local papers. Know it for short conceptual questions and for justifying a modelling choice, after the high-frequency paper families.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Priority from the paper audit</h2>
+<p>No direct continuous-versus-agent-based question was found in the eight local papers. Do not give it the same study time as integration, feedback, stock management or SIR. It remains useful because the module learning outcomes explicitly include differences between continuous and agent-based simulation.</p>
+
+<h2>Answer structure for a comparison question</h2>
+<table><thead><tr><th>Criterion</th><th>Continuous/system dynamics</th><th>Agent-based model</th></tr></thead><tbody>
+<tr><td>Representation</td><td>Aggregate stocks, flows and feedbacks.</td><td>Individual agents, states, rules and interactions.</td></tr>
+<tr><td>Best when</td><td>Aggregate behaviour, accumulation, capacity, policy feedback and long-run trends matter.</td><td>Heterogeneity, networks, location, individual decisions or local interaction matter.</td></tr>
+<tr><td>Assumptions</td><td>People/items can be represented by average rates and often homogeneous mixing.</td><td>Rules, contact network, behavioural variation and random seeds are specified.</td></tr>
+<tr><td>Strength</td><td>Clear feedback structure, fast policy experiments and easier calibration at aggregate level.</td><td>Emergent patterns from individual interaction and targeted interventions.</td></tr>
+<tr><td>Limitation</td><td>Can hide individual variation and network effects.</td><td>More data, assumptions, computation and repeated stochastic runs.</td></tr>
+</tbody></table>
+
+<h2>Use CT561 examples correctly</h2>
+<ul><li>A simple SIR model in the papers is continuous/system dynamics: S, I and R are aggregate stocks with rate equations.</li><li>An infection model with household contacts, age-specific mixing and individual vaccine uptake may need an agent-based or network model.</li><li>A workforce backlog or stock-management question is usually best answered using the system-dynamics structures required in the paper, not an ABM.</li></ul>
+
+<h2>Strong short answer</h2>
+<p>Choose the method based on the decision and the mechanism, not on which is more detailed. For a policy about total staff, backlog and delayed hiring, use stocks, flows and feedback. For a policy where individual route choices or household contact patterns determine outcomes, an agent-based model may be necessary. State the additional data, stochastic uncertainty and validation work an ABM requires.</p>
+
+<h2>Common errors</h2>
+<ul><li>"Many people" does not automatically mean an agent-based model.</li><li>More detail does not automatically mean more valid.</li><li>Do not present a hybrid model unless you can say which mechanism belongs in each component and how they exchange information.</li></ul>
+</article></main></body></html>

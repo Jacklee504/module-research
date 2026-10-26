@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Continuity and Homeomorphism</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Continuity and Homeomorphism</h1>
+<p>Prove structure is preserved by maps rather than visual resemblance.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Test continuity through preimages and rule in or out homeomorphisms using the cheapest valid invariant.<strong>Exam use:</strong> The 2025/26 Q3(d) groups three homeomorphism decisions into 9 marks: one point-removal argument, one compactness obstruction and one explicit positive construction.</p>
+<h2>Question plan</h2>
+<ol>
+<li>For continuity, start with an arbitrary open set in the codomain.</li>
+<li>For a homeomorphism, prove bijective, continuous, and continuous inverse—or invoke a justified theorem.</li>
+<li>For each negative comparison, select one preserved property that distinguishes the pair and state both sides of the contrast.</li>
+<li><strong>Question interpretation:</strong> “Show not homeomorphic” needs a contradiction from a topological invariant; “show homeomorphic” needs an actual map with bijectivity and continuity in both directions.</li>
+</ol>
+<h2>Definitions</h2>
+<p>f:X→Y is <strong>continuous</strong> iff f⁻¹(V) is open in X for every open V⊆Y. A <strong>homeomorphism</strong> is a bijective continuous map with continuous inverse; homeomorphic spaces have the same topological properties.<strong>Rapid recall:</strong> f is continuous iff f^{-1}(U) is open for every open U. A homeomorphism is a bijective continuous map with continuous inverse and preserves compactness, connectedness and separation properties.</p>
+<h2>Proof method</h2>
+<p>Calculate preimages, not images. For non-homeomorphism, assume h exists and transfer compactness, connectedness or a point-removal property to obtain a contradiction. A homeomorphism restricts to a homeomorphism after deleting corresponding points.<strong>Exam workflow:</strong> Name the invariant before using it, show the spaces differ on it, and for a positive map verify bijection, continuity and inverse continuity separately.</p>
+<h2>Worked simple example</h2>
+<p>The map f:R→R, f(x)=2x, is a homeomorphism: it is bijective and f⁻¹((a,b))=(a/2,b/2); its inverse y↦y/2 is continuous by the same argument.</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>The three 2025/26 comparisons use different fastest routes. S<sup>1</sup> is not homeomorphic to [0,1]: if h existed, delete h<sup>-1</sup>(1/2); the punctured circle is connected but [0,1]\{1/2} is disconnected. Standard R is not homeomorphic to [0,1] because the interval is compact and R is not. Finally, x↦e<sup>x</sup> is a homeomorphism R→(0,∞), with continuous inverse ln.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Why does compactness rule out a homeomorphism R→[0,1]? <strong>Check:</strong> compactness is preserved, [0,1] is compact and R is not.</p>
+<p>
+<strong>2. Exam style:</strong> Show [0,1] is not homeomorphic to S¹. <strong>Check:</strong> remove an interior point of the interval and the corresponding point of the circle, then compare connectedness.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>To use point removal rigorously, suppose h:S<sup>1</sup>→[0,1] is a homeomorphism and let p=h<sup>-1</sup>(1/2). The restriction h|<sub>S¹\{p}</sub> is a homeomorphism onto [0,1]\{1/2}. But S<sup>1</sup>\{p} is homeomorphic to an open interval and is connected, whereas [0,1]\{1/2} is separated by [0,1/2) and (1/2,1]. Contradiction.</p>
+<h2>Practice question - three homeomorphism decisions [9 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q3(d). <strong>Task.</strong> (a) Show S<sup>1</sup> and [0,1] are not homeomorphic. (b) Show R and [0,1] are not homeomorphic. (c) Show R and (0,∞) are homeomorphic. [9 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> use point-removal connectedness for (a), compactness for (b), and the exponential/logarithm pair for (c).</p><p><strong>Worked answer:</strong> For (a), suppose h:S<sup>1</sup>→[0,1] were a homeomorphism and put p=h<sup>-1</sup>(1/2). Then h restricts to a homeomorphism S<sup>1</sup>\{p}→[0,1]\{1/2}, impossible because the first space is connected and the second is disconnected. For (b), [0,1] is compact while R is not, and homeomorphisms preserve compactness. For (c), f:R→(0,∞), f(x)=e<sup>x</sup>, is continuous and bijective; its inverse ln:(0,∞)→R is continuous. Therefore f is a homeomorphism.</p><p><strong>Topic-specific trap:</strong> connectedness alone does not distinguish S<sup>1</sup> from [0,1]; the distinguishing invariant is connectedness after deleting corresponding points.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Testing images of opens instead of preimages.</li>
+<li>Calling a continuous bijection a homeomorphism without an inverse argument.</li>
+<li>Using an invariant that is not actually topological.</li>
+<li><strong>Recovery rule:</strong> A continuous bijection need not be a homeomorphism; verify inverse continuity or cite a theorem that supplies it.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the preimage definition exactly.</li>
+<li>I can prove a simple affine homeomorphism.</li>
+<li>I can use connectedness to separate non-homeomorphic spaces.</li>
+<li>I can choose between compactness and point-removal arguments efficiently.</li>
+<li><strong>Final 60-second audit:</strong> Domain/codomain topologies, arbitrary-open-set preimage, bijection and inverse-continuity evidence are separated.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> homeomorphism comparisons occur throughout the newest three-paper format. The 2025/26 Q3(d) confirms the exact family S¹ versus [0,1], R versus [0,1], and R versus (0,∞), with 9 marks allocated to the three proofs. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

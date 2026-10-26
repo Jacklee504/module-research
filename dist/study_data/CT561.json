@@ -1,0 +1,597 @@
+{
+ "code": "CT561",
+ "name": "Systems Modelling and Simulation",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 1",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "High",
+  "exam_pattern": "High. CT561 is predictable at both topic and question-type level. The scenario changes, but the required moves stay very similar: draw a stock-flow model, identify feedback, do simple integration, explain a system-dynamics structure, or extend an SIR/public-health model.",
+  "title": "CT561 - Systems Modelling and Simulation",
+  "papers": [
+   "2016_2017.pdf",
+   "2017_2018.pdf",
+   "2018_2019.pdf",
+   "2019_2020.pdf",
+   "2021_2022.pdf",
+   "CT561 Semester_01_2022_23.pdf (Canvas)",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "continuous_vs_agent_based_simulation_revision_sheet.html",
+   "feedback_loops_revision_sheet.html",
+   "numerical_integration_revision_sheet.html",
+   "sir_public_health_models_revision_sheet.html",
+   "stock_flow_modelling_revision_sheet.html",
+   "supporting_simulation_concepts_revision_sheet.html",
+   "vensim_validation_policy_analysis_revision_sheet.html",
+   "workforce_stock_management_revision_sheet.html"
+  ],
+  "exam_block": [
+   "Most reviewed papers ask 3 questions out of 4.",
+   "All questions are equally weighted.",
+   "2024/25 and 2025/26 keep the same broad structure.",
+   "The paper consistently rewards knowing reusable model patterns rather than memorising one-off facts.",
+   "Past papers are useful because the starred lecturer has stayed stable across the whole reviewed archive."
+  ],
+  "drill": [
+   "Stock-and-flow modelling is the core repeat area: stocks, inflows, outflows, auxiliaries, equations and translating text scenarios into models.",
+   "Feedback loops recur heavily: link polarity, loop polarity, balancing/reinforcing loops, workload pressure, correction loops and side effects.",
+   "Graphical/Euler integration is high-value: net-flow calculation, stock graphs, DT choice, integration error and why smaller DT improves approximation.",
+   "SIR/public-health modelling is one of the safest targets: infection/recovery flows, force of infection, R0, herd immunity and extensions such as vaccination or quarantine.",
+   "Stock management and workforce models recur: anchor/adjustment structures, recruitment, workforce pipelines, aging chains, target stock and adjustment time.",
+   "Supporting marks often come from Vensim terminology, validation, policy sensitivity, equilibrium, Little's Law, delays and smoothing."
+  ],
+  "paper_format": "ask 3 questions out of 4",
+  "exam_shape": "choice",
+  "code": "CT561",
+  "name": "Systems Modelling and Simulation"
+ },
+ "families": [
+  {
+   "id": "graphical-integration-euler-method-and-error",
+   "rank": 1,
+   "title": "Graphical Integration, Euler Method and Error",
+   "frequency": "",
+   "appearances": [
+    "2022/23 Q4(a) [12]: constant outflow 50, initial stock 150; draw stock-flow and net flow, then graphically integrate from 0 to 20, explaining behaviour when inflow equals outflow at 2.5, 10 and 17.5.",
+    "2022/23 Q4(b) [8]: calculate stock by Euler with DT=5 and explain how to select an effective time step.",
+    "2022/23 Q4(c) [5]: describe Euler assumptions and calculate integration error for dS/dt=4t over 5 time units with DT=1.",
+    "2023/24 Q4(a) [12]: constant outflow 50; regular inflow 100 to 0 over five time units. Draw stock-flow including net flow, calculate net flow, and graphically integrate the stock with behaviour modes.",
+    "2023/24 Q4(b) [5]: describe Euler and assumptions; for linear net flow, state when it overestimates.",
+    "2023/24 Q4(c) [8]: calculate stock using Euler with DT=5 .",
+    "2024/25 Q4(a) [12]: two constant inflows, 30 and 20 units/minute, against a sawtooth outflow. Draw, calculate net flow, graphical integration and behaviour modes.",
+    "2024/25 Q4(b) [5]: state when Euler underestimates and support it over 0-5.",
+    "2024/25 Q4(c) [8]: Euler with DT=10 .",
+    "2025/26 Q1(a) [12]: variable inflow and constant 50 units/day outflow; stock starts at 100 and may go negative.",
+    "2025/26 Q1(b) [5]: state when Euler overestimates and support it over 0-2.5 with DT=0.5 .",
+    "2025/26 Q1(c) [8]: Euler with DT=5 ."
+   ],
+   "marks": 100,
+   "question": "Given inflow/outflow graph(s), draw the stock-flow model including net flow; calculate net flow; integrate it graphically to plot the stock and explain each behaviour mode. Then describe forward Euler, its assumptions and error direction, and calculate the Euler stock at the stated DT.",
+   "answer": "Complete answer must contain: Net Flow = Inflow - Outflow ; Stock = INTEG(Net Flow, Initial Stock) ; a stock rectangle, material flow pipes and an auxiliary net-flow variable. For linear sections use trapezoid area ((NF_start + NF_end)/2) x elapsed time . Plot stock at endpoints, zero crossings and slope changes. State: stock rises/falls by the sign of net flow, reaches a turning point where net flow is zero, and changes curvature where net flow changes direction. Euler method: S(t+DT)=S(t)+NF(t) x DT . It treats net flow as constant over DT, therefore stock change as linear, and needs DT small enough for the approximation. Forward Euler uses the left endpoint: it overestimates a falling linear net flow and underestimates a rising linear net flow. Show the supplied support calculation as a sum of start-of-step rectangles, then compare it with the exact triangular/trapezoidal area."
+  },
+  {
+   "id": "workload-backlog-model-feedback-polarity-and-policy-analysis",
+   "rank": 2,
+   "title": "Workload Backlog Model, Feedback Polarity and Policy Analysis",
+   "frequency": "",
+   "appearances": [
+    "2023/24 Q1(a) [8]: infer reinforcing versus balancing one-stock structures from an accelerating-growth graph and a goal-seeking curve.",
+    "2023/24 Q1(b,c) [10,7]: order-fulfilment backlog, work pressure, time per task, workweek and fatigue; show polarities and identify the workweek side-effect loop.",
+    "2024/25 Q1(a) [5]: define feedback and its two types; explain why feedback structures improve stock-flow models.",
+    "2024/25 Q1(b,c) [12,8]: Assignment Backlog with Allocated, Rework and Completed; name three negative policy loops and two positive side-effect loops, tracing each from increasing backlog.",
+    "2025/26 Q3(a) [6]: define link polarity, loop polarity and feedback from the environmental-quality example, then discuss generated behaviour.",
+    "2025/26 Q3(b,c) [12,7]: Claims Backlog with New Claims, Reworked Claims and Claims Completed; identify three policy loops and three side-effect loops and recommend a response."
+   ],
+   "marks": 75,
+   "question": "Construct a signed stock-flow model of a backlog under work pressure. Identify intended balancing policies and reinforcing side-effects; prove each loop polarity by tracing an increase through the full closed loop; then discuss the best policy response.",
+   "answer": "Construction: first write the stock equation, for example Backlog = INTEG(New Work + Rework - Completed, Initial Backlog) . Use pipes for named inflows/outflows. Add Work Pressure, Time per Task/Claim, Workweek, Temporary Staff, Fatigue and quality/rework only as auxiliaries and signed information links. Polarity proof: a positive link means variables move in the same direction; a negative link means opposite directions, all else equal. A loop with an odd number of negative links is balancing; an even number is reinforcing. Still write the verbal increase-trace: a rising backlog raises pressure, a policy raises completion, and completion lowers backlog, so the final effect opposes the initial rise. Policy answer: distinguish immediate balancing capacity responses from delayed reinforcing side-effects. Shorter time per task can raise rework; longer workweek can raise fatigue and reduce completion; untrained temporary staff can reduce productivity. Recommend a policy only after naming its mechanism, delay, intended outcome and quality/capacity trade-off."
+  },
+  {
+   "id": "sir-public-health-calculations-proofs-and-extensions",
+   "rank": 3,
+   "title": "SIR/Public-Health Calculations, Proofs and Extensions",
+   "frequency": "",
+   "appearances": [
+    "2022/23 Q3(a) [8]: define force of infection λ and R₀, then calculate λ for 100,000 people, 2% infectious, R₀=12 and D=7 days.",
+    "2022/23 Q3(b) [12]: extend SIR to mild, moderate and severe infected stocks with 50% mild infectiousness, antiviral transfers, first-order hospital delays, equations, units and feedbacks.",
+    "2022/23 Q3(c) [5]: explain how the antiviral transfer equation changes hospital admissions between scenarios.",
+    "2023/24 Q3(a) [10]: explain infection and recovery equations and derive the equilibrium condition c i d = 1 , assuming S=N .",
+    "2023/24 Q3(b) [15]: build a seven-stock SEI2H2R model with asymptomatic/symptomatic infection, hospital delay, different infectiousness and equations.",
+    "2024/25 Q3(a) [5]: calculate force of infection and herd-immunity threshold from N=10,000 , 2% infectious, R0=12 , D=7 .",
+    "2024/25 Q3(b) [15]: SIR plus quarantine fraction, control flag, equations, feedbacks and explanation of force of infection.",
+    "2024/25 Q3(c) [5]: modify the model for young and elderly cohorts.",
+    "2025/26 Q2(b) [12]: SIR countermeasures: 20% of infection flow to quarantine, vaccinated stock, goal-seeking vaccination fraction, attack rate, equations and feedbacks.",
+    "2025/26 Q2(c) [5]: bubble plot of final attack rate by quarantine fraction and final vaccination fraction."
+   ],
+   "marks": 92,
+   "question": "Build or extend a compartmental infection model with equations and feedbacks, calculate/derive the requested reproduction or threshold measure, and explain exactly how an intervention changes transmission, recovery or susceptibility.",
+   "answer": "Core construction: lambda = beta I/N , Infections = lambda S = beta I S/N , Recoveries = I/D ; then S=INTEG(-Infections,S0) , I=INTEG(Infections-Recoveries,I0) , R=INTEG(Recoveries,R0) . If paper notation is c , i , d , use beta=c i and R0=c i d . Explain units: lambda is per susceptible per time; infection/recovery flows are people per time. Required proof pattern: at the infection peak, set dI/dt=0 , so beta I S/N=I/D . For I>0 , divide by I and use R0=beta D , giving S/N=1/R0 . In a wholly susceptible equilibrium, set S=N to obtain c i d=1 ; an outbreak grows when the corresponding reproduction number exceeds 1. Extension distinction: 2024/25 moves a stated fraction of Infectious people to quarantine and uses a 0/1 control flag. 2025/26 explicitly splits the infection flow : To Q=QF lambda S , To I=(1-QF) lambda S , and quarantined people do not infect. Do not silently replace one construction with the other. Vaccination is a flow from S to Vaccinated; if its fraction is goal-seeking, give its adjustment equation. For cohorts, replicate S/I/R by group and specify within/between-group infection terms or a contact matrix."
+  },
+  {
+   "id": "stock-management-staff-recruitment-and-ageing-chains",
+   "rank": 4,
+   "title": "Stock Management, Staff Recruitment and Ageing Chains",
+   "frequency": "",
+   "appearances": [
+    "2022/23 Q2(b) [7]: show why employee target is unreachable with resignations under adjustment alone; add an information delay as the replacement-flow anchor.",
+    "2022/23 Q2(c) [10]: model Rookie and Experienced staff with hires, quits, promotions, progression delays and quit fractions.",
+    "2023/24 Q2(b) [5]: describe anchor and adjustment and identify the general structure used for each.",
+    "2023/24 Q2(c) [12]: consulting startup with Rookie and Experienced stocks, 12-month progression delay, attrition and target-driven recruitment.",
+    "2024/25 Q2(b) [7]: extend adjustment-to-goal to stock management, describe anchor/adjustment and show anchor delay.",
+    "2024/25 Q2(c) [12]: University staff recruitment: Staff starts at 500, Students 10,000, desired ratio falls 20 to 10 at time 10; predict staff and identify settling-speed auxiliary.",
+    "2025/26 Q4(a) [5]: add expected University enrolments to a supplied stock-flow model with equations.",
+    "2025/26 Q4(b) [5]: compare adjustment-to-goal and stock management, stating their key difference, anchor and adjustment.",
+    "2025/26 Q4(c,d) [10,5]: Trainee, Experienced and Senior pharmaceutical workforce, stage attrition/progression, then target drops 300 to 100 and equations/behaviour must be sketched."
+   ],
+   "marks": 78,
+   "question": "Explain stock management as expected replacement plus correction of the desired-actual gap, then construct a workforce model with equations, feedbacks, delays and the response to a changed target.",
+   "answer": "Core equations: Discrepancy=Desired Stock-Actual Stock ; Adjustment=Discrepancy/Adjustment Time ; Expected Losses=SMOOTH(Actual Losses, Expectation Adjustment Time) ; Required Inflow=Expected Losses+Adjustment . The anchor replaces expected normal losses, whereas adjustment closes a current target gap. At equilibrium, adjustment is zero and required inflow equals expected loss. University construction: Desired Staff=Students/Desired Student-Staff Ratio ; Staff=INTEG(Hires-Quits,500) ; Quits=Quit Fraction x Staff ; Hires=Expected Quits+(Desired Staff-Staff)/Staff Adjustment Time . At 10,000 students and ratio 20, desired staff is 500. A ratio of 10 changes target to 1,000, so Staff rises towards 1,000 at a decreasing rate. The staff adjustment time most directly sets response speed. Ageing-chain construction: add progression flows Trainees/12 and Experienced/36 (or the paper's stated delays), one attrition flow per stage, and Total Staff as the sum. A lower target makes adjustment negative; if no dismissal flow exists, bound hires at zero and explain that attrition/progression determine the reduction speed."
+  },
+  {
+   "id": "fractional-rates-adjustment-to-a-goal-and-smoothing",
+   "rank": 5,
+   "title": "Fractional Rates, Adjustment to a Goal and Smoothing",
+   "frequency": "2023/24",
+   "appearances": [
+    "2022/23 Q2(a) [8]: estimate a fractional increase rate from a stock graph starting at 1,000 and state assumptions.",
+    "2023/24 Q2(a) [8]: build a stock-flow structure that produces a smoothed version of a random input and explain adjustment time.",
+    "2024/25 Q2(a) [6]: describe with examples fractional increase rate, fractional decrease rate and adjustment to a goal.",
+    "2025/26 Q2(a) [8]: modify a fractional decrease flow where decrease fraction G is itself an adjustment-to-goal structure approaching maximum G* ; comment on a real context."
+   ],
+   "marks": 30,
+   "question": "State the flow formula, units and expected behaviour for fractional growth/decline or adjustment; when a rate itself changes, make that rate a goal-seeking state rather than treating it as an instant constant.",
+   "answer": "Formulas: Increase=Stock x Fractional Increase Rate , Decrease=Stock x Fractional Decrease Rate , Adjustment=(Goal-Actual)/Adjustment Time . A fraction has units 1/time , so the resulting flow has stock units/time. Constant fractional rates produce exponential behaviour. Smoothing/variable rate: Smoothed=INTEG((Input-Smoothed)/AT, Initial Smoothed) . For the 2025/26 varying decrease fraction, use G=INTEG((G*-G)/AT,G0) and Outflow=S x G . State that larger AT responds more slowly and smooths more strongly; do not call it a simple moving average."
+  },
+  {
+   "id": "current-format-variants-worth-keeping-separate",
+   "rank": 6,
+   "title": "Current-Format Variants Worth Keeping Separate",
+   "frequency": "",
+   "appearances": [
+    "2022/23 Q1(a) [5]: list three stock-and-flow principles and illustrate a Carbon in the Atmosphere stock with inflows and outflows.",
+    "2022/23 Q1(b) [10]: model customer and staff stocks, the customer-to-staff ratio, attractiveness, recruitment, hiring, morale and staff leaving, without equations.",
+    "2022/23 Q1(c) [10]: trace and calculate feedback-loop polarity; identify the loop supporting sustained company growth.",
+    "2023/24 Q1(a) [8]: infer one-stock feedback structure from behaviour graph. Accelerating growth suggests reinforcing fractional growth; approach to a limit suggests balancing adjustment/capacity feedback.",
+    "2025/26 Q4(a) [5]: extend a supplied University model with expected enrolments. Add a stock only if enrolments are delayed/forecast; otherwise formulate the stated expected-enrolment auxiliary and its link to the relevant flow.",
+    "2025/26 Q2(c) [5]: plot quarantine fraction against final vaccination fraction using circle size for final attack rate. Put largest circles at low quarantine/low vaccination and smallest at high/high, then explain the monotone policy mechanism and any interaction."
+   ],
+   "marks": 43,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "current-priority-families",
+   "rank": null,
+   "title": "Current Priority Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "current-format-coverage-map",
+   "rank": null,
+   "title": "Current-Format Coverage Map",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Graphical Integration and Stock Behaviour",
+     "front": "Stock and net-flow equations?",
+     "back": "NF = Inflow - Outflow ; Stock = INTEG(NF, Initial Stock) . NF: stock/time; Stock: stock.",
+     "evidence": "2023/24 Q4(a); 2024/25 Q4(a); 2025/26 Q1(a)"
+    },
+    {
+     "group": "Graphical Integration and Stock Behaviour",
+     "front": "Graphical integration rule?",
+     "back": "Delta Stock = ((NF_start + NF_end)/2) x Delta t on a linear interval. Add signed area to the previous stock.",
+     "evidence": "2023/24 Q4(a); 2024/25 Q4(a); 2025/26 Q1(a)"
+    },
+    {
+     "group": "Graphical Integration and Stock Behaviour",
+     "front": "Read a stock from net flow?",
+     "back": "NF > 0 : rising; NF < 0 : falling. A + to - crossing is a stock maximum; a - to + crossing is a minimum.",
+     "evidence": "2023/24 Q4(a); 2024/25 Q4(a); 2025/26 Q1(a)"
+    },
+    {
+     "group": "Graphical Integration and Stock Behaviour",
+     "front": "Infer one-stock feedback from behaviour?",
+     "back": "Accelerating growth: reinforcing, e.g. Inflow = k x Stock . Approach to a limit: balancing, e.g. goal seeking/carrying capacity.",
+     "evidence": "2023/24 Q1(a)"
+    },
+    {
+     "group": "Euler Integration and Error",
+     "front": "Forward Euler formula and assumption?",
+     "back": "S(t+DT) = S(t) + NF(t) x DT . Use start-of-step NF; treat it as constant over a sufficiently small DT.",
+     "evidence": "2023/24 Q4(b); 2024/25 Q4(b); 2025/26 Q1(b)"
+    },
+    {
+     "group": "Euler Integration and Error",
+     "front": "Euler error direction for linear NF?",
+     "back": "Falling NF: forward Euler overestimates. Rising NF: forward Euler underestimates.",
+     "evidence": "2023/24 Q4(b); 2024/25 Q4(b); 2025/26 Q1(b)"
+    },
+    {
+     "group": "Euler Integration and Error",
+     "front": "Euler table routine?",
+     "back": "For each DT: write t , NF(t) , NF x DT , then next S = current S + change .",
+     "evidence": "2023/24 Q4(c); 2024/25 Q4(c); 2025/26 Q1(c)"
+    },
+    {
+     "group": "Feedback Principles",
+     "front": "Link and loop polarity?",
+     "back": "+ link: cause and effect move together; - link: opposite. Odd negative links = balancing; even = reinforcing.",
+     "evidence": "2024/25 Q1(a,c); 2025/26 Q3(a,c)"
+    },
+    {
+     "group": "Feedback Principles",
+     "front": "Reinforcing vs balancing?",
+     "back": "Reinforcing amplifies change. Balancing opposes change or closes a gap. Confirm with an increase-trace.",
+     "evidence": "2024/25 Q1(a,c); 2025/26 Q3(a,c)"
+    },
+    {
+     "group": "Feedback Principles",
+     "front": "Why model feedback?",
+     "back": "It explains behaviour, delays, side-effects and policy resistance; rates are not independent inputs.",
+     "evidence": "2024/25 Q1(a)"
+    },
+    {
+     "group": "Workload Models and Policy Loops",
+     "front": "Backlog stock equation?",
+     "back": "Backlog = INTEG(New Work + Rework - Completed, Initial Backlog) . Pressure, fatigue and workweek are auxiliaries.",
+     "evidence": "2023/24 Q1(b); 2024/25 Q1(b); 2025/26 Q3(b)"
+    },
+    {
+     "group": "Workload Models and Policy Loops",
+     "front": "Standard capacity loop?",
+     "back": "Backlog + -> Pressure + -> Capacity/effort + -> Completed + -> Backlog - : one negative link, so balancing.",
+     "evidence": "2023/24 Q1(c); 2024/25 Q1(c); 2025/26 Q3(c)"
+    },
+    {
+     "group": "Workload Models and Policy Loops",
+     "front": "Common reinforcing side-effects?",
+     "back": "Rework: less Time per Task -> more Rework. Fatigue: more Workweek -> more Fatigue -> less Completed. Claims model: more Temporary Staff -> more Time per Claim -> less Completed. Each closes a reinforcing backlog loop.",
+     "evidence": "2023/24 Q1(c); 2024/25 Q1(c); 2025/26 Q3(c)"
+    },
+    {
+     "group": "Workload Models and Policy Loops",
+     "front": "Policy-discussion trigger?",
+     "back": "Name the balancing benefit, delayed reinforcing side-effects and affected outcome; test backlog, completion, rework, fatigue and capacity together.",
+     "evidence": "2024/25 Q1(c); 2025/26 Q3(c)"
+    },
+    {
+     "group": "Fractional Rates, Goals and Smoothing",
+     "front": "Fractional increase/decrease?",
+     "back": "Flow = Stock x Fractional Rate ; rate units are 1/time . Constant positive increase gives exponential growth; constant decrease gives exponential decay.",
+     "evidence": "2024/25 Q2(a)"
+    },
+    {
+     "group": "Fractional Rates, Goals and Smoothing",
+     "front": "Goal seeking and smoothing?",
+     "back": "Adjustment = (Goal - Actual)/AT ; Smoothed = INTEG((Input - Smoothed)/AT, Initial Smoothed) . Larger AT = slower response.",
+     "evidence": "2023/24 Q2(a); 2024/25 Q2(a)"
+    },
+    {
+     "group": "Fractional Rates, Goals and Smoothing",
+     "front": "Varying decrease fraction?",
+     "back": "G = INTEG((G* - G)/AT, G0) ; Outflow = Stock x G . The rate, not only the stock, is goal seeking.",
+     "evidence": "2025/26 Q2(a)"
+    },
+    {
+     "group": "Stock Management and Workforce Models",
+     "front": "Stock-management anchor vs adjustment?",
+     "back": "Anchor replaces expected loss: Expected Losses = SMOOTH(Actual Losses, EAT) . Adjustment closes gap: (Desired - Actual)/AT . Required Inflow = Expected Losses + Adjustment .",
+     "evidence": "2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q4(b)"
+    },
+    {
+     "group": "Stock Management and Workforce Models",
+     "front": "Desired University staff and target shock?",
+     "back": "Desired Staff = Students / Desired Student-Staff Ratio . At 10,000 students, ratio 20 -> 500; ratio 10 -> 1,000. Lower ratio means more staff required.",
+     "evidence": "2024/25 Q2(c)"
+    },
+    {
+     "group": "Stock Management and Workforce Models",
+     "front": "Core University staff model?",
+     "back": "Staff = INTEG(Hires - Quits, Staff0) ; Quits = Quit Fraction x Staff ; Hires = Expected Quits + (Desired Staff - Staff)/Staff AT .",
+     "evidence": "2024/25 Q2(c)"
+    },
+    {
+     "group": "Stock Management and Workforce Models",
+     "front": "Three-stage workforce chain?",
+     "back": "Trainees -> Experienced -> Seniors ; each stage has attrition. Progress = stock/delay ; Total Staff = T + E + S .",
+     "evidence": "2025/26 Q4(c)"
+    },
+    {
+     "group": "Stock Management and Workforce Models",
+     "front": "What if the staff target falls and there is no dismissal flow?",
+     "back": "Adjustment becomes negative; constrain hires to zero. Staff then falls through attrition, so delays determine reduction speed.",
+     "evidence": "2025/26 Q4(d)"
+    },
+    {
+     "group": "SIR Core Equations and Proofs",
+     "front": "Core frequency-dependent SIR?",
+     "back": "λ=βI/N ; F inf =λS ; F rec =I/D . S=INTEG(−F inf ,S(0)) ; I=INTEG(F inf −F rec ,I(0)) ; R=INTEG(F rec ,R(0)) .",
+     "evidence": "2023/24 Q3(a); 2024/25 Q3(b); 2025/26 Q2(b)"
+    },
+    {
+     "group": "SIR Core Equations and Proofs",
+     "front": "Transmission and outbreak threshold?",
+     "back": "β=ci ; R 0 =βd=cid . With S=N , an outbreak grows when R 0 >1 .",
+     "evidence": "2023/24 Q3(a); 2024/25 Q3(a)"
+    },
+    {
+     "group": "SIR Core Equations and Proofs",
+     "front": "Force of infection and HIT?",
+     "back": "λ=βI/N , units 1/time ; F inf =λS , people/time. p c =1−1/R 0 .",
+     "evidence": "2024/25 Q3(a)"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "Standard SIR loops?",
+     "back": "I → F inf → I : reinforcing. F inf → S↓ → F inf ↓ and I → F rec → I↓ : balancing.",
+     "evidence": "2018/19 Q3(b); 2024/25 Q3(b); 2025/26 Q2(b)"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "Quarantine: 2024/25 vs 2025/26?",
+     "back": "2024/25: I → Q , controlled by u∈{0,1} . 2025/26: F Q =qλS , F I =(1−q)λS ; Q does not transmit.",
+     "evidence": "2024/25 Q3(b); 2025/26 Q2(b)"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "Vaccination, attack rate and policy plot?",
+     "back": "F vax =vS , S → V ; AR=(I+Q+R)/N . Bubble plot: x=q , y=v , size =AR ; largest at low q,v .",
+     "evidence": "2025/26 Q2(b,c)"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "Cohort extension?",
+     "back": "Replicate states: (S y ,I y ,R y ) , (S e ,I e ,R e ) ; add within-/between-cohort contact terms or a contact matrix.",
+     "evidence": "2024/25 Q3(c)"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "SEI2H2R memory chain?",
+     "back": "S → E → I a /I s ; I a → R , I s → R/H . H : second-order delay; I a infectiousness =0.5I s .",
+     "evidence": "2023/24 Q3(b)"
+    },
+    {
+     "group": "Legacy and Supporting Constructions",
+     "front": "Resource-constrained vaccination?",
+     "back": "C=M×p ; F vax =min(U,V,C) , where U =unvaccinated and V =available vaccines.",
+     "evidence": "2016/17 Q3(b); 2017/18 Q3(c); 2021/22 Q2(b)"
+    },
+    {
+     "group": "Legacy and Supporting Constructions",
+     "front": "Effects function?",
+     "back": "x*=x/x ref ; Rate=Rate ref ×Effect(x*) . Effect is dimensionless.",
+     "evidence": "2016/17 Q4(a,b); 2018/19 Q4(b); 2019/20 Q3(b,c)"
+    },
+    {
+     "group": "Legacy and Supporting Constructions",
+     "front": "Little's Law?",
+     "back": "L=λW : average stock = average throughput × average delay, at equilibrium.",
+     "evidence": "2017/18 Q4(a,b); 2018/19 Q1(c)"
+    },
+    {
+     "group": "Legacy and Supporting Constructions",
+     "front": "Legacy growth formulae?",
+     "back": "dS/dt=t , S(0)=0 ⇒ S(t)=t²/2 . dP/dt=rP(1−P/C)−sP . Constant g : T 2 =ln(2)/g .",
+     "evidence": "2017/18 Q2(a); 2021/22 Q2(a,c)"
+    },
+    {
+     "group": "Graphical Integration and Stock Behaviour",
+     "front": "In the 2022/23 Q4 graph, what happens to stock at t=2.5, 10 and 17.5?",
+     "back": "At each time inflow equals the constant outflow of 50, so net flow is zero and the stock's slope is zero. Use the net-flow sign on each side to decide whether each point is a maximum or minimum.",
+     "evidence": "2022/23 Q4(a) [12]",
+     "source": "2022/23 paper in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56173/files/3901570"
+    },
+    {
+     "group": "Euler Integration and Error",
+     "front": "For dS/dt = 4t from t=0 to 5, what does forward Euler with DT=1 miss?",
+     "back": "Its five left-endpoint steps add 4 × (0+1+2+3+4) = 40; exact integration adds 50. It underestimates the stock increase by 10 because the flow rises during every step.",
+     "evidence": "2022/23 Q4(c) [5]",
+     "source": "2022/23 paper in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56173/files/3901570"
+    },
+    {
+     "group": "Stock Management and Ageing Chains",
+     "front": "Why does hire rate = (target staff − staff)/adjustment time miss a positive target when staff resign?",
+     "back": "At the target the hire rate falls to zero while resignations continue, so staff fall below target. Add expected resignations as the replacement-flow anchor, with the gap correction as the adjustment.",
+     "evidence": "2022/23 Q2(b) [7]",
+     "source": "2022/23 paper in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56173/files/3901570"
+    },
+    {
+     "group": "SIR Core Equations and Proofs",
+     "front": "In 2022/23 Q3(a), what is λ when 2% of 100,000 people are infectious, R₀=12 and D=7 days?",
+     "back": "β = R₀/D = 12/7 per day; λ = βI/N = (12/7) × 0.02 ≈ 0.0343 per day per susceptible. The population count cancels after converting 2% to I/N.",
+     "evidence": "2022/23 Q3(a) [8]",
+     "source": "2022/23 paper in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56173/files/3901570"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "How should a model combine mild, moderate and severe infection in force of infection when mild cases are half as infectious?",
+     "back": "Use effective infectious people = 0.5 × mild + moderate + severe. Then λ = (contacts × infectivity/N) × effective infectious people, before multiplying by susceptibles for the infection flow.",
+     "evidence": "2022/23 Q3(b) [12]",
+     "source": "2022/23 paper in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56173/files/3901570"
+    },
+    {
+     "group": "SIR Policies and Extensions",
+     "front": "How is a latent stage represented when infected people are not yet infectious?",
+     "back": "Add an Exposed stock between Susceptible and Infectious. New infections enter Exposed; progression after the latent delay enters Infectious, so Exposed does not contribute to transmission until it progresses.",
+     "source": "Infectious Disease Modelling Part 1 in Canvas",
+     "source_url": "https://universityofgalway.instructure.com/courses/56173/files/3901577"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "continuous_vs_agent_based_simulation_revision_sheet.html",
+   "title": "Continuous/System-Dynamics versus Agent-Based Simulation",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": [
+    "\"Many people\" does not automatically mean an agent-based model.",
+    "More detail does not automatically mean more valid.",
+    "Do not present a hybrid model unless you can say which mechanism belongs in each component and how they exchange information."
+   ]
+  },
+  {
+   "file": "feedback_loops_revision_sheet.html",
+   "title": "Feedback Loops and Workload Policies",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": [],
+   "structure": [
+    {
+     "title": "Define and classify [5-6]",
+     "marks": 6,
+     "prompt": "Define and classify [5-6]: link polarity, loop polarity, feedback, balancing and reinforcing behaviour.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Build the model [10-12]",
+     "marks": 12,
+     "prompt": "Build the model [10-12]: one backlog stock, stated flows/auxiliaries, link signs and stock equation where requested.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Analyse policy loops [7-8]",
+     "marks": 8,
+     "prompt": "Analyse policy loops [7-8]: name each loop, trace an increase around it, calculate polarity, then discuss unintended effects.",
+     "route": "",
+     "answer": ""
+    }
+   ]
+  },
+  {
+   "file": "numerical_integration_revision_sheet.html",
+   "title": "Graphical and Euler Integration",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": []
+  },
+  {
+   "file": "sir_public_health_models_revision_sheet.html",
+   "title": "SIR, SEIR and Public-Health Policy Models",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": []
+  },
+  {
+   "file": "stock_flow_modelling_revision_sheet.html",
+   "title": "Stock-and-Flow Modelling from Text",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": []
+  },
+  {
+   "file": "supporting_simulation_concepts_revision_sheet.html",
+   "title": "Supporting Structures: Delays, Smoothing, Little's Law and Behaviour",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": [],
+   "structure": [
+    {
+     "title": "Smoothing [8]",
+     "marks": 8,
+     "prompt": "Smoothing [8]: show the stock-flow structure that converts a noisy input into a smoothed signal and explain adjustment time. 2023/24 Q2(a)",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Little's Law [3-7]",
+     "marks": 7,
+     "prompt": "Little's Law [3-7]: calculate average delay from stock and throughput, state equilibrium conditions and infer delay distribution. 2017/18 Q4(a,b); 2018/19 Q1(c)",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Behaviour to structure [8]",
+     "marks": 8,
+     "prompt": "Behaviour to structure [8]: infer a one-stock reinforcing or balancing structure from a graph. 2023/24 Q1(a)",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Analytical/differential model [8]",
+     "marks": 8,
+     "prompt": "Analytical/differential model [8]: convert a differential equation to stock-flow form and explain its feedback. 2016/17 Q2(b); 2017/18 Q2(a); 2021/22 Q2(a)",
+     "route": "",
+     "answer": ""
+    }
+   ]
+  },
+  {
+   "file": "vensim_validation_policy_analysis_revision_sheet.html",
+   "title": "Vensim, Validation and Policy Analysis",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": [
+    "A historical fit alone does not validate causal structure.",
+    "Reducing DT improves numerical approximation; it does not validate the model.",
+    "One simulation run is not a policy recommendation.",
+    "Do not discuss policy without naming the flow, parameter or feedback it changes."
+   ]
+  },
+  {
+   "file": "workforce_stock_management_revision_sheet.html",
+   "title": "Stock Management and Workforce Models",
+   "purpose": "",
+   "refresher": [],
+   "practice": [],
+   "mistakes": [],
+   "structure": [
+    {
+     "title": "Explain the structure [5-7]",
+     "marks": 7,
+     "prompt": "Explain the structure [5-7]: distinguish adjustment to a goal from stock management; define anchor, adjustment and the delay used for expected losses.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Design staff recruitment [10-12]",
+     "marks": 12,
+     "prompt": "Design staff recruitment [10-12]: full equations, desired staff from a ratio, hires, quits/attrition and feedbacks.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Sketch a target shock [5-8]",
+     "marks": 8,
+     "prompt": "Sketch a target shock [5-8]: predict actual staff, ratio, expected losses or an ageing chain after a changed target.",
+     "route": "",
+     "answer": ""
+    }
+   ]
+  }
+ ]
+}

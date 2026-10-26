@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT417 - Legacy and Background Topics</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav" aria-label="Navigation"><a href="details.html">CT417 Overview</a><a href="software_architecture_revision_sheet.html">Software architecture</a><a href="secure_software_engineering_devsecops_revision_sheet.html">Secure engineering and DevSecOps</a></nav><p class="eyebrow">CT417 Topic Guide</p><h1>Legacy and Background Topics</h1><p>Keep older examinable material available without confusing it with the stronger recent DevSecOps pattern.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Evidence and priority</h2><p>The archive has changed materially. Formal specification is a major section in 2021/22 and a full 15-mark question in 2023/24, but it is absent from the two newest papers. Agile appears in 2023/24; virtualisation, CAP/ACID/BASE, plugins and kernel topics appear in 2019/20. Treat these as <strong>background coverage</strong>: use current lectures to decide whether to move them up the revision order.</p>
+<h2>Rapid refresher</h2><table><thead><tr><th>Topic</th><th>What an exam answer must do</th></tr></thead><tbody><tr><td>Z state schema</td><td>Declare state variables, their types, and invariants that must always hold.</td></tr><tr><td>Initial state</td><td>Give a concrete valid state satisfying every invariant.</td></tr><tr><td>Z operation</td><td>Use <code>ΔState</code>, identify inputs, preserve unchanged state, state a precondition, and define primed post-state values.</td></tr><tr><td>Agile principle</td><td>Name the relevant principle, then give specific project actions that follow from it.</td></tr><tr><td>Older systems terms</td><td>Define the requested distinction and attach it to a user/deployment need; avoid a list of disconnected buzzwords.</td></tr></tbody></table>
+<h2>Repeated formal-specification family</h2><p>Formal specification is the only family on this page with clear repetition across the newer archive (2021/22 and 2023/24). The papers use a short natural-language system description, then ask for an initial state and one or more operations. The notation matters because it makes the invariant and state change unambiguous.</p>
+<h2>Practice question - stock state in Z (20 marks)</h2><p><strong>Inspired by:</strong> 2021/22 Question 2 and 2023/24 Question 2.</p><p><strong>Scenario.</strong> A campus shop carries items. For each carried item it records the number currently in stock. An item cannot have negative stock, and stock is recorded for exactly the carried items.</p>
+<pre><code>[ITEM]
+CampusStock
+  carried : ℙ ITEM
+  level   : ITEM ⇸ ℕ
+where
+  dom level = carried</code></pre>
+<h3>(a) Explain precisely what the state schema says. [5 marks]</h3><p><strong>Model answer:</strong> <code>carried</code> is a set of items. <code>level</code> is a partial function from an item to a natural number, so any recorded stock level is non-negative and each recorded item has one level. The invariant <code>dom level = carried</code> means that an item has a stock entry if and only if the shop carries it. It rules out both a carried item with no level and a level for an uncarried item.</p>
+<h3>(b) Give a suitable initial-state operation. [5 marks]</h3><pre><code>InitCampusStock
+  CampusStock'
+where
+  carried' = ∅
+  level'   = ∅</code></pre><p><strong>Why it is valid:</strong> the domain of the empty function is empty, so <code>dom level' = carried'</code>. A valid initial state must satisfy the invariant; merely declaring empty-looking variables is not enough.</p>
+<h3>(c) Specify an operation <code>Buy</code> that sells a positive quantity of an item already carried, provided enough stock exists. [10 marks]</h3><pre><code>Buy
+  ΔCampusStock
+  item? : ITEM
+  qty?  : ℕ1
+where
+  item? ∈ carried
+  qty? ≤ level item?
+  carried' = carried
+  level' = level ⊕ { item? ↦ (level item? - qty?) }</code></pre><p><strong>Model answer:</strong> <code>ΔCampusStock</code> states that the operation may change the state. The inputs are an item and positive quantity. The first two predicates are the precondition: the item exists and stock cannot become negative. The carried set is unchanged; function override replaces only the selected item’s stock level. The resulting level remains a natural number and its domain is unchanged, so the invariant is preserved. Error handling is not required unless the question asks for it.</p>
+<h2>Other background prompts</h2><ul><li><strong>Agile (2023/24):</strong> if requirements or data sources keep changing, identify an Agile principle, then give two concrete actions such as short feedback cycles, backlog reprioritisation or stakeholder review. Do not substitute a generic definition of Scrum for the requested strategy.</li><li><strong>Virtualisation/cloud (2019/20):</strong> distinguish Type 1/Type 2 hypervisors or IaaS/PaaS/SaaS by who manages hardware, operating system and application, then match the model to a customer need.</li><li><strong>CAP/ACID/BASE/plugins (2019/20):</strong> revise only if taught again; these have no recent repeat evidence in the local papers.</li></ul>
+<h2>Final check</h2><ul><li>Does every state operation preserve the invariant?</li><li>Have I separated preconditions from post-state values?</li><li>Have I treated background topics as lower-confidence rather than predicting them as a fixed recent slot?</li></ul><h2>Past-paper basis</h2><p>Primary evidence: CT417 2019/20, 2021/22 and 2023/24. The Z scenario is adapted from the recurring state-schema/operation structure; it is not a verbatim past-paper question.</p>
+</article></main></body></html>

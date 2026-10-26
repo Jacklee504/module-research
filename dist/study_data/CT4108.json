@@ -1,0 +1,798 @@
+{
+ "code": "CT4108",
+ "name": "Distributed Systems",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "Unknown",
+  "exam_pattern": "Unknown. There are no past papers currently available in this project, so there is not enough evidence to judge whether the exam is repetitive or predictable.",
+  "title": "CT4108 - Distributed Systems",
+  "papers": [],
+  "guides": [
+   "concurrency_mutual_exclusion_revision_sheet.html",
+   "distributed_algorithms_revision_sheet.html",
+   "distributed_foundations_revision_sheet.html",
+   "gpu_parallel_programming_revision_sheet.html",
+   "hpc_storage_large_data_revision_sheet.html",
+   "message_passing_revision_sheet.html",
+   "replication_consistency_revision_sheet.html",
+   "transactions_fault_tolerance_revision_sheet.html"
+  ],
+  "exam_block": [],
+  "drill": [
+   "The module page gives a clear topic split:",
+   "First half: distributed systems fundamentals and practical implementation.",
+   "Second half: GPU accelerators and high-performance parallel computing.",
+   "No exam-paper pattern can be assessed yet.",
+   "The module is listed as valid from 2026 onwards, which may explain why past papers are unavailable or not useful."
+  ],
+  "paper_format": "",
+  "exam_shape": "noarchive",
+  "code": "CT4108",
+  "name": "Distributed Systems"
+ },
+ "families": [
+  {
+   "id": "concurrency-and-mutual-exclusion",
+   "rank": 1,
+   "title": "Concurrency and Mutual Exclusion",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Concurrency allows multiple activities to overlap. Mutual exclusion makes a critical section accessible to at most one participant at a time, avoiding unsafe interleavings.",
+   "answer": "",
+   "sheet": "concurrency_mutual_exclusion_revision_sheet.html"
+  },
+  {
+   "id": "distributed-algorithms",
+   "rank": 2,
+   "title": "Distributed Algorithms",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "A distributed algorithm reaches a global outcome using only local state and communication. In an answer, state exactly what is guaranteed—such as election of one leader—not merely that nodes “agree.”",
+   "answer": "",
+   "sheet": "distributed_algorithms_revision_sheet.html"
+  },
+  {
+   "id": "distributed-foundations",
+   "rank": 3,
+   "title": "Distributed Foundations",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "A distributed system coordinates independent computers through a network to provide a service. Good answers connect its benefits to its new problems: no shared clock, partial failure and network delay.",
+   "answer": "",
+   "sheet": "distributed_foundations_revision_sheet.html"
+  },
+  {
+   "id": "gpu-and-parallel-programming",
+   "rank": 4,
+   "title": "GPU and Parallel Programming",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "GPU programming uses many lightweight workers to perform similar operations on different data. The key question is whether iterations are independent enough to run concurrently and whether memory transfer overwhelms the gain.",
+   "answer": "",
+   "sheet": "gpu_parallel_programming_revision_sheet.html"
+  },
+  {
+   "id": "hpc-storage-and-large-data",
+   "rank": 5,
+   "title": "HPC, Storage and Large Data",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "High-performance computing (HPC) combines resources to solve large computations quickly. Large-data systems must also store, move and recover data efficiently; compute speed alone cannot fix an I/O bottleneck.",
+   "answer": "",
+   "sheet": "hpc_storage_large_data_revision_sheet.html"
+  },
+  {
+   "id": "message-passing",
+   "rank": 6,
+   "title": "Message Passing",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Message passing lets separate processes exchange requests, replies or events. The core task is to describe delivery, ordering and duplicate handling rather than assuming a call behaves like a local function call.",
+   "answer": "",
+   "sheet": "message_passing_revision_sheet.html"
+  },
+  {
+   "id": "replication-and-consistency",
+   "rank": 7,
+   "title": "Replication and Consistency",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Replication maintains copies of data or service state. It can improve read capacity and availability, but updates must be propagated and readers need a stated consistency guarantee.",
+   "answer": "",
+   "sheet": "replication_consistency_revision_sheet.html"
+  },
+  {
+   "id": "transactions-and-fault-tolerance",
+   "rank": 8,
+   "title": "Transactions and Fault Tolerance",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "A transaction groups operations into a meaningful unit. Fault tolerance preserves an agreed service property despite specified faults; it does not mean that every request succeeds during every outage.",
+   "answer": "",
+   "sheet": "transactions_fault_tolerance_revision_sheet.html"
+  }
+ ],
+ "decks": [
+  {
+   "file": "topic guides",
+   "cards": [
+    {
+     "group": "Concurrency and Mutual Exclusion",
+     "front": "Critical section",
+     "back": "code that reads/writes shared resource.",
+     "evidence": ""
+    },
+    {
+     "group": "Concurrency and Mutual Exclusion",
+     "front": "Race condition",
+     "back": "result depends on timing of unsynchronised actions.",
+     "evidence": ""
+    },
+    {
+     "group": "Concurrency and Mutual Exclusion",
+     "front": "Mutual exclusion",
+     "back": "never two holders at once.",
+     "evidence": ""
+    },
+    {
+     "group": "Concurrency and Mutual Exclusion",
+     "front": "Deadlock",
+     "back": "participants wait indefinitely in a cycle.",
+     "evidence": ""
+    },
+    {
+     "group": "Concurrency and Mutual Exclusion",
+     "front": "Starvation",
+     "back": "a participant is repeatedly denied progress.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Algorithms",
+     "front": "Safety",
+     "back": "a bad thing never happens; liveness: a required good thing eventually happens.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Algorithms",
+     "front": "Leader election",
+     "back": "selecting one coordinator from participating nodes.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Algorithms",
+     "front": "Termination",
+     "back": "nodes know the algorithm is complete.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Algorithms",
+     "front": "Topology",
+     "back": "communication structure, for example a ring.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Algorithms",
+     "front": "Asynchronous",
+     "back": "no known upper bound on message delay or process speed.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Foundations",
+     "front": "Node",
+     "back": "an independent computer; process: executing program on a node.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Foundations",
+     "front": "Network partition",
+     "back": "nodes cannot communicate though some may still run.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Foundations",
+     "front": "Partial failure",
+     "back": "one component fails while others continue.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Foundations",
+     "front": "Scalability",
+     "back": "retaining useful performance as load or nodes grow.",
+     "evidence": ""
+    },
+    {
+     "group": "Distributed Foundations",
+     "front": "Transparency",
+     "back": "hiding distribution where practical, without pretending failures cannot happen.",
+     "evidence": ""
+    },
+    {
+     "group": "GPU and Parallel Programming",
+     "front": "Kernel",
+     "back": "function launched across many GPU workers.",
+     "evidence": ""
+    },
+    {
+     "group": "GPU and Parallel Programming",
+     "front": "Thread/work-item",
+     "back": "one logical execution instance; block/work-group: cooperating collection.",
+     "evidence": ""
+    },
+    {
+     "group": "GPU and Parallel Programming",
+     "front": "SIMT",
+     "back": "many threads execute a common instruction stream conceptually.",
+     "evidence": ""
+    },
+    {
+     "group": "GPU and Parallel Programming",
+     "front": "Coalesced access",
+     "back": "neighbouring workers access nearby memory efficiently.",
+     "evidence": ""
+    },
+    {
+     "group": "GPU and Parallel Programming",
+     "front": "Reduction",
+     "back": "combine many values, for example a sum, into one.",
+     "evidence": ""
+    },
+    {
+     "group": "HPC, Storage and Large Data",
+     "front": "Throughput",
+     "back": "work completed per time; latency: time for one operation.",
+     "evidence": ""
+    },
+    {
+     "group": "HPC, Storage and Large Data",
+     "front": "Partitioning",
+     "back": "divide data/work among workers; data locality: process near stored data.",
+     "evidence": ""
+    },
+    {
+     "group": "HPC, Storage and Large Data",
+     "front": "Parallel speedup",
+     "back": "serial time divided by parallel time; real speedup is limited by serial work and overhead.",
+     "evidence": ""
+    },
+    {
+     "group": "HPC, Storage and Large Data",
+     "front": "Data skew",
+     "back": "uneven partition sizes make some workers stragglers.",
+     "evidence": ""
+    },
+    {
+     "group": "HPC, Storage and Large Data",
+     "front": "Checkpoint",
+     "back": "saved state used to recover after a fault.",
+     "evidence": ""
+    },
+    {
+     "group": "Message Passing",
+     "front": "Send / receive",
+     "back": "transfer a message through a communication channel.",
+     "evidence": ""
+    },
+    {
+     "group": "Message Passing",
+     "front": "Synchronous",
+     "back": "caller waits; asynchronous: sender continues after enqueueing.",
+     "evidence": ""
+    },
+    {
+     "group": "Message Passing",
+     "front": "ACK",
+     "back": "acknowledgement of receipt, not necessarily completed work.",
+     "evidence": ""
+    },
+    {
+     "group": "Message Passing",
+     "front": "Idempotent",
+     "back": "repeating an operation has the same intended effect as doing it once.",
+     "evidence": ""
+    },
+    {
+     "group": "Message Passing",
+     "front": "FIFO ordering",
+     "back": "first sent is first received on a stated channel; it is not a global order.",
+     "evidence": ""
+    },
+    {
+     "group": "Replication and Consistency",
+     "front": "Replica",
+     "back": "copy of state; primary/leader: chosen update coordinator.",
+     "evidence": ""
+    },
+    {
+     "group": "Replication and Consistency",
+     "front": "Strong consistency",
+     "back": "reads reflect an agreed current order of writes.",
+     "evidence": ""
+    },
+    {
+     "group": "Replication and Consistency",
+     "front": "Eventual consistency",
+     "back": "replicas converge if updates stop and communication recovers.",
+     "evidence": ""
+    },
+    {
+     "group": "Replication and Consistency",
+     "front": "Stale read",
+     "back": "a read returns an older replica value.",
+     "evidence": ""
+    },
+    {
+     "group": "Replication and Consistency",
+     "front": "Quorum",
+     "back": "sufficiently overlapping read/write groups; commonly discussed as read size R, write size W and replicas N.",
+     "evidence": ""
+    },
+    {
+     "group": "Transactions and Fault Tolerance",
+     "front": "Atomicity",
+     "back": "all intended transaction effects occur or none do.",
+     "evidence": ""
+    },
+    {
+     "group": "Transactions and Fault Tolerance",
+     "front": "Commit",
+     "back": "make a decision durable; abort: discard/undo the unit.",
+     "evidence": ""
+    },
+    {
+     "group": "Transactions and Fault Tolerance",
+     "front": "Two-phase commit (2PC)",
+     "back": "coordinator asks participants to prepare, then decides commit/abort.",
+     "evidence": ""
+    },
+    {
+     "group": "Transactions and Fault Tolerance",
+     "front": "Write-ahead log",
+     "back": "durable record written before relying on a state update.",
+     "evidence": ""
+    },
+    {
+     "group": "Transactions and Fault Tolerance",
+     "front": "Compensation",
+     "back": "later business action that offsets an already completed action.",
+     "evidence": ""
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "concurrency_mutual_exclusion_revision_sheet.html",
+   "title": "Concurrency and Mutual Exclusion",
+   "purpose": "Concurrency allows multiple activities to overlap. Mutual exclusion makes a critical section accessible to at most one participant at a time, avoiding unsafe interleavings.",
+   "refresher": [
+    "Critical section needs mutual exclusion/progress/bounded waiting.",
+    "race is interleaving.",
+    "deadlock conditions are fourfold.",
+    "lock discipline is global."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "Balance=10. Two withdrawals each read 10 and write 7; the final balance is 7 though £6 was withdrawn. A mutex makes one withdrawal complete before the other reads. In a distributed service, the lock manager must not grant two leases and needs expiry/recovery rules.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 8,
+     "prompt": "Two threads execute x=x+1 when x=7. Show a losing interleaving and repair it while stating the required critical-section properties. [8 marks]",
+     "route": "Each increment reads, computes and writes. T1 reads 7; T2 reads 7; both compute 8; T1 writes 8; T2 writes 8: one increment is lost. Put the read-modify-write inside one mutex (or use an atomic fetch-add), so mutual exclusion holds. The mechanism must also allow progress when no thread is inside and bounded waiting so one contender is not postponed indefinitely.",
+     "answer": "Each increment reads, computes and writes. T1 reads 7; T2 reads 7; both compute 8; T1 writes 8; T2 writes 8: one increment is lost. Put the read-modify-write inside one mutex (or use an atomic fetch-add), so mutual exclusion holds. The mechanism must also allow progress when no thread is inside and bounded waiting so one contender is not postponed indefinitely."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "T1 locks A then waits for B; T2 locks B then waits for A. Diagnose the deadlock and give a design-level cure. [8 marks]",
+     "route": "All four Coffman conditions hold: mutual exclusion, hold-and-wait, no pre-emption and circular wait. Establish one global order, e.g. always acquire A before B; then T2 cannot take B first, breaking circular wait. Release in reverse order and keep critical sections small. A timeout may recover operationally but is not proof that the design has eliminated deadlock.",
+     "answer": "All four Coffman conditions hold: mutual exclusion, hold-and-wait, no pre-emption and circular wait. Establish one global order, e.g. always acquire A before B; then T2 cannot take B first, breaking circular wait. Release in reverse order and keep critical sections small. A timeout may recover operationally but is not proof that the design has eliminated deadlock."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Treating a lock as automatically fair or failure-safe.",
+    "Holding a lock across slow network work without discussing cost.",
+    "Confusing deadlock with starvation."
+   ]
+  },
+  {
+   "file": "distributed_algorithms_revision_sheet.html",
+   "title": "Distributed Algorithms",
+   "purpose": "A distributed algorithm reaches a global outcome using only local state and communication. In an answer, state exactly what is guaranteed—such as election of one leader—not merely that nodes “agree.”",
+   "refresher": [
+    "Consensus needs agreement/validity/termination under named failures.",
+    "election unique leader.",
+    "Lamport one-way causality, vectors reveal concurrency."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "Three ring nodes have IDs 4, 9 and 6. Each sends its ID around the ring and forwards only the largest ID seen. ID 9 returns to node 9, so it declares itself leader and announces this. Safety depends on IDs being unique; progress depends on the ring forwarding messages.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "Processes A and B send to C; A’s event a happens-before its send, and C receives A’s message before sending to B. Compare Lamport and vector clocks for deciding whether a concurrent B event caused C’s send. [9 marks]",
+     "route": "Lamport clocks increment locally and set receive time above the carried value, so L(a)<L(C-send) establishes an order but the converse does not establish causality: ordered scalar values can be concurrent. A vector clock increments its own component and merges component-wise on receive. If V(B-event) and V(C-send) are incomparable (each has a greater component), they are concurrent; if every component of B is ≤ C and one is strict, B happened-before C.",
+     "answer": "Lamport clocks increment locally and set receive time above the carried value, so L(a)<L(C-send) establishes an order but the converse does not establish causality: ordered scalar values can be concurrent. A vector clock increments its own component and merges component-wise on receive. If V(B-event) and V(C-send) are incomparable (each has a greater component), they are concurrent; if every component of B is ≤ C and one is strict, B happened-before C."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A leader crashes after proposing a commit to replicas. State the consensus properties and a safe response under partial failure. [8 marks]",
+     "route": "Agreement means no two correct replicas decide differently; validity constrains decisions to proposed values; termination is conditional on the failure/timing model. A timeout gives suspicion, not proof of crash, so surviving replicas use a quorum/election protocol and durable log to select a leader that preserves the highest safe proposal before deciding. Never let two isolated groups each commit a different value.",
+     "answer": "Agreement means no two correct replicas decide differently; validity constrains decisions to proposed values; termination is conditional on the failure/timing model. A timeout gives suspicion, not proof of crash, so surviving replicas use a quorum/election protocol and durable log to select a leader that preserves the highest safe proposal before deciding. Never let two isolated groups each commit a different value."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Giving only pseudocode without a correctness property.",
+    "Confusing safety with eventual progress.",
+    "Silently assuming synchronous, reliable communication."
+   ]
+  },
+  {
+   "file": "distributed_foundations_revision_sheet.html",
+   "title": "Distributed Foundations",
+   "purpose": "A distributed system coordinates independent computers through a network to provide a service. Good answers connect its benefits to its new problems: no shared clock, partial failure and network delay.",
+   "refresher": [
+    "No global clock and partial failures.",
+    "timeout is suspicion.",
+    "safety differs from liveness.",
+    "retries need IDs/idempotence."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A photo service stores files on two servers. A client uploads to server A; A copies to B. This can improve availability if A later crashes, but copying needs network messages and the two copies may briefly differ. The design must decide whether the client waits for both copies or accepts a later update.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "A client times out after sending payment ID P17. The server may have charged the card, but the reply was lost. Design the retry protocol. [9 marks]",
+     "route": "The network can delay, duplicate or lose messages; silence is not proof of crash. Put P17 in a durable idempotency record before/with the side effect. On a retry, the server returns the recorded completed/pending result rather than charging again; the client may poll status using P17. This preserves safety (at most one charge) while availability depends on recovery/replication.",
+     "answer": "The network can delay, duplicate or lose messages; silence is not proof of crash. Put P17 in a durable idempotency record before/with the side effect. On a retry, the server returns the recorded completed/pending result rather than charging again; the client may poll status using P17. This preserves safety (at most one charge) while availability depends on recovery/replication."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A replica returns an old profile immediately after a network partition. Explain safety versus liveness and choose a policy for a bank balance. [8 marks]",
+     "route": "Safety means nothing bad happens, e.g. conflicting balance updates are not both accepted; liveness means a request eventually completes. During a partition, serving every write at every side improves availability but can lose a single-current-balance guarantee. For a bank balance choose a quorum/leader policy that rejects or delays unsafe writes, then use versioning/log recovery after the partition.",
+     "answer": "Safety means nothing bad happens, e.g. conflicting balance updates are not both accepted; liveness means a request eventually completes. During a partition, serving every write at every side improves availability but can lose a single-current-balance guarantee. For a bank balance choose a quorum/leader policy that rejects or delays unsafe writes, then use versioning/log recovery after the partition."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Equating “networked” with automatically scalable or reliable.",
+    "Saying a timeout proves a node failed.",
+    "Ignoring data placement and partial failure."
+   ]
+  },
+  {
+   "file": "gpu_parallel_programming_revision_sheet.html",
+   "title": "GPU and Parallel Programming",
+   "purpose": "GPU programming uses many lightweight workers to perform similar operations on different data. The key question is whether iterations are independent enough to run concurrently and whether memory transfer overwhelms the gain.",
+   "refresher": [
+    "Threads/blocks/grid map data.",
+    "coalescing/shared memory improve throughput.",
+    "divergence/races hurt.",
+    "barriers have scope."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "To add arrays A and B of length n, worker i computes C[i]=A[i]+B[i] when i<n. Each worker writes a distinct C[i], so no lock is needed. The design is less effective if n is tiny or host-to-device copying dominates the arithmetic.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 8,
+     "prompt": "For vector addition of n=1000 with blockDim.x=256 , give the grid size, last valid index and a CUDA-style kernel guard. [8 marks]",
+     "route": "Grid size is ceil(1000/256)=4 blocks, launching 1024 threads. i=blockIdx.x*blockDim.x+threadIdx.x; if(i<1000) c[i]=a[i]+b[i]; . The last valid element index is 999; threads 1000–1023 must not access memory. Consecutive threads should read consecutive array elements for coalescing.",
+     "answer": "Grid size is ceil(1000/256)=4 blocks, launching 1024 threads. i=blockIdx.x*blockDim.x+threadIdx.x; if(i<1000) c[i]=a[i]+b[i]; . The last valid element index is 999; threads 1000–1023 must not access memory. Consecutive threads should read consecutive array elements for coalescing."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 9,
+     "prompt": "Sum 1024 floats with blocks of 256. Describe a two-stage reduction and its synchronisation. [9 marks]",
+     "route": "Each of four blocks loads one element per thread (or a grid-stride subset) into shared memory; after each stride-halving addition, use a block barrier before a value is read in the next stride. Thread 0 writes one partial sum per block, so stage one produces four partials; a second kernel/block reduces those to one sum. Do not use a block barrier to coordinate blocks: it has block scope.",
+     "answer": "Each of four blocks loads one element per thread (or a grid-stride subset) into shared memory; after each stride-halving addition, use a block barrier before a value is read in the next stride. Thread 0 writes one partial sum per block, so stage one produces four partials; a second kernel/block reduces those to one sum. Do not use a block barrier to coordinate blocks: it has block scope."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Assuming every loop is safe to parallelise.",
+    "Ignoring host/device transfer and launch overhead.",
+    "Writing the same output location from many threads without coordination."
+   ]
+  },
+  {
+   "file": "hpc_storage_large_data_revision_sheet.html",
+   "title": "HPC, Storage and Large Data",
+   "purpose": "High-performance computing (HPC) combines resources to solve large computations quickly. Large-data systems must also store, move and recover data efficiently; compute speed alone cannot fix an I/O bottleneck.",
+   "refresher": [
+    "Profile compute/memory/network/I/O.",
+    "parallel storage striping/metadata matter.",
+    "Amdahl limits speedup.",
+    "cue: quantify bottleneck."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "To count events in a 1 TB log, split files across workers. Each worker counts locally; a final stage adds the counts. If all records for one customer key go to one worker, that worker delays completion: use a better partition key or split that hot key before aggregation.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 8,
+     "prompt": "A job is 10% serial and 90% perfectly parallel. Compute Amdahl’s ideal speedup at 16 processors and explain why 16× is impossible. [8 marks]",
+     "route": "S(16)=1/(0.10+0.90/16)=1/0.15625=6.4. The serial fraction caps asymptotic speedup at 10, even before communication, synchronisation and I/O. Profile first: reducing the serial coordinator or overlapping I/O can improve the bound; adding processors to a fixed serial phase cannot.",
+     "answer": "S(16)=1/(0.10+0.90/16)=1/0.15625=6.4. The serial fraction caps asymptotic speedup at 10, even before communication, synchronisation and I/O. Profile first: reducing the serial coordinator or overlapping I/O can improve the bound; adding processors to a fixed serial phase cannot."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 9,
+     "prompt": "Adding nodes makes a data pipeline slower. Give a measurement-led diagnosis across compute, memory, network and parallel storage. [9 marks]",
+     "route": "Measure CPU utilisation, memory bandwidth/cache misses, network shuffle time, metadata operations and read/write throughput per node. Small-file metadata contention or poorly striped shared output can dominate despite spare CPU. Combine large files/collective I/O, choose an appropriate stripe count, batch metadata operations and avoid all workers contending for one writer. Validate by comparing phase timings before/after, not node count alone.",
+     "answer": "Measure CPU utilisation, memory bandwidth/cache misses, network shuffle time, metadata operations and read/write throughput per node. Small-file metadata contention or poorly striped shared output can dominate despite spare CPU. Combine large files/collective I/O, choose an appropriate stripe count, batch metadata operations and avoid all workers contending for one writer. Validate by comparing phase timings before/after, not node count alone."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Claiming linear speedup without accounting for overhead.",
+    "Choosing partitions without considering skew or locality.",
+    "Confusing storage capacity with read/write throughput."
+   ]
+  },
+  {
+   "file": "message_passing_revision_sheet.html",
+   "title": "Message Passing",
+   "purpose": "Message passing lets separate processes exchange requests, replies or events. The core task is to describe delivery, ordering and duplicate handling rather than assuming a call behaves like a local function call.",
+   "refresher": [
+    "Format, correlation ID, order, ACK and retry define protocol.",
+    "RPC blocks, queues decouple.",
+    "duplicates/reordering normal.",
+    "exactly-once is not assumed."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A client sends “reserve seat 17” with ID R9. The server reserves the seat but its reply is lost. The client retries R9. The server records R9 and replies “already reserved for this request,” rather than reserving a second seat. This gives a practical exactly-once effect at the application level.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "A payment command reaches the bank, which performs the debit, then crashes before ACK; the client retries after an ACK loss. Define the message protocol so the debit happens once. [9 marks]",
+     "route": "Include command ID, sender, amount and correlation ID. The bank durably records the ID and outcome atomically with the debit; duplicates return the stored result. ACKs may be retried and messages reordered, so the client correlates replies by ID and uses a status query after timeout. A queue decouples sender/receiver but does not create exactly-once processing by itself.",
+     "answer": "Include command ID, sender, amount and correlation ID. The bank durably records the ID and outcome atomically with the debit; duplicates return the stored result. ACKs may be retried and messages reordered, so the client correlates replies by ID and uses a status query after timeout. A queue decouples sender/receiver but does not create exactly-once processing by itself."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "Compare a synchronous RPC with an asynchronous queue for a slow image-processing service. [8 marks]",
+     "route": "RPC blocks the caller awaiting a reply and is simple for immediate validation, but couples availability and can exhaust callers during slowdown. A queue accepts a durable command, lets workers scale/retry and returns a job ID; it needs correlation, idempotence, back-pressure and status handling. Choose queueing for a long task where delayed completion is acceptable.",
+     "answer": "RPC blocks the caller awaiting a reply and is simple for immediate validation, but couples availability and can exhaust callers during slowdown. A queue accepts a durable command, lets workers scale/retry and returns a job ID; it needs correlation, idempotence, back-pressure and status handling. Choose queueing for a long task where delayed completion is acceptable."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Claiming ACK means the application action succeeded.",
+    "Assuming all networks preserve a global order.",
+    "Retrying non-idempotent actions without duplicate detection."
+   ]
+  },
+  {
+   "file": "replication_consistency_revision_sheet.html",
+   "title": "Replication and Consistency",
+   "purpose": "Replication maintains copies of data or service state. It can improve read capacity and availability, but updates must be propagated and readers need a stated consistency guarantee.",
+   "refresher": [
+    "Linearizable vs eventual contract.",
+    "quorum R+W>N intersection.",
+    "versions/conflict still required.",
+    "partitions force choice."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "With N=3, choose W=2 and R=2. Since 2+2>3, any read quorum overlaps any completed write quorum. After a write reaches two replicas, a two-replica read sees at least one updated copy. A client reading one replica instead may still see an old value.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 8,
+     "prompt": "For N=3 replicas, choose R and W for a strong quorum intersection and calculate the condition. Explain what it does not solve. [8 marks]",
+     "route": "Choose R=2,W=2: R+W=4>N, so every read quorum intersects every write quorum in at least one replica. With appropriate version/leader protocol this supports fresh reads of acknowledged writes. It does not itself resolve two writes, guarantee availability during a partition or make a stale replica up-to-date without repair.",
+     "answer": "Choose R=2,W=2: R+W=4>N, so every read quorum intersects every write quorum in at least one replica. With appropriate version/leader protocol this supports fresh reads of acknowledged writes. It does not itself resolve two writes, guarantee availability during a partition or make a stale replica up-to-date without repair."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 9,
+     "prompt": "A partition lets two clinics edit the same patient address under eventual consistency. Give a convergent conflict policy and contrast it with linearizability. [9 marks]",
+     "route": "Eventual consistency permits each side to accept updates and later converge. Carry versions/vector metadata and define a domain rule: for an address, retain both conflicting values and require reconciliation (or use a documented last-writer rule only if its loss is acceptable). Linearizability instead makes each operation appear at one instant and would reject/wait on one side to avoid concurrent visible writes.",
+     "answer": "Eventual consistency permits each side to accept updates and later converge. Carry versions/vector metadata and define a domain rule: for an address, retain both conflicting values and require reconciliation (or use a documented last-writer rule only if its loss is acceptable). Linearizability instead makes each operation appear at one instant and would reject/wait on one side to avoid concurrent visible writes."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Calling eventual consistency “always immediately correct.”",
+    "Using quorum arithmetic without stating N or failure assumptions.",
+    "Forgetting conflict resolution for concurrent writers."
+   ]
+  },
+  {
+   "file": "transactions_fault_tolerance_revision_sheet.html",
+   "title": "Transactions and Fault Tolerance",
+   "purpose": "A transaction groups operations into a meaningful unit. Fault tolerance preserves an agreed service property despite specified faults; it does not mean that every request succeeds during every outage.",
+   "refresher": [
+    "ACID and isolation.",
+    "2PC durable prepare then decision but blocks.",
+    "checkpoint is backward recovery.",
+    "logs/idempotence enable retry."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A transfer debits A by €20 and credits B by €20. The coordinator asks both databases to prepare, then records and broadcasts commit only if both can commit. If B cannot prepare, it aborts and A does not debit. If the coordinator fails after prepare, participants consult recovery/decision information rather than guessing.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "In 2PC, all participants have durably voted YES and the coordinator crashes before sending its decision. Explain the states, recovery evidence and blocking risk. [9 marks]",
+     "route": "Each participant has logged PREPARED and holds locks after YES; it cannot unilaterally abort because another participant may have committed. On recovery the coordinator reads its durable log: a logged decision is retransmitted; no decision requires the protocol’s safe recovery path/coordination. This is why 2PC can block under coordinator failure despite atomicity.",
+     "answer": "Each participant has logged PREPARED and holds locks after YES; it cannot unilaterally abort because another participant may have committed. On recovery the coordinator reads its durable log: a logged decision is retransmitted; no decision requires the protocol’s safe recovery path/coordination. This is why 2PC can block under coordinator failure despite atomicity."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A transfer debits A then the service crashes before crediting B; the client retries. Give a transactional recovery design. [8 marks]",
+     "route": "Use one ACID transaction where possible: log intent and both updates, commit atomically, then return a durable transaction ID. Recovery redoes committed work or undoes incomplete work from the write-ahead log; retry with the same ID returns the recorded result. In distributed settings, a saga/compensation must be explicit and idempotent.",
+     "answer": "Use one ACID transaction where possible: log intent and both updates, commit atomically, then return a durable transaction ID. Recovery redoes committed work or undoes incomplete work from the write-ahead log; retry with the same ID returns the recorded result. In distributed settings, a saga/compensation must be explicit and idempotent."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4108 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4108 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Calling compensation a perfect rollback.",
+    "Omitting the invariant being protected.",
+    "Claiming 2PC removes all failures or availability cost."
+   ]
+  }
+ ]
+}

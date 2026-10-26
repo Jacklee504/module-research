@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA490 Measurable Functions</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html#topic-guides">MA490 topic guides</a>
+</nav>
+<p class="eyebrow">MA490 Topic Guide</p>
+<h1>Measurable Functions</h1>
+<p>Prove measurability through preimages and closure, not intuition.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Test measurability and prove closure under algebraic operations, compositions and pointwise limits.<strong>Exam use:</strong> Chosen ray convention, all threshold cases/preimage identity, countable closure and extended-value caveat are explicit.</p>
+<h2>Question plan</h2>
+<ol>
+<li>State the measurable-space domains and codomain.</li>
+<li>Use inverse images of Borel sets, or the threshold test {f&gt;a}.</li>
+<li>Reduce a new function to known measurable pieces.</li>
+<li>For limits, express the relevant threshold set using countable unions/intersections.</li>
+<li><strong>Question interpretation:</strong> For measurability, use preimages of generating Borel rays or closure under limits/algebra; for a constructed function, identify each measurable level set.</li>
+</ol>
+<h2>Definitions</h2>
+<p>f:(X,F)→(R,B(R)) is measurable when f<sup>−1</sup>(B)∈F for every Borel B. Equivalent threshold tests use {f&gt;a}∈F for every real a.<strong>Rapid recall:</strong> f is measurable iff {f>a} is measurable for every real a (equivalently other ray conventions); sums, products and pointwise limits of measurable real functions are measurable under the usual extended-value qualifications.</p>
+<h2>Proof method</h2>
+<p>For products, first establish f+g and f−g are measurable, then use <code>fg=((f+g)^2−(f−g)^2)/4</code>. For pointwise limits, use rational thresholds to express {lim f<sub>n</sub>&gt;a} measurably.<strong>Exam workflow:</strong> Choose the simplest generating family, calculate the preimage with all threshold cases, and invoke sigma-algebra closure explicitly.</p>
+<h2>Worked simple example</h2>
+<p>If f=1<sub>A</sub> with A∈F, then f is measurable because inverse images of Borel sets are one of ∅, A, A<sup>c</sup>, X.</p>
+<h3>Practice 1 — threshold-set proof for an indicator affine transform [8 marks]</h3>
+<p><strong>Prompt.</strong> For measurable A, prove f=2·1<sub>A</sub>−1 is measurable by analysing {f&gt;a} for every real a. <strong>Question-demand diagnosis.</strong> All threshold regimes, including endpoints, must be stated. <strong>Fastest route.</strong> Split at a=−1 and a=1 to obtain X, A or ∅. <strong>Topic-specific trap.</strong> Saying “it is a step function” is not a proof unless A’s measurability is used.</p>
+<p>Let A be measurable and f=2 1_A-1. For a&lt;-1, {f>a}=X; for -1&lt;=a&lt;1, it is A; for a>=1, it is empty. Every case is measurable, so f is measurable. This proof also shows why measurability of A is exactly what the step function needs.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Basic:</strong> Why is f² measurable when f is? <strong>Check:</strong> square is continuous, so compose it with f.</p>
+<p>
+<strong>2. Exam:</strong> Prove max(f,g) is measurable. <strong>Check:</strong> max(f,g)=(f+g+|f−g|)/2.</p>
+<h3>Practice 2 — countable supremum of measurable functions [8 marks]</h3>
+<p><strong>Prompt.</strong> If f<sub>n</sub> are measurable, prove g=sup<sub>n</sub>f<sub>n</sub> is measurable. <strong>Question-demand diagnosis.</strong> Convert a real threshold preimage into a countable σ-algebra operation. <strong>Fastest route.</strong> Write {g&gt;a}=∪<sub>n</sub>{f<sub>n</sub>&gt;a}. <strong>Topic-specific trap.</strong> An uncountable supremum cannot be handled by this countable-union proof without further argument.</p>
+<p>Paper-style synthesis: if f_n are measurable, prove g=sup_n f_n is measurable. Check {g>a}=union_n {f_n>a}, a countable union of measurable sets. State why countability matters.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Proving only that preimages of intervals are measurable without saying why that suffices.</li>
+<li>Assuming every pointwise limit is continuous.</li>
+<li>Using a non-measurable set in an indicator function.</li>
+<li><strong>Recovery rule:</strong> Preimages commute with unions and complements, but images generally do not; measurability proofs should work backwards through the function.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the inverse-image definition.</li>
+<li>I know two closure routes for products/maxima.</li>
+<li>I can distinguish measurability from continuity.</li>
+<li><strong>Final 60-second audit:</strong> Chosen ray convention, all threshold cases/preimage identity, countable closure and extended-value caveat are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>High confidence: closure, squares/products, pointwise limits and counterexamples repeatedly occupy Q3. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>

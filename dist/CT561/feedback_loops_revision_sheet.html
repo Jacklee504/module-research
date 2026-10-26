@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Feedback Loops</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="stock_flow_modelling_revision_sheet.html">Previous topic: Stock-flow modelling</a><a href="numerical_integration_revision_sheet.html">Next topic: Numerical integration</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>Feedback Loops and Workload Policies</h1><p>Recent papers repeatedly turn a verbal workload scenario into a signed diagram, named loops and a policy judgement.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Repeated recent-paper structure</h2>
+<ul><li><strong>Define and classify [5-6]:</strong> link polarity, loop polarity, feedback, balancing and reinforcing behaviour.</li><li><strong>Build the model [10-12]:</strong> one backlog stock, stated flows/auxiliaries, link signs and stock equation where requested.</li><li><strong>Analyse policy loops [7-8]:</strong> name each loop, trace an increase around it, calculate polarity, then discuss unintended effects.</li></ul>
+<p><strong>References:</strong> 2023/24 Q1(b,c), 2024/25 Q1(a-c), 2025/26 Q3(a-c). Earlier close variants: 2016/17 Q1, 2018/19 Q2 and 2019/20 Q2.</p>
+
+<h2>Definitions that earn the short-question marks</h2>
+<ul><li><strong>Link polarity:</strong> a positive link means variables move in the same direction; a negative link means they move in opposite directions, other things equal.</li><li><strong>Feedback loop:</strong> a closed causal chain in which a variable eventually affects itself.</li><li><strong>Loop polarity:</strong> an even number of negative links gives reinforcing feedback; an odd number gives balancing feedback.</li><li><strong>Balancing loop:</strong> counters a change or closes a gap. <strong>Reinforcing loop:</strong> amplifies a change.</li></ul>
+<p>Always confirm with an increase-trace. For <code>Backlog +&gt; Pressure +&gt; Completed -&gt; Backlog</code>, an increase in backlog eventually causes a decrease in backlog. One negative link means balancing.</p>
+
+<h2>2025/26 claims-backlog model [12]</h2>
+<p>Use the exact structure from 2025/26 Q3(b):</p>
+<p><code>Claims Backlog = INTEG(New Claims + Reworked Claims - Claims Completed, Initial Backlog)</code></p>
+<ul><li>Claims Backlog <code>+</code> Work Pressure.</li><li>Pressure <code>-</code> Time per Claim; lower Time per Claim <code>+</code> Claims Completed.</li><li>Pressure <code>+</code> Temporary Staff; Temporary Staff <code>+</code> Claims Completed.</li><li>Pressure <code>+</code> Workweek; Workweek <code>+</code> Claims Completed.</li><li>Lower Time per Claim <code>+</code> Reworked Claims.</li><li>Temporary Staff <code>+</code> Time per Claim.</li><li>Workweek <code>+</code> Fatigue; Fatigue <code>-</code> Claims Completed.</li></ul>
+<p>Draw flows as pipes into/out of the stock. Pressure, time per claim, temporary staff, workweek and fatigue are auxiliaries with information arrows, not material flows.</p>
+
+<h2>Policy and side-effect loops [7]</h2>
+<table><thead><tr><th>Loop</th><th>Trace from a rising backlog</th><th>Polarity</th></tr></thead><tbody>
+<tr><td>Speed policy</td><td>Backlog +, Pressure +, Time per Claim -, Completed +, Backlog -</td><td>Balancing</td></tr>
+<tr><td>Temporary-staff policy</td><td>Backlog +, Pressure +, Temporary Staff +, Completed +, Backlog -</td><td>Balancing</td></tr>
+<tr><td>Workweek policy</td><td>Backlog +, Pressure +, Workweek +, Completed +, Backlog -</td><td>Balancing</td></tr>
+<tr><td>Rework side-effect</td><td>Backlog +, Pressure +, Time per Claim -, Reworked Claims -, Backlog +</td><td>Reinforcing</td></tr>
+<tr><td>Temporary-staff side-effect</td><td>Backlog +, Pressure +, Temporary Staff +, Time per Claim +, Completed -, Backlog -</td><td>Reinforcing</td></tr>
+<tr><td>Fatigue side-effect</td><td>Backlog +, Pressure +, Workweek +, Fatigue +, Completed -, Backlog -</td><td>Reinforcing</td></tr>
+</tbody></table>
+
+<h2>How to answer the discussion part</h2>
+<p>Do not say simply that overtime or temporary staff is good or bad. State that the immediate policy loops are balancing, but the quality, training and fatigue side-effects reinforce backlog. Delays make a policy look effective at first and harmful later. Recommend testing a combined policy that protects quality and sustainable capacity, and name the outcome measures: backlog, completion rate, rework and fatigue.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>Every stated variable appears once and every link has a sign.</li><li>Flows connect to the stock; information links do not.</li><li>Each requested loop is named, closed and traced.</li><li>Explain the management trade-off, including any delay.</li></ul>
+</article></main></body></html>

@@ -1,0 +1,866 @@
+{
+ "code": "CS4423",
+ "name": "Networks",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "80% exam / 20% CA",
+  "predictability": "Medium-High",
+  "title": "CS4423 - Networks",
+  "papers": [
+   "2017_2018.pdf",
+   "2018_2019.pdf",
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "bfs_shortest_paths_revision_sheet.html",
+   "bipartite_affiliation_laplacian_revision_sheet.html",
+   "centrality_revision_sheet.html",
+   "connectivity_revision_sheet.html",
+   "graph_foundations_revision_sheet.html",
+   "prufer_codes_trees_revision_sheet.html",
+   "random_graphs_revision_sheet.html",
+   "secondary_applications_revision_sheet.html",
+   "small_world_revision_sheet.html"
+  ],
+  "exam_block": [
+   "Trust: recurring skills and the current seven-question, 100-mark format.",
+   "Do not over-trust: exact question slots or specialist topics such as affiliation networks and Laplacian reconstruction.",
+   "Read next: Most Asked Exam Questions for the paper-by-paper evidence, mark allocations, and current-format question families.",
+   "Use for prioritisation: Expected Questions by Learning Outcome , which combines official scope with the past-paper record."
+  ],
+  "paper_format": "current seven-question, 100-mark format",
+  "exam_shape": "mixed",
+  "code": "CS4423",
+  "name": "Networks"
+ },
+ "families": [
+  {
+   "id": "bfs-predecessors-and-all-shortest-paths",
+   "rank": 1,
+   "title": "BFS, Predecessors, And All Shortest Paths",
+   "frequency": "7/7",
+   "appearances": [
+    "2025/26 Q4, 14 marks: describe BFS for distances [5], then start at Node 0, determine every shortest-path predecessor, and list all shortest paths to Node 7 [9].",
+    "2024/25 Q4, 14 marks: the same 5 + 9 structure, including every predecessor and all shortest paths from Node 0 to Node 7.",
+    "2023/24 Q1(b)-(d), 15 marks: distances from a root [4], all predecessors and all shortest paths [7], then a BFS spanning tree [4].",
+    "2022/23 Q1(b)-(d), 15 marks: algorithm description [7], trace the distance algorithm [4], and construct a rooted spanning tree [4].",
+    "2021/22 Q1(c)-(d), 7 marks: algorithm description [3], then a spanning tree and shortest distances [4].",
+    "2018/19 Q1(c), 10 marks: algorithm description, spanning tree, distances, predecessors, and all shortest paths to a stated target.",
+    "2017/18 Q1(a), 10 marks: algorithm description plus a spanning tree and root-to-all distance calculation."
+   ],
+   "marks": 51,
+   "question": "",
+   "answer": "Answer frame: Separate the algorithm from the trace. For the algorithm, state input graph and root, initial distances, frontier or queue processing, discovery rule, and output. In the trace, record levels or distances first; then record all neighbours that can be predecessors at the previous level. A single BFS tree loses marks if the question asks for every shortest path."
+  },
+  {
+   "id": "graph-foundations-matrices-bipartite-graphs-and-trees",
+   "rank": 2,
+   "title": "Graph Foundations, Matrices, Bipartite Graphs, And Trees",
+   "frequency": "",
+   "appearances": [
+    "2025/26 Q1, 14 marks: adjacency matrix to sketch [4], order/size and spanning-tree size [5], degree sequence [2], graphical degree sequence [3].",
+    "2025/26 Q2, 15 marks: bipartite sketch and two-colouring [5], reorder nodes into a zero-block adjacency matrix [5], then construct a projection [5].",
+    "2025/26 Q3, 15 marks: Pruefer-code degree reasoning [5], code-to-tree construction [5], and a labelled isomorphic tree [5].",
+    "2024/25 Q1, 14 marks: simple connected graph and tree constraints [5], adjacency matrix [4], and permutation-matrix block form [5].",
+    "2024/25 Q2, 15 marks: affiliation-network definition and bipartite reason [5], two-colouring [5], and a graph projection [5].",
+    "2024/25 Q5, 14 marks: reconstruct a tree from a Laplacian [2], tree-to-Pruefer code [6], and code-to-degree-sequence/tree construction [6]."
+   ],
+   "marks": 87,
+   "question": "",
+   "answer": "Answer frame: For a matrix question, define the vertex order before writing entries. For bipartite questions, state the two parts and verify each edge crosses the partition. For Pruefer work, show the smallest-leaf removal or attachment sequence, rather than writing only the final code or tree. Treat Laplacian reconstruction as a 2024/25 variant, not a guaranteed repeat."
+  },
+  {
+   "id": "centrality",
+   "rank": 3,
+   "title": "Centrality",
+   "frequency": "2018/19",
+   "appearances": [
+    "2025/26 Q5, 14 marks: degree and normalised degree [4], distances and closeness comparison [5], then shortest-path pairs through one node and betweenness [5].",
+    "2024/25 Q3, 15 marks: NetworkX-style graph input, normalised degree [3], distance matrix and diameter [3], closeness for every node [3], and a closeness-versus-degree counterexample [3].",
+    "2023/24 Q2, 25 marks: degree [5], closeness [5], betweenness [5], bipartiteness [3], and eigenvector centrality [7].",
+    "2022/23 Q2, 25 marks: normalised degree [5], closeness [5], betweenness [5], and eigenvector centrality [10].",
+    "2021/22 Q2, 15 marks: definitions and examples for degree, closeness, and betweenness centrality, each [5].",
+    "2018/19 Q2, 20 marks: degree [5], eigenvector centrality and Perron-Frobenius [5], closeness [5], and betweenness [5]."
+   ],
+   "marks": 101,
+   "question": "",
+   "answer": "Answer frame: Draw or relabel the graph before calculating. For closeness, make a distance row and state the normalisation convention used. For betweenness, list node pairs, then account for the number of shortest paths when a pair has more than one. End comparison questions with an intuitive graph-structure explanation."
+  },
+  {
+   "id": "erdos-renyi-random-graphs",
+   "rank": 4,
+   "title": "Erdos-Renyi Random Graphs",
+   "frequency": "6/7",
+   "appearances": [
+    "2025/26 Q6, 14 marks: define G_ER(n,m) and G_ER(n,p) and give empty-graph parameters [4]; probability of the complete graph in both models [5]; choose p so expected edge count is half the maximum [5].",
+    "2024/25 Q6, 14 marks: define both models and give complete-graph parameters [4]; probability of exactly m edges [5]; then a die-based degree probability [5].",
+    "2023/24 Q3, 25 marks: both generators and exactly- m -edge probability [5], expected size [5], die-based degree probability [5], then Watts-Strogatz construction and comparison [10].",
+    "2022/23 Q3, 25 marks: both generators and exactly- m -edge probability [8], degree probability [5], giant component [5], and Watts-Strogatz [7].",
+    "2021/22 Q3, 15 marks: G(n,m) [3], G(n,p) plus probability [4], coin-based degree probability [4], and giant component [4].",
+    "2018/19 Q3, 20 marks: both models as distributions [10], then degree distribution, expected average degree, and die-based degree probability [10]."
+   ],
+   "marks": 113,
+   "question": "",
+   "answer": "Answer frame: State the model distinction before calculating. In G_ER(n,m) , every graph with exactly m edges is equally likely; in G_ER(n,p) , each possible edge is included independently with probability p . Use E[|E|] = p * n(n-1)/2 for expected size, and a binomial probability for a chosen node's degree in the independent-edge model."
+  },
+  {
+   "id": "watts-strogatz-clustering-transitivity-and-path-length",
+   "rank": 5,
+   "title": "Watts-Strogatz, Clustering, Transitivity, And Path Length",
+   "frequency": "6/7",
+   "appearances": [
+    "2025/26 Q7, 14 marks: characteristic path length and small-world behaviour [4], graph transitivity and its value for G_ER(n,p) [5], then Watts-Strogatz properties relative to Erdos-Renyi and an (n,d) -circle graph [5].",
+    "2024/25 Q7, 14 marks: node and graph clustering [4], clustering in G_ER(n,p) and its sparse-limit consequence [5], then the same Watts-Strogatz comparison [5].",
+    "2023/24 Q3(d)-(e), 10 marks: construct an (n,d,p) -Watts-Strogatz graph [5] and compare clustering/path length across models [5].",
+    "2022/23 Q3(d), 7 marks: construct Watts-Strogatz and explain its distinguishing properties.",
+    "2021/22 Q4(a)-(b), 8 marks: sketch a circle graph and count edges [3], then construct Watts-Strogatz and compare its properties [5].",
+    "2018/19 Q4(a), 10 marks: node/graph clustering, random-graph clustering, sparse-limit consequence, and Watts-Strogatz comparison."
+   ],
+   "marks": 46,
+   "question": "",
+   "answer": "Answer frame: Keep the three models distinct. The circle graph has high local structure and longer paths; Erdos-Renyi has short paths but low clustering when average degree stays constant; Watts-Strogatz combines comparatively high clustering with short characteristic path length after some rewiring. State the required definition before using it in a derivation."
+  },
+  {
+   "id": "priority-6-and-coverage-pruefer-directed-market-and-web-networks",
+   "rank": 6,
+   "title": "Priority 6 And Coverage - Pruefer, Directed, Market, And Web Networks",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "current-format-question-map",
+   "rank": null,
+   "title": "Current-Format Question Map",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "official-outcome-coverage-map",
+   "rank": null,
+   "title": "Official Outcome Coverage Map",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "ranked-current-priorities",
+   "rank": null,
+   "title": "Ranked Current Priorities",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "Order and size of a graph?",
+     "back": "Order |V| : number of vertices. Size |E| : number of edges.",
+     "evidence": "2021/22 Q1; 2022/23-2023/24 Q1; 2024/25 Q1; 2025/26 Q1"
+    },
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "How many edges has a spanning tree of a connected graph of order n ?",
+     "back": "n − 1 . Every tree on n vertices has exactly n − 1 edges.",
+     "evidence": "2024/25 Q1; 2025/26 Q1"
+    },
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "Quick graphicality screen for a degree sequence?",
+     "back": "Necessary, not sufficient: every d i is in {0, …, n − 1} and Σ d i is even. If both pass, use Havel-Hakimi to decide.",
+     "evidence": "2018/19 Q1; 2025/26 Q1"
+    },
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "Adjacency-matrix rule?",
+     "back": "After fixing a vertex order, A ij = 1 iff {i, j} is an edge; otherwise 0 . For a simple undirected graph, A is symmetric with zero diagonal.",
+     "evidence": "2022/23-2023/24 Q1; 2024/25 Q1; 2025/26 Q1"
+    },
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "Bipartite: definition and quick test?",
+     "back": "Vertices can be 2-coloured so every edge joins different colours. Equivalently, the graph has no odd cycle.",
+     "evidence": "2017/18 Q3; 2023/24 Q2; 2024/25 Q2; 2025/26 Q2"
+    },
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "Bipartite adjacency-matrix block form?",
+     "back": "List the two parts together: A = [0 C; C T 0] . The zero diagonal blocks mean no within-part edges.",
+     "evidence": "2025/26 Q2"
+    },
+    {
+     "group": "Graph Foundations and Bipartite Networks",
+     "front": "One-mode projection of a bipartite graph?",
+     "back": "Keep one part as vertices; join two of them when they share a neighbour in the other part. A weighted projection can use their number of shared neighbours.",
+     "evidence": "2024/25 Q2; 2025/26 Q2"
+    },
+    {
+     "group": "BFS and Shortest Paths",
+     "front": "What does BFS give from a root s ?",
+     "back": "Distance layers from s ; a BFS tree if one parent per vertex is kept; and all shortest-path predecessors if every valid parent is kept.",
+     "evidence": "All 7 papers; especially 2024/25-2025/26 Q4(a)"
+    },
+    {
+     "group": "BFS and Shortest Paths",
+     "front": "Core BFS discovery rule?",
+     "back": "Set d(s) = 0 and use a FIFO queue. On first discovery of v from u , set d(v) = d(u) + 1 and enqueue v .",
+     "evidence": "All 7 papers"
+    },
+    {
+     "group": "BFS and Shortest Paths",
+     "front": "BFS distance fact?",
+     "back": "In an unweighted graph, d(v) is the fewest edges on any path from s to reachable v .",
+     "evidence": "2017/18-2025/26 BFS questions"
+    },
+    {
+     "group": "BFS and Shortest Paths",
+     "front": "All predecessors versus one BFS-tree parent?",
+     "back": "A BFS tree chooses one parent. For all shortest paths, keep every neighbour u with d(u) = d(v) − 1 as a predecessor of v .",
+     "evidence": "2018/19 Q1; 2023/24 Q1; 2024/25-2025/26 Q4"
+    },
+    {
+     "group": "BFS and Shortest Paths",
+     "front": "How to list all shortest paths after BFS?",
+     "back": "Backtrack from the target through every stored predecessor until s ; reverse each chain.",
+     "evidence": "2018/19 Q1; 2023/24 Q1; 2024/25-2025/26 Q4"
+    },
+    {
+     "group": "Centrality",
+     "front": "Degree and normalised degree centrality?",
+     "back": "C D (v) = deg(v) . For a simple graph of order n , normalised degree centrality is deg(v) / (n − 1) .",
+     "evidence": "2018/19 Q2; 2021/22 Q2; 2022/23-2025/26"
+    },
+    {
+     "group": "Centrality",
+     "front": "Closeness centrality?",
+     "back": "For connected graph of order n , C C (v) = (n − 1) / Σ u ≠ v d(v, u) . Larger means shorter average distances.",
+     "evidence": "2018/19 Q2; 2021/22 Q2; 2022/23-2025/26"
+    },
+    {
+     "group": "Centrality",
+     "front": "Betweenness centrality?",
+     "back": "C B (v) = Σ σ st (v) / σ st over unordered pairs s, t excluding v .",
+     "evidence": "2018/19 Q2; 2021/22 Q2; 2022/23-2025/26"
+    },
+    {
+     "group": "Centrality",
+     "front": "Why count fractions in betweenness?",
+     "back": "If two shortest paths connect a pair and only one uses v , that pair contributes ½ , not 1 .",
+     "evidence": "2022/23 Q2; 2023/24 Q2; 2025/26 Q5"
+    },
+    {
+     "group": "Centrality",
+     "front": "Normalised betweenness in an undirected graph?",
+     "back": "Divide raw betweenness by (n − 1)(n − 2) / 2 .",
+     "evidence": "2018/19 Q2; 2022/23 Q2; 2023/24 Q2"
+    },
+    {
+     "group": "Centrality",
+     "front": "Eigenvector centrality idea?",
+     "back": "A node is central when it connects to central nodes. Its score is proportional to the sum of neighbour scores, so it is an eigenvector of the adjacency matrix.",
+     "evidence": "2018/19 Q2; 2022/23 Q2; 2023/24 Q2"
+    },
+    {
+     "group": "Centrality",
+     "front": "Degree versus closeness?",
+     "back": "High degree is many direct neighbours. High closeness is short routes to the whole graph. A node can be high in one and low in the other.",
+     "evidence": "2024/25 Q3; 2025/26 Q5"
+    },
+    {
+     "group": "Random Graphs",
+     "front": "G ER (n, m) versus G ER (n, p) ?",
+     "back": "G ER (n, m) chooses uniformly among graphs with exactly m edges. G ER (n, p) independently includes each possible edge with probability p .",
+     "evidence": "2018/19 Q3; 2021/22-2025/26"
+    },
+    {
+     "group": "Random Graphs",
+     "front": "Empty and complete graph parameters?",
+     "back": "Empty: m = 0 or p = 0 . Complete: m = n(n − 1) / 2 or p = 1 .",
+     "evidence": "2024/25 Q6; 2025/26 Q6"
+    },
+    {
+     "group": "Random Graphs",
+     "front": "Expected number of edges in G ER (n, p) ?",
+     "back": "E[|E|] = p × n(n − 1) / 2 .",
+     "evidence": "2023/24 Q3; 2025/26 Q6"
+    },
+    {
+     "group": "Random Graphs",
+     "front": "Degree distribution in G ER (n, p) ?",
+     "back": "For a fixed vertex, deg(v) ∼ Binomial(n − 1, p) . Thus P(deg(v) = k) = n − 1 k p k (1 − p) n − 1 − k .",
+     "evidence": "2018/19 Q3; 2021/22-2024/25 degree-probability variants"
+    },
+    {
+     "group": "Random Graphs",
+     "front": "Probability of exactly m edges in G ER (n, p) ?",
+     "back": "N m p m (1 − p) N − m , where N = n(n − 1) / 2 .",
+     "evidence": "2021/22 Q3; 2022/23 Q3; 2023/24 Q3; 2024/25 Q6"
+    },
+    {
+     "group": "Random Graphs",
+     "front": "Giant component threshold idea?",
+     "back": "Critical scale: average degree np ≍ 1 , so p is of order 1 / n .",
+     "evidence": "2021/22 Q3; 2022/23 Q3"
+    },
+    {
+     "group": "Small-World Networks",
+     "front": "Characteristic path length?",
+     "back": "The average shortest-path distance between pairs of vertices in a connected graph.",
+     "evidence": "2025/26 Q7"
+    },
+    {
+     "group": "Small-World Networks",
+     "front": "Node clustering coefficient?",
+     "back": "For node v , it is the fraction of possible edges between neighbours of v that actually exist.",
+     "evidence": "2018/19 Q4; 2024/25 Q7"
+    },
+    {
+     "group": "Small-World Networks",
+     "front": "Transitivity of a graph?",
+     "back": "3 × (number of triangles) / (number of connected triples) . It is a global clustering measure.",
+     "evidence": "2025/26 Q7"
+    },
+    {
+     "group": "Small-World Networks",
+     "front": "Transitivity/clustering in G ER (n, p) ?",
+     "back": "It is p : conditional on two edges forming a connected triple, the closing edge exists independently with probability p .",
+     "evidence": "2018/19 Q4; 2024/25 Q7; 2025/26 Q7"
+    },
+    {
+     "group": "Small-World Networks",
+     "front": "Watts-Strogatz signature?",
+     "back": "Compared with a circle graph, limited rewiring gives much shorter paths while retaining high clustering. Compared with Erdos-Renyi, it retains higher clustering.",
+     "evidence": "2018/19 Q4; 2021/22-2025/26"
+    },
+    {
+     "group": "Trees and Pruefer Codes",
+     "front": "Pruefer code length of a labelled tree on n nodes?",
+     "back": "n − 2 .",
+     "evidence": "2021/22 Q1; 2022/23 Q4; 2023/24 Q4; 2024/25 Q5; 2025/26 Q3"
+    },
+    {
+     "group": "Trees and Pruefer Codes",
+     "front": "Degree from a Pruefer code?",
+     "back": "deg(v) = 1 + the number of times v appears in the code.",
+     "evidence": "2021/22 Q1; 2022/23 Q4; 2024/25 Q5; 2025/26 Q3"
+    },
+    {
+     "group": "Trees and Pruefer Codes",
+     "front": "Which labels occur in a Pruefer code?",
+     "back": "Exactly the vertices with degree > 1 . The number of distinct labels is the number of non-leaves.",
+     "evidence": "2025/26 Q3"
+    },
+    {
+     "group": "Trees and Pruefer Codes",
+     "front": "Tree-to-Pruefer encoding routine?",
+     "back": "Repeatedly remove the smallest-labelled leaf and record its neighbour. Stop when two vertices remain.",
+     "evidence": "2022/23 Q4; 2023/24 Q4; 2024/25 Q5"
+    },
+    {
+     "group": "Trees and Pruefer Codes",
+     "front": "Pruefer-code-to-tree routine?",
+     "back": "At each code entry, join it to the smallest label absent from the remaining code, remove that leaf and entry, then join the final two labels.",
+     "evidence": "2021/22 Q1; 2024/25 Q5; 2025/26 Q3"
+    },
+    {
+     "group": "Trees and Pruefer Codes",
+     "front": "Labelled isomorphic but unequal trees?",
+     "back": "They have the same shape but different edge sets under the fixed labels. Give a bijection of labels that preserves adjacency.",
+     "evidence": "2025/26 Q3"
+    },
+    {
+     "group": "Directed, Market, and Web Networks",
+     "front": "Strong versus weak connectedness?",
+     "back": "Strong: every ordered pair has directed paths both ways. Weak: the underlying undirected graph is connected.",
+     "evidence": "2017/18 Q4; 2018/19 Q4; 2021/22-2023/24 Q4"
+    },
+    {
+     "group": "Directed, Market, and Web Networks",
+     "front": "Strongly connected components?",
+     "back": "Equivalence classes of mutual reachability: u ∼ v iff there is a directed path u → v and one v → u .",
+     "evidence": "2017/18 Q4; 2018/19 Q4; 2021/22-2023/24 Q4"
+    },
+    {
+     "group": "Directed, Market, and Web Networks",
+     "front": "Bow-Tie diagram core?",
+     "back": "IN → SCC → OUT , with tendrils, tubes, and disconnected components around the core.",
+     "evidence": "2017/18 Q4; 2018/19 Q4; 2021/22-2023/24 Q4"
+    },
+    {
+     "group": "Directed, Market, and Web Networks",
+     "front": "PageRank input and equilibrium?",
+     "back": "Input: a directed web graph. Output: node scores. Equilibrium: a score vector unchanged by the PageRank update.",
+     "evidence": "2017/18 Q4"
+    },
+    {
+     "group": "Directed, Market, and Web Networks",
+     "front": "Market-network coverage cue?",
+     "back": "Know Nash equilibrium, transport networks, matching, market-clearing prices, and bipartite auctions. Treat as low recent priority.",
+     "evidence": "2017/18 Q2-Q3; official learning outcome"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "bfs_shortest_paths_revision_sheet.html",
+   "title": "BFS and Shortest Paths",
+   "purpose": "BFS is the safest recurring local pattern and directly supports the official traversal outcome. In an unweighted graph it finds minimum-hop distance from a source. Exam use: Neighbour order, every queue transition, distances, predecessors and the requested reconstructed path agree.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "A-B, A-C, B-D, C-D; start A alphabetically.",
+     "route": "Model answer: Levels: {A}, {B,C}, {D}. B←A, C←A, D←B; distances 0,1,1,2. A-B-D is one shortest A–D path; A-C-D is another.",
+     "answer": "Model answer: Levels: {A}, {B,C}, {D}. B←A, C←A, D←B; distances 0,1,1,2. A-B-D is one shortest A–D path; A-C-D is another."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "On edges AB, AC, BD, CE, DE, EF, run BFS from A with alphabetical neighbours. Queue states: [A]; after A, [B,C] with d=1; after B, [C,D] with d(D)=2; after C, [D,E] with d(E)=2; after D no new vertex; after E, [F] with d(F)=3. Predecessors A<-B<-D and A<-C<-E<-F show a shortest A-F path A-C-E-F of length 3.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Give BFS pseudocode and find distances, predecessors and a spanning tree. Check: FIFO queue, first discovery only, level-based correctness, and note one tree does not list all ties.",
+     "route": "FIFO queue, first discovery only, level-based correctness, and note one tree does not list all ties.",
+     "answer": "FIFO queue, first discovery only, level-based correctness, and note one tree does not list all ties."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: add edge BF and rerun only affected layers. Check F moves from distance 3 to 2 with predecessor B; no vertex can have distance below its BFS discovery layer.",
+     "route": "add edge BF and rerun only affected layers. Check F moves from distance 3 to 2 with predecessor B; no vertex can have distance below its BFS discovery layer.",
+     "answer": "add edge BF and rerun only affected layers. Check F moves from distance 3 to 2 with predecessor B; no vertex can have distance below its BFS discovery layer."
+    },
+    {
+     "title": "Practice question - all shortest paths [9 marks]",
+     "marks": 9,
+     "prompt": "In the undirected graph with edges 0-1, 0-2, 1-3, 2-3, 1-4, 2-4, 3-5, 4-5, run BFS from 0 and list every shortest 0-to-5 path. [9 marks]",
+     "route": "overwriting 5's predecessor when 4 is processed silently loses half the shortest paths.",
+     "answer": "Demand diagnosis and fastest route: this asks for the FIFO discovery process and all predecessor ties, not one convenient route. Layer the graph: L0={0}, L1={1,2}, L2={3,4}, L3={5}."
+    }
+   ],
+   "mistakes": [
+    "Using a stack.",
+    "Overwriting predecessors after first discovery.",
+    "Applying BFS to arbitrary weighted edges.",
+    "Recovery rule: Mark a vertex visited when it is enqueued, not when dequeued, or duplicate queue entries can corrupt the predecessor tree."
+   ]
+  },
+  {
+   "file": "bipartite_affiliation_laplacian_revision_sheet.html",
+   "title": "Bipartite, Affiliation and Laplacian Networks",
+   "purpose": "Affiliation networks model membership between two kinds of entity; projections expose one-mode relationships. They appeared as newer local material, alongside Laplacian reconstruction, so treat them as current-syllabus coverage rather than a long repeat claim. Exam use: Node modes, matrix order, diagonal/weight convention, degree matrix and zero row-sum check are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "Students S1,S2 attend events E1,E2; S1 attends both, S2 only E2. What is the student projection?",
+     "route": "Model answer: B=[[1,1],[0,1]], so BBᵀ=[[2,1],[1,1]]. Ignoring diagonal self-counts, S1–S2 has weight 1 because they share E2.",
+     "answer": "Model answer: B=[[1,1],[0,1]], so BBᵀ=[[2,1],[1,1]]. Ignoring diagonal self-counts, S1–S2 has weight 1 because they share E2."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Let people p1,p2,p3 attend groups g1,g2 with B=[[1,1],[1,0],[0,1]]. Then BB^T=[[2,1,1],[1,1,0],[1,0,1]]. Removing the diagonal gives weighted person projection A=[[0,1,1],[1,0,0],[1,0,0]], degrees (2,1,1), and L=[[2,-1,-1],[-1,1,0],[-1,0,1]]. Each row sum is 0, providing a quick check.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Construct an affiliation matrix, its projection and a graph from a Laplacian. Check: state node orders, interpret projection weights, use L=D−A, and check row sums.",
+     "route": "state node orders, interpret projection weights, use L=D−A, and check row sums.",
+     "answer": "state node orders, interpret projection weights, use L=D−A, and check row sums."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: find the eigenvalue-0 multiplicity of that projection and interpret it. Check the projected graph is connected, so the multiplicity is 1; vector (1,1,1)^T spans the nullspace.",
+     "route": "find the eigenvalue-0 multiplicity of that projection and interpret it. Check the projected graph is connected, so the multiplicity is 1; vector (1,1,1)^T spans the nullspace.",
+     "answer": "find the eigenvalue-0 multiplicity of that projection and interpret it. Check the projected graph is connected, so the multiplicity is 1; vector (1,1,1)^T spans the nullspace."
+    },
+    {
+     "title": "Practice question - affiliation projection [8 marks]",
+     "marks": 8,
+     "prompt": "People A,B,C attend events X,Y with incidence rows A=(1,1), B=(1,0), C=(0,1). Construct the person projection and its Laplacian. [8 marks]",
+     "route": "retaining the diagonal turns attendance counts into loops and corrupts the ordinary projection degree.",
+     "answer": "Demand diagnosis and fastest route: distinguish the bipartite incidence matrix from the projected one-mode network. Compute BB T , remove its diagonal, then use L=D-A."
+    }
+   ],
+   "mistakes": [
+    "Joining nodes from the same bipartition directly in B.",
+    "Treating projection diagonal as an ordinary edge weight.",
+    "Forgetting Laplacian off-diagonals are negative adjacency.",
+    "Recovery rule: A projection diagonal records affiliation counts, not self-loops unless the question explicitly keeps it."
+   ]
+  },
+  {
+   "file": "centrality_revision_sheet.html",
+   "title": "Centrality",
+   "purpose": "Centrality ranks vertices using different meanings of importance. It is a major repeat area and an explicit official learning outcome. Exam use: Metric choice, normalisation, distance/path evidence, tie handling and contextual interpretation are all shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "Compare degree and betweenness in A-B-C.",
+     "route": "Model answer: Degrees are 1,2,1; B is highest. B lies on the sole A–C shortest path, so its unnormalised betweenness is 1, versus 0 for A,C: B is an intermediary.",
+     "answer": "Model answer: Degrees are 1,2,1; B is highest. B lies on the sole A–C shortest path, so its unnormalised betweenness is 1, versus 0 for A,C: B is an intermediary."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "For path A-B-C-D, degrees are (1,2,2,1). Distance sums are (6,4,4,6), so normalised closeness is (1/2,3/4,3/4,1/2). Of the six unordered pairs, B lies on A-C and A-D, giving raw betweenness 2; C lies on A-D and B-D, also 2; endpoints score 0. Thus B and C tie as access points and brokers, while degree alone cannot separate them.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Calculate degree, closeness and betweenness; recommend one for information brokerage. Check: show paths, handle ties, choose betweenness, and do not claim all centralities mean the same thing.",
+     "route": "show paths, handle ties, choose betweenness, and do not claim all centralities mean the same thing.",
+     "answer": "show paths, handle ties, choose betweenness, and do not claim all centralities mean the same thing."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: add edge A-D and recompute betweenness. Check the graph becomes a 4-cycle; each vertex lies on the two equal shortest paths for its opposite pair and receives 1/2 raw credit, so all tie.",
+     "route": "add edge A-D and recompute betweenness. Check the graph becomes a 4-cycle; each vertex lies on the two equal shortest paths for its opposite pair and receives 1/2 raw credit, so all tie.",
+     "answer": "add edge A-D and recompute betweenness. Check the graph becomes a 4-cycle; each vertex lies on the two equal shortest paths for its opposite pair and receives 1/2 raw credit, so all tie."
+    },
+    {
+     "title": "Practice question - centrality is not one ranking [9 marks]",
+     "marks": 9,
+     "prompt": "For the path A-B-C-D-E, calculate normalised degree and closeness of B and C, then state their raw betweenness. [9 marks]",
+     "route": "endpoints of a shortest path do not receive betweenness credit; do not divide by a normalising constant unless requested.",
+     "answer": "Demand diagnosis and fastest route: calculate with a declared normalisation and count intermediary appearances only. By symmetry B and C tie, so calculate B once."
+    }
+   ],
+   "mistakes": [
+    "Using edge count for closeness.",
+    "Giving every tied shortest path full betweenness credit.",
+    "Ignoring direction/disconnected vertices.",
+    "Recovery rule: When shortest paths tie, divide the contribution; counting every path as one inflates betweenness."
+   ]
+  },
+  {
+   "file": "connectivity_revision_sheet.html",
+   "title": "Connectivity and Directed Networks",
+   "purpose": "Connectivity determines whether vertices can reach one another. Directed networks require the distinction between weak and strong connectivity; both recur in the local archive. Exam use: Direction convention, searches/reachability witnesses, component membership and condensation interpretation agree.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "A→B, B→A, B→C. Find weak and strong components.",
+     "route": "Model answer: Ignoring arrows gives one weak component {A,B,C}. A and B form an SCC because each reaches the other; C alone is an SCC because C cannot return to B.",
+     "answer": "Model answer: Ignoring arrows gives one weak component {A,B,C}. A and B form an SCC because each reaches the other; C alone is an SCC because C cannot return to B."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "For arcs A->B, B->C, C->A, C->D, D->E, E->D, the underlying graph is connected, so the digraph is weakly connected. SCCs are {A,B,C} and {D,E}: vertices in the first reach the second through C->D, but E cannot reach A. The condensation has one arc {A,B,C}->{D,E} and is acyclic.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Find SCCs and draw a Bow-Tie-style interpretation. Check: give reachability evidence, distinguish IN/OUT from the SCC, and do not force every directed graph into a full Bow-Tie taxonomy.",
+     "route": "give reachability evidence, distinguish IN/OUT from the SCC, and do not force every directed graph into a full Bow-Tie taxonomy.",
+     "answer": "give reachability evidence, distinguish IN/OUT from the SCC, and do not force every directed graph into a full Bow-Tie taxonomy."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: what single added arc makes the digraph strongly connected? Check E->A (or D->A) creates a return route from the second SCC to the first, so every vertex reaches every other.",
+     "route": "what single added arc makes the digraph strongly connected? Check E->A (or D->A) creates a return route from the second SCC to the first, so every vertex reaches every other.",
+     "answer": "what single added arc makes the digraph strongly connected? Check E->A (or D->A) creates a return route from the second SCC to the first, so every vertex reaches every other."
+    },
+    {
+     "title": "Practice question - SCCs and a repair arc [8 marks]",
+     "marks": 8,
+     "prompt": "A directed service graph has arcs A→B, B→C, C→A, C→D, D→E, E→D. Find its strongly connected components and one minimum change making it strongly connected. [8 marks]",
+     "route": "an undirected path after ignoring arrows proves weak, not strong, connectivity.",
+     "answer": "Demand diagnosis and fastest route: give mutual-reachability evidence before drawing a condensation graph. The components are visible as cycles linked one way."
+    }
+   ],
+   "mistakes": [
+    "Ignoring direction for strong connectivity.",
+    "Calling a DAG strongly connected.",
+    "Using “reachable from” as if it meant mutually reachable.",
+    "Recovery rule: One directed path A to B does not establish strong connectivity; the reverse reachability must also be shown."
+   ]
+  },
+  {
+   "file": "graph_foundations_revision_sheet.html",
+   "title": "Graph Foundations",
+   "purpose": "Graph language turns a network into an object that can be counted, represented and analysed. It is foundational to the official outcome “describe a network in graph-theoretic terms”. Exam use: Vertex order, edge convention, matrix symmetry, row sums and an independent degree-sum check are visible.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "V={A,B,C}, E={{A,B},{B,C}}. Give n, m, degrees and A in order A,B,C.",
+     "route": "Model answer: n=3, m=2; degrees are 1,2,1 and sum to 4=2m. A=[[0,1,0],[1,0,1],[0,1,0]]. It is a connected tree.",
+     "answer": "Model answer: n=3, m=2; degrees are 1,2,1 and sum to 4=2m. A=[[0,1,0],[1,0,1],[0,1,0]]. It is a connected tree."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "For V={a,b,c,d} and E={ab,ac,bc,cd}, order a,b,c,d. The adjacency rows are 0 1 1 0; 1 0 1 0; 1 1 0 1; 0 0 1 0. Degrees (2,2,3,1) sum to 8=2|E|. The graph is connected, contains triangle abc, and is not bipartite because of that odd cycle.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Represent an attributed transport or social network and explain graph choices. Check: define vertex/edge semantics, justify direction/weight, give a labelled representation and one limitation.",
+     "route": "define vertex/edge semantics, justify direction/weight, give a labelled representation and one limitation.",
+     "answer": "define vertex/edge semantics, justify direction/weight, give a labelled representation and one limitation."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: can a simple graph have degree sequence (3,3,1,1)? Check the sum is 8, but Havel-Hakimi gives (2,0,0) after removing a 3, then (-1,-1) after removing 2; therefore it is not graphical.",
+     "route": "can a simple graph have degree sequence (3,3,1,1)? Check the sum is 8, but Havel-Hakimi gives (2,0,0) after removing a 3, then (-1,-1) after removing 2; therefore it is not graphical.",
+     "answer": "can a simple graph have degree sequence (3,3,1,1)? Check the sum is 8, but Havel-Hakimi gives (2,0,0) after removing a 3, then (-1,-1) after removing 2; therefore it is not graphical."
+    },
+    {
+     "title": "Practice question - representation and feasibility [8 marks]",
+     "marks": 8,
+     "prompt": "Can a simple connected graph of order 5 and size 8 be a tree? Can a simple graph of order 5 have size 12? Justify both conclusions. [8 marks]",
+     "route": "the handshaking lemma alone permits degree sum 24; it does not override the pairwise-edge maximum.",
+     "answer": "Demand diagnosis and fastest route: both are invariant checks, so use the tree edge formula and the simple-graph maximum rather than attempting sketches."
+    }
+   ],
+   "mistakes": [
+    "Counting an undirected edge twice.",
+    "Using a symmetric matrix for a directed graph.",
+    "Calling every connected graph a tree.",
+    "Recovery rule: A plausible even degree sum is necessary but not sufficient for a sequence to be graphical."
+   ]
+  },
+  {
+   "file": "prufer_codes_trees_revision_sheet.html",
+   "title": "Prufer Codes and Trees",
+   "purpose": "Prufer codes establish a one-to-one correspondence between labelled trees on n vertices and sequences of length n−2. They are a recurring specialist calculation topic. Exam use: Word length, smallest-leaf rule, every emitted edge and the degree-frequency identity all verify the result.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "Decode [2,2] on labels {1,2,3,4}.",
+     "route": "Model answer: Smallest absent is 1: add 1-2. Remaining [2], smallest absent is 3: add 3-2. Join remaining 2-4. Degrees are 1,3,1,1, agreeing with occurrences plus one.",
+     "answer": "Model answer: Smallest absent is 1: add 1-2. Remaining [2], smallest absent is 3: add 3-2. Join remaining 2-4. Degrees are 1,3,1,1, agreeing with occurrences plus one."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Decode code (4,4,2) on {1,2,3,4,5}. Initial degrees from frequencies are d=(1,2,1,3,1). Smallest leaf 1 joins 4; now 3 joins 4; 4 becomes a leaf and joins 2; finally leaves 2 and 5 join. Edges are {14,34,24,25}. Degrees (1,2,1,3,1) match occurrence counts plus one.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Encode a labelled tree, reconstruct it, and infer its degree sequence from the code. Check: show every leaf choice, use the smallest-label rule, end with final edge, then use occurrences+1.",
+     "route": "show every leaf choice, use the smallest-label rule, end with final edge, then use occurrences+1.",
+     "answer": "show every leaf choice, use the smallest-label rule, end with final edge, then use occurrences+1."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: encode the tree with edges {12,13,34,35,56}. Check remove leaves 2, then 1, then 4, then 3, recording neighbours (1,3,3,5); length 4=n-2.",
+     "route": "encode the tree with edges {12,13,34,35,56}. Check remove leaves 2, then 1, then 4, then 3, recording neighbours (1,3,3,5); length 4=n-2.",
+     "answer": "encode the tree with edges {12,13,34,35,56}. Check remove leaves 2, then 1, then 4, then 3, recording neighbours (1,3,3,5); length 4=n-2."
+    },
+    {
+     "title": "Practice question - decode and audit a Prüfer code [8 marks]",
+     "marks": 8,
+     "prompt": "Decode the Prüfer code (4,4,2) on labels {1,2,3,4,5}, and give the degree sequence. [8 marks]",
+     "route": "choose the smallest currently available leaf, not the smallest label that has ever been absent.",
+     "answer": "Demand diagnosis and fastest route: show each smallest-leaf choice; degree can be checked from occurrence counts plus one."
+    }
+   ],
+   "mistakes": [
+    "Recording the leaf rather than its neighbour.",
+    "Using arbitrary rather than stated smallest-leaf tie-breaking.",
+    "Forgetting the final edge in decoding.",
+    "Recovery rule: During decoding, choose the smallest label absent from the current remaining suffix, not absent from the original code."
+   ]
+  },
+  {
+   "file": "random_graphs_revision_sheet.html",
+   "title": "Random Graphs",
+   "purpose": "Erdős–Rényi models give a baseline for network structure. Random-graph questions recur strongly and match the official outcome on random graph generators and properties. Exam use: Model, number of trials/objects, occurrence probability, expectation formula and interpretation are stated.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "For G(5,0.2), find expected edges and expected degree.",
+     "route": "Model answer: N=10, so E[M]=10×0.2=2 edges. E[k]=(5−1)×0.2=0.8. These are averages across generated graphs, not guaranteed values in one graph.",
+     "answer": "Model answer: N=10, so E[M]=10×0.2=2 edges. E[k]=(5−1)×0.2=0.8. These are averages across generated graphs, not guaranteed values in one graph."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "In G(6,1/2), N=15, so E|E|=15/2 and Var(|E|)=15/4. There are C(6,3)=20 vertex triples; each forms a triangle with probability (1/2)^3, hence the expected number of triangles is 20/8=2.5. Independence between different triangles is not needed for this expectation.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Contrast G(n,m) and G(n,p), then derive expected edge count and discuss realism. Check: fixed versus random edge count, correct N, and a limitation such as independent edges miss clustering/community structure.",
+     "route": "fixed versus random edge count, correct N, and a limitation such as independent edges miss clustering/community structure.",
+     "answer": "fixed versus random edge count, correct N, and a limitation such as independent edges miss clustering/community structure."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: in G(8,1/4), find the expected isolated vertices. Check a fixed vertex is isolated with probability (3/4)^7, so expectation is 8(3/4)^7; do not multiply by an extra independence factor.",
+     "route": "in G(8,1/4), find the expected isolated vertices. Check a fixed vertex is isolated with probability (3/4)^7, so expectation is 8(3/4)^7; do not multiply by an extra independence factor.",
+     "answer": "in G(8,1/4), find the expected isolated vertices. Check a fixed vertex is isolated with probability (3/4)^7, so expectation is 8(3/4)^7; do not multiply by an extra independence factor."
+    },
+    {
+     "title": "Practice question - probability model and expectation [8 marks]",
+     "marks": 8,
+     "prompt": "In G(100,1/2), what is the probability a fixed node has degree 45, and what is the expected number of edges? [8 marks]",
+     "route": "a chosen node has 99 possible neighbours, not 100, and no independence between different node degrees is needed.",
+     "answer": "Demand diagnosis and fastest route: identify 99 independent incident-edge trials for degree, and C(100,2) possible edges for expectation."
+    }
+   ],
+   "mistakes": [
+    "Using n² instead of C(n,2).",
+    "Confusing fixed m with expected m.",
+    "Reading expectation as certainty.",
+    "Recovery rule: Expected count may be non-integer; it is an average over graphs, not a promised count in one graph."
+   ]
+  },
+  {
+   "file": "secondary_applications_revision_sheet.html",
+   "title": "Secondary Applications",
+   "purpose": "Structural balance, game theory/markets, transport networks and PageRank connect network methods to applications mentioned in the official description. Local evidence makes them older or intermittent: revise after the core eight guide families and weight current teaching heavily. Exam use: Application-to-graph mapping, rule/metric, calculation, update convention and limitation are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "A signed triangle has +, −, − edges. Is it balanced?",
+     "route": "Model answer: The product is (+)(−)(−)=+, so it is balanced: two mutually opposed relationships can be consistent when both parties oppose the same third party.",
+     "answer": "Model answer: The product is (+)(−)(−)=+, so it is balanced: two mutually opposed relationships can be consistent when both parties oppose the same third party."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "In a signed triangle with signs AB=+, BC=-, AC=-, the product is (+)(-)(-)=+, so the triad is balanced: A and B are friends sharing an enemy C. If AC flips to +, the product becomes negative and the triad is unbalanced. The calculation classifies the sign pattern; it does not prove the relationships will evolve toward balance.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Model a web, market or transport scenario as a network and justify a measure/algorithm. Check: make representation choices explicit, apply the relevant method, interpret output, and name a limitation rather than overclaiming causality.",
+     "route": "make representation choices explicit, apply the relevant method, interpret output, and name a limitation rather than overclaiming causality.",
+     "answer": "make representation choices explicit, apply the relevant method, interpret output, and name a limitation rather than overclaiming causality."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: a threshold node adopts when at least half its neighbours have adopted. On path A-B-C-D with A and D initially active, apply synchronous updates. Check B and C each see one of two neighbours active, so both adopt in round 1 and the cascade completes; asynchronous wording could change intermediate states and must be declared.",
+     "route": "a threshold node adopts when at least half its neighbours have adopted. On path A-B-C-D with A and D initially active, apply synchronous updates. Check B and C each see one of two neighbours active, so both adopt in round 1 and the cascade completes; asynchronous wording could change intermediate states and must be declared.",
+     "answer": "a threshold node adopts when at least half its neighbours have adopted. On path A-B-C-D with A and D initially active, apply synchronous updates. Check B and C each see one of two neighbours active, so both adopt in round 1 and the cascade completes; asynchronous wording could change intermediate states and must be declared."
+    },
+    {
+     "title": "Practice question - signed balance and diffusion [8 marks]",
+     "marks": 8,
+     "prompt": "A signed triangle has AB=+, BC=- and AC=-. Classify it using structural balance. If C changes its relation to A to +, explain the new classification and one cautious interpretation. [8 marks]",
+     "route": "count the signs around the whole cycle; 'two friends and one enemy' is not automatically balanced.",
+     "answer": "Demand diagnosis and fastest route: calculate the sign product, then interpret the pattern without claiming a deterministic social law."
+    }
+   ],
+   "mistakes": [
+    "Calling a signed triangle balanced by visual intuition alone.",
+    "Confusing PageRank with plain in-degree.",
+    "Assuming a network model proves real-world causation.",
+    "Recovery rule: Do not infer causation from a network association or silently choose synchronous updates when the question leaves timing ambiguous."
+   ]
+  },
+  {
+   "file": "small_world_revision_sheet.html",
+   "title": "Small-World Networks",
+   "purpose": "The Watts–Strogatz model explains networks that are locally clustered yet globally reachable. Local papers repeatedly pair it with clustering and path length. Exam use: Baseline, rewiring rule, path-length evidence, clustering evidence and the trade-off across beta are all addressed.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked starter question and model answer",
+     "marks": 0,
+     "prompt": "What changes when p increases slightly from 0?",
+     "route": "Model answer: A few long-range edges create shortcuts, so L can fall sharply. Many local triangles remain, so C initially stays relatively high: this is the small-world region.",
+     "answer": "Model answer: A few long-range edges create shortcuts, so L can fall sharply. Many local triangles remain, so C initially stays relatively high: this is the small-world region."
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Take the 6-cycle and add shortcut A-D. Originally d(A,D)=3; now it is 1. Distances from A change from (to B,C,D,E,F)=(1,2,3,2,1), sum 9, to (1,2,1,2,1), sum 7. One shortcut lowers access distance, but the plain cycle still has local clustering 0; therefore this graph alone demonstrates short paths, not the full small-world combination.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Exam bridge",
+     "marks": 0,
+     "prompt": "Compare a ring lattice, Watts–Strogatz graph and Erdős–Rényi graph using C and L. Check: lattice high C/high L; random low C/low L; small-world high C with low L after limited rewiring.",
+     "route": "lattice high C/high L; random low C/low L; small-world high C with low L after limited rewiring.",
+     "answer": "lattice high C/high L; random low C/low L; small-world high C with low L after limited rewiring."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: in a ring where each vertex links to its two nearest neighbours on each side, explain why clustering is positive and what a few long-range rewirings do. Check neighbours share lattice edges, while shortcuts reduce long geodesics; excessive rewiring eventually destroys much local clustering.",
+     "route": "in a ring where each vertex links to its two nearest neighbours on each side, explain why clustering is positive and what a few long-range rewirings do. Check neighbours share lattice edges, while shortcuts reduce long geodesics; excessive rewiring eventually destroys much local clustering.",
+     "answer": "in a ring where each vertex links to its two nearest neighbours on each side, explain why clustering is positive and what a few long-range rewirings do. Check neighbours share lattice edges, while shortcuts reduce long geodesics; excessive rewiring eventually destroys much local clustering."
+    },
+    {
+     "title": "Practice question - recognise a small-world comparison [8 marks]",
+     "marks": 8,
+     "prompt": "Compare a degree-4 ring lattice, a lightly rewired Watts-Strogatz graph, and an Erdős-Rényi graph of comparable mean degree using clustering C and characteristic path length L. [8 marks]",
+     "route": "low path length alone does not prove small-world structure; the high-clustering comparison is essential.",
+     "answer": "Demand diagnosis and fastest route: this is a matched comparison, so state both metrics for every model and explain the effect of a few shortcuts."
+    }
+   ],
+   "mistakes": [
+    "Saying more rewiring always improves “small-worldness”.",
+    "Confusing clustering with density.",
+    "Ignoring the baseline comparison.",
+    "Recovery rule: Short average paths alone do not establish a small world; the clustering comparison is a separate required claim."
+   ]
+  }
+ ]
+}

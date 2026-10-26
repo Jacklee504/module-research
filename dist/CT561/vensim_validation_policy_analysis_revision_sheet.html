@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Vensim, Validation and Policy Analysis</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="workforce_stock_management_revision_sheet.html">Previous topic: Workforce management</a><a href="continuous_vs_agent_based_simulation_revision_sheet.html">Next topic: Simulation methods</a></nav><p class="eyebrow">CT561 Supporting Topic Guide</p><h1>Vensim, Validation and Policy Analysis</h1><p>Use this as supporting material for design and discussion parts. The local papers favour actual model construction and policy consequences over a standalone validation essay.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>What the papers actually reward</h2>
+<ul><li>Write a valid Vensim-style stock-flow equation with units, initial values and causal links.</li><li>Use the time/shadow variable when a differential equation contains <code>t</code>. <span>2017/18 Q2(a)</span></li><li>Sketch and explain a policy scenario, such as a changed staff target or quarantine/vaccination setting. <span>2018/19 Q4(c), 2024/25 Q2(c), 2025/26 Q2(c), Q4(d)</span></li><li>Discuss policy trade-offs from feedback loops, not just the best-looking outcome. <span>2018/19 Q2(c), 2019/20 Q2(c), 2025/26 Q3(c)</span></li></ul>
+
+<h2>Vensim modelling checks</h2>
+<ul><li>Every stock must use <code>INTEG(net flow, initial value)</code>.</li><li>Every rate multiplied by time must give the stock unit.</li><li>Use a lookup/effect graph for a nonlinear empirical relationship, such as student-staff ratio affecting attrition.</li><li>Use <code>SMOOTH</code> or a first-order delay when the paper asks for expected losses, smoothing or an adjustment delay.</li><li>Use a control flag as a 0/1 multiplier when a policy can be activated/deactivated.</li></ul>
+
+<h2>Validation answer framework</h2>
+<p>Use this only when the question asks how reliable a model or policy is. Keep it linked to the actual structure:</p>
+<ol><li><strong>Structure:</strong> confirm stocks, flows, signs, conservation and dimensional consistency.</li><li><strong>Parameters:</strong> explain where contact rate, delay, attrition, productivity or effect-lookup values came from and vary uncertain values.</li><li><strong>Behaviour:</strong> compare trends, turning points and plausible extreme cases, not only one fitted curve.</li><li><strong>Policy:</strong> compare a baseline against alternatives using the same assumptions and report side-effects, delays and uncertainty.</li></ol>
+
+<h2>Policy-analysis route from recent papers</h2>
+<p>For the 2025/26 quarantine/vaccination model, run the baseline with low quarantine and low vaccination, then change one parameter at a time. Compare attack rate, infection peak and timing. Explain mechanism: quarantine reduces transmission; vaccination removes susceptible people. Do not claim that a lower peak alone is automatically best if the policy requires unavailable resources or only delays the peak.</p>
+<p>For a workforce target shock, plot actual Staff, Desired Staff, Hires and Expected Quits. Explain the effect of adjustment time and any recruitment pipeline on overshoot and settling time.</p>
+
+<h2>Common errors</h2>
+<ul><li>A historical fit alone does not validate causal structure.</li><li>Reducing DT improves numerical approximation; it does not validate the model.</li><li>One simulation run is not a policy recommendation.</li><li>Do not discuss policy without naming the flow, parameter or feedback it changes.</li></ul>
+</article></main></body></html>

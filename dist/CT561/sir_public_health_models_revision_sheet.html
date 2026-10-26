@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 SIR and Public-Health Models</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="numerical_integration_revision_sheet.html">Previous topic: Numerical integration</a><a href="workforce_stock_management_revision_sheet.html">Next topic: Workforce management</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>SIR, SEIR and Public-Health Policy Models</h1><p>The safest long-question family: calculate lambda/R0/HIT, build the SIR structure, then extend it with quarantine, vaccination, cohorts or health-care capacity.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Recent-paper priority</h2>
+<ul><li><strong>Numerical SIR [5]:</strong> force of infection, R0 and herd immunity threshold.</li><li><strong>Build/extend SIR [12-15]:</strong> stocks, flows, feedbacks, equations and policy flag/parameters.</li><li><strong>Explain threshold/peak [6-10]:</strong> derive outbreak threshold or show <code>S/N = 1/R0</code> at the infection peak.</li><li><strong>Extensions [5-15]:</strong> quarantine, vaccination, finite resources, cohorts, SEIR, asymptomatic/symptomatic or hospital delay.</li></ul>
+<p><strong>Recent references:</strong> 2023/24 Q3(a,b), 2024/25 Q3(a-c), 2025/26 Q2(b,c). Durable earlier references: 2018/19 Q3 and 2021/22 Q3.</p>
+
+<h2>Core SIR model</h2>
+<p>Draw <code>[Susceptible] -- Infections --&gt; [Infectious] -- Recoveries --&gt; [Recovered]</code>.</p>
+<div class="formula"><code>lambda = beta x I/N</code><br><code>Infections = lambda x S = beta x I x S/N</code><br><code>Recoveries = I/D</code><br><code>S = INTEG(-Infections, S0)</code><br><code>I = INTEG(Infections - Recoveries, I0)</code><br><code>R = INTEG(Recoveries, R0)</code></div>
+<p><code>beta</code> is the effective contact/transmission rate per day. In the alternative paper notation, <code>beta = c x i</code>, where <code>c</code> is contacts/person/day and <code>i</code> is infection probability/contact. Then <code>R0 = beta x D = c x i x D</code>.</p>
+<ul><li><strong>Contagion:</strong> I increases Infections, which increases I. Reinforcing.</li><li><strong>Depletion:</strong> I increases Infections, which lowers S and later lowers Infections. Balancing.</li><li><strong>Recovery:</strong> I increases Recoveries, which lowers I. Balancing.</li></ul>
+
+<h2>2024/25 calculation [5]</h2>
+<p>For <code>N=10,000</code>, <code>I/N=0.02</code>, <code>R0=12</code> and <code>D=7 days</code>:</p>
+<div class="formula"><code>beta = R0/D = 12/7 = 1.714/day</code><br><code>lambda = beta x I/N = (12/7)(0.02) = 0.0343/day</code><br><code>Herd Immunity Threshold = 1 - 1/R0 = 1 - 1/12 = 0.9167 = 91.7%</code></div>
+<p>Lambda is a per-susceptible hazard. Total new infections is <code>lambda x S</code>, in people/day.</p>
+
+<h2>Peak and equilibrium derivation [6-10]</h2>
+<p>At the infection peak, <code>dI/dt=0</code>, so infections equal recoveries:</p>
+<p><code>betaIS/N = I/D</code>, therefore <code>betaS/N = 1/D</code>. Multiplying by <code>D</code> and using <code>R0=betaD</code> gives <code>R0S/N=1</code>. Hence <code>S/N=1/R0</code>.</p>
+<p>Susceptibles remain at the peak, but their fraction has fallen below the level needed to replace recoveries. The epidemic declines due to falling infectious people and reduced effective reproduction, not because S reaches zero.</p>
+
+<h2>Quarantine and vaccination extension [12]</h2>
+<p>Use the 2025/26 wording carefully: 20% of the <strong>infection flow</strong> enters Quarantine, not a later flow from Infectious to Quarantine. Quarantined people do not infect others and recover after two days.</p>
+<div class="formula"><code>To I = (1-QF) x lambda x S</code><br><code>To Q = QF x lambda x S</code><br><code>Recoveries I = I/2; Recoveries Q = Q/2</code><br><code>Vaccinations = Vaccination Fraction x S</code><br><code>Vaccination Fraction = INTEG((Maximum Fraction - Vaccination Fraction)/AT, 0)</code><br><code>Attack Rate = (I + Q + R)/N</code></div>
+<p>Vaccination is a flow from S to Vaccinated. It reduces S; quarantine reduces onward transmission. Always include all stocks in N and check population conservation.</p>
+
+<h2>Cohorts and advanced extensions</h2>
+<p>For young/elderly cohorts, replace each core stock with cohort stocks such as <code>Sy, Iy, Ry</code> and <code>Se, Ie, Re</code>. Use a contact matrix or separate force-of-infection terms if cross-group contact matters. For SEIR, add <code>Exposed = INTEG(Infections - E/latent delay, E0)</code>; the flow <code>E/latent delay</code> enters Infectious.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>State what every stock and parameter represents and give units.</li><li>Write the infection equation, not only the S-I-R labels.</li><li>Show named feedback loops if asked.</li><li>Map each policy to a specific flow or parameter.</li><li>Check all compartments sum to N.</li></ul>
+</article></main></body></html>

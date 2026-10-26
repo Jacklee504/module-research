@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CT561 - Quick-Recall Flashcards</title>
+  <link rel="stylesheet" href="../module_page.css">
+  <style>
+    .flashcard-bank h2 { scroll-margin-top: 18px; }
+    .flashcard-bank .instructions { max-width: 72ch; color: #39454b; }
+    .flashcard-bank .frequency-note { margin: 0 0 24px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 8px; background: #f8fafc; color: #39454b; }
+    .flashcard-bank .frequency-note strong { color: #23313a; }
+    .flashcard-bank table { width: 100%; margin: 0 0 28px; border-collapse: collapse; font-size: 14px; }
+    .flashcard-bank th, .flashcard-bank td { padding: 11px 12px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    .flashcard-bank th { background: var(--surface-soft); font-size: 12px; text-transform: uppercase; letter-spacing: .05em; }
+    .flashcard-bank td:first-child { width: 34%; font-weight: 720; }
+    .flashcard-bank td:nth-child(2) { width: 50%; }
+    .flashcard-bank td:last-child { width: 16%; color: var(--muted); font-size: 12px; }
+    .flashcard-bank code { white-space: nowrap; }
+    @media print { .top-nav { display: none; } .module-header, .module-shell { padding: 18px; } .module-content { border: 0; box-shadow: none; padding: 0; } .flashcard-bank tr { break-inside: avoid; } }
+    @media (max-width: 680px) { .flashcard-bank table, .flashcard-bank tbody, .flashcard-bank tr, .flashcard-bank th, .flashcard-bank td { display: block; } .flashcard-bank thead { display: none; } .flashcard-bank tr { margin-bottom: 12px; border: 1px solid var(--line); } .flashcard-bank td { width: auto !important; border: 0; border-bottom: 1px solid var(--line); } .flashcard-bank td:last-child { border-bottom: 0; } .flashcard-bank td::before { display: block; margin-bottom: 3px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .05em; text-transform: uppercase; } .flashcard-bank td:nth-child(1)::before { content: "Front"; } .flashcard-bank td:nth-child(2)::before { content: "Back"; } .flashcard-bank td:nth-child(3)::before { content: "Evidence"; } }
+  </style>
+</head>
+<body>
+  <header class="module-header">
+    <nav class="top-nav" aria-label="Navigation">
+      <a href="details.html">CT561 overview</a>
+      <a href="study.html#flashcards">Interactive study space</a>
+      <a href="most_asked.html">Most asked questions</a>
+      <a href="#1-graphical-integration-and-stock-behaviour">Graphical</a>
+      <a href="#2-euler-integration-and-error">Euler</a>
+      <a href="#3-feedback-principles">Feedback</a>
+      <a href="#4-workload-models-and-policy-loops">Workload</a>
+      <a href="#5-fractional-rates-goals-and-smoothing">Rates</a>
+      <a href="#6-stock-management-and-workforce-models">Workforce</a>
+      <a href="#7-sir-core-equations-and-proofs">SIR core</a>
+      <a href="#8-sir-policies-and-extensions">SIR policies</a>
+      <a href="#9-legacy-and-supporting-constructions">Legacy</a>
+      <a href="details.html#past-papers">Past papers</a>
+    </nav>
+    <p class="eyebrow">CT561 Quick Recall</p>
+    <h1>38-Card Revision Deck</h1>
+    <p>Fast formula, distinction and construction prompts for current CT561 question families.</p>
+  </header>
+
+  <main class="module-shell">
+    <article class="module-content flashcard-bank">
+      <h2>How To Use This Deck</h2>
+      <p class="instructions">Recall the Back before reading it. These cards are memory triggers, not model answers: use the linked <a href="most_asked.html">most-asked guide</a> for full exam wording, diagrams, workings and mark-level detail.</p>
+      <div class="frequency-note"><p><strong>Drill first:</strong> graphical/Euler integration, workload loops, stock management/workforce and SIR.</p><p><strong>Use legacy cards last:</strong> they cover distinct older constructions, not the current exam format.</p></div>
+
+      <h2 id="1-graphical-integration-and-stock-behaviour">1. Graphical Integration and Stock Behaviour</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Stock and net-flow equations?</td><td><code>NF = Inflow - Outflow</code>; <code>Stock = INTEG(NF, Initial Stock)</code>. NF: stock/time; Stock: stock.</td><td>2023/24 Q4(a); 2024/25 Q4(a); 2025/26 Q1(a)</td></tr>
+        <tr><td>Graphical integration rule?</td><td><code>Delta Stock = ((NF_start + NF_end)/2) x Delta t</code> on a linear interval. Add signed area to the previous stock.</td><td>2023/24 Q4(a); 2024/25 Q4(a); 2025/26 Q1(a)</td></tr>
+        <tr><td>Read a stock from net flow?</td><td><code>NF &gt; 0</code>: rising; <code>NF &lt; 0</code>: falling. A + to - crossing is a stock maximum; a - to + crossing is a minimum.</td><td>2023/24 Q4(a); 2024/25 Q4(a); 2025/26 Q1(a)</td></tr>
+        <tr><td>Infer one-stock feedback from behaviour?</td><td>Accelerating growth: reinforcing, e.g. <code>Inflow = k x Stock</code>. Approach to a limit: balancing, e.g. goal seeking/carrying capacity.</td><td>2023/24 Q1(a)</td></tr>
+      </tbody></table>
+
+      <h2 id="2-euler-integration-and-error">2. Euler Integration and Error</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Forward Euler formula and assumption?</td><td><code>S(t+DT) = S(t) + NF(t) x DT</code>. Use start-of-step NF; treat it as constant over a sufficiently small DT.</td><td>2023/24 Q4(b); 2024/25 Q4(b); 2025/26 Q1(b)</td></tr>
+        <tr><td>Euler error direction for linear NF?</td><td>Falling NF: forward Euler overestimates. Rising NF: forward Euler underestimates.</td><td>2023/24 Q4(b); 2024/25 Q4(b); 2025/26 Q1(b)</td></tr>
+        <tr><td>Euler table routine?</td><td>For each DT: write <code>t</code>, <code>NF(t)</code>, <code>NF x DT</code>, then <code>next S = current S + change</code>.</td><td>2023/24 Q4(c); 2024/25 Q4(c); 2025/26 Q1(c)</td></tr>
+      </tbody></table>
+
+      <h2 id="3-feedback-principles">3. Feedback Principles</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Link and loop polarity?</td><td><code>+</code> link: cause and effect move together; <code>-</code> link: opposite. Odd negative links = balancing; even = reinforcing.</td><td>2024/25 Q1(a,c); 2025/26 Q3(a,c)</td></tr>
+        <tr><td>Reinforcing vs balancing?</td><td>Reinforcing amplifies change. Balancing opposes change or closes a gap. Confirm with an increase-trace.</td><td>2024/25 Q1(a,c); 2025/26 Q3(a,c)</td></tr>
+        <tr><td>Why model feedback?</td><td>It explains behaviour, delays, side-effects and policy resistance; rates are not independent inputs.</td><td>2024/25 Q1(a)</td></tr>
+      </tbody></table>
+
+      <h2 id="4-workload-models-and-policy-loops">4. Workload Models and Policy Loops</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Backlog stock equation?</td><td><code>Backlog = INTEG(New Work + Rework - Completed, Initial Backlog)</code>. Pressure, fatigue and workweek are auxiliaries.</td><td>2023/24 Q1(b); 2024/25 Q1(b); 2025/26 Q3(b)</td></tr>
+        <tr><td>Standard capacity loop?</td><td><code>Backlog + -&gt; Pressure + -&gt; Capacity/effort + -&gt; Completed + -&gt; Backlog -</code>: one negative link, so balancing.</td><td>2023/24 Q1(c); 2024/25 Q1(c); 2025/26 Q3(c)</td></tr>
+        <tr><td>Common reinforcing side-effects?</td><td>Rework: less Time per Task -&gt; more Rework. Fatigue: more Workweek -&gt; more Fatigue -&gt; less Completed. Claims model: more Temporary Staff -&gt; more Time per Claim -&gt; less Completed. Each closes a reinforcing backlog loop.</td><td>2023/24 Q1(c); 2024/25 Q1(c); 2025/26 Q3(c)</td></tr>
+        <tr><td>Policy-discussion trigger?</td><td>Name the balancing benefit, delayed reinforcing side-effects and affected outcome; test backlog, completion, rework, fatigue and capacity together.</td><td>2024/25 Q1(c); 2025/26 Q3(c)</td></tr>
+      </tbody></table>
+
+      <h2 id="5-fractional-rates-goals-and-smoothing">5. Fractional Rates, Goals and Smoothing</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Fractional increase/decrease?</td><td><code>Flow = Stock x Fractional Rate</code>; rate units are <code>1/time</code>. Constant positive increase gives exponential growth; constant decrease gives exponential decay.</td><td>2024/25 Q2(a)</td></tr>
+        <tr><td>Goal seeking and smoothing?</td><td><code>Adjustment = (Goal - Actual)/AT</code>; <code>Smoothed = INTEG((Input - Smoothed)/AT, Initial Smoothed)</code>. Larger AT = slower response.</td><td>2023/24 Q2(a); 2024/25 Q2(a)</td></tr>
+        <tr><td>Varying decrease fraction?</td><td><code>G = INTEG((G* - G)/AT, G0)</code>; <code>Outflow = Stock x G</code>. The rate, not only the stock, is goal seeking.</td><td>2025/26 Q2(a)</td></tr>
+      </tbody></table>
+
+      <h2 id="6-stock-management-and-workforce-models">6. Stock Management and Workforce Models</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Stock-management anchor vs adjustment?</td><td>Anchor replaces expected loss: <code>Expected Losses = SMOOTH(Actual Losses, EAT)</code>. Adjustment closes gap: <code>(Desired - Actual)/AT</code>. <code>Required Inflow = Expected Losses + Adjustment</code>.</td><td>2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q4(b)</td></tr>
+        <tr><td>Desired University staff and target shock?</td><td><code>Desired Staff = Students / Desired Student-Staff Ratio</code>. At 10,000 students, ratio 20 -&gt; 500; ratio 10 -&gt; 1,000. Lower ratio means more staff required.</td><td>2024/25 Q2(c)</td></tr>
+        <tr><td>Core University staff model?</td><td><code>Staff = INTEG(Hires - Quits, Staff0)</code>; <code>Quits = Quit Fraction x Staff</code>; <code>Hires = Expected Quits + (Desired Staff - Staff)/Staff AT</code>.</td><td>2024/25 Q2(c)</td></tr>
+        <tr><td>Three-stage workforce chain?</td><td><code>Trainees -&gt; Experienced -&gt; Seniors</code>; each stage has attrition. <code>Progress = stock/delay</code>; <code>Total Staff = T + E + S</code>.</td><td>2025/26 Q4(c)</td></tr>
+        <tr><td>What if the staff target falls and there is no dismissal flow?</td><td>Adjustment becomes negative; constrain hires to zero. Staff then falls through attrition, so delays determine reduction speed.</td><td>2025/26 Q4(d)</td></tr>
+      </tbody></table>
+
+      <h2 id="7-sir-core-equations-and-proofs">7. SIR Core Equations and Proofs</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Core frequency-dependent SIR?</td><td><code>λ=βI/N</code>; <code>F<sub>inf</sub>=λS</code>; <code>F<sub>rec</sub>=I/D</code>. <code>S=INTEG(−F<sub>inf</sub>,S(0))</code>; <code>I=INTEG(F<sub>inf</sub>−F<sub>rec</sub>,I(0))</code>; <code>R=INTEG(F<sub>rec</sub>,R(0))</code>.</td><td>2023/24 Q3(a); 2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>Transmission and outbreak threshold?</td><td><code>β=ci</code>; <code>R<sub>0</sub>=βd=cid</code>. With <code>S=N</code>, an outbreak grows when <code>R<sub>0</sub>&gt;1</code>.</td><td>2023/24 Q3(a); 2024/25 Q3(a)</td></tr>
+        <tr><td>Force of infection and HIT?</td><td><code>λ=βI/N</code>, units <code>1/time</code>; <code>F<sub>inf</sub>=λS</code>, people/time. <code>p<sub>c</sub>=1−1/R<sub>0</sub></code>.</td><td>2024/25 Q3(a)</td></tr>
+      </tbody></table>
+
+      <h2 id="8-sir-policies-and-extensions">8. SIR Policies and Extensions</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Standard SIR loops?</td><td><code>I → F<sub>inf</sub> → I</code>: reinforcing. <code>F<sub>inf</sub> → S↓ → F<sub>inf</sub>↓</code> and <code>I → F<sub>rec</sub> → I↓</code>: balancing.</td><td>2018/19 Q3(b); 2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>Quarantine: 2024/25 vs 2025/26?</td><td>2024/25: <code>I → Q</code>, controlled by <code>u∈{0,1}</code>. 2025/26: <code>F<sub>Q</sub>=qλS</code>, <code>F<sub>I</sub>=(1−q)λS</code>; <code>Q</code> does not transmit.</td><td>2024/25 Q3(b); 2025/26 Q2(b)</td></tr>
+        <tr><td>Vaccination, attack rate and policy plot?</td><td><code>F<sub>vax</sub>=vS</code>, <code>S → V</code>; <code>AR=(I+Q+R)/N</code>. Bubble plot: <code>x=q</code>, <code>y=v</code>, size <code>=AR</code>; largest at low <code>q,v</code>.</td><td>2025/26 Q2(b,c)</td></tr>
+        <tr><td>Cohort extension?</td><td>Replicate states: <code>(S<sub>y</sub>,I<sub>y</sub>,R<sub>y</sub>)</code>, <code>(S<sub>e</sub>,I<sub>e</sub>,R<sub>e</sub>)</code>; add within-/between-cohort contact terms or a contact matrix.</td><td>2024/25 Q3(c)</td></tr>
+        <tr><td>SEI2H2R memory chain?</td><td><code>S → E → I<sub>a</sub>/I<sub>s</sub></code>; <code>I<sub>a</sub> → R</code>, <code>I<sub>s</sub> → R/H</code>. <code>H</code>: second-order delay; <code>I<sub>a</sub></code> infectiousness <code>=0.5I<sub>s</sub></code>.</td><td>2023/24 Q3(b)</td></tr>
+      </tbody></table>
+
+      <h2 id="9-legacy-and-supporting-constructions">9. Legacy and Supporting Constructions</h2>
+      <table><thead><tr><th>Front</th><th>Back</th><th>Evidence</th></tr></thead><tbody>
+        <tr><td>Resource-constrained vaccination?</td><td><code>C=M×p</code>; <code>F<sub>vax</sub>=min(U,V,C)</code>, where <code>U</code>=unvaccinated and <code>V</code>=available vaccines.</td><td>2016/17 Q3(b); 2017/18 Q3(c); 2021/22 Q2(b)</td></tr>
+        <tr><td>Effects function?</td><td><code>x*=x/x<sub>ref</sub></code>; <code>Rate=Rate<sub>ref</sub>×Effect(x*)</code>. <code>Effect</code> is dimensionless.</td><td>2016/17 Q4(a,b); 2018/19 Q4(b); 2019/20 Q3(b,c)</td></tr>
+        <tr><td>Little's Law?</td><td><code>L=λW</code>: average stock <code>=</code> average throughput <code>×</code> average delay, at equilibrium.</td><td>2017/18 Q4(a,b); 2018/19 Q1(c)</td></tr>
+        <tr><td>Legacy growth formulae?</td><td><code>dS/dt=t</code>, <code>S(0)=0</code> ⇒ <code>S(t)=t²/2</code>. <code>dP/dt=rP(1−P/C)−sP</code>. Constant <code>g</code>: <code>T<sub>2</sub>=ln(2)/g</code>.</td><td>2017/18 Q2(a); 2021/22 Q2(a,c)</td></tr>
+      </tbody></table>
+
+      <h2>Scope</h2>
+      <p>This is a 38-card quick-recall deck. It deliberately combines related facts and omits full worked examples, diagrams and one-off drafting instructions; those remain in <a href="most_asked.html">most_asked.html</a>.</p>
+    </article>
+  </main>
+</body>
+</html>

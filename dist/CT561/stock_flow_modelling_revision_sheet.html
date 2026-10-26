@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Stock-and-Flow Modelling</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="supporting_simulation_concepts_revision_sheet.html">Previous topic: Supporting concepts</a><a href="feedback_loops_revision_sheet.html">Next topic: Feedback loops</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>Stock-and-Flow Modelling from Text</h1><p>The recurring exam task is to convert a scenario into stocks, material flows, auxiliaries, equations, units and signed information links.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Recent-paper question forms</h2>
+<ul><li><strong>One-stock workload model [10-12]:</strong> identify the backlog, its inflows/outflows and all stated pressure-response links.</li><li><strong>Two-stock university/workforce model [8-15]:</strong> Students and Staff, ratios, desired staff, attrition and hires.</li><li><strong>Resource-constrained transition [12]:</strong> a flow cannot exceed demand, available resource or operational capacity.</li><li><strong>Equation-to-model [8]:</strong> convert a differential equation into stock, flows, feedbacks and units.</li></ul>
+<p><strong>References:</strong> 2023/24 Q1(b), 2024/25 Q1(b), 2025/26 Q3(b), 2021/22 Q1(b), Q2(a,b), and 2016/17 Q2(a,b).</p>
+
+<h2>Construction order in the exam</h2>
+<ol><li>Circle quantities that exist <em>at a time</em>. These are stocks.</li><li>Underline quantities measured <em>per time</em>. These are flows.</li><li>Draw each stock as a rectangle, then add only the material inflows/outflows named in the question.</li><li>Add auxiliaries and information arrows. Give every arrow a sign if requested.</li><li>Write stock equations first. Add flow equations only when asked.</li><li>Check units: <code>people/day x day = people</code>.</li></ol>
+
+<h2>Core equations and diagram rules</h2>
+<div class="formula"><code>Stock = INTEG(total inflow - total outflow, initial stock)</code><br><code>Fractional inflow = stock x fraction/time</code><br><code>Fractional outflow = stock x fraction/time</code><br><code>Adjustment flow = (desired stock - actual stock)/adjustment time</code></div>
+<ul><li>A stock is an accumulation, such as Claims Backlog, Staff or Susceptible People.</li><li>A flow changes the stock, such as Claims Completed, Hires, Recoveries or Vaccinations.</li><li>An auxiliary changes a flow but does not itself accumulate, such as Work Pressure, Desired Staff or Average Productivity.</li><li>Clouds are optional unless your lecturer requires them. The stock, pipes, flow names, auxiliaries and information arrows are essential.</li></ul>
+
+<h2>Paper-derived model: resource-constrained vaccination [12]</h2>
+<p>2021/22 Q2(b) requires Unvaccinated People to move to Vaccinated People, limited by people waiting, vaccine stock and medic capacity.</p>
+<div class="formula"><code>Total Daily Capacity = Number of Medics x Average Productivity</code><br><code>Vaccines Dispensed = MIN(Unvaccinated People, Number of Vaccines, Total Daily Capacity)</code><br><code>Unvaccinated = INTEG(-Vaccines Dispensed, U0)</code><br><code>Vaccinated = INTEG(Vaccines Dispensed, 0)</code><br><code>Number of Vaccines = INTEG(-Vaccines Dispensed + Deliveries, V0)</code></div>
+<p>For 10,000 unvaccinated people, 100 medics, 20 vaccines/medic/day and 10,000 vaccines: capacity is 2,000/day, so the flow is 2,000/day. If vaccines are zero, the flow is zero even if medics are available.</p>
+
+<h2>Equation-to-stock-flow route</h2>
+<p>For the 2021/22 population equation <code>dP/dt = rP(1-P/C) - sP</code>, write:</p>
+<div class="formula"><code>Population = INTEG(Births - Decline, P0)</code><br><code>Births = r x Population x (1 - Population/Carrying Capacity)</code><br><code>Decline = s x Population</code></div>
+<p>The carrying-capacity term is a balancing feedback. Population reaches C only when decline is zero and the logistic inflow becomes zero at C. Give units for every variable.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>Every stock has an initial value or named initial condition.</li><li>Every material flow changes exactly the correct stock(s).</li><li>Ratios put the stated numerator above the stated denominator.</li><li>Use <code>MIN</code> when a paper gives multiple binding physical constraints.</li><li>Do not invent extra causal links or equations not supported by the scenario.</li></ul>
+</article></main></body></html>

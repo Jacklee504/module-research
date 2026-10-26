@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>CT561 Supporting Simulation Concepts</title><link rel="stylesheet" href="../module_page.css"></head>
+<body><header class="module-header"><nav class="top-nav"><a href="details.html">CT561 overview</a><a href="continuous_vs_agent_based_simulation_revision_sheet.html">Previous topic: Simulation methods</a><a href="stock_flow_modelling_revision_sheet.html">Next topic: Stock-flow modelling</a></nav><p class="eyebrow">CT561 Paper-Based Topic Guide</p><h1>Supporting Structures: Delays, Smoothing, Little's Law and Behaviour</h1><p>These are lower-frequency than the four main question families, but they recur often enough to prepare as short-question and extension material.</p></header>
+<main class="module-shell"><article class="module-content">
+<h2>Paper-backed question forms</h2>
+<ul><li><strong>Smoothing [8]:</strong> show the stock-flow structure that converts a noisy input into a smoothed signal and explain adjustment time. <span>2023/24 Q2(a)</span></li><li><strong>Little's Law [3-7]:</strong> calculate average delay from stock and throughput, state equilibrium conditions and infer delay distribution. <span>2017/18 Q4(a,b); 2018/19 Q1(c)</span></li><li><strong>Behaviour to structure [8]:</strong> infer a one-stock reinforcing or balancing structure from a graph. <span>2023/24 Q1(a)</span></li><li><strong>Analytical/differential model [8]:</strong> convert a differential equation to stock-flow form and explain its feedback. <span>2016/17 Q2(b); 2017/18 Q2(a); 2021/22 Q2(a)</span></li></ul>
+
+<h2>Smoothing with a first-order delay [8]</h2>
+<p>For input <code>V</code> and smoothed output <code>V Smooth</code>, draw a stock <code>V Smooth</code> with an adjustment flow from the discrepancy:</p>
+<div class="formula"><code>V Smooth = INTEG((V - V Smooth)/Adjustment Time, Initial Smooth)</code></div>
+<p>A larger adjustment time makes the output smoother but slower to react. A smaller adjustment time tracks the input more closely. This is a balancing goal-seeking structure, not an arithmetic average of the most recent fixed number of observations.</p>
+
+<h2>Little's Law [3-7]</h2>
+<div class="formula"><code>Average Stock = Average Throughput x Average Delay</code><br><code>Average Delay = Average Stock / Average Throughput</code></div>
+<p>For the broadband example: <code>5,000 installations / 2,500 installations per month = 2 months</code>. It applies to averages in a stable system, where average inflow equals average outflow. It does not mean every customer waits exactly two months.</p>
+<p>In 2018/19, the steady state delay was found as 6 from stock/throughput. When the outflow resembles a delayed and smoothed version of inflow, it suggests a distributed delay rather than every item taking one fixed delay.</p>
+
+<h2>Recognising one-stock behaviour [8]</h2>
+<ul><li><strong>Increasing at an increasing rate:</strong> likely reinforcing growth, for example <code>Stock = INTEG(Fractional Increase x Stock, Initial)</code>.</li><li><strong>Rising then flattening towards a limit:</strong> likely balancing feedback, for example a goal-seeking or carrying-capacity structure.</li><li><strong>Inflection point:</strong> the stock changes from increasing slope to decreasing slope, or vice versa. It indicates a maximum/minimum in the net flow, not necessarily a maximum/minimum in stock.</li></ul>
+
+<h2>Differential equation to a model [8]</h2>
+<p>For <code>dS/dt = t</code>, draw one stock <code>S</code> with an inflow <code>t</code> and use the Vensim time variable. With <code>S(0)=0</code>, analytical integration gives <code>S(t)=t^2/2</code>, so <code>S(20)=200</code>. For Euler questions, use the stated DT instead of the analytical result.</p>
+<p>For logistic growth, separate the positive and negative terms into flows so that the balancing carrying-capacity effect is visible.</p>
+
+<h2>Mark checklist</h2>
+<ul><li>State the conditions under which a formula applies.</li><li>For a graph, name the behaviour and the likely feedback structure.</li><li>For a delay/smoothing structure, say what adjustment time changes.</li><li>Keep this topic secondary to integration, feedback, SIR and stock management when allocating revision time.</li></ul>
+</article></main></body></html>

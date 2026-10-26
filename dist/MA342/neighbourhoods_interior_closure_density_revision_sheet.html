@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MA342 Neighbourhoods, Interior, Closure and Density</title>
+<link rel="stylesheet" href="../module_page.css">
+</head>
+<body>
+<header class="module-header">
+<nav class="top-nav">
+<a href="details.html">MA342 overview</a>
+</nav>
+<p class="eyebrow">MA342 Topic Guide</p>
+<h1>Neighbourhoods, Interior, Closure and Density</h1>
+<p>Use open sets to classify boundary behaviour.</p>
+</header>
+<main class="module-shell">
+<article class="module-content">
+<h2>Purpose</h2>
+<p>Define and compute interior and closure, use accumulation points correctly, and prove density via neighbourhood intersections.<strong>Exam use:</strong> In 2025/26 these ideas occur in three different parts: definitions in Q1(c), a 5-mark closedness proof in Q1(e), and a 6-mark cofinite-density example in Q2(b).</p>
+<h2>Question plan</h2>
+<ol>
+<li>Specify the ambient topology.</li>
+<li>For interior, seek the largest open subset contained in A.</li>
+<li>For closure/density, test every open neighbourhood of a point.</li>
+<li>For an accumulation-point argument, remember to remove the point itself from A.</li>
+<li><strong>Question interpretation:</strong> “Define” needs a topology-valid criterion; “show closed” is usually fastest by proving the complement open; “give an example with justification” needs both a proper subset and a density proof.</li>
+</ol>
+<h2>Definitions</h2>
+<p>N is a <strong>neighbourhood</strong> of x if it contains an open U with x∈U⊆N. The interior int(A) is the largest open subset of A. The closure cl(A) is the smallest closed subset containing A; equivalently, x∈cl(A) iff every open neighbourhood of x meets A. A point x is an accumulation point of A iff every neighbourhood of x meets A\{x}. A is dense iff cl(A)=X.<strong>Rapid recall:</strong> Closure tests N∩A; accumulation tests N∩(A\{x}); density means every nonempty open set meets A.</p>
+<h2>Proof method</h2>
+<p>Prove two inclusions for a computed closure. To show density, take an arbitrary nonempty open set and find a point of A in it. To prove A closed from the absence of accumulation points, take x∉A, choose a neighbourhood missing A\{x}, observe that it misses A because x∉A, and conclude X\A is open.<strong>Exam workflow:</strong> Name the ambient topology, write the exact neighbourhood intersection being tested, and state the final open-complement or closure conclusion.</p>
+<h2>Worked simple example</h2>
+<p>In R, int([0,1])=(0,1) and cl((0,1))=[0,1]: any interval around 0 or 1 meets (0,1).</p>
+<h3>Medium/hard paper-style synthesis</h3>
+<p>Let A be a subset of a topological space X with no accumulation point in X. For x∈X\A, x is not an accumulation point, so some open neighbourhood U of x satisfies U∩(A\{x})=∅. Since x∉A, this simplifies to U∩A=∅. Thus every point of X\A has an open neighbourhood contained in X\A, so X\A is open and A is closed.</p>
+<h2>Graduated exam bridges</h2>
+<p>
+<strong>1. Foundation:</strong> Find cl({1/n:n≥1}) in R. <strong>Check:</strong> include 0.</p>
+<p>
+<strong>2. Exam style [6 marks]:</strong> In the cofinite topology on Z, give a proper dense subset. <strong>Check:</strong> take 2Z; it is proper and infinite, and every nonempty cofinite-open set meets every infinite subset.</p>
+<h3>Hard paper-style synthesis</h3>
+<p>Paper-style synthesis: in the subspace X=[0,1], find interior and closure of A=[0,1/2). Check int_X A=[0,1/2), since [0,epsilon)=X intersect (-1,epsilon) is open in X; cl_X A=[0,1/2]. This differs from ambient interior in R.</p>
+<h2>Practice question - no accumulation points [5 marks]</h2><p><strong>Inspired by:</strong> MA342 2025/26 Q1(e). <strong>Task.</strong> Let A be a subset of a topological space X. Show that if A has no accumulation point in X, then A is closed in X. [5 marks]</p><p><strong>Demand diagnosis and fastest route:</strong> prove X\A open point-by-point; restricting to x∉A turns a neighbourhood avoiding A\{x} into one avoiding all of A.</p><p><strong>Worked answer:</strong> Let x∈X\A. Because A has no accumulation points, x is not an accumulation point of A. Hence an open neighbourhood U of x exists with U∩(A\{x})=∅. Since x∉A, A\{x}=A, so U∩A=∅ and U⊆X\A. Every x∈X\A therefore has an open neighbourhood contained in X\A. Hence X\A is open, and A is closed.</p><p><strong>Topic-specific trap:</strong> the definition removes {x}; explicitly use x∉A before replacing A\{x} by A.</p>
+<h2>Mistakes</h2>
+<ul>
+<li>Treating closure as A plus only “visible” endpoints.</li>
+<li>Using metric-ball intuition without checking the topology.</li>
+<li>For density, checking only one neighbourhood.</li>
+<li><strong>Recovery rule:</strong> Endpoints can be interior points in a subspace; always name the ambient space before computing.</li>
+</ul>
+<h2>Checklist</h2>
+<ul>
+<li>I can state the neighbourhood test for closure.</li>
+<li>I can distinguish closure points from accumulation points.</li>
+<li>I can compute examples in R and cofinite spaces.</li>
+<li>I can turn density into an open-set intersection proof.</li>
+<li><strong>Final 60-second audit:</strong> Ambient topology, neighbourhood criterion, both inclusions and endpoint behaviour are explicit.</li>
+</ul>
+<h2>Past-paper note</h2>
+<p>
+<strong>High confidence:</strong> 2025/26 Q1(c) repeats closure and interior definitions, Q1(e) adds the no-accumulation-points closedness proof for 5 marks, and Q2(b) repeats cofinite density for 6 marks. These extend the closure evidence from 2023/24 and the interior/density evidence from 2024/25. <a href="details.html#past-papers">Back to paper evidence</a>.</p>
+</article>
+</main>
+</body>
+</html>
