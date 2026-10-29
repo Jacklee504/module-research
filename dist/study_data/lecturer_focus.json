@@ -1,0 +1,166 @@
+{
+  "CT417": [
+    {
+      "id": "lecturer-devops-agile",
+      "title": "DevOps and Agile",
+      "family": "Lecturer focus · SWE",
+      "parts": [{
+        "label": "Question",
+        "prompt": "How do DevOps and Agile differ, and how can they work together?",
+        "answer": "Agile organises iterative planning, development and feedback around changing user needs. DevOps extends collaboration through build, test, release, operations and monitoring. They work together when a small Agile increment flows through automated CI/CD, staged deployment and operational feedback into the next iteration. Neither removes the need for review, testing or a safe release process.",
+        "cards": [
+          {"front": "What does Agile mainly organise?", "back": "Short iterations, stakeholder feedback and adaptation of the product backlog."},
+          {"front": "What does DevOps add to that cycle?", "back": "Shared development and operations responsibility, automated delivery, monitoring and feedback after release."}
+        ]
+      }]
+    },
+    {
+      "id": "lecturer-git-conflicts",
+      "title": "Resolve a Git merge conflict",
+      "family": "Lecturer focus · SWE",
+      "parts": [{
+        "label": "Question",
+        "prompt": "Explain, using Git commands, how you would diagnose and resolve a merge conflict on a feature branch.",
+        "answer": "Run git status to identify unmerged files. Open each file, inspect the conflict markers and combine the intended changes; do not blindly choose one side. Run tests, then git add <file>. For a merge, git commit completes the merge. For a rebase, use git rebase --continue and resolve each remaining conflict in turn. Check git status and the diff before pushing. Prevent future conflicts with small branches, frequent integration and pull-request review.",
+        "cards": [
+          {"front": "Which command shows files with unresolved conflicts?", "back": "git status lists unmerged paths and the current merge or rebase state."},
+          {"front": "What follows editing the conflict markers?", "back": "Test the result and run git add <file>, then git commit for a merge or git rebase --continue for a rebase."}
+        ]
+      }]
+    },
+    {
+      "id": "lecturer-requirements",
+      "title": "Good requirements",
+      "family": "Lecturer focus · SWE",
+      "source_note": "Your W3 slides 9–10 reference",
+      "parts": [{
+        "label": "Question",
+        "prompt": "What properties should a requirement exhibit? Explain necessary, verifiable and achievable with an example.",
+        "answer": "Necessary: it serves a real stakeholder or system need rather than adding an unsupported feature. Verifiable: an observable test or measure can decide whether it is met. Achievable: it can be delivered within the system, time and resource constraints. Also check that wording is clear and unambiguous and that it does not conflict with other requirements. Example: ‘The system shall reject a duplicate booking within two seconds’ can be traced to avoiding double booking, measured in a test and assessed against available capacity.",
+        "cards": [
+          {"front": "How do you test whether a requirement is necessary?", "back": "Trace it to a stakeholder need or system objective; remove unsupported extras."},
+          {"front": "How do you make a requirement verifiable?", "back": "State an observable behaviour or measurable threshold and a way to test it."},
+          {"front": "What makes a requirement achievable?", "back": "It is feasible within technical, time, cost and regulatory constraints."}
+        ]
+      }]
+    },
+    {
+      "id": "lecturer-build-maven",
+      "title": "Builds, Maven and pom.xml",
+      "family": "Lecturer focus · SWE",
+      "source_note": "Your W4 slides 5, 8–9 references",
+      "parts": [
+        {
+          "label": "(a)",
+          "prompt": "What is a software build?",
+          "answer": "A build transforms source and configuration into a usable artefact through steps such as dependency resolution, compilation, tests and packaging. A successful build produces a repeatable, versioned output, such as a JAR or container image, with failures reported before release.",
+          "cards": [{"front": "What does a build produce?", "back": "A runnable or deployable artefact from source and configuration, typically after dependency resolution, compilation, tests and packaging."}]
+        },
+        {
+          "label": "(b)",
+          "prompt": "Sketch a typical Maven project skeleton and explain the role of pom.xml.",
+          "answer": "The project root contains pom.xml. Application code lives in src/main/java and resources in src/main/resources; tests live in src/test/java and src/test/resources. Maven writes build output to target/. The POM declares project coordinates, dependencies, plugins and build settings so Maven can reproduce the build.",
+          "cards": [
+            {"front": "Where do Maven source and tests go?", "back": "src/main/java for application code; src/test/java for tests. Matching resources directories hold non-code files."},
+            {"front": "What is target/ in a Maven project?", "back": "The generated build-output directory, including compiled classes and packaged artefacts."}
+          ]
+        },
+        {
+          "label": "(c)",
+          "prompt": "What does <modelVersion> mean in pom.xml, and how would you decipher an unfamiliar POM?",
+          "answer": "<modelVersion>4.0.0</modelVersion> names the POM model schema, not the application’s release version. Read groupId, artifactId and version to identify the project; packaging for the artefact type; dependencies for libraries and scopes; properties for shared values; build/plugins for compilation, tests and packaging; and parent or modules for inherited or multi-module configuration. Separate the declared project version from modelVersion.",
+          "cards": [
+            {"front": "Is modelVersion the application version?", "back": "No. It identifies the Maven POM model, commonly 4.0.0. The project’s <version> is separate."},
+            {"front": "Which POM elements identify the project?", "back": "groupId, artifactId and version; also inspect packaging, dependencies, properties, plugins, parent and modules."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lecturer-dockerfile",
+      "title": "Derive a Dockerfile",
+      "family": "Lecturer focus · SWE",
+      "parts": [{
+        "label": "Question",
+        "prompt": "Given an application, work out a Dockerfile and explain why each instruction is needed. What application details must you identify first?",
+        "answer": "Identify the runtime and version, dependency files, build command, executable/start command, listening port and files needed at runtime. Then choose a suitable base image (FROM), set the working directory (WORKDIR), copy dependency descriptors first (COPY), install or build dependencies (RUN), copy application files (COPY), document the port if useful (EXPOSE), and set the start command (CMD or ENTRYPOINT). Prefer a small runtime stage and a non-root user where practical. Explain the purpose of each instruction from the actual application; EXPOSE alone does not publish a host port.",
+        "cards": [
+          {"front": "Why copy dependency descriptors before all source files?", "back": "It lets Docker reuse the dependency-install layer when source changes but dependencies do not."},
+          {"front": "What must CMD or ENTRYPOINT match?", "back": "The actual command that starts the built application, including its runtime and artefact path."},
+          {"front": "Does EXPOSE make a container reachable from the host?", "back": "No. It documents a listening port; a publish/port mapping or deployment network configuration is still needed."}
+        ]
+      }]
+    },
+    {
+      "id": "lecturer-monolith",
+      "title": "Monolithic architecture",
+      "family": "Lecturer focus · SWE",
+      "parts": [{
+        "label": "Question",
+        "prompt": "Explain a monolithic architecture, its advantages and trade-offs, and when you might choose it over microservices.",
+        "answer": "A monolith packages the application’s main functions into one deployable unit, often with in-process calls and a shared release cycle. It can be simpler to develop, test, deploy and debug for a small team or tightly coupled domain. Growth can make builds, releases and scaling less independent, and a fault can affect the whole deployment. Microservices offer independent deployment and scaling but add network, data-consistency and operations complexity. Choose based on team size, domain boundaries and operational needs rather than treating either style as universally better.",
+        "cards": [
+          {"front": "What defines a monolith operationally?", "back": "The main application components are built and deployed together as one unit."},
+          {"front": "What is the main trade-off against microservices?", "back": "A simpler deployment and in-process communication versus less independent scaling and release of components."}
+        ]
+      }]
+    }
+  ],
+  "CT4101": [
+    {
+      "id": "lecturer-ml-q2",
+      "title": "k-NN, decision trees and distance",
+      "family": "Lecturer focus · ML",
+      "source_note": "Your lecturer identified this as a full exam question; no paper wording or marks supplied",
+      "parts": [
+        {
+          "label": "(a)",
+          "prompt": "Explain k-nearest neighbours for classification and regression. How does k affect the prediction?",
+          "answer": "For a query point, calculate distance to training examples, choose the k nearest and vote for classification or average targets for regression. A small k is sensitive to noise; a larger k smooths predictions but can blur local boundaries. Choose k on training/validation data and scale numeric features before distance calculations.",
+          "cards": ["0:15", "0:16", "0:24"]
+        },
+        {
+          "label": "(b)",
+          "prompt": "Compare Euclidean and Hamming distance, calculate each for a small example, and explain when feature scaling matters.",
+          "answer": "Euclidean distance for numeric vectors is √Σᵢ(xᵢ − yᵢ)²; for (1,2) and (4,6), it is 5. Hamming distance counts differing positions in equal-length categorical or binary strings; 10110 versus 10011 differs in two positions. Numeric features with larger scales can dominate Euclidean distance, so fit a scaler on training data and apply it consistently to validation/test data.",
+          "cards": ["0:22", "1:8", "1:9", "0:24"]
+        },
+        {
+          "label": "(c)",
+          "prompt": "How does a decision tree choose a split, and how can overfitting be controlled?",
+          "answer": "For classification, calculate a parent impurity such as entropy and compare candidate splits by their weighted child impurity. Choose the split with the largest information gain, subject to constraints. Limit depth or minimum leaf size, prune using validation data, and assess performance on held-out data to avoid fitting noise.",
+          "cards": ["0:37", "0:38", "0:39", "0:41"]
+        }
+      ]
+    },
+    {
+      "id": "lecturer-ml-entropy",
+      "title": "Calculate entropy",
+      "family": "Lecturer focus · ML",
+      "source_note": "Your lecturer said entropy calculation will be on the exam; this is a new practice example",
+      "parts": [{
+        "label": "Question",
+        "prompt": "A dataset has 6 positive and 4 negative examples. Calculate its entropy. A split creates child A with 4 positive and 1 negative, and child B with 2 positive and 3 negative. Calculate the information gain.",
+        "answer": "Parent H = −(6/10)log₂(6/10) − (4/10)log₂(4/10) ≈ 0.971 bits. Child A H ≈ 0.722 bits; child B H ≈ 0.971 bits. Both children have 5/10 of the examples, so weighted child entropy ≈ 0.5(0.722) + 0.5(0.971) = 0.846 bits. Information gain ≈ 0.971 − 0.846 = 0.125 bits. Keep the class proportions and child weights explicit.",
+        "cards": ["0:37", "0:38", "1:12", "1:13"]
+      }]
+    }
+  ],
+  "CT4111": [
+    {
+      "id": "lecturer-genai-rag",
+      "title": "RAG versus index search",
+      "family": "Lecturer focus · GenAI · no past paper",
+      "parts": [{
+        "label": "Question",
+        "prompt": "Why might retrieval-augmented generation (RAG) be better than index search for answering questions over company data? When might index search still be preferable?",
+        "answer": "RAG retrieves relevant company documents and uses them as context to generate an answer. It can handle natural-language questions, paraphrases and synthesis across several sources better than a simple keyword-result list. It should cite the retrieved passages, respect each user’s access rights and refresh the index as documents change. Index search remains useful for exact terms, known documents, predictable ranking and low latency. RAG adds cost and latency and can still hallucinate or misuse retrieved text, so verify high-stakes answers against the source.",
+        "cards": [
+          {"front": "What does retrieval add before generation in RAG?", "back": "Relevant source passages are fetched and supplied as context for the model’s answer."},
+          {"front": "Where can RAG help more than a keyword result list?", "back": "Natural-language questions, paraphrases and synthesis across several authorised documents."},
+          {"front": "When is ordinary index search preferable?", "back": "Exact lookup, known documents, predictable ranking, lower latency or direct inspection of the original source."}
+        ]
+      }]
+    }
+  ]
+}
