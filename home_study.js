@@ -22,80 +22,76 @@
     let state = {};
     try { state = JSON.parse(storage.get(`module-research-study-v2-${code}`) || '{}') || {}; }
     catch (_) { state = {}; }
+    const coreAnswers = Object.fromEntries(Object.entries(state.focus || {}).filter(([key]) => !key.startsWith('lecturer-')));
+    const coreCards = Object.fromEntries(Object.entries(state.cards || {}).filter(([key]) => !key.startsWith('lecturer:')));
     return {
-      family: Math.min(total(card, 'familyTotal'), count(state.families, 'done')),
-      ready: Math.min(total(card, 'cardTotal'), count(state.cards, 'ready')),
-      weak: Math.min(total(card, 'cardTotal'), count(state.cards, 'weak')),
-      practice: Math.min(total(card, 'practiceTotal'), count(state.practice, 'done')),
+      strong: Math.min(total(card, 'partTotal'), count(coreAnswers, 'strong')),
+      retry: Math.min(total(card, 'partTotal'), count(coreAnswers, 'retry')),
+      firstRetry: Object.entries(coreAnswers).find(([, value]) => value === 'retry')?.[0]?.split(':')[0],
+      lastQuestion: state.focusQuestion,
+      ready: Math.min(total(card, 'cardTotal'), count(coreCards, 'ready')),
+      weak: Math.min(total(card, 'cardTotal'), count(coreCards, 'weak')),
     };
   }
 
   function nextAction(card, done) {
     const code = card.dataset.code;
-    const families = total(card, 'familyTotal');
+    const parts = total(card, 'partTotal');
     const cardsTotal = total(card, 'cardTotal');
-    const practiceTotal = total(card, 'practiceTotal');
+    const question = done.firstRetry || done.lastQuestion || card.dataset.firstQuestion;
+    const questionUrl = `${code}/study.html?question=${encodeURIComponent(question)}#practice-heading`;
+    if (done.retry) {
+      return {
+        label: `Revisit ${plural(done.retry, 'answer')}`,
+        copy: 'Try a question you marked as needing work before opening its answer.',
+        href: questionUrl,
+      };
+    }
+    if (done.strong === 0) {
+      return {
+        label: code === 'CT4111' ? 'Start an outcome question' : 'Start a past-paper question',
+        copy: 'Learn the answer, write it from memory, then self-check.',
+        href: questionUrl,
+      };
+    }
+    if (done.strong < parts) {
+      return {
+        label: 'Continue question practice',
+        copy: 'Pick up at your last question and self-check the remaining parts.',
+        href: questionUrl,
+      };
+    }
     if (done.weak) {
       return {
         label: `Review ${plural(done.weak, 'difficult card')}`,
-        copy: 'Open the card drill with weak and new cards selected.',
+        copy: 'Open weak and new recall cards.',
         href: `${code}/study.html?cards=weak#flashcards`,
-      };
-    }
-    if (families && done.family === 0) {
-      return {
-        label: code === 'CT4111' ? 'Start the first outcome' : 'Start the top question family',
-        copy: 'Read the answer frame, then try a related prompt without looking.',
-        href: `${code}/study.html#lecture-heading`,
-      };
-    }
-    if (practiceTotal && done.practice < Math.min(done.family, practiceTotal)) {
-      return {
-        label: 'Attempt a practice prompt',
-        copy: 'Write your answer before opening the plan. Mark the prompt when attempted.',
-        href: `${code}/study.html#practice-heading`,
-      };
-    }
-    if (done.family < families) {
-      return {
-        label: code === 'CT4111' ? 'Work the next outcome' : 'Work the next question family',
-        copy: 'Build confidence in another area before doing more prompts.',
-        href: `${code}/study.html#lecture-heading`,
-      };
-    }
-    if (practiceTotal && done.practice < practiceTotal) {
-      return {
-        label: 'Attempt a practice prompt',
-        copy: 'Use a fresh prompt to test your answer structure.',
-        href: `${code}/study.html#practice-heading`,
       };
     }
     return {
       label: done.ready < cardsTotal ? 'Drill recall cards' : 'Review this module',
-      copy: done.ready < cardsTotal ? 'Use the card drill to check what you can recall.' : 'Revisit any weak area or try another question.',
+      copy: done.ready < cardsTotal ? 'Use recall cards to test details from the questions.' : 'Revisit a question and try it again without looking.',
       href: `${code}/study.html#flashcards`,
     };
   }
 
   let readyAcross = 0;
-  let attemptedAcross = 0;
+  let strongAcross = 0;
   let weakAcross = 0;
-  let familiesAcross = 0;
+  let retryAcross = 0;
   const actions = new Map();
   for (const card of cards) {
     const done = progress(card);
     const action = nextAction(card, done);
     actions.set(card.dataset.code, action);
     readyAcross += done.ready;
-    attemptedAcross += done.practice;
+    strongAcross += done.strong;
     weakAcross += done.weak;
-    familiesAcross += done.family;
-    card.querySelector('[data-family-progress]').textContent =
-      `${done.family}/${total(card, 'familyTotal')} ${card.dataset.code === 'CT4111' ? 'outcome areas' : 'families'}`;
+    retryAcross += done.retry;
+    card.querySelector('[data-answer-progress]').textContent =
+      `${done.strong}/${total(card, 'partTotal')} answers confident`;
     card.querySelector('[data-card-progress]').textContent =
       `${done.ready}/${total(card, 'cardTotal')} cards confident`;
-    const practice = card.querySelector('[data-practice-progress]');
-    if (practice) practice.textContent = `${done.practice}/${total(card, 'practiceTotal')} prompts attempted`;
     card.querySelector('[data-next-copy]').textContent = action.copy;
     const primary = card.querySelector('[data-primary]');
     primary.href = action.href;
@@ -106,8 +102,8 @@
   }
 
   const summary = document.querySelector('[data-home-summary]');
-  if (summary && (readyAcross || attemptedAcross || weakAcross || familiesAcross)) {
-    summary.textContent = `${familiesAcross} question areas confident · ${readyAcross} cards confident · ${attemptedAcross} prompts attempted · ${weakAcross} difficult cards. Saved in this browser.`;
+  if (summary && (readyAcross || strongAcross || weakAcross || retryAcross)) {
+    summary.textContent = `${plural(strongAcross, 'answer')} confident · ${plural(retryAcross, 'answer')} to revisit · ${plural(readyAcross, 'card')} confident · ${plural(weakAcross, 'difficult card')}. Saved in this browser.`;
   }
 
   const last = storage.get(lastKey);
