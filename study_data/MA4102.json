@@ -1,0 +1,718 @@
+{
+ "code": "MA4102",
+ "name": "Algebraic Foundations of Quantum Computing",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 1",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "High",
+  "exam_pattern": "High predictability.",
+  "title": "MA4102 - Algebraic Foundations of Quantum Computing",
+  "papers": [
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "algorithms_revision_sheet.html",
+   "channels_revision_sheet.html",
+   "density_matrices_revision_sheet.html",
+   "entanglement_revision_sheet.html",
+   "gates_circuits_revision_sheet.html",
+   "measurements_revision_sheet.html",
+   "no_cloning_proofs_revision_sheet.html",
+   "qubits_qudits_revision_sheet.html",
+   "teleportation_revision_sheet.html"
+  ],
+  "exam_block": [
+   "The exam format is stable across all five papers.",
+   "The official learning outcomes map very directly onto the repeated exam blocks.",
+   "Qutrit/qubit calculations, density matrices, entanglement, Grover, QFT, circuits, no-cloning, and Kraus/POVM material recur heavily.",
+   "Even when internal examiners change, the paper remains close to the established template.",
+   "The module page and latest paper do not fully align on the starred lecturer: the latest paper starred Mark Howard, while the current page lists Michael Mc Gettrick.",
+   "The material is notation-heavy; small algebra mistakes can cost marks.",
+   "CA is only 30%, so it does not strongly support the goal of maximising marks through coursework."
+  ],
+  "drill": [
+   "The structure is highly repetitive: exact numbers/states change, but task types recur.",
+   "State calculations are one of the safest areas: measurement probabilities, density matrices, applying unitaries, Bloch sphere angles and |+> , |-> measurements.",
+   "Entanglement and mixed-state calculations recur: reduced density matrices, purity, Von Neumann entropy, entanglement checks and unitary preservation of purity.",
+   "Channels/measurements are active but less predictable in wording: Kraus operators, trace preservation, POVM probabilities and CPTP definitions.",
+   "Circuits and gates recur: CNOT, controlled-Hadamard, Hadamard, SWAP, Pauli gates, controlled rotations, truth tables and output states.",
+   "Grover and QFT recur frequently: Grover iterations/success probabilities, |a> , |phi> basis work and QFT of small qudit states.",
+   "Recurring proofs: no-cloning, no-deleting/no-information deletion, Bell-state entanglement, projective measurement validity and unitaries preserving purity."
+  ],
+  "paper_format": "exam format is stable across all five papers",
+  "exam_shape": "mixed",
+  "code": "MA4102",
+  "name": "Algebraic Foundations of Quantum Computing"
+ },
+ "families": [
+  {
+   "id": "algorithms-grover-qft-deutsch-jozsa-and-search",
+   "rank": 1,
+   "title": "Algorithms: Grover, QFT, Deutsch-Jozsa, And Search",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q4(ii) - Michael Mc Gettrick - “Calculate the permutation matrix U_f used in the Deutsch-Jozsa algorithm” for a specified Boolean function. [10 marks]",
+    "2023/24 - Q5(i) - Michael Mc Gettrick - simple classical search in list L = [s,t,b,u,a,y,o,p]: best, worst, and average comparisons. [9 marks]",
+    "2023/24 - Q5(ii) - Michael Mc Gettrick - Grover probability of success after one and two operations for list length 8. [16 marks]",
+    "2024/25 - Q4(ii) - Michael Mc Gettrick - “Calculate the Quantum Fourier Transform” of two qudit states. [10 marks]",
+    "2024/25 - Q5(i)-(iii) - Michael Mc Gettrick - Grover search on list length 32: theoretical real iterate count, best integer count and probability, second-best count and probability. [6 + 11 + 8 marks]",
+    "2025/26 - Q3(a) - Mark Howard - Grover iterate as a 2 x 2 matrix in the {|a>, |phi>} basis for list length 4, then compute |psi> and G|psi>. [13 marks]",
+    "2025/26 - Q3(b) - Mark Howard - calculate QFT of two qudit states. [12 marks]"
+   ],
+   "marks": 95,
+   "question": "Consolidated question: Given a small quantum algorithm setup, compute the required state transformation, probability, matrix, or iterate count without losing basis order, normalisation, phase, or measurement convention.",
+   "answer": "Complete answer must contain: the basis order, the defining formula, the substituted numbers, exact amplitudes before probabilities, and a final probability/count/matrix. For Grover, state sin(theta)=1/sqrt(N) and P_k=sin^2((2k+1)theta) . For QFT, state F_d|x>=d^{-1/2} sum_y omega^{xy}|y> , with omega=e^{2 pi i/d} . For Deutsch-Jozsa, list the basis-state mapping and then place one 1 per column in the corresponding output row."
+  },
+  {
+   "id": "state-measurement-density-matrices-bloch-sphere-and-basis-change",
+   "rank": 2,
+   "title": "State Measurement, Density Matrices, Bloch Sphere, And Basis Change",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q1(i)(a)-(c) - Michael Mc Gettrick - qutrit state; probability of measuring |1>; density matrix; apply Fourier-style unitary and calculate subsequent probability of |1>. [14 marks]",
+    "2023/24 - Q1(ii)(a)-(b) - Michael Mc Gettrick - qubit state; Bloch sphere angles theta and phi; probability of obtaining |+> in the {|+>, |->} basis. [11 marks]",
+    "2024/25 - Q1(i)(a)-(c) - Michael Mc Gettrick - qutrit state; probability of measuring |2>; density matrix; apply unitary and calculate subsequent probability of |2>. [14 marks]",
+    "2024/25 - Q1(ii)(a)-(b) - Michael Mc Gettrick - qubit state; Bloch sphere angles theta and phi; |+> probability. [11 marks]",
+    "2025/26 - Q1(a) - Mark Howard - write arbitrary qubit |psi>=alpha|0>+beta|1> as gamma|+>+delta|-> and give probabilities of + and -. [7 marks]",
+    "2025/26 - Q1(b) - Mark Howard - derive the same plus/minus probabilities using a projective measurement and check the definition. [6 marks]",
+    "2025/26 - Q2(a)-(c) - Mark Howard - qutrit computational-basis measurement and post-measurement state; density matrix; apply unitary and calculate subsequent outcome-2 probability. [7 + 4 + 6 marks]"
+   ],
+   "marks": 80,
+   "question": "Consolidated question: Given a qubit or qutrit state, calculate measurement probabilities, density matrices, basis-change probabilities, and unitary-updated probabilities with correct complex conjugation and normalisation.",
+   "answer": "Complete answer must contain: amplitude moduli squared for probabilities, explicit post-measurement state when requested, the full outer-product density matrix, the matrix-vector product for any unitary update, and the final squared-modulus probability. For plus/minus measurements, gamma=(alpha+beta)/sqrt(2) , delta=(alpha-beta)/sqrt(2) , so P(+)=|alpha+beta|^2/2 and P(-)=|alpha-beta|^2/2 . For Bloch sphere form, remove global phase and match |psi>=cos(theta/2)|0>+e^{i phi} sin(theta/2)|1> ."
+  },
+  {
+   "id": "entanglement-reduced-density-matrices-purity-bell-states-and-entropy",
+   "rank": 3,
+   "title": "Entanglement, Reduced Density Matrices, Purity, Bell States, And Entropy",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q2 - Michael Mc Gettrick - four 2-qubit column vectors; calculate purity and entanglement using von Neumann entropy of the reduced density matrix for the second qubit. [25 marks]",
+    "2024/25 - Q2(i) - Michael Mc Gettrick - three 2-qubit states; calculate purity and entanglement using the reduced density matrix. [18 marks]",
+    "2024/25 - Q2(ii) - Michael Mc Gettrick - prove unitary transformations preserve state purity. [7 marks]",
+    "2025/26 - Q2(d) - Mark Howard - prove whether two supplied 2-qubit states are entangled. [8 marks]",
+    "2025/26 - Q5(a) - Mark Howard - show Bell state |beta_00> equals (1/sqrt(2))(|psi,psi>+|psi_perp,psi_perp>) in a rotated basis. [8 marks]",
+    "2025/26 - Q5(b) - Mark Howard - after Alice applies U_theta^-1 and measures, state Bob’s pure state for outcome zero or one. [9 marks]",
+    "2025/26 - Q5(c) - Mark Howard - parity measurement projectors and probability of “even” for |beta_00> . [8 marks]"
+   ],
+   "marks": 83,
+   "question": "Consolidated question: Given a 2-qubit state, decide whether it is entangled by reduced states, purity, entropy, or Bell-state algebra, and prove any stated unitary or projective-measurement property.",
+   "answer": "Complete answer must contain: the basis order, the reduced density matrix, the purity Tr(rho^2) , entropy/eigenvalue reasoning when required, and the entanglement conclusion. For |psi>=a|00>+b|01>+c|10>+d|11> , reducing to the second qubit gives [[|a| 2+|c| 2, a b* + c d*], [a* b + c* d, |b| 2+|d| 2]] . A pure reduced state means no entanglement; a mixed reduced state means entanglement for an overall pure bipartite state."
+  },
+  {
+   "id": "channels-kraus-operators-povms-and-projective-measurements",
+   "rank": 4,
+   "title": "Channels, Kraus Operators, POVMs, And Projective Measurements",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q3(i)(a)-(b) - Michael Mc Gettrick - phase damping CPTP map; write 4 x 4 matrix; calculate Kraus operators M_0=<0|U|0> and M_1=<1|U|0> . [14 marks]",
+    "2024/25 - Q3(i) - Michael Mc Gettrick - given orthonormal basis |g>, |h>, calculate associated Kraus operators for amplitude damping channel. [13 marks]",
+    "2024/25 - Q3(ii) - Michael Mc Gettrick - POVM effects E_1 , E_2 , E_3=I-E_1-E_2 ; calculate all three outcome probabilities. [12 marks]",
+    "2025/26 - Q1(b) - Mark Howard - plus/minus projective measurement and projective-measurement definition. [6 marks]",
+    "2025/26 - Q4(d) - Mark Howard - Pauli Kraus operators; confirm trace-preserving channel and describe effect on arbitrary state rho . [6 marks]",
+    "2025/26 - Q5(c) - Mark Howard - parity measurement projectors; show projective-measurement requirements and calculate even probability. [8 marks]"
+   ],
+   "marks": 59,
+   "question": "Consolidated question: Given a channel or measurement, write the operator representation, verify the required conditions, and calculate the requested outcome probabilities or transformed state.",
+   "answer": "Complete answer must contain: the operator definitions, where the system and environment sit in the tensor order, the actual matrix/operator entries, and the condition being checked. For Kraus operators, use M_e=<e|U|0> when the environment starts in |0> . For POVMs, use P(i)=<psi|E_i|psi> . For projective measurements, check Hermitian, idempotent, orthogonal, and complete: Pi_i^dagger=Pi_i , Pi_i^2=Pi_i , Pi_i Pi_j=0 , and sum_i Pi_i=I ."
+  },
+  {
+   "id": "gates-circuits-truth-tables-teleportation-and-operator-algebra",
+   "rank": 5,
+   "title": "Gates, Circuits, Truth Tables, Teleportation, And Operator Algebra",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q4(i)(a)-(c) - Michael Mc Gettrick - draw circuits for gate expressions using H, X, Y, CNOT, SWAP, and controlled rotation. [15 marks]",
+    "2024/25 - Q4(iii) - Michael Mc Gettrick - draw the quantum teleportation circuit where Alice transmits an unknown qubit to Bob using a maximally entangled pair. [8 marks]",
+    "2025/26 - Q1(c) - Mark Howard - truth table for controlled-Hadamard gate C_H . [6 marks]",
+    "2025/26 - Q1(d) - Mark Howard - output state for a drawn circuit. [6 marks]",
+    "2025/26 - Q4(c) - Mark Howard - simplify ( <0| tensor I )(alpha_00|00> + alpha_01|01> + alpha_10|10> + alpha_11|11>) . [6 marks]"
+   ],
+   "marks": 41,
+   "question": "Consolidated question: Translate between symbolic gates, circuit diagrams, truth tables, and output states while preserving qubit order and gate order.",
+   "answer": "Complete answer must contain: the input basis order, which qubit is control/target, the right-to-left order of symbolic products, and the final state or diagram. For C_H , the control-0 inputs are unchanged; |10> maps to (|10>+|11>)/sqrt(2) , and |11> maps to (|10>-|11>)/sqrt(2) . For the projection-style simplification, the answer is alpha_00|0>+alpha_01|1> because only first-qubit-zero terms survive."
+  },
+  {
+   "id": "no-cloning-orthogonal-state-construction-and-unitary-impossibility-proofs",
+   "rank": 6,
+   "title": "No-Cloning, Orthogonal-State Construction, And Unitary-Impossibility Proofs",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q3(ii) - Michael Mc Gettrick - prove the no-cloning theorem: no unitary map sends |psi>|phi> to |psi>|psi> . [11 marks]",
+    "2024/25 - Q4(i) - Michael Mc Gettrick - prove the no-cloning theorem, “it is impossible to copy a quantum state.” [7 marks]",
+    "2024/25 - Q2(ii) - Michael Mc Gettrick - prove unitary transformations preserve state purity. [7 marks]",
+    "2025/26 - Q4(a) - Mark Howard - derive |psi_perp> orthogonal to |psi>=alpha|0>+beta|1> , find unitary mapping computational basis to {|psi>,|psi_perp>} , and confirm UU^dagger=I . [7 marks]",
+    "2025/26 - Q4(b) - Mark Howard - prove no-cloning theorem for a 2-qubit unitary mapping |psi>|0> to |psi>|psi> . [6 marks]"
+   ],
+   "marks": 38,
+   "question": "Consolidated question: Prove a proposed universal quantum operation cannot exist, or construct a valid unitary, using linearity, inner-product preservation, purity, and orthonormal columns.",
+   "answer": "Complete answer must contain: the assumed unitary action, the invariant being preserved, the contradiction or verification, and the quantifier “for every qubit state” where relevant. For no-cloning, assume U|psi>|0>=|psi>|psi> and U|phi>|0>=|phi>|phi> . Inner products give <psi|phi>=<psi|phi>^2 , impossible for arbitrary non-identical, non-orthogonal states."
+  },
+  {
+   "id": "lecturer-and-evidence-weighting",
+   "rank": null,
+   "title": "Lecturer and Evidence Weighting",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "ranked-current-question-families",
+   "rank": null,
+   "title": "Ranked Current Question Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Grover Search",
+     "front": "What is Grover's success-probability formula for one marked item?",
+     "back": "Set sin θ = 1/√N . After k iterations, P k = sin²((2k + 1)θ) .",
+     "evidence": "2023 Q5; 2024 Q5"
+    },
+    {
+     "group": "Grover Search",
+     "front": "How do you choose the best integer Grover iteration count?",
+     "back": "Compute k* = π/(4θ) − 1/2 . Test the nearest non-negative integers in P k ; take the larger as best and the other nearby one for a second-best question.",
+     "evidence": "2024 Q5"
+    },
+    {
+     "group": "Grover Search",
+     "front": "What is the compact Grover 2D setup for the N = 4 question?",
+     "back": "For marked |a⟩ , set |φ⟩ = (1/√(N − 1)) Σ x ≠ a |x⟩ . For N = 4 , |ψ⟩ = (1/2)|a⟩ + (√3/2)|φ⟩ .",
+     "evidence": "2025 Q3(a); 2022 Q3(a)"
+    },
+    {
+     "group": "Grover Search",
+     "front": "What is the N = 4 Grover matrix in the ordered basis (|a⟩, |φ⟩) ?",
+     "back": "G = [[1/2, √3/2], [−√3/2, 1/2]] . Therefore G|ψ⟩ = |a⟩ .",
+     "evidence": "2025 Q3(a); 2022 Q3(a)"
+    },
+    {
+     "group": "QFT And Search Variants",
+     "front": "How do you calculate a small d -dimensional QFT?",
+     "back": "State ω = e 2πi/d and F d |x⟩ = (1/√d) Σ y ω xy |y⟩ . Expand the input, transform each basis ket, simplify powers of ω , and collect amplitudes.",
+     "evidence": "2024 Q4(ii); 2025 Q3(b); 2022 Q3(b)"
+    },
+    {
+     "group": "QFT And Search Variants",
+     "front": "What QFT shortcut applies to a Fourier-phase state?",
+     "back": "With the stated convention, F d [(1/√d) Σ x ω rx |x⟩] = |−r mod d⟩ .",
+     "evidence": "2025 Q3(b); 2022 Q3(b)"
+    },
+    {
+     "group": "QFT And Search Variants",
+     "front": "How do you build a Deutsch-Jozsa oracle permutation matrix?",
+     "back": "Use U f |x, y⟩ = |x, y ⊕ f(x)⟩ . Apply it to every input in the paper's basis order and place one 1 in the row of each output and the column of its input.",
+     "evidence": "2023 Q4(ii)"
+    },
+    {
+     "group": "QFT And Search Variants",
+     "front": "What comparison counts apply to simple left-to-right classical search?",
+     "back": "For a present target in a list of length N : best 1 , worst N , average (N + 1)/2 , and target at position j takes j comparisons.",
+     "evidence": "2023 Q5(i)"
+    },
+    {
+     "group": "State Measurement And Representation",
+     "front": "How do you answer a computational-basis measurement question?",
+     "back": "Square the modulus of the requested amplitude. If outcome j is obtained, the post-measurement state is |j⟩ .",
+     "evidence": "2023 Q1(i); 2024 Q1(i); 2025 Q2(a)"
+    },
+    {
+     "group": "State Measurement And Representation",
+     "front": "What are the probability and post-measurement-state rules for projectors?",
+     "back": "For projector Π i , P(i) = ⟨ψ|Π i |ψ⟩ . If P(i) > 0 , the new state is Π i |ψ⟩/√P(i) .",
+     "evidence": "2025 Q1(b); 2025 Q2(a)"
+    },
+    {
+     "group": "State Measurement And Representation",
+     "front": "How do you write the density matrix of a pure qutrit state?",
+     "back": "Use ρ = |ψ⟩⟨ψ| . If the amplitudes are a, b, c , entry ρ ij is amplitude i times the conjugate of amplitude j .",
+     "evidence": "2023 Q1(i); 2024 Q1(i); 2025 Q2(b)"
+    },
+    {
+     "group": "State Measurement And Representation",
+     "front": "How do you answer \"apply U , then measure\"?",
+     "back": "First calculate |ψ′⟩ = U|ψ⟩ . Then square the modulus of the requested amplitude in |ψ′⟩ ; do not take probabilities before applying U .",
+     "evidence": "2023 Q1(i); 2024 Q1(i); 2025 Q2(c)"
+    },
+    {
+     "group": "State Measurement And Representation",
+     "front": "How do you measure |ψ⟩ = α|0⟩ + β|1⟩ in the plus/minus basis?",
+     "back": "|ψ⟩ = ((α + β)/√2)|+⟩ + ((α − β)/√2)|−⟩ . Hence P(+) = |α + β|²/2 and P(−) = |α − β|²/2 .",
+     "evidence": "2023 Q1(ii); 2024 Q1(ii); 2025 Q1(a)"
+    },
+    {
+     "group": "State Measurement And Representation",
+     "front": "How do you obtain Bloch-sphere angles from a normalised qubit?",
+     "back": "Remove global phase and match |ψ⟩ = cos(θ/2)|0⟩ + e iφ sin(θ/2)|1⟩ . Then θ = 2 arccos(|α|) and φ = arg(β) − arg(α) modulo 2π .",
+     "evidence": "2023 Q1(ii); 2024 Q1(ii)"
+    },
+    {
+     "group": "Entanglement And Purity",
+     "front": "How do you find the reduced state of the second qubit?",
+     "back": "For |ψ⟩ = a|00⟩ + b|01⟩ + c|10⟩ + d|11⟩ , ρ B = [[|a|² + |c|², ab* + cd*], [a b + c d, |b|² + |d|²]] .",
+     "evidence": "2023 Q2; 2024 Q2(i)"
+    },
+    {
+     "group": "Entanglement And Purity",
+     "front": "How do you calculate the purity of a 2 × 2 density matrix?",
+     "back": "For ρ = [[p, q], [q*, r]] , Tr(ρ²) = p² + r² + 2|q|² . For a reduced state of an overall pure bipartite state, purity 1 means product and purity below 1 means entangled.",
+     "evidence": "2023 Q2; 2024 Q2(i)"
+    },
+    {
+     "group": "Entanglement And Purity",
+     "front": "What is the fast product-state test for a pure 2 -qubit vector?",
+     "back": "For coefficients a, b, c, d , form [[a, b], [c, d]] . The state is product exactly when ad − bc = 0 ; otherwise it is entangled.",
+     "evidence": "2025 Q2(d)"
+    },
+    {
+     "group": "Entanglement And Purity",
+     "front": "How does entropy decide entanglement for a pure bipartite state?",
+     "back": "With reduced-state eigenvalues λ j , S(ρ) = −Σ j λ j log 2 (λ j ) . For a globally pure bipartite state, S = 0 iff product and S > 0 iff entangled.",
+     "evidence": "2023 Q2; 2024 Q2(i)"
+    },
+    {
+     "group": "Entanglement And Purity",
+     "front": "Why does a unitary preserve purity?",
+     "back": "With ρ′ = UρU† , Tr((ρ′)²) = Tr(Uρ²U†) = Tr(ρ²) , using cyclicity of trace and U†U = I .",
+     "evidence": "2024 Q2(ii)"
+    },
+    {
+     "group": "Bell States And Projective Measurements",
+     "front": "How do you show |β 00 ⟩ = (|00⟩ + |11⟩)/√2 is entangled?",
+     "back": "Tracing out either qubit gives I/2 , which has purity 1/2 and entropy 1 . Since the global Bell state is pure, it is maximally entangled.",
+     "evidence": "2025 Q5; 2022 Q4(a)"
+    },
+    {
+     "group": "Bell States And Projective Measurements",
+     "front": "What is the rotated Bell-state identity?",
+     "back": "For |ψ⟩ = U θ |0⟩ and |ψ ⊥ ⟩ = U θ |1⟩ , |β 00 ⟩ = (|ψ, ψ⟩ + |ψ ⊥ , ψ ⊥ ⟩)/√2 . Expand both products; the cross terms cancel.",
+     "evidence": "2025 Q5(a); 2022 Q5(a)"
+    },
+    {
+     "group": "Bell States And Projective Measurements",
+     "front": "After Alice applies U θ −1 and measures, what state does Bob have?",
+     "back": "The state becomes (|0⟩|ψ⟩ + |1⟩|ψ ⊥ ⟩)/√2 . Alice's outcome 0 leaves Bob in |ψ⟩ ; outcome 1 leaves him in |ψ ⊥ ⟩ .",
+     "evidence": "2025 Q5(b); 2022 Q5(b)"
+    },
+    {
+     "group": "Bell States And Projective Measurements",
+     "front": "How do you verify the Bell parity measurement and calculate P(even) ?",
+     "back": "Use Π even = |00⟩⟨00| + |11⟩⟨11| and Π odd = |01⟩⟨01| + |10⟩⟨10| . Check Hermitian, idempotent, orthogonal, and complete. As Π even |β 00 ⟩ = |β 00 ⟩ , P(even) = 1 .",
+     "evidence": "2025 Q5(c); 2022 Q5(c)"
+    },
+    {
+     "group": "Channels And Kraus Operators",
+     "front": "How do you extract Kraus operators from a system-environment unitary?",
+     "back": "If the environment begins in |0⟩ , use M e = ⟨e|U|0⟩ for each environment-basis ket |e⟩ . Apply it to system basis kets; those outputs are the columns of M e .",
+     "evidence": "2023 Q3(i); 2024 Q3(i)"
+    },
+    {
+     "group": "Channels And Kraus Operators",
+     "front": "How do you write a unitary from its images of the ordered basis?",
+     "back": "Each column is the coordinate vector of the image of the matching input basis ket. Preserve the paper's stated basis order.",
+     "evidence": "2023 Q3(i)(a)"
+    },
+    {
+     "group": "Channels And Kraus Operators",
+     "front": "How do you verify that a Kraus representation is trace preserving?",
+     "back": "For ρ → Σ k E k ρE k † , calculate every E k †E k and show Σ k E k †E k = I .",
+     "evidence": "2023 Q3(i); 2025 Q4(d)"
+    },
+    {
+     "group": "Channels And Kraus Operators",
+     "front": "What does the current Pauli channel do to a Bloch vector?",
+     "back": "For the supplied Pauli Kraus set, r → (1 − λ)r . The channel shrinks the Bloch vector toward the maximally mixed state I/2 .",
+     "evidence": "2025 Q4(d)"
+    },
+    {
+     "group": "Channels And Kraus Operators",
+     "front": "How do you calculate a POVM outcome probability?",
+     "back": "For effect E i , use P(i) = ⟨ψ|E i |ψ⟩ . If E 3 = I − E 1 − E 2 , calculate it directly or use P(3) = 1 − P(1) − P(2) .",
+     "evidence": "2024 Q3(ii); 2021 Q3(ii)"
+    },
+    {
+     "group": "Circuits And Teleportation",
+     "front": "How do you translate a symbolic gate product into a circuit?",
+     "back": "Apply the rightmost operation first, so draw it nearest the input. Keep tensor-factor wire order fixed, and place the named controls, targets, SWAPs, and rotations correctly.",
+     "evidence": "2023 Q4(i)"
+    },
+    {
+     "group": "Circuits And Teleportation",
+     "front": "What is the controlled-Hadamard truth table?",
+     "back": "|00⟩ → |00⟩ , |01⟩ → |01⟩ , |10⟩ → (|10⟩ + |11⟩)/√2 , and |11⟩ → (|10⟩ − |11⟩)/√2 .",
+     "evidence": "2025 Q1(c)"
+    },
+    {
+     "group": "Circuits And Teleportation",
+     "front": "What does the three-CNOT circuit CNOT(1, 2), CNOT(2, 1), CNOT(1, 2) do?",
+     "back": "It is SWAP. In particular, |01⟩ → |10⟩ .",
+     "evidence": "2025 Q1(d); 2022 Q1(c)"
+    },
+    {
+     "group": "Circuits And Teleportation",
+     "front": "What must a teleportation answer show?",
+     "back": "Start with unknown |ψ⟩ and a shared Bell pair. Alice applies CNOT, then H , measures two qubits, and sends m 0 , m 1 . Bob applies Z m₀ X m₁ : I, X, Z, ZX for 00, 01, 10, 11 .",
+     "evidence": "2024 Q4(iii)"
+    },
+    {
+     "group": "Circuits And Teleportation",
+     "front": "How do you simplify (⟨0| ⊗ I)|Ψ⟩ ?",
+     "back": "Keep only first-qubit- 0 terms and remove that first ket. Thus (⟨0| ⊗ I) Σ ab α ab |ab⟩ = α 00 |0⟩ + α 01 |1⟩ .",
+     "evidence": "2025 Q4(c)"
+    },
+    {
+     "group": "Proofs And Constructions",
+     "front": "What is the standard no-cloning proof using inner products?",
+     "back": "Assume one unitary and fixed blank state clone every qubit. Inner-product preservation gives ⟨ψ|φ⟩ = ⟨ψ|φ⟩² , impossible for distinct non-orthogonal states. Hence no universal cloner exists.",
+     "evidence": "2023 Q3(ii); 2024 Q4(i); 2025 Q4(b)"
+    },
+    {
+     "group": "Proofs And Constructions",
+     "front": "What quantifier is essential in the no-cloning theorem?",
+     "back": "The claim rules out one fixed unitary that clones every arbitrary unknown state using a fixed blank register. Known orthogonal basis states can be copied, so those quantifiers matter.",
+     "evidence": "2023 Q3(ii); 2025 Q4(b)"
+    },
+    {
+     "group": "Proofs And Constructions",
+     "front": "How do you construct |ψ ⊥ ⟩ and its unitary?",
+     "back": "For |ψ⟩ = α|0⟩ + β|1⟩ , take |ψ ⊥ ⟩ = −β |0⟩ + α |1⟩ . Use columns U = [[α, −β*], [β, α*]] ; they are orthonormal, so UU† = I .",
+     "evidence": "2025 Q4(a)"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "algorithms_revision_sheet.html",
+   "title": "Algorithms: Grover, QFT and Deutsch–Jozsa",
+   "purpose": "Grover and QFT are strong recurring targets; Deutsch–Jozsa also appears in the archive. Exam use: Basis order, normalisation, every stage vector, oracle convention and final probabilities are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — one Grover iterate on a marked two-qubit state [9 marks]",
+     "marks": 9,
+     "prompt": "With marked state |11> and the supplied uniform state, carry out the oracle and one diffusion iterate, then give the measured success probability.",
+     "route": "This is a state-by-state calculation: a named oracle phase flip alone is not an answer. Fastest route. Record the four amplitudes, calculate their mean after the oracle, then reflect each amplitude. Topic-specific trap. Diffusion reflects amplitudes, not probabilities; retain the negative marked amplitude until the reflection. Record the four amplitudes, calculate their mean after the oracle, then reflect each amplitude. Topic-specific trap. Diffusion reflects amplitudes, not probabilities; retain the negative marked amplitude until the reflection. Diffusion reflects amplitudes, not probabilities; retain the negative marked amplitude until the reflection.",
+     "answer": "For Grover search on two qubits with marked |11>, start |s>=(1/2)(1,1,1,1). The oracle gives (1/2)(1,1,1,-1), whose mean amplitude is 1/4. Diffusion reflects each amplitude a about the mean: a'=2(1/4)-a, producing (0,0,0,1). One iteration therefore yields |11> with probability 1."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Apply the N=2 QFT to |1⟩. Check: (|0⟩−|1⟩)/√2.",
+     "route": "2. Carry out one Grover iteration for N=4 with a different marked basis state. Check: oracle flips amplitude, not probability.",
+     "answer": "2. Carry out one Grover iteration for N=4 with a different marked basis state. Check: oracle flips amplitude, not probability."
+    },
+    {
+     "title": "Practice 2 — exact four-dimensional QFT [8 marks]",
+     "marks": 8,
+     "prompt": "Compute F 4 |2> exactly and state the four computational-basis probabilities.",
+     "route": "The required conclusion is an amplitude vector and a probability distribution. Fastest route. Substitute x=2 into the finite-QFT phase formula for y=0,1,2,3 before squaring moduli. Topic-specific trap. A relative minus affects later interference even when all four final probabilities are equal. Substitute x=2 into the finite-QFT phase formula for y=0,1,2,3 before squaring moduli. Topic-specific trap. A relative minus affects later interference even when all four final probabilities are equal. A relative minus affects later interference even when all four final probabilities are equal.",
+     "answer": "compute QFT_4|2>. Check amplitudes are (1/2)exp(2 pi i*2y/4), y=0,...,3, giving (1/2)(1,-1,1,-1); all measurement probabilities are 1/4."
+    }
+   ],
+   "mistakes": [
+    "Using the wrong sign in diffusion.",
+    "Forgetting QFT normalisation.",
+    "Overclaiming Shor detail: it is official scope, but is not comparably evidenced in 2021–26 papers.",
+    "Recovery rule: Global phase is unobservable, but relative signs control interference; do not discard them during intermediate steps."
+   ]
+  },
+  {
+   "file": "channels_revision_sheet.html",
+   "title": "Quantum Channels and Kraus Operators",
+   "purpose": "Channels connect the CPTP definition to repeated Kraus and damping/depolarising calculations. Exam use: All Kraus branches, completeness order, resulting matrix, trace and physical parameter range are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — amplitude damping of an excited qubit [9 marks]",
+     "marks": 9,
+     "prompt": "For the displayed K 0 , K 1 and input |1><1|, calculate every Kraus branch, the output state, and verify trace preservation.",
+     "route": "This asks for a channel application and validation, not a verbal description of damping. Fastest route. Multiply each branch separately, add, then calculate ΣK†K. Topic-specific trap. Trace preservation uses K†K, whereas ΣKK† tests a different unital condition. Multiply each branch separately, add, then calculate ΣK†K. Topic-specific trap. Trace preservation uses K†K, whereas ΣKK† tests a different unital condition. Trace preservation uses K†K, whereas ΣKK† tests a different unital condition.",
+     "answer": "For amplitude damping K0=[[1,0],[0,sqrt(1-gamma)]], K1=[[0,sqrt(gamma)],[0,0]], input |1><1| gives K0 rho K0^dagger=(1-gamma)|1><1| and K1 rho K1^dagger=gamma|0><0|. Thus E(rho)=diag(gamma,1-gamma), trace 1. Also K0^dagger K0+K1^dagger K1=I."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Verify trace preservation for the displayed dephasing Kraus pair. Check: scalars square to 1−p and p.",
+     "route": "2. Apply amplitude damping Kraus operators to |1⟩⟨1| and interpret the result. Check: output is a mixture, with ground-state probability p.",
+     "answer": "2. Apply amplitude damping Kraus operators to |1⟩⟨1| and interpret the result. Check: output is a mixture, with ground-state probability p."
+    },
+    {
+     "title": "Practice 2 — damping an arbitrary density matrix [8 marks]",
+     "marks": 8,
+     "prompt": "Apply the same amplitude-damping channel to ρ=[[a,b],[b*,d]] and show that its trace is unchanged.",
+     "route": "The variables make the off-diagonal scaling as important as population transfer. Fastest route. Compute K 0 ρK 0 † and K 1 ρK 1 † entrywise. Topic-specific trap. Do not replace b* by b unless the question explicitly makes b real. Compute K 0 ρK 0 † and K 1 ρK 1 † entrywise. Topic-specific trap. Do not replace b* by b unless the question explicitly makes b real. Do not replace b* by b unless the question explicitly makes b real.",
+     "answer": "apply the channel to rho=[[a,b],[b*,d]]. Check E(rho)=[[a+gamma d,sqrt(1-gamma)b],[sqrt(1-gamma)b*,(1-gamma)d]]; trace a+d is preserved."
+    }
+   ],
+   "mistakes": [
+    "Omitting the dagger.",
+    "Checking ∑E k E k † instead of the required order.",
+    "Calling an arbitrary linear map CPTP.",
+    "Recovery rule: Trace preservation checks K_i^dagger K_i, not K_i K_i^dagger; the latter tests a different unital property."
+   ]
+  },
+  {
+   "file": "density_matrices_revision_sheet.html",
+   "title": "Density Matrices, Purity and Entropy",
+   "purpose": "Density matrices are a highly repeated bridge between state, mixedness and entanglement questions. Exam use: Outer products, weights, matrix validity, purity/eigenvalues and pure-versus-mixed conclusion are all present.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — a nonorthogonal two-state ensemble [9 marks]",
+     "marks": 9,
+     "prompt": "Build ρ for the equally weighted ensemble {|0>,|+>}, find its eigenvalues and purity, and classify it.",
+     "route": "The ensemble weights must be applied to outer products before any purity test. Fastest route. Add the two weighted matrices, use trace and determinant for the 2×2 eigenvalues, then evaluate Tr(ρ²). Topic-specific trap. Equal classical weights do not imply the maximally mixed state when the preparation kets are nonorthogonal. Add the two weighted matrices, use trace and determinant for the 2×2 eigenvalues, then evaluate Tr(ρ²). Topic-specific trap. Equal classical weights do not imply the maximally mixed state when the preparation kets are nonorthogonal. Equal classical weights do not imply the maximally mixed state when the preparation kets are nonorthogonal.",
+     "answer": "The ensemble {1/2,|0>; 1/2,|+>} has rho=(1/2)[[1,0],[0,0]]+(1/4)[[1,1],[1,1]]=[[3/4,1/4],[1/4,1/4]]. Its determinant is 1/8 and trace 1, so eigenvalues are (1 +/- 1/sqrt(2))/2. Purity Tr(rho^2)=1-2 det rho=3/4<1, hence mixed."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Find ρ and purity for ½|0⟩⟨0|+½|1⟩⟨1|. Check: diag(½,½), P=½.",
+     "route": "2. Given a 2×2 density matrix, find its eigenvalues and Von Neumann entropy. Check: entropy uses eigenvalues, not entries.",
+     "answer": "2. Given a 2×2 density matrix, find its eigenvalues and Von Neumann entropy. Check: entropy uses eigenvalues, not entries."
+    },
+    {
+     "title": "Practice 2 — distinguish coherence from maximal mixing [8 marks]",
+     "marks": 8,
+     "prompt": "Compare the constructed ensemble state with I/2 using entries, purity and Bloch-vector interpretation.",
+     "route": "A comparison needs matched quantities, not just the word “mixed”. Fastest route. Read the off-diagonal entries, then contrast Tr(ρ²) and the Bloch vector. Topic-specific trap. Identical-looking diagonal populations do not determine whether a state has coherence. Read the off-diagonal entries, then contrast Tr(ρ²) and the Bloch vector. Topic-specific trap. Identical-looking diagonal populations do not determine whether a state has coherence. Identical-looking diagonal populations do not determine whether a state has coherence.",
+     "answer": "compare this with the maximally mixed state I/2. Check both may give nontrivial basis probabilities, but I/2 has purity 1/2 and zero Bloch vector, while the ensemble state has coherence 1/4 and purity 3/4."
+    }
+   ],
+   "mistakes": [
+    "Writing |ψ⟩⟨ψ| without conjugating the bra.",
+    "Calling every trace-one matrix a state.",
+    "Using Tr(ρ) as purity.",
+    "Recovery rule: A convex decomposition is not unique; do not infer a physical preparation uniquely from rho."
+   ]
+  },
+  {
+   "file": "entanglement_revision_sheet.html",
+   "title": "Entanglement and Reduced States",
+   "purpose": "Past papers repeatedly ask whether a bipartite state is entangled and to quantify it through a reduced state. Exam use: Subsystem order, density operator, partial-trace matches, reduced eigenvalues/purity and criterion are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — certify a two-qubit state as maximally entangled [9 marks]",
+     "marks": 9,
+     "prompt": "For the supplied four-amplitude state, form its coefficient matrix, reduce to subsystem A, and decide whether it is maximally entangled.",
+     "route": "The conclusion must be justified by a reduction or rank criterion for a pure bipartite state. Fastest route. Use ρ A =CC†, then inspect its eigenvalues or purity. Topic-specific trap. Four nonzero product-basis amplitudes do not by themselves prove entanglement. Use ρ A =CC†, then inspect its eigenvalues or purity. Topic-specific trap. Four nonzero product-basis amplitudes do not by themselves prove entanglement. Four nonzero product-basis amplitudes do not by themselves prove entanglement.",
+     "answer": "For |psi>=(|00>+|01>+|10>-|11>)/2, coefficient matrix C=(1/2)[[1,1],[1,-1]]. Then rho_A=CC^dagger=I/2, with purity 1/2 and rank 2. Therefore |psi> is maximally entangled. Although four product-basis amplitudes appear, no product factorisation exists because det C=-1/2 !=0."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Reduce |00⟩ and decide whether it is entangled. Check: ρ A =|0⟩⟨0|, purity 1.",
+     "route": "2. For a|00⟩+b|11⟩, find S(ρ A ). Check: eigenvalues are |a| 2 ,|b| 2 .",
+     "answer": "2. For a|00⟩+b|11⟩, find S(ρ A ). Check: eigenvalues are |a| 2 ,|b| 2 ."
+    },
+    {
+     "title": "Practice 2 — partially entangled Bell-type state [8 marks]",
+     "marks": 8,
+     "prompt": "Find the entanglement entropy of √3/2|00>+1/2|11>.",
+     "route": "Entropy is obtained from the reduced state’s eigenvalues, not from the four-state vector entries directly. Fastest route. Trace out either qubit and evaluate the binary entropy of 3/4,1/4. Topic-specific trap. A state can be entangled without being maximally entangled. Trace out either qubit and evaluate the binary entropy of 3/4,1/4. Topic-specific trap. A state can be entangled without being maximally entangled. A state can be entangled without being maximally entangled.",
+     "answer": "for |phi>=sqrt(3)/2|00>+1/2|11>, find entanglement entropy. Check reduced eigenvalues are 3/4,1/4, so S=-3/4 log2(3/4)-1/4 log2(1/4), strictly between 0 and 1."
+    }
+   ],
+   "mistakes": [
+    "Tracing out labels rather than matching them.",
+    "Using mixedness of the whole pure state.",
+    "Declaring a state separable from one measurement outcome.",
+    "Recovery rule: Classical correlation in a mixed state is not automatically entanglement; state which criterion applies to the class of states given."
+   ]
+  },
+  {
+   "file": "gates_circuits_revision_sheet.html",
+   "title": "Gates and Circuits",
+   "purpose": "Controlled gates, Hadamards and circuit outputs are stable calculation targets. Exam use: Basis/qubit order, control-target roles, intermediate states, normalisation and final measurement interpretation are labelled.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — track a Bell-generating circuit and a phase gate [9 marks]",
+     "marks": 9,
+     "prompt": "Starting at |00>, apply H on qubit one, controlled-NOT, then Z on qubit two; state the final state and Z-basis probabilities.",
+     "route": "Credit is for intermediate states in the declared qubit order. Fastest route. Expand after H, apply CNOT term-by-term, then apply Z only to terms with target bit 1. Topic-specific trap. The relative minus is invisible in this measurement but cannot be discarded before later gates. Expand after H, apply CNOT term-by-term, then apply Z only to terms with target bit 1. Topic-specific trap. The relative minus is invisible in this measurement but cannot be discarded before later gates. The relative minus is invisible in this measurement but cannot be discarded before later gates.",
+     "answer": "Start |00>. Apply H on the first qubit: (|00>+|10>)/sqrt2. Apply CNOT with first control: (|00>+|11>)/sqrt2. Apply Z on the second: (|00>-|11>)/sqrt2. Z-basis outcomes 00 and 11 each have probability 1/2; the relative minus is invisible in this measurement but changes later interference."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Find XH|0⟩. Check: X|+⟩=|+⟩.",
+     "route": "2. Compute the output of CNOT(H⊗I)|01⟩ in the stated ordering. Check: distribute CNOT across both terms.",
+     "answer": "2. Compute the output of CNOT(H⊗I)|01⟩ in the stated ordering. Check: distribute CNOT across both terms."
+    },
+    {
+     "title": "Practice 2 — undo an entangling circuit [8 marks]",
+     "marks": 8,
+     "prompt": "Apply CNOT followed by H on the first qubit to (|00>+|11>)/√2 and identify the recovered basis state.",
+     "route": "This is an inverse-circuit calculation, so operation order is decisive. Fastest route. Write the state after CNOT before applying H linearly. Topic-specific trap. A drawn circuit runs left-to-right while the corresponding matrix product is read right-to-left. Write the state after CNOT before applying H linearly. Topic-specific trap. A drawn circuit runs left-to-right while the corresponding matrix product is read right-to-left. A drawn circuit runs left-to-right while the corresponding matrix product is read right-to-left.",
+     "answer": "apply the inverse circuit CNOT then H on qubit 1 to (|00>+|11>)/sqrt2. Check CNOT gives (|00>+|10>)/sqrt2=|+0>, then H gives |00>."
+    }
+   ],
+   "mistakes": [
+    "Reversing matrix/circuit order.",
+    "Changing control and target.",
+    "Using a different basis order halfway through.",
+    "Recovery rule: Gate diagrams and matrix products use opposite-looking orders; write the state after each gate to avoid reversing time."
+   ]
+  },
+  {
+   "file": "measurements_revision_sheet.html",
+   "title": "Projective Measurements and POVMs",
+   "purpose": "Projective-measurement validity, changed bases and POVM probabilities repeatedly appear. Exam use: Validity, completeness, trace probabilities, sum-to-one audit and the justified update rule are all shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — projective X-basis measurement of a mixed qubit [9 marks]",
+     "marks": 9,
+     "prompt": "For the supplied ρ and X-basis projectors, verify the probabilities, their sum, and the conditional states.",
+     "route": "Separate the Born probabilities from the state-update conclusion. Fastest route. Evaluate Tr(P ± ρ) before using the projective update rule. Topic-specific trap. In a non-computational basis, off-diagonal entries can contribute to an outcome probability. Evaluate Tr(P ± ρ) before using the projective update rule. Topic-specific trap. In a non-computational basis, off-diagonal entries can contribute to an outcome probability. In a non-computational basis, off-diagonal entries can contribute to an outcome probability.",
+     "answer": "Let rho=[[3/4,1/4],[1/4,1/4]] and measure in the X basis with P_+=1/2[[1,1],[1,1]], P_-=1/2[[1,-1],[-1,1]]. Then p(+)=Tr(P_+rho)=3/4 and p(-)=1/4. Conditional projective states are |+><+| and |-><-|. The probabilities sum to 1 and differ from the Z-basis diagonal probabilities 3/4,1/4 for a different reason: coherence contributes in the X basis."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Check whether {½I,½I} is a POVM. Check: both effects are positive and sum to I.",
+     "route": "2. For a supplied ρ and POVM, calculate each outcome probability and verify they total one. Check: preserve complex conjugation in matrix products.",
+     "answer": "2. For a supplied ρ and POVM, calculate each outcome probability and verify they total one. Check: preserve complex conjugation in matrix products."
+    },
+    {
+     "title": "Practice 2 — validate and use a two-effect POVM [8 marks]",
+     "marks": 8,
+     "prompt": "Verify that E 0 =diag(1,1/2), E 1 =diag(0,1/2) is a POVM and find both probabilities on |+>.",
+     "route": "Validity requires positivity and completeness before the trace calculation. Fastest route. Check diagonal eigenvalues and E 0 +E 1 , then evaluate traces. Topic-specific trap. Effects specify probabilities but not, by themselves, a post-measurement instrument. Check diagonal eigenvalues and E 0 +E 1 , then evaluate traces. Topic-specific trap. Effects specify probabilities but not, by themselves, a post-measurement instrument. Effects specify probabilities but not, by themselves, a post-measurement instrument.",
+     "answer": "E0=diag(1,1/2), E1=diag(0,1/2). Verify a POVM and find probabilities on |+>. Check both are positive, E0+E1=I, and probabilities are 3/4 and 1/4. Effects alone do not specify the conditional states."
+    }
+   ],
+   "mistakes": [
+    "Assuming every POVM effect is a projector.",
+    "Using amplitudes directly with a mixed state.",
+    "Skipping the completeness check.",
+    "Recovery rule: Do not use rho_j=E_j rho E_j/p_j for a general POVM; a compatible measurement operator M_j with E_j=M_j^dagger M_j is needed."
+   ]
+  },
+  {
+   "file": "no_cloning_proofs_revision_sheet.html",
+   "title": "No-Cloning and Core Proofs",
+   "purpose": "No-cloning is a repeated proof request; its proof structure is concise and high-return. Exam use: Universal assumption, fixed blank, preserved quantity/linearity, explicit unequal states and qualified conclusion are present.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — inner-product proof of no cloning [9 marks]",
+     "marks": 9,
+     "prompt": "Assume one unitary clones both |0> and |+>, compare input and output overlaps, and reach a contradiction.",
+     "route": "The universal assumption and preservation of inner products are the mark-bearing mechanism. Fastest route. Keep the same blank state, calculate 1/√2 before and 1/2 after cloning. Topic-specific trap. Orthogonal states being clonable by a controlled operation does not rescue universal cloning. Keep the same blank state, calculate 1/√2 before and 1/2 after cloning. Topic-specific trap. Orthogonal states being clonable by a controlled operation does not rescue universal cloning. Orthogonal states being clonable by a controlled operation does not rescue universal cloning.",
+     "answer": "Assume U clones |0> and |+>. Input overlap is <0|+><0|0>=1/sqrt2. Output overlap is (<0|+>)^2=1/2. Unitarity requires equality, but 1/sqrt2 !=1/2, contradiction. Thus no unitary clones this nonorthogonal pair, and hence no universal perfect cloner exists."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Fill in the inner-product line in the cloning proof. Check: the blank register contributes ⟨b|b⟩=1.",
+     "route": "2. Prove unitaries preserve purity: Tr[(UρU † ) 2 ]=Tr(ρ 2 ). Check: use U † U=I and cyclicity of trace.",
+     "answer": "2. Prove unitaries preserve purity: Tr[(UρU † ) 2 ]=Tr(ρ 2 ). Check: use U † U=I and cyclicity of trace."
+    },
+    {
+     "title": "Practice 2 — linearity proof of no cloning [8 marks]",
+     "marks": 8,
+     "prompt": "If U clones |0> and |1>, compare U(|+>|0>) from linearity with the state required to clone |+>.",
+     "route": "The two resulting superpositions must be written explicitly. Fastest route. Expand |+> first, apply the assumed action to each basis term, then compare coefficients. Topic-specific trap. Do not confuse an entangled superposition of clones with two independently cloned |+> states. Expand |+> first, apply the assumed action to each basis term, then compare coefficients. Topic-specific trap. Do not confuse an entangled superposition of clones with two independently cloned |+> states. Do not confuse an entangled superposition of clones with two independently cloned |+> states.",
+     "answer": "use linearity instead. Check if U clones |0> and |1>, then on |+>|0> linearity gives (|00>+|11>)/sqrt2, whereas a clone of |+> is (|00>+|01>+|10>+|11>)/2; they differ."
+    }
+   ],
+   "mistakes": [
+    "Only showing two basis states can be cloned.",
+    "Forgetting the claim is universal.",
+    "Calling c=c 2 a contradiction without selecting nonorthogonal states.",
+    "Recovery rule: The theorem forbids unknown arbitrary-state perfect cloning, not copying a known orthogonal classical basis."
+   ]
+  },
+  {
+   "file": "qubits_qudits_revision_sheet.html",
+   "title": "Qubits, Qudits and State Vectors",
+   "purpose": "These are the foundation calculations behind repeated qutrit and qubit questions. Exam use: Dimension, norm, conjugated inner products, modulus-squared probabilities and global/relative phase distinction are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — normalise then measure in the X basis [9 marks]",
+     "marks": 9,
+     "prompt": "Normalise (1+i)|0>+2|1>, then calculate the probabilities of + and − outcomes.",
+     "route": "Normalisation precedes the basis change; probabilities follow from squared overlap moduli. Fastest route. Sum coefficient moduli squared, divide by √6, then take <±|ψ>. Topic-specific trap. Square the complex modulus, not the complex amplitude itself. Sum coefficient moduli squared, divide by √6, then take <±|ψ>. Topic-specific trap. Square the complex modulus, not the complex amplitude itself. Square the complex modulus, not the complex amplitude itself.",
+     "answer": "Normalise |psi>=(1+i)|0>+2|1>. Norm squared is |1+i|^2+4=2+4=6, so |psi>=((1+i)|0>+2|1>)/sqrt6. In the X basis, <+|psi>=(3+i)/sqrt12 with probability 10/12=5/6; <-|psi>=(-1+i)/sqrt12 with probability 2/12=1/6. The probabilities sum to 1."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Normalise |v⟩=2|0⟩−i|1⟩. Check: divide by √5.",
+     "route": "2. A qutrit has coefficients (1,1,i)/√3. Give all computational-basis probabilities and the state after outcome 2. Check: each probability is 1/3; outcome 2 leaves |2⟩.",
+     "answer": "2. A qutrit has coefficients (1,1,i)/√3. Give all computational-basis probabilities and the state after outcome 2. Check: each probability is 1/3; outcome 2 leaves |2⟩."
+    },
+    {
+     "title": "Practice 2 — qutrit phases and measurement [8 marks]",
+     "marks": 8,
+     "prompt": "For (|0>+ω|1>+|2>)/√3 with |ω|=1, give computational probabilities and explain what information they hide.",
+     "route": "The result combines a numerical distribution with a phase interpretation. Fastest route. Take the modulus of each computational amplitude, then contrast with a changed-basis measurement. Topic-specific trap. A relative phase is not a global phase just because computational probabilities match. Take the modulus of each computational amplitude, then contrast with a changed-basis measurement. Topic-specific trap. A relative phase is not a global phase just because computational probabilities match. A relative phase is not a global phase just because computational probabilities match.",
+     "answer": "for qutrit (|0>+omega|1>+|2>)/sqrt3 with |omega|=1, give computational probabilities and discuss omega. Check each outcome is 1/3; omega is a relative phase that can affect another basis measurement."
+    }
+   ],
+   "mistakes": [
+    "Squaring a complex amplitude instead of its modulus.",
+    "Forgetting that a qutrit has three basis outcomes.",
+    "Mixing a global phase with a relative phase.",
+    "Recovery rule: Square the modulus of a complex amplitude, not the complex number itself."
+   ]
+  },
+  {
+   "file": "teleportation_revision_sheet.html",
+   "title": "Quantum Teleportation",
+   "purpose": "Teleportation is official scope and appears directly in the 2024/25 paper; it tests gates, Bell states and measurement together. Exam use: Qubit order, Bell convention, factor 1/2, four conditional states, corrections and no-signalling role of classical bits are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — correction from a Bell-measurement outcome [9 marks]",
+     "marks": 9,
+     "prompt": "Use the supplied teleportation identity with input |1>; for Alice’s Ψ− outcome, determine Bob’s state and the correction that returns |1>.",
+     "route": "The Bell branch, Pauli order, global phase and classical correction all matter. Fastest route. Substitute |1> into the Ψ− branch and apply the inverse Pauli correction. Topic-specific trap. A global minus changes no physical state, but it is not licence to apply the wrong Pauli order. Substitute |1> into the Ψ− branch and apply the inverse Pauli correction. Topic-specific trap. A global minus changes no physical state, but it is not licence to apply the wrong Pauli order. A global minus changes no physical state, but it is not licence to apply the wrong Pauli order.",
+     "answer": "Using |Phi+>=(|00>+|11>)/sqrt2 and |Psi+>=(|01>+|10>)/sqrt2, the standard identity is (1/2)[|Phi+>|psi>+|Phi->Z|psi>+|Psi+>X|psi>+|Psi->XZ|psi>]. For input |1>, Alice's outcome Psi- therefore leaves Bob with XZ|1>=-|0>; applying ZX (the inverse up to global phase) returns |1>. Each Bell outcome has probability 1/4."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Give Bob’s correction for Alice’s outcome 10. Check: apply Z (up to the declared ordering convention).",
+     "route": "2. Derive the grouped four-branch expression from α|0⟩+β|1⟩. Check: preserve all ½ factors and qubit labels.",
+     "answer": "2. Derive the grouped four-branch expression from α|0⟩+β|1⟩. Check: preserve all ½ factors and qubit labels."
+    },
+    {
+     "title": "Practice 2 — why teleportation cannot signal [8 marks]",
+     "marks": 8,
+     "prompt": "Explain, using Bob’s reduced state before the two classical bits arrive, why teleportation is not faster-than-light communication.",
+     "route": "This requires an operational reduced-state argument, not merely the word “classical”. Fastest route. Average over the four equally likely Bell outcomes and identify I/2. Topic-specific trap. Entanglement supplies correlation; it does not let Bob choose or read Alice’s outcome locally. Average over the four equally likely Bell outcomes and identify I/2. Topic-specific trap. Entanglement supplies correlation; it does not let Bob choose or read Alice’s outcome locally. Entanglement supplies correlation; it does not let Bob choose or read Alice’s outcome locally.",
+     "answer": "explain why teleportation does not signal faster than light. Check before Alice's two bits arrive, Bob's averaged reduced state is I/2, independent of alpha,beta; only the classical message selects the correcting Pauli."
+    }
+   ],
+   "mistakes": [
+    "Claiming Bob knows |ψ⟩ before receiving the two classical bits.",
+    "Losing the shared Bell-pair normalisation.",
+    "Using a correction table with a different bit order.",
+    "Recovery rule: Correction tables depend on Bell-state and bit conventions; derive or state yours instead of memorising unlabeled bits."
+   ]
+  }
+ ]
+}
