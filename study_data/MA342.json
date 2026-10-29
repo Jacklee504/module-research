@@ -1,0 +1,908 @@
+{
+ "code": "MA342",
+ "name": "Topology",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "70% exam / 30% CA",
+  "predictability": "Medium-High",
+  "exam_pattern": "Medium-High predictability.",
+  "title": "MA342 - Topology",
+  "papers": [
+   "2018_2019.pdf",
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [],
+  "exam_block": [
+   "The latest three papers are very similar in structure and topic order; 2025-2026 repeats the four compulsory 25-mark format for a third consecutive year.",
+   "Definitions, compactness, connectedness, Hausdorffness, subspace/product/quotient topology and homotopy recur strongly.",
+   "The latest paper adds direct evidence for final topology, accumulation-point arguments, connectedness classifications and Cantor-set quotient obstructions.",
+   "The current module page learning outcomes align well with the newest papers.",
+   "The older papers have a different flavour and were under different starred lecturers.",
+   "The exam format changed from 10-question papers to 4 compulsory questions.",
+   "The module is proof-heavy, so knowing the topic is not enough; you need clean definitions and precise arguments.",
+   "CA is only 30%, which is weaker for the goal of banking coursework marks."
+  ],
+  "drill": [
+   "Newer papers emphasise definitions and short proof arguments more than long applications.",
+   "Very safe basics: topology definitions, standard/cofinite/discrete topologies, bases, lower-limit topology, neighbourhoods, interiors, closures, accumulation points and density.",
+   "Strong preparation target: subspace, initial/final, product and quotient topologies. The 2025-2026 paper explicitly asks for final topology, S1 as a quotient of [0,1] , and whether R can be a quotient of the Cantor set.",
+   "Compactness and Hausdorffness recur: definitions, lower-limit examples, compact subsets of Hausdorff spaces being closed, and compact-Hausdorff arguments involving the Cantor set.",
+   "Connectedness is consistently examinable: definitions, separations in discrete/indiscrete/subspace/cofinite examples, continuous images, the IVT link and using connectedness to rule out homeomorphisms.",
+   "Homeomorphism and homotopy remain highly likely. The 2025-2026 paper asks for three homeomorphism comparisons and an explicit linear homotopy between arbitrary maps R^n -> R^n .",
+   "Euler characteristic, triangulation, Brouwer/fundamental-theorem applications and Nash-style questions are older-pattern topics; keep them as secondary revision."
+  ],
+  "paper_format": "Answer all 4 questions",
+  "exam_shape": "choice",
+  "code": "MA342",
+  "name": "Topology"
+ },
+ "families": [
+  {
+   "id": "topology-definitions-standard-examples-subspaces-bases-closure-and-interior",
+   "rank": 1,
+   "title": "Topology Definitions, Standard Examples, Subspaces, Bases, Closure, And Interior",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q1(a) - define a topology and give two distinct topologies on a finite set. [5 marks]",
+    "2023/24 - Q1(b) - define a subspace topology and show the usual subspace topology on Q is not discrete. [5 marks]",
+    "2023/24 - Q1(c) - define a basis and give the lower-limit basis. [5 marks]",
+    "2023/24 - Q1(d)-(e) - define closure, prove the neighbourhood characterisation, and find the closure of (0,1) in the lower-limit topology. [10 marks]",
+    "2024/25 - Q1(a) - repeat topology definition plus two finite topologies. [5 marks]",
+    "2024/25 - Q1(b)-(d) - compare cofinite and discrete topologies on Z; show Z is discrete as a subspace of R; give the lower-limit basis and show [0,1) is clopen. [15 marks]",
+    "2024/25 - Q1(e) - define neighbourhood and interior, then prove the neighbourhood/interior equivalence. [5 marks]",
+    "2025/26 - Q1(a)-(e) - define topology, standard and cofinite topologies, closure, interior and subspace topology; decide whether [0,1] is discrete; prove no accumulation points implies closed. [25 marks]"
+   ],
+   "marks": 77,
+   "question": "Let X be a set or topological space. State the exact definition requested, then work with a named topology or subspace: compare two topologies, give a basis, decide whether a subspace is discrete, or prove a closure/interior/accumulation-point claim by neighbourhoods.",
+   "answer": "Reusable answer: A topology τ on X contains ∅ and X, is closed under arbitrary unions and finite intersections. For subspaces, write opens as A∩U where U is open in the ambient space. For the lower-limit topology use the basis {[a,b):a<b}; for cofinite spaces use ∅ and sets with finite complement. When deciding if a subspace is discrete, test a singleton: an interior point such as 1/2 in [0,1] cannot be relatively open, but Z is discrete in R because each n is isolated by a small interval. For closure use “every neighbourhood meets A”; for accumulation points use “every neighbourhood meets A\\{x}”. To prove a set closed from no accumulation points, show every x outside it has an open neighbourhood disjoint from it."
+  },
+  {
+   "id": "compactness-hausdorffness-cofinite-and-lower-limit-examples",
+   "rank": 2,
+   "title": "Compactness, Hausdorffness, Cofinite And Lower-Limit Examples",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q2(a)-(b) - define compactness and decide whether standard R is compact. [9 marks]",
+    "2023/24 - Q3(a) - decide whether cofinite R is compact and Hausdorff. [6 marks]",
+    "2023/24 - Q3(c) - show a continuous bijection between compact Hausdorff spaces is a homeomorphism. [5 marks]",
+    "2024/25 - Q2(a)-(e) - dense subsets of cofinite R; compactness; closed subsets of compact spaces; non-compactness of lower-limit R; and Hausdorff comparisons for cofinite Z and standard R. [25 marks]",
+    "2025/26 - Q2(b)-(e) - cofinite density; define compactness and disprove compactness of lower-limit R; define and prove lower-limit Hausdorffness; prove a compact subspace of a Hausdorff space is closed. [22 marks]"
+   ],
+   "marks": 67,
+   "question": "For a standard, cofinite, or lower-limit topology, state compactness or Hausdorffness exactly, decide the property using a topology-valid cover or separation, then prove the associated compactness theorem under its stated hypotheses.",
+   "answer": "Reusable answer: Compact means every open cover has a finite subcover. To disprove compactness of the lower-limit line, use the basic-open cover {[n,n+1):n∈Z}; every finite subfamily is bounded. A cofinite topology on an infinite set is compact but not Hausdorff: every open cover has a finite subcover, while two nonempty cofinite opens must intersect. For lower-limit R, if x<y then [x,y) and [y,y+1) are disjoint basic neighbourhoods, so it is Hausdorff. For a compact A in Hausdorff X, separate x∉A from each a∈A, use compactness to select finitely many neighbourhoods of points of A, and intersect the corresponding finitely many neighbourhoods of x to show X\\A is open."
+  },
+  {
+   "id": "connectedness-separations-continuous-images-and-ivt",
+   "rank": 3,
+   "title": "Connectedness, Separations, Continuous Images, And IVT",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q3(b) - prove a continuous surjective image of a connected space is connected and derive IVT. [8 marks]",
+    "2024/25 - Q3(b) - define connectedness and give connected/disconnected examples. [8 marks]",
+    "2024/25 - Q4(a) - repeat the continuous-surjection proof and IVT consequence. [6 marks]",
+    "2025/26 - Q3(b)-(c) - define connectedness; classify Q with discrete, indiscrete, usual subspace and cofinite topologies, giving separations where required. [13 marks]",
+    "2025/26 - Q4(b) - repeat the continuous-surjection proof and IVT consequence. [6 marks]"
+   ],
+   "marks": 41,
+   "question": "Define connectedness. Given an explicit topology, either exhibit a separation or rule one out; then prove that a continuous surjection preserves connectedness and explain its Intermediate Value Theorem consequence.",
+   "answer": "Reusable answer: A separation of X is X=U∪V where U and V are disjoint, nonempty, open subsets of X. A space is connected when no separation exists. If f:X→Y is continuous and onto and Y=U∪V were a separation, f -1 (U) and f -1 (V) would be a separation of X; continuity gives openness and surjectivity gives nonemptiness and coverage. For IVT, [a,b] is connected, so h([a,b]) is a connected subset of R and hence an interval containing h(a) and h(b)."
+  },
+  {
+   "id": "homeomorphism-comparisons-and-invariants",
+   "rank": 4,
+   "title": "Homeomorphism Comparisons And Invariants",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q2(c) - compare [0,1], (0,1), S 1 , and R\\{0}; justify all six non-homeomorphism comparisons. [12 marks]",
+    "2024/25 - Q3(c) - show R and [0,1] are not homeomorphic, R 2 and R are not homeomorphic, and R and (0,∞) are homeomorphic. [9 marks]",
+    "2025/26 - Q3(d) - show S 1 and [0,1] are not homeomorphic, R and [0,1] are not homeomorphic, and R and (0,∞) are homeomorphic. [9 marks]"
+   ],
+   "marks": 34,
+   "question": "For each listed pair of spaces, choose the cheapest topological invariant that distinguishes them, or construct an explicit continuous bijection with continuous inverse.",
+   "answer": "Reusable answer: Homeomorphisms preserve compactness and connectedness, including connectedness after deleting corresponding points. [0,1] is compact and R is not, so they are not homeomorphic. S 1 and [0,1] are both compact and connected, so use point removal: delete the preimage of 1/2 under a hypothetical homeomorphism. The punctured circle remains connected, whereas [0,1]\\{1/2} is disconnected. For a positive result, f(x)=e x is a homeomorphism R→(0,∞), with inverse ln."
+  },
+  {
+   "id": "product-initial-final-and-quotient-topologies",
+   "rank": 5,
+   "title": "Product, Initial/Final, And Quotient Topologies",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q2(d) - write down a base for the product topology on X×Y. [4 marks]",
+    "2023/24 - Q4(a)-(b) - define the quotient topology on X/~ and show S 1 is a quotient of [0,1]. [9 marks]",
+    "2024/25 - Q3(a) - define the initial topology induced by a family of functions. [4 marks]",
+    "2024/25 - Q4(b)-(d) - repeat the product basis, quotient topology, and S 1 as a quotient of [0,1]. [13 marks]",
+    "2025/26 - Q3(a) - define the final topology with respect to a family of functions. [3 marks]",
+    "2025/26 - Q4(c)-(d) - explain why S 1 is a quotient of [0,1], then decide whether R is a quotient of the Cantor set. [8 marks]"
+   ],
+   "marks": 44,
+   "question": "State the construction precisely: basis rectangles for products, pullbacks for initial/final topologies, or the quotient-open-set rule. Then apply it to a quotient map, especially the endpoint identification [0,1]/(0~1), or use a preserved property to rule a quotient out.",
+   "answer": "Reusable answer: A product basis consists of U×V with U and V open. The initial topology is the coarsest topology making the given maps out of a set continuous; the final topology is the finest topology making the given maps into a set continuous. A quotient topology on X/~ declares W open exactly when q -1 (W) is open in X. For S 1 , use q(t)=e 2πit : it is a continuous surjection and identifies exactly 0 and 1. R cannot be a quotient of compact Cantor C because a quotient map would be a continuous surjection C→R, forcing R to be compact."
+  },
+  {
+   "id": "cantor-set-definition-images-compactness-and-quotients",
+   "rank": 6,
+   "title": "Cantor Set: Definition, Images, Compactness, And Quotients",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q3(d) - show [0,1] is a continuous image of C, then decide whether C is a continuous image of [0,1]. [6 marks]",
+    "2024/25 - Q3(d) - define the Cantor set. [4 marks]",
+    "2025/26 - Q4(a) - define C and explain why it is compact Hausdorff. [5 marks]",
+    "2025/26 - Q4(d) - decide whether standard R is a quotient of C. [3 marks]"
+   ],
+   "marks": 20,
+   "question": "Define the Cantor set, state its compact-Hausdorff properties, and reason carefully about what can be its continuous image or quotient using compactness, connectedness, and an explicit map where supplied.",
+   "answer": "Reusable answer: Define C by repeatedly removing the open middle third from each remaining closed interval, equivalently as the points of [0,1] with a ternary expansion using only 0 and 2. It is compact because it is closed in compact [0,1], and Hausdorff because it is a subspace of R. Use compactness under continuous images to rule out a continuous surjection or quotient from C onto non-compact R. Do not reverse image claims automatically: [0,1] is a continuous image of C, but connectedness blocks a continuous surjection [0,1]→C because C is disconnected."
+  },
+  {
+   "id": "homotopy-homotopy-equivalence-and-convex-star-shaped-spaces",
+   "rank": 7,
+   "title": "Homotopy, Homotopy Equivalence, And Convex/Star-Shaped Spaces",
+   "frequency": "3/3",
+   "appearances": [
+    "2023/24 - Q4(c)-(e) - define homotopy and homotopy equivalence, define simply connected, and show every star-shaped subset of R n is simply connected. [16 marks]",
+    "2024/25 - Q4(e) - define homotopy and show continuous f,g:R m →R n are homotopic. [6 marks]",
+    "2025/26 - Q4(e) - repeat the homotopy definition and show continuous f,g:R n →R n are homotopic. [6 marks]"
+   ],
+   "marks": 28,
+   "question": "Define homotopy with its full domain, codomain, continuity and endpoint conditions. Then construct a homotopy by straight-line interpolation in a convex target, or a contraction in a star-shaped space.",
+   "answer": "Reusable answer: Maps f,g:X→Y are homotopic if a continuous H:X×[0,1]→Y exists with H(x,0)=f(x) and H(x,1)=g(x). For maps into R n , take H(x,t)=(1−t)f(x)+tg(x). It is continuous and remains in R n . More generally this works for any convex target. For a star-shaped set with centre x 0 , H(x,t)=(1−t)x+tx 0 contracts the space, provided the entire line segment stays inside it."
+  },
+  {
+   "id": "most-repeated-current-question-families",
+   "rank": null,
+   "title": "Most Repeated Current Question Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "other-distinct-older-question-shapes",
+   "rank": null,
+   "title": "Other Distinct Older Question Shapes",
+   "frequency": "",
+   "appearances": [
+    "Topology-axiom validation and components: test proposed open-set families, exhibit a failed axiom if necessary, and find connected components if valid. Appears in 2018/19 Q4, 2021/22 Q4, and 2022/23 Q3.",
+    "Cofinite-space continuity: decide connectedness/compactness and give continuous or non-continuous self-maps of a cofinite space. Appears in 2018/19 Q5 and 2021/22 Q5; it complements the current cofinite compactness/Hausdorff family.",
+    "Homotopy-equivalence variants: show S 1 is homotopy equivalent to C\\{0}, or classify plane letters by homeomorphism/homotopy type. Appears in 2018/19 Q8, 2021/22 Q7, and 2022/23 Q8.",
+    "Graph/dendrogram application: construct threshold graphs and a dendrogram from a distance table. Appears only in 2022/23 Q6.",
+    "Older homeomorphism pair: decide whether Z and Q are homeomorphic in their usual subspace topologies. Appears only in 2021/22 Q6."
+   ],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "Define a topology on X.",
+     "back": "A collection τ of subsets of X such that ∅ and X belong to τ, arbitrary unions of members of τ belong to τ, and finite intersections of members of τ belong to τ.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is the standard topology on R?",
+     "back": "The topology whose open sets are arbitrary unions of ordinary open intervals (a,b).",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is the cofinite topology on X?",
+     "back": "The topology whose open sets are ∅ together with all subsets U⊆X for which X\\U is finite.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is the discrete topology on X?",
+     "back": "The topology P(X), in which every subset of X is open.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "How can you show the standard and cofinite topologies on R are different?",
+     "back": "The interval (0,1) is open in the standard topology. Its complement R\\(0,1) is infinite, so (0,1) is not open in the cofinite topology. Therefore the two topologies differ.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is the subspace topology on A⊆X?",
+     "back": "The open sets of A are precisely the sets A∩U, where U is open in X. Thus V⊆A is open in A if and only if V=A∩U for some open U⊆X.",
+     "evidence": "2023/24, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "When is a subspace discrete?",
+     "back": "A subspace A is discrete if and only if every singleton {a}, with a∈A, is open in the subspace topology. Equivalently, every subset of A is open.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "Why is Q not discrete in its usual subspace topology?",
+     "back": "Every ordinary open interval containing q∈Q contains another rational. Therefore no interval intersects Q in {q}, so {q} is not open in Q.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "Why is Z discrete in its usual subspace topology?",
+     "back": "For every n∈Z, (n−1/2,n+1/2)∩Z={n}. Thus every singleton of Z is open, so Z is discrete.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "Why is [0,1] not discrete in its usual subspace topology?",
+     "back": "Every ordinary open interval containing 1/2 meets [0,1] in points other than 1/2. Thus {1/2} is not open in [0,1], so [0,1] is not discrete.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is a basis, and what is the lower-limit basis on R?",
+     "back": "A basis B is a collection of open sets such that every open set is a union of members of B. For the lower-limit topology on R, B={[a,b): a,b∈R and a<b}.",
+     "evidence": "2023/24, 2024/25"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What does clopen mean, and why is [0,1) clopen in the lower-limit topology?",
+     "back": "Clopen means both open and closed. [0,1) is a basic open set. Its complement is (−∞,0)∪[1,∞)=⋃ n≥1 [−n,0)∪⋃ n≥1 [1,n+1), so it is open; hence [0,1) is closed as well.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is a neighbourhood, and how does it characterise interior?",
+     "back": "A neighbourhood of a point is any set that contains an open set around that point. The interior of a set consists of the points that have an open neighbourhood lying completely inside the set.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is the closure of A?",
+     "back": "The closure of A is A together with every point that cannot be separated from A by an open neighbourhood.",
+     "evidence": "2023/24, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "What is an accumulation point of A?",
+     "back": "A point where every neighbourhood contains points of A other than possibly the point itself.",
+     "evidence": "2023/24, 2025/26"
+    },
+    {
+     "group": "Core Topology, Subspaces, Bases, Closure, And Interior",
+     "front": "Why does having no accumulation points imply that A is closed?",
+     "back": "Every point outside A has an open neighbourhood that does not meet A. Therefore the complement of A is open, so A is closed.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "What does compact mean?",
+     "back": "A space is compact if, whenever it is covered by open sets, finitely many of those open sets already cover the whole space.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Is standard R compact?",
+     "back": "No. The intervals (−n,n) cover all real numbers, but any finite selection misses sufficiently large positive and negative numbers.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "How can you disprove compactness of the lower-limit line?",
+     "back": "The intervals [n,n+1), for integers n, cover the whole line. Any finite selection covers only a bounded part of the line, so it cannot cover everything.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "What does dense mean, and which sets are dense in a cofinite space?",
+     "back": "A set is dense if every nonempty open set meets it. In an infinite cofinite space, every infinite subset is dense, because a nonempty open set leaves out only finitely many points.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Is an infinite cofinite space compact?",
+     "back": "Yes. Choose one nonempty set from an open cover; it misses only finitely many points. Choose one cover set for each missed point, giving a finite subcover.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Why is an infinite cofinite space not Hausdorff?",
+     "back": "Any two nonempty open sets must overlap, because each leaves out only finitely many points. Therefore two different points cannot always be placed in disjoint open neighbourhoods.",
+     "evidence": "2023/24, 2024/25"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "What does Hausdorff mean?",
+     "back": "A space is Hausdorff if any two different points can be placed in disjoint open neighbourhoods.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Why is the lower-limit topology on R Hausdorff?",
+     "back": "If x<y, the open intervals [x,y) and [y,y+1) contain x and y respectively and do not overlap. Thus any two different points can be separated by disjoint open neighbourhoods.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Why is every closed subset of a compact space compact?",
+     "back": "Start with an open cover of the closed subset. Add its open complement to cover the whole space. Compactness gives a finite cover, and removing the complement leaves a finite cover of the subset. Therefore the subset is compact.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Why is a compact subspace of a Hausdorff space closed?",
+     "back": "Take a point outside the compact set. Separate it from each point of the compact set using disjoint open neighbourhoods. Compactness reduces these to finitely many; intersect the neighbourhoods around the outside point to get an open neighbourhood missing the compact set. Therefore the complement is open, so the compact set is closed.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Compactness, Hausdorffness, Cofinite, And Lower-Limit Examples",
+     "front": "Why is a continuous bijection from compact X to Hausdorff Y a homeomorphism?",
+     "back": "A closed subset of compact X is compact. Its image is compact, and compact subsets of Hausdorff Y are closed. So the map sends closed sets to closed sets, which makes its inverse continuous. Therefore it is a homeomorphism.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "What is a separation of X?",
+     "back": "A pair U,V of disjoint, nonempty, open subsets of X whose union is X: X=U∪V.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "What does connected mean?",
+     "back": "A space is connected if it has no separation; equivalently, its only clopen subsets are ∅ and X.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "Why is discrete Q disconnected?",
+     "back": "{0} and Q\\{0} are disjoint, nonempty, open sets whose union is Q.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "Why is indiscrete Q connected?",
+     "back": "The only open sets are ∅ and Q, so there is no nonempty proper open set that could form a separation.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "Why is Q with the usual subspace topology disconnected?",
+     "back": "Let U=Q∩(−∞,√2) and V=Q∩(√2,∞). They are nonempty, disjoint, relatively open in Q, and U∪V=Q because √2∉Q. Hence they form a separation.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "Why is cofinite Q connected?",
+     "back": "Every two nonempty cofinite open subsets of the infinite set Q intersect. A separation would require two disjoint nonempty open sets, so no separation exists.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "Why is a continuous surjective image of a connected space connected?",
+     "back": "Let f:X→Y be continuous and surjective, with X connected. If Y=U∪V were a separation, then f −1 (U) and f −1 (V) would be disjoint, nonempty, open sets covering X—a contradiction. Hence Y is connected.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Connectedness, Separations, Continuous Images, And IVT",
+     "front": "How does connectedness give the Intermediate Value Theorem?",
+     "back": "For continuous h:[a,b]→R, the interval [a,b] is connected, so h([a,b]) is connected and therefore an interval. Every value t between h(a) and h(b) lies in h([a,b]), so h(c)=t for some c∈[a,b].",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Homeomorphisms And Invariants",
+     "front": "What is a homeomorphism?",
+     "back": "A bijection f:X→Y such that both f and f −1 :Y→X are continuous. It is an isomorphism of topological spaces.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Homeomorphisms And Invariants",
+     "front": "What properties are used as homeomorphism invariants in these papers?",
+     "back": "Compactness and connectedness, including connectedness after deleting corresponding points.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Homeomorphisms And Invariants",
+     "front": "Why are R and [0,1] not homeomorphic?",
+     "back": "[0,1] is compact and R is not, and compactness is preserved by homeomorphisms.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Homeomorphisms And Invariants",
+     "front": "Why are R 2 and R not homeomorphic?",
+     "back": "If h:R→R 2 were a homeomorphism, then h would restrict to a homeomorphism R\\{0}→R 2 \\{h(0)}. But R\\{0} is disconnected, whereas R 2 \\{h(0)} is path-connected. This contradiction proves they are not homeomorphic.",
+     "evidence": "2024/25"
+    },
+    {
+     "group": "Homeomorphisms And Invariants",
+     "front": "Why are S 1 and [0,1] not homeomorphic, and when is point removal useful?",
+     "back": "If h:[0,1]→S 1 were a homeomorphism, remove an interior point 1/2 and its image h(1/2). The space [0,1]\\{1/2} is disconnected, whereas S 1 \\{h(1/2)} is connected. This contradiction shows they are not homeomorphic. Point removal is useful when simpler invariants agree but punctured spaces have different connectedness.",
+     "evidence": "2023/24, 2025/26"
+    },
+    {
+     "group": "Homeomorphisms And Invariants",
+     "front": "Give a homeomorphism R→(0,∞) and its inverse.",
+     "back": "f(x)=e x is a continuous bijection from R to (0,∞), and f −1 (y)=ln(y) is continuous. Therefore f is a homeomorphism.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Product, Initial, Final, And Quotient Topologies",
+     "front": "What is a basis for the product topology on X×Y?",
+     "back": "The sets U×V, where U is open in X and V is open in Y, form a basis. The product-open sets are arbitrary unions of these rectangles.",
+     "evidence": "2023/24, 2024/25"
+    },
+    {
+     "group": "Product, Initial, Final, And Quotient Topologies",
+     "front": "Define the initial and final topologies.",
+     "back": "For maps f i :X→Y i , the initial topology on X is the coarsest topology making every f i continuous; it is generated by f i −1 (U) for U open in Y i . For maps g i :X i →Y, the final topology on Y is the finest topology making every g i continuous; W⊆Y is open exactly when every g i −1 (W) is open in X i .",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Product, Initial, Final, And Quotient Topologies",
+     "front": "What is the quotient topology on X/~?",
+     "back": "Let q:X→X/~ send x to its equivalence class [x]. The quotient topology is the final topology for q: a set W⊆X/~ is open if and only if q −1 (W) is open in X.",
+     "evidence": "2023/24, 2024/25"
+    },
+    {
+     "group": "Product, Initial, Final, And Quotient Topologies",
+     "front": "Why is S 1 a quotient of [0,1], and how is the identification written?",
+     "back": "The map q(t)=(cos(2πt),sin(2πt)) is a continuous surjection [0,1]→S 1 . It identifies exactly 0 and 1, so it induces a continuous bijection [0,1]/(0~1)→S 1 . The quotient is compact and S 1 is Hausdorff, so this bijection is a homeomorphism. Thus S 1 ≅[0,1]/(0~1).",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Cantor Set: Definition, Compactness, Images, And Quotients",
+     "front": "How is the Cantor set C constructed?",
+     "back": "Start with C 0 =[0,1]. At each stage remove the open middle third of every closed interval remaining from the previous stage. The Cantor set is C=⋂ n≥0 C n .",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Cantor Set: Definition, Compactness, Images, And Quotients",
+     "front": "How can the Cantor set be described using ternary expansions?",
+     "back": "C is the set of points in [0,1] having a ternary expansion that uses only the digits 0 and 2. Equivalently, its points are ∑ n=1 ∞ 2a n /3 n , where each a n is 0 or 1.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Cantor Set: Definition, Compactness, Images, And Quotients",
+     "front": "Why is the Cantor set compact Hausdorff?",
+     "back": "Each C n is closed in [0,1], so C=⋂C n is closed in compact [0,1]; hence C is compact. As a subspace of the Hausdorff space R, C is Hausdorff.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Cantor Set: Definition, Compactness, Images, And Quotients",
+     "front": "Which continuous-image directions hold between C and [0,1]?",
+     "back": "[0,1] is a continuous image of C: the restriction of the Cantor function sends ∑ n=1 ∞ 2a n /3 n to ∑ n=1 ∞ a n /2 n and is surjective. Conversely, C cannot be a continuous image of [0,1], because a continuous image of connected [0,1] is connected, while C is disconnected.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Cantor Set: Definition, Compactness, Images, And Quotients",
+     "front": "What property rules out a quotient map from C onto standard R?",
+     "back": "A quotient map is a continuous surjection. Since C is compact, its continuous image would be compact; standard R is not compact. Therefore R cannot be a quotient of C.",
+     "evidence": "2025/26"
+    },
+    {
+     "group": "Homotopy And Star-Shaped/Convex Spaces",
+     "front": "When are f,g:X→Y homotopic?",
+     "back": "They are homotopic if there is a continuous H:X×[0,1]→Y such that H(x,0)=f(x) and H(x,1)=g(x) for every x∈X. H is a homotopy from f to g.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Homotopy And Star-Shaped/Convex Spaces",
+     "front": "When are X and Y homotopy equivalent?",
+     "back": "When there are continuous maps f:X→Y and g:Y→X such that g∘f is homotopic to id X and f∘g is homotopic to id Y .",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Homotopy And Star-Shaped/Convex Spaces",
+     "front": "What does simply connected mean?",
+     "back": "A space X is simply connected if it is path-connected and every loop in X is homotopic, while fixing its endpoints, to a constant loop. Equivalently, its fundamental group is trivial.",
+     "evidence": "2023/24"
+    },
+    {
+     "group": "Homotopy And Star-Shaped/Convex Spaces",
+     "front": "What straight-line homotopy works for maps into R n , and why?",
+     "back": "For continuous f,g:X→R n , set H(x,t)=(1−t)f(x)+tg(x). This is continuous, has H(x,0)=f(x) and H(x,1)=g(x), and stays in R n ; hence it is a homotopy.",
+     "evidence": "2024/25, 2025/26"
+    },
+    {
+     "group": "Homotopy And Star-Shaped/Convex Spaces",
+     "front": "For what more general targets does straight-line interpolation work?",
+     "back": "It works for a convex subset Y⊆R n : whenever y 0 ,y 1 ∈Y and t∈[0,1], (1−t)y 0 +ty 1 lies in Y. Thus the same formula gives a homotopy between maps into Y.",
+     "evidence": "2023/24, 2024/25, 2025/26"
+    },
+    {
+     "group": "Homotopy And Star-Shaped/Convex Spaces",
+     "front": "How do you contract a star-shaped space with centre x 0 ?",
+     "back": "S is star-shaped with centre x 0 if, for every x∈S, the segment {(1−t)x+tx 0 :t∈[0,1]} lies in S. Then H(x,t)=(1−t)x+tx 0 contracts S to x 0 ; hence S is contractible and therefore simply connected.",
+     "evidence": "2023/24"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "compactness_revision_sheet.html",
+   "title": "Compactness",
+   "purpose": "State compactness exactly, disprove it with a topology-valid cover, and combine it with Hausdorff separation. Exam use: In 2025/26, Q2(d) asks for the definition and non-compactness of the lower-limit line for 5 marks, while Q2(e) asks for the compact-subspace-of-Hausdorff closedness proof for 5 marks.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The lower-limit real line R ℓ is not compact. The basic-open sets U n =[n,n+1), n∈Z, cover R. Any finite subfamily covers only a bounded union of these intervals and therefore misses all sufficiently large positive and negative real numbers. Hence this open cover has no finite subcover.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Foundation: Why is the Cantor set compact Hausdorff? Check: it is closed in compact [0,1], and it inherits Hausdorffness from R.",
+     "route": "2. Exam style: Prove a closed F⊆X is compact when X is compact. Check: add X\\F to an arbitrary cover of F.",
+     "answer": "2. Exam style: Prove a closed F⊆X is compact when X is compact. Check: add X\\F to an arbitrary cover of F."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "If X is compact, Y Hausdorff and f:X→Y continuous and bijective, then f is a homeomorphism. For closed F⊆X, F is compact, so f(F) is compact and therefore closed in Hausdorff Y. Thus f is closed, which makes f -1 continuous.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - lower-limit and Hausdorff compactness [10 marks]",
+     "marks": 10,
+     "prompt": "(a) Define compactness and decide, with justification, whether the lower-limit real line R ℓ is compact. [5 marks] (b) Let A be a compact subspace of a Hausdorff space X. Show that A is closed in X. [5 marks]",
+     "route": "an infinite intersection of the V a need not be open; compactness is what reduces it to a finite intersection.",
+     "answer": "Demand diagnosis and fastest route: use the integer-indexed half-open cover for (a); for (b), separate a fixed x∉A from each a∈A and use compactness to retain only finitely many separating neighbourhoods."
+    }
+   ],
+   "mistakes": [
+    "Choosing a finite cover instead of proving a finite subcover of an arbitrary cover.",
+    "Using Heine–Borel outside Euclidean space.",
+    "Forgetting closedness in the closed-subset theorem.",
+    "Recovery rule: A sequence argument is not automatically available in an arbitrary topological space; use open covers unless sequential compactness has been established."
+   ]
+  },
+  {
+   "file": "connectedness_revision_sheet.html",
+   "title": "Connectedness",
+   "purpose": "Classify spaces by constructing or ruling out separations, then transfer connectedness through continuous surjections. Exam use: The 2025/26 paper devotes 13 marks in Q3(b-c) to the definition and four topologies on Q, then 6 marks in Q4(b) to continuous images and the Intermediate Value Theorem.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "On Q, connectedness depends on the topology. The discrete topology is disconnected via {0} and Q\\{0}. The indiscrete topology is connected because it has no nonempty proper open set. The usual subspace topology is disconnected via Q∩(-∞,√2) and Q∩(√2,∞). The cofinite topology is connected because Q is infinite and any two nonempty cofinite-open sets intersect.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 3,
+     "prompt": "1. Foundation [3 marks]: Define connectedness using separations. Check: include open, disjoint, nonempty and covering.",
+     "route": "2. Exam style [6 marks]: If f:X→Y is continuous and onto and X connected, prove Y connected, then explain the IVT consequence. Check: pull back a separation, then use that a connected subset of R is an interval.",
+     "answer": "2. Exam style [6 marks]: If f:X→Y is continuous and onto and X connected, prove Y connected, then explain the IVT consequence. Check: pull back a separation, then use that a connected subset of R is an interval."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Let h:[a,b]→R be continuous and suppose h(a)≤y≤h(b). The interval [a,b] is connected, so h([a,b]) is connected by the continuous-image theorem. Connected subsets of R are intervals. Since h([a,b]) contains h(a) and h(b), it contains every value between them, in particular y. Thus h(c)=y for some c∈[a,b], which is the Intermediate Value Theorem.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - four topologies on Q [13 marks]",
+     "marks": 13,
+     "prompt": "(a) Define connectedness. [3 marks] (b) Decide whether Q is connected with each of the discrete, indiscrete, usual subspace and cofinite topologies. Exhibit a separation for every disconnected case and briefly justify every connected case. [10 marks]",
+     "route": "the rational cut must occur at an irrational number; cutting at a rational leaves that point uncovered unless the sets are changed.",
+     "answer": "Demand diagnosis and fastest route: use a singleton for the discrete case, the absence of proper opens for the indiscrete case, an irrational cut for the usual subspace case, and unavoidable intersections for the infinite cofinite case."
+    }
+   ],
+   "mistakes": [
+    "Forgetting the sets in a separation must be nonempty.",
+    "Using images rather than preimages in the theorem proof.",
+    "Assuming every connected space is path connected.",
+    "Recovery rule: The separating sets need only be open in the subspace under discussion, not necessarily open in the ambient space."
+   ]
+  },
+  {
+   "file": "continuity_homeomorphism_revision_sheet.html",
+   "title": "Continuity and Homeomorphism",
+   "purpose": "Test continuity through preimages and rule in or out homeomorphisms using the cheapest valid invariant. Exam use: The 2025/26 Q3(d) groups three homeomorphism decisions into 9 marks: one point-removal argument, one compactness obstruction and one explicit positive construction.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The three 2025/26 comparisons use different fastest routes. S 1 is not homeomorphic to [0,1]: if h existed, delete h -1 (1/2); the punctured circle is connected but [0,1]\\{1/2} is disconnected. Standard R is not homeomorphic to [0,1] because the interval is compact and R is not. Finally, x↦e x is a homeomorphism R→(0,∞), with continuous inverse ln.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Foundation: Why does compactness rule out a homeomorphism R→[0,1]? Check: compactness is preserved, [0,1] is compact and R is not.",
+     "route": "2. Exam style: Show [0,1] is not homeomorphic to S¹. Check: remove an interior point of the interval and the corresponding point of the circle, then compare connectedness.",
+     "answer": "2. Exam style: Show [0,1] is not homeomorphic to S¹. Check: remove an interior point of the interval and the corresponding point of the circle, then compare connectedness."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "To use point removal rigorously, suppose h:S 1 →[0,1] is a homeomorphism and let p=h -1 (1/2). The restriction h| S¹\\{p} is a homeomorphism onto [0,1]\\{1/2}. But S 1 \\{p} is homeomorphic to an open interval and is connected, whereas [0,1]\\{1/2} is separated by [0,1/2) and (1/2,1]. Contradiction.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - three homeomorphism decisions [9 marks]",
+     "marks": 9,
+     "prompt": "(a) Show S 1 and [0,1] are not homeomorphic. (b) Show R and [0,1] are not homeomorphic. (c) Show R and (0,∞) are homeomorphic. [9 marks]",
+     "route": "connectedness alone does not distinguish S 1 from [0,1]; the distinguishing invariant is connectedness after deleting corresponding points.",
+     "answer": "Demand diagnosis and fastest route: use point-removal connectedness for (a), compactness for (b), and the exponential/logarithm pair for (c)."
+    }
+   ],
+   "mistakes": [
+    "Testing images of opens instead of preimages.",
+    "Calling a continuous bijection a homeomorphism without an inverse argument.",
+    "Using an invariant that is not actually topological.",
+    "Recovery rule: A continuous bijection need not be a homeomorphism; verify inverse continuity or cite a theorem that supplies it."
+   ]
+  },
+  {
+   "file": "hausdorff_revision_sheet.html",
+   "title": "Hausdorff Spaces",
+   "purpose": "Test whether distinct points can be separated by disjoint open sets and exploit compact-Hausdorff consequences. Exam use: In 2025/26, Q2(c) assigns 6 marks to the definition and the lower-limit line, Q2(e) uses Hausdorffness in a 5-mark closedness proof, and Q4(a) asks why the Cantor set is compact Hausdorff.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The lower-limit real line R ℓ is Hausdorff. Given x<y, take U=[x,y) and V=[y,y+1). Both are basic open sets, x∈U, y∈V, and U∩V=∅. Reversing the labels handles y<x, so every pair of distinct points has disjoint open neighbourhoods.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 5,
+     "prompt": "1. Foundation: Is an infinite cofinite space Hausdorff? Check: no: two nonempty opens always intersect, even though every singleton is closed.",
+     "route": "2. Exam style [5 marks]: Prove a compact subspace A of Hausdorff X is closed. Check: separate each x∉A from all of A using a finite subcover.",
+     "answer": "2. Exam style [5 marks]: Prove a compact subspace A of Hausdorff X is closed. Check: separate each x∉A from all of A using a finite subcover."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The Cantor set C is Hausdorff because it is a subspace of standard R, and subspaces of Hausdorff spaces are Hausdorff. It is compact because it is closed in the compact interval [0,1]. Both claims require naming the inherited topology and the relevant hereditary theorem.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - lower-limit Hausdorffness [6 marks]",
+     "marks": 6,
+     "prompt": "(a) Define what it means for a topological space to be Hausdorff. (b) Decide, with justification, whether the real line with the lower-limit topology is Hausdorff. [6 marks]",
+     "route": "[x,y) and [y,y+1) work because the first interval excludes y; ordinary closed intervals would not be open in the lower-limit topology.",
+     "answer": "Demand diagnosis and fastest route: order arbitrary distinct points and use adjacent half-open basis intervals whose shared endpoint belongs only to the second interval."
+    }
+   ],
+   "mistakes": [
+    "Finding neighbourhoods that are not disjoint.",
+    "Assuming T₁ automatically means Hausdorff.",
+    "Omitting continuity in the compact-Hausdorff theorem.",
+    "Recovery rule: T1 separates a point from another by one open set; it does not provide the pair of disjoint neighbourhoods required for Hausdorffness."
+   ]
+  },
+  {
+   "file": "homotopy_simply_connected_revision_sheet.html",
+   "title": "Homotopy and Simply Connected Spaces",
+   "purpose": "State a homotopy precisely and exploit convex codomains to construct it by linear interpolation; keep contractions and simple connectedness as related secondary material. Exam use: The 2025/26 Q4(e) allocates 6 marks to the definition and to proving that arbitrary continuous maps R n →R n are homotopic.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Let f,g:R n →R n be continuous. Define H(x,t)=(1−t)f(x)+tg(x). Then H(x,0)=f(x) and H(x,1)=g(x). The formula is continuous as a combination of continuous maps, and every value is in R n . Hence f and g are homotopic.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Foundation: Show any two constant maps X→R are homotopic. Check: linearly interpolate their values and verify both endpoints.",
+     "route": "2. Exam style: Generalise the paper argument to maps f,g:X→C where C⊆R n is convex. Check: the segment between f(x) and g(x) remains in C.",
+     "answer": "2. Exam style: Generalise the paper argument to maps f,g:X→C where C⊆R n is convex. Check: the segment between f(x) and g(x) remains in C."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Convexity is sufficient but not necessary for two maps to be homotopic. The straight-line formula can fail for a non-convex codomain: interpolating two points of S 1 generally passes through the disk rather than staying on the circle. A valid formula must land in the declared codomain for every (x,t).",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - arbitrary maps into R n [6 marks]",
+     "marks": 6,
+     "prompt": "(a) Define what it means for continuous maps f,g:X→Y to be homotopic. (b) Let f,g:R n →R n be continuous. Show that f and g are homotopic. [6 marks]",
+     "route": "do not use H(x,t)=(1−t)x unless f is the identity and g is the zero map; the paper asks about arbitrary f and g.",
+     "answer": "Demand diagnosis and fastest route: give the complete definition, then use straight-line interpolation in the convex codomain R n ."
+    }
+   ],
+   "mistakes": [
+    "Giving a family H without endpoint checks.",
+    "Failing to prove H takes values in the target space.",
+    "Calling a connected space simply connected without addressing loops.",
+    "Recovery rule: A formula that leaves the space is not a homotopy in that space; verify the codomain condition for every t."
+   ]
+  },
+  {
+   "file": "neighbourhoods_interior_closure_density_revision_sheet.html",
+   "title": "Neighbourhoods, Interior, Closure and Density",
+   "purpose": "Define and compute interior and closure, use accumulation points correctly, and prove density via neighbourhood intersections. Exam use: In 2025/26 these ideas occur in three different parts: definitions in Q1(c), a 5-mark closedness proof in Q1(e), and a 6-mark cofinite-density example in Q2(b).",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Let A be a subset of a topological space X with no accumulation point in X. For x∈X\\A, x is not an accumulation point, so some open neighbourhood U of x satisfies U∩(A\\{x})=∅. Since x∉A, this simplifies to U∩A=∅. Thus every point of X\\A has an open neighbourhood contained in X\\A, so X\\A is open and A is closed.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 6,
+     "prompt": "1. Foundation: Find cl({1/n:n≥1}) in R. Check: include 0.",
+     "route": "2. Exam style [6 marks]: In the cofinite topology on Z, give a proper dense subset. Check: take 2Z; it is proper and infinite, and every nonempty cofinite-open set meets every infinite subset.",
+     "answer": "2. Exam style [6 marks]: In the cofinite topology on Z, give a proper dense subset. Check: take 2Z; it is proper and infinite, and every nonempty cofinite-open set meets every infinite subset."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: in the subspace X=[0,1], find interior and closure of A=[0,1/2). Check int_X A=[0,1/2), since [0,epsilon)=X intersect (-1,epsilon) is open in X; cl_X A=[0,1/2]. This differs from ambient interior in R.",
+     "route": "in the subspace X=[0,1], find interior and closure of A=[0,1/2). Check int_X A=[0,1/2), since [0,epsilon)=X intersect (-1,epsilon) is open in X; cl_X A=[0,1/2]. This differs from ambient interior in R.",
+     "answer": "in the subspace X=[0,1], find interior and closure of A=[0,1/2). Check int_X A=[0,1/2), since [0,epsilon)=X intersect (-1,epsilon) is open in X; cl_X A=[0,1/2]. This differs from ambient interior in R."
+    },
+    {
+     "title": "Practice question - no accumulation points [5 marks]",
+     "marks": 5,
+     "prompt": "Let A be a subset of a topological space X. Show that if A has no accumulation point in X, then A is closed in X. [5 marks]",
+     "route": "the definition removes {x}; explicitly use x∉A before replacing A\\{x} by A.",
+     "answer": "Demand diagnosis and fastest route: prove X\\A open point-by-point; restricting to x∉A turns a neighbourhood avoiding A\\{x} into one avoiding all of A."
+    }
+   ],
+   "mistakes": [
+    "Treating closure as A plus only “visible” endpoints.",
+    "Using metric-ball intuition without checking the topology.",
+    "For density, checking only one neighbourhood.",
+    "Recovery rule: Endpoints can be interior points in a subspace; always name the ambient space before computing."
+   ]
+  },
+  {
+   "file": "secondary_applications_revision_sheet.html",
+   "title": "Secondary Applications",
+   "purpose": "Prepare the Intermediate Value Theorem as a current connectedness application, while retaining Euler/triangulation, Brouwer, FTA and Nash-style questions at lower priority. Exam use: The 2025/26 Q4(b) directly asks for the continuous-image theorem and its IVT consequence for 6 marks; the older application families are absent from the latest three papers.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Let h:[a,b]→R be continuous and let y lie between h(a) and h(b). The interval [a,b] is connected. Hence h([a,b]) is connected, so it is an interval in R. Because it contains both endpoint values, it contains y. Thus h(c)=y for some c∈[a,b].",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Foundation: Compute χ for a triangle filled by one face. Check: 3−3+1=1; this is older-priority material.",
+     "route": "2. Exam style: Let f:[0,1]→[0,1] be continuous. Explain why f has a fixed point. Check: apply IVT to g(x)=f(x)−x; this remains a useful follow-on rather than the exact 2025/26 question.",
+     "answer": "2. Exam style: Let f:[0,1]→[0,1] be continuous. Explain why f has a fixed point. Check: apply IVT to g(x)=f(x)−x; this remains a useful follow-on rather than the exact 2025/26 question."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The role of surjectivity in the preservation proof must be explicit. If Y=U∪V is a separation and f:X→Y is onto, then f -1 (U) and f -1 (V) are both nonempty and cover X. Continuity makes them open, so they would separate connected X.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - connected images and IVT [6 marks]",
+     "marks": 6,
+     "prompt": "(a) Let f:X→Y be a continuous surjection. Show that connectedness of X implies connectedness of Y. (b) Briefly explain how this result implies the Intermediate Value Theorem. [6 marks]",
+     "route": "continuity alone does not make both preimages nonempty; surjectivity is used there.",
+     "answer": "Demand diagnosis and fastest route: pull a hypothetical separation of Y back to X, then apply the theorem to a continuous real function on an interval."
+    }
+   ],
+   "mistakes": [
+    "Counting a shared edge twice in a triangulation.",
+    "Applying Brouwer when the map does not send the closed ball to itself.",
+    "Spending core-revision time on older applications without current lecture evidence.",
+    "Calling h([a,b]) an interval without first establishing connectedness.",
+    "Recovery rule: Euler's formula uses faces of a particular planar embedding and needs the connected-version constant 2; adjust for disconnected graphs."
+   ]
+  },
+  {
+   "file": "subspaces_constructions_revision_sheet.html",
+   "title": "Subspaces and Constructions",
+   "purpose": "Translate a construction into its defining open sets and then prove the requested property from that definition. Exam use: The 2025/26 paper asks for subspace topology in Q1(c), a 4-mark subspace example in Q1(d), final topology in Q3(a), and two quotient arguments worth 8 marks in Q4(c-d).",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The subspace topology on [0,1] inherited from standard R is not discrete. If it were discrete, {1/2} would be open, so {1/2}=[0,1]∩U for some standard-open U⊆R. But any open U containing 1/2 contains an interval around 1/2 and hence other points of [0,1], a contradiction.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 4,
+     "prompt": "1. Foundation [4 marks]: Is the standard subspace topology on [0,1] discrete? Check: no; the singleton {1/2} is not relatively open.",
+     "route": "2. Exam style [3 marks]: Define the final topology induced on Y by maps f i :X i →Y. Check: U is open exactly when every f i -1 (U) is open; call it the finest such topology.",
+     "answer": "2. Exam style [3 marks]: Define the final topology induced on Y by maps f i :X i →Y. Check: U is open exactly when every f i -1 (U) is open; call it the finest such topology."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Standard R cannot be a quotient of the Cantor set C. A quotient presentation would supply a continuous surjection q:C→R. Since C is compact, its continuous image q(C)=R would be compact, contradicting the non-compactness of R.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - circle and Cantor quotients [8 marks]",
+     "marks": 8,
+     "prompt": "(a) Briefly explain why S 1 is a quotient of [0,1]. [5 marks] (b) Decide, with justification, whether standard R is a quotient of the Cantor set C. [3 marks]",
+     "route": "a quotient map is not merely a set-theoretic surjection; use its continuity in the compactness obstruction.",
+     "answer": "Demand diagnosis and fastest route: for the positive example give the endpoint-identifying quotient map; for the negative example use compactness of continuous images."
+    }
+   ],
+   "mistakes": [
+    "Using U∩Y but forgetting U must be open in X.",
+    "Claiming every subset of a product is a basis element.",
+    "Replacing quotient preimages by images.",
+    "Recovery rule: The image of an open set under a quotient map need not be open unless its full saturated preimage is open."
+   ]
+  },
+  {
+   "file": "topological_spaces_revision_sheet.html",
+   "title": "Topological Spaces",
+   "purpose": "State the topology axioms exactly and distinguish standard, cofinite, discrete, indiscrete and lower-limit examples. Exam use: The 2025/26 paper gives 4 marks for the topology definition, then asks for named topologies and a justified comparison rather than an axiom check on a finite family.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "The standard and cofinite topologies on R do not coincide. The interval (0,1) is standard-open, but its complement (-∞,0]∪[1,∞) is infinite, so (0,1) is not cofinite-open. In fact every cofinite-open subset of R is standard-open because a finite subset of R is closed, but the preceding example shows the inclusion is strict.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridges",
+     "marks": 0,
+     "prompt": "1. Foundation: Is {∅,{a},{b},X} a topology on {a,b}? Check: it is discrete.",
+     "route": "2. Exam style: On a finite X with at least two points, show the cofinite topology is discrete. Check: each singleton has finite complement, so is open.",
+     "answer": "2. Exam style: On a finite X with at least two points, show the cofinite topology is discrete. Check: each singleton has finite complement, so is open."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Describe a basis for the lower-limit topology on R. The answer is the family of half-open intervals [a,b), a<b. Do not replace these by ordinary open intervals: that would generate the standard topology instead.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question - definitions and comparison [10 marks]",
+     "marks": 10,
+     "prompt": "(a) Define a topology on a set X. [4 marks] (b) Define the standard topology on R and the cofinite topology on an arbitrary X, then decide with justification whether they coincide on R. [6 marks]",
+     "route": "“finite intersections” and “arbitrary unions” are not interchangeable, and an unsupported “no” earns less than a concrete separating set.",
+     "answer": "Demand diagnosis and fastest route: use one mark-bearing clause for each topology axiom, define both named open-set families, then separate them with a standard-open set having infinite complement."
+    }
+   ],
+   "mistakes": [
+    "Checking only unions of two sets and forgetting the arbitrary-union axiom.",
+    "Calling every subset open in the cofinite topology on an infinite set.",
+    "Confusing a basis with the full topology.",
+    "Recovery rule: A family can pass several sample unions and still fail an arbitrary-union axiom; on finite families, enumerate all distinct unions."
+   ]
+  }
+ ]
+}
