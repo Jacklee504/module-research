@@ -1,0 +1,779 @@
+{
+ "code": "CT4104",
+ "name": "Computer and Network Security",
+ "details": {
+  "status": "Required",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "60% exam / 40% CA",
+  "predictability": "Unknown",
+  "exam_pattern": "No repeated-paper pattern has been established for this module yet.",
+  "title": "CT4104 - Computer and Network Security",
+  "papers": [],
+  "guides": [
+   "cryptography_hashes_macs_signatures_revision_sheet.html",
+   "ethical_hacking_pentesting_revision_sheet.html",
+   "ipsec_revision_sheet.html",
+   "openssl_revision_sheet.html",
+   "security_foundations_revision_sheet.html",
+   "threat_analysis_revision_sheet.html",
+   "tls_revision_sheet.html",
+   "x509_revision_sheet.html"
+  ],
+  "exam_block": [],
+  "paper_format": "",
+  "exam_shape": "noarchive",
+  "code": "CT4104",
+  "name": "Computer and Network Security"
+ },
+ "families": [
+  {
+   "id": "cryptography-hashes-macs-and-signatures",
+   "rank": 1,
+   "title": "Cryptography, hashes, MACs and signatures",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Modern cryptographic algorithms and applications are official CT4104 scope, supporting integrity, authentication and encryption in network protocols.",
+   "answer": "",
+   "sheet": "cryptography_hashes_macs_signatures_revision_sheet.html"
+  },
+  {
+   "id": "ethical-hacking-and-pen-testing",
+   "rank": 2,
+   "title": "Ethical hacking and pen-testing",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Conducting security assessments using ethical hacking and pen-testing strategies is an official CT4104 learning outcome.",
+   "answer": "",
+   "sheet": "ethical_hacking_pentesting_revision_sheet.html"
+  },
+  {
+   "id": "ipsec",
+   "rank": 3,
+   "title": "IPSec",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "IPSec is named CT4104 scope and is a core example of a cryptographic network protocol.",
+   "answer": "",
+   "sheet": "ipsec_revision_sheet.html"
+  },
+  {
+   "id": "openssl",
+   "rank": 4,
+   "title": "OpenSSL",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Using and evaluating cryptographic libraries such as OpenSSL is an official CT4104 learning outcome.",
+   "answer": "",
+   "sheet": "openssl_revision_sheet.html"
+  },
+  {
+   "id": "security-foundations",
+   "rank": 5,
+   "title": "Security foundations",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Confidentiality, integrity and authentication provide the applied-security language for CT4104’s official cryptography and protocol outcomes.",
+   "answer": "",
+   "sheet": "security_foundations_revision_sheet.html"
+  },
+  {
+   "id": "threat-analysis",
+   "rank": 6,
+   "title": "Threat analysis",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Threat analysis supports CT4104’s security-assessment outcome by turning an informal system description into prioritised security reasoning.",
+   "answer": "",
+   "sheet": "threat_analysis_revision_sheet.html"
+  },
+  {
+   "id": "tls",
+   "rank": 7,
+   "title": "TLS",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "TLS is explicit CT4104 scope and illustrates analysis of cryptographic network protocols.",
+   "answer": "",
+   "sheet": "tls_revision_sheet.html"
+  },
+  {
+   "id": "x-509-certificates",
+   "rank": 8,
+   "title": "X.509 certificates",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "X.509 is explicitly named in CT4104 and supplies the identity-to-public-key binding used by TLS-style systems.",
+   "answer": "",
+   "sheet": "x509_revision_sheet.html"
+  }
+ ],
+ "decks": [
+  {
+   "file": "topic guides",
+   "cards": [
+    {
+     "group": "Cryptography, hashes, MACs and signatures",
+     "front": "Hash",
+     "back": "digest; no origin guarantee alone.",
+     "evidence": ""
+    },
+    {
+     "group": "Cryptography, hashes, MACs and signatures",
+     "front": "MAC",
+     "back": "shared-secret integrity/origin check.",
+     "evidence": ""
+    },
+    {
+     "group": "Cryptography, hashes, MACs and signatures",
+     "front": "Signature",
+     "back": "private-key signing, public verification.",
+     "evidence": ""
+    },
+    {
+     "group": "Cryptography, hashes, MACs and signatures",
+     "front": "Symmetric / public-key encryption",
+     "back": "shared-key / recipient-key confidentiality.",
+     "evidence": ""
+    },
+    {
+     "group": "Ethical hacking and pen-testing",
+     "front": "Authorisation",
+     "back": "explicit permission to test.",
+     "evidence": ""
+    },
+    {
+     "group": "Ethical hacking and pen-testing",
+     "front": "Scope",
+     "back": "permitted systems, methods, time and exclusions.",
+     "evidence": ""
+    },
+    {
+     "group": "Ethical hacking and pen-testing",
+     "front": "Rules of engagement",
+     "back": "contacts, stop conditions and handling requirements.",
+     "evidence": ""
+    },
+    {
+     "group": "Ethical hacking and pen-testing",
+     "front": "Finding",
+     "back": "evidenced weakness with impact and reproduction context.",
+     "evidence": ""
+    },
+    {
+     "group": "Ethical hacking and pen-testing",
+     "front": "Retest",
+     "back": "authorised confirmation that remediation works.",
+     "evidence": ""
+    },
+    {
+     "group": "IPSec",
+     "front": "Security association",
+     "back": "agreed protection parameters and keys.",
+     "evidence": ""
+    },
+    {
+     "group": "IPSec",
+     "front": "IKE",
+     "back": "negotiates/authenticates and establishes keys.",
+     "evidence": ""
+    },
+    {
+     "group": "IPSec",
+     "front": "ESP",
+     "back": "commonly provides confidentiality and integrity protection.",
+     "evidence": ""
+    },
+    {
+     "group": "IPSec",
+     "front": "Tunnel mode",
+     "back": "encapsulates an entire original IP packet.",
+     "evidence": ""
+    },
+    {
+     "group": "IPSec",
+     "front": "Transport mode",
+     "back": "protects payload between end hosts.",
+     "evidence": ""
+    },
+    {
+     "group": "OpenSSL",
+     "front": "Key pair",
+     "back": "public/private asymmetric keys.",
+     "evidence": ""
+    },
+    {
+     "group": "OpenSSL",
+     "front": "CSR",
+     "back": "certificate signing request.",
+     "evidence": ""
+    },
+    {
+     "group": "OpenSSL",
+     "front": "PEM",
+     "back": "common textual encoding for keys/certificates.",
+     "evidence": ""
+    },
+    {
+     "group": "OpenSSL",
+     "front": "Cipher suite/configuration",
+     "back": "selected protocol algorithms and settings.",
+     "evidence": ""
+    },
+    {
+     "group": "OpenSSL",
+     "front": "Verification",
+     "back": "independently check a signature, chain or connection property.",
+     "evidence": ""
+    },
+    {
+     "group": "Security foundations",
+     "front": "Confidentiality",
+     "back": "prevent unauthorised reading.",
+     "evidence": ""
+    },
+    {
+     "group": "Security foundations",
+     "front": "Integrity",
+     "back": "detect unauthorised change.",
+     "evidence": ""
+    },
+    {
+     "group": "Security foundations",
+     "front": "Authentication / authorisation",
+     "back": "establish identity / decide permitted actions.",
+     "evidence": ""
+    },
+    {
+     "group": "Security foundations",
+     "front": "Threat, vulnerability, control",
+     "back": "possible harm, weakness, safeguard.",
+     "evidence": ""
+    },
+    {
+     "group": "Threat analysis",
+     "front": "Asset",
+     "back": "something worth protecting.",
+     "evidence": ""
+    },
+    {
+     "group": "Threat analysis",
+     "front": "Attack surface",
+     "back": "reachable entry points.",
+     "evidence": ""
+    },
+    {
+     "group": "Threat analysis",
+     "front": "Threat / vulnerability",
+     "back": "harmful event / exploitable weakness.",
+     "evidence": ""
+    },
+    {
+     "group": "Threat analysis",
+     "front": "Mitigation / residual risk",
+     "back": "treatment / risk remaining after treatment.",
+     "evidence": ""
+    },
+    {
+     "group": "Threat analysis",
+     "front": "STRIDE",
+     "back": "spoofing, tampering, repudiation, information disclosure, denial of service, elevation of privilege.",
+     "evidence": ""
+    },
+    {
+     "group": "TLS",
+     "front": "Handshake",
+     "back": "negotiate parameters and establish keys.",
+     "evidence": ""
+    },
+    {
+     "group": "TLS",
+     "front": "Certificate",
+     "back": "server identity-to-public-key evidence.",
+     "evidence": ""
+    },
+    {
+     "group": "TLS",
+     "front": "Key exchange",
+     "back": "derives shared session secrets.",
+     "evidence": ""
+    },
+    {
+     "group": "TLS",
+     "front": "Session keys",
+     "back": "symmetric keys protecting data.",
+     "evidence": ""
+    },
+    {
+     "group": "TLS",
+     "front": "Authenticated encryption",
+     "back": "confidentiality plus tamper detection.",
+     "evidence": ""
+    },
+    {
+     "group": "X.509 certificates",
+     "front": "Certificate",
+     "back": "signed identity–public-key binding.",
+     "evidence": ""
+    },
+    {
+     "group": "X.509 certificates",
+     "front": "CA / trust anchor",
+     "back": "issuer / configured trusted root.",
+     "evidence": ""
+    },
+    {
+     "group": "X.509 certificates",
+     "front": "Chain",
+     "back": "leaf through issuers to a trust anchor.",
+     "evidence": ""
+    },
+    {
+     "group": "X.509 certificates",
+     "front": "SAN",
+     "back": "hostname identity field.",
+     "evidence": ""
+    },
+    {
+     "group": "X.509 certificates",
+     "front": "Revocation",
+     "back": "certificate should no longer be accepted.",
+     "evidence": ""
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "cryptography_hashes_macs_signatures_revision_sheet.html",
+   "title": "Cryptography, hashes, MACs and signatures",
+   "purpose": "Modern cryptographic algorithms and applications are official CT4104 scope, supporting integrity, authentication and encryption in network protocols.",
+   "refresher": [
+    "Hashes need preimage/second-preimage/collision resistance.",
+    "MAC shares secret and lacks public attribution.",
+    "signature signs with private/verifies public.",
+    "cue: select primitive by verifier/property."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "Services sharing K send m with MAC(K,m). The receiver recomputes it, detecting alteration or a sender without K. It gives no public proof: either holder of K could create it.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "ReleaseHub publishes update U and its SHA-256 digest. 50,000 clients must verify U without holding a shared secret; the vendor may later need to prove which release it signed.",
+     "route": "This asks for property and key-holder reasoning, not “use encryption.” Fastest route: hash the exact bytes, sign the digest with the protected vendor private key, then verify with an authenticated public key. A plain digest is alterable with the file; an HMAC would force every client to hold a forgery-capable secret. The signature gives integrity, origin authentication and public verification, but not confidentiality. A verifier recomputes H(U), checks the signature and rejects any mismatch.",
+     "answer": "This asks for property and key-holder reasoning, not “use encryption.” Fastest route: hash the exact bytes, sign the digest with the protected vendor private key, then verify with an authenticated public key. A plain digest is alterable with the file; an HMAC would force every client to hold a forgery-capable secret. The signature gives integrity, origin authentication and public verification, but not confidentiality. A verifier recomputes H(U), checks the signature and rejects any mismatch."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A partner sends amount=50&to=A&nonce=71 with HMAC(K,m), then times out and disputes the transfer. Give a replay-safe verification design and state what evidence HMAC cannot supply. [8 marks]",
+     "route": "The supplied object requires canonical bytes, freshness and attribution limits. Fastest route: authenticate a canonical serialization containing a unique nonce, expiry and request ID; reject a nonce already recorded, then atomically persist the outcome under that ID. Recompute HMAC(K,m) before acting. This detects alteration and proves that some K-holder made the request, but either partner could have done so; it is not non-repudiation. A signed, retained receipt is needed for third-party attribution.",
+     "answer": "The supplied object requires canonical bytes, freshness and attribution limits. Fastest route: authenticate a canonical serialization containing a unique nonce, expiry and request ID; reject a nonce already recorded, then atomically persist the outcome under that ID. Recompute HMAC(K,m) before acting. This detects alteration and proves that some K-holder made the request, but either partner could have done so; it is not non-repudiation. A signed, retained receipt is needed for third-party attribution."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Calling a hash encryption.",
+    "Using a MAC for public verification.",
+    "Claiming signatures hide messages."
+   ]
+  },
+  {
+   "file": "ethical_hacking_pentesting_revision_sheet.html",
+   "title": "Ethical hacking and pen-testing",
+   "purpose": "Conducting security assessments using ethical hacking and pen-testing strategies is an official CT4104 learning outcome.",
+   "refresher": [
+    "Written authorisation, scope, ROE and stop conditions precede testing.",
+    "scanner candidates differ from validated attack paths.",
+    "minimise harm/evidence.",
+    "cue: governance then report/retest."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A university authorises testing of a staging login service only. The tester documents permitted URLs and a rate limit, stops if availability degrades, records evidence of a confirmed access-control issue without accessing unrelated data, and reports impact, remediation and retest criteria. Discovering a production hostname does not expand scope.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "A university authorises a five-day assessment of staging.portal.edu , two test accounts and 20 requests/minute; production, student records and denial-of-service tests are excluded. Draft the safe assessment plan. [9 marks]",
+     "route": "This is governance plus method. Fastest route: quote the boundary, agreed contacts and stop conditions; enumerate and test only listed endpoints at the rate limit; capture minimal redacted evidence; validate findings; report impact, reproduction, remediation and retest criteria. An unlisted production hostname must be reported, not tested, until scope is amended in writing.",
+     "answer": "This is governance plus method. Fastest route: quote the boundary, agreed contacts and stop conditions; enumerate and test only listed endpoints at the rate limit; capture minimal redacted evidence; validate findings; report impact, reproduction, remediation and retest criteria. An unlisted production hostname must be reported, not tested, until scope is amended in writing."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A scanner flags possible SQL injection on production checkout. Explain the next authorised steps and a safe remediation/retest path. [8 marks]",
+     "route": "A scanner alert is a candidate, not a confirmed exploit. Fastest route: notify the named contact; obtain explicit production validation authority or reproduce in staging with a controlled account and non-destructive input; preserve request/response evidence without extracting data. Fix with parameterised queries, server-side validation and least-privilege database credentials; add a regression test and retest the exact route under authority.",
+     "answer": "A scanner alert is a candidate, not a confirmed exploit. Fastest route: notify the named contact; obtain explicit production validation authority or reproduce in staging with a controlled account and non-destructive input; preserve request/response evidence without extracting data. Fix with parameterised queries, server-side validation and least-privilege database credentials; add a regression test and retest the exact route under authority."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Treating discovery as permission.",
+    "Testing production without agreed safeguards.",
+    "Reporting a tool alert as a confirmed finding without validation."
+   ]
+  },
+  {
+   "file": "ipsec_revision_sheet.html",
+   "title": "IPSec",
+   "purpose": "IPSec is named CT4104 scope and is a core example of a cryptographic network protocol.",
+   "refresher": [
+    "SA is one-way with SPI/keys/anti-replay.",
+    "ESP protects confidentiality/integrity, AH header authentication conflicts with NAT.",
+    "transport versus tunnel changes protected bytes."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "Two office gateways use IKE to establish security associations, then ESP tunnel mode wraps traffic across the internet. Outsiders cannot read the protected payload; a compromised office endpoint can still misuse data after decapsulation.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "Two office gateways must protect 10.1.0.0/16-to-10.2.0.0/16 traffic over the Internet and conceal the internal addressing. Specify the IPSec design. [9 marks]",
+     "route": "The topology selects gateway-to-gateway ESP tunnel mode. IKE authenticates peers and negotiates fresh keys and traffic selectors; each direction uses its own SA identified by SPI, keys and anti-replay state. ESP encrypts/authenticates the inner IP packet, while an outer header routes between gateways. Thus observers see gateway addresses, not 10.x endpoints; endpoint compromise remains outside IPSec’s protection.",
+     "answer": "The topology selects gateway-to-gateway ESP tunnel mode. IKE authenticates peers and negotiates fresh keys and traffic selectors; each direction uses its own SA identified by SPI, keys and anti-replay state. ESP encrypts/authenticates the inner IP packet, while an outer header routes between gateways. Thus observers see gateway addresses, not 10.x endpoints; endpoint compromise remains outside IPSec’s protection."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A remote user’s AH transport-mode connection fails when a NAT rewrites its address. Explain the failure and propose a suitable alternative. [8 marks]",
+     "route": "AH integrity covers IP-header fields that NAT changes, so the receiver’s check fails even though neither endpoint intended to tamper. Use ESP, commonly with NAT traversal, and negotiate it through IKE; ESP supplies confidentiality and integrity for the protected traffic while the NAT-compatible encapsulation carries it. Keep rekeying and anti-replay checks.",
+     "answer": "AH integrity covers IP-header fields that NAT changes, so the receiver’s check fails even though neither endpoint intended to tamper. Use ESP, commonly with NAT traversal, and negotiate it through IKE; ESP supplies confidentiality and integrity for the protected traffic while the NAT-compatible encapsulation carries it. Keep rekeying and anti-replay checks."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Confusing tunnel and transport modes.",
+    "Claiming encryption fixes endpoint compromise.",
+    "Omitting key establishment."
+   ]
+  },
+  {
+   "file": "openssl_revision_sheet.html",
+   "title": "OpenSSL",
+   "purpose": "Using and evaluating cryptographic libraries such as OpenSSL is an official CT4104 learning outcome.",
+   "refresher": [
+    "Tool commands require safe parameters and secret handling.",
+    "protect private keys from logs/history/source control.",
+    "distinguish key/CSR/certificate/chain.",
+    "inspect SAN/issuer/EKU."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "For a signed release, protect the signing private key, sign the release digest, distribute the public certificate/key through a trusted channel, and verify the signature before deployment. A command returning success does not prove recipients trust the right key.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "Deploy TLS for api.example.edu . The CA receives a CSR whose common name is correct but whose SAN contains only www.example.edu . Describe the safe issue-and-verify workflow. [9 marks]",
+     "route": "Fastest route: generate a protected private key with restrictive permissions, create a CSR requesting DNS:api.example.edu , obtain authorised issuance, then inspect issuer, validity, key usage/EKU and the SAN. A client verifies the signed chain to a trust anchor and matches the hostname to SAN, so it must reject this certificate for api.example.edu. A CSR is only a request, not trust.",
+     "answer": "Fastest route: generate a protected private key with restrictive permissions, create a CSR requesting DNS:api.example.edu , obtain authorised issuance, then inspect issuer, validity, key usage/EKU and the SAN. A client verifies the signed chain to a trust anchor and matches the hostname to SAN, so it must reject this certificate for api.example.edu. A CSR is only a request, not trust."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A developer proposes password-based openssl enc for nightly database exports. Assess it and give an implementable authenticated design. [8 marks]",
+     "route": "Confidentiality alone is insufficient: modification must be detected and password/nonce/key lifecycle must be defined. Use a reviewed application with OpenSSL’s EVP AEAD API, for example AES-GCM: generate a random data key and unique nonce, encrypt with versioned metadata as associated data, store the authentication tag, and keep the key in protected key management rather than shell history. Decryption verifies the tag before using plaintext.",
+     "answer": "Confidentiality alone is insufficient: modification must be detected and password/nonce/key lifecycle must be defined. Use a reviewed application with OpenSSL’s EVP AEAD API, for example AES-GCM: generate a random data key and unique nonce, encrypt with versioned metadata as associated data, store the authentication tag, and keep the key in protected key management rather than shell history. Decryption verifies the tag before using plaintext."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Publishing private keys.",
+    "Equating command success with secure configuration.",
+    "Using unauthenticated keys/certificates."
+   ]
+  },
+  {
+   "file": "security_foundations_revision_sheet.html",
+   "title": "Security foundations",
+   "purpose": "Confidentiality, integrity and authentication provide the applied-security language for CT4104’s official cryptography and protocol outcomes.",
+   "refresher": [
+    "CIA separates secrecy, tamper detection and availability.",
+    "authentication identifies, authorisation permits.",
+    "threat/vulnerability/control and residual risk differ.",
+    "cue: map property to control."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A records portal needs private, unaltered requests. TLS protects traffic confidentiality and integrity; login authenticates a user; authorisation restricts records. Encryption alone does not decide whether Alice may read Bob’s record.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "A payroll portal lets employees view payslips and contractors upload invoices. A leaked API token exported records and an attacker altered audit events. Map the distinct security properties to controls. [9 marks]",
+     "route": "Separate the failures: confidentiality of payslips needs authenticated sessions, least-privilege authorisation and encrypted transport/storage; integrity needs signed or append-only audit records and input-controlled updates; availability needs backups, rate limits and recovery. Authentication identifies the caller; authorisation decides whether that caller may read a payslip. Rotate/revoke the leaked token, scope replacement tokens and investigate residual exposure.",
+     "answer": "Separate the failures: confidentiality of payslips needs authenticated sessions, least-privilege authorisation and encrypted transport/storage; integrity needs signed or append-only audit records and input-controlled updates; availability needs backups, rate limits and recovery. Authentication identifies the caller; authorisation decides whether that caller may read a payslip. Rotate/revoke the leaked token, scope replacement tokens and investigate residual exposure."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A manager says “we installed a firewall, so the risk is removed.” Use the portal to distinguish asset, threat, vulnerability, control and residual risk. [8 marks]",
+     "route": "The payslip database is an asset; a criminal is a threat actor; an unrotated broadly scoped token is a vulnerability; token rotation and least privilege are controls. Risk combines likelihood and impact, not a synonym for the attacker. A firewall may reduce reachable paths but leaves phishing, credential theft and insider misuse; these are residual risks requiring monitoring and response.",
+     "answer": "The payslip database is an asset; a criminal is a threat actor; an unrotated broadly scoped token is a vulnerability; token rotation and least privilege are controls. Risk combines likelihood and impact, not a synonym for the attacker. A firewall may reduce reachable paths but leaves phishing, credential theft and insider misuse; these are residual risks requiring monitoring and response."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Calling encryption authentication.",
+    "Equating authentication with authorisation.",
+    "Claiming one control removes all risk."
+   ]
+  },
+  {
+   "file": "threat_analysis_revision_sheet.html",
+   "title": "Threat analysis",
+   "purpose": "Threat analysis supports CT4104’s security-assessment outcome by turning an informal system description into prioritised security reasoning.",
+   "refresher": [
+    "Model assets, actors, flows and trust boundaries.",
+    "threat/vulnerability/risk differ.",
+    "STRIDE is a prompt not answer.",
+    "cue: asset→path→impact→control→residual."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A login service stores password hashes and issues sessions. Spoofing risk: credential theft; mitigation: phishing-resistant MFA and rate limits. Information disclosure risk: verbose login errors; mitigation: generic errors and protected logs. These controls reduce rather than guarantee zero risk.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "Threat-model an appointment service: browser → API → database, with the API also emailing booking links. Give two concrete abuse paths and mitigations. [9 marks]",
+     "route": "Draw the trust boundaries first. A spoofed booking-link request can use a stolen token: bind short-lived tokens to an account, use TLS and rate-limit redemption. A malicious appointment note can become stored XSS in the browser: output-encode, validate input and apply a CSP. State the asset (appointments/identity), actor, entry point, impact and residual risk for each. STRIDE prompts such as spoofing/tampering help find paths but are not the answer themselves.",
+     "answer": "Draw the trust boundaries first. A spoofed booking-link request can use a stolen token: bind short-lived tokens to an account, use TLS and rate-limit redemption. A malicious appointment note can become stored XSS in the browser: output-encode, validate input and apply a CSP. State the asset (appointments/identity), actor, entry point, impact and residual risk for each. STRIDE prompts such as spoofing/tampering help find paths but are not the answer themselves."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "“All microservice calls use HTTPS; our threat model is complete.” Challenge this claim for a payments API. [8 marks]",
+     "route": "TLS authenticates/protects a configured channel; it does not decide which service may invoke a refund, validate an amount, protect secrets at rest or prevent a compromised service using valid credentials. Model service identities, authorisation at each boundary, message validation, secret rotation, audit trails and database access. Conclude with residual risks such as a trusted service compromise and monitoring/least privilege to contain it.",
+     "answer": "TLS authenticates/protects a configured channel; it does not decide which service may invoke a refund, validate an amount, protect secrets at rest or prevent a compromised service using valid credentials. Model service identities, authorisation at each boundary, message validation, secret rotation, audit trails and database access. Conclude with residual risks such as a trusted service compromise and monitoring/least privilege to contain it."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Listing controls without assets or threats.",
+    "Calling every risk “high” without rationale.",
+    "Ignoring abuse by authenticated users."
+   ]
+  },
+  {
+   "file": "tls_revision_sheet.html",
+   "title": "TLS",
+   "purpose": "TLS is explicit CT4104 scope and illustrates analysis of cryptographic network protocols.",
+   "refresher": [
+    "TLS negotiates, validates peer, derives traffic keys and protects records.",
+    "certificate checks chain/SAN/validity/status.",
+    "ephemeral agreement gives forward secrecy.",
+    "TLS is not authorisation."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "A browser validates shop.example’s certificate, completes a key exchange, then uses fresh symmetric session keys for encrypted, integrity-protected requests. Skipping hostname validation permits a certificate for another site to mislead the client.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 8,
+     "prompt": "A browser connects to payments.example ; the chain is trusted and current, but the leaf SAN is only api.example . Explain the required result and the handshake checks behind it. [8 marks]",
+     "route": "The browser must reject: hostname identity is a separate certificate check. It validates the chain signatures to a trusted anchor, validity/status policy, permitted key usage and SAN match, then negotiates an authenticated TLS connection and derives traffic keys. A trusted CA signature says the issuer signed the certificate, not that it names the requested host.",
+     "answer": "The browser must reject: hostname identity is a separate certificate check. It validates the chain signatures to a trusted anchor, validity/status policy, permitted key usage and SAN match, then negotiates an authenticated TLS connection and derives traffic keys. A trusted CA signature says the issuer signed the certificate, not that it names the requested host."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 9,
+     "prompt": "TLS terminates at a load balancer, then clear HTTP crosses a shared backend network. Assess the design and improve it. [9 marks]",
+     "route": "TLS protects only to the termination point. Between load balancer and backend, credentials and requests can be read or changed by a network attacker. Re-encrypt with authenticated TLS/mTLS on the backend hop, restrict network paths, validate forwarded identity headers only from the trusted proxy, and apply application-level authorisation. Forward secrecy protects past traffic if ephemeral session keys are later lost, but does not authorise an admin endpoint.",
+     "answer": "TLS protects only to the termination point. Between load balancer and backend, credentials and requests can be read or changed by a network attacker. Re-encrypt with authenticated TLS/mTLS on the backend hop, restrict network paths, validate forwarded identity headers only from the trusted proxy, and apply application-level authorisation. Forward secrecy protects past traffic if ephemeral session keys are later lost, but does not authorise an admin endpoint."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Saying TLS encrypts without authenticating.",
+    "Ignoring certificate validation.",
+    "Using “TLS” as a substitute for application authorisation."
+   ]
+  },
+  {
+   "file": "x509_revision_sheet.html",
+   "title": "X.509 certificates",
+   "purpose": "X.509 is explicitly named in CT4104 and supplies the identity-to-public-key binding used by TLS-style systems.",
+   "refresher": [
+    "Certificate binds SAN/subject and key via issuer signature.",
+    "path/key constraints/validity/status/hostname all matter.",
+    "CSR is request, not trust.",
+    "cue: leaf-to-root route."
+   ],
+   "practice": [
+    {
+     "title": "Worked examples and method extensions",
+     "marks": 0,
+     "prompt": "For bank.example, a browser verifies a current leaf certificate, its chain and signatures, and that the SAN matches bank.example. A valid certificate for evil.example remains unacceptable.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice question 1 [medium/hard]",
+     "marks": 9,
+     "prompt": "Validate a leaf for api.example : leaf L is signed by intermediate I, I by root R; L is valid today and has DNS:api.example . State every path decision before accepting it. [9 marks]",
+     "route": "Build L→I→R to a locally trusted root, verify each signature, check validity intervals, basic/path-length and key-usage constraints, leaf EKU for server authentication, hostname SAN and applicable revocation/status policy. Acceptance follows only if every check succeeds; the public key alone is not identity.",
+     "answer": "Build L→I→R to a locally trusted root, verify each signature, check validity intervals, basic/path-length and key-usage constraints, leaf EKU for server authentication, hostname SAN and applicable revocation/status policy. Acceptance follows only if every check succeeds; the public key alone is not identity."
+    },
+    {
+     "title": "Practice question 2 [medium/hard]",
+     "marks": 8,
+     "prompt": "A team proposes permanently pinning today’s leaf certificate in its mobile app. Evaluate the proposal. [8 marks]",
+     "route": "Pinning can reduce reliance on a misissued publicly trusted certificate, but a permanent leaf pin makes routine renewal, key rotation and incident recovery an outage unless the app is updated. If pinning is justified, plan backup pins for future keys/intermediates, protected update channels, expiry/rollover tests and emergency revocation. Normal PKI hostname/path validation remains necessary.",
+     "answer": "Pinning can reduce reliance on a misissued publicly trusted certificate, but a permanent leaf pin makes routine renewal, key rotation and incident recovery an outage unless the app is updated. If pinning is justified, plan backup pins for future keys/intermediates, protected update channels, expiry/rollover tests and emergency revocation. Normal PKI hostname/path validation remains necessary."
+    },
+    {
+     "title": "Practice-source basis",
+     "marks": 0,
+     "prompt": "No local CT4104 past-paper PDFs are available. These are syllabus-based, medium/hard practice scenarios; they are not claimed as wording from a named paper.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Practice-source note",
+     "marks": 0,
+     "prompt": "CT4104 has no local past-paper PDFs: both added questions are syllabus-based exam practice, not claimed as past-paper wording or years.",
+     "route": "",
+     "answer": ""
+    }
+   ],
+   "mistakes": [
+    "Checking only that a certificate exists.",
+    "Ignoring hostname or expiry.",
+    "Calling the CA signature traffic encryption."
+   ]
+  }
+ ]
+}
