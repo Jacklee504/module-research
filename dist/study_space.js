@@ -505,6 +505,7 @@
     }
 
     document.addEventListener('keydown', event => {
+      if (panel.closest('details') && (!panel.closest('details').open || !panel.contains(document.activeElement))) return;
       if (event.target.matches(TEXT_FIELD)) return;
       if (event.metaKey || event.ctrlKey || event.altKey) return;
       if (event.key === ' ') {
@@ -650,6 +651,331 @@
     if (panel && panel.update) panel.update();
   }
 
+  const PAPER_MODULES = new Set(['CT417', 'CT4100', 'CT4101', 'CT561']);
+  const FOCUSED_MODULES = new Set([...PAPER_MODULES, 'CT4111']);
+
+  function outcomeQuestions(data) {
+    const prompts = data.sheets?.flatMap(sheet => sheet.practice || []) || [];
+    const answers = {
+      'capabilities-limitations-and-failure-modes': 'Requirements: draft questions, then confirm stakeholder intent. Design: compare architecture options, then verify constraints and quality attributes. Implementation: suggest code, then inspect APIs and run tests. Testing: propose edge cases, then check assertions and coverage of requirements. Maintenance: summarise a legacy module, then verify claims against the real code and logs. At every stage the engineer remains accountable.',
+      'genai-across-the-software-development-lifecycle': 'Start with the stakeholder request and ask AI to list ambiguities, users and booking rules. Confirm answers with stakeholders; do not invent policies. Draft functional requirements such as conflict prevention, cancellation and permissions, each with an observable acceptance test. Draft non-functional constraints such as accessibility, availability and privacy with measurable thresholds. Review for missing cases, trace each item to a stakeholder need, and approve the final set before design.',
+      'quality-readability-testability-and-maintainability': 'Ask whether the method has one responsibility, clear names and understandable control flow. Check it against requirements and boundary/invalid cases, not just the existing tests. Identify hidden dependencies, tight coupling and duplicated logic. Check failures, logging and security. Break it into testable units where appropriate, add focused tests and review the diff with a maintainer before acceptance.',
+      'version-control-experimentation-and-review': 'Create a short-lived branch and capture the migration’s intended schema/data change. Test with representative non-production data, including failure and rollback paths. Review the generated SQL or code for data loss, locks and compatibility; seek human approval. Deploy with a backup and staged rollout, verify the result, and document the exact rollback or forward-fix procedure. Never assume reverting code reverses a schema migration.',
+      'evaluating-ai-assisted-workflows': 'Quantitative: time to add tests, defect escape rate, meaningful branch coverage and review/rework time. Qualitative: developer confidence, maintainability, clarity of generated tests and reviewer trust (choose three). Compare similar tasks with a baseline, control for task difficulty and examine false positives or flaky tests. Lines of code measure volume, not correctness, useful coverage or saved effort.',
+      'ethical-legal-security-and-professional-risks': 'The public prompt may disclose personal data, confidential business information or credentials and could breach policy, contract or privacy law. It may also persist in a provider’s logs. Stop sharing, follow incident/reporting procedure and assess exposure. Redact/minimise data, use approved private tools or a synthetic reproduction, and have a human review any suggested fix against the real system.',
+      'teamwork-communication-and-trade-offs': 'Record the context: acceptance tests are needed but LLM output may omit requirements. Alternatives: manual only, AI draft with review, or unrestricted generation. Criteria: correctness, traceability, time, maintainability and data safety. Choose AI-assisted drafting only with approved inputs, requirement-to-test mapping, human review and execution against the real product. Assign an owner and set a date to review defects and effort.',
+    };
+    return data.families.map(family => {
+      const related = prompts.find(item => item.title?.startsWith(`${family.title} ·`));
+      return {
+        id: family.id,
+        title: family.title,
+        family: 'Official learning outcome',
+        parts: [{
+          label: 'Question',
+          prompt: related?.prompt || family.question,
+          answer: answers[family.id] || family.answer,
+        }],
+      };
+    });
+  }
+
+  function focusKey(question, part) {
+    return `${question.id}:${part.label}`;
+  }
+
+  // Curated by paper part. Indices refer to the existing module deck in display order.
+  const RELATED_CARDS = {
+    CT417: {
+      '2025-q1': [[5, 39, 40], [2, 3, 1], [4, 1], [6, {
+        front: 'Which Git commands finish a conflict resolution?',
+        back: 'Use git status to find unmerged paths, edit and test the files, then git add <file>. Finish with git commit for a merge or git rebase --continue for a rebase. Check git status again.',
+      }]],
+      '2025-q2': [[7, 8], [12], [11], [9, 10]],
+      '2025-q3': [[13], [13, 14], [13, 14], [15, 16, 17], [18, 19]],
+      '2025-q4': [[20], [21, 25], [22, 23, 24]],
+    },
+    CT4100: {
+      '2025-q1': [[0, 1, 2], [3], [17, 18, 19], [2, 4, 5], [7, 8], [20, 21, 28], [22, 25, 30], [14, 15, 16]],
+      '2025-q2': [[31, 32, 35], [36, 38, 40]],
+      '2025-q3': [[23, 24, 25], [54, 55, 56]],
+      '2025-q4': [[57, 59, 61], [58, 60]],
+    },
+    CT4101: {
+      '2023-q1': [[0, 1, 2, 3], [4, 5, 6], [15, 22, 23, 24]],
+      '2023-q2': [[8, 9], [10, 11, 70], [13, 14], [63, 65, 67, 68]],
+      '2023-q3': [[27, 28, 29], [35, 36, 33], [42, 78, 79, 80], [17, 20, 21], [26]],
+      '2023-q4': [[37, 38, 75, 76], [75, 76], [44, 81], [47, 48, 49], [50, 51]],
+    },
+    CT561: {
+      '2025-q1': [[0, 1, 2], [4, 5, 6], [4, 6]],
+      '2025-q2': [[14, 15, 16], [22, 23, 26, 27], [26, 27]],
+      '2025-q3': [[7, 10, 11, 12], [8, 11, 12, 13]],
+      '2025-q4': [[15, 17], [18, 19, 20], [21, 17]],
+      '2024-q1': [[7, 8, 9], [10, 11, 12], [8, 11, 12, 13]],
+    },
+    CT4111: {
+      'capabilities-limitations-and-failure-modes': [[0, 1, 2]],
+      'genai-across-the-software-development-lifecycle': [[3, 4, 5, 21]],
+      'quality-readability-testability-and-maintainability': [[6, 7, 8, 24]],
+      'version-control-experimentation-and-review': [[9, 10, 11, 23]],
+      'evaluating-ai-assisted-workflows': [[12, 13, 14]],
+      'ethical-legal-security-and-professional-risks': [[15, 16, 17]],
+      'teamwork-communication-and-trade-offs': [[18, 19, 20, 22]],
+    },
+  };
+
+  function focusedCards(data, question, part, partIndex) {
+    const all = (data.decks || []).flatMap(deck => deck.cards.map(card => ({ ...card, file: deck.file })));
+    const requested = part.cards || RELATED_CARDS[moduleCode]?.[question.id]?.[partIndex] || [];
+    return requested.map((entry, index) => {
+      if (typeof entry === 'object') return { ...entry, id: `lecturer:${question.id}:${part.label}:${index}` };
+      const flatIndex = typeof entry === 'string'
+        ? (data.decks || []).slice(0, Number(entry.split(':')[0])).reduce((sum, deck) => sum + deck.cards.length, 0) + Number(entry.split(':')[1])
+        : entry;
+      const card = all[flatIndex];
+      return card ? { ...card, id: `${card.file}#${flatIndex}` } : null;
+    }).filter(Boolean);
+  }
+
+  function buildFocusedCards(cards) {
+    if (!cards.length) return null;
+    const panel = make('aside', 'study-related-cards');
+    panel.append(make('h4', null, `${cards.length} relevant ${cards.length === 1 ? 'card' : 'cards'}`));
+    const counter = make('p', 'study-related-count');
+    const front = make('p', 'study-related-front');
+    const back = make('p', 'study-related-back');
+    back.hidden = true;
+    const status = make('p', 'study-related-status');
+    const controls = make('div', 'study-related-controls');
+    const reveal = make('button', 'study-tool-button study-tool-primary', 'Reveal card');
+    const next = make('button', 'study-tool-button', 'Next card');
+    next.hidden = cards.length === 1;
+    const weak = make('button', 'study-tool-button study-tool-weak', 'Needs work');
+    const ready = make('button', 'study-tool-button study-tool-ready', 'Got it');
+    for (const button of [reveal, next, weak, ready]) button.type = 'button';
+    controls.append(reveal, next, weak, ready);
+    panel.append(counter, front, back, controls, status);
+    let position = 0;
+    function render() {
+      const card = cards[position];
+      counter.textContent = `Card ${position + 1} of ${cards.length}`;
+      front.textContent = card.front;
+      back.textContent = card.back;
+      back.hidden = true;
+      reveal.textContent = 'Reveal card';
+      const rating = state.cards[card.id];
+      status.textContent = rating === 'weak' ? 'Needs work' : rating === 'ready' ? 'Confident' : '';
+      weak.setAttribute('aria-pressed', String(rating === 'weak'));
+      ready.setAttribute('aria-pressed', String(rating === 'ready'));
+    }
+    reveal.addEventListener('click', () => {
+      back.hidden = !back.hidden;
+      reveal.textContent = back.hidden ? 'Reveal card' : 'Hide card answer';
+    });
+    next.addEventListener('click', () => {
+      position = (position + 1) % cards.length;
+      render();
+    });
+    for (const [button, value] of [[weak, 'weak'], [ready, 'ready']]) {
+      button.addEventListener('click', () => {
+        const id = cards[position].id;
+        if (state.cards[id] === value) delete state.cards[id];
+        else state.cards[id] = value;
+        store.write(state);
+        render();
+      });
+    }
+    render();
+    return panel;
+  }
+
+  function buildFocusedSpace(data, questions) {
+    state.focus ||= {};
+    state.drafts ||= {};
+    const paperMode = PAPER_MODULES.has(moduleCode);
+    const section = make('section', 'study-focused');
+    section.id = 'lecture-heading';
+    section.setAttribute('aria-labelledby', 'focus-heading');
+    const intro = make('div', 'study-focused-intro');
+    intro.append(make('p', 'study-label', paperMode ? 'Past-paper practice' : 'Outcome-based practice · no past papers'));
+    const heading = make('h2', null, paperMode ? 'Learn one exam question at a time' : 'Learn one outcome at a time');
+    heading.id = 'focus-heading';
+    intro.append(heading);
+    intro.append(make('p', null, 'Choose a question. Write an answer, use the matching cards if helpful, then reveal and self-check.'));
+    section.append(intro);
+
+    const layout = make('div', 'study-focused-layout');
+    const chooser = make('nav', 'study-question-picker');
+    chooser.setAttribute('aria-label', paperMode ? 'Past-paper questions' : 'Learning outcomes');
+    let previousKind = null;
+    const buttons = questions.map(question => {
+      const kind = question.kind === 'lecturer' ? 'Lecturer focus' : paperMode ? 'Past papers' : 'Learning outcomes';
+      if (kind !== previousKind) chooser.append(make('p', 'study-picker-group', kind));
+      previousKind = kind;
+      const button = make('button', 'study-question-choice');
+      button.type = 'button';
+      button.append(make('strong', null, question.title));
+      button.append(make('span', null, question.family));
+      chooser.append(button);
+      return button;
+    });
+    layout.append(chooser);
+    const work = make('article', 'study-question-work');
+    work.id = 'practice-heading';
+    work.setAttribute('aria-live', 'off');
+    layout.append(work);
+    section.append(layout);
+
+    function ratingCounts(question) {
+      return question.parts.reduce((counts, part) => {
+        const rating = state.focus[focusKey(question, part)];
+        if (rating === 'strong') counts.strong += 1;
+        if (rating === 'retry') counts.retry += 1;
+        return counts;
+      }, { strong: 0, retry: 0 });
+    }
+
+    function updatePicker() {
+      buttons.forEach((button, index) => {
+        const counts = ratingCounts(questions[index]);
+        const label = button.querySelector('span');
+        label.textContent = `${questions[index].family} · ${counts.strong}/${questions[index].parts.length} confident${counts.retry ? ` · ${counts.retry} to revisit` : ''}`;
+        button.setAttribute('aria-current', questions[index].id === state.focusQuestion ? 'true' : 'false');
+      });
+    }
+
+    function renderQuestion(question) {
+      if (!question) return;
+      state.focusQuestion = question.id;
+      store.write(state);
+      const url = new URL(window.location.href);
+      url.searchParams.set('question', question.id);
+      window.history.replaceState(null, '', url);
+      work.replaceChildren();
+      const top = make('div', 'study-question-top');
+      top.append(make('p', 'study-label', question.family));
+      top.append(make('h3', null, question.title));
+      if (paperMode && question.kind !== 'lecturer') {
+        const marks = question.parts.reduce((sum, part) => sum + part.marks, 0);
+        top.append(make('span', 'study-badge', `${marks} marks · ${question.parts.length} parts`));
+        const source = make('a', 'study-paper-link', `Open original paper, page ${question.page} ↗`);
+        source.href = `${question.paper}#page=${question.page}`;
+        source.target = '_blank';
+        source.rel = 'noopener noreferrer';
+        top.append(source);
+      }
+      if (question.kind === 'lecturer') {
+        top.append(make('span', 'study-badge', 'Lecturer focus · practice question'));
+        if (question.source_note) top.append(make('p', 'study-source-note', question.source_note));
+      }
+      work.append(top);
+      if (question.context) work.append(make('p', 'study-question-context', question.context));
+      const list = make('ol', 'study-focused-parts');
+      question.parts.forEach((part, partIndex) => {
+        const key = focusKey(question, part);
+        const item = make('li', 'study-focused-part');
+        const partHead = make('div', 'study-focused-part-head');
+        partHead.append(make('strong', null, part.label));
+        if (part.marks) partHead.append(make('span', 'study-marks', `${part.marks} marks`));
+        item.append(partHead);
+        item.append(make('p', 'study-focused-prompt', part.prompt));
+
+        const workspace = make('div', 'study-part-workspace');
+        const editor = make('div', 'study-focused-editor');
+        const label = make('label', null, 'Write your answer');
+        const textarea = make('textarea');
+        textarea.rows = 5;
+        textarea.value = state.drafts[key] || '';
+        label.append(textarea);
+        editor.append(label);
+        workspace.append(editor);
+        textarea.addEventListener('input', () => {
+          state.drafts[key] = textarea.value;
+          store.write(state);
+        });
+
+        const related = buildFocusedCards(focusedCards(data, question, part, partIndex));
+        if (related) workspace.append(related);
+        const answer = make('details', 'study-focused-answer');
+        answer.append(make('summary', null, paperMode && question.kind !== 'lecturer' ? 'Reveal answer / self-check' : 'Reveal answer checklist'));
+        answer.append(make('p', null, part.answer));
+        workspace.append(answer);
+
+        const actions = make('div', 'study-focused-rating');
+        actions.hidden = true;
+        const retry = make('button', 'study-tool-button study-tool-weak', 'Needs work');
+        const strong = make('button', 'study-tool-button study-tool-ready', 'I could answer this');
+        retry.type = strong.type = 'button';
+        const status = make('span', 'study-focused-status');
+        status.setAttribute('aria-live', 'polite');
+        function refreshRating() {
+          const value = state.focus[key];
+          retry.setAttribute('aria-pressed', String(value === 'retry'));
+          strong.setAttribute('aria-pressed', String(value === 'strong'));
+          status.textContent = value === 'retry' ? 'To revisit' : value === 'strong' ? 'Confident' : 'Not rated';
+        }
+        for (const [button, value] of [[retry, 'retry'], [strong, 'strong']]) {
+          button.addEventListener('click', () => {
+            state.focus[key] = value;
+            store.write(state);
+            refreshRating();
+            updatePicker();
+          });
+        }
+        actions.append(retry, strong, status);
+        workspace.append(actions);
+        answer.addEventListener('toggle', () => { actions.hidden = !answer.open; });
+        refreshRating();
+        item.append(workspace);
+        list.append(item);
+      });
+      work.append(list);
+      const index = questions.findIndex(item => item.id === question.id);
+      if (index < questions.length - 1) {
+        const next = make('button', 'study-tool-button study-tool-primary study-next-question', 'Next question →');
+        next.type = 'button';
+        next.addEventListener('click', () => {
+          renderQuestion(questions[index + 1]);
+          work.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        work.append(next);
+      }
+      updatePicker();
+    }
+
+    buttons.forEach((button, index) => button.addEventListener('click', () => {
+      renderQuestion(questions[index]);
+      work.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }));
+    const requested = new URLSearchParams(window.location.search).get('question');
+    const first = questions.find(item => item.id === requested)
+      || questions.find(item => item.id === state.focusQuestion)
+      || questions.find(item => ratingCounts(item).strong < item.parts.length)
+      || questions[0];
+    renderQuestion(first);
+
+    shell.append(section);
+    const deckRequested = window.location.hash === '#flashcards' || new URLSearchParams(window.location.search).has('cards');
+    if (deckRequested) {
+      const cards = make('details', 'study-focus-extra');
+      cards.id = 'flashcards';
+      cards.append(make('summary', null, `Full module deck · ${countCards(data)} cards`));
+      const drill = buildCardDrill(data);
+      drill.id = 'flashcards-drill';
+      cards.append(drill);
+      cards.open = true;
+      shell.append(cards);
+    } else {
+      const deckUrl = new URL(window.location.href);
+      deckUrl.searchParams.set('cards', 'all');
+      deckUrl.hash = 'flashcards';
+      const link = make('a', 'study-full-deck-link', `All module cards (${countCards(data)})`);
+      link.href = deckUrl;
+      chooser.append(link);
+    }
+  }
+
   async function load() {
     let data;
     try {
@@ -667,7 +993,31 @@
     const heading = shell.parentElement.querySelector('h1');
     if (heading) heading.textContent = data.name || code;
     const eyebrow = shell.parentElement.querySelector('.eyebrow');
-    if (eyebrow) eyebrow.textContent = `${code} · Exam Study Space`;
+    if (eyebrow) eyebrow.textContent = `${code} · ${code === 'CT4111' ? 'Outcome Study' : 'Exam Study Space'}`;
+
+    if (FOCUSED_MODULES.has(code)) {
+      let questions = outcomeQuestions(data);
+      if (PAPER_MODULES.has(code)) {
+        try {
+          const response = await fetch('../study_data/paper_questions.json');
+          if (!response.ok) throw new Error('missing paper questions');
+          questions = (await response.json())[code] || [];
+        } catch (_) {
+          shell.append(make('p', 'study-empty', 'Past-paper questions could not load. Open the original papers from module details.'));
+          return;
+        }
+      }
+      try {
+        const response = await fetch('../study_data/lecturer_focus.json');
+        if (response.ok) {
+          const lecturerQuestions = (await response.json())[code] || [];
+          questions = questions.concat(lecturerQuestions.map(question => ({ ...question, kind: 'lecturer' })));
+        }
+      } catch (_) { /* Past-paper and outcome practice still work. */ }
+      buildFocusedSpace(data, questions);
+      if (window.location.hash) requestAnimationFrame(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView());
+      return;
+    }
 
     const progress = buildProgressPanel();
     shell.append(buildExamBriefing(data));
