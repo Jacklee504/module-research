@@ -1,0 +1,233 @@
+{
+  "CT417": [
+    {
+      "id": "2025-q1",
+      "title": "2025/26 · Q1 · CI/CD and Git",
+      "family": "CI/CD, GitHub Actions and Git workflows",
+      "paper": "2025_2026.pdf",
+      "page": 2,
+      "context": "Use the SkyBankAI scenario and Docker error log on pages 2–3 of the paper.",
+      "parts": [
+        {"label": "(a)", "marks": 5, "prompt": "During a recent deployment SkyBankAI’s GitHub Actions workflow failed at the deployment stage. Using only git and basic docker commands, show how you would (1) diagnose the issue, (2) identify the cause, and (3) rectify and redeploy.", "answer": "The log says ghcr.io/skybankai/app:latest has no manifest, so the requested image/tag was not published. Check the workflow and recent commit with git status/log, then inspect local images and pull the expected tag with docker images and docker pull. Compare image name and tag used by the build/push and deployment steps. Build or tag the correct image, docker push ghcr.io/skybankai/app:latest, verify docker pull succeeds, then rerun deployment. Do not assume an application-code bug from a missing registry tag."},
+        {"label": "(b)", "marks": 5, "prompt": "Design a simplified CI/CD pipeline using GitHub Actions for one of SkyBankAI’s microservices built with Node.js. The pipeline must run tests on pull requests, build and push a Docker image after merging into main, and deploy to a staging server. List and explain the key steps in the pipeline.", "answer": "On pull requests: checkout, set up Node, install dependencies reproducibly, lint/test and report failure before merge. On a merge/push to main: repeat checks, build a versioned Docker image, authenticate to the registry, push it, and deploy that exact tag to staging. Run a staging smoke check. Keep registry and server credentials in secrets; do not deploy untested pull requests."},
+        {"label": "(c)", "marks": 5, "prompt": "A junior developer creates a pipeline where tests only run on the main branch, every commit to main triggers a direct deployment to production, and there is no rollback strategy. Identify the risks in this design and propose improvements.", "answer": "Tests only on main catch faults after merge; run checks on pull requests and protect the branch. Direct production deployment increases blast radius; deploy to staging, run smoke/security checks, and use approval or progressive rollout. Without rollback a failed release persists; retain a known-good version and provide an automated revert/redeploy path."},
+        {"label": "(d)", "marks": 5, "prompt": "Explain how merge conflicts typically arise in collaborative GitHub workflows, and describe a clear, practical process to prevent and resolve them.", "answer": "Conflicts arise when branches edit the same lines or incompatible nearby changes. Keep branches small and short-lived, sync from main regularly, communicate shared-file edits and use pull-request checks. To resolve: fetch latest main, merge or rebase it into the feature branch, inspect conflict markers, combine the intended behaviour, stage the resolved files, finish the merge/rebase, rerun tests and update the pull request."}
+      ]
+    },
+    {
+      "id": "2025-q2",
+      "title": "2025/26 · Q2 · Testing and security tools",
+      "family": "SAST, DAST, SonarQube, ZAP and coverage",
+      "paper": "2025_2026.pdf",
+      "page": 4,
+      "parts": [
+        {"label": "(a)", "marks": 5, "prompt": "Explain the key differences between Static Application Security Testing (SAST) and Dynamic Application Security Testing (DAST) by comparing when they are applied in the software lifecycle, what types of vulnerabilities they are suited to detect, whether they require access to source code, and a tool example for each.", "answer": "SAST inspects source or bytecode without running the application, usually early in development or CI; it can flag insecure code paths and data-flow issues and generally needs code access. Example: SonarQube or Semgrep. DAST probes a running application, usually in staging; it finds externally observable issues such as injection or misconfiguration and does not need source. Example: OWASP ZAP. Neither replaces the other."},
+        {"label": "(b)", "marks": 5, "prompt": "SkyBankAI has integrated OWASP ZAP into its pipeline, but the pipeline fails frequently, and no meaningful reports are generated. Identify two likely technical causes for these failures and propose a practical resolution for each.", "answer": "First, the target application may not be up or reachable from the ZAP runner: start it, wait for a health check and verify the URL/network. Second, the report path or permissions may be wrong, or the scan container may exit before artifacts are copied: write reports to a mounted path and upload artifacts even when findings make the scan fail. Also set realistic timeouts and check authentication if protected routes are expected."},
+        {"label": "(c)", "marks": 5, "prompt": "SonarQube static analysis is slowing down the CI/CD feedback loop. Propose two changes to improve performance and explain the effect and trade-offs of each without reducing scan quality.", "answer": "Use pull-request/new-code analysis for fast feedback while keeping a full main-branch scan; PR feedback is faster but does not alone assess legacy code. Cache dependencies and scanner artifacts or run independent jobs in parallel; this saves repeated work but needs cache invalidation and sufficient runner capacity. Exclude generated or vendored files only, not real production source."},
+        {"label": "(d)", "marks": 5, "prompt": "Explain how a coverage tool (e.g., JaCoCo, Istanbul, or Coverage.py) can be used to identify low-coverage areas, and describe one strategy to increase coverage efficiently without slowing down the pipeline.", "answer": "Instrument the payment-module tests, run them in CI, and inspect line/branch reports to locate unexecuted business rules. Add focused unit tests for high-risk branches and boundary/error cases rather than broad slow end-to-end tests. Keep fast tests in PR checks and schedule slower integration suites separately. Coverage measures execution, not correctness of assertions."}
+      ]
+    },
+    {
+      "id": "2025-q3",
+      "title": "2025/26 · Q3 · Vulnerabilities and metrics",
+      "family": "Vulnerabilities, zero-days, metrics and buffer overflow",
+      "paper": "2025_2026.pdf",
+      "page": 5,
+      "context": "Use the three-incident table on page 5 for part (d).",
+      "parts": [
+        {"label": "(a)", "marks": 1, "prompt": "Define the meaning of “vulnerability”.", "answer": "A weakness in a system, design or implementation that an attacker can exploit to compromise a security property."},
+        {"label": "(b)", "marks": 1, "prompt": "Define the meaning of “countermeasures”.", "answer": "Controls that prevent, detect or reduce the likelihood or impact of exploitation."},
+        {"label": "(c)", "marks": 2, "prompt": "What is zero-day vulnerability?", "answer": "A vulnerability unknown to the vendor or without an available patch when attackers can exploit it. The defender has had zero days to prepare a fix."},
+        {"label": "(d)", "marks": 10, "prompt": "Using the data above, calculate the average MTBF assuming MTBF = MTTD + MTTR for each incident [4]. Identify which incident demonstrates the best operational performance and explain why [2]. Recommend two practical improvements to reduce MTTD or MTTR [4].", "answer": "Use the paper’s stated simplifying assumption: incident values are 4 + 2 = 6 h; 0.5 + 1 = 1.5 h; 6 + 4 = 10 h. Average = (6 + 1.5 + 10) ÷ 3 ≈ 5.83 h. Incident 2 is best: lowest detection, recovery and total downtime. For MTTD, add automated alerting/correlation; for MTTR, use tested rollback and incident runbooks or automated redeployment. Note that this paper-specific formula differs from the usual reliability definition of MTBF."},
+        {"label": "(e)", "marks": 6, "prompt": "Define and explain the concept of a “buffer overflow” and how this vulnerability can be exploited by attackers. Discuss TWO countermeasures that can be implemented to address the issue.", "answer": "A write beyond a fixed buffer’s bounds can overwrite adjacent data or control information, causing a crash or altered execution. Attackers may craft input to corrupt a return address or other control value. Two countermeasures: bounds-checked/memory-safe APIs or languages prevent unsafe writes; stack canaries and ASLR/DEP make exploitation harder. Explain how each chosen control works, not just its name."}
+      ]
+    },
+    {
+      "id": "2025-q4",
+      "title": "2025/26 · Q4 · Refactoring and patterns",
+      "family": "Refactoring, polymorphism and factory pattern",
+      "paper": "2025_2026.pdf",
+      "page": 7,
+      "context": "Read the SkyBankAI controller code and scenario on pages 7–8 before part (c).",
+      "parts": [
+        {"label": "(a)", "marks": 4, "prompt": "Why is refactoring important for improving code reusability?", "answer": "Refactoring changes internal structure without changing behaviour. Remove duplicate role logic, separate responsibilities and depend on stable abstractions; the same logic can then serve new roles or workflows without copied code. Keep tests to prove behaviour remains unchanged."},
+        {"label": "(b)", "marks": 6, "prompt": "Based on the scenario, identify two concrete design problems. For each, describe the specific problem, name the appropriate design pattern, and explain how it improves extensibility, maintainability, or modularity [3 marks each].", "answer": "Example 1: role conditionals duplicate authentication/account creation; use polymorphism plus Factory so role-specific behaviour lives in subclasses and creation is centralised. Example 2: payment-method conditionals; use Strategy so a new payment algorithm can be plugged in without modifying the controller. Alternatively hardcoded notification APIs can use Adapter to isolate provider differences. Give problem, pattern and benefit for each."},
+        {"label": "(c)", "marks": 10, "prompt": "Refactor the role-based UserController design using an abstract User class or interface [2], role-specific Customer and Manager subclasses [4], and a UserFactory to handle user instantiation [4].", "answer": "Separate behaviour from role selection. A compact pseudocode shape is:\ninterface User { authenticate(username, password); createAccount(username, password, extraInfo); }\nclass Customer implements User { customer-specific methods }\nclass Manager implements User { manager-specific methods }\nclass UserFactory { create(role) → Customer or Manager; reject unsupported roles }\nUserController: user = factory.create(role); user.authenticate(...) or user.createAccount(...).\nThe controller now depends on User rather than hardcoded role branches; add a role by implementing User and updating the factory’s creation mapping."}
+      ]
+    }
+  ],
+  "CT4100": [
+    {
+      "id": "2025-q1",
+      "title": "2025/26 · Q1 · Compulsory concepts",
+      "family": "Vector models, evaluation, weighting and feedback",
+      "paper": "2025_2026.pdf",
+      "page": 2,
+      "context": "This was the compulsory 40-mark question. Each part was worth 5 marks.",
+      "parts": [
+        {"label": "(a)", "marks": 5, "prompt": "Describe the vector space model and explain how similarity is defined between a document and a query using the vector space model.", "answer": "Represent documents and queries as weighted vectors in the same term space. Compare their orientation with cosine similarity: dot product divided by the product of vector lengths. Higher cosine means closer term-weight patterns. Mention tf-idf or another weighting and length normalisation."},
+        {"label": "(b)", "marks": 5, "prompt": "What is meant by the term independence assumption? Explain how this assumption may impact the performance of IR systems and suggest a means to overcome the assumption.", "answer": "The model treats term contributions as independent and ignores relations such as synonymy, phrase meaning and context. This can miss relevant documents or mis-rank ambiguous terms. Add phrases, query expansion, embeddings or a contextual model, and evaluate the trade-off with extra complexity."},
+        {"label": "(c)", "marks": 5, "prompt": "Suggest an approach to measure the diversity of the top-k documents returned, in addition to precision and recall.", "answer": "Measure coverage of distinct intents/subtopics in the top k, or compute average pairwise dissimilarity among their representations. State which diversity notion you use and why a set of near-duplicates scores poorly. A diversity measure complements, not replaces, relevance."},
+        {"label": "(d)", "marks": 5, "prompt": "Explain why two identical documents concatenated together would have a higher similarity score than the original document when using basic tf-idf term weighting without normalisation. What problem does this highlight, and how do modern weighting schemes address it?", "answer": "Concatenation doubles term frequencies, increasing an unnormalised dot-product score without adding new information. This exposes document-length bias. Cosine normalisation or BM25 length normalisation reduces the advantage; BM25 also saturates repeated term frequency."},
+        {"label": "(e)", "marks": 5, "prompt": "Explain the main components of the BM25 weighting scheme. What role do the two tuning parameters play?", "answer": "BM25 combines IDF (rarer query terms matter more), term frequency with saturation, and document-length normalisation. k₁ controls how quickly frequency saturates; b controls how strongly length is corrected, from none at b = 0 toward full normalisation at b = 1. Scores sum query-term contributions."},
+        {"label": "(f)", "marks": 5, "prompt": "The Rocchio method for relevance feedback relies on binary relevance feedback. Suggest how one could augment the approach to allow a range of weights in feedback?", "answer": "Give each judged document a graded relevance weight and use weighted centroids rather than equal binary contributions. Move the query toward the weighted relevant centroid and away from weighted non-relevant evidence. Normalise weights, retain the original query term and guard against query drift."},
+        {"label": "(g)", "marks": 5, "prompt": "Under what circumstances might the assumption that relevant documents cluster together in term-vector space fail, and how would this affect feedback techniques?", "answer": "A query may have multiple intents or relevant documents may use different vocabularies. Then relevant vectors form separated clusters and a single centroid may land between them, adding misleading terms. Feedback can cause query drift or suppress one intent; diversify selected documents or use intent-specific feedback."},
+        {"label": "(h)", "marks": 5, "prompt": "Explain what is meant by Mean Average Precision (MAP). What are the benefits and limitations of using MAP as an evaluation metric?", "answer": "Average Precision averages precision at ranks containing relevant results; MAP averages AP across queries. It rewards retrieving relevant items early and summarises ranking quality over a query set. It relies on relevance judgements, usually binary, and does not directly capture diversity, graded gain or user satisfaction."}
+      ]
+    },
+    {
+      "id": "2025-q2",
+      "title": "2025/26 · Q2 · Difficulty and recommendations",
+      "family": "Query difficulty and collaborative filtering",
+      "paper": "2025_2026.pdf",
+      "page": 3,
+      "parts": [
+        {"label": "(a)", "marks": 10, "prompt": "Query performance prediction aims to estimate retrieval effectiveness before examining relevance judgments by predicting query difficulty. Describe methods, with examples, for predicting query difficulty based on (i) query-specific characteristics and features, (ii) statistical properties of the document collection, and (iii) analysis of the retrieved result set.", "answer": "(i) Query-only: length, ambiguity or rare terms can signal difficulty. (ii) Collection-wide: document frequency/IDF, term co-occurrence or clarity relative to the collection. (iii) Post-retrieval: score distribution, top-result agreement or result-set coherence. Explain when each is available and why it might indicate likely effectiveness; none requires relevance judgements."},
+        {"label": "(b)", "marks": 10, "prompt": "Describe a collaborative filtering approach that can be used in an online movie recommendation system. Explain how you would handle the cold start problem when new users join with no rating history. How could such a system automatically identify users for whom it may be difficult to provide recommendations?", "answer": "Build a user–movie interaction matrix, find similar users or movies, predict unseen ratings from neighbours and rank candidates. For new users, request seed ratings or use popular/content-based recommendations until enough interactions exist. Flag difficult users by sparse or inconsistent history, low neighbour similarity, uncertain predictions or poor held-out performance. Missing ratings are not negative preferences."}
+      ]
+    },
+    {
+      "id": "2025-q3",
+      "title": "2025/26 · Q3 · Expansion and link ranking",
+      "family": "Query expansion and HITS/PageRank",
+      "paper": "2025_2026.pdf",
+      "page": 3,
+      "parts": [
+        {"label": "(a)", "marks": 10, "prompt": "Compare and contrast two different approaches to query expansion: one based on local analysis of the return set, and one based on a fixed thesaurus or ontology.", "answer": "Local analysis extracts associated terms from top-ranked documents for this query, so it adapts to context but can drift if initial results are wrong. A fixed thesaurus/ontology maps terms through curated relations, making expansion stable and interpretable but potentially missing current usage or query intent. Compare evidence source, update cost, control, coverage and failure modes; both add terms to improve recall, sometimes at a precision cost."},
+        {"label": "(b)", "marks": 10, "prompt": "Explain the concepts of hubs and authorities, and describe how HITS computes these scores. How does HITS differ from PageRank in its approach and application?", "answer": "An authority is linked to by good hubs; a hub points to good authorities. Repeatedly update each authority score from incoming hub scores and each hub score from outgoing authority scores, normalising after each iteration. HITS is typically calculated on a query-specific subgraph and gives two mutually reinforcing scores. PageRank computes a global random-surfer importance score from incoming links and damping; it is not a separate hub/authority pair."}
+      ]
+    },
+    {
+      "id": "2025-q4",
+      "title": "2025/26 · Q4 · Learning to rank",
+      "family": "Traditional and neural learning to rank",
+      "paper": "2025_2026.pdf",
+      "page": 3,
+      "parts": [
+        {"label": "(a)", "marks": 10, "prompt": "Describe the key advantage of Learning to Rank approaches compared to manually-tuned ranking functions. Outline what constitutes a training example and what evaluation metrics you could use to guide the search.", "answer": "LTR learns how to combine evidence from judged or behavioural data instead of hand-setting every feature weight. A training example is a query–document pair (or pair/list of candidates) with features and a relevance label or preference. Split by query to avoid leakage and assess with ranking metrics such as MAP, nDCG or MRR; discuss label quality and click bias."},
+        {"label": "(b)", "marks": 10, "prompt": "Explain how neural LTR models differ from traditional LTR approaches in feature representation, computational requirements, and interpretability.", "answer": "Traditional LTR often uses engineered signals such as BM25, clicks and link features; neural LTR can learn dense/contextual representations from query and document text. Neural models tend to require more training data and compute, and inference can be slower. Their learned interactions are harder to explain than a small feature-based model. Compare the trade-offs rather than assuming neural is always better."}
+      ]
+    }
+  ],
+  "CT4101": [
+    {
+      "id": "2023-q1",
+      "title": "2023/24 · Q1 · Tasks and k-NN",
+      "family": "ML foundations, k-NN and scaling",
+      "paper": "2023_2024.pdf",
+      "page": 2,
+      "context": "Use the ‘Anyone for Tennis?’ data table on page 2 for part (a); part (c) continues on page 3.",
+      "parts": [
+        {"label": "(a)", "marks": 4, "prompt": "Using the table, distinguish dependent and independent variables [1], identify the supervised-learning task and explain why [2], and say how the dataset would differ for clustering [1].", "answer": "Play? is the dependent/target variable; Outlook, Temp, Humidity and Windy are independent features (ID is only an identifier). This is binary classification because Play? has yes/no labels. For clustering, remove or hide the Play? labels and group rows by similarity in the features without a target."},
+        {"label": "(b)", "marks": 9, "prompt": "Define Classification, Regression and Clustering. For each, state supervised/unsupervised learning, a specific application and a brief description of a different suitable algorithm.", "answer": "Classification is supervised prediction of discrete classes, e.g. spam/not spam via a decision tree that splits on features. Regression is supervised prediction of a continuous value, e.g. house price via linear regression fitted to minimise residual error. Clustering is unsupervised grouping without target labels, e.g. customer segments via k-means assignment to nearest centroids and centroid updates. Use different algorithms as requested."},
+        {"label": "(c)", "marks": 12, "prompt": "For Raman-spectra solvent data, can k-Nearest Neighbours handle both chlorinated/not-chlorinated classification and percentage-of-compound prediction [2]? Explain three measures of ‘nearness’ with equations [6], then outline two approaches to rescale features to a chosen range [4].", "answer": "Yes: majority vote among neighbours for classification; average or distance-weighted average of neighbours’ percentages for regression. Examples: Euclidean distance √(Σ(xᵢ−yᵢ)²); Manhattan distance Σ|xᵢ−yᵢ|; cosine distance 1 − (x·y)/(‖x‖‖y‖). For a fixed range, min–max x′ = (x−min)/(max−min) maps each feature to [0,1]; affine-map to [−1,1] if required. Alternatively, divide non-negative intensities by the training maximum (max-abs scaling) to put them in [0,1], preserving zero; for signed features divide by the maximum absolute value to obtain [−1,1]. Fit scaling only on training data, apply the same parameters to test data, and handle constant features."}
+      ]
+    },
+    {
+      "id": "2023-q2",
+      "title": "2023/24 · Q2 · Selection and evaluation",
+      "family": "Hyperparameters, cross-validation and classifiers",
+      "paper": "2023_2024.pdf",
+      "page": 3,
+      "context": "Use the 16-row classification table on page 4 for part (d).",
+      "parts": [
+        {"label": "(a)", "marks": 4, "prompt": "Explain what is meant by the term hyperparameter in the context of Machine Learning algorithms. Give an example and possible values for an algorithm other than k-NN [2]. Briefly discuss how grid search could determine suitable hyperparameter values [2].", "answer": "A hyperparameter is set before fitting, unlike a learned model parameter. For a decision tree, max depth might be 3, 5 or 10. Grid search trains/evaluates every candidate combination on validation folds, chooses the best by a preselected metric, then evaluates once on untouched test data. Fit preprocessing within each training fold to avoid leakage."},
+        {"label": "(b)", "marks": 6, "prompt": "For a dataset with 500 examples, explain 5 times 5-fold cross-validation with stratification: cases per fold, how each fold is used, number of classifiers built, what stratification means, and how final-classifier performance is estimated.", "answer": "Each repeat divides 500 cases into five folds of 100 with approximately the same class proportions. Train on 400 and validate on 100, rotating the held-out fold; repeat the full split five times. This makes 25 validation fits. Average the 25 validation scores and report variability; after selection, refit the final model on training data and use an untouched test set for an unbiased final estimate if available. Stratification preserves class balance."},
+        {"label": "(c)", "marks": 5, "prompt": "Explain how ROC curves may compare different classifiers for binary classification. Sketch an example, labelling axes and indicating the point representing ideal performance.", "answer": "For thresholds across the score range, plot true-positive rate (sensitivity) on y against false-positive rate on x. Ideal performance is (0, 1), the top-left corner. A curve closer to top-left and higher AUC generally discriminates better. Include the chance diagonal from (0, 0) to (1, 1); choose an operating threshold for the task’s error costs."},
+        {"label": "(d)", "marks": 10, "prompt": "Using the 16-row target/prediction table, present a confusion matrix [3], calculate FNR [2], TNR [2] and precision [2], and explain what low FNR and FPR indicate [1].", "answer": "Counting ‘yes’ as positive gives TP = 5, FN = 3, FP = 2, TN = 6. Confusion matrix: actual yes → predicted yes 5, no 3; actual no → predicted yes 2, no 6. FNR = FN/(TP + FN) = 3/8 = 0.375. TNR = TN/(TN + FP) = 6/8 = 0.75. Precision = TP/(TP + FP) = 5/7 ≈ 0.714. Low FNR and FPR mean few missed positives and few false alarms."}
+      ]
+    },
+    {
+      "id": "2023-q3",
+      "title": "2023/24 · Q3 · Generalisation and clustering",
+      "family": "Bias/variance, imbalance and clustering",
+      "paper": "2023_2024.pdf",
+      "page": 4,
+      "parts": [
+        {"label": "(a)", "marks": 7, "prompt": "Describe bias and variance in datasets. Outline the effect of high bias versus high variance on underfitting/overfitting, with illustrations, and explain how to identify whether a model is over- or underfitting.", "answer": "High bias is overly restrictive assumptions: training and validation errors both high, suggesting underfitting. High variance is sensitivity to training samples: low training error but much higher validation error, suggesting overfitting. Sketch learning curves or a simple vs wiggly fit. Compare held-out and training results across model complexity, not training accuracy alone."},
+        {"label": "(b)", "marks": 7, "prompt": "Contrast under-sampling and over-sampling for imbalanced datasets [4]. Explain dimensionality, the curse of dimensionality, and possible solutions [3].", "answer": "Under-sampling removes majority examples, reducing compute but possibly losing information. Over-sampling duplicates or synthesises minority examples, preserving majority data but risking overfit or synthetic artifacts. Apply only within training folds. Dimensionality is the number of features; with many dimensions, data become sparse and distances less informative. Use feature selection, dimensionality reduction, more data or regularisation."},
+        {"label": "(c)", "marks": 4, "prompt": "Explain the difference between evaluating regression and classification models. Give full names and calculations for MSE, RMSE and MAE.", "answer": "Regression predicts continuous values, so evaluate residual magnitude; classification predicts classes/scores, so use a confusion matrix, precision/recall or ROC-type metrics. Mean Squared Error = mean of (prediction − target)²; Root Mean Squared Error = √MSE; Mean Absolute Error = mean of |prediction − target|. RMSE penalises large errors more strongly; all retain target units except MSE."},
+        {"label": "(d)", "marks": 5, "prompt": "Discuss the key differences between the k-means approach and the Hierarchical approach to clustering.", "answer": "k-means partitions points into a chosen k by alternating assignment to nearest centroids and centroid updates; it is efficient but sensitive to k and initialisation and favours roughly compact clusters. Hierarchical clustering repeatedly merges or splits clusters by a linkage/distance rule, producing a dendrogram; the cut level chooses cluster count later but scaling and linkage choices affect results. Neither provides ground-truth labels."},
+        {"label": "(e)", "marks": 2, "prompt": "Illustrate how the elbow method can help determine k for k-means.", "answer": "Plot within-cluster sum of squared distances against k. It falls as k increases; choose a bend where the improvement starts to diminish, if a clear bend exists. The elbow is a heuristic, not proof of the correct number of clusters."}
+      ]
+    },
+    {
+      "id": "2023-q4",
+      "title": "2023/24 · Q4 · Trees and neural networks",
+      "family": "Entropy, information gain and neural basics",
+      "paper": "2023_2024.pdf",
+      "page": 5,
+      "parts": [
+        {"label": "(a)", "marks": 4, "prompt": "Explain entropy and information gain, providing the relevant equations.", "answer": "Entropy H(Y) = −Σ p(y) log₂ p(y), measuring class uncertainty. For a split X, information gain IG(Y; X) = H(Y) − Σₓ p(x)H(Y|X=x), the reduction in uncertainty after the split. Define probabilities and explain that purer children give higher gain."},
+        {"label": "(b)", "marks": 10, "prompt": "For the letters in ‘computerscience’, calculate their entropy [4] and the information gain when split into consonants and vowels [6], with complete calculations and comments.", "answer": "There are 15 letters: c and e occur 3 times each; o, m, p, u, t, r, s, i and n once each. H(all) = −2(3/15 log₂(3/15)) − 9(1/15 log₂(1/15)) ≈ 3.273 bits. Vowels have e×3 plus o, u, i, giving H(vowels) = −(3/6 log₂(3/6)) − 3(1/6 log₂(1/6)) ≈ 1.792. Consonants have c×3 plus six singletons, giving H(consonants) = −(3/9 log₂(3/9)) − 6(1/9 log₂(1/9)) ≈ 2.642. IG = 3.273 − (6/15 × 1.792) − (9/15 × 2.642) ≈ 0.971 bits. Show frequencies and weighted terms, not just the result."},
+        {"label": "(c)", "marks": 5, "prompt": "Explain how a McCulloch and Pitts artificial neuron works, with a labelled diagram and the equations needed to calculate output.", "answer": "Draw inputs xᵢ with weights wᵢ feeding a summation node and threshold θ, then output y. Compute activation a = Σ wᵢxᵢ; output y = 1 when a ≥ θ, otherwise 0. Label inputs, weights, summation, threshold and output. This is a binary threshold unit, not a trained modern network by itself."},
+        {"label": "(d)", "marks": 2, "prompt": "Explain the difference between logistic and ReLU activation functions.", "answer": "Logistic σ(z) = 1/(1 + e⁻ᶻ) maps any input into (0,1) but saturates at extremes. ReLU(z) = max(0,z) is zero for negative input and linear for positive input; it is cheap and less saturating on the positive side but can yield inactive units."},
+        {"label": "(e)", "marks": 4, "prompt": "Distinguish binary encoding and one-hot encoding with examples, and say when these encodings are needed.", "answer": "One-hot makes one indicator per category: red/blue/green → [1,0,0], [0,1,0], [0,0,1]. Binary encoding assigns compact binary codes, e.g. category 0/1/2 → 00, 01, 10, using fewer columns but potentially implying artificial structure. Use encoding when an algorithm requires numeric inputs; choose with regard to category count and model assumptions."}
+      ]
+    }
+  ],
+  "CT561": [
+    {
+      "id": "2025-q1",
+      "title": "2025/26 · Q1 · Graphical and Euler integration",
+      "family": "Graphical integration and numerical integration",
+      "paper": "2025_2026.pdf",
+      "page": 2,
+      "context": "Keep the flow chart on page 2 of the linked paper open for every part.",
+      "parts": [
+        {"label": "(a)", "marks": 12, "prompt": "For the plotted inflow and constant outflow of 50 units/day, draw a stock-and-flow model with net flow, calculate net flow, and graphically integrate the stock from 100 units over each time interval. The stock may go negative.", "answer": "Draw one stock with inflow and outflow, and Net Flow = Inflow − 50. From the chart, net flow is +50 → −50 over days 0–5, −50 over 5–10, −50 → +50 over 10–15, +50 over 15–20, and +50 → −50 over 20–25. Integrating each trapezoid from S₀ = 100 gives S at days 0,5,10,15,20,25 = 100, 100, −150, −150, 100, 100. Within sloping-flow intervals the stock curve bends as its slope changes; at constant net flow it is linear. Mark where net flow crosses zero and the stock changes from rising to falling or vice versa."},
+        {"label": "(b)", "marks": 5, "prompt": "Describe Euler’s method and its assumptions. Under what conditions does it overestimate a stock? Support the answer by numerically integrating net flow over days 0–2.5 with DT = 0.5.", "answer": "Forward Euler uses S(t+DT) = S(t) + NetFlow(t) × DT, treating the start-of-step flow as constant during each step. It overestimates when net flow is falling because each left-endpoint rectangle is above the true flow. Here net flow is 50−20t on days 0–5; at t = 0,0.5,1,1.5,2 it is 50,40,30,20,10. The five 0.5-day increments sum to 75, so Euler gives S(2.5) = 175. Exact integration adds 62.5, giving 162.5; overestimate = 12.5."},
+        {"label": "(c)", "marks": 8, "prompt": "Using the plotted flows, calculate the stock with Euler’s equation where DT = 5.", "answer": "At t = 0,5,10,15,20 the start-of-step net flows are +50, −50, −50, +50, +50. Starting S₀ = 100, add net flow × 5 each time: S₅ = 350; S₁₀ = 100; S₁₅ = −150; S₂₀ = 100; S₂₅ = 350. Show a table of time, inflow, outflow, net flow and updated stock. These coarse Euler values differ from the graphical integral because the flow varies within some 5-day steps."}
+      ]
+    },
+    {
+      "id": "2025-q2",
+      "title": "2025/26 · Q2 · Rates and SIR policies",
+      "family": "Fractional rates, goal adjustment and SIR",
+      "paper": "2025_2026.pdf",
+      "page": 3,
+      "parts": [
+        {"label": "(a)", "marks": 8, "prompt": "For stock S, show how its fractional decrease flow (Outflow) can be modified to allow a varying decrease fraction G. G adjusts toward a goal G*, with AT as adjustment constant. Comment on a real-world use.", "answer": "Use Outflow = S × G; dS/dt = −Outflow. Let dG/dt = (G* − G)/AT, or G = INTEG((G* − G)/AT, G₀). Show G* → adjustment → G → Outflow and S → Outflow; AT controls how quickly G approaches its goal. Example: a policy-driven vaccination or attrition rate that increases gradually rather than instantly."},
+        {"label": "(b)", "marks": 12, "prompt": "Add quarantine and vaccinated stocks to an SIR model, with 20% of the force-of-infection flow to quarantine and 80% to infected; both recover in 2 days. Vaccination moves only susceptible people, with a goal-seeking fraction rising from 0 to 0.15. Use R₀ = 2, N = 10,000 and one initially infected. Include the overall attack rate. Specify all equations and feedbacks.", "answer": "Set β = R₀/D = 1/day and λ = βI/N (quarantined people do not transmit). Exposure flow = λS; to quarantine = 0.2λS; to infected = 0.8λS. Recoveries = I/2 and Q/2. Vaccination flow = S × VF, with VF = INTEG((0.15 − VF)/AT, 0). Stocks: S = INTEG(−exposure − vaccination, 9999); I = INTEG(0.8exposure − I/2, 1); Q = INTEG(0.2exposure − Q/2, 0); V = INTEG(vaccination, 0); R = INTEG(I/2 + Q/2, 0). Attack rate = (I + Q + R)/N if all ever-infected are counted. Show S-depletion balancing feedback and I → exposure → I reinforcing feedback, weakened by quarantine/vaccination. State the assumed adjustment time AT since the paper does not give its value."},
+        {"label": "(c)", "marks": 5, "prompt": "Sketch and explain the relationship between quarantine fraction (x-axis: 0, 0.05, 0.10, 0.15) and final vaccination fraction (y-axis: 0.0, 0.05, 0.10, 0.15), using circle sizes for final attack rate.", "answer": "Draw the requested grid and label both axes. Put larger circles near low quarantine/low vaccination and smaller circles as either intervention increases, especially toward the top-right. Explain that fewer susceptible contacts and more vaccination reduce cumulative infection in this model. Do not claim an exact numerical circle size without a simulation."}
+      ]
+    },
+    {
+      "id": "2025-q3",
+      "title": "2025/26 · Q3(b–c) · Claims workload",
+      "family": "Feedback loops and workload models",
+      "paper": "2025_2026.pdf",
+      "page": 4,
+      "context": "These are selected parts of Q3. Part (a) needs a figure in the paper and is not included in this text-first drill.",
+      "parts": [
+        {"label": "(b)", "marks": 12, "prompt": "Construct a stock and flow model for an insurance claims workload: Claims Backlog has inflows New Claims and Reworked Claims, and outflow Claims Completed. Show link and loop polarities for work-pressure policies reducing Time per Claim, increasing Temporary Staff and Workweek, and for side effects on rework, time per claim and fatigue.", "answer": "Draw Claims Backlog = INTEG(New Claims + Reworked Claims − Claims Completed, initial). Backlog →(+) Work Pressure. Pressure →(−) Time per Claim →(−) Completed →(−) Backlog is a balancing policy loop. Pressure →(+) Temporary Staff →(+) Completed →(−) Backlog and Pressure →(+) Workweek →(+) Completed →(−) Backlog are balancing. Side effects: lower Time per Claim → more Reworked Claims → more Backlog; more Temporary Staff → more Time per Claim → fewer Completed → more Backlog; more Workweek → more Fatigue → fewer Completed → more Backlog. Label causal signs and identify the reinforcing side-effect loops."},
+        {"label": "(c)", "marks": 7, "prompt": "Based on the model in part (b), identify the three policy loops and three side-effect loops, then discuss the best course of action for coping with increased workload.", "answer": "Name the three balancing policy loops: faster claims handling, temporary staff, and longer workweek. Name the reinforcing side effects: rework from rushing, onboarding/productivity loss from temporary staff, and fatigue from long hours. Recommend a controlled capacity increase with quality checks and measured short-term staffing, not unlimited overtime or rushing; monitor backlog, completion, rework, fatigue and cycle time together. Explain delay and trade-off rather than asserting one universal policy."}
+      ]
+    },
+    {
+      "id": "2025-q4",
+      "title": "2025/26 · Q4(b–d) · Stock management",
+      "family": "Stock management and workforce models",
+      "paper": "2025_2026.pdf",
+      "page": 5,
+      "context": "These are selected parts of Q4. Part (a) relies on a figure in the paper.",
+      "parts": [
+        {"label": "(b)", "marks": 5, "prompt": "Explain how adjustment to a goal can be extended to form a stock management structure. What is the key difference? Describe (1) the anchor and (2) the adjustment.", "answer": "Simple goal adjustment uses Flow = (Desired Stock − Actual Stock)/AT. Stock management adds an anchor that replaces expected losses, commonly a smoothing of actual outflow, then an adjustment that closes the stock gap: Required Inflow = Expected Losses + (Desired − Actual)/AT. The key difference is compensating for ongoing losses while correcting the gap. Label the smoothing delay used for expected losses."},
+        {"label": "(c)", "marks": 10, "prompt": "Create a stock and flow model, with all equations and feedbacks, of staff recruitment for a pharmaceutical company using stock management. Trainee, Experienced and Senior stocks start at 100 each; target total is 300; progression delays are 12 and 36 months; attrition is 5%, 3% and 1% respectively.", "answer": "T = INTEG(Hires − T/12 − 0.05T, 100); E = INTEG(T/12 − E/36 − 0.03E, 100); S = INTEG(E/36 − 0.01S, 100). Total = T + E + S; Desired = 300. Expected Losses = SMOOTH(total attrition, smoothing time); Hires = MAX(0, Expected Losses + (Desired − Total)/AT), with stated adjustment/smoothing times. Draw progression flows, three attrition flows and the balancing Desired − Total → Hires → Total loop. At the initial total of 300, hires of 9/month offset the three attrition flows, but the individual cohorts are not all at equilibrium because progression flows differ. State adjustment and smoothing assumptions and distinguish total-stock equilibrium from cohort equilibrium."},
+        {"label": "(d)", "marks": 5, "prompt": "If the part (c) model is in steady state at 300 employees and the target drops to 100, sketch the response and explain how equations cause the new target to be reached.", "answer": "Sketch total staff declining from 300 toward 100, usually smoothly with delay and without instant removal. Desired − Total becomes negative, reducing required hires; with non-negative hire rate it may clamp at zero while attrition reduces stock. As the gap shrinks, hiring rises to replace expected losses at the new equilibrium. If the answer allows negative hires, explain what that would mean physically and why a clamp is preferable."}
+      ]
+    },
+    {
+      "id": "2024-q1",
+      "title": "2024/25 · Q1 · Feedback and workload",
+      "family": "Feedback principles and policy loops",
+      "paper": "2024_2025.pdf",
+      "page": 2,
+      "parts": [
+        {"label": "(a)", "marks": 5, "prompt": "Define a feedback loop, describe the two different types of feedback, and summarise the advantages of adding feedback structures to a stock and flow model.", "answer": "A feedback loop is a closed chain in which a stock’s effect returns to influence itself. Reinforcing loops amplify change; balancing loops oppose a deviation or seek a goal. Feedback structures explain behaviour over time, delays, side effects and policy resistance, instead of treating flows as independent constants."},
+        {"label": "(b)", "marks": 12, "prompt": "Construct a stock and flow model from the student-workload description: Assignment Backlog has inflows Allocated and Rework and outflow Completed. Show link polarities through Work Pressure, Time Per Assignment, Weekly Study Hours, Amount of Time to Submit, Rework, Completed and Fatigue.", "answer": "Assignment Backlog = INTEG(Allocated + Rework − Completed, initial). Backlog →(+) Pressure; Pressure →(−) Time per Assignment, →(+) Study Hours, →(+) Time to Submit. Time per Assignment →(−) Rework and →(−) Completed. Study Hours →(+) Completed and →(+) Fatigue. Time to Submit →(−) Pressure. Fatigue →(−) Completed. Completed →(−) Backlog; Rework →(+) Backlog. Draw these links and the stock/flows, not just a causal list."},
+        {"label": "(c)", "marks": 8, "prompt": "Using the model from part (b), show and name the three negative feedback loops managing backlog and the two positive side-effect loops. Confirm polarity by tracing an increasing backlog around each loop.", "answer": "Balancing: Backlog ↑ → Pressure ↑ → Time per Assignment ↓ → Completed ↑ → Backlog ↓; Backlog ↑ → Pressure ↑ → Study Hours ↑ → Completed ↑ → Backlog ↓; Backlog ↑ → Pressure ↑ → Time to Submit ↑ → Pressure ↓. Reinforcing side effects: shorter Time per Assignment increases Rework and Backlog; more Study Hours increases Fatigue, reduces Completed and increases Backlog. Trace the direction around each closed path and count negative links."}
+      ]
+    }
+  ]
+}
