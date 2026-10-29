@@ -1,0 +1,468 @@
+{
+ "code": "MA4344",
+ "name": "Advanced Group Theory",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "60% exam / 40% CA",
+  "predictability": "Medium-High",
+  "exam_pattern": "Predictability is Medium-High. The recent format is strong evidence, but it does not cover the whole current syllabus and earlier papers differ.",
+  "title": "MA4344 - Advanced Group Theory",
+  "papers": [
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf"
+  ],
+  "guides": [
+   "cauchy_finite_abelian_revision_sheet.html",
+   "class_equation_p_groups_revision_sheet.html",
+   "cosets_normal_subgroups_revision_sheet.html",
+   "group_actions_revision_sheet.html",
+   "homomorphisms_isomorphisms_revision_sheet.html",
+   "lower_frequency_topics_revision_sheet.html",
+   "simple_groups_revision_sheet.html",
+   "subgroups_lagrange_revision_sheet.html",
+   "sylow_revision_sheet.html"
+  ],
+  "exam_block": [
+   "Q1: matrix subgroup of SL(2,Z) isomorphic to Z , then Lagrange's theorem / isomorphism theorem / homomorphism consequences.",
+   "Q2: cosets, left/right index equality, index 2 normal subgroup, then simple groups or centre/quotient arguments.",
+   "Q3: group actions embedded into a symmetric group, then class equation, nontrivial centre of p-groups, and groups of order p^2 being abelian.",
+   "Q4: Cauchy's theorem for finite abelian groups, Sylow's theorem, then proving specific group orders are not simple."
+  ],
+  "drill": [
+   "Recent papers are very similar, especially 2023/24 and 2024/25.",
+   "Core repeat areas: Lagrange's theorem, isomorphism theorems, homomorphism image/order arguments, cosets and normal subgroups.",
+   "Group actions recur strongly: kernels, stabilisers, embeddings into symmetric groups, orbits and conjugacy-style arguments.",
+   "Class equation and p-group results are high-value: nontrivial centre and groups of order p^2 being abelian.",
+   "Cauchy's theorem, finite abelian groups, Sylow theorems and proving groups are not simple are central preparation targets.",
+   "Older papers add direct products, alternating groups, automorphisms, Euclidean/wallpaper groups and Burnside counting; useful background, but the newest pattern is more focused on cosets, actions, class equation and Sylow."
+  ],
+  "paper_format": "Q1: matrix subgroup of SL(2,Z) isomorphic to Z , then Lagrange's theorem / isomorphism theorem / homomorphism consequences",
+  "exam_shape": "mixed",
+  "code": "MA4344",
+  "name": "Advanced Group Theory"
+ },
+ "families": [
+  {
+   "id": "q1-matrix-subgroup-of-sl-2-z-isomorphic-to",
+   "rank": 1,
+   "title": "matrix subgroup of SL(2,Z) isomorphic to Z , then Lagrange's theorem / isomorphi",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "matrix subgroup of SL(2,Z) isomorphic to Z , then Lagrange's theorem / isomorphism theorem / homomorphism consequences.",
+   "answer": ""
+  },
+  {
+   "id": "q2-cosets-left-right-index-equality-index",
+   "rank": 2,
+   "title": "cosets, left/right index equality, index 2 normal subgroup, then simple groups o",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "cosets, left/right index equality, index 2 normal subgroup, then simple groups or centre/quotient arguments.",
+   "answer": ""
+  },
+  {
+   "id": "q3-group-actions-embedded-into-a-symmetric",
+   "rank": 3,
+   "title": "group actions embedded into a symmetric group, then class equation, nontrivial c",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "group actions embedded into a symmetric group, then class equation, nontrivial centre of p-groups, and groups of order p^2 being abelian.",
+   "answer": ""
+  },
+  {
+   "id": "q4-cauchy-s-theorem-for-finite-abelian-grou",
+   "rank": 4,
+   "title": "Cauchy's theorem for finite abelian groups, Sylow's theorem, then proving specif",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Cauchy's theorem for finite abelian groups, Sylow's theorem, then proving specific group orders are not simple.",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "topic guides",
+   "cards": [
+    {
+     "group": "Cauchy's Theorem and Finite Abelian Groups",
+     "front": "Cauchy's theorem, exponent, direct product, finite abelian group. The finite-abelian theorem: if p divides |G|",
+     "back": "If prime p divides |G|, Cauchy gives an element of order p. A finite abelian group decomposes as a direct product of cyclic prime-power groups, uniquely up to order.",
+     "evidence": ""
+    },
+    {
+     "group": "Class Equation and p-Groups",
+     "front": "Centre Z(G), centraliser C G (x), conjugacy class Cl(x), class equation: |G|=|Z(G)|+∑[G:C G (x i )].",
+     "back": "|G|=|Z(G)|+sum [G:C_G(x_i)]; noncentral conjugacy-class sizes divide |G| and exceed 1; a finite p-group has nontrivial centre.",
+     "evidence": ""
+    },
+    {
+     "group": "Cosets and Normal Subgroups",
+     "front": "gH, Hg, index, normal subgroup H◃G, quotient group. Left and right cosets have equal cardinality; in a finite",
+     "back": "Left cosets partition G and each has |H| elements; H normal iff gH=Hg for all g iff gHg^{-1}=H; every index-2 subgroup is normal.",
+     "evidence": ""
+    },
+    {
+     "group": "Group Actions",
+     "front": "Action, orbit, stabiliser, kernel, faithful action, permutation representation ρ:G→Sym(X), conjugation action.",
+     "back": "An action is a homomorphism G->Sym(X); Orb(x) is in bijection with G/Stab(x), so |Orb(x)|=[G:Stab(x)] for finite G; Burnside averages fixed-point counts.",
+     "evidence": ""
+    },
+    {
+     "group": "Homomorphisms and Isomorphisms",
+     "front": "Homomorphism, kernel, image, injective iff kernel is {e}, surjective, isomorphism, quotient. The first isomorp",
+     "back": "ker phi is normal, im phi is a subgroup, phi injective iff ker phi={e}, and G/ker phi is isomorphic to im phi.",
+     "evidence": ""
+    },
+    {
+     "group": "Lower-Frequency and Current-Scope Topics",
+     "front": "Direct product, automorphism, alternating group, finite automaton, regular language, Burnside's lemma, wallpap",
+     "back": "Internal direct products need normal subgroups with trivial intersection and product G; semidirect products relax one normality condition; composition factors are simple and Jordan-Holder makes their multiset invariant.",
+     "evidence": ""
+    },
+    {
+     "group": "Simple Groups and Non-Simplicity",
+     "front": "Simple group, proper nontrivial normal subgroup, centre, kernel, conjugation action. A simple group has only {",
+     "back": "Simple means only {e} and G are normal (and usually nontrivial). A homomorphism from a simple group has trivial or whole kernel; a nontrivial action can embed it when the kernel is trivial.",
+     "evidence": ""
+    },
+    {
+     "group": "Subgroups and Lagrange's Theorem",
+     "front": "Subgroup , cyclic subgroup ⟨g⟩, order |g|, index [G:H], left coset. Lagrange: if H≤G and G is finite, then |H|",
+     "back": "Nonempty H is a subgroup iff ab^{-1} in H for all a,b in H. For finite G, |H| divides |G| and ord(g) divides |G|; converses generally fail.",
+     "evidence": ""
+    },
+    {
+     "group": "Sylow Theorems",
+     "front": "Sylow p-subgroup, n p , conjugacy of Sylow subgroups, normality. Theorems: existence, conjugacy, and n p ≡1 mo",
+     "back": "Sylow p-subgroups have order p^a where p^a is the full p-part of |G|; they exist, are conjugate, and n_p divides m while n_p=1 mod p for |G|=p^a m.",
+     "evidence": ""
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "cauchy_finite_abelian_revision_sheet.html",
+   "title": "Cauchy's Theorem and Finite Abelian Groups",
+   "purpose": "State and prove the finite-abelian version of Cauchy's theorem, and use it in order arguments. Exam use: Prime factorisation, theorem hypotheses, complete partition list and an isomorphism invariant are visible.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — classify abelian groups of order 72 [10 marks]",
+     "marks": 10,
+     "prompt": "Classify all finite abelian groups of order 72 up to isomorphism, then distinguish a cyclic and a non-cyclic example.",
+     "route": "This is a prime-power decomposition and counting problem, not a request to list divisors. Fastest route. Split 72=2³3², list partitions for each primary part, then combine them. Topic-specific trap. Coprime cyclic factors combine to a cyclic product, but an elementary abelian p-part does not become cyclic. Split 72=2³3², list partitions for each primary part, then combine them. Topic-specific trap. Coprime cyclic factors combine to a cyclic product, but an elementary abelian p-part does not become cyclic. Coprime cyclic factors combine to a cyclic product, but an elementary abelian p-part does not become cyclic.",
+     "answer": "Classify abelian groups of order 72=2^3*3^2. The 2-part is Z8, Z4xZ2, or Z2^3; the 3-part is Z9 or Z3^2. Combining independently gives 3*2=6 isomorphism types. For example Z8xZ9 is cyclic Z72, whereas Z2^3xZ3^2 has exponent lcm(2,3)=6, so they are not isomorphic."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. What does Cauchy's theorem give for an abelian group of order 40? Check: elements of orders 2 and 5 exist.",
+     "route": "2. Explain why the quotient step in the induction proof is legal. Check: every subgroup of an abelian group is normal.",
+     "answer": "2. Explain why the quotient step in the induction proof is legal. Check: every subgroup of an abelian group is normal."
+    },
+    {
+     "title": "Practice 2 — square-free finite abelian groups [8 marks]",
+     "marks": 8,
+     "prompt": "Prove that every finite abelian group of square-free order n is cyclic.",
+     "route": "The proof must construct an element of order n. Fastest route. Use Cauchy for each prime factor and combine commuting elements of coprime orders. Topic-specific trap. The product-order argument needs both commutativity and coprime component orders. Use Cauchy for each prime factor and combine commuting elements of coprime orders. Topic-specific trap. The product-order argument needs both commutativity and coprime component orders. The product-order argument needs both commutativity and coprime component orders.",
+     "answer": "prove an abelian group of square-free order n is cyclic. Check Cauchy gives elements of each prime order; their product has order the product because the group is abelian and orders are coprime, hence order n."
+    }
+   ],
+   "mistakes": [
+    "Claiming Cauchy gives an element of every divisor order.",
+    "Forgetting the finite hypothesis.",
+    "Confusing an element of order p with a subgroup of order p without linking them.",
+    "Recovery rule: Cauchy guarantees an element of order p, not automatically one of order p^a."
+   ]
+  },
+  {
+   "file": "class_equation_p_groups_revision_sheet.html",
+   "title": "Class Equation and p-Groups",
+   "purpose": "Prove the nontrivial-centre theorem and quickly derive the order-p² abelian result. Exam use: Centre term, representatives, centralizers, divisibility/mod-p step and final group consequence are justified.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — groups of order p² [9 marks]",
+     "marks": 9,
+     "prompt": "Prove that a group G of order p² is abelian using the centre of a p-group.",
+     "route": "The centre-size cases must both be exhausted. Fastest route. Use p∣|Z(G)|; if |Z(G)|=p, show G/Z(G) is cyclic and invoke the cyclic-quotient lemma. Topic-specific trap. A cyclic quotient alone is not a conclusion unless the quotient is specifically by the centre. Use p∣|Z(G)|; if |Z(G)|=p, show G/Z(G) is cyclic and invoke the cyclic-quotient lemma. Topic-specific trap. A cyclic quotient alone is not a conclusion unless the quotient is specifically by the centre. A cyclic quotient alone is not a conclusion unless the quotient is specifically by the centre.",
+     "answer": "Let |G|=p^2. The p-group centre theorem gives |Z(G)| divisible by p and greater than 1, so |Z(G)| is p or p^2. If it were p, G/Z(G) would have order p and be cyclic. But if G/Z(G) is cyclic then G is abelian, forcing Z(G)=G, contradiction. Hence |Z(G)|=p^2 and G is abelian."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Why does a noncentral conjugacy class in a p-group have size divisible by p? Check: its size is a nontrivial power of p.",
+     "route": "2. Prove that a group of order 49 is abelian. Check: apply the p² theorem with p=7.",
+     "answer": "2. Prove that a group of order 49 is abelian. Check: apply the p² theorem with p=7."
+    },
+    {
+     "title": "Practice 2 — possible noncentral conjugacy-class sizes [8 marks]",
+     "marks": 8,
+     "prompt": "If |G|=8 and |Z(G)|=2, determine the possible sizes of noncentral conjugacy classes and the resulting count constraint.",
+     "route": "This is an application of orbit-stabiliser to conjugation. Fastest route. Class sizes are [G:C G (x)], powers of 2 dividing 8, and are nonunit for noncentral x. Topic-specific trap. Do not count the identity again among the six noncentral elements. Class sizes are [G:C G (x)], powers of 2 dividing 8, and are nonunit for noncentral x. Topic-specific trap. Do not count the identity again among the six noncentral elements. Do not count the identity again among the six noncentral elements.",
+     "answer": "if |G|=8 and |Z(G)|=2, what can noncentral class sizes be? Check they are powers of 2 dividing 8 and cannot be 1; the six noncentral elements must partition into sizes 2 or 4, constrained by centralizer indices."
+    }
+   ],
+   "mistakes": [
+    "Including central elements again in the noncentral sum.",
+    "Claiming every conjugacy class has p elements.",
+    "Using G/Z(G) cyclic without stating why that implies G abelian.",
+    "Recovery rule: The class equation sums one term per conjugacy class representative, not one term per noncentral element."
+   ]
+  },
+  {
+   "file": "cosets_normal_subgroups_revision_sheet.html",
+   "title": "Cosets and Normal Subgroups",
+   "purpose": "Prove left/right coset facts and deploy the high-yield index-2 normality argument. Exam use: Coset side, partition/count, normality criterion, counterexample element and quotient permission are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — index two forces normality [8 marks]",
+     "marks": 8,
+     "prompt": "Prove that a subgroup H of index two in G is normal.",
+     "route": "The proof needs equality of left and right cosets for every g. Fastest route. Separate g∈H from g∉H and use uniqueness of the sole non-H coset. Topic-specific trap. A subgroup of another small index is not automatically normal. Separate g∈H from g∉H and use uniqueness of the sole non-H coset. Topic-specific trap. A subgroup of another small index is not automatically normal. A subgroup of another small index is not automatically normal.",
+     "answer": "Prove index 2 implies normal. There are exactly two left cosets: H and GH; likewise the right cosets are H and GH. For g in H, gH=H=Hg. For g notin H, both gH and Hg are the unique non-H coset GH. Hence gH=Hg for every g and H is normal."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. List the left cosets of 2Z in Z. Check: 2Z and 1+2Z.",
+     "route": "2. Let H≤G and |G|=30, |H|=15. Prove H◃G and state |G/H|. Check: index 2; quotient has order 2.",
+     "answer": "2. Let H≤G and |G|=30, |H|=15. Prove H◃G and state |G/H|. Check: index 2; quotient has order 2."
+    },
+    {
+     "title": "Practice 2 — left/right cosets in S 3 [8 marks]",
+     "marks": 8,
+     "prompt": "For H={e,(12)}≤S 3 , list a contrasting left and right coset and decide normality.",
+     "route": "One explicit mismatch proves non-normality. Fastest route. Multiply (13) on the chosen side of both elements of H. Topic-specific trap. Preserve permutation-composition convention consistently when identifying (123) and (132). Multiply (13) on the chosen side of both elements of H. Topic-specific trap. Preserve permutation-composition convention consistently when identifying (123) and (132). Preserve permutation-composition convention consistently when identifying (123) and (132).",
+     "answer": "in S3 let H={<e>,(12)}. List left and right cosets and decide normality. Check (13)H={(13),(123)} while H(13)={(13),(132)}, so H is not normal despite having order 2."
+    }
+   ],
+   "mistakes": [
+    "Treating left and right cosets as equal without normality.",
+    "Writing a quotient by a non-normal subgroup.",
+    "Assuming a subgroup of any small index is normal.",
+    "Recovery rule: A subgroup of order 2 need not be normal; the automatic theorem is index 2."
+   ]
+  },
+  {
+   "file": "group_actions_revision_sheet.html",
+   "title": "Group Actions",
+   "purpose": "Construct action homomorphisms and use orbit-stabiliser without losing track of the set being acted on. Exam use: Action law, point, stabiliser calculation, orbit index and partition/Burnside check are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — orbit-stabiliser for the square action [9 marks]",
+     "marks": 9,
+     "prompt": "Let D 4 act on a square’s vertices. Find a vertex stabiliser and use orbit-stabiliser to calculate its orbit.",
+     "route": "Identify actual symmetries before substituting cardinalities. Fastest route. List identity and the reflection through the selected vertex/opposite vertex, then use |G|=|Orb(v)||Stab(v)|. Topic-specific trap. D 4 here has eight symmetries, not four. List identity and the reflection through the selected vertex/opposite vertex, then use |G|=|Orb(v)||Stab(v)|. Topic-specific trap. D 4 here has eight symmetries, not four. D 4 here has eight symmetries, not four.",
+     "answer": "Let D4 act on the four vertices of a square. For a vertex v, the stabiliser contains identity and the reflection through v and the opposite vertex, so has size 2. Since |D4|=8, orbit-stabiliser gives |Orb(v)|=8/2=4, as expected. For the action on diagonals, rotations by 0 and 180 fix both diagonals while 90 and 270 swap them; reflection counts depend on axis and can feed Burnside."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Let C 4 rotate the vertices of a square. Find the orbit and stabiliser of one vertex. Check: orbit size 4; stabiliser is trivial.",
+     "route": "2. Prove a faithful action of G on n points gives G≤S n . Check: use the action homomorphism and trivial kernel.",
+     "answer": "2. Prove a faithful action of G on n points gives G≤S n . Check: use the action homomorphism and trivial kernel."
+    },
+    {
+     "title": "Practice 2 — Burnside count of binary necklaces [8 marks]",
+     "marks": 8,
+     "prompt": "Count length-four binary necklaces up to rotation.",
+     "route": "Burnside requires fixed-string counts for each rotation before averaging. Fastest route. Use fixed counts 16,2,4,2 for rotations by 0,1,2,3 positions. Topic-specific trap. Dividing 16 by four misses strings with nontrivial rotational symmetry. Use fixed counts 16,2,4,2 for rotations by 0,1,2,3 positions. Topic-specific trap. Dividing 16 by four misses strings with nontrivial rotational symmetry. Dividing 16 by four misses strings with nontrivial rotational symmetry.",
+     "answer": "use Burnside to count binary necklaces of length 4 under rotations. Check fixed strings for rotations 0,1,2,3 are 16,2,4,2, so orbits=(16+2+4+2)/4=6."
+    }
+   ],
+   "mistakes": [
+    "Using orbit-stabiliser before checking the action.",
+    "Calling an action faithful when a nonidentity element fixes all points.",
+    "Confusing a point stabiliser with the kernel.",
+    "Recovery rule: The stabiliser is a subgroup of G, while the orbit is a subset of X; do not multiply their sets or swap their sizes."
+   ]
+  },
+  {
+   "file": "homomorphisms_isomorphisms_revision_sheet.html",
+   "title": "Homomorphisms and Isomorphisms",
+   "purpose": "Recognise maps, calculate kernel/image, and invoke the first isomorphism theorem with the correct quotient. Exam use: Well-definedness, operation law, kernel, image, normality and quotient/image orders are all checked.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — kernel and image of a quotient-group homomorphism [9 marks]",
+     "marks": 9,
+     "prompt": "For φ:Z 12 →Z 8 , [x]↦[2x], prove well-definedness and find kernel, image and the first-isomorphism conclusion.",
+     "route": "Definition on representatives must be checked before using kernel algebra. Fastest route. Test x→x+12, solve 2x≡0 (mod 8), then list even residue classes. Topic-specific trap. A formula that looks homomorphic can still fail to be well-defined on residue classes. Test x→x+12, solve 2x≡0 (mod 8), then list even residue classes. Topic-specific trap. A formula that looks homomorphic can still fail to be well-defined on residue classes. A formula that looks homomorphic can still fail to be well-defined on residue classes.",
+     "answer": "Worked answer. Define φ:Z 12 →Z 8 by φ([x] 12 )=[2x] 8 . It is well-defined: replacing x by x+12k changes 2x by 24k, which is divisible by 8, so the output class is unchanged. It is a homomorphism because φ([x+y])=[2x+2y]=φ([x])+φ([y]). Its kernel consists of [x] 12 such that 2x≡0 (mod 8), equivalently x≡0 (mod 4), namely {[0],[4],[8]}. Its image is { [0],[2],[4],[6] }=2Z 8 . Hence the First Isomorphism Theorem gives Z 12 /ker φ≅2Z 8 , both groups having order 4."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Find ker and image of φ:Z 12 →Z 4 , [x]↦[x]. Check: image is all of Z 4 ; kernel has three elements.",
+     "route": "2. If φ:G→H is a homomorphism of finite groups with |G|=60 and |kerφ|=5, find |imφ| and justify it. Check: 12, by the homomorphism counting formula.",
+     "answer": "2. If φ:G→H is a homomorphism of finite groups with |G|=60 and |kerφ|=5, find |imφ| and justify it. Check: 12, by the homomorphism counting formula."
+    },
+    {
+     "title": "Practice 2 — reject a non-well-defined residue formula [8 marks]",
+     "marks": 8,
+     "prompt": "Decide whether [x] 12 ↦[3x] 8 is well-defined.",
+     "route": "One pair of equal input classes with unequal images is decisive. Fastest route. Compare representatives 0 and 12. Topic-specific trap. Checking only additivity of the integer formula does not establish a map from Z 12 . Compare representatives 0 and 12. Topic-specific trap. Checking only additivity of the integer formula does not establish a map from Z 12 . Checking only additivity of the integer formula does not establish a map from Z 12 .",
+     "answer": "decide whether [x]12 -> [3x]8 is well-defined. Check changing by 12 changes output by 36, not divisible by 8, so it is not; test [0]=[12] gives 0 versus 4."
+    }
+   ],
+   "mistakes": [
+    "Writing G/kerφ≅H without proving surjectivity.",
+    "Forgetting kernels are subsets of the domain.",
+    "Using additive notation on one side and multiplicative notation inconsistently.",
+    "Recovery rule: For maps on residue classes, well-definedness comes before homomorphism properties."
+   ]
+  },
+  {
+   "file": "lower_frequency_topics_revision_sheet.html",
+   "title": "Lower-Frequency and Current-Scope Topics",
+   "purpose": "Maintain a compact safety net for direct products, automorphisms, automata/regular languages and combinatorial actions. Exam use: Named theorem, normality, intersection, product size, action/factors and isomorphism conclusion are justified.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — semidirect but not direct product in S 3 [9 marks]",
+     "marks": 9,
+     "prompt": "Show S 3 =A 3 H for H=⟨(12)⟩ and decide whether this is direct or semidirect.",
+     "route": "Verify orders, intersection and normality separately. Fastest route. Use |A 3 H|=|A 3 ||H|/|A 3 ∩H|, then test H. Topic-specific trap. One normal factor supports a semidirect product; direct product needs the appropriate commuting/normal structure. Use |A 3 H|=|A 3 ||H|/|A 3 ∩H|, then test H. Topic-specific trap. One normal factor supports a semidirect product; direct product needs the appropriate commuting/normal structure. One normal factor supports a semidirect product; direct product needs the appropriate commuting/normal structure.",
+     "answer": "In S3, A3 is normal of order 3 and H=< (12) > has order 2, A3 intersect H={e}, and |A3 H|=3*2=6, so S3=A3 H. Since H is not normal, this is not a direct product; it is A3 semidirect H, isomorphic to Z3 semidirect Z2 with inversion action."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Describe the language accepted by a two-state automaton that toggles state on each a and accepts the start state. Check: words with an even number of a's (assuming no other transitions change state).",
+     "route": "2. State Burnside's lemma and list the data needed to count vertex colourings up to a symmetry group. Check: sum fixed colourings over group elements, divide by |G|.",
+     "answer": "2. State Burnside's lemma and list the data needed to count vertex colourings up to a symmetry group. Check: sum fixed colourings over group elements, divide by |G|."
+    },
+    {
+     "title": "Practice 2 — composition series of S 3 [8 marks]",
+     "marks": 8,
+     "prompt": "Give a composition series for S 3 and explain why its factors do not make S 3 ≅Z 6 .",
+     "route": "Name the normal inclusions and prove both factor groups simple. Fastest route. Use {e}<A 3 <S 3 with factors Z 3 , Z 2 . Topic-specific trap. Composition factors determine a multiset, not necessarily the group’s direct-product structure. Use {e}<A 3 <S 3 with factors Z 3 , Z 2 . Topic-specific trap. Composition factors determine a multiset, not necessarily the group’s direct-product structure. Composition factors determine a multiset, not necessarily the group’s direct-product structure.",
+     "answer": "give a composition series for S3. Check {e}<A3<S3 has factors A3/{e}=Z3 and S3/A3=Z2, both simple; explain why the nonabelian group is not their direct product Z6."
+    }
+   ],
+   "mistakes": [
+    "Treating older-paper occurrence as a forecast.",
+    "Using Burnside without specifying the action and fixed set.",
+    "Giving an automaton answer without defining acceptance.",
+    "Recovery rule: Coprime subgroup orders and full product size do not by themselves give a direct product; both factors must be normal."
+   ]
+  },
+  {
+   "file": "simple_groups_revision_sheet.html",
+   "title": "Simple Groups and Non-Simplicity",
+   "purpose": "Build short, complete proofs that a finite group cannot be simple. Exam use: Candidate normal subgroup, all Sylow possibilities, intersection/count or action kernel, and proper/nontrivial conclusion are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — Sylow counting excludes simplicity at order 30 [10 marks]",
+     "marks": 10,
+     "prompt": "Prove that no group of order 30 is simple.",
+     "route": "The non-uniqueness cases must be eliminated by a disjoint element count. Fastest route. List possible n 5 , n 3 , count nonidentity elements in distinct Sylow subgroups, and compare with 30. Topic-specific trap. Distinct prime-order Sylow subgroups intersect only in identity; do not double-count it. List possible n 5 , n 3 , count nonidentity elements in distinct Sylow subgroups, and compare with 30. Topic-specific trap. Distinct prime-order Sylow subgroups intersect only in identity; do not double-count it. Distinct prime-order Sylow subgroups intersect only in identity; do not double-count it.",
+     "answer": "No group G of order 30 is simple. Sylow gives n5 divides 6 and n5=1 mod 5, so n5=1 or 6; n3 divides 10 and n3=1 mod 3, so n3=1 or 10. If neither is 1, distinct Sylow subgroups contribute 6*4=24 elements of order 5 and 10*2=20 of order 3, disjoint except identity, exceeding 30. Hence one Sylow subgroup is normal."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Prove a group with nontrivial proper centre is not simple. Check: Z(G) is normal.",
+     "route": "2. Show no group of order 45 is simple. Check: use n 5 divides 9 and is 1 mod 5.",
+     "answer": "2. Show no group of order 45 is simple. Check: use n 5 divides 9 and is 1 mod 5."
+    },
+    {
+     "title": "Practice 2 — order 56 and the Sylow-7 action [9 marks]",
+     "marks": 9,
+     "prompt": "Investigate simplicity of a group of order 56 by its action on Sylow 7-subgroups.",
+     "route": "If n 7 =8, the induced action needs a kernel argument; an embedding claim alone is insufficient. Fastest route. First use n 7 ∣8 and n 7 ≡1 mod 7, then analyse the conjugation action. Topic-specific trap. A homomorphism G→S 8 does not automatically contradict |G|=56. First use n 7 ∣8 and n 7 ≡1 mod 7, then analyse the conjugation action. Topic-specific trap. A homomorphism G→S 8 does not automatically contradict |G|=56. A homomorphism G→S 8 does not automatically contradict |G|=56.",
+     "answer": "Worked answer. Let G have order 56=2 3 ·7. Sylow gives n 7 ∣8 and n 7 ≡1 (mod 7), hence n 7 =1 or 8. If n 7 =1, the unique Sylow 7-subgroup is a proper nontrivial normal subgroup and G is not simple. Suppose n 7 =8. Conjugation on the eight Sylow 7-subgroups gives a nontrivial homomorphism φ:G→S 8 ; its kernel is normal. If ker φ is nontrivial, it is proper because the action is nontrivial, so again G is not simple. If ker φ=1, the action is faithful, but that fact alone is not a contradiction. Instead count the Sylow subgroups: distinct subgroups of order 7 intersect only in the identity, so the eight of them contribute 8(7−1)=48 distinct nonidentity elements. There are therefore exactly 56−1−48=7 nonidentity elements left. Let Q be a Sylow 2-subgroup. It has order 8, hence seven nonidentity elements; none can lie in a subgroup of order 7. Thus Q consists of the identity together with exactly those seven remaining elements. Every Sylow 2-subgroup has the same seven nonidentity elements, so Q is unique. Therefore Q is a proper nontrivial normal subgroup. In all cases G is not simple."
+    }
+   ],
+   "mistakes": [
+    "Finding a subgroup but never proving normality.",
+    "Calling G itself a witness to non-simplicity.",
+    "Stopping at a possible Sylow count rather than resolving it.",
+    "Recovery rule: Counting nonidentity elements from different Sylow p-subgroups is safe because their intersection is trivial; state that reason."
+   ]
+  },
+  {
+   "file": "subgroups_lagrange_revision_sheet.html",
+   "title": "Subgroups and Lagrange's Theorem",
+   "purpose": "Use subgroup tests and Lagrange's theorem efficiently in the recurring finite-group proof style. Exam use: Operation, nonempty/subgroup test, sizes, index/cosets and the exact divisibility implication are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — subgroup and cosets in Z 12 [8 marks]",
+     "marks": 8,
+     "prompt": "Show H={0,4,8} is a subgroup of additive Z 12 , and find its order, index, cosets and the order of 4.",
+     "route": "Give a subgroup proof before numerical conclusions. Fastest route. Use the one-step difference test, then list representatives 0,1,2,3. Topic-specific trap. In additive notation use a−b, not an unadapted multiplicative inverse argument. Use the one-step difference test, then list representatives 0,1,2,3. Topic-specific trap. In additive notation use a−b, not an unadapted multiplicative inverse argument. In additive notation use a−b, not an unadapted multiplicative inverse argument.",
+     "answer": "In Z12 under addition, H={0,4,8}. It is nonempty and for a,b in H, a-b is again a multiple of 4 mod 12, so H<=Z12. Its order is 3 and index 4. The cosets are H,1+H,2+H,3+H. Element 4 has order 3 since 3*4=0 mod 12 and no smaller positive multiple vanishes."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. If |G|=42, list possible orders of an element. Check: positive divisors of 42 only.",
+     "route": "2. Let H={[[1,n],[0,1]]:n∈Z}. Prove H≤SL(2,Z) and show H≅Z. Check: multiply matrices to add parameters; n↦matrix(n) is an isomorphism.",
+     "answer": "2. Let H={[[1,n],[0,1]]:n∈Z}. Prove H≤SL(2,Z) and show H≅Z. Check: multiply matrices to add parameters; n↦matrix(n) is an isomorphism."
+    },
+    {
+     "title": "Practice 2 — a point stabiliser in S 4 [8 marks]",
+     "marks": 8,
+     "prompt": "Prove K={σ∈S 4 :σ(4)=4} is a subgroup and find its order and index.",
+     "route": "Link the stabiliser condition to closure and then to S 3 . Fastest route. Use ab⁻¹ fixing 4 and restrict permutations to {1,2,3}. Topic-specific trap. Fixing one point leaves 3!, not 4!, permissible permutations. Use ab⁻¹ fixing 4 and restrict permutations to {1,2,3}. Topic-specific trap. Fixing one point leaves 3!, not 4!, permissible permutations. Fixing one point leaves 3!, not 4!, permissible permutations.",
+     "answer": "show K={sigma in S4:sigma(4)=4} is a subgroup and find its order/index. Check ab^{-1} fixes 4 when a,b do; restriction to {1,2,3} gives K isomorphic to S3, so |K|=6 and index 4."
+    }
+   ],
+   "mistakes": [
+    "Claiming every divisor of |G| is realised as an element order.",
+    "Using Lagrange before establishing subgroup status.",
+    "Confusing the order of G, H and an element.",
+    "Recovery rule: Lagrange says subgroup order must divide group order, not that every divisor occurs as a subgroup order."
+   ]
+  },
+  {
+   "file": "sylow_revision_sheet.html",
+   "title": "Sylow Theorems",
+   "purpose": "Apply the three Sylow theorems and turn congruence/divisibility into structural conclusions. Exam use: Full p-power, divisibility, congruence, complete candidate list, any intersection count and justified normality are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice 1 — prove order 132 cannot be simple [10 marks]",
+     "marks": 10,
+     "prompt": "Use Sylow-number restrictions and an element count to prove every group of order 132 has a proper normal subgroup.",
+     "route": "The two possible unique Sylow subgroups must be reached by contradiction. Fastest route. List allowed n 11 , n 3 ; if neither is one, count the nonidentity elements contributed. Topic-specific trap. Each Sylow p-subgroup of order p contributes p−1 nonidentity elements, not p. List allowed n 11 , n 3 ; if neither is one, count the nonidentity elements contributed. Topic-specific trap. Each Sylow p-subgroup of order p contributes p−1 nonidentity elements, not p. Each Sylow p-subgroup of order p contributes p−1 nonidentity elements, not p.",
+     "answer": "Prove a group G of order 132=2^2*3*11 is not simple. Here n11 divides 12 and n11=1 mod 11, so n11=1 or 12; n3 divides 44 and n3=1 mod 3, so n3=1,4 or 22. If neither Sylow subgroup were unique, the 12 Sylow 11-subgroups would contribute 12*(11-1)=120 nonidentity elements and the 22 Sylow 3-subgroups would contribute 22*(3-1)=44. Subgroups of different prime orders intersect only in the identity, so this would require 164 distinct nonidentity elements in a group with only 131. Hence n11=1 or n3=1, giving a proper nontrivial normal subgroup."
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. For |G|=56, list possible n 7 . Check: it divides 8 and is 1 mod 7, so 1 or 8.",
+     "route": "2. Prove every group of order 15 is not simple. Check: n 5 divides 3 and is 1 mod 5, hence is 1.",
+     "answer": "2. Prove every group of order 15 is not simple. Check: n 5 divides 3 and is 1 mod 5, hence is 1."
+    },
+    {
+     "title": "Practice 2 — order 45 and a unique Sylow subgroup [8 marks]",
+     "marks": 8,
+     "prompt": "Prove every group of order 45 is not simple.",
+     "route": "A unique Sylow subgroup supplies the normal subgroup immediately. Fastest route. Apply n 3 ∣5 and n 3 ≡1 mod 3. Topic-specific trap. Do not choose n 3 =4: it does not divide 5. Apply n 3 ∣5 and n 3 ≡1 mod 3. Topic-specific trap. Do not choose n 3 =4: it does not divide 5. Do not choose n 3 =4: it does not divide 5.",
+     "answer": "prove every group of order 45 is not simple. Check n5 divides 9 and n5=1 mod 5, so n5=1 or 6; n3 divides 5 and n3=1 mod 3, so n3=1 only. The unique Sylow 3-subgroup has order 9 and is normal."
+    }
+   ],
+   "mistakes": [
+    "Using n p ≡0 mod p instead of 1.",
+    "Forgetting to divide |G| by the full p-power first.",
+    "Assuming all p-subgroups are Sylow p-subgroups.",
+    "Recovery rule: A candidate list with more than one value is not a conclusion; continue with counting, actions or another prime instead of selecting 1 by preference."
+   ]
+  }
+ ]
+}
