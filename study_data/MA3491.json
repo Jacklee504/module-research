@@ -1,0 +1,742 @@
+{
+ "code": "MA3491",
+ "name": "Fields and Applications",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "60% exam / 40% CA",
+  "predictability": "High",
+  "exam_pattern": "High predictability.",
+  "title": "MA3491 - Fields and Applications",
+  "papers": [
+   "2018_2019.pdf",
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "coding_bounds_revision_sheet.html",
+   "cyclic_codes_revision_sheet.html",
+   "decoding_revision_sheet.html",
+   "finite_field_arithmetic_revision_sheet.html",
+   "finite_field_construction_revision_sheet.html",
+   "hamming_codes_revision_sheet.html",
+   "linear_codes_revision_sheet.html",
+   "secondary_coding_topics_revision_sheet.html"
+  ],
+  "exam_block": [
+   "The same topic blocks recur across all papers.",
+   "The official learning outcomes align almost exactly with the exam patterns.",
+   "Hamming codes, cyclic codes, finite field arithmetic, generator/check matrices and bounds are very consistent.",
+   "Recent papers from 2022-2023 onward have a nearly identical 5-question structure.",
+   "The module is algebra/coding-theory heavy; errors in finite-field arithmetic can cascade.",
+   "The format changed from 4 to 5 questions, though content stayed stable.",
+   "Current page staff do not exactly match all co-examiners, but Emil Skoldberg is the starred recent lecturer and is listed on the current page."
+  ],
+  "drill": [
+   "The paper is highly repeatable: most years cover bounds, finite fields, linear codes, decoding, Hamming codes and cyclic codes.",
+   "Start with code bounds and block-code basics: sphere packing, Singleton, minimum distance, perfect/MDS codes and structured codeword counts.",
+   "Finite fields are central: irreducibility, factorisation, constructing fields such as F8 / F16 / F25 / F27 , field multiplication, inverses and primitive elements.",
+   "Linear-code calculations are high-return: generator matrices, standard form, parity-check matrices, minimum distance and codeword membership.",
+   "Decoding is very drillable: syndrome tables, standard arrays and nearest-neighbour decoding.",
+   "Hamming and cyclic codes are among the safest topics: parity-check construction, single-error correction, generator/check polynomials and cyclic-shift arguments.",
+   "Weight enumerators appeared in 2022/23, 2023/24 and 2025/26. In 2025/26 they were paired with a cyclic-code question and MacWilliams' identity, so they are now a recurring secondary topic."
+  ],
+  "paper_format": "answer all questions",
+  "exam_shape": "choice",
+  "code": "MA3491",
+  "name": "Fields and Applications"
+ },
+ "families": [
+  {
+   "id": "bounds-and-parameters-of-a-described-block-code",
+   "rank": 1,
+   "title": "Bounds And Parameters Of A Described Block Code",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Complete answer must contain: for a q -ary code C of length n and minimum distance d , set t = ⌊( d − 1)/2⌋ and state |C| Σ i=0 t C( n , i )( q − 1) i ≤ q n . Then substitute q , n , and t , divide by the sphere size, and take the integer upper bound. “Corrects all single errors” means t = 1, equivalently d ≥ 3."
+  },
+  {
+   "id": "finite-fields-and-polynomial-arithmetic",
+   "rank": 2,
+   "title": "Finite Fields And Polynomial Arithmetic",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Standard proof strategy: a degree-2 or degree-3 polynomial over a field is irreducible exactly when it has no root in that field, so test every field element. For a degree-5 polynomial over F 2 , rule out a linear factor and the irreducible quadratic x 2 + x + 1; otherwise any proper factorisation would have a factor of degree 1 or 2. For factorisation, first find roots, divide, and continue until every factor is irreducible."
+  },
+  {
+   "id": "linear-codes-minimum-distance-and-decoding",
+   "rank": 3,
+   "title": "Linear Codes, Minimum Distance, And Decoding",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Construction and checks: row-reduce G over the stated field to G = [ I k | A ]. Then a parity-check matrix is H = [− A T | I n−k ], with G H T = 0. A row vector v is a codeword exactly when vH T = 0. For a linear code, d min is the least nonzero codeword weight; enumerate the small code or use the smallest number of linearly dependent columns of H . To prove C = C ⊥ , show self-orthogonality (for example GG T = 0) and use dim C = dim C ⊥ = n /2."
+  },
+  {
+   "id": "hamming-codes",
+   "rank": 4,
+   "title": "Hamming Codes",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Complete answer must contain: Ham( r , q ) = { c ∈ F q n : cH T = 0}, where H is an r × n parity-check matrix whose columns are one representative from each one-dimensional subspace of F q r , and n = ( q r − 1)/( q − 1). Its parameters are [ n , n − r , 3]. For a single error ae j , the syndrome is ah j , so identify the column and scalar, subtract the error, and give the corrected word. For perfection, radius-1 balls are disjoint because d = 3 and have size 1 + n ( q − 1) = q r ; multiplying by |C| = q n − r gives q n , all ambient words."
+  },
+  {
+   "id": "cyclic-codes-weight-enumerators-and-macwilliams-identity",
+   "rank": 5,
+   "title": "Cyclic Codes, Weight Enumerators, And MacWilliams’ Identity",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Distinct 2024/25 extension, Q5(b), 4 marks: for a binary cyclic code of odd length containing an odd-weight word u , prove it contains the all-ones word. Sum all cyclic shifts of u : each coordinate is the sum of wt( u ) ones, hence is 1 in F 2 .",
+   "answer": "Complete construction: view a length- n cyclic code as an ideal in F q [ x ]/( x n − 1), generated by a monic divisor g ( x ) of x n − 1. If deg g = n − k , rows from the coefficient vectors of g , xg , …, x k −1 g give G . Compute h ( x ) = ( x n − 1)/ g ( x ). A standard check matrix is a generator matrix for C ⊥ : use the reciprocal h * ( x ) = h (0) −1 x deg h h ( x −1 ) as its generator polynomial; rows are its n − k shifts h * , xh * , …, x n − k −1 h * . Verify GH T = 0."
+  },
+  {
+   "id": "current-format-coverage-map",
+   "rank": null,
+   "title": "Current-Format Coverage Map",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "ranked-current-format-question-families",
+   "rank": null,
+   "title": "Ranked Current-Format Question Families",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Bounds And Described Codes",
+     "front": "1. State the sphere-packing bound.",
+     "back": "For C ⊆ F q n with minimum distance d and t = ⌊(d − 1)/2⌋: |C| Σ i=0 t C(n,i)(q − 1) i ≤ q n . The sum is the radius-t Hamming-ball size; such balls about codewords are disjoint.",
+     "evidence": "Q1(a), all current papers"
+    },
+    {
+     "group": "Bounds And Described Codes",
+     "front": "2. Apply sphere packing; define one-error correction.",
+     "back": "Calculate t, evaluate S = Σ C(n,i)(q−1) i , then |C| ≤ ⌊q n /S⌋. “Corrects every single error” means t ≥ 1, equivalently d ≥ 3. Show the substitution and integer bound.",
+     "evidence": "Q1(a), all current papers"
+    },
+    {
+     "group": "Bounds And Described Codes",
+     "front": "3. State the Singleton bound.",
+     "back": "|C| ≤ q n−d+1 . For a linear [n,k,d] code this is k ≤ n − d + 1.",
+     "evidence": "Q1(b), all current papers"
+    },
+    {
+     "group": "Bounds And Described Codes",
+     "front": "4. Prove the Singleton bound.",
+     "back": "Delete d−1 coordinates. Equal shortened images of distinct codewords would make them differ in at most d−1 places, impossible. Deletion is injective into F q n−d+1 , so |C| ≤ q n−d+1 .",
+     "evidence": "2024/25–2025/26 Q1(b)"
+    },
+    {
+     "group": "Bounds And Described Codes",
+     "front": "5. Find parameters of a code defined by word conditions.",
+     "back": "Count permitted words for |C|. Prove a lower bound for distance and exhibit a pair attaining it. Only write [n,k,d] after establishing linearity and |C|=q k ; otherwise state length, size, distance.",
+     "evidence": "Q1(c), all current papers"
+    },
+    {
+     "group": "Bounds And Described Codes",
+     "front": "6. Give palindrome and balanced-word parameters.",
+     "back": "|P 2k,q |=q k , d min =2; |P 2k+1,q |=q k+1 , d min =1. Binary length-8 weight-4 words: size C(8,4)=70, distance 2; changes must balance 0→1 and 1→0.",
+     "evidence": "2022/23, 2023/24 Q1(c)"
+    },
+    {
+     "group": "Bounds And Described Codes",
+     "front": "7. Repetition code: parameters, MDS, perfectness.",
+     "back": "The q-ary length-n repetition code is [n,1,n], MDS because 1=n−n+1. It is perfect only if |C| times its radius-⌊(n−1)/2⌋ sphere size is q n . Ternary length 7: radius-3 sphere is 379 and 3·379 ≠ 3 7 , so not perfect.",
+     "evidence": "2024/25 Q1(c)"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "8. Test degree-2/3 irreducibility over F q .",
+     "back": "A degree-2 or degree-3 polynomial over a field is irreducible iff it has no root in that field. Evaluate every a ∈ F q ; a root yields x−a. Divide and continue if factorisation is requested.",
+     "evidence": "Q2(a), 2022/23, 2024/25"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "9. Prove a degree-5 polynomial over F 2 irreducible.",
+     "back": "Rule out roots 0 and 1, then rule out the only irreducible quadratic x 2 +x+1 by division. Any nontrivial degree-5 factorisation has a factor of degree 1 or 2, so this proves irreducibility.",
+     "evidence": "2025/26 Q2(b)"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "10. Factor a polynomial over a finite field.",
+     "back": "Test all field elements for roots and divide out each linear factor. Factor the remainder by degree; a quadratic/cubic with no root is irreducible. Retain multiplicities and justify every final factor.",
+     "evidence": "Q2(a), 2022/23–2023/24"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "11. Construct F q [x]/(p(x)).",
+     "back": "If p is irreducible of degree m, the quotient is a field of q m elements. Representatives have degree < m. Add in F q ; multiply and reduce using p(x)=0.",
+     "evidence": "Q2(b), all current papers"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "12. Multiply residue classes in a quotient field.",
+     "back": "Multiply representatives, then replace high powers using p(x)=0 until degree < deg p. Reduce coefficients in F q throughout and state the final reduced representative.",
+     "evidence": "2022/23 Q2(b)(ii)"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "13. Find an inverse modulo p(x).",
+     "back": "Use extended Euclid to find u,v with u(x)a(x)+v(x)p(x)=1. Modulo p, [u][a]=[1], so [u]=[a] −1 . Reduce u to degree < deg p and check the product if practical.",
+     "evidence": "Q2(b)/(c), all current papers"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "14. Define order and primitive element.",
+     "back": "ord(a) is least positive m with a m =1. Since |F × |=|F|−1, a is primitive iff ord(a)=|F|−1. Test divisors of |F|−1 to find an order.",
+     "evidence": "2023/24, 2024/25 Q2"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "15. Prove a primitive inverse is primitive.",
+     "back": "(a −1 ) n =(a n ) −1 , so (a −1 ) n =1 iff a n =1. Thus a and a −1 have the same order. If a has order |F|−1, so does its inverse.",
+     "evidence": "2024/25 Q2(c)"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "16. Restrict scalars F 4 →F 2 .",
+     "back": "If F 4 =F 2 (a), {1,a} is an F 2 -basis. An F 4 -basis {e 1 ,…,e n } becomes F 2 -basis {e 1 ,…,e n ,ae 1 ,…,ae n }. Expand coefficients as u+va for spanning and independence.",
+     "evidence": "2024/25 Q1(d)"
+    },
+    {
+     "group": "Finite Fields And Polynomial Arithmetic",
+     "front": "17. Prove (a+b) p =a p +b p in characteristic p.",
+     "back": "Expand by the binomial theorem. For 0<j<p, the prime p divides C(p,j), so intermediate terms vanish in characteristic p. The endpoints remain.",
+     "evidence": "2025/26 Q2(d)"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "18. Put G in standard form.",
+     "back": "Use row operations over the stated field until G=[I k |A]. Row operations change the basis of the row space, not the code. Reduce arithmetic in F q .",
+     "evidence": "2024/25–2025/26 Q3(a)"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "19. Construct H and test membership.",
+     "back": "From G=[I k |A], take H=[−A T |I n−k ]. Then GH T =0, and row vector v is in C iff vH T =0. H is (n−k)×n.",
+     "evidence": "Q3(b), all current papers"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "20. Find d min from codeword weights.",
+     "back": "List all nonzero linear combinations of generator rows, calculate their weights, and take the least. For a linear code, d min is the minimum nonzero codeword weight. Exhibit a word attaining it.",
+     "evidence": "2022/23–2023/24 Q3(a)"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "21. Find d min from H columns.",
+     "back": "d min is the smallest number of linearly dependent columns of H. No zero column gives d≥2; no proportional pair gives d≥3. Exhibit a dependent set for equality. Include all nonzero scalar multiples over F q .",
+     "evidence": "Q3(c)/Q4(a), all current papers"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "22. Prove self-duality.",
+     "back": "Show C⊆C ⊥ , e.g. GG T =0. Then dim C ⊥ =n−dim C. If dim C=n/2, the included subspaces have equal dimension, so C=C ⊥ .",
+     "evidence": "2024/25–2025/26 Q3(d)"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "23. Give syndrome decoding.",
+     "back": "For received r, calculate s=rH T . Choose minimum-weight coset leader e with eH T =s; decode to r−e. In nonbinary codes, syndrome ah j identifies error ae j , including position and magnitude.",
+     "evidence": "Q3(b)/(e), all current papers"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "24. Standard array versus nearest neighbour.",
+     "back": "In a standard array, locate r and decode to its top-row column word. Nearest-neighbour decoding gives codeword(s) at minimum Hamming distance. They agree when the chosen leader has minimum weight; state a tie if present.",
+     "evidence": "2022/23–2023/24 Q3(a)(iii)"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "25. Define Ham(r,q) and give parameters.",
+     "back": "Let n=(q r −1)/(q−1), and H have one representative from each 1-dimensional subspace of F q r as columns. Ham(r,q)={c∈F q n :cH T =0}; its parameters are [n,n−r,3].",
+     "evidence": "Q4, all current papers"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "26. Construct a Hamming parity-check matrix.",
+     "back": "Choose one nonzero vector from every 1-dimensional subspace of F q r ; never include scalar multiples twice. There are (q r −1)/(q−1) columns. No two are proportional, supporting d min =3.",
+     "evidence": "Q4(b), all current papers"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "27. Correct one Hamming-code error.",
+     "back": "If r=c+ae j , then rH T =ah j . Find the unique proportional column and scalar a, then correct to r−ae j . State corrected word, location, and magnitude if asked.",
+     "evidence": "Q4(c), all current papers"
+    },
+    {
+     "group": "Linear Codes, Decoding, And Hamming Codes",
+     "front": "28. Prove Ham(r,q) is perfect.",
+     "back": "d=3 makes radius-1 balls disjoint. Each has 1+n(q−1)=q r words; the code has q n−r words. The total q n−r q r =q n is the whole ambient space, so every word lies in exactly one ball.",
+     "evidence": "2024/25–2025/26 Q4(e)"
+    },
+    {
+     "group": "Cyclic Codes And Enumerators",
+     "front": "29. Construct G from a cyclic generator polynomial.",
+     "back": "In F q [x]/(x n −1), let monic g divide x n −1. If deg g=n−k, coefficient vectors of g,xg,…,x k−1 g form the k×n generator matrix.",
+     "evidence": "Q5, all current papers"
+    },
+    {
+     "group": "Cyclic Codes And Enumerators",
+     "front": "30. Construct cyclic h(x) and H.",
+     "back": "h(x)=(x n −1)/g(x). The dual generator is h * (x)=h(0) −1 x deg h h(x −1 ). Rows from h * ,xh * ,…,x n−k−1 h * form H; verify GH T =0.",
+     "evidence": "Q5, all current papers"
+    },
+    {
+     "group": "Cyclic Codes And Enumerators",
+     "front": "31. Prove the odd-weight binary cyclic theorem.",
+     "back": "Sum all n cyclic shifts of an odd-weight codeword u. The sum remains in C. Every coordinate contains every entry of u once, so equals wt(u)=1 mod 2. Thus the all-ones word is in C.",
+     "evidence": "2024/25 Q5(b)"
+    },
+    {
+     "group": "Cyclic Codes And Enumerators",
+     "front": "32. Define and compute a weight enumerator.",
+     "back": "W C (z)=Σ c∈C z wt(c) . List all codewords, calculate weights, and collect equal exponents. Constant term is 1 and W C (1)=|C| checks the count.",
+     "evidence": "2022/23, 2023/24, 2025/26 Q5"
+    },
+    {
+     "group": "Cyclic Codes And Enumerators",
+     "front": "33. State MacWilliams’ identity and find distance.",
+     "back": "For binary C length n: W C ⊥ (z)=|C| −1 (1+z) n W C ((1−z)/(1+z)). Apply it in the required direction. Minimum distance is the least positive exponent with nonzero coefficient.",
+     "evidence": "2025/26 Q5(d)–(f)"
+    },
+    {
+     "group": "Legacy Backup",
+     "front": "34. Define Hamming distance and prove it is a metric.",
+     "back": "d(x,y) counts unequal coordinates. It is nonnegative, zero exactly when x=y, and symmetric. Coordinatewise 1 x≠z ≤1 x≠y +1 y≠z ; sum to obtain the triangle inequality.",
+     "evidence": "2018/19 Q1(a)"
+    },
+    {
+     "group": "Legacy Backup",
+     "front": "35. State ISBN-10 and ISBN-13 checks.",
+     "back": "ISBN-10: 10d 1 +9d 2 +…+d 10 ≡0 (mod 11), with X=10. ISBN-13: alternating weights 1,3,…,1 yield sum ≡0 (mod 10). Substitute an unknown and solve.",
+     "evidence": "2018/19, 2021/22 Q1(b)"
+    },
+    {
+     "group": "Legacy Backup",
+     "front": "36. What are units in F[x]?",
+     "back": "Exactly F × , the nonzero constants. If fg=1, deg f+deg g=0, so both have degree 0; every nonzero constant has scalar inverse. In a Euclidean domain, a unit u has uv=1 for some v.",
+     "evidence": "2018/19 Q2(c)"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "coding_bounds_revision_sheet.html",
+   "title": "Coding Bounds and Block-Code Parameters",
+   "purpose": "Bounds say what size a q-ary code can possibly have, and let you recognise perfect and MDS cases. Exam use: q,n,M,d,t, ball volume, integer rounding and comparison/interpretation of bounds are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "A binary (n=7,M=16,d=3) code has t=1. Sphere packing gives 16(1+7)=128=2 7 , so it is perfect. Singleton gives 16≤2 5 .",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "For a binary (n=7,d=3) code, t=1 and a Hamming ball has volume C(7,0)+C(7,1)=8. Therefore M*8<=2^7=128, so M<=16. The [7,4,3] Hamming code has M=2^4=16 and meets equality, hence is perfect. Singleton only gives M<=2^5=32 and is weaker here.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Apply Singleton to a ternary (5,M,3) code. Check: M≤3 3 =27.",
+     "route": "2. Prove the Singleton bound, then decide whether a binary (5,4,3) code is perfect. Check: write the puncturing argument; t=1 gives 4(1+5)=24≠32, so not perfect.",
+     "answer": "2. Prove the Singleton bound, then decide whether a binary (5,4,3) code is perfect. Check: write the puncturing argument; t=1 gives 4(1+5)=24≠32, so not perfect."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: bound a ternary length-6 code with d=3. Check t=1, ball volume 1+6(3-1)=13, so M<=floor(3^6/13)=56; Singleton gives M<=3^4=81, so Hamming is stronger.",
+     "route": "bound a ternary length-6 code with d=3. Check t=1, ball volume 1+6(3-1)=13, so M<=floor(3^6/13)=56; Singleton gives M<=3^4=81, so Hamming is stronger.",
+     "answer": "bound a ternary length-6 code with d=3. Check t=1, ball volume 1+6(3-1)=13, so M<=floor(3^6/13)=56; Singleton gives M<=3^4=81, so Hamming is stronger."
+    },
+    {
+     "title": "Practice question - choose and apply a bound [8 marks]",
+     "marks": 8,
+     "prompt": "Bound the size M of a ternary length-6 code with minimum distance 3 using sphere packing and Singleton, and say which is stronger. [8 marks]",
+     "route": "t is floor((d-1)/2), not d-1.",
+     "answer": "Demand diagnosis and fastest route: d=3 gives t=1; calculate the q-ary ball volume before comparing numerical bounds."
+    }
+   ],
+   "mistakes": [
+    "Using d rather than t in the ball radius.",
+    "Calling equality in Singleton “perfect”; it means MDS.",
+    "Forgetting (q−1) i .",
+    "Recovery rule: Use t=floor((d-1)/2), not d-1; otherwise the Hamming balls correspond to a decoding radius the code cannot guarantee."
+   ]
+  },
+  {
+   "file": "cyclic_codes_revision_sheet.html",
+   "title": "Cyclic Codes and Generator Polynomials",
+   "purpose": "Cyclic codes convert shift closure into polynomial divisibility and give efficient encoders. Exam use: Field, modulus x^n-1, divisor test, dimension, coefficient order and final remainder/codeword are explicit.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "Over F 2 , x 3 −1=x 3 +1=(x+1)(x 2 +x+1). Choose g=x+1. Then k=2 and c=(1+x)(1+x)=1+x 2 , the word 101; h=x 2 +x+1.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Over F_2, n=7 and g(x)=x^3+x+1 gives k=4. For m(x)=x^3+x, c=m g=(x^3+x)(x^3+x+1)=x^6+x^3+x^2+x (middle x^4 terms cancel). Coefficient vector from x^0 to x^6 is (0,1,1,1,0,0,1). Multiplying by x modulo x^7-1 gives 1+x^2+x^3+x^4, another multiple modulo the quotient, so the shift stays in C.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. For the example, find k for g=x 2 +x+1. Check: k=1.",
+     "route": "2. Factor x 7 −1 over F 2 , choose a divisor g, state [n,k], and construct two codewords. Check: show g divides the modulus and keep polynomial coefficients in F 2 .",
+     "answer": "2. Factor x 7 −1 over F 2 , choose a divisor g, state [n,k], and construct two codewords. Check: show g divides the modulus and keep polynomial coefficients in F 2 ."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: decide whether r(x)=x^6+x^4+x^3+x is in this code. Check division by g over F_2: subtract x^3g=x^6+x^4+x^3, leaving remainder x. The remainder is nonzero, so r is not a codeword; the subtraction is coefficient-wise XOR.",
+     "route": "decide whether r(x)=x^6+x^4+x^3+x is in this code. Check division by g over F_2: subtract x^3g=x^6+x^4+x^3, leaving remainder x. The remainder is nonzero, so r is not a codeword; the subtraction is coefficient-wise XOR.",
+     "answer": "decide whether r(x)=x^6+x^4+x^3+x is in this code. Check division by g over F_2: subtract x^3g=x^6+x^4+x^3, leaving remainder x. The remainder is nonzero, so r is not a codeword; the subtraction is coefficient-wise XOR."
+    },
+    {
+     "title": "Practice question - membership by polynomial division [8 marks]",
+     "marks": 8,
+     "prompt": "Over F 2 , let C have length 7 and generator g=x 3 +x+1. Decide whether r=x 6 +x 4 +x 3 +x lies in C. [8 marks]",
+     "route": "subtraction equals addition only because coefficients are in F 2 .",
+     "answer": "Demand diagnosis and fastest route: a cyclic-code word is a multiple of g modulo x 7 -1; degree 6 permits direct division using XOR subtraction."
+    }
+   ],
+   "mistakes": [
+    "Using any polynomial rather than a divisor of x n −1.",
+    "Reversing deg g and k.",
+    "Forgetting reduction modulo x n −1 for shifts.",
+    "Recovery rule: Coefficient order is a convention, but changing it midway changes the reported word even if the polynomial calculation is right."
+   ]
+  },
+  {
+   "file": "decoding_revision_sheet.html",
+   "title": "Syndromes, Cosets and Decoding",
+   "purpose": "Decoding turns a received word into the nearest plausible codeword. Exam use: Matrix orientation, mod-field arithmetic, syndrome-to-leader map, correction and zero-syndrome verification are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "For H=[1 1 1] over F 2 , r=111 has syndrome 1. Choose leader e=001, giving c=110, a codeword. This table has several weight-one leaders with the same syndrome, so this particular code does not uniquely correct every one-bit error.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Use H with columns 001,010,011,100,101,110,111 and receive r=1011010. XOR columns 1,3,4,6 gives 001 xor 011 xor 100 xor 110=000, so r is already a codeword. If r'=1011011, its syndrome is column 7=111; under single-error decoding flip bit 7 to recover r. The conclusion depends on the at-most-one-error assumption.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. With the above H, find the syndrome of 101. Check: 0, so it is a codeword.",
+     "route": "2. Build a syndrome table for a given H with distinct nonzero columns and decode a received word. Check: explain why column i is the syndrome of an error in position i.",
+     "answer": "2. Build a syndrome table for a given H with distinct nonzero columns and decode a received word. Check: explain why column i is the syndrome of an error in position i."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: if syndrome equals column 3 but the channel may introduce two errors, explain the ambiguity. Check e3 and any two-error pattern whose two columns XOR to column 3 share the syndrome; nearest-neighbour correction is a decoding choice, not proof of the true error.",
+     "route": "if syndrome equals column 3 but the channel may introduce two errors, explain the ambiguity. Check e3 and any two-error pattern whose two columns XOR to column 3 share the syndrome; nearest-neighbour correction is a decoding choice, not proof of the true error.",
+     "answer": "if syndrome equals column 3 but the channel may introduce two errors, explain the ambiguity. Check e3 and any two-error pattern whose two columns XOR to column 3 share the syndrome; nearest-neighbour correction is a decoding choice, not proof of the true error."
+    },
+    {
+     "title": "Practice question - syndrome and decoding assumption [8 marks]",
+     "marks": 8,
+     "prompt": "A binary H has columns 001,010,011,100,101,110,111. If r=1011011, decode under an at-most-one-error channel model. [8 marks]",
+     "route": "syndrome labels a position only under the exact stated column order.",
+     "answer": "Demand diagnosis and fastest route: XOR columns at the 1 positions, match the syndrome to a column, flip that coordinate, then state the modelling assumption."
+    }
+   ],
+   "mistakes": [
+    "Subtracting the syndrome from r instead of an error vector.",
+    "Assuming any code can correct one error.",
+    "Not specifying a leader when syndromes collide.",
+    "Recovery rule: A nonzero syndrome identifies a coset, not automatically the physical error unless the leader assumption is justified."
+   ]
+  },
+  {
+   "file": "finite_field_arithmetic_revision_sheet.html",
+   "title": "Arithmetic in Finite Fields",
+   "purpose": "Accurate field arithmetic underpins inverse, order and coding calculations. Exam use: Base field, defining relation, expansion, every reduction and multiplication-back check are visible.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "In F 4 with α 2 +α+1=0, α 2 =α+1. Then (α+1)α=α 2 +α=1, so (α+1) −1 =α.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "In F_2[x]/(x^3+x+1), let alpha be the class of x, so alpha^3=alpha+1. Compute (alpha^2+1)(alpha^2+alpha)=alpha^4+alpha^3+alpha^2+alpha. Since alpha^4=alpha(alpha+1)=alpha^2+alpha and alpha^3=alpha+1, the sum is (alpha^2+alpha)+(alpha+1)+alpha^2+alpha=alpha+1.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. In this F 4 , calculate (α+1) 2 . Check: α 2 +1=α.",
+     "route": "2. In F 8 with α 3 =α+1, find an inverse of α 2 +1. Check: use the Euclidean algorithm or test the seven nonzero elements and show the reduction.",
+     "answer": "2. In F 8 with α 3 =α+1, find an inverse of α 2 +1. Check: use the Euclidean algorithm or test the seven nonzero elements and show the reduction."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: find (alpha+1)^{-1}. Check (alpha+1)(alpha^2+alpha)=alpha^3+alpha=1 using alpha^3=alpha+1, so the inverse is alpha^2+alpha.",
+     "route": "find (alpha+1)^{-1}. Check (alpha+1)(alpha^2+alpha)=alpha^3+alpha=1 using alpha^3=alpha+1, so the inverse is alpha^2+alpha.",
+     "answer": "find (alpha+1)^{-1}. Check (alpha+1)(alpha^2+alpha)=alpha^3+alpha=1 using alpha^3=alpha+1, so the inverse is alpha^2+alpha."
+    },
+    {
+     "title": "Practice question - inverse in a quotient field [8 marks]",
+     "marks": 8,
+     "prompt": "In F 2 [x]/(x 3 +x+1), with α 3 =α+1, find (α+1) -1 . [8 marks]",
+     "route": "α is a residue class, not a number to which ordinary integer division applies.",
+     "answer": "Demand diagnosis and fastest route: exhibit a candidate product reduced by the defining relation, then multiply back to 1."
+    }
+   ],
+   "mistakes": [
+    "Treating α as an integer.",
+    "Reducing with the wrong sign in odd characteristic.",
+    "Using Fermat’s exponent p−2 instead of q−2.",
+    "Recovery rule: Over F_2, subtraction equals addition; do not carry signs or integer coefficients into the reduced polynomial."
+   ]
+  },
+  {
+   "file": "finite_field_construction_revision_sheet.html",
+   "title": "Constructing Finite Fields",
+   "purpose": "Construction questions test irreducibility, quotient notation and a usable representation for later arithmetic. Exam use: Prime p, degree m, complete irreducibility test, p^m representatives and defining reduction relation are given.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "Over F 2 , f=x 3 +x+1 has no roots (f(0)=f(1)=1), hence is irreducible. F 8 =F 2 [x]/(f), with α 3 =α+1 and elements a+bα+cα 2 .",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Construct F_9 using f(x)=x^2+1 over F_3. This fails: f(1)=2 but f(0)=1 and f(2)=4+1=2, so actually it has no root and is irreducible. Let alpha^2=-1=2. The nine elements are a+b alpha with a,b in F_3. For example (1+alpha)^2=1+2alpha+alpha^2=2alpha mod 3.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Construct F 4 . Check: use x 2 +x+1; α 2 =α+1.",
+     "route": "2. Justify that x 2 +2 over F 5 is reducible or irreducible, then construct the appropriate quotient if irreducible. Check: test roots; 2 is not a square mod 5, so irreducible.",
+     "answer": "2. Justify that x 2 +2 over F 5 is reducible or irreducible, then construct the appropriate quotient if irreducible. Check: test roots; 2 is not a square mod 5, so irreducible."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: explain why x^2+x+1 does not construct F_4 over F_2. Check f(1)=1+1+1=1 mod 2 and f(0)=1, so it actually has no root and is irreducible; therefore it does construct F_4. Correct the premise rather than forcing the requested conclusion.",
+     "route": "explain why x^2+x+1 does not construct F_4 over F_2. Check f(1)=1+1+1=1 mod 2 and f(0)=1, so it actually has no root and is irreducible; therefore it does construct F_4. Correct the premise rather than forcing the requested conclusion.",
+     "answer": "explain why x^2+x+1 does not construct F_4 over F_2. Check f(1)=1+1+1=1 mod 2 and f(0)=1, so it actually has no root and is irreducible; therefore it does construct F_4. Correct the premise rather than forcing the requested conclusion."
+    },
+    {
+     "title": "Practice question - construct F 25 [8 marks]",
+     "marks": 8,
+     "prompt": "Show x 2 +x+1 is irreducible over F 5 , then present F 25 . [8 marks]",
+     "route": "testing only 0 and 1 is sufficient over F 2 , not over F 5 .",
+     "answer": "Demand diagnosis and fastest route: a quadratic is irreducible iff it has no root; evaluate all five residues, then give quotient, basis and reduction relation."
+    }
+   ],
+   "mistakes": [
+    "Using a reducible modulus.",
+    "Writing x=α without stating the quotient.",
+    "Listing p m coefficients rather than p m elements.",
+    "Recovery rule: Evaluate roots in the base field with modular arithmetic; a question's suggested conclusion may be false and must not override the calculation."
+   ]
+  },
+  {
+   "file": "hamming_codes_revision_sheet.html",
+   "title": "Hamming Codes over Finite Fields",
+   "purpose": "Hamming codes are a compact construction of perfect single-error-correcting q-ary codes. Exam use: Definition, parameters, column convention, syndrome arithmetic, correction, parity recheck and perfect-code count appear.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "For m=3, n=7. Take H with columns 001,010,011,100,101,110,111. A syndrome 101 points to position 5, so flip bit 5.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "For m=3 choose H columns 001,010,011,100,101,110,111. If r=1101000, syndrome is 001 xor 010 xor 100=111, so flip bit 7 to get c=1101001. Recheck: 001 xor 010 xor 100 xor 111=000. The [7,4,3] code has 16 codewords and ball size 8, giving 16*8=128=2^7, hence perfect.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Give [n,k,d] for m=4. Check: [15,11,3].",
+     "route": "2. Construct H for m=3, prove it corrects one error, and verify the sphere-packing equality. Check: include both distinct-column and counting arguments.",
+     "answer": "2. Construct H for m=3, prove it corrects one error, and verify the sphere-packing equality. Check: include both distinct-column and counting arguments."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: prove d_min=3 from the columns of H. Check no zero column rules out weight 1 and no repeated columns rules out weight 2; columns 001 xor 010 xor 011=0 exhibit a weight-3 codeword.",
+     "route": "prove d_min=3 from the columns of H. Check no zero column rules out weight 1 and no repeated columns rules out weight 2; columns 001 xor 010 xor 011=0 exhibit a weight-3 codeword.",
+     "answer": "prove d_min=3 from the columns of H. Check no zero column rules out weight 1 and no repeated columns rules out weight 2; columns 001 xor 010 xor 011=0 exhibit a weight-3 codeword."
+    },
+    {
+     "title": "Practice question - Hamming correction and perfection [8 marks]",
+     "marks": 8,
+     "prompt": "For Ham(3,2) with all nonzero 3-bit H columns, explain one-error correction and verify perfection. [8 marks]",
+     "route": "a zero syndrome means no error only under the at-most-one-error model.",
+     "answer": "Demand diagnosis and fastest route: use distinct nonzero syndromes for correction and the sphere count for perfection."
+    }
+   ],
+   "mistakes": [
+    "Including the zero column.",
+    "Using n=2 m rather than 2 m −1.",
+    "Reading syndrome bits in a different order from H.",
+    "Recovery rule: The binary value of a syndrome names a bit only if the column ordering uses that convention; otherwise locate the matching column directly."
+   ]
+  },
+  {
+   "file": "linear_codes_revision_sheet.html",
+   "title": "Linear Codes: G, H and Minimum Distance",
+   "purpose": "Linear-code questions link matrix algebra over F q to size, membership and error detection. Exam use: Field, dimensions, convention, generated words, parity orthogonality and distance/error capability are consistent.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "Over F 2 , G=[1 0 1; 0 1 1]. Then C={000,101,011,110}, so k=2, d=2. Here A=[1;1], hence H=[1 1 1]; each codeword has zero syndrome.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Over F_2 take G=[[1,0,1,1],[0,1,1,0]]. Messages 00,10,01,11 give 0000,1011,0110,1101 with weights 0,3,2,3, so d_min=2. With P=[[1,1],[1,0]], H=[P^T|I_2]=[[1,1,1,0],[1,0,0,1]], and GH^T=0.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Test whether 111 is in the example code. Check: H·111 T =1 mod 2, so no.",
+     "route": "2. Given a standard-form G over F 3 , construct H and find d with a clear finite enumeration. Check: use −A T , not simply A T .",
+     "answer": "2. Given a standard-form G over F 3 , construct H and find d with a clear finite enumeration. Check: use −A T , not simply A T ."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: how many errors can this code detect and correct? Check d=2 gives detection up to d-1=1 and guaranteed correction floor((d-1)/2)=0; a nonzero syndrome detects one error but cannot uniquely correct every one.",
+     "route": "how many errors can this code detect and correct? Check d=2 gives detection up to d-1=1 and guaranteed correction floor((d-1)/2)=0; a nonzero syndrome detects one error but cannot uniquely correct every one.",
+     "answer": "how many errors can this code detect and correct? Check d=2 gives detection up to d-1=1 and guaranteed correction floor((d-1)/2)=0; a nonzero syndrome detects one error but cannot uniquely correct every one."
+    },
+    {
+     "title": "Practice question - derive H and minimum distance [8 marks]",
+     "marks": 8,
+     "prompt": "Over F 2 , G=[[1,0,1,1],[0,1,1,0]]. Find H and d min . [8 marks]",
+     "route": "in nonbinary fields the left block is -P T , not P T without checking signs.",
+     "answer": "Demand diagnosis and fastest route: recognise G=[I 2 |P], use H=[P T |I 2 ], then enumerate four codewords."
+    }
+   ],
+   "mistakes": [
+    "Doing ordinary real-number arithmetic.",
+    "Counting rows of a non-full-rank G as k.",
+    "Calling the least row weight d without checking combinations.",
+    "Recovery rule: Minimum distance includes pairs of distinct codewords; only linearity permits replacing that search by minimum nonzero weight."
+   ]
+  },
+  {
+   "file": "secondary_coding_topics_revision_sheet.html",
+   "title": "Secondary Coding Topics",
+   "purpose": "This guide covers weight enumerators, MacWilliams' identity, perfect/MDS/self-dual ideas, repetition/check-digit examples, and a cautious BCH orientation. Exam use: Definition, dual-code relation, field equations, basis, dimension identity, orthogonality and requested enumerator convention are shown.",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked example",
+     "marks": 0,
+     "prompt": "For C={000,101,011,110}, W C (z)=1+3z 2 . It is not self-dual: n=3 is odd, so n=2k cannot hold. Its d=2.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Medium/hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "For binary C generated by (1,1,0,0) and (0,1,1,0), solve x1+x2=0 and x2+x3=0. Thus x1=x2=x3 and x4 is free, so C^perp=span{(1,1,1,0),(0,0,0,1)}. Both dimensions are 2 and sum to n=4; dot products with generator rows vanish.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Graduated exam bridge",
+     "marks": 0,
+     "prompt": "1. Classify a code meeting M=q n−d+1 . Check: it is MDS; this alone does not say perfect.",
+     "route": "2. Compute a weight enumerator from a supplied G, then outline the data required to construct a BCH generator polynomial. Check: enumerate all q k codewords; name the field, length, designed distance/roots and minimal polynomials.",
+     "answer": "2. Compute a weight enumerator from a supplied G, then outline the data required to construct a BCH generator polynomial. Check: enumerate all q k codewords; name the field, length, designed distance/roots and minimal polynomials."
+    },
+    {
+     "title": "Hard paper-style synthesis",
+     "marks": 0,
+     "prompt": "Paper-style synthesis: compute the weight enumerator of C. Check codewords are 0000,1100,0110,1010, with weights 0,2,2,2, so W_C(z)=1+3z^2; use the convention requested if two variables are used.",
+     "route": "compute the weight enumerator of C. Check codewords are 0000,1100,0110,1010, with weights 0,2,2,2, so W_C(z)=1+3z^2; use the convention requested if two variables are used.",
+     "answer": "compute the weight enumerator of C. Check codewords are 0000,1100,0110,1010, with weights 0,2,2,2, so W_C(z)=1+3z^2; use the convention requested if two variables are used."
+    },
+    {
+     "title": "Practice question - enumerator and duality [8 marks]",
+     "marks": 8,
+     "prompt": "For C={0000,1100,0110,1010}, find W C (z) and decide whether C is self-dual over F 2 . [8 marks]",
+     "route": "never infer self-dual solely from n=2k.",
+     "answer": "Demand diagnosis and fastest route: enumerate all supplied words, then compare C with C ⊥ , not just dimensions."
+    }
+   ],
+   "mistakes": [
+    "Confusing perfect with MDS.",
+    "Counting only generator rows in a weight enumerator.",
+    "Claiming a BCH construction without specifying roots or a splitting field.",
+    "Recovery rule: Orthogonal complement depends on the field's dot product; integer arithmetic can give the wrong nullspace."
+   ]
+  }
+ ]
+}
