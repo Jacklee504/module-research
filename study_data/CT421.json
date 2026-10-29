@@ -1,0 +1,580 @@
+{
+ "code": "CT421",
+ "name": "Artificial Intelligence",
+ "details": {
+  "status": "Optional",
+  "semester": "Semester 2",
+  "credits": "5",
+  "assessment": "60% exam / 40% CA",
+  "predictability": "High",
+  "exam_pattern": "High. The exam is predictable at the topic and question-type level, even when the exact wording changes.",
+  "title": "CT421 - Artificial Intelligence",
+  "papers": [
+   "2021_2022.pdf",
+   "2022_2023.pdf",
+   "2023_2024.pdf",
+   "2024_2025.pdf",
+   "2025_2026.pdf"
+  ],
+  "guides": [
+   "evolution_revision_sheet.html",
+   "mas_revision_sheet.html",
+   "q4_revision_sheet.html",
+   "search_revision_sheet.html"
+  ],
+  "exam_block": [],
+  "drill": [
+   "Q1 is reliably search/adversarial search: minimax, game trees, BFS/DFS/iterative deepening and alpha-beta pruning.",
+   "Q2 is reliably evolutionary computation: GA design, representation, fitness, selection, crossover, mutation, diversity and search behaviour.",
+   "Q3 is reliably multi-agent systems/game theory: structured messages, auctions, prisoner's dilemma, Nash equilibrium, cooperation and coordination.",
+   "Q4 consistently contains explainability plus bio-inspired or contemporary AI. Explainability appears every year; ACO appears in all latest-three papers."
+  ],
+  "paper_format": "Q1 is reliably search/adversarial search: minimax, game trees, BFS/DFS/iterative deepening and alpha-beta pruning",
+  "exam_shape": "mixed",
+  "code": "CT421",
+  "name": "Artificial Intelligence"
+ },
+ "families": [
+  {
+   "id": "genetic-algorithm-design-for-constrained-allocation",
+   "rank": 1,
+   "title": "Genetic-Algorithm Design for Constrained Allocation",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "Given a constrained allocation problem, design a GA whose encoding, fitness function, selection, crossover, mutation, and repair mechanism are valid for that specific constraint set.",
+   "answer": "Complete answer must contain: (1) one gene per decision, such as task i → processor j ; (2) a fitness formula that rewards the stated objective and penalises every violated constraint; (3) a parent-selection mechanism, normally tournament selection; (4) crossover that combines assignments; (5) mutation that makes a small valid assignment change; and (6) repair or rejection after crossover/mutation where invalid offspring are possible. Standard construction: for tasks, use chromosome x = (x 1 , …, x N ) , where x i ∈ {1, …, M} is the processor assigned to task i . A valid fitness is −makespan − λΣ penalties , where penalties cover memory excess and incompatible assignments. For graph colouring, x i is vertex i 's colour and fitness can be −A × conflicts − coloursUsed , with A large enough that removing a conflict always beats using one fewer colour. For knapsack, let x i ∈ {0, 1, …, K} , where 0 means unselected and k means knapsack k ; maximise Σ v i minus a large penalty for each capacity excess."
+  },
+  {
+   "id": "game-trees-minimax-and-alpha-beta-pruning",
+   "rank": 2,
+   "title": "Game Trees, Minimax, and Alpha-Beta Pruning",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Complete answer must contain: make legal moves children of a state; label alternating levels MAX and MIN; assign terminal utilities, or a heuristic at a cutoff depth; propagate maxima at MAX nodes and minima at MIN nodes; choose the root child with the final maximum value. For alpha-beta, carry α, MAX's best guaranteed value, and β, MIN's best guaranteed value; prune when α ≥ β because later children cannot change an ancestor's decision. Standard example: if a MAX ancestor already has α = 6 and a MIN child sees one successor valued 4, then β = 4. Since α ≥ β, do not inspect that MIN node's remaining successors. The MIN node can never return more than 4, so MAX will not choose it over the known 6."
+  },
+  {
+   "id": "game-theory-cooperation-and-auctions-in-mas",
+   "rank": 3,
+   "title": "Game Theory, Cooperation, and Auctions in MAS",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Game-theory proof pattern: write the two actions and payoffs. An action is dominant for player i if, for every action profile of the other players, it gives at least as high a payoff as every alternative. A profile is a Nash equilibrium if no one player can improve their payoff by changing strategy while all other strategies remain fixed. To construct multiple equilibria, use a coordination matrix with good diagonal outcomes and worse off-diagonal outcomes; explain that rational agents still need a convention or communication to select the same diagonal. In the Prisoner's Dilemma, defect is dominant for both; (defect, defect) is Nash, although (cooperate, cooperate) is better jointly. Auction construction: English: ascending price, bidders remain until price reaches private value; it reveals information but can be slow/collusive. Dutch: descending price, first acceptance wins; a bidder trades a lower price against losing to another bidder; it is fast but strategically uncertain. For multi-attribute negotiation, define offers over price, deadline, quality, and quantity, evaluate with weighted utilities, then seek Pareto-efficient offers where improving one agent necessarily harms another. Cooperation answer: tit-for-tat cooperates first and then repeats the opponent's previous move. It is nice, retaliatory, and forgiving after renewed cooperation. Noise can turn cooperation into apparent defection, causing a retaliation loop; forgiving or generous variants can break it. Other mechanisms are repeated interaction, reputation, partner selection, and incentives/enforcement."
+  },
+  {
+   "id": "explainability-and-black-box-deep-learning",
+   "rank": 4,
+   "title": "Explainability and Black-Box Deep Learning",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Complete answer must contain: a black-box model's output may be accurate while the internal route to it is difficult to inspect; this harms trust, auditability, debugging, bias detection, and accountability in high-stakes decisions. Then describe two methods, not merely name them: feature attribution/saliency identifies input features or image regions that most affected an output; a local surrogate such as LIME fits an interpretable approximation near one prediction. Other valid choices include counterfactual explanations, attention visualisation, concept activation vectors, or interpretable-by-design models."
+  },
+  {
+   "id": "bfs-dfs-and-iterative-deepening",
+   "rank": 5,
+   "title": "BFS, DFS, and Iterative Deepening",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Complete comparison: BFS uses a FIFO queue and visits depth 0, then 1, then 2; it is complete for finite branching, takes O(b d ) time and O(b d ) space. DFS follows one branch before backtracking; it uses O(bm) space and O(b m ) time, but is not complete in an infinite-depth space. Iterative deepening repeats depth-limited DFS at limits 0, 1, 2, …; it is complete for finite branching, has O(b d ) time and O(bd) space. State assumptions: b is branching factor, d shallowest-solution depth, and m maximum depth."
+  },
+  {
+   "id": "ga-population-dynamics-schemas-diversity-and-search-balance",
+   "rank": 6,
+   "title": "GA Population Dynamics: Schemas, Diversity, and Search Balance",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Complete answer: a schema is a pattern such as 1*0*, with * a wildcard. The schema theorem predicts that short, low-order, above-average schemas receive increasing expected representation. Selection favours schemas appearing in fitter individuals. Crossover combines building blocks but can disrupt a schema when a crossover point falls within its defining length. Mutation introduces diversity and can create new material, but a high mutation rate disrupts existing schemas. Diversity is variation among candidates; it avoids premature convergence. Strong selection and crossover of similar parents reduce it, while mutation can restore it. Explicit preservation includes fitness sharing/niching, crowding, random immigrants, or duplicate removal. Selection/crossover mainly exploit known promising regions; mutation and diverse parent choice explore. Hill climbing mainly exploits by moving to a better neighbour and can get trapped on a local optimum, plateau, or ridge; random restarts or occasional non-improving moves add exploration."
+  },
+  {
+   "id": "bio-inspired-ai-artificial-life-and-neuro-evolution",
+   "rank": 7,
+   "title": "Bio-Inspired AI, Artificial Life, and Neuro-Evolution",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": "Standard examples: Artificial life: Boids agents obey separation, alignment, and cohesion locally, yet flocking emerges globally without a controller. Neuro-evolution: chromosome encodes all weights w 1 , …, w n , or a graph of nodes/connections; GA fitness evaluates network performance. It avoids gradients but is expensive because many networks must be evaluated. ACO: ants choose edges using pheromone and heuristic distance; short tours deposit more pheromone; evaporation prevents old paths from dominating. Its artificial-life properties are decentralised agents, local probabilistic decisions, feedback through pheromone, adaptation over iterations, and emergent route preference. For symbolic vs connectionist AI, compare explicit rules and inspectable reasoning with neural networks' data-driven pattern learning; apply both to the same domain, such as medical diagnosis."
+  },
+  {
+   "id": "current-one-paper-families-do-not-discard",
+   "rank": null,
+   "title": "Current One-Paper Families: Do Not Discard",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "current-priorities",
+   "rank": null,
+   "title": "Current Priorities",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  },
+  {
+   "id": "current-paper-coverage-map",
+   "rank": null,
+   "title": "Current-Paper Coverage Map",
+   "frequency": "",
+   "appearances": [],
+   "marks": 0,
+   "question": "",
+   "answer": ""
+  }
+ ],
+ "decks": [
+  {
+   "file": "flashcards.html",
+   "cards": [
+    {
+     "group": "Game-Tree Search",
+     "front": "State minimax, including a depth limit.",
+     "back": "States are nodes; moves are edges. Score leaves for MAX; back up max at MAX and min at MIN. At depth L , use h(s) .",
+     "evidence": "2022/23 Q1(a)-(b); 2023/24 Q1(a); 2024/25 Q1(a)(i); 2025/26 Q1(b)"
+    },
+    {
+     "group": "Game-Tree Search",
+     "front": "How do you work a minimax tree?",
+     "back": "Draw legal moves; label MAX/MIN; score leaves; back up values; state the root move. Check whether taking the last item wins or loses.",
+     "evidence": "2023/24 Q1(a); 2024/25 Q1(a)(i); 2025/26 Q1(b)"
+    },
+    {
+     "group": "Game-Tree Search",
+     "front": "What are α and β? When do you prune?",
+     "back": "α is MAX's lower bound; β is MIN's upper bound. Prune when α ≥ β.",
+     "evidence": "2024/25 Q1(a)(ii); 2025/26 Q1(b)(iii); legacy 2021/22 Q1(b)"
+    },
+    {
+     "group": "State-Space Search and MCTS",
+     "front": "BFS: order, complexity, completeness?",
+     "back": "FIFO by depth; complete with finite branching. At goal depth d : time and space O(b d ).",
+     "evidence": "2023/24 Q1(b); 2024/25 Q1(b)"
+    },
+    {
+     "group": "State-Space Search and MCTS",
+     "front": "DFS: order, complexity, completeness?",
+     "back": "Follow one branch then backtrack. To depth m : time O(b m ), space O(bm); incomplete in infinite-depth spaces.",
+     "evidence": "2023/24 Q1(b); 2024/25 Q1(b)"
+    },
+    {
+     "group": "State-Space Search and MCTS",
+     "front": "Iterative deepening: method, complexity, completeness?",
+     "back": "Depth-limited DFS for 0, 1, 2, … . Complete with finite branching; time O(b d ), space O(bd).",
+     "evidence": "2023/24 Q1(b); 2024/25 Q1(b); 2025/26 Q1(a)"
+    },
+    {
+     "group": "State-Space Search and MCTS",
+     "front": "MCTS stages and UCT?",
+     "back": "Select, expand, rollout, backpropagate. UCT = mean reward + c √(ln N / n ): exploit reward, explore low visits.",
+     "evidence": "2024/25 Q1(c)"
+    },
+    {
+     "group": "State-Space Search and MCTS",
+     "front": "NK model: what are N and K ?",
+     "back": "N genes; each depends on itself and K others. Average local fitness. K = 0 is smooth; larger K means ruggedness and local optima.",
+     "evidence": "2025/26 Q1(c)"
+    },
+    {
+     "group": "Novelty Search",
+     "front": "Novelty search for a maze robot?",
+     "back": "Reward behaviour difference, not goal score: compare final positions/trajectories with an archive or neighbours, then retain novel behaviour.",
+     "evidence": "2022/23 Q1(c); 2023/24 Q1(c)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "Core parts of a constrained GA design?",
+     "back": "State encoding, objective, hard constraints, fitness, and repair. Tournament selects; crossover recombines then repairs; mutation makes one valid small change.",
+     "evidence": "2022/23 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q2(b)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "How can a GA represent an assignment problem?",
+     "back": "Use one gene per item, task, or vertex. Each gene records a choice, such as a knapsack, processor, or colour.",
+     "evidence": "2021/22 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q2(b)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "How should a GA score an assignment solution?",
+     "back": "Reward the goal, such as high value or low cost, and penalise broken constraints, such as excess weight or clashes.",
+     "evidence": "2021/22 Q2(b); 2023/24 Q2(b); 2024/25 Q2(b); 2025/26 Q2(b)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "What is a schema in a GA?",
+     "back": "A partial pattern of genes, such as 1*0*, describing similar candidate solutions.",
+     "evidence": "2022/23 Q2(a); 2023/24 Q2(a)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "What does the schema theorem say?",
+     "back": "Useful, short patterns tend to become more common unless crossover or mutation breaks them.",
+     "evidence": "2022/23 Q2(a); 2023/24 Q2(a)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "How do GA operators affect useful patterns?",
+     "back": "Selection favours them; crossover and mutation can preserve them or break them.",
+     "evidence": "2022/23 Q2(a); 2023/24 Q2(a)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "Why does GA diversity matter?",
+     "back": "It prevents the population becoming too similar and getting stuck early.",
+     "evidence": "2024/25 Q2(a)(i); 2025/26 Q2(a)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "How can a GA keep diversity?",
+     "back": "Use mutation, varied parent selection, niching/crowding, or introduce new candidates.",
+     "evidence": "2024/25 Q2(a)(i); 2025/26 Q2(a)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "Why can hill climbing fail?",
+     "back": "It can get stuck at a local optimum, plateau, or ridge.",
+     "evidence": "2024/25 Q2(a)(ii)"
+    },
+    {
+     "group": "Genetic Algorithms",
+     "front": "How can hill climbing escape a poor area?",
+     "back": "Restart elsewhere, choose moves randomly, or occasionally accept a worse move.",
+     "evidence": "2024/25 Q2(a)(ii)"
+    },
+    {
+     "group": "MAS Protocols, Auctions, and Negotiation",
+     "front": "How do agents communicate clearly?",
+     "back": "They use messages with a clear purpose, such as informing, requesting, proposing, accepting, or rejecting.",
+     "evidence": "2023/24 Q3(a); 2025/26 Q3(a)"
+    },
+    {
+     "group": "MAS Protocols, Auctions, and Negotiation",
+     "front": "How does an auction allocate work in MAS?",
+     "back": "Announce the task, collect bids, choose a winner, then confirm or reject bids.",
+     "evidence": "2022/23 Q3(a); 2024/25 Q3(c); 2025/26 Q3(a)"
+    },
+    {
+     "group": "MAS Protocols, Auctions, and Negotiation",
+     "front": "What can make agent communication unreliable?",
+     "back": "Messages may be late, lost, misunderstood, or based on different assumptions.",
+     "evidence": "2023/24 Q3(a); 2025/26 Q3(a)"
+    },
+    {
+     "group": "MAS Protocols, Auctions, and Negotiation",
+     "front": "English versus Dutch auction?",
+     "back": "English: price rises; last bidder wins. Dutch: price falls; first accepter wins.",
+     "evidence": "2022/23 Q3(a); 2024/25 Q3(c)"
+    },
+    {
+     "group": "MAS Protocols, Auctions, and Negotiation",
+     "front": "What is multi-attribute negotiation?",
+     "back": "Agents negotiate several factors, such as price, quality, and deadline, rather than price alone.",
+     "evidence": "2022/23 Q3(b)"
+    },
+    {
+     "group": "Game Theory: Equilibria and Cooperation",
+     "front": "What is the difference between a dominant strategy and a Nash equilibrium?",
+     "back": "A dominant strategy is best whatever others do. A Nash equilibrium is a situation where nobody benefits by changing alone.",
+     "evidence": "2022/23 Q3(c); 2023/24 Q3(b); 2024/25 Q3(a); 2025/26 Q3(b)"
+    },
+    {
+     "group": "Game Theory: Equilibria and Cooperation",
+     "front": "Can a game have more than one Nash equilibrium?",
+     "back": "Yes. A coordination game can have two stable choices, so agents may need communication or a shared convention.",
+     "evidence": "2025/26 Q3(b)"
+    },
+    {
+     "group": "Game Theory: Equilibria and Cooperation",
+     "front": "What does the Prisoner's Dilemma show?",
+     "back": "Each player has a reason to defect, but both would be better off if both cooperated.",
+     "evidence": "2024/25 Q3(a); 2025/26 Q3(c)"
+    },
+    {
+     "group": "Game Theory: Equilibria and Cooperation",
+     "front": "What can encourage cooperation in a Prisoner's Dilemma?",
+     "back": "Repeated interaction, reputation, partner choice, rewards or penalties, and cooperative groups can make defection less attractive.",
+     "evidence": "2023/24 Q3(c); 2025/26 Q3(c)"
+    },
+    {
+     "group": "Game Theory: Equilibria and Cooperation",
+     "front": "What is tit-for-tat, and why does noise matter?",
+     "back": "Start by cooperating, then copy the other player's last move. Mistakes can cause retaliation cycles; forgiveness helps stop them.",
+     "evidence": "2024/25 Q3(b)"
+    },
+    {
+     "group": "Explainability and LLM Reliability",
+     "front": "Why explain a black-box model?",
+     "back": "Its internal reasoning is hard to inspect. Explanations support trust, debugging, bias checks, audits, and accountability.",
+     "evidence": "2022/23 Q4(a); 2023/24 Q4(a); 2024/25 Q4(c); 2025/26 Q4(b)"
+    },
+    {
+     "group": "Explainability and LLM Reliability",
+     "front": "What does a saliency map show?",
+     "back": "The input regions or features most associated with one prediction. It does not prove causation or explain the whole model.",
+     "evidence": "2023/24 Q4(a); 2024/25 Q4(c); 2025/26 Q4(b)"
+    },
+    {
+     "group": "Explainability and LLM Reliability",
+     "front": "How does LIME explain one prediction?",
+     "back": "It changes inputs near that case, observes output changes, and fits a simple local explanation.",
+     "evidence": "2022/23 Q4(a); 2023/24 Q4(a); 2024/25 Q4(c)"
+    },
+    {
+     "group": "Explainability and LLM Reliability",
+     "front": "Why can an LLM hallucinate?",
+     "back": "It generates likely text rather than automatically checking facts, especially when information is unclear or missing.",
+     "evidence": "2025/26 Q4(c)"
+    },
+    {
+     "group": "Explainability and LLM Reliability",
+     "front": "How can hallucinations be reduced?",
+     "back": "Ground answers in reliable sources, verify important claims, or state uncertainty instead of guessing.",
+     "evidence": "2025/26 Q4(c)"
+    },
+    {
+     "group": "Bio-Inspired AI and ACO",
+     "front": "How can artificial life create emergent behaviour?",
+     "back": "Simple agents follow local rules without a controller; repeated interaction can create global patterns, such as flocking.",
+     "evidence": "2022/23 Q4(c); 2023/24 Q4(b); 2025/26 Q4(a); legacy 2021/22 Q4(a)"
+    },
+    {
+     "group": "Bio-Inspired AI and ACO",
+     "front": "How does neuro-evolution work?",
+     "back": "It evolves neural-network weights or architecture using fitness. It works without gradients, but many evaluations are costly.",
+     "evidence": "2022/23 Q4(b); legacy 2021/22 Q4(b)"
+    },
+    {
+     "group": "Bio-Inspired AI and ACO",
+     "front": "How does ACO find a good route?",
+     "back": "Ants choose edges using pheromone and distance; short routes reinforce pheromone, while evaporation keeps alternatives available.",
+     "evidence": "2023/24 Q4(c); 2024/25 Q4(a); 2025/26 Q4(a)"
+    },
+    {
+     "group": "Symbolic and Connectionist AI",
+     "front": "How do symbolic and connectionist AI differ?",
+     "back": "Symbolic AI uses explicit rules and is easier to inspect. Connectionist AI learns patterns from data but is harder to explain.",
+     "evidence": "2024/25 Q4(b)"
+    }
+   ]
+  }
+ ],
+ "sheets": [
+  {
+   "file": "evolution_revision_sheet.html",
+   "title": "Genetic Algorithms",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-derived GA design",
+     "marks": 0,
+     "prompt": "Design a GA for timetable construction.",
+     "route": "choose valid encoding, penalised fitness and repair.",
+     "answer": "encode assignments, reward satisfied preferences and heavily penalise clashes; select, crossover compatible segments, mutate a small assignment and repair invalid timetables."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Diagnose premature convergence.",
+     "route": "link low diversity to selection/mutation and propose measured change.",
+     "answer": "overly strong selection loses alternatives; reduce pressure, increase/adapt mutation, use diversity/elitism carefully and compare repeated-run fitness."
+    },
+    {
+     "title": "Question interpretation and independent practice",
+     "marks": 0,
+     "prompt": "Ask what one complete solution must decide. If it assigns every item, task, or student, use one gene per item, task, or student. Ask what the objective rewards. Sum that quantity in the fitness function: value, preference score, or low completion time. List the constraints separately. Penalise invalid solutions heavily, or repair them after crossover and mutation. Choose an operator that makes a meaningful small change. For an allocation, moving one item or task is a natural mutation. Check that crossover can produce invalid assignments. If it can, state a repair step. This is often an easy source of marks.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - constrained allocation GA [10 marks]",
+     "marks": 10,
+     "prompt": "Four jobs must be assigned to two servers. Server X can run jobs 1, 2 and 3; Y can run 2, 3 and 4. Job times are 4, 3, 2 and 5. Design a GA to minimise the larger server load without assigning an incompatible job.",
+     "route": "every requested GA component must be grounded in the assignment and compatibility constraints. use one gene per job, state an objective-plus-penalty fitness, then give operators and repair. a penalty is not a substitute for saying how crossover-generated infeasibility is handled.",
+     "answer": "Fastest route: use one gene per job, state an objective-plus-penalty fitness, then give operators and repair."
+    },
+    {
+     "title": "Worked example: fitness for a small allocation",
+     "marks": 0,
+     "prompt": "Problem: A chromosome assigns three tasks to processors. It has completion cost 12 but exceeds one memory limit by 2 units; use a penalty of 10 per excess unit.",
+     "route": "Model reasoning: Start from the objective, so lower cost is better. Penalise the violation: adjusted cost = 12 + (2 × 10) = 32. The GA should prefer a valid allocation with a lower adjusted cost; state that repair can also restore feasibility after an operator.",
+     "answer": "Model reasoning: Start from the objective, so lower cost is better. Penalise the violation: adjusted cost = 12 + (2 × 10) = 32. The GA should prefer a valid allocation with a lower adjusted cost; state that repair can also restore feasibility after an operator."
+    }
+   ],
+   "mistakes": [
+    "Using an encoding that cannot represent every required decision.",
+    "Rewarding the objective but forgetting constraint penalties or repair.",
+    "Describing mutation without saying how it creates a valid nearby candidate.",
+    "Give representation, fitness, selection, crossover, mutation, and constraint handling.",
+    "Link each operator to exploration or exploitation where asked.",
+    "Use the wording of the problem to justify each design choice."
+   ]
+  },
+  {
+   "file": "mas_revision_sheet.html",
+   "title": "Multi-Agent Systems",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-derived auction",
+     "marks": 0,
+     "prompt": "Allocate a task by auction.",
+     "route": "name roles, bids and winner rule.",
+     "answer": "manager announces task, agents compute bids from cost/capability, winner is selected by stated rule and confirms commitment; discuss truthful-bidding/communication assumptions."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Compare central allocation and distributed negotiation.",
+     "route": "compare information, scalability, failure and incentive effects.",
+     "answer": "central control can optimise globally with full data but is bottleneck/single failure; negotiation scales autonomy but needs protocol and may be inefficient/strategic."
+    },
+    {
+     "title": "Question interpretation and independent practice",
+     "marks": 0,
+     "prompt": "First identify the agents and the problem between them: competition, cooperation, communication, or allocating a scarce task. For game theory, draw or describe the choices and payoffs. Then test each action: if it is best regardless of the opponent, it is dominant; if no player benefits by changing alone, it is a Nash equilibrium. For protocols such as auctions or negotiation, give the sequence: announcement, bids or proposals, decision, and result. Then add one benefit and one limitation.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - Contract Net under uncertainty [9 marks]",
+     "marks": 9,
+     "prompt": "A manager agent must allocate an urgent medicine delivery. Vehicle A bids EUR 12 and estimates 20 minutes; B bids EUR 9 and estimates 32 minutes. The delivery must arrive within 25 minutes, and estimates can be wrong. Specify a Contract Net exchange, select a contractor, and state one protocol safeguard.",
+     "route": "provide the protocol sequence, then apply a stated multi-attribute decision rule rather than choosing the lowest bid automatically. announce task and deadline, receive structured bids, reject infeasible B, award to A, require acknowledgement and monitor commitment. an auction/Contract Net award is not complete until the selected contractor accepts the commitment.",
+     "answer": "Fastest route: announce task and deadline, receive structured bids, reject infeasible B, award to A, require acknowledgement and monitor commitment."
+    },
+    {
+     "title": "Worked example: Contract Net task allocation",
+     "marks": 0,
+     "prompt": "Problem: A manager has a delivery task. Vehicle A bids EUR 12 and Vehicle B bids EUR 9, with both able to meet the deadline.",
+     "route": "Model reasoning: The manager announces the task, contractors bid using their local cost information, then the manager evaluates feasible bids. If cost is the stated criterion, B wins at EUR 9; the manager awards the task and B confirms or performs it. This shows decentralised allocation, not merely a price comparison.",
+     "answer": "Model reasoning: The manager announces the task, contractors bid using their local cost information, then the manager evaluates feasible bids. If cost is the stated criterion, B wins at EUR 9; the manager awards the task and B confirms or performs it. This shows decentralised allocation, not merely a price comparison."
+    }
+   ],
+   "mistakes": [
+    "Confusing a protocol sequence with an agent's private utility.",
+    "Saying a Nash equilibrium guarantees the best group outcome.",
+    "Listing speech acts without explaining their role in coordination.",
+    "Define the mechanism, sequence its agent actions, and use a concrete MAS example.",
+    "For comparisons, include strategy plus one benefit and limitation.",
+    "Distinguish cooperation, competition, allocation, and communication."
+   ]
+  },
+  {
+   "file": "q4_revision_sheet.html",
+   "title": "Explainability and Bio-Inspired AI",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Practice question 1 - explainability in deep learning [9 marks]",
+     "marks": 9,
+     "prompt": "DermAssist predicts whether a skin-lesion image needs urgent specialist review. A clinician sees a high-risk prediction for a lesion image, but the network has millions of learned weights and the patient’s image includes a ruler, a shadow and a skin marker.",
+     "route": "Scenario. DermAssist predicts whether a skin-lesion image needs urgent specialist review. A clinician sees a high-risk prediction for a lesion image, but the network has millions of learned weights and the patient’s image includes a ruler, a shadow and a skin marker.",
+     "answer": "Scenario. DermAssist predicts whether a skin-lesion image needs urgent specialist review. A clinician sees a high-risk prediction for a lesion image, but the network has millions of learned weights and the patient’s image includes a ruler, a shadow and a skin marker."
+    },
+    {
+     "title": "Practice question 2 - ant colony optimisation [8 marks]",
+     "marks": 8,
+     "prompt": "A delivery robot must travel from depot",
+     "route": "Scenario. A delivery robot must travel from depot S to clinic T . It can use route S-A-T (total length 6) or S-B-T (total length 10). At the start, all four edges have equal pheromone. The heuristic favours a shorter next edge; after a complete route, a shorter route deposits more pheromone than a longer route.",
+     "answer": "Scenario. A delivery robot must travel from depot S to clinic T . It can use route S-A-T (total length 6) or S-B-T (total length 10). At the start, all four edges have equal pheromone. The heuristic favours a shorter next edge; after a complete route, a shorter route deposits more pheromone than a longer route."
+    },
+    {
+     "title": "Practice question 3 - neuro-evolution [9 marks]",
+     "marks": 9,
+     "prompt": "A warehouse rover has distance sensors and must learn to reach a charging bay without collisions. A simulator can score each controller by distance progressed, energy used and a large collision penalty, but it does not provide a differentiable gradient through contacts and the map changes between episodes.",
+     "route": "Scenario. A warehouse rover has distance sensors and must learn to reach a charging bay without collisions. A simulator can score each controller by distance progressed, energy used and a large collision penalty, but it does not provide a differentiable gradient through contacts and the map changes between episodes.",
+     "answer": "Scenario. A warehouse rover has distance sensors and must learn to reach a charging bay without collisions. A simulator can score each controller by distance progressed, energy used and a large collision penalty, but it does not provide a differentiable gradient through contacts and the map changes between episodes."
+    },
+    {
+     "title": "Practice question 4 - artificial life and emergence [8 marks]",
+     "marks": 8,
+     "prompt": "In a Boids-style coastal-drone simulation, each drone can sense only nearby drones. At every time step it applies three rules: steer away when too close (separation), steer toward the average nearby heading (alignment), and steer toward the average nearby position (cohesion). There is no leader and no global flight plan.",
+     "route": "Scenario. In a Boids-style coastal-drone simulation, each drone can sense only nearby drones. At every time step it applies three rules: steer away when too close (separation), steer toward the average nearby heading (alignment), and steer toward the average nearby position (cohesion). There is no leader and no global flight plan.",
+     "answer": "Scenario. In a Boids-style coastal-drone simulation, each drone can sense only nearby drones. At every time step it applies three rules: steer away when too close (separation), steer toward the average nearby heading (alignment), and steer toward the average nearby position (cohesion). There is no leader and no global flight plan."
+    },
+    {
+     "title": "Practice question 5 - symbolic versus connectionist AI [8 marks]",
+     "marks": 8,
+     "prompt": "A hospital wants a triage assistant. It receives a clinician-entered symptom list, vital signs and a chest X-ray. Its recommendations must be reviewable by clinicians, but the hospital also has many labelled X-rays containing subtle visual signs that are difficult to express as hand-written rules.",
+     "route": "Scenario. A hospital wants a triage assistant. It receives a clinician-entered symptom list, vital signs and a chest X-ray. Its recommendations must be reviewable by clinicians, but the hospital also has many labelled X-rays containing subtle visual signs that are difficult to express as hand-written rules.",
+     "answer": "Scenario. A hospital wants a triage assistant. It receives a clinician-entered symptom list, vital signs and a chest X-ray. Its recommendations must be reviewable by clinicians, but the hospital also has many labelled X-rays containing subtle visual signs that are difficult to express as hand-written rules."
+    },
+    {
+     "title": "Practice question 6 - LLM hallucination [9 marks]",
+     "marks": 9,
+     "prompt": "Explain how LLM hallucination arises, when it is most likely, and two ways to detect or mitigate it.",
+     "route": "Question: Explain how LLM hallucination arises, when it is most likely, and two ways to detect or mitigate it.",
+     "answer": "Question: Explain how LLM hallucination arises, when it is most likely, and two ways to detect or mitigate it."
+    }
+   ],
+   "mistakes": []
+  },
+  {
+   "file": "search_revision_sheet.html",
+   "title": "Search and Adversarial Search",
+   "purpose": "",
+   "refresher": [],
+   "practice": [
+    {
+     "title": "Worked practice 1 — paper-derived adversarial search",
+     "marks": 0,
+     "prompt": "Back up a small MAX/MIN tree.",
+     "route": "label levels, evaluate leaves, take min then max.",
+     "answer": "each MIN returns its smallest child, root MAX chooses largest returned value; alpha-beta skips a child once its bound cannot beat an ancestor bound."
+    },
+    {
+     "title": "Worked practice 2 — synthesis / design",
+     "marks": 0,
+     "prompt": "Choose search for an optimal path with non-negative costs.",
+     "route": "compare UCS/A* and heuristic condition.",
+     "answer": "UCS is optimal but expands by g only; A* remains optimal with admissible/consistent h and usually expands less. Report time/space caveat."
+    },
+    {
+     "title": "Question interpretation and independent practice",
+     "marks": 0,
+     "prompt": "For a comparison question, copy its headings first: visit order, time, space, completeness, and optimality if relevant. Fill in one fact for each algorithm under each heading. For minimax, start with the game tree: legal moves become children, terminal states get scores, then say MAX takes the largest value and MIN the smallest. Add alpha-beta only after minimax is clear. For an extension question, identify why standard minimax fails: either more than two competing players or too many states. Then choose the matching fix: a utility vector, a depth limit and heuristic, or sampling with MCTS.",
+     "route": "",
+     "answer": ""
+    },
+    {
+     "title": "Integrated paper-style practice - adversarial search [9 marks]",
+     "marks": 9,
+     "prompt": "A root MAX has two MIN children. The left MIN has terminal values 3 and 5; the right MIN has terminal values 2 and an unvisited final leaf. Evaluate left-to-right with alpha-beta pruning. State MAX's move and whether the last leaf is needed.",
+     "route": "this is a value-backup trace, not merely a definition of alpha-beta. Labels, visit order and a pruning justification earn the marks. evaluate left MIN first to set root alpha=3. At right MIN, the first leaf sets beta=2; beta is then no greater than alpha. never prune a branch merely because its current value looks poor without comparing the relevant alpha and beta bounds.",
+     "answer": "Fastest route: evaluate left MIN first to set root alpha=3. At right MIN, the first leaf sets beta=2; beta is then no greater than alpha."
+    },
+    {
+     "title": "Worked example: choosing BFS",
+     "marks": 0,
+     "prompt": "Problem: A maze has equal-cost moves and the goal is first found at depth 3. Which basic search should find a shortest route?",
+     "route": "Model reasoning: The step costs are equal and the question asks for a shortest route. BFS expands level by level, so it reaches every depth-3 route before any deeper route. Therefore choose BFS; mention that its memory use is the trade-off.",
+     "answer": "Model reasoning: The step costs are equal and the question asks for a shortest route. BFS expands level by level, so it reaches every depth-3 route before any deeper route. Therefore choose BFS; mention that its memory use is the trade-off."
+    }
+   ],
+   "mistakes": [
+    "Calling DFS optimal or complete in an infinite search tree.",
+    "Claiming alpha-beta changes the move chosen by minimax.",
+    "Giving a complexity without stating whether it is time or space.",
+    "State visit order, completeness, optimality, time, and space when comparing searches.",
+    "For minimax, label MAX/MIN and back values up from leaves.",
+    "For alpha-beta, state that pruning preserves the minimax result."
+   ]
+  }
+ ]
+}
