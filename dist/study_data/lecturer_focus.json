@@ -121,7 +121,7 @@
         },
         {
           "label": "(b)",
-          "prompt": "Compare Euclidean and Hamming distance, calculate each for a small example, and explain when feature scaling matters.",
+          "prompt": "Compare Euclidean distance for (1, 2) and (4, 6) with Hamming distance for 10110 and 10011. Calculate both, then explain when feature scaling matters.",
           "answer": "Euclidean distance for numeric vectors is √Σᵢ(xᵢ − yᵢ)²; for (1,2) and (4,6), it is 5. Hamming distance counts differing positions in equal-length categorical or binary strings; 10110 versus 10011 differs in two positions. Numeric features with larger scales can dominate Euclidean distance, so fit a scaler on training data and apply it consistently to validation/test data.",
           "cards": ["0:22", "1:8", "1:9", "0:24"]
         },

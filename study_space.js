@@ -654,6 +654,280 @@
   const PAPER_MODULES = new Set(['CT417', 'CT4100', 'CT4101', 'CT561']);
   const FOCUSED_MODULES = new Set([...PAPER_MODULES, 'CT4111']);
 
+  function archivedFamilies(data, year, number) {
+    const question = new RegExp(`\\bQ${number}(?!\\d)`, 'i');
+    const dated = (data.families || []).filter(family =>
+      (family.appearances || []).some(appearance =>
+        appearance.includes(year) && question.test(appearance)));
+    if (dated.length || moduleCode !== 'CT417' || year !== '2023/24') return dated;
+    return (data.families || []).filter(family =>
+      (family.appearances || []).some(appearance =>
+        !/\d{4}\/\d{2}/.test(appearance) && question.test(appearance)));
+  }
+
+  function archivedCards(data, families) {
+    const terms = text => new Set((text.toLowerCase().match(/[a-z0-9]+/g) || [])
+      .filter(word => word.length > 3 && !['with', 'from', 'using', 'their', 'this', 'that', 'what'].includes(word)));
+    const topicTerms = terms(families.map(family => family.title).join(' '));
+    if (!topicTerms.size) return [];
+    const cards = (data.decks || []).flatMap(deck => deck.cards);
+    return cards.map((card, index) => {
+      const group = terms(card.group || '');
+      const front = terms(card.front || '');
+      const score = [...topicTerms].reduce((sum, word) => sum + (group.has(word) ? 3 : 0) + (front.has(word) ? 1 : 0), 0);
+      return { index, score };
+    }).filter(card => card.score >= 3)
+      .sort((a, b) => b.score - a.score || a.index - b.index)
+      .slice(0, 3).map(card => card.index);
+  }
+
+  const FAMILY_SOURCE_OVERRIDES = {
+    CT417: {
+      'agile-manifesto-scrum-changing-requirements-and-stakeholder-collaboration': [['2023/24', 1]],
+      'formal-specification-and-z-style-cursor-schemas': [['2023/24', 2]],
+    },
+    CT4100: {
+      hits: [['2025/26', 3]],
+      'learning-to-rank-and-neural-ltr': [['2025/26', 4]],
+      pagerank: [['2025/26', 3]],
+    },
+    CT4101: {
+      'reinforcement-learning-and-q-learning': [['2019/20', 1]],
+      'bayesian-networks-and-naive-bayes': [['2019/20', 5]],
+    },
+  };
+
+  const FAMILY_TITLES = {
+    'ci-cd-github-actions-docker-deployment-and-git-workflows': 'CI/CD and failed deployments',
+    'sast-dast-sonarqube-owasp-zap-and-coverage': 'Security scans and coverage',
+    'vulnerability-countermeasures-zero-day-lifecycle-metrics-and-buffer-overflow': 'Vulnerabilities and buffer overflows',
+    'refactoring-design-patterns-polymorphism-factory-pattern-and-open-closed-principle': 'Refactoring with design patterns',
+    'agile-manifesto-scrum-changing-requirements-and-stakeholder-collaboration': 'Agile delivery and stakeholders',
+    'formal-specification-and-z-style-cursor-schemas': 'Formal specification',
+    'vector-space-model-normalisation-and-term-independence': 'Vector space ranking',
+    'term-weighting-axioms-and-learned-weights': 'Term weighting and BM25',
+    'retrieval-evaluation-user-experience-map-and-diversity': 'Retrieval evaluation',
+    'relevance-feedback-pseudo-feedback-and-query-expansion': 'Relevance feedback and expansion',
+    'query-difficulty-prediction': 'Predicting query difficulty',
+    'collaborative-filtering-and-recommender-system-evaluation': 'Collaborative filtering',
+    'scientific-article-similarity': 'Scientific article similarity',
+    'clustering-for-information-retrieval': 'Clustering for search',
+    'extended-boolean-relevance-and-precision-recall-graphs': 'Extended Boolean calculation',
+    hits: 'HITS and PageRank',
+    'learning-to-rank-and-neural-ltr': 'Learning to rank',
+    'ml-task-types-labels-and-suitable-algorithms': 'Choosing the ML task',
+    'evaluation-confusion-matrices-roc-cross-validation-and-hyperparameters': 'Evaluating and tuning a classifier',
+    'generalisation-bias-variance-overfitting-underfitting-dimensionality-and-learning-curves': 'Generalisation and overfitting',
+    'regression-models-and-error-metrics': 'Regression and error measures',
+    'neural-network-basics-activation-functions-and-encoding': 'Neurons, activations and encoding',
+    'lazy-versus-eager-learning': 'Lazy and eager learning',
+    'graphical-integration-euler-method-and-error': 'Graphical integration and Euler',
+    'workload-backlog-model-feedback-polarity-and-policy-analysis': 'Backlogs and feedback loops',
+    'sir-public-health-calculations-proofs-and-extensions': 'SIR models and interventions',
+    'stock-management-staff-recruitment-and-ageing-chains': 'Stock management and workforce',
+    'fractional-rates-adjustment-to-a-goal-and-smoothing': 'Fractional rates and smoothing',
+  };
+
+  const THEME_SCENARIOS = {
+    'vulnerability-countermeasures-zero-day-lifecycle-metrics-and-buffer-overflow': {
+      prompt: 'Define vulnerability, countermeasure and zero-day. Three incidents have MTTD/MTTR of 4/2, 0.5/1 and 6/4 hours. Assuming MTBF = MTTD + MTTR for each incident, calculate the average MTBF, identify the best incident and suggest two improvements. Explain a buffer overflow and two countermeasures.',
+      answer: 'Incident MTBF values under the paper’s stated assumption are 6, 1.5 and 10 hours. Average = (6 + 1.5 + 10) / 3 = 5.83 hours, or 5 hours 50 minutes. Incident 2 has the shortest detection and repair times. Improve alert correlation/automated monitoring to reduce MTTD and prepare tested response or patch procedures to reduce MTTR.',
+    },
+    'refactoring-design-patterns-polymorphism-factory-pattern-and-open-closed-principle': {
+      prompt: 'A controller repeats login and account-creation code for Customer and Manager, using role-string conditionals. Explain the design problems, refactor the responsibilities using a User abstraction, subclasses and a factory, then show how adding Admin can avoid editing the factory method.',
+    },
+    'agile-manifesto-scrum-changing-requirements-and-stakeholder-collaboration': {
+      prompt: 'A team’s requirements and data sources change during delivery, while stakeholders question model reliability. State two Agile values or principles, then explain how short iterations and stakeholder collaboration would change planning, validation and delivery.',
+    },
+    'formal-specification-and-z-style-cursor-schemas': {
+      prompt: 'A terminal has 24 lines and 80 columns. Its cursor starts at (line 1, column 1); pressing Down moves one line unless it is already on line 24, where it does nothing. Give three benefits of formal specification, the state invariant and initial state, and normal and bottom-line Down operations.',
+      answer: 'Formal specification reduces ambiguity, exposes inconsistent requirements and supports precise validation. State invariant: 1 ≤ line ≤ 24 and 1 ≤ column ≤ 80. Init: line = 1, column = 1. DownNormal precondition line < 24: line′ = line + 1 and column′ = column. DownAtBottom precondition line = 24: line′ = 24 and column′ = column. The full Down operation chooses the applicable case.',
+      replaceAnswer: true,
+    },
+    'retrieval-evaluation-user-experience-map-and-diversity': {
+      prompt: 'A ranked list has relevance labels [1, 0, 1, 0, 1], and these are all three relevant documents in the collection. Calculate average precision and the precision–recall points at relevant ranks. Then explain how MAP combines queries and what it misses about diversity or user experience.',
+      answer: 'At relevant ranks 1, 3 and 5, precision is 1, 2/3 and 3/5; recall is 1/3, 2/3 and 1. AP = (1 + 2/3 + 3/5) / 3 ≈ 0.756. MAP averages AP over multiple queries. It does not measure whether top results cover different subtopics or whether users are satisfied.',
+      replaceAnswer: true,
+    },
+    'extended-boolean-relevance-and-precision-recall-graphs': {
+      prompt: 'For equal term weights, p = 2 and term scores x₁ = 0.8, x₂ = 0.6, calculate OR = √[(x₁² + x₂²)/2] and AND = 1 − √[((1 − x₁)² + (1 − x₂)²)/2]. Explain why these are graded scores rather than classical Boolean matches.',
+      answer: 'OR = √[(0.8² + 0.6²)/2] = √0.5 ≈ 0.707. AND = 1 − √[(0.2² + 0.4²)/2] = 1 − √0.1 ≈ 0.684. The p-norm extended Boolean model allows partial term matches to receive intermediate scores. Use the exact variant of the formula supplied in an original paper when practising its numerical question.',
+      replaceAnswer: true,
+    },
+    'evaluation-confusion-matrices-roc-cross-validation-and-hyperparameters': {
+      prompt: 'A binary classifier has TP = 40, FP = 10, FN = 5 and TN = 45. Draw its confusion matrix and calculate precision, recall, TNR and FNR. Explain the axes and ideal point of ROC, then describe stratified 5-fold cross-validation and how to choose a hyperparameter without tuning on test data.',
+      answer: 'Precision = 40/(40 + 10) = 0.80; recall = 40/(40 + 5) ≈ 0.889; TNR = 45/(45 + 10) ≈ 0.818; FNR = 5/(5 + 40) ≈ 0.111. Put actual and predicted classes on clearly labelled confusion-matrix axes. ROC plots TPR against FPR, with the ideal point at (0, 1). Stratified folds preserve class proportions; use validation folds for grid search and keep a separate final test set untouched.',
+      replaceAnswer: true,
+    },
+    'generalisation-bias-variance-overfitting-underfitting-dimensionality-and-learning-curves': {
+      prompt: 'A classifier scores 98% on training data but 60% on held-out data. Diagnose the likely generalisation problem, sketch and label a learning curve that could confirm it, and propose remedies. Explain how high dimensionality and class imbalance could complicate the diagnosis.',
+    },
+    'regression-models-and-error-metrics': {
+      prompt: 'A numeric target has actual values [2, 4] and predictions [3, 2]. Calculate MAE, MSE and RMSE. Then choose between linear, polynomial and logistic regression for a continuous tree-growth prediction and justify the choice and main overfitting risk.',
+      answer: 'Absolute errors are 1 and 2, so MAE = (1 + 2)/2 = 1.5. Squared errors are 1 and 4, so MSE = (1 + 4)/2 = 2.5 and RMSE = √2.5 ≈ 1.58. Linear regression is a simple starting point for a continuous target; use polynomial terms only if validated curvature justifies them, since they can overfit. Logistic regression is for class probabilities.',
+      replaceAnswer: true,
+    },
+    'graphical-integration-euler-method-and-error': {
+      prompt: 'A stock starts at 100 units. Its inflow declines linearly from 100 to 0 units/day over 10 days; outflow stays at 50 units/day. Write the stock-flow and net-flow equations, find the exact stock at days 5 and 10 by area, describe its behaviour, then calculate the day-5 stock with forward Euler using DT = 5 days and explain the error.',
+      answer: 'Draw one stock with an inflow and outflow; Net Flow = Inflow − Outflow and S = INTEG(Net Flow, 100). Here Net Flow = 50 − 10t units/day. From day 0 to 5, positive triangular area = ½ × 5 × 50 = 125, so S(5) = 225. From day 5 to 10, negative triangular area = −125, so S(10) = 100. The stock rises to a maximum at day 5, then falls; its slope decreases throughout. Forward Euler uses the day-0 net flow for the whole first step: S(5) ≈ 100 + 5 × 50 = 350. It overestimates because net flow is falling.',
+      replaceAnswer: true,
+    },
+    'workload-backlog-model-feedback-polarity-and-policy-analysis': {
+      prompt: 'A claims backlog starts at 100. In one week it receives 30 new claims and 5 reworked claims, while 20 are completed. Write the stock equation and initial net flow. Then trace one balancing policy loop and one reinforcing side-effect loop when management shortens time per claim, including the sign of each causal link.',
+      answer: 'Backlog = INTEG(New Claims + Rework − Completed, 100). Initial net flow is 30 + 5 − 20 = 15 claims/week, so backlog initially rises. Balancing loop: Backlog → Work Pressure (+), Work Pressure → Completion (+), Completion → Backlog (−); one negative link. Reinforcing side-effect: Backlog → Work Pressure (+), Work Pressure → Time per Claim (−), Time per Claim → Error Rate (−), Error Rate → Rework (+), Rework → Backlog (+); two negative links. Shorter time per claim may raise throughput initially while harming quality later.',
+      replaceAnswer: true,
+    },
+    'sir-public-health-calculations-proofs-and-extensions': {
+      prompt: 'An SIR population has N = 10,000, S = 9,800, I = 200, reproduction number R₀ = 2 and infectious duration D = 5 days. Calculate β, force of infection λ, daily infections and recoveries. If 20% of new infections enter quarantine rather than I, calculate both infection flows and explain how to model this intervention.',
+      answer: 'β = R₀/D = 0.4 per day. Force of infection λ = βI/N = 0.008 per day. Total infections = λS = 78.4 people/day; recoveries = I/D = 40 people/day. With a 20% quarantine split, To Q = 0.2 × 78.4 = 15.68 and To I = 0.8 × 78.4 = 62.72 people/day. Write dS/dt = −78.4, dI/dt = 62.72 − 40 and dQ/dt = 15.68, subject to any quarantine exits specified in a full model. Quarantined people do not contribute to the infectious force under this simplified assumption. The original papers also ask for equilibrium proofs and richer extensions; use their exact assumptions for those variants.',
+      replaceAnswer: true,
+    },
+    'stock-management-staff-recruitment-and-ageing-chains': {
+      prompt: 'A university has 10,000 students and 500 staff. Its target student:staff ratio changes from 20:1 to 10:1. The annual quit fraction is 0.02 and staff adjustment time is two years. Write a stock-management hiring rule with expected quits, calculate desired staff and initial hires after the change, then explain how trainee/experienced stages and delays could extend the model.',
+      answer: 'Desired Staff = Students / Desired Ratio. Hires = Expected Quits + (Desired Staff − Staff) / Adjustment Time; Staff = INTEG(Hires − Quits, 500). Desired staff changes from 10,000/20 = 500 to 10,000/10 = 1,000. Initial expected quits are 0.02 × 500 = 10 staff/year if the estimate tracks current quits. Adjustment = (1,000 − 500)/2 = 250 staff/year, so initial required hires = 10 + 250 = 260 staff/year. Hires replace expected normal loss (anchor) and close the target gap (adjustment). An ageing chain adds separate staff stocks, progression flows and stage-specific attrition; label each delay and keep flows in staff/year.',
+      replaceAnswer: true,
+    },
+    'fractional-rates-adjustment-to-a-goal-and-smoothing': {
+      prompt: 'A stock S starts at 1,000 units and decreases at fractional rate G = 0.10/year. G itself adjusts toward 0.20/year over an adjustment time of two years. Write the stock and rate equations, calculate the initial outflow and initial rate of change of G, and explain the effects of a longer adjustment time.',
+      answer: 'Outflow = S × G = 1,000 × 0.10 = 100 units/year initially. dG/dt = (0.20 − 0.10)/2 = 0.05 per year² initially. Stock equation is dS/dt = −S × G, with S(0) = 1,000; rate equation is dG/dt = (0.20 − G)/2, with G(0) = 0.10/year. A longer adjustment time makes G approach its goal more slowly, so the stock decline accelerates more gradually.',
+      replaceAnswer: true,
+    },
+  };
+
+  function familySources(family, catalog) {
+    const references = (family.appearances || []).flatMap(appearance => {
+      const year = appearance.match(/\b20\d{2}\/\d{2}\b/)?.[0];
+      const number = Number(appearance.match(/\bQ(\d+)\b/i)?.[1]);
+      return year && number ? [[year, number]] : [];
+    }).concat(FAMILY_SOURCE_OVERRIDES[moduleCode]?.[family.id] || []);
+    const seen = new Set();
+    return references.flatMap(([year, number]) => {
+      const paper = catalog.find(item => item.year === year);
+      const page = paper?.questions.find(([question]) => question === number)?.[1];
+      const key = `${year}:Q${number}`;
+      if (!paper || !page || seen.has(key)) return [];
+      seen.add(key);
+      return [{ year, number, page, paper: paper.paper }];
+    }).sort((a, b) => b.year.localeCompare(a.year) || a.number - b.number);
+  }
+
+  function consolidatedQuestions(data, catalog) {
+    const families = data.families || [];
+    const lecturerCovered = moduleCode === 'CT4101'
+      ? new Set([
+        'nearest-neighbours-clustering-distance-measures-scaling-and-choosing-k',
+        'decision-trees-entropy-information-gain-and-tree-overfitting',
+      ]) : new Set();
+    if (moduleCode === 'CT4100') lecturerCovered.add('pagerank');
+    const recurring = families.filter(family => family.answer?.trim() && !lecturerCovered.has(family.id))
+      .map(family => {
+        const scenario = THEME_SCENARIOS[family.id];
+        const related = moduleCode === 'CT4100' && family.id === 'hits'
+          ? families.find(item => item.id === 'pagerank') : null;
+        const sources = familySources(family, catalog).concat(related ? familySources(related, catalog) : [])
+          .filter((source, index, all) => all.findIndex(item => item.year === source.year && item.number === source.number) === index);
+        return {
+          id: `theme-${family.id}`,
+          title: FAMILY_TITLES[family.id] || family.title,
+          family: 'Recurring exam theme',
+          kind: 'theme',
+          sources,
+          year: sources[0]?.year,
+          weight: (sources.length ? Math.min(sources.length, 4) : 1)
+            + (sources[0] ? Number(sources[0].year.slice(0, 4)) - 2019 : 0),
+          parts: [{
+            label: 'Question',
+            prompt: scenario?.prompt || (related ? `${family.question} Also explain PageRank's damped link-credit update and one limitation.` : family.question),
+            answer: scenario?.replaceAnswer ? scenario.answer
+              : `${family.answer.replace(/^Reusable answer:\s*/i, '')}${related ? `\n\nPageRank: ${related.answer.replace(/^Reusable answer:\s*/i, '')}` : ''}${scenario?.answer ? `\n\nWorked check: ${scenario.answer}` : ''}`,
+            cards: archivedCards(data, related ? [family, related] : [family]),
+          }],
+        };
+      }).sort((a, b) => b.weight - a.weight);
+    if (moduleCode !== 'CT4101') return recurring;
+    const olderTopics = [
+      {
+        id: 'reinforcement-learning-and-q-learning', title: 'Q-learning in a long game',
+        prompt: 'A chess agent uses Q-learning with learning rate 0.1, discount factor 0 and exploration rate 0.7. Evaluate each choice for a long game, suggest justified changes, and explain the Markov property.',
+        answer: 'The learning rate 0.1 makes each new result update Q-values moderately; its suitability depends on how noisy and plentiful the experience is. A discount factor of 0 ignores future rewards, which is unsuitable when a chess move may matter much later; use a value closer to 1 and validate it. A fixed exploration rate of 0.7 means most moves explore, even after useful strategies are learned; start with exploration, then reduce it while preserving some exploration during training. The Markov property means the current state contains all information needed to predict the next state and reward. In chess, the board alone may be insufficient unless the state also records the player to move, castling rights and en passant status.',
+        cards: [
+          { front: 'What does a discount factor of zero do?', back: 'It ignores all future reward, so the agent optimises immediate reward only.' },
+          { front: 'What must a chess state include for the Markov property?', back: 'The full information needed for legal moves and next-state prediction, including turn and relevant move rights.' },
+        ],
+      },
+      {
+        id: 'bayesian-networks-and-naive-bayes', title: 'Bayesian networks and Naive Bayes',
+        prompt: 'Explain independence and conditional independence. For a binary-word Naive Bayes model, class A has 4 messages and class B has 5; “cats” appears in 3 A and 1 B, while “tree” appears in 1 A and 2 B. Without smoothing, compare the unnormalised class scores for a message containing both words, stating the assumption.',
+        answer: 'Independence means learning A does not change the probability of B. Conditional independence means learning A adds no information about B after C is known; a Bayesian network represents this through its graph and conditional probability tables. Naive Bayes assumes words are conditionally independent given the class. Using the stated binary-word frequencies, score(A) = (4/9) × (3/4) × (1/4) = 1/12 ≈ 0.0833. Score(B) = (5/9) × (1/5) × (2/5) = 2/45 ≈ 0.0444. A has the larger unnormalised score. This example uses word presence and the two supplied features only; a full Bernoulli model would also account for absent vocabulary terms.',
+        cards: [
+          { front: 'What is the Naive Bayes assumption?', back: 'Features are conditionally independent once the class is known.' },
+          { front: 'How do you compare Naive Bayes classes?', back: 'Multiply each class prior by the conditional likelihoods of the observed features, then compare the scores.' },
+        ],
+      },
+    ];
+    return recurring.concat(olderTopics.map(topic => {
+      const family = families.find(item => item.id === topic.id);
+      return {
+        id: `theme-${topic.id}`, title: topic.title, family: 'Older paper theme', kind: 'theme',
+        weight: 1, year: '2019/20', sources: familySources(family, catalog),
+        parts: [{ label: 'Question', prompt: topic.prompt, answer: topic.answer, cards: topic.cards }],
+      };
+    }));
+  }
+
+  function allPaperQuestions(data, catalog, worked) {
+    const byPaper = new Map(worked.map(question => {
+      const number = Number(question.id.match(/q(\d+)$/)?.[1]);
+      return [`${question.paper}:Q${number}`, question];
+    }));
+    return catalog.flatMap(paper => paper.questions.map(([number, page]) => {
+      const key = `${paper.paper}:Q${number}`;
+      const existing = byPaper.get(key);
+      if (existing) {
+        const parts = [...existing.parts];
+        if (moduleCode === 'CT561' && paper.year === '2025/26' && number === 3) {
+          parts.unshift({
+            label: '(a)', marks: 6,
+            checklist: true,
+            prompt: 'Use the model shown in the original paper to define link polarity, loop polarity and feedback, then discuss the behaviour it generates.',
+            answer: 'Trace each causal link in the diagram: + means variables move in the same direction, − means they move in opposite directions. Count negative links around each closed path to identify balancing versus reinforcing feedback. Describe how the resulting stock changes over time, including any limit or delay shown by the model.',
+          });
+        }
+        if (moduleCode === 'CT561' && paper.year === '2025/26' && number === 4) {
+          parts.unshift({
+            label: '(a)', marks: 5,
+            checklist: true,
+            prompt: 'Using the original paper’s stock and flow diagram, add a structure with equations that models expected university enrolments.',
+            answer: 'Show where actual enrolments enter the supplied model and how expected enrolments are formed. If expectations are smoothed, use Expected Enrolments = SMOOTH(Actual Enrolments, adjustment time) or an equivalent stock and adjustment flow, then connect that expectation to the relevant decision flow. Label equations, units and feedbacks consistent with the diagram.',
+          });
+        }
+        return { ...existing, parts, year: paper.year, kind: 'paper', originalPage: page };
+      }
+      const families = archivedFamilies(data, paper.year, number);
+      const guideFamilies = families.filter(family => family.answer?.trim());
+      const checklist = guideFamilies.length
+        ? guideFamilies.slice(0, 4).map(family => `${family.title}: ${family.answer.replace(/^Reusable answer:\s*/i, '')}`).join('\n\n')
+        : 'This older question has no question-specific answer guide on the site. Check every part against its marks in the original paper and the relevant lecture material.';
+      return {
+        id: `archive-${paper.year.replace(/\D/g, '')}-q${number}`,
+        title: `${paper.year} · Q${number}`,
+        family: families.length ? families.map(family => family.title).slice(0, 2).join(' · ') : 'Original paper',
+        year: paper.year,
+        kind: 'archive',
+        hasGuide: guideFamilies.length > 0,
+        paper: paper.paper,
+        page,
+        originalPage: page,
+        parts: [{
+          label: 'Whole question',
+          prompt: `Answer every part of Question ${number} shown in the original paper. Follow its wording and mark allocations.`,
+          answer: checklist,
+          cards: archivedCards(data, families),
+        }],
+      };
+    }));
+  }
+
   function outcomeQuestions(data) {
     const prompts = data.sheets?.flatMap(sheet => sheet.practice || []) || [];
     const answers = {
@@ -790,7 +1064,7 @@
     return panel;
   }
 
-  function buildFocusedSpace(data, questions) {
+  function buildFocusedSpace(data, questions, originals = [], catalog = []) {
     state.focus ||= {};
     state.drafts ||= {};
     const paperMode = PAPER_MODULES.has(moduleCode);
@@ -802,17 +1076,15 @@
     const heading = make('h2', null, paperMode ? 'Learn one exam question at a time' : 'Learn one outcome at a time');
     heading.id = 'focus-heading';
     intro.append(heading);
-    intro.append(make('p', null, 'Choose a question. Write an answer, use the matching cards if helpful, then reveal and self-check.'));
+    intro.append(make('p', null, paperMode
+      ? 'Questions combine repeated topics. Lecturer guidance and recent papers come first; exact originals are in the archive.'
+      : 'Choose an outcome. Write an answer, use the matching cards if helpful, then reveal and self-check.'));
     section.append(intro);
 
     const layout = make('div', 'study-focused-layout');
     const chooser = make('nav', 'study-question-picker');
-    chooser.setAttribute('aria-label', paperMode ? 'Past-paper questions' : 'Learning outcomes');
-    let previousKind = null;
+    chooser.setAttribute('aria-label', paperMode ? 'Combined exam questions' : 'Learning outcomes');
     const buttons = questions.map(question => {
-      const kind = question.kind === 'lecturer' ? 'Lecturer focus' : paperMode ? 'Past papers' : 'Learning outcomes';
-      if (kind !== previousKind) chooser.append(make('p', 'study-picker-group', kind));
-      previousKind = kind;
       const button = make('button', 'study-question-choice');
       button.type = 'button';
       button.append(make('strong', null, question.title));
@@ -820,6 +1092,34 @@
       chooser.append(button);
       return button;
     });
+    const originalButtons = new Map();
+    let archivePanel = null;
+    if (paperMode && catalog.length) {
+      const archive = make('details', 'study-picker-archive');
+      archivePanel = archive;
+      archive.append(make('summary', null, `Original papers · ${catalog.length}`));
+      archive.append(make('p', 'study-archive-note', 'Exact wording, figures and marks. Expand a year to choose an original question.'));
+      for (const paper of catalog) {
+        const group = make('details', 'study-picker-paper');
+        group.append(make('summary', null, paper.year));
+        for (const [number] of paper.questions) {
+          const original = originals.find(item => item.paper === paper.paper && item.id.endsWith(`q${number}`));
+          if (!original) continue;
+          const button = make('button', 'study-question-choice study-original-choice');
+          button.type = 'button';
+          button.append(make('strong', null, `Q${number}`));
+          if (original.kind !== 'archive') button.append(make('span', null, 'Answer guide available'));
+          button.addEventListener('click', () => {
+            renderQuestion(original);
+            work.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          });
+          group.append(button);
+          originalButtons.set(original.id, button);
+        }
+        archive.append(group);
+      }
+      chooser.append(archive);
+    }
     layout.append(chooser);
     const work = make('article', 'study-question-work');
     work.id = 'practice-heading';
@@ -840,13 +1140,25 @@
       buttons.forEach((button, index) => {
         const counts = ratingCounts(questions[index]);
         const label = button.querySelector('span');
-        label.textContent = `${questions[index].family} · ${counts.strong}/${questions[index].parts.length} confident${counts.retry ? ` · ${counts.retry} to revisit` : ''}`;
+        const context = questions[index].kind === 'lecturer' ? 'Lecturer focus'
+          : questions[index].family === 'Older paper theme' ? 'Older paper' : '';
+        const rating = counts.retry ? `${counts.retry} to revisit`
+          : counts.strong ? `${counts.strong}/${questions[index].parts.length} confident` : '';
+        label.textContent = [context, rating].filter(Boolean).join(' · ');
         button.setAttribute('aria-current', questions[index].id === state.focusQuestion ? 'true' : 'false');
+      });
+      originalButtons.forEach((button, id) => {
+        button.setAttribute('aria-current', id === state.focusQuestion ? 'true' : 'false');
       });
     }
 
     function renderQuestion(question) {
       if (!question) return;
+      if (archivePanel) {
+        archivePanel.open = originalButtons.has(question.id);
+        const sourceGroup = originalButtons.get(question.id)?.closest('.study-picker-paper');
+        if (sourceGroup) sourceGroup.open = true;
+      }
       state.focusQuestion = question.id;
       store.write(state);
       const url = new URL(window.location.href);
@@ -856,9 +1168,11 @@
       const top = make('div', 'study-question-top');
       top.append(make('p', 'study-label', question.family));
       top.append(make('h3', null, question.title));
-      if (paperMode && question.kind !== 'lecturer') {
-        const marks = question.parts.reduce((sum, part) => sum + part.marks, 0);
-        top.append(make('span', 'study-badge', `${marks} marks · ${question.parts.length} parts`));
+      if (paperMode && question.kind !== 'lecturer' && question.kind !== 'theme') {
+        const marks = question.parts.reduce((sum, part) => sum + (part.marks || 0), 0);
+        top.append(make('span', 'study-badge', question.kind === 'archive'
+          ? 'Original paper · marks shown in PDF'
+          : `${marks} marks · ${question.parts.length} parts`));
         const source = make('a', 'study-paper-link', `Open original paper, page ${question.page} ↗`);
         source.href = `${question.paper}#page=${question.page}`;
         source.target = '_blank';
@@ -869,8 +1183,43 @@
         top.append(make('span', 'study-badge', 'Lecturer focus · practice question'));
         if (question.source_note) top.append(make('p', 'study-source-note', question.source_note));
       }
+      if (question.kind === 'theme') {
+        top.append(make('span', 'study-badge', 'Combined practice · marks vary by paper'));
+        if (question.sources?.length) {
+          const references = make('details', 'study-theme-sources');
+          references.append(make('summary', null, `Seen in ${question.sources.length} past-paper ${question.sources.length === 1 ? 'question' : 'questions'}`));
+          const list = make('ul');
+          for (const source of question.sources) {
+            const item = make('li');
+            const link = make('a', null, `${source.year} · Q${source.number}`);
+            link.href = `${source.paper}#page=${source.page}`;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            item.append(link);
+            list.append(item);
+          }
+          references.append(list);
+          top.append(references);
+        }
+      }
+      if (question.kind === 'archive') {
+        top.append(make('p', 'study-source-note', question.hasGuide
+          ? 'Historical question. Use current lecturer guidance when deciding what to prioritise.'
+          : 'Historical question with no site answer guide. Use the original paper and lecture material to check your work.'));
+      }
       work.append(top);
       if (question.context) work.append(make('p', 'study-question-context', question.context));
+      if (paperMode && question.kind !== 'lecturer' && question.kind !== 'theme') {
+        const original = make('details', 'study-original-paper');
+        original.open = question.kind === 'archive';
+        original.append(make('summary', null, 'Original question, figures and marks'));
+        const frame = make('iframe');
+        frame.title = `${moduleCode} ${question.title} original paper`;
+        frame.loading = 'lazy';
+        frame.src = `${question.paper}#page=${question.originalPage || question.page}&view=FitH`;
+        original.append(frame);
+        work.append(original);
+      }
       const list = make('ol', 'study-focused-parts');
       question.parts.forEach((part, partIndex) => {
         const key = focusKey(question, part);
@@ -898,7 +1247,8 @@
         const related = buildFocusedCards(focusedCards(data, question, part, partIndex));
         if (related) workspace.append(related);
         const answer = make('details', 'study-focused-answer');
-        answer.append(make('summary', null, paperMode && question.kind !== 'lecturer' ? 'Reveal answer / self-check' : 'Reveal answer checklist'));
+        answer.append(make('summary', null, question.kind === 'archive' || part.checklist ? 'Reveal related topic checklist'
+          : paperMode && question.kind !== 'lecturer' ? 'Reveal answer / self-check' : 'Reveal answer checklist'));
         answer.append(make('p', null, part.answer));
         workspace.append(answer);
 
@@ -931,16 +1281,28 @@
         list.append(item);
       });
       work.append(list);
-      const index = questions.findIndex(item => item.id === question.id);
-      if (index < questions.length - 1) {
-        const next = make('button', 'study-tool-button study-tool-primary study-next-question', 'Next question →');
-        next.type = 'button';
-        next.addEventListener('click', () => {
-          renderQuestion(questions[index + 1]);
-          work.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-        work.append(next);
-      }
+      const next = make('button', 'study-tool-button study-tool-primary study-next-question', paperMode
+        ? 'Suggest another question →' : 'Next outcome →');
+      next.type = 'button';
+      next.addEventListener('click', () => {
+        const remaining = questions.filter(item => item.id !== question.id && ratingCounts(item).strong < item.parts.length);
+        const pool = remaining.length ? remaining : questions.filter(item => item.id !== question.id);
+        if (!pool.length) return;
+        if (!paperMode) {
+          renderQuestion(pool[0]);
+        } else {
+          const weight = item => {
+            if (item.kind === 'lecturer') return 10 * (ratingCounts(item).retry ? 2 : 1);
+            return Math.max(1, item.weight || 1) * (ratingCounts(item).retry ? 2 : 1);
+          };
+          const total = pool.reduce((sum, item) => sum + weight(item), 0);
+          let draw = Math.random() * total;
+          const selected = pool.find(item => (draw -= weight(item)) < 0) || pool[pool.length - 1];
+          renderQuestion(selected);
+        }
+        work.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+      work.append(next);
       updatePicker();
     }
 
@@ -950,6 +1312,7 @@
     }));
     const requested = new URLSearchParams(window.location.search).get('question');
     const first = questions.find(item => item.id === requested)
+      || originals.find(item => item.id === requested)
       || questions.find(item => item.id === state.focusQuestion)
       || questions.find(item => ratingCounts(item).strong < item.parts.length)
       || questions[0];
@@ -997,24 +1360,36 @@
 
     if (FOCUSED_MODULES.has(code)) {
       let questions = outcomeQuestions(data);
+      let originals = [];
+      let catalog = [];
       if (PAPER_MODULES.has(code)) {
         try {
           const response = await fetch('../study_data/paper_questions.json');
           if (!response.ok) throw new Error('missing paper questions');
-          questions = (await response.json())[code] || [];
+          originals = (await response.json())[code] || [];
         } catch (_) {
           shell.append(make('p', 'study-empty', 'Past-paper questions could not load. Open the original papers from module details.'));
           return;
+        }
+        try {
+          const response = await fetch('../study_data/paper_archive.json');
+          if (!response.ok) throw new Error('missing paper archive');
+          catalog = (await response.json())[code] || [];
+          originals = allPaperQuestions(data, catalog, originals);
+          questions = consolidatedQuestions(data, catalog);
+        } catch (_) {
+          shell.append(make('p', 'study-empty', 'The full paper archive could not load. The worked questions below are still available.'));
+          questions = originals;
         }
       }
       try {
         const response = await fetch('../study_data/lecturer_focus.json');
         if (response.ok) {
           const lecturerQuestions = (await response.json())[code] || [];
-          questions = questions.concat(lecturerQuestions.map(question => ({ ...question, kind: 'lecturer' })));
+          questions = lecturerQuestions.map(question => ({ ...question, kind: 'lecturer' })).concat(questions);
         }
       } catch (_) { /* Past-paper and outcome practice still work. */ }
-      buildFocusedSpace(data, questions);
+      buildFocusedSpace(data, questions, originals, catalog);
       if (window.location.hash) requestAnimationFrame(() => document.getElementById(window.location.hash.slice(1))?.scrollIntoView());
       return;
     }
