@@ -22,13 +22,15 @@
     let state = {};
     try { state = JSON.parse(storage.get(`module-research-study-v2-${code}`) || '{}') || {}; }
     catch (_) { state = {}; }
-    const coreAnswers = Object.fromEntries(Object.entries(state.focus || {}).filter(([key]) => !key.startsWith('lecturer-')));
+    const coreAnswers = Object.fromEntries(Object.entries(state.focus || {}).filter(([key]) =>
+      code === 'CT4111' || key.startsWith('theme-') || key.startsWith('lecturer-')));
     const coreCards = Object.fromEntries(Object.entries(state.cards || {}).filter(([key]) => !key.startsWith('lecturer:')));
     return {
       strong: Math.min(total(card, 'partTotal'), count(coreAnswers, 'strong')),
       retry: Math.min(total(card, 'partTotal'), count(coreAnswers, 'retry')),
       firstRetry: Object.entries(coreAnswers).find(([, value]) => value === 'retry')?.[0]?.split(':')[0],
-      lastQuestion: state.focusQuestion,
+      lastQuestion: code === 'CT4111' || state.focusQuestion?.startsWith('theme-')
+        || state.focusQuestion?.startsWith('lecturer-') ? state.focusQuestion : null,
       ready: Math.min(total(card, 'cardTotal'), count(coreCards, 'ready')),
       weak: Math.min(total(card, 'cardTotal'), count(coreCards, 'weak')),
     };
@@ -49,7 +51,7 @@
     }
     if (done.strong === 0) {
       return {
-        label: code === 'CT4111' ? 'Start an outcome question' : 'Start a past-paper question',
+        label: code === 'CT4111' ? 'Start an outcome question' : 'Start a priority question',
         copy: 'Learn the answer, write it from memory, then self-check.',
         href: questionUrl,
       };

@@ -10,7 +10,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DATA_DIR = ROOT / "study_data"
 STUDY_MODULES = ("CT417", "CT4100", "CT4101", "CT561", "CT4111")
-PAPER_QUESTIONS = json.loads((DATA_DIR / "paper_questions.json").read_text())
+PAPER_ARCHIVE = json.loads((DATA_DIR / "paper_archive.json").read_text())
+LECTURER_FOCUS = json.loads((DATA_DIR / "lecturer_focus.json").read_text())
 
 def esc(text: str) -> str:
     return html.escape(text, quote=True)
@@ -30,13 +31,22 @@ def load_all() -> list:
 def module_card(module: dict) -> str:
     details = module["details"]
     code = module["code"]
-    questions = PAPER_QUESTIONS.get(code, [])
-    question_total = len(questions) if questions else len(module["families"])
-    part_total = sum(len(question["parts"]) for question in questions) if questions else question_total
-    first_id = questions[0]["id"] if questions else module["families"][0]["id"]
+    papers = PAPER_ARCHIVE.get(code, [])
+    lecturer = LECTURER_FOCUS.get(code, [])
+    themes = [family for family in module["families"] if family.get("answer")]
+    if code == "CT4100":
+        themes = [family for family in themes if family["id"] != "pagerank"]
+    if code == "CT4101":
+        themes = [family for family in themes if family["id"] not in {
+            "nearest-neighbours-clustering-distance-measures-scaling-and-choosing-k",
+            "decision-trees-entropy-information-gain-and-tree-overfitting",
+        }]
+    theme_total = len(themes) + (2 if code == "CT4101" else 0)
+    question_total = theme_total + len(lecturer) if papers else len(module["families"]) + len(lecturer)
+    part_total = theme_total + sum(len(question["parts"]) for question in lecturer) if papers else question_total
+    first_id = lecturer[0]["id"] if lecturer else "theme-" + themes[0]["id"] if papers else module["families"][0]["id"]
     cards = sum(len(deck["cards"]) for deck in module["decks"])
     is_outcome = code == "CT4111"
-    first = module["families"][0]["title"] if is_outcome else questions[0]["title"]
     assessment = details.get("assessment", "")
     practice_url = "%s/study.html#practice-heading" % code
     cards_url = "%s/study.html#flashcards" % code
@@ -46,8 +56,8 @@ def module_card(module: dict) -> str:
         '<div class="study-card-top"><span class="study-code">%s</span><span class="study-assessment">%s</span></div>'
         % (esc(code), esc(assessment)),
         '<h3>%s</h3>' % esc(module["name"]),
-        '<p class="study-first"><span>%s</span><strong>%s</strong></p>'
-        % ("First outcome" if is_outcome else "Start with", esc(first)),
+        '<p class="study-first"><span>%s</span></p>' %
+        ("Outcome practice" if is_outcome else "%d combined questions · %d papers in archive" % (question_total, len(papers))),
         '<p class="study-next" data-next-copy>Learn the answer, then try it from memory.</p>',
         '<a class="study-main-link" data-primary href="%s">Start studying <span aria-hidden="true">→</span></a>' % practice_url,
         '<div class="study-card-progress" aria-label="Study progress">',
