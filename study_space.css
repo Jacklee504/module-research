@@ -108,10 +108,20 @@
 .study-focused-intro p:last-child { margin: 0; color: var(--muted); font-size: 14px; }
 .study-focused-layout { display: grid; grid-template-columns: minmax(190px, 240px) minmax(0, 1fr); gap: 16px; align-items: start; }
 .study-question-picker { display: grid; gap: 8px; }
-.study-picker-group { margin: 10px 2px 2px; color: var(--muted); font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
-.study-picker-group:first-child { margin-top: 0; }
+.study-picker-archive { margin-top: 8px; border-top: 1px solid var(--line); }
+.study-picker-archive > summary { padding: 12px 4px; color: var(--blue); font-size: 13px; font-weight: 800; cursor: pointer; }
+.study-archive-note { margin: 0 4px 10px; color: var(--muted); font-size: 12px; line-height: 1.45; }
+.study-picker-archive .study-picker-paper { margin: 6px 0; }
+.study-picker-archive .study-picker-paper > summary { font-size: 13px; }
+.study-picker-archive .study-original-choice { display: inline-flex; align-items: baseline; justify-content: space-between; gap: 5px; }
+.study-picker-archive .study-original-choice span { margin: 0; }
+.study-picker-paper { min-width: 0; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.study-picker-paper > summary { padding: 11px 12px; color: var(--blue); font-size: 12px; font-weight: 800; cursor: pointer; }
+.study-picker-paper[open] > summary { border-bottom: 1px solid var(--line); }
+.study-picker-paper .study-question-choice { width: calc(100% - 12px); margin: 6px; }
 .study-question-choice { width: 100%; padding: 12px 13px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); text-align: left; font: inherit; cursor: pointer; }
 .study-question-choice strong, .study-question-choice span { display: block; }
+.study-question-choice span:empty { display: none; }
 .study-question-choice strong { font-size: 13px; line-height: 1.35; }
 .study-question-choice span { margin-top: 5px; color: var(--muted); font-size: 11px; line-height: 1.4; }
 .study-question-choice:hover, .study-question-choice:focus-visible { border-color: var(--blue); }
@@ -123,7 +133,13 @@
 .study-question-top h3 { flex: 1 1 260px; margin: 0; font-size: clamp(19px, 2vw, 24px); }
 .study-paper-link { font-size: 12px; white-space: nowrap; }
 .study-source-note { flex-basis: 100%; margin: 0; color: var(--muted); font-size: 12px; }
+.study-theme-sources { flex-basis: 100%; color: var(--blue); font-size: 12px; }
+.study-theme-sources > summary { width: fit-content; font-weight: 750; cursor: pointer; }
+.study-theme-sources ul { display: flex; flex-wrap: wrap; gap: 6px 14px; margin: 8px 0 0; padding-left: 17px; }
 .study-question-context { margin: 13px 0 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.study-original-paper { margin-top: 14px; }
+.study-original-paper > summary { margin-bottom: 8px; color: var(--blue); font-size: 13px; font-weight: 750; cursor: pointer; }
+.study-original-paper iframe { box-sizing: border-box; display: block; width: 100%; height: min(62vh, 540px); border: 1px solid var(--line); border-radius: 7px; background: #fff; }
 .study-focused-parts { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .study-focused-part { padding: 22px 0; border-bottom: 1px solid var(--line); }
 .study-focused-part:last-child { border-bottom: 0; }
@@ -163,10 +179,9 @@
 
 @media (max-width: 780px) {
   .study-focused-layout { grid-template-columns: minmax(0, 1fr); }
-  .study-question-picker { display: flex; overflow-x: auto; padding-bottom: 4px; scroll-snap-type: x mandatory; }
-  .study-picker-group { display: none; }
-  .study-full-deck-link { flex: 0 0 auto; align-self: center; margin: 0 8px; }
-  .study-question-choice { flex: 0 0 min(78vw, 260px); scroll-snap-align: start; }
+  .study-question-picker { grid-template-columns: minmax(0, 1fr); }
+  .study-full-deck-link { margin: 2px 4px 8px; }
+  .study-original-paper iframe { height: min(52vh, 430px); }
   .study-question-top { align-items: flex-start; }
   .study-paper-link { white-space: normal; }
   .study-family-head { gap: 6px; }
